@@ -10,11 +10,11 @@ the Public Domain
 [FORTRAN reference implementation of BLAS Basic Linear Algebra Subprograms](http://www.netlib.org/blas/)
 provided by the National Science Foundation.
 
-It has been converted to a Fortran module and is in the process of being
-changed to use more recent Fortran features primarily for investigating
-what benefits this might have, such as an automatic calling interface
-provided by being modularized, INTENT specifications, array syntax and
-so on.
+It has been converted to a free-format Fortran module and is in the
+process of being changed to use more recent Fortran features primarily
+for investigating the significance of what benefits this can have,
+such as an automatic calling interface provided by being modularized,
+INTENT specifications, array syntax and so on.
 
 For compatibility purposes the wrapper file src/compatible.f90 is
 included, which allows for an old non-interface calling style so if
