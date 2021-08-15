@@ -1,0 +1,1331 @@
+<html> 
+<head> 
+<title> </title>
+<style> 
+px {font-family: "Lucida Console", Monaco }
+p { font-size:100%; line-height:1.1em; }
+body {xfont-style: sans-serif}
+body {
+color:#333; font-family:Verdana, Arial, Helvetica, sans-serif; font-size:1em; line-height:1.3em; }
+a:visited { color:#666; }
+h1,h2,h3,h4,h5,h6 { color:#333; font-family:georgia, verdana, sans-serif; }
+h1 { font-size:150%; page-break-before:auto;background-color: #aaaaff}
+h2 { font-size:143%;color:teal; }
+h3 { font-size:134%;color:blue; }
+h4 { font-size:120%;color:gray; }
+img { max-width: 55em}
+p{ padding: 0;margin:0; }
+p{ padding-right:1.4em; }
+p{ padding-bottom:1em; }
+p{ padding-top:1em; }
+p{ whitespace: pre-wrap; }
+h5,h6 { font-size:100% }
+a.nav,a:link.nav, a:visited.nav { background-color:#FFF; color:#000; }
+XXtable { border:double #000; border-collapse:collapse; }
+XXtable { border-collapse:collapse; }
+XXtd { border:thin solid #888; }
+XXtd { border:none; }
+li { margin-bottom:0.5em; }
+blockquote { display:block; font-size:100%; line-height:1.1em; margin:0 0 1.5em; padding:0 2.5em; }
+pre { background-color:#DDD; font-size:100%; overflow:auto; padding:1em; }
+a,li span { color:#000; }
+a:hover, a.nav:hover, a:hover math { background-color:#000; color:#FFF; }
+#Container { margin:0 10px; text-align:center; background-color: #BBB}
+#Content { border-top:none; margin:auto; padding:0.3em; text-align:left; width:100%; max-width:55em; background:#FFF}
+span.webName { font-size:.5em; }
+textarea#content { font-size: 1em; line-height: 1.125; }
+h1#pageName { line-height:1em; margin:0.2em 0 0.2em 0; padding:0; }
+.property { color:#666; font-size:100%; }
+a.existingWikiWord[title]{ //border: 1px dashed #BBB; }
+.byline { color:#666; font-size:1.0em; font-style:italic; margin-bottom:1em; padding-top:1px; } 
+</style> 
+</head>
+<BODY bgcolor=#F0F0F0 text=#000000 link=#0000ff vlink=#C000C0 alink=#ff0000><A NAME=top></A>
+<h5><a href="index.html">[UP]</a></h5>
+<div id="Container">
+<div id="Content">
+<CENTER>
+<H1><HR><I>Manual Reference Pages &nbsp;-&nbsp;</I><NOBR>double_blas_level1 (3)</NOBR><HR></H1>
+</CENTER>
+<A name=0>
+
+     <H3>NAME</H3>
+
+</A>
+<BLOCKQUOTE>
+double_blas_level1 - double
+</BLOCKQUOTE>
+<A name=contents></A><H3>CONTENTS</H3></A>
+<BLOCKQUOTE>
+<A HREF=#1>Synopsis</A><BR>
+</BLOCKQUOTE>
+<A name=2>
+
+     <H3>SYNOPSIS</H3>
+
+</A>
+<BLOCKQUOTE>
+<P>
+</BLOCKQUOTE>
+<A name=>
+
+    <H4>&nbsp; &nbsp; Functions</H4>
+</A>
+<BLOCKQUOTE>
+<P>
+&nbsp; &nbsp;<!-- .RI "double precision function \fBdasum\fP (\fBN\fP, DX, INCX)" -->
+double precision function <B>dasum</B> (<B>N</B>, DX, INCX) <!-- .br -->
+<B>DASUM</B>  <!-- .ti -1c -->
+&nbsp; &nbsp;<!-- .RI "subroutine \fBdaxpy\fP (\fBN\fP, DA, DX, INCX, DY, INCY)" -->
+subroutine <B>daxpy</B> (<B>N</B>, DA, DX, INCX, DY, INCY) <!-- .br -->
+<B>DAXPY</B>  <!-- .ti -1c -->
+&nbsp; &nbsp;<!-- .RI "double precision function \fBdcabs1\fP (Z)" -->
+double precision function <B>dcabs1</B> (Z) <!-- .br -->
+<B>DCABS1</B>  <!-- .ti -1c -->
+&nbsp; &nbsp;<!-- .RI "subroutine \fBdcopy\fP (\fBN\fP, DX, INCX, DY, INCY)" -->
+subroutine <B>dcopy</B> (<B>N</B>, DX, INCX, DY, INCY) <!-- .br -->
+<B>DCOPY</B>  <!-- .ti -1c -->
+&nbsp; &nbsp;<!-- .RI "double precision function \fBddot\fP (\fBN\fP, DX, INCX, DY, INCY)" -->
+double precision function <B>ddot</B> (<B>N</B>, DX, INCX, DY, INCY) <!-- .br -->
+<B>DDOT</B>  <!-- .ti -1c -->
+&nbsp; &nbsp;<!-- .RI "subroutine \fBdrot\fP (\fBN\fP, DX, INCX, DY, INCY, C, S)" -->
+subroutine <B>drot</B> (<B>N</B>, DX, INCX, DY, INCY, C, S) <!-- .br -->
+<B>DROT</B>  <!-- .ti -1c -->
+&nbsp; &nbsp;<!-- .RI "subroutine \fBdrotm\fP (\fBN\fP, DX, INCX, DY, INCY, DPARAM)" -->
+subroutine <B>drotm</B> (<B>N</B>, DX, INCX, DY, INCY, DPARAM) <!-- .br -->
+<B>DROTM</B>  <!-- .ti -1c -->
+&nbsp; &nbsp;<!-- .RI "subroutine \fBdrotmg\fP (DD1, DD2, DX1, DY1, DPARAM)" -->
+subroutine <B>drotmg</B> (DD1, DD2, DX1, DY1, DPARAM) <!-- .br -->
+<B>DROTMG</B>  <!-- .ti -1c -->
+&nbsp; &nbsp;<!-- .RI "subroutine \fBdscal\fP (\fBN\fP, DA, DX, INCX)" -->
+subroutine <B>dscal</B> (<B>N</B>, DA, DX, INCX) <!-- .br -->
+<B>DSCAL</B>  <!-- .ti -1c -->
+&nbsp; &nbsp;<!-- .RI "double precision function \fBdsdot\fP (\fBN\fP, SX, INCX, SY, INCY)" -->
+double precision function <B>dsdot</B> (<B>N</B>, SX, INCX, SY, INCY) <!-- .br -->
+<B>DSDOT</B>  <!-- .ti -1c -->
+&nbsp; &nbsp;<!-- .RI "subroutine \fBdswap\fP (\fBN\fP, DX, INCX, DY, INCY)" -->
+subroutine <B>dswap</B> (<B>N</B>, DX, INCX, DY, INCY) <!-- .br -->
+<B>DSWAP</B>  <!-- .ti -1c -->
+&nbsp; &nbsp;<!-- .RI "subroutine \fBdtrsv\fP (UPLO, TRANS, DIAG, \fBN\fP, A, \fBLDA\fP, X, INCX)" -->
+subroutine <B>dtrsv</B> (UPLO, TRANS, DIAG, <B>N</B>, A, <B>LDA</B>, X, INCX) <!-- .br -->
+<B>DTRSV</B>  <!-- .ti -1c -->
+&nbsp; &nbsp;<!-- .RI "double precision function \fBdzasum\fP (\fBN\fP, ZX, INCX)" -->
+double precision function <B>dzasum</B> (<B>N</B>, ZX, INCX) <!-- .br -->
+<B>DZASUM</B>  <!-- .in -1c -->
+</BLOCKQUOTE>
+<A name=>
+
+     <H3>Detailed Description</H3>
+
+</A>
+<BLOCKQUOTE>
+<P>
+This is the group of double LEVEL 1 BLAS routines&#46;
+</BLOCKQUOTE>
+<A name=>
+
+     <H3>Function Documentation</H3>
+
+</A>
+<BLOCKQUOTE>
+<P>
+</BLOCKQUOTE>
+<A name=>
+
+    <H4>&nbsp; &nbsp; double precision function dasum (integer N, double precision, dimension(*) DX, integer INCX)</H4>
+</A>
+<BLOCKQUOTE>
+<P>
+<P>
+<B>DASUM</B>
+<P>
+<B>Purpose:</B>
+<BLOCKQUOTE>
+<P>
+<P>
+<PRE>
+    DASUM takes the sum of the absolute values.
+</PRE>
+<P>
+<P>
+</BLOCKQUOTE>
+<P>
+<B>Parameters</B>
+<BLOCKQUOTE>
+<I>N</I>
+<P>
+<PRE>
+          N is INTEGER
+         number of elements in input vector(s)
+</PRE>
+<P>
+<I>DX</I>
+<P>
+<PRE>
+          DX is DOUBLE PRECISION array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
+</PRE>
+<P>
+<I>INCX</I>
+<P>
+<PRE>
+          INCX is INTEGER
+         storage spacing between elements of DX
+</PRE>
+<P>
+<P>
+</BLOCKQUOTE>
+<P>
+<B>Author</B>
+<BLOCKQUOTE>
+Univ&#46; of Tennessee
+<P>
+Univ&#46; of California Berkeley
+<P>
+Univ&#46; of Colorado Denver
+<P>
+NAG Ltd&#46;
+</BLOCKQUOTE>
+<P>
+<B>Further Details:</B>
+<BLOCKQUOTE>
+<P>
+<P>
+<PRE>
+     jack dongarra, linpack, 3/11/78.
+     modified 3/93 to return if incx .le. 0.
+     modified 12/3/93, array(1) declarations changed to array(*)
+</PRE>
+<P>
+<P>
+</BLOCKQUOTE>
+<P>
+<P>
+<P>
+Definition at line 70 of file dasum&#46;f&#46;
+</BLOCKQUOTE>
+<A name=>
+
+    <H4>&nbsp; &nbsp; subroutine daxpy (integer N, double precision DA, double precision, dimension(*) DX, integer INCX, double precision, dimension(*) DY, integer INCY)</H4>
+</A>
+<BLOCKQUOTE>
+<P>
+<P>
+<B>DAXPY</B>
+<P>
+<B>Purpose:</B>
+<BLOCKQUOTE>
+<P>
+<P>
+<PRE>
+    DAXPY constant times a vector plus a vector.
+    uses unrolled loops for increments equal to one.
+</PRE>
+<P>
+<P>
+</BLOCKQUOTE>
+<P>
+<B>Parameters</B>
+<BLOCKQUOTE>
+<I>N</I>
+<P>
+<PRE>
+          N is INTEGER
+         number of elements in input vector(s)
+</PRE>
+<P>
+<I>DA</I>
+<P>
+<PRE>
+          DA is DOUBLE PRECISION
+           On entry, DA specifies the scalar alpha.
+</PRE>
+<P>
+<I>DX</I>
+<P>
+<PRE>
+          DX is DOUBLE PRECISION array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
+</PRE>
+<P>
+<I>INCX</I>
+<P>
+<PRE>
+          INCX is INTEGER
+         storage spacing between elements of DX
+</PRE>
+<P>
+<I>DY</I>
+<P>
+<PRE>
+          DY is DOUBLE PRECISION array, dimension ( 1 + ( N - 1 )*abs( INCY ) )
+</PRE>
+<P>
+<I>INCY</I>
+<P>
+<PRE>
+          INCY is INTEGER
+         storage spacing between elements of DY
+</PRE>
+<P>
+<P>
+</BLOCKQUOTE>
+<P>
+<B>Author</B>
+<BLOCKQUOTE>
+Univ&#46; of Tennessee
+<P>
+Univ&#46; of California Berkeley
+<P>
+Univ&#46; of Colorado Denver
+<P>
+NAG Ltd&#46;
+</BLOCKQUOTE>
+<P>
+<B>Further Details:</B>
+<BLOCKQUOTE>
+<P>
+<P>
+<PRE>
+     jack dongarra, linpack, 3/11/78.
+     modified 12/3/93, array(1) declarations changed to array(*)
+</PRE>
+<P>
+<P>
+</BLOCKQUOTE>
+<P>
+<P>
+<P>
+Definition at line 88 of file daxpy&#46;f&#46;
+</BLOCKQUOTE>
+<A name=>
+
+    <H4>&nbsp; &nbsp; double precision function dcabs1 (complex*16 Z)</H4>
+</A>
+<BLOCKQUOTE>
+<P>
+<P>
+<B>DCABS1</B>
+<P>
+<B>Purpose:</B>
+<BLOCKQUOTE>
+<P>
+<P>
+<PRE>
+ DCABS1 computes |Re(.)| + |Im(.)| of a double complex number
+</PRE>
+<P>
+<P>
+</BLOCKQUOTE>
+<P>
+<B>Parameters</B>
+<BLOCKQUOTE>
+<I>Z</I>
+<P>
+<PRE>
+          Z is COMPLEX*16
+</PRE>
+<P>
+<P>
+</BLOCKQUOTE>
+<P>
+<B>Author</B>
+<BLOCKQUOTE>
+Univ&#46; of Tennessee
+<P>
+Univ&#46; of California Berkeley
+<P>
+Univ&#46; of Colorado Denver
+<P>
+NAG Ltd&#46;
+</BLOCKQUOTE>
+<P>
+<P>
+<P>
+Definition at line 46 of file dcabs1&#46;f&#46;
+</BLOCKQUOTE>
+<A name=>
+
+    <H4>&nbsp; &nbsp; subroutine dcopy (integer N, double precision, dimension(*) DX, integer INCX, double precision, dimension(*) DY, integer INCY)</H4>
+</A>
+<BLOCKQUOTE>
+<P>
+<P>
+<B>DCOPY</B>
+<P>
+<B>Purpose:</B>
+<BLOCKQUOTE>
+<P>
+<P>
+<PRE>
+    DCOPY copies a vector, x, to a vector, y.
+    uses unrolled loops for increments equal to 1.
+</PRE>
+<P>
+<P>
+</BLOCKQUOTE>
+<P>
+<B>Parameters</B>
+<BLOCKQUOTE>
+<I>N</I>
+<P>
+<PRE>
+          N is INTEGER
+         number of elements in input vector(s)
+</PRE>
+<P>
+<I>DX</I>
+<P>
+<PRE>
+          DX is DOUBLE PRECISION array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
+</PRE>
+<P>
+<I>INCX</I>
+<P>
+<PRE>
+          INCX is INTEGER
+         storage spacing between elements of DX
+</PRE>
+<P>
+<I>DY</I>
+<P>
+<PRE>
+          DY is DOUBLE PRECISION array, dimension ( 1 + ( N - 1 )*abs( INCY ) )
+</PRE>
+<P>
+<I>INCY</I>
+<P>
+<PRE>
+          INCY is INTEGER
+         storage spacing between elements of DY
+</PRE>
+<P>
+<P>
+</BLOCKQUOTE>
+<P>
+<B>Author</B>
+<BLOCKQUOTE>
+Univ&#46; of Tennessee
+<P>
+Univ&#46; of California Berkeley
+<P>
+Univ&#46; of Colorado Denver
+<P>
+NAG Ltd&#46;
+</BLOCKQUOTE>
+<P>
+<B>Further Details:</B>
+<BLOCKQUOTE>
+<P>
+<P>
+<PRE>
+     jack dongarra, linpack, 3/11/78.
+     modified 12/3/93, array(1) declarations changed to array(*)
+</PRE>
+<P>
+<P>
+</BLOCKQUOTE>
+<P>
+<P>
+<P>
+Definition at line 81 of file dcopy&#46;f&#46;
+</BLOCKQUOTE>
+<A name=>
+
+    <H4>&nbsp; &nbsp; double precision function ddot (integer N, double precision, dimension(*) DX, integer INCX, double precision, dimension(*) DY, integer INCY)</H4>
+</A>
+<BLOCKQUOTE>
+<P>
+<P>
+<B>DDOT</B>
+<P>
+<B>Purpose:</B>
+<BLOCKQUOTE>
+<P>
+<P>
+<PRE>
+    DDOT forms the dot product of two vectors.
+    uses unrolled loops for increments equal to one.
+</PRE>
+<P>
+<P>
+</BLOCKQUOTE>
+<P>
+<B>Parameters</B>
+<BLOCKQUOTE>
+<I>N</I>
+<P>
+<PRE>
+          N is INTEGER
+         number of elements in input vector(s)
+</PRE>
+<P>
+<I>DX</I>
+<P>
+<PRE>
+          DX is DOUBLE PRECISION array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
+</PRE>
+<P>
+<I>INCX</I>
+<P>
+<PRE>
+          INCX is INTEGER
+         storage spacing between elements of DX
+</PRE>
+<P>
+<I>DY</I>
+<P>
+<PRE>
+          DY is DOUBLE PRECISION array, dimension ( 1 + ( N - 1 )*abs( INCY ) )
+</PRE>
+<P>
+<I>INCY</I>
+<P>
+<PRE>
+          INCY is INTEGER
+         storage spacing between elements of DY
+</PRE>
+<P>
+<P>
+</BLOCKQUOTE>
+<P>
+<B>Author</B>
+<BLOCKQUOTE>
+Univ&#46; of Tennessee
+<P>
+Univ&#46; of California Berkeley
+<P>
+Univ&#46; of Colorado Denver
+<P>
+NAG Ltd&#46;
+</BLOCKQUOTE>
+<P>
+<B>Further Details:</B>
+<BLOCKQUOTE>
+<P>
+<P>
+<PRE>
+     jack dongarra, linpack, 3/11/78.
+     modified 12/3/93, array(1) declarations changed to array(*)
+</PRE>
+<P>
+<P>
+</BLOCKQUOTE>
+<P>
+<P>
+<P>
+Definition at line 81 of file ddot&#46;f&#46;
+</BLOCKQUOTE>
+<A name=>
+
+    <H4>&nbsp; &nbsp; subroutine drot (integer N, double precision, dimension(*) DX, integer INCX, double precision, dimension(*) DY, integer INCY, double precision C, double precision S)</H4>
+</A>
+<BLOCKQUOTE>
+<P>
+<P>
+<B>DROT</B>
+<P>
+<B>Purpose:</B>
+<BLOCKQUOTE>
+<P>
+<P>
+<PRE>
+    DROT applies a plane rotation.
+</PRE>
+<P>
+<P>
+</BLOCKQUOTE>
+<P>
+<B>Parameters</B>
+<BLOCKQUOTE>
+<I>N</I>
+<P>
+<PRE>
+          N is INTEGER
+         number of elements in input vector(s)
+</PRE>
+<P>
+<I>DX</I>
+<P>
+<PRE>
+          DX is DOUBLE PRECISION array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
+</PRE>
+<P>
+<I>INCX</I>
+<P>
+<PRE>
+          INCX is INTEGER
+         storage spacing between elements of DX
+</PRE>
+<P>
+<I>DY</I>
+<P>
+<PRE>
+          DY is DOUBLE PRECISION array, dimension ( 1 + ( N - 1 )*abs( INCY ) )
+</PRE>
+<P>
+<I>INCY</I>
+<P>
+<PRE>
+          INCY is INTEGER
+         storage spacing between elements of DY
+</PRE>
+<P>
+<I>C</I>
+<P>
+<PRE>
+          C is DOUBLE PRECISION
+</PRE>
+<P>
+<I>S</I>
+<P>
+<PRE>
+          S is DOUBLE PRECISION
+</PRE>
+<P>
+<P>
+</BLOCKQUOTE>
+<P>
+<B>Author</B>
+<BLOCKQUOTE>
+Univ&#46; of Tennessee
+<P>
+Univ&#46; of California Berkeley
+<P>
+Univ&#46; of Colorado Denver
+<P>
+NAG Ltd&#46;
+</BLOCKQUOTE>
+<P>
+<B>Further Details:</B>
+<BLOCKQUOTE>
+<P>
+<P>
+<PRE>
+     jack dongarra, linpack, 3/11/78.
+     modified 12/3/93, array(1) declarations changed to array(*)
+</PRE>
+<P>
+<P>
+</BLOCKQUOTE>
+<P>
+<P>
+<P>
+Definition at line 91 of file drot&#46;f&#46;
+</BLOCKQUOTE>
+<A name=>
+
+    <H4>&nbsp; &nbsp; subroutine drotm (integer N, double precision, dimension(*) DX, integer INCX, double precision, dimension(*) DY, integer INCY, double precision, dimension(5) DPARAM)</H4>
+</A>
+<BLOCKQUOTE>
+<P>
+<P>
+<B>DROTM</B>
+<P>
+<B>Purpose:</B>
+<BLOCKQUOTE>
+<P>
+<P>
+<PRE>
+    APPLY THE MODIFIED GIVENS TRANSFORMATION, H, TO THE 2 BY N MATRIX
+<P>
+    (DX**T) , WHERE **T INDICATES TRANSPOSE. THE ELEMENTS OF DX ARE IN
+    (DY**T)
+<P>
+    DX(LX+I*INCX), I = 0 TO N-1, WHERE LX = 1 IF INCX .GE. 0, ELSE
+    LX = (-INCX)*N, AND SIMILARLY FOR SY USING LY AND INCY.
+    WITH DPARAM(1)=DFLAG, H HAS ONE OF THE FOLLOWING FORMS..
+<P>
+    DFLAG=-1.D0     DFLAG=0.D0        DFLAG=1.D0     DFLAG=-2.D0
+<P>
+      (DH11  DH12)    (1.D0  DH12)    (DH11  1.D0)    (1.D0  0.D0)
+    H=(          )    (          )    (          )    (          )
+      (DH21  DH22),   (DH21  1.D0),   (-1.D0 DH22),   (0.D0  1.D0).
+    SEE DROTMG FOR A DESCRIPTION OF DATA STORAGE IN DPARAM.
+</PRE>
+<P>
+<P>
+</BLOCKQUOTE>
+<P>
+<B>Parameters</B>
+<BLOCKQUOTE>
+<I>N</I>
+<P>
+<PRE>
+          N is INTEGER
+         number of elements in input vector(s)
+</PRE>
+<P>
+<I>DX</I>
+<P>
+<PRE>
+          DX is DOUBLE PRECISION array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
+</PRE>
+<P>
+<I>INCX</I>
+<P>
+<PRE>
+          INCX is INTEGER
+         storage spacing between elements of DX
+</PRE>
+<P>
+<I>DY</I>
+<P>
+<PRE>
+          DY is DOUBLE PRECISION array, dimension ( 1 + ( N - 1 )*abs( INCY ) )
+</PRE>
+<P>
+<I>INCY</I>
+<P>
+<PRE>
+          INCY is INTEGER
+         storage spacing between elements of DY
+</PRE>
+<P>
+<I>DPARAM</I>
+<P>
+<PRE>
+          DPARAM is DOUBLE PRECISION array, dimension (5)
+     DPARAM(1)=DFLAG
+     DPARAM(2)=DH11
+     DPARAM(3)=DH21
+     DPARAM(4)=DH12
+     DPARAM(5)=DH22
+</PRE>
+<P>
+<P>
+</BLOCKQUOTE>
+<P>
+<B>Author</B>
+<BLOCKQUOTE>
+Univ&#46; of Tennessee
+<P>
+Univ&#46; of California Berkeley
+<P>
+Univ&#46; of Colorado Denver
+<P>
+NAG Ltd&#46;
+</BLOCKQUOTE>
+<P>
+<P>
+<P>
+Definition at line 95 of file drotm&#46;f&#46;
+</BLOCKQUOTE>
+<A name=>
+
+    <H4>&nbsp; &nbsp; subroutine drotmg (double precision DD1, double precision DD2, double precision DX1, double precision DY1, double precision, dimension(5) DPARAM)</H4>
+</A>
+<BLOCKQUOTE>
+<P>
+<P>
+<B>DROTMG</B>
+<P>
+<B>Purpose:</B>
+<BLOCKQUOTE>
+<P>
+<P>
+<PRE>
+    CONSTRUCT THE MODIFIED GIVENS TRANSFORMATION MATRIX H WHICH ZEROS
+    THE SECOND COMPONENT OF THE 2-VECTOR  (DSQRT(DD1)*DX1,DSQRT(DD2)*&gt;    DY2)**T.
+    WITH DPARAM(1)=DFLAG, H HAS ONE OF THE FOLLOWING FORMS..
+<P>
+    DFLAG=-1.D0     DFLAG=0.D0        DFLAG=1.D0     DFLAG=-2.D0
+<P>
+      (DH11  DH12)    (1.D0  DH12)    (DH11  1.D0)    (1.D0  0.D0)
+    H=(          )    (          )    (          )    (          )
+      (DH21  DH22),   (DH21  1.D0),   (-1.D0 DH22),   (0.D0  1.D0).
+    LOCATIONS 2-4 OF DPARAM CONTAIN DH11, DH21, DH12, AND DH22
+    RESPECTIVELY. (VALUES OF 1.D0, -1.D0, OR 0.D0 IMPLIED BY THE
+    VALUE OF DPARAM(1) ARE NOT STORED IN DPARAM.)
+<P>
+    THE VALUES OF GAMSQ AND RGAMSQ SET IN THE DATA STATEMENT MAY BE
+    INEXACT.  THIS IS OK AS THEY ARE ONLY USED FOR TESTING THE SIZE
+    OF DD1 AND DD2.  ALL ACTUAL SCALING OF DATA IS DONE USING GAM.
+</PRE>
+<P>
+<P>
+</BLOCKQUOTE>
+<P>
+<B>Parameters</B>
+<BLOCKQUOTE>
+<I>DD1</I>
+<P>
+<PRE>
+          DD1 is DOUBLE PRECISION
+</PRE>
+<P>
+<I>DD2</I>
+<P>
+<PRE>
+          DD2 is DOUBLE PRECISION
+</PRE>
+<P>
+<I>DX1</I>
+<P>
+<PRE>
+          DX1 is DOUBLE PRECISION
+</PRE>
+<P>
+<I>DY1</I>
+<P>
+<PRE>
+          DY1 is DOUBLE PRECISION
+</PRE>
+<P>
+<I>DPARAM</I>
+<P>
+<PRE>
+          DPARAM is DOUBLE PRECISION array, dimension (5)
+     DPARAM(1)=DFLAG
+     DPARAM(2)=DH11
+     DPARAM(3)=DH21
+     DPARAM(4)=DH12
+     DPARAM(5)=DH22
+</PRE>
+<P>
+<P>
+</BLOCKQUOTE>
+<P>
+<B>Author</B>
+<BLOCKQUOTE>
+Univ&#46; of Tennessee
+<P>
+Univ&#46; of California Berkeley
+<P>
+Univ&#46; of Colorado Denver
+<P>
+NAG Ltd&#46;
+</BLOCKQUOTE>
+<P>
+<P>
+<P>
+Definition at line 89 of file drotmg&#46;f&#46;
+</BLOCKQUOTE>
+<A name=>
+
+    <H4>&nbsp; &nbsp; subroutine dscal (integer N, double precision DA, double precision, dimension(*) DX, integer INCX)</H4>
+</A>
+<BLOCKQUOTE>
+<P>
+<P>
+<B>DSCAL</B>
+<P>
+<B>Purpose:</B>
+<BLOCKQUOTE>
+<P>
+<P>
+<PRE>
+    DSCAL scales a vector by a constant.
+    uses unrolled loops for increment equal to 1.
+</PRE>
+<P>
+<P>
+</BLOCKQUOTE>
+<P>
+<B>Parameters</B>
+<BLOCKQUOTE>
+<I>N</I>
+<P>
+<PRE>
+          N is INTEGER
+         number of elements in input vector(s)
+</PRE>
+<P>
+<I>DA</I>
+<P>
+<PRE>
+          DA is DOUBLE PRECISION
+           On entry, DA specifies the scalar alpha.
+</PRE>
+<P>
+<I>DX</I>
+<P>
+<PRE>
+          DX is DOUBLE PRECISION array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
+</PRE>
+<P>
+<I>INCX</I>
+<P>
+<PRE>
+          INCX is INTEGER
+         storage spacing between elements of DX
+</PRE>
+<P>
+<P>
+</BLOCKQUOTE>
+<P>
+<B>Author</B>
+<BLOCKQUOTE>
+Univ&#46; of Tennessee
+<P>
+Univ&#46; of California Berkeley
+<P>
+Univ&#46; of Colorado Denver
+<P>
+NAG Ltd&#46;
+</BLOCKQUOTE>
+<P>
+<B>Further Details:</B>
+<BLOCKQUOTE>
+<P>
+<P>
+<PRE>
+     jack dongarra, linpack, 3/11/78.
+     modified 3/93 to return if incx .le. 0.
+     modified 12/3/93, array(1) declarations changed to array(*)
+</PRE>
+<P>
+<P>
+</BLOCKQUOTE>
+<P>
+<P>
+<P>
+Definition at line 78 of file dscal&#46;f&#46;
+</BLOCKQUOTE>
+<A name=>
+
+    <H4>&nbsp; &nbsp; double precision function dsdot (integer N, real, dimension(*) SX, integer INCX, real, dimension(*) SY, integer INCY)</H4>
+</A>
+<BLOCKQUOTE>
+<P>
+<P>
+<B>DSDOT</B>
+<P>
+<B>Purpose:</B>
+<BLOCKQUOTE>
+<P>
+<P>
+<PRE>
+ Compute the inner product of two vectors with extended
+ precision accumulation and result.
+<P>
+ Returns D.P. dot product accumulated in D.P., for S.P. SX and SY
+ DSDOT = sum for I = 0 to N-1 of  SX(LX+I*INCX) * SY(LY+I*INCY),
+ where LX = 1 if INCX .GE. 0, else LX = 1+(1-N)*INCX, and LY is
+ defined in a similar way using INCY.
+</PRE>
+<P>
+<P>
+</BLOCKQUOTE>
+<P>
+<B>Parameters</B>
+<BLOCKQUOTE>
+<I>N</I>
+<P>
+<PRE>
+          N is INTEGER
+         number of elements in input vector(s)
+</PRE>
+<P>
+<I>SX</I>
+<P>
+<PRE>
+          SX is REAL array, dimension(N)
+         single precision vector with N elements
+</PRE>
+<P>
+<I>INCX</I>
+<P>
+<PRE>
+          INCX is INTEGER
+          storage spacing between elements of SX
+</PRE>
+<P>
+<I>SY</I>
+<P>
+<PRE>
+          SY is REAL array, dimension(N)
+         single precision vector with N elements
+</PRE>
+<P>
+<I>INCY</I>
+<P>
+<PRE>
+          INCY is INTEGER
+         storage spacing between elements of SY
+</PRE>
+<P>
+</BLOCKQUOTE>
+<P>
+<B>Returns</B>
+<BLOCKQUOTE>
+DSDOT
+<P>
+<PRE>
+          DSDOT is DOUBLE PRECISION
+         DSDOT  double precision dot product (zero if N.LE.0)
+</PRE>
+<P>
+<P>
+</BLOCKQUOTE>
+<P>
+<B>Author</B>
+<BLOCKQUOTE>
+Univ&#46; of Tennessee
+<P>
+Univ&#46; of California Berkeley
+<P>
+Univ&#46; of Colorado Denver
+<P>
+NAG Ltd&#46;
+</BLOCKQUOTE>
+<P>
+<B>Further Details:</B>
+<BLOCKQUOTE>
+<P>
+<P>
+<PRE>
+<P>
+</PRE>
+<P>
+<P>
+</BLOCKQUOTE>
+<P>
+<B>References:</B>
+<BLOCKQUOTE>
+<P>
+<P>
+<PRE>
+  C. L. Lawson, R. J. Hanson, D. R. Kincaid and F. T.
+  Krogh, Basic linear algebra subprograms for Fortran
+  usage, Algorithm No. 539, Transactions on Mathematical
+  Software 5, 3 (September 1979), pp. 308-323.
+<P>
+  REVISION HISTORY  (YYMMDD)
+<P>
+  791001  DATE WRITTEN
+  890831  Modified array declarations.  (WRB)
+  890831  REVISION DATE from Version 3.2
+  891214  Prologue converted to Version 4.0 format.  (BAB)
+  920310  Corrected definition of LX in DESCRIPTION.  (WRB)
+  920501  Reformatted the REFERENCES section.  (WRB)
+  070118  Reformat to LAPACK style (JL)
+</PRE>
+<P>
+<P>
+</BLOCKQUOTE>
+<P>
+<P>
+<P>
+Definition at line 118 of file dsdot&#46;f&#46;
+</BLOCKQUOTE>
+<A name=>
+
+    <H4>&nbsp; &nbsp; subroutine dswap (integer N, double precision, dimension(*) DX, integer INCX, double precision, dimension(*) DY, integer INCY)</H4>
+</A>
+<BLOCKQUOTE>
+<P>
+<P>
+<B>DSWAP</B>
+<P>
+<B>Purpose:</B>
+<BLOCKQUOTE>
+<P>
+<P>
+<PRE>
+    DSWAP interchanges two vectors.
+    uses unrolled loops for increments equal to 1.
+</PRE>
+<P>
+<P>
+</BLOCKQUOTE>
+<P>
+<B>Parameters</B>
+<BLOCKQUOTE>
+<I>N</I>
+<P>
+<PRE>
+          N is INTEGER
+         number of elements in input vector(s)
+</PRE>
+<P>
+<I>DX</I>
+<P>
+<PRE>
+          DX is DOUBLE PRECISION array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
+</PRE>
+<P>
+<I>INCX</I>
+<P>
+<PRE>
+          INCX is INTEGER
+         storage spacing between elements of DX
+</PRE>
+<P>
+<I>DY</I>
+<P>
+<PRE>
+          DY is DOUBLE PRECISION array, dimension ( 1 + ( N - 1 )*abs( INCY ) )
+</PRE>
+<P>
+<I>INCY</I>
+<P>
+<PRE>
+          INCY is INTEGER
+         storage spacing between elements of DY
+</PRE>
+<P>
+<P>
+</BLOCKQUOTE>
+<P>
+<B>Author</B>
+<BLOCKQUOTE>
+Univ&#46; of Tennessee
+<P>
+Univ&#46; of California Berkeley
+<P>
+Univ&#46; of Colorado Denver
+<P>
+NAG Ltd&#46;
+</BLOCKQUOTE>
+<P>
+<B>Further Details:</B>
+<BLOCKQUOTE>
+<P>
+<P>
+<PRE>
+     jack dongarra, linpack, 3/11/78.
+     modified 12/3/93, array(1) declarations changed to array(*)
+</PRE>
+<P>
+<P>
+</BLOCKQUOTE>
+<P>
+<P>
+<P>
+Definition at line 81 of file dswap&#46;f&#46;
+</BLOCKQUOTE>
+<A name=>
+
+    <H4>&nbsp; &nbsp; subroutine dtrsv (character UPLO, character TRANS, character DIAG, integer N, double precision, dimension(lda,*) A, integer LDA, double precision, dimension(*) X, integer INCX)</H4>
+</A>
+<BLOCKQUOTE>
+<P>
+<P>
+<B>DTRSV</B>
+<P>
+<B>Purpose:</B>
+<BLOCKQUOTE>
+<P>
+<P>
+<PRE>
+ DTRSV  solves one of the systems of equations
+<P>
+    A*x = b,   or   A**T*x = b,
+<P>
+ where b and x are n element vectors and A is an n by n unit, or
+ non-unit, upper or lower triangular matrix.
+<P>
+ No test for singularity or near-singularity is included in this
+ routine. Such tests must be performed before calling this routine.
+</PRE>
+<P>
+<P>
+</BLOCKQUOTE>
+<P>
+<B>Parameters</B>
+<BLOCKQUOTE>
+<I>UPLO</I>
+<P>
+<PRE>
+          UPLO is CHARACTER*1
+           On entry, UPLO specifies whether the matrix is an upper or
+           lower triangular matrix as follows:
+<P>
+              UPLO = &#146;U&#146; or &#146;u&#146;   A is an upper triangular matrix.
+<P>
+              UPLO = &#146;L&#146; or &#146;l&#146;   A is a lower triangular matrix.
+</PRE>
+<P>
+<I>TRANS</I>
+<P>
+<PRE>
+          TRANS is CHARACTER*1
+           On entry, TRANS specifies the equations to be solved as
+           follows:
+<P>
+              TRANS = &#146;N&#146; or &#146;n&#146;   A*x = b.
+<P>
+              TRANS = &#146;T&#146; or &#146;t&#146;   A**T*x = b.
+<P>
+              TRANS = &#146;C&#146; or &#146;c&#146;   A**T*x = b.
+</PRE>
+<P>
+<I>DIAG</I>
+<P>
+<PRE>
+          DIAG is CHARACTER*1
+           On entry, DIAG specifies whether or not A is unit
+           triangular as follows:
+<P>
+              DIAG = &#146;U&#146; or &#146;u&#146;   A is assumed to be unit triangular.
+<P>
+              DIAG = &#146;N&#146; or &#146;n&#146;   A is not assumed to be unit
+                                  triangular.
+</PRE>
+<P>
+<I>N</I>
+<P>
+<PRE>
+          N is INTEGER
+           On entry, N specifies the order of the matrix A.
+           N must be at least zero.
+</PRE>
+<P>
+<I>A</I>
+<P>
+<PRE>
+          A is DOUBLE PRECISION array, dimension ( LDA, N )
+           Before entry with  UPLO = &#146;U&#146; or &#146;u&#146;, the leading n by n
+           upper triangular part of the array A must contain the upper
+           triangular matrix and the strictly lower triangular part of
+           A is not referenced.
+           Before entry with UPLO = &#146;L&#146; or &#146;l&#146;, the leading n by n
+           lower triangular part of the array A must contain the lower
+           triangular matrix and the strictly upper triangular part of
+           A is not referenced.
+           Note that when  DIAG = &#146;U&#146; or &#146;u&#146;, the diagonal elements of
+           A are not referenced either, but are assumed to be unity.
+</PRE>
+<P>
+<I>LDA</I>
+<P>
+<PRE>
+          LDA is INTEGER
+           On entry, LDA specifies the first dimension of A as declared
+           in the calling (sub) program. LDA must be at least
+           max( 1, n ).
+</PRE>
+<P>
+<I>X</I>
+<P>
+<PRE>
+          X is DOUBLE PRECISION array, dimension at least
+           ( 1 + ( n - 1 )*abs( INCX ) ).
+           Before entry, the incremented array X must contain the n
+           element right-hand side vector b. On exit, X is overwritten
+           with the solution vector x.
+</PRE>
+<P>
+<I>INCX</I>
+<P>
+<PRE>
+          INCX is INTEGER
+           On entry, INCX specifies the increment for the elements of
+           X. INCX must not be zero.
+<P>
+  Level 2 Blas routine.
+<P>
+  -- Written on 22-October-1986.
+     Jack Dongarra, Argonne National Lab.
+     Jeremy Du Croz, Nag Central Office.
+     Sven Hammarling, Nag Central Office.
+     Richard Hanson, Sandia National Labs.
+</PRE>
+<P>
+<P>
+</BLOCKQUOTE>
+<P>
+<B>Author</B>
+<BLOCKQUOTE>
+Univ&#46; of Tennessee
+<P>
+Univ&#46; of California Berkeley
+<P>
+Univ&#46; of Colorado Denver
+<P>
+NAG Ltd&#46;
+</BLOCKQUOTE>
+<P>
+<P>
+<P>
+Definition at line 142 of file dtrsv&#46;f&#46;
+</BLOCKQUOTE>
+<A name=>
+
+    <H4>&nbsp; &nbsp; double precision function dzasum (integer N, complex*16, dimension(*) ZX, integer INCX)</H4>
+</A>
+<BLOCKQUOTE>
+<P>
+<P>
+<B>DZASUM</B>
+<P>
+<B>Purpose:</B>
+<BLOCKQUOTE>
+<P>
+<P>
+<PRE>
+    DZASUM takes the sum of the (|Re(.)| + |Im(.)|)&#146;s of a complex vector and
+    returns a double precision result.
+</PRE>
+<P>
+<P>
+</BLOCKQUOTE>
+<P>
+<B>Parameters</B>
+<BLOCKQUOTE>
+<I>N</I>
+<P>
+<PRE>
+          N is INTEGER
+         number of elements in input vector(s)
+</PRE>
+<P>
+<I>ZX</I>
+<P>
+<PRE>
+          ZX is COMPLEX*16 array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
+</PRE>
+<P>
+<I>INCX</I>
+<P>
+<PRE>
+          INCX is INTEGER
+         storage spacing between elements of ZX
+</PRE>
+<P>
+<P>
+</BLOCKQUOTE>
+<P>
+<B>Author</B>
+<BLOCKQUOTE>
+Univ&#46; of Tennessee
+<P>
+Univ&#46; of California Berkeley
+<P>
+Univ&#46; of Colorado Denver
+<P>
+NAG Ltd&#46;
+</BLOCKQUOTE>
+<P>
+<B>Further Details:</B>
+<BLOCKQUOTE>
+<P>
+<P>
+<PRE>
+     jack dongarra, 3/11/78.
+     modified 3/93 to return if incx .le. 0.
+     modified 12/3/93, array(1) declarations changed to array(*)
+</PRE>
+<P>
+<P>
+</BLOCKQUOTE>
+<P>
+<P>
+<P>
+Definition at line 71 of file dzasum&#46;f&#46;
+</BLOCKQUOTE>
+<A name=>
+
+     <H3>Author</H3>
+
+</A>
+<BLOCKQUOTE>
+<P>
+Generated automatically by Doxygen for LAPACK from the source code&#46;
+</BLOCKQUOTE>
+<P><HR>
+<TABLE width=100%><TR> <TD width=33%><I>Version 3.10.0</I></TD> <TD width=33% align=center>double_blas_level1 (3)</TD> <TD align=right width=33%><I>Mon Jun 28 2021</I></TD> </TR></TABLE><FONT SIZE=-1>Generated by <A HREF="http://www.squarebox.co.uk/download/manServer.shtml">manServer 1.08</A> from cca3a30f-ba7c-4d34-a561-7f2117ff89e5 using man macros.</FONT>
+<br><br><center><img src="images/IMAGE.gif"></center>
+</div>
+</div>
+</body>
+</HTML>

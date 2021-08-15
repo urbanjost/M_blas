@@ -1,0 +1,1861 @@
+<html> 
+<head> 
+<title> </title>
+<style> 
+px {font-family: "Lucida Console", Monaco }
+p { font-size:100%; line-height:1.1em; }
+body {xfont-style: sans-serif}
+body {
+color:#333; font-family:Verdana, Arial, Helvetica, sans-serif; font-size:1em; line-height:1.3em; }
+a:visited { color:#666; }
+h1,h2,h3,h4,h5,h6 { color:#333; font-family:georgia, verdana, sans-serif; }
+h1 { font-size:150%; page-break-before:auto;background-color: #aaaaff}
+h2 { font-size:143%;color:teal; }
+h3 { font-size:134%;color:blue; }
+h4 { font-size:120%;color:gray; }
+img { max-width: 55em}
+p{ padding: 0;margin:0; }
+p{ padding-right:1.4em; }
+p{ padding-bottom:1em; }
+p{ padding-top:1em; }
+p{ whitespace: pre-wrap; }
+h5,h6 { font-size:100% }
+a.nav,a:link.nav, a:visited.nav { background-color:#FFF; color:#000; }
+XXtable { border:double #000; border-collapse:collapse; }
+XXtable { border-collapse:collapse; }
+XXtd { border:thin solid #888; }
+XXtd { border:none; }
+li { margin-bottom:0.5em; }
+blockquote { display:block; font-size:100%; line-height:1.1em; margin:0 0 1.5em; padding:0 2.5em; }
+pre { background-color:#DDD; font-size:100%; overflow:auto; padding:1em; }
+a,li span { color:#000; }
+a:hover, a.nav:hover, a:hover math { background-color:#000; color:#FFF; }
+#Container { margin:0 10px; text-align:center; background-color: #BBB}
+#Content { border-top:none; margin:auto; padding:0.3em; text-align:left; width:100%; max-width:55em; background:#FFF}
+span.webName { font-size:.5em; }
+textarea#content { font-size: 1em; line-height: 1.125; }
+h1#pageName { line-height:1em; margin:0.2em 0 0.2em 0; padding:0; }
+.property { color:#666; font-size:100%; }
+a.existingWikiWord[title]{ //border: 1px dashed #BBB; }
+.byline { color:#666; font-size:1.0em; font-style:italic; margin-bottom:1em; padding-top:1px; } 
+</style> 
+</head>
+<BODY bgcolor=#F0F0F0 text=#000000 link=#0000ff vlink=#C000C0 alink=#ff0000><A NAME=top></A>
+<h5><a href="index.html">[UP]</a></h5>
+<div id="Container">
+<div id="Content">
+<CENTER>
+<H1><HR><I>Manual Reference Pages &nbsp;-&nbsp;</I><NOBR>complex16_blas_level3 (3)</NOBR><HR></H1>
+</CENTER>
+<A name=0>
+
+     <H3>NAME</H3>
+
+</A>
+<BLOCKQUOTE>
+complex16_blas_level3 - complex16
+</BLOCKQUOTE>
+<A name=contents></A><H3>CONTENTS</H3></A>
+<BLOCKQUOTE>
+<A HREF=#1>Synopsis</A><BR>
+</BLOCKQUOTE>
+<A name=2>
+
+     <H3>SYNOPSIS</H3>
+
+</A>
+<BLOCKQUOTE>
+<P>
+</BLOCKQUOTE>
+<A name=>
+
+    <H4>&nbsp; &nbsp; Functions</H4>
+</A>
+<BLOCKQUOTE>
+<P>
+&nbsp; &nbsp;<!-- .RI "subroutine \fBzgemm\fP (TRANSA, TRANSB, M, \fBN\fP, K, ALPHA, A, \fBLDA\fP, B, \fBLDB\fP, BETA, C, LDC)" -->
+subroutine <B>zgemm</B> (TRANSA, TRANSB, M, <B>N</B>, K, ALPHA, A, <B>LDA</B>, B, <B>LDB</B>, BETA, C, LDC) <!-- .br -->
+<B>ZGEMM</B>  <!-- .ti -1c -->
+&nbsp; &nbsp;<!-- .RI "subroutine \fBzhemm\fP (SIDE, UPLO, M, \fBN\fP, ALPHA, A, \fBLDA\fP, B, \fBLDB\fP, BETA, C, LDC)" -->
+subroutine <B>zhemm</B> (SIDE, UPLO, M, <B>N</B>, ALPHA, A, <B>LDA</B>, B, <B>LDB</B>, BETA, C, LDC) <!-- .br -->
+<B>ZHEMM</B>  <!-- .ti -1c -->
+&nbsp; &nbsp;<!-- .RI "subroutine \fBzher2k\fP (UPLO, TRANS, \fBN\fP, K, ALPHA, A, \fBLDA\fP, B, \fBLDB\fP, BETA, C, LDC)" -->
+subroutine <B>zher2k</B> (UPLO, TRANS, <B>N</B>, K, ALPHA, A, <B>LDA</B>, B, <B>LDB</B>, BETA, C, LDC) <!-- .br -->
+<B>ZHER2K</B>  <!-- .ti -1c -->
+&nbsp; &nbsp;<!-- .RI "subroutine \fBzherk\fP (UPLO, TRANS, \fBN\fP, K, ALPHA, A, \fBLDA\fP, BETA, C, LDC)" -->
+subroutine <B>zherk</B> (UPLO, TRANS, <B>N</B>, K, ALPHA, A, <B>LDA</B>, BETA, C, LDC) <!-- .br -->
+<B>ZHERK</B>  <!-- .ti -1c -->
+&nbsp; &nbsp;<!-- .RI "subroutine \fBzsymm\fP (SIDE, UPLO, M, \fBN\fP, ALPHA, A, \fBLDA\fP, B, \fBLDB\fP, BETA, C, LDC)" -->
+subroutine <B>zsymm</B> (SIDE, UPLO, M, <B>N</B>, ALPHA, A, <B>LDA</B>, B, <B>LDB</B>, BETA, C, LDC) <!-- .br -->
+<B>ZSYMM</B>  <!-- .ti -1c -->
+&nbsp; &nbsp;<!-- .RI "subroutine \fBzsyr2k\fP (UPLO, TRANS, \fBN\fP, K, ALPHA, A, \fBLDA\fP, B, \fBLDB\fP, BETA, C, LDC)" -->
+subroutine <B>zsyr2k</B> (UPLO, TRANS, <B>N</B>, K, ALPHA, A, <B>LDA</B>, B, <B>LDB</B>, BETA, C, LDC) <!-- .br -->
+<B>ZSYR2K</B>  <!-- .ti -1c -->
+&nbsp; &nbsp;<!-- .RI "subroutine \fBzsyrk\fP (UPLO, TRANS, \fBN\fP, K, ALPHA, A, \fBLDA\fP, BETA, C, LDC)" -->
+subroutine <B>zsyrk</B> (UPLO, TRANS, <B>N</B>, K, ALPHA, A, <B>LDA</B>, BETA, C, LDC) <!-- .br -->
+<B>ZSYRK</B>  <!-- .ti -1c -->
+&nbsp; &nbsp;<!-- .RI "subroutine \fBztrmm\fP (SIDE, UPLO, TRANSA, DIAG, M, \fBN\fP, ALPHA, A, \fBLDA\fP, B, \fBLDB\fP)" -->
+subroutine <B>ztrmm</B> (SIDE, UPLO, TRANSA, DIAG, M, <B>N</B>, ALPHA, A, <B>LDA</B>, B, <B>LDB</B>) <!-- .br -->
+<B>ZTRMM</B>  <!-- .ti -1c -->
+&nbsp; &nbsp;<!-- .RI "subroutine \fBztrsm\fP (SIDE, UPLO, TRANSA, DIAG, M, \fBN\fP, ALPHA, A, \fBLDA\fP, B, \fBLDB\fP)" -->
+subroutine <B>ztrsm</B> (SIDE, UPLO, TRANSA, DIAG, M, <B>N</B>, ALPHA, A, <B>LDA</B>, B, <B>LDB</B>) <!-- .br -->
+<B>ZTRSM</B>  <!-- .in -1c -->
+</BLOCKQUOTE>
+<A name=>
+
+     <H3>Detailed Description</H3>
+
+</A>
+<BLOCKQUOTE>
+<P>
+This is the group of complex16 LEVEL 3 BLAS routines&#46;
+</BLOCKQUOTE>
+<A name=>
+
+     <H3>Function Documentation</H3>
+
+</A>
+<BLOCKQUOTE>
+<P>
+</BLOCKQUOTE>
+<A name=>
+
+    <H4>&nbsp; &nbsp; subroutine zgemm (character TRANSA, character TRANSB, integer M, integer N, integer K, complex*16 ALPHA, complex*16, dimension(lda,*) A, integer LDA, complex*16, dimension(ldb,*) B, integer LDB, complex*16 BETA, complex*16, dimension(ldc,*) C, integer LDC)</H4>
+</A>
+<BLOCKQUOTE>
+<P>
+<P>
+<B>ZGEMM</B>
+<P>
+<B>Purpose:</B>
+<BLOCKQUOTE>
+<P>
+<P>
+<PRE>
+ ZGEMM  performs one of the matrix-matrix operations
+<P>
+    C := alpha*op( A )*op( B ) + beta*C,
+<P>
+ where  op( X ) is one of
+<P>
+    op( X ) = X   or   op( X ) = X**T   or   op( X ) = X**H,
+<P>
+ alpha and beta are scalars, and A, B and C are matrices, with op( A )
+ an m by k matrix,  op( B )  a  k by n matrix and  C an m by n matrix.
+</PRE>
+<P>
+<P>
+</BLOCKQUOTE>
+<P>
+<B>Parameters</B>
+<BLOCKQUOTE>
+<I>TRANSA</I>
+<P>
+<PRE>
+          TRANSA is CHARACTER*1
+           On entry, TRANSA specifies the form of op( A ) to be used in
+           the matrix multiplication as follows:
+<P>
+              TRANSA = &#146;N&#146; or &#146;n&#146;,  op( A ) = A.
+<P>
+              TRANSA = &#146;T&#146; or &#146;t&#146;,  op( A ) = A**T.
+<P>
+              TRANSA = &#146;C&#146; or &#146;c&#146;,  op( A ) = A**H.
+</PRE>
+<P>
+<I>TRANSB</I>
+<P>
+<PRE>
+          TRANSB is CHARACTER*1
+           On entry, TRANSB specifies the form of op( B ) to be used in
+           the matrix multiplication as follows:
+<P>
+              TRANSB = &#146;N&#146; or &#146;n&#146;,  op( B ) = B.
+<P>
+              TRANSB = &#146;T&#146; or &#146;t&#146;,  op( B ) = B**T.
+<P>
+              TRANSB = &#146;C&#146; or &#146;c&#146;,  op( B ) = B**H.
+</PRE>
+<P>
+<I>M</I>
+<P>
+<PRE>
+          M is INTEGER
+           On entry,  M  specifies  the number  of rows  of the  matrix
+           op( A )  and of the  matrix  C.  M  must  be at least  zero.
+</PRE>
+<P>
+<I>N</I>
+<P>
+<PRE>
+          N is INTEGER
+           On entry,  N  specifies the number  of columns of the matrix
+           op( B ) and the number of columns of the matrix C. N must be
+           at least zero.
+</PRE>
+<P>
+<I>K</I>
+<P>
+<PRE>
+          K is INTEGER
+           On entry,  K  specifies  the number of columns of the matrix
+           op( A ) and the number of rows of the matrix op( B ). K must
+           be at least  zero.
+</PRE>
+<P>
+<I>ALPHA</I>
+<P>
+<PRE>
+          ALPHA is COMPLEX*16
+           On entry, ALPHA specifies the scalar alpha.
+</PRE>
+<P>
+<I>A</I>
+<P>
+<PRE>
+          A is COMPLEX*16 array, dimension ( LDA, ka ), where ka is
+           k  when  TRANSA = &#146;N&#146; or &#146;n&#146;,  and is  m  otherwise.
+           Before entry with  TRANSA = &#146;N&#146; or &#146;n&#146;,  the leading  m by k
+           part of the array  A  must contain the matrix  A,  otherwise
+           the leading  k by m  part of the array  A  must contain  the
+           matrix A.
+</PRE>
+<P>
+<I>LDA</I>
+<P>
+<PRE>
+          LDA is INTEGER
+           On entry, LDA specifies the first dimension of A as declared
+           in the calling (sub) program. When  TRANSA = &#146;N&#146; or &#146;n&#146; then
+           LDA must be at least  max( 1, m ), otherwise  LDA must be at
+           least  max( 1, k ).
+</PRE>
+<P>
+<I>B</I>
+<P>
+<PRE>
+          B is COMPLEX*16 array, dimension ( LDB, kb ), where kb is
+           n  when  TRANSB = &#146;N&#146; or &#146;n&#146;,  and is  k  otherwise.
+           Before entry with  TRANSB = &#146;N&#146; or &#146;n&#146;,  the leading  k by n
+           part of the array  B  must contain the matrix  B,  otherwise
+           the leading  n by k  part of the array  B  must contain  the
+           matrix B.
+</PRE>
+<P>
+<I>LDB</I>
+<P>
+<PRE>
+          LDB is INTEGER
+           On entry, LDB specifies the first dimension of B as declared
+           in the calling (sub) program. When  TRANSB = &#146;N&#146; or &#146;n&#146; then
+           LDB must be at least  max( 1, k ), otherwise  LDB must be at
+           least  max( 1, n ).
+</PRE>
+<P>
+<I>BETA</I>
+<P>
+<PRE>
+          BETA is COMPLEX*16
+           On entry,  BETA  specifies the scalar  beta.  When  BETA  is
+           supplied as zero then C need not be set on input.
+</PRE>
+<P>
+<I>C</I>
+<P>
+<PRE>
+          C is COMPLEX*16 array, dimension ( LDC, N )
+           Before entry, the leading  m by n  part of the array  C must
+           contain the matrix  C,  except when  beta  is zero, in which
+           case C need not be set on entry.
+           On exit, the array  C  is overwritten by the  m by n  matrix
+           ( alpha*op( A )*op( B ) + beta*C ).
+</PRE>
+<P>
+<I>LDC</I>
+<P>
+<PRE>
+          LDC is INTEGER
+           On entry, LDC specifies the first dimension of C as declared
+           in  the  calling  (sub)  program.   LDC  must  be  at  least
+           max( 1, m ).
+</PRE>
+<P>
+<P>
+</BLOCKQUOTE>
+<P>
+<B>Author</B>
+<BLOCKQUOTE>
+Univ&#46; of Tennessee
+<P>
+Univ&#46; of California Berkeley
+<P>
+Univ&#46; of Colorado Denver
+<P>
+NAG Ltd&#46;
+</BLOCKQUOTE>
+<P>
+<B>Further Details:</B>
+<BLOCKQUOTE>
+<P>
+<P>
+<PRE>
+  Level 3 Blas routine.
+<P>
+  -- Written on 8-February-1989.
+     Jack Dongarra, Argonne National Laboratory.
+     Iain Duff, AERE Harwell.
+     Jeremy Du Croz, Numerical Algorithms Group Ltd.
+     Sven Hammarling, Numerical Algorithms Group Ltd.
+</PRE>
+<P>
+<P>
+</BLOCKQUOTE>
+<P>
+<P>
+<P>
+Definition at line 186 of file zgemm&#46;f&#46;
+</BLOCKQUOTE>
+<A name=>
+
+    <H4>&nbsp; &nbsp; subroutine zhemm (character SIDE, character UPLO, integer M, integer N, complex*16 ALPHA, complex*16, dimension(lda,*) A, integer LDA, complex*16, dimension(ldb,*) B, integer LDB, complex*16 BETA, complex*16, dimension(ldc,*) C, integer LDC)</H4>
+</A>
+<BLOCKQUOTE>
+<P>
+<P>
+<B>ZHEMM</B>
+<P>
+<B>Purpose:</B>
+<BLOCKQUOTE>
+<P>
+<P>
+<PRE>
+ ZHEMM  performs one of the matrix-matrix operations
+<P>
+    C := alpha*A*B + beta*C,
+<P>
+ or
+<P>
+    C := alpha*B*A + beta*C,
+<P>
+ where alpha and beta are scalars, A is an hermitian matrix and  B and
+ C are m by n matrices.
+</PRE>
+<P>
+<P>
+</BLOCKQUOTE>
+<P>
+<B>Parameters</B>
+<BLOCKQUOTE>
+<I>SIDE</I>
+<P>
+<PRE>
+          SIDE is CHARACTER*1
+           On entry,  SIDE  specifies whether  the  hermitian matrix  A
+           appears on the  left or right  in the  operation as follows:
+<P>
+              SIDE = &#146;L&#146; or &#146;l&#146;   C := alpha*A*B + beta*C,
+<P>
+              SIDE = &#146;R&#146; or &#146;r&#146;   C := alpha*B*A + beta*C,
+</PRE>
+<P>
+<I>UPLO</I>
+<P>
+<PRE>
+          UPLO is CHARACTER*1
+           On  entry,   UPLO  specifies  whether  the  upper  or  lower
+           triangular  part  of  the  hermitian  matrix   A  is  to  be
+           referenced as follows:
+<P>
+              UPLO = &#146;U&#146; or &#146;u&#146;   Only the upper triangular part of the
+                                  hermitian matrix is to be referenced.
+<P>
+              UPLO = &#146;L&#146; or &#146;l&#146;   Only the lower triangular part of the
+                                  hermitian matrix is to be referenced.
+</PRE>
+<P>
+<I>M</I>
+<P>
+<PRE>
+          M is INTEGER
+           On entry,  M  specifies the number of rows of the matrix  C.
+           M  must be at least zero.
+</PRE>
+<P>
+<I>N</I>
+<P>
+<PRE>
+          N is INTEGER
+           On entry, N specifies the number of columns of the matrix C.
+           N  must be at least zero.
+</PRE>
+<P>
+<I>ALPHA</I>
+<P>
+<PRE>
+          ALPHA is COMPLEX*16
+           On entry, ALPHA specifies the scalar alpha.
+</PRE>
+<P>
+<I>A</I>
+<P>
+<PRE>
+          A is COMPLEX*16 array, dimension ( LDA, ka ), where ka is
+           m  when  SIDE = &#146;L&#146; or &#146;l&#146;  and is n  otherwise.
+           Before entry  with  SIDE = &#146;L&#146; or &#146;l&#146;,  the  m by m  part of
+           the array  A  must contain the  hermitian matrix,  such that
+           when  UPLO = &#146;U&#146; or &#146;u&#146;, the leading m by m upper triangular
+           part of the array  A  must contain the upper triangular part
+           of the  hermitian matrix and the  strictly  lower triangular
+           part of  A  is not referenced,  and when  UPLO = &#146;L&#146; or &#146;l&#146;,
+           the leading  m by m  lower triangular part  of the  array  A
+           must  contain  the  lower triangular part  of the  hermitian
+           matrix and the  strictly upper triangular part of  A  is not
+           referenced.
+           Before entry  with  SIDE = &#146;R&#146; or &#146;r&#146;,  the  n by n  part of
+           the array  A  must contain the  hermitian matrix,  such that
+           when  UPLO = &#146;U&#146; or &#146;u&#146;, the leading n by n upper triangular
+           part of the array  A  must contain the upper triangular part
+           of the  hermitian matrix and the  strictly  lower triangular
+           part of  A  is not referenced,  and when  UPLO = &#146;L&#146; or &#146;l&#146;,
+           the leading  n by n  lower triangular part  of the  array  A
+           must  contain  the  lower triangular part  of the  hermitian
+           matrix and the  strictly upper triangular part of  A  is not
+           referenced.
+           Note that the imaginary parts  of the diagonal elements need
+           not be set, they are assumed to be zero.
+</PRE>
+<P>
+<I>LDA</I>
+<P>
+<PRE>
+          LDA is INTEGER
+           On entry, LDA specifies the first dimension of A as declared
+           in the  calling (sub) program. When  SIDE = &#146;L&#146; or &#146;l&#146;  then
+           LDA must be at least  max( 1, m ), otherwise  LDA must be at
+           least max( 1, n ).
+</PRE>
+<P>
+<I>B</I>
+<P>
+<PRE>
+          B is COMPLEX*16 array, dimension ( LDB, N )
+           Before entry, the leading  m by n part of the array  B  must
+           contain the matrix B.
+</PRE>
+<P>
+<I>LDB</I>
+<P>
+<PRE>
+          LDB is INTEGER
+           On entry, LDB specifies the first dimension of B as declared
+           in  the  calling  (sub)  program.   LDB  must  be  at  least
+           max( 1, m ).
+</PRE>
+<P>
+<I>BETA</I>
+<P>
+<PRE>
+          BETA is COMPLEX*16
+           On entry,  BETA  specifies the scalar  beta.  When  BETA  is
+           supplied as zero then C need not be set on input.
+</PRE>
+<P>
+<I>C</I>
+<P>
+<PRE>
+          C is COMPLEX*16 array, dimension ( LDC, N )
+           Before entry, the leading  m by n  part of the array  C must
+           contain the matrix  C,  except when  beta  is zero, in which
+           case C need not be set on entry.
+           On exit, the array  C  is overwritten by the  m by n updated
+           matrix.
+</PRE>
+<P>
+<I>LDC</I>
+<P>
+<PRE>
+          LDC is INTEGER
+           On entry, LDC specifies the first dimension of C as declared
+           in  the  calling  (sub)  program.   LDC  must  be  at  least
+           max( 1, m ).
+</PRE>
+<P>
+<P>
+</BLOCKQUOTE>
+<P>
+<B>Author</B>
+<BLOCKQUOTE>
+Univ&#46; of Tennessee
+<P>
+Univ&#46; of California Berkeley
+<P>
+Univ&#46; of Colorado Denver
+<P>
+NAG Ltd&#46;
+</BLOCKQUOTE>
+<P>
+<B>Further Details:</B>
+<BLOCKQUOTE>
+<P>
+<P>
+<PRE>
+  Level 3 Blas routine.
+<P>
+  -- Written on 8-February-1989.
+     Jack Dongarra, Argonne National Laboratory.
+     Iain Duff, AERE Harwell.
+     Jeremy Du Croz, Numerical Algorithms Group Ltd.
+     Sven Hammarling, Numerical Algorithms Group Ltd.
+</PRE>
+<P>
+<P>
+</BLOCKQUOTE>
+<P>
+<P>
+<P>
+Definition at line 190 of file zhemm&#46;f&#46;
+</BLOCKQUOTE>
+<A name=>
+
+    <H4>&nbsp; &nbsp; subroutine zher2k (character UPLO, character TRANS, integer N, integer K, complex*16 ALPHA, complex*16, dimension(lda,*) A, integer LDA, complex*16, dimension(ldb,*) B, integer LDB, double precision BETA, complex*16, dimension(ldc,*) C, integer LDC)</H4>
+</A>
+<BLOCKQUOTE>
+<P>
+<P>
+<B>ZHER2K</B>
+<P>
+<B>Purpose:</B>
+<BLOCKQUOTE>
+<P>
+<P>
+<PRE>
+ ZHER2K  performs one of the hermitian rank 2k operations
+<P>
+    C := alpha*A*B**H + conjg( alpha )*B*A**H + beta*C,
+<P>
+ or
+<P>
+    C := alpha*A**H*B + conjg( alpha )*B**H*A + beta*C,
+<P>
+ where  alpha and beta  are scalars with  beta  real,  C is an  n by n
+ hermitian matrix and  A and B  are  n by k matrices in the first case
+ and  k by n  matrices in the second case.
+</PRE>
+<P>
+<P>
+</BLOCKQUOTE>
+<P>
+<B>Parameters</B>
+<BLOCKQUOTE>
+<I>UPLO</I>
+<P>
+<PRE>
+          UPLO is CHARACTER*1
+           On  entry,   UPLO  specifies  whether  the  upper  or  lower
+           triangular  part  of the  array  C  is to be  referenced  as
+           follows:
+<P>
+              UPLO = &#146;U&#146; or &#146;u&#146;   Only the  upper triangular part of  C
+                                  is to be referenced.
+<P>
+              UPLO = &#146;L&#146; or &#146;l&#146;   Only the  lower triangular part of  C
+                                  is to be referenced.
+</PRE>
+<P>
+<I>TRANS</I>
+<P>
+<PRE>
+          TRANS is CHARACTER*1
+           On entry,  TRANS  specifies the operation to be performed as
+           follows:
+<P>
+              TRANS = &#146;N&#146; or &#146;n&#146;    C := alpha*A*B**H          +
+                                         conjg( alpha )*B*A**H +
+                                         beta*C.
+<P>
+              TRANS = &#146;C&#146; or &#146;c&#146;    C := alpha*A**H*B          +
+                                         conjg( alpha )*B**H*A +
+                                         beta*C.
+</PRE>
+<P>
+<I>N</I>
+<P>
+<PRE>
+          N is INTEGER
+           On entry,  N specifies the order of the matrix C.  N must be
+           at least zero.
+</PRE>
+<P>
+<I>K</I>
+<P>
+<PRE>
+          K is INTEGER
+           On entry with  TRANS = &#146;N&#146; or &#146;n&#146;,  K  specifies  the number
+           of  columns  of the  matrices  A and B,  and on  entry  with
+           TRANS = &#146;C&#146; or &#146;c&#146;,  K  specifies  the number of rows of the
+           matrices  A and B.  K must be at least zero.
+</PRE>
+<P>
+<I>ALPHA</I>
+<P>
+<PRE>
+          ALPHA is COMPLEX*16 .
+           On entry, ALPHA specifies the scalar alpha.
+</PRE>
+<P>
+<I>A</I>
+<P>
+<PRE>
+          A is COMPLEX*16 array, dimension ( LDA, ka ), where ka is
+           k  when  TRANS = &#146;N&#146; or &#146;n&#146;,  and is  n  otherwise.
+           Before entry with  TRANS = &#146;N&#146; or &#146;n&#146;,  the  leading  n by k
+           part of the array  A  must contain the matrix  A,  otherwise
+           the leading  k by n  part of the array  A  must contain  the
+           matrix A.
+</PRE>
+<P>
+<I>LDA</I>
+<P>
+<PRE>
+          LDA is INTEGER
+           On entry, LDA specifies the first dimension of A as declared
+           in  the  calling  (sub)  program.   When  TRANS = &#146;N&#146; or &#146;n&#146;
+           then  LDA must be at least  max( 1, n ), otherwise  LDA must
+           be at least  max( 1, k ).
+</PRE>
+<P>
+<I>B</I>
+<P>
+<PRE>
+          B is COMPLEX*16 array, dimension ( LDB, kb ), where kb is
+           k  when  TRANS = &#146;N&#146; or &#146;n&#146;,  and is  n  otherwise.
+           Before entry with  TRANS = &#146;N&#146; or &#146;n&#146;,  the  leading  n by k
+           part of the array  B  must contain the matrix  B,  otherwise
+           the leading  k by n  part of the array  B  must contain  the
+           matrix B.
+</PRE>
+<P>
+<I>LDB</I>
+<P>
+<PRE>
+          LDB is INTEGER
+           On entry, LDB specifies the first dimension of B as declared
+           in  the  calling  (sub)  program.   When  TRANS = &#146;N&#146; or &#146;n&#146;
+           then  LDB must be at least  max( 1, n ), otherwise  LDB must
+           be at least  max( 1, k ).
+           Unchanged on exit.
+</PRE>
+<P>
+<I>BETA</I>
+<P>
+<PRE>
+          BETA is DOUBLE PRECISION .
+           On entry, BETA specifies the scalar beta.
+</PRE>
+<P>
+<I>C</I>
+<P>
+<PRE>
+          C is COMPLEX*16 array, dimension ( LDC, N )
+           Before entry  with  UPLO = &#146;U&#146; or &#146;u&#146;,  the leading  n by n
+           upper triangular part of the array C must contain the upper
+           triangular part  of the  hermitian matrix  and the strictly
+           lower triangular part of C is not referenced.  On exit, the
+           upper triangular part of the array  C is overwritten by the
+           upper triangular part of the updated matrix.
+           Before entry  with  UPLO = &#146;L&#146; or &#146;l&#146;,  the leading  n by n
+           lower triangular part of the array C must contain the lower
+           triangular part  of the  hermitian matrix  and the strictly
+           upper triangular part of C is not referenced.  On exit, the
+           lower triangular part of the array  C is overwritten by the
+           lower triangular part of the updated matrix.
+           Note that the imaginary parts of the diagonal elements need
+           not be set,  they are assumed to be zero,  and on exit they
+           are set to zero.
+</PRE>
+<P>
+<I>LDC</I>
+<P>
+<PRE>
+          LDC is INTEGER
+           On entry, LDC specifies the first dimension of C as declared
+           in  the  calling  (sub)  program.   LDC  must  be  at  least
+           max( 1, n ).
+</PRE>
+<P>
+<P>
+</BLOCKQUOTE>
+<P>
+<B>Author</B>
+<BLOCKQUOTE>
+Univ&#46; of Tennessee
+<P>
+Univ&#46; of California Berkeley
+<P>
+Univ&#46; of Colorado Denver
+<P>
+NAG Ltd&#46;
+</BLOCKQUOTE>
+<P>
+<B>Further Details:</B>
+<BLOCKQUOTE>
+<P>
+<P>
+<PRE>
+  Level 3 Blas routine.
+<P>
+  -- Written on 8-February-1989.
+     Jack Dongarra, Argonne National Laboratory.
+     Iain Duff, AERE Harwell.
+     Jeremy Du Croz, Numerical Algorithms Group Ltd.
+     Sven Hammarling, Numerical Algorithms Group Ltd.
+<P>
+  -- Modified 8-Nov-93 to set C(J,J) to DBLE( C(J,J) ) when BETA = 1.
+     Ed Anderson, Cray Research Inc.
+</PRE>
+<P>
+<P>
+</BLOCKQUOTE>
+<P>
+<P>
+<P>
+Definition at line 197 of file zher2k&#46;f&#46;
+</BLOCKQUOTE>
+<A name=>
+
+    <H4>&nbsp; &nbsp; subroutine zherk (character UPLO, character TRANS, integer N, integer K, double precision ALPHA, complex*16, dimension(lda,*) A, integer LDA, double precision BETA, complex*16, dimension(ldc,*) C, integer LDC)</H4>
+</A>
+<BLOCKQUOTE>
+<P>
+<P>
+<B>ZHERK</B>
+<P>
+<B>Purpose:</B>
+<BLOCKQUOTE>
+<P>
+<P>
+<PRE>
+ ZHERK  performs one of the hermitian rank k operations
+<P>
+    C := alpha*A*A**H + beta*C,
+<P>
+ or
+<P>
+    C := alpha*A**H*A + beta*C,
+<P>
+ where  alpha and beta  are  real scalars,  C is an  n by n  hermitian
+ matrix and  A  is an  n by k  matrix in the  first case and a  k by n
+ matrix in the second case.
+</PRE>
+<P>
+<P>
+</BLOCKQUOTE>
+<P>
+<B>Parameters</B>
+<BLOCKQUOTE>
+<I>UPLO</I>
+<P>
+<PRE>
+          UPLO is CHARACTER*1
+           On  entry,   UPLO  specifies  whether  the  upper  or  lower
+           triangular  part  of the  array  C  is to be  referenced  as
+           follows:
+<P>
+              UPLO = &#146;U&#146; or &#146;u&#146;   Only the  upper triangular part of  C
+                                  is to be referenced.
+<P>
+              UPLO = &#146;L&#146; or &#146;l&#146;   Only the  lower triangular part of  C
+                                  is to be referenced.
+</PRE>
+<P>
+<I>TRANS</I>
+<P>
+<PRE>
+          TRANS is CHARACTER*1
+           On entry,  TRANS  specifies the operation to be performed as
+           follows:
+<P>
+              TRANS = &#146;N&#146; or &#146;n&#146;   C := alpha*A*A**H + beta*C.
+<P>
+              TRANS = &#146;C&#146; or &#146;c&#146;   C := alpha*A**H*A + beta*C.
+</PRE>
+<P>
+<I>N</I>
+<P>
+<PRE>
+          N is INTEGER
+           On entry,  N specifies the order of the matrix C.  N must be
+           at least zero.
+</PRE>
+<P>
+<I>K</I>
+<P>
+<PRE>
+          K is INTEGER
+           On entry with  TRANS = &#146;N&#146; or &#146;n&#146;,  K  specifies  the number
+           of  columns   of  the   matrix   A,   and  on   entry   with
+           TRANS = &#146;C&#146; or &#146;c&#146;,  K  specifies  the number of rows of the
+           matrix A.  K must be at least zero.
+</PRE>
+<P>
+<I>ALPHA</I>
+<P>
+<PRE>
+          ALPHA is DOUBLE PRECISION .
+           On entry, ALPHA specifies the scalar alpha.
+</PRE>
+<P>
+<I>A</I>
+<P>
+<PRE>
+          A is COMPLEX*16 array, dimension ( LDA, ka ), where ka is
+           k  when  TRANS = &#146;N&#146; or &#146;n&#146;,  and is  n  otherwise.
+           Before entry with  TRANS = &#146;N&#146; or &#146;n&#146;,  the  leading  n by k
+           part of the array  A  must contain the matrix  A,  otherwise
+           the leading  k by n  part of the array  A  must contain  the
+           matrix A.
+</PRE>
+<P>
+<I>LDA</I>
+<P>
+<PRE>
+          LDA is INTEGER
+           On entry, LDA specifies the first dimension of A as declared
+           in  the  calling  (sub)  program.   When  TRANS = &#146;N&#146; or &#146;n&#146;
+           then  LDA must be at least  max( 1, n ), otherwise  LDA must
+           be at least  max( 1, k ).
+</PRE>
+<P>
+<I>BETA</I>
+<P>
+<PRE>
+          BETA is DOUBLE PRECISION.
+           On entry, BETA specifies the scalar beta.
+</PRE>
+<P>
+<I>C</I>
+<P>
+<PRE>
+          C is COMPLEX*16 array, dimension ( LDC, N )
+           Before entry  with  UPLO = &#146;U&#146; or &#146;u&#146;,  the leading  n by n
+           upper triangular part of the array C must contain the upper
+           triangular part  of the  hermitian matrix  and the strictly
+           lower triangular part of C is not referenced.  On exit, the
+           upper triangular part of the array  C is overwritten by the
+           upper triangular part of the updated matrix.
+           Before entry  with  UPLO = &#146;L&#146; or &#146;l&#146;,  the leading  n by n
+           lower triangular part of the array C must contain the lower
+           triangular part  of the  hermitian matrix  and the strictly
+           upper triangular part of C is not referenced.  On exit, the
+           lower triangular part of the array  C is overwritten by the
+           lower triangular part of the updated matrix.
+           Note that the imaginary parts of the diagonal elements need
+           not be set,  they are assumed to be zero,  and on exit they
+           are set to zero.
+</PRE>
+<P>
+<I>LDC</I>
+<P>
+<PRE>
+          LDC is INTEGER
+           On entry, LDC specifies the first dimension of C as declared
+           in  the  calling  (sub)  program.   LDC  must  be  at  least
+           max( 1, n ).
+</PRE>
+<P>
+<P>
+</BLOCKQUOTE>
+<P>
+<B>Author</B>
+<BLOCKQUOTE>
+Univ&#46; of Tennessee
+<P>
+Univ&#46; of California Berkeley
+<P>
+Univ&#46; of Colorado Denver
+<P>
+NAG Ltd&#46;
+</BLOCKQUOTE>
+<P>
+<B>Further Details:</B>
+<BLOCKQUOTE>
+<P>
+<P>
+<PRE>
+  Level 3 Blas routine.
+<P>
+  -- Written on 8-February-1989.
+     Jack Dongarra, Argonne National Laboratory.
+     Iain Duff, AERE Harwell.
+     Jeremy Du Croz, Numerical Algorithms Group Ltd.
+     Sven Hammarling, Numerical Algorithms Group Ltd.
+<P>
+  -- Modified 8-Nov-93 to set C(J,J) to DBLE( C(J,J) ) when BETA = 1.
+     Ed Anderson, Cray Research Inc.
+</PRE>
+<P>
+<P>
+</BLOCKQUOTE>
+<P>
+<P>
+<P>
+Definition at line 172 of file zherk&#46;f&#46;
+</BLOCKQUOTE>
+<A name=>
+
+    <H4>&nbsp; &nbsp; subroutine zsymm (character SIDE, character UPLO, integer M, integer N, complex*16 ALPHA, complex*16, dimension(lda,*) A, integer LDA, complex*16, dimension(ldb,*) B, integer LDB, complex*16 BETA, complex*16, dimension(ldc,*) C, integer LDC)</H4>
+</A>
+<BLOCKQUOTE>
+<P>
+<P>
+<B>ZSYMM</B>
+<P>
+<B>Purpose:</B>
+<BLOCKQUOTE>
+<P>
+<P>
+<PRE>
+ ZSYMM  performs one of the matrix-matrix operations
+<P>
+    C := alpha*A*B + beta*C,
+<P>
+ or
+<P>
+    C := alpha*B*A + beta*C,
+<P>
+ where  alpha and beta are scalars, A is a symmetric matrix and  B and
+ C are m by n matrices.
+</PRE>
+<P>
+<P>
+</BLOCKQUOTE>
+<P>
+<B>Parameters</B>
+<BLOCKQUOTE>
+<I>SIDE</I>
+<P>
+<PRE>
+          SIDE is CHARACTER*1
+           On entry,  SIDE  specifies whether  the  symmetric matrix  A
+           appears on the  left or right  in the  operation as follows:
+<P>
+              SIDE = &#146;L&#146; or &#146;l&#146;   C := alpha*A*B + beta*C,
+<P>
+              SIDE = &#146;R&#146; or &#146;r&#146;   C := alpha*B*A + beta*C,
+</PRE>
+<P>
+<I>UPLO</I>
+<P>
+<PRE>
+          UPLO is CHARACTER*1
+           On  entry,   UPLO  specifies  whether  the  upper  or  lower
+           triangular  part  of  the  symmetric  matrix   A  is  to  be
+           referenced as follows:
+<P>
+              UPLO = &#146;U&#146; or &#146;u&#146;   Only the upper triangular part of the
+                                  symmetric matrix is to be referenced.
+<P>
+              UPLO = &#146;L&#146; or &#146;l&#146;   Only the lower triangular part of the
+                                  symmetric matrix is to be referenced.
+</PRE>
+<P>
+<I>M</I>
+<P>
+<PRE>
+          M is INTEGER
+           On entry,  M  specifies the number of rows of the matrix  C.
+           M  must be at least zero.
+</PRE>
+<P>
+<I>N</I>
+<P>
+<PRE>
+          N is INTEGER
+           On entry, N specifies the number of columns of the matrix C.
+           N  must be at least zero.
+</PRE>
+<P>
+<I>ALPHA</I>
+<P>
+<PRE>
+          ALPHA is COMPLEX*16
+           On entry, ALPHA specifies the scalar alpha.
+</PRE>
+<P>
+<I>A</I>
+<P>
+<PRE>
+          A is COMPLEX*16 array, dimension ( LDA, ka ), where ka is
+           m  when  SIDE = &#146;L&#146; or &#146;l&#146;  and is n  otherwise.
+           Before entry  with  SIDE = &#146;L&#146; or &#146;l&#146;,  the  m by m  part of
+           the array  A  must contain the  symmetric matrix,  such that
+           when  UPLO = &#146;U&#146; or &#146;u&#146;, the leading m by m upper triangular
+           part of the array  A  must contain the upper triangular part
+           of the  symmetric matrix and the  strictly  lower triangular
+           part of  A  is not referenced,  and when  UPLO = &#146;L&#146; or &#146;l&#146;,
+           the leading  m by m  lower triangular part  of the  array  A
+           must  contain  the  lower triangular part  of the  symmetric
+           matrix and the  strictly upper triangular part of  A  is not
+           referenced.
+           Before entry  with  SIDE = &#146;R&#146; or &#146;r&#146;,  the  n by n  part of
+           the array  A  must contain the  symmetric matrix,  such that
+           when  UPLO = &#146;U&#146; or &#146;u&#146;, the leading n by n upper triangular
+           part of the array  A  must contain the upper triangular part
+           of the  symmetric matrix and the  strictly  lower triangular
+           part of  A  is not referenced,  and when  UPLO = &#146;L&#146; or &#146;l&#146;,
+           the leading  n by n  lower triangular part  of the  array  A
+           must  contain  the  lower triangular part  of the  symmetric
+           matrix and the  strictly upper triangular part of  A  is not
+           referenced.
+</PRE>
+<P>
+<I>LDA</I>
+<P>
+<PRE>
+          LDA is INTEGER
+           On entry, LDA specifies the first dimension of A as declared
+           in the  calling (sub) program. When  SIDE = &#146;L&#146; or &#146;l&#146;  then
+           LDA must be at least  max( 1, m ), otherwise  LDA must be at
+           least max( 1, n ).
+</PRE>
+<P>
+<I>B</I>
+<P>
+<PRE>
+          B is COMPLEX*16 array, dimension ( LDB, N )
+           Before entry, the leading  m by n part of the array  B  must
+           contain the matrix B.
+</PRE>
+<P>
+<I>LDB</I>
+<P>
+<PRE>
+          LDB is INTEGER
+           On entry, LDB specifies the first dimension of B as declared
+           in  the  calling  (sub)  program.   LDB  must  be  at  least
+           max( 1, m ).
+</PRE>
+<P>
+<I>BETA</I>
+<P>
+<PRE>
+          BETA is COMPLEX*16
+           On entry,  BETA  specifies the scalar  beta.  When  BETA  is
+           supplied as zero then C need not be set on input.
+</PRE>
+<P>
+<I>C</I>
+<P>
+<PRE>
+          C is COMPLEX*16 array, dimension ( LDC, N )
+           Before entry, the leading  m by n  part of the array  C must
+           contain the matrix  C,  except when  beta  is zero, in which
+           case C need not be set on entry.
+           On exit, the array  C  is overwritten by the  m by n updated
+           matrix.
+</PRE>
+<P>
+<I>LDC</I>
+<P>
+<PRE>
+          LDC is INTEGER
+           On entry, LDC specifies the first dimension of C as declared
+           in  the  calling  (sub)  program.   LDC  must  be  at  least
+           max( 1, m ).
+</PRE>
+<P>
+<P>
+</BLOCKQUOTE>
+<P>
+<B>Author</B>
+<BLOCKQUOTE>
+Univ&#46; of Tennessee
+<P>
+Univ&#46; of California Berkeley
+<P>
+Univ&#46; of Colorado Denver
+<P>
+NAG Ltd&#46;
+</BLOCKQUOTE>
+<P>
+<B>Further Details:</B>
+<BLOCKQUOTE>
+<P>
+<P>
+<PRE>
+  Level 3 Blas routine.
+<P>
+  -- Written on 8-February-1989.
+     Jack Dongarra, Argonne National Laboratory.
+     Iain Duff, AERE Harwell.
+     Jeremy Du Croz, Numerical Algorithms Group Ltd.
+     Sven Hammarling, Numerical Algorithms Group Ltd.
+</PRE>
+<P>
+<P>
+</BLOCKQUOTE>
+<P>
+<P>
+<P>
+Definition at line 188 of file zsymm&#46;f&#46;
+</BLOCKQUOTE>
+<A name=>
+
+    <H4>&nbsp; &nbsp; subroutine zsyr2k (character UPLO, character TRANS, integer N, integer K, complex*16 ALPHA, complex*16, dimension(lda,*) A, integer LDA, complex*16, dimension(ldb,*) B, integer LDB, complex*16 BETA, complex*16, dimension(ldc,*) C, integer LDC)</H4>
+</A>
+<BLOCKQUOTE>
+<P>
+<P>
+<B>ZSYR2K</B>
+<P>
+<B>Purpose:</B>
+<BLOCKQUOTE>
+<P>
+<P>
+<PRE>
+ ZSYR2K  performs one of the symmetric rank 2k operations
+<P>
+    C := alpha*A*B**T + alpha*B*A**T + beta*C,
+<P>
+ or
+<P>
+    C := alpha*A**T*B + alpha*B**T*A + beta*C,
+<P>
+ where  alpha and beta  are scalars,  C is an  n by n symmetric matrix
+ and  A and B  are  n by k  matrices  in the  first  case  and  k by n
+ matrices in the second case.
+</PRE>
+<P>
+<P>
+</BLOCKQUOTE>
+<P>
+<B>Parameters</B>
+<BLOCKQUOTE>
+<I>UPLO</I>
+<P>
+<PRE>
+          UPLO is CHARACTER*1
+           On  entry,   UPLO  specifies  whether  the  upper  or  lower
+           triangular  part  of the  array  C  is to be  referenced  as
+           follows:
+<P>
+              UPLO = &#146;U&#146; or &#146;u&#146;   Only the  upper triangular part of  C
+                                  is to be referenced.
+<P>
+              UPLO = &#146;L&#146; or &#146;l&#146;   Only the  lower triangular part of  C
+                                  is to be referenced.
+</PRE>
+<P>
+<I>TRANS</I>
+<P>
+<PRE>
+          TRANS is CHARACTER*1
+           On entry,  TRANS  specifies the operation to be performed as
+           follows:
+<P>
+              TRANS = &#146;N&#146; or &#146;n&#146;    C := alpha*A*B**T + alpha*B*A**T +
+                                         beta*C.
+<P>
+              TRANS = &#146;T&#146; or &#146;t&#146;    C := alpha*A**T*B + alpha*B**T*A +
+                                         beta*C.
+</PRE>
+<P>
+<I>N</I>
+<P>
+<PRE>
+          N is INTEGER
+           On entry,  N specifies the order of the matrix C.  N must be
+           at least zero.
+</PRE>
+<P>
+<I>K</I>
+<P>
+<PRE>
+          K is INTEGER
+           On entry with  TRANS = &#146;N&#146; or &#146;n&#146;,  K  specifies  the number
+           of  columns  of the  matrices  A and B,  and on  entry  with
+           TRANS = &#146;T&#146; or &#146;t&#146;,  K  specifies  the number of rows of the
+           matrices  A and B.  K must be at least zero.
+</PRE>
+<P>
+<I>ALPHA</I>
+<P>
+<PRE>
+          ALPHA is COMPLEX*16
+           On entry, ALPHA specifies the scalar alpha.
+</PRE>
+<P>
+<I>A</I>
+<P>
+<PRE>
+          A is COMPLEX*16 array, dimension ( LDA, ka ), where ka is
+           k  when  TRANS = &#146;N&#146; or &#146;n&#146;,  and is  n  otherwise.
+           Before entry with  TRANS = &#146;N&#146; or &#146;n&#146;,  the  leading  n by k
+           part of the array  A  must contain the matrix  A,  otherwise
+           the leading  k by n  part of the array  A  must contain  the
+           matrix A.
+</PRE>
+<P>
+<I>LDA</I>
+<P>
+<PRE>
+          LDA is INTEGER
+           On entry, LDA specifies the first dimension of A as declared
+           in  the  calling  (sub)  program.   When  TRANS = &#146;N&#146; or &#146;n&#146;
+           then  LDA must be at least  max( 1, n ), otherwise  LDA must
+           be at least  max( 1, k ).
+</PRE>
+<P>
+<I>B</I>
+<P>
+<PRE>
+          B is COMPLEX*16 array, dimension ( LDB, kb ), where kb is
+           k  when  TRANS = &#146;N&#146; or &#146;n&#146;,  and is  n  otherwise.
+           Before entry with  TRANS = &#146;N&#146; or &#146;n&#146;,  the  leading  n by k
+           part of the array  B  must contain the matrix  B,  otherwise
+           the leading  k by n  part of the array  B  must contain  the
+           matrix B.
+</PRE>
+<P>
+<I>LDB</I>
+<P>
+<PRE>
+          LDB is INTEGER
+           On entry, LDB specifies the first dimension of B as declared
+           in  the  calling  (sub)  program.   When  TRANS = &#146;N&#146; or &#146;n&#146;
+           then  LDB must be at least  max( 1, n ), otherwise  LDB must
+           be at least  max( 1, k ).
+</PRE>
+<P>
+<I>BETA</I>
+<P>
+<PRE>
+          BETA is COMPLEX*16
+           On entry, BETA specifies the scalar beta.
+</PRE>
+<P>
+<I>C</I>
+<P>
+<PRE>
+          C is COMPLEX*16 array, dimension ( LDC, N )
+           Before entry  with  UPLO = &#146;U&#146; or &#146;u&#146;,  the leading  n by n
+           upper triangular part of the array C must contain the upper
+           triangular part  of the  symmetric matrix  and the strictly
+           lower triangular part of C is not referenced.  On exit, the
+           upper triangular part of the array  C is overwritten by the
+           upper triangular part of the updated matrix.
+           Before entry  with  UPLO = &#146;L&#146; or &#146;l&#146;,  the leading  n by n
+           lower triangular part of the array C must contain the lower
+           triangular part  of the  symmetric matrix  and the strictly
+           upper triangular part of C is not referenced.  On exit, the
+           lower triangular part of the array  C is overwritten by the
+           lower triangular part of the updated matrix.
+</PRE>
+<P>
+<I>LDC</I>
+<P>
+<PRE>
+          LDC is INTEGER
+           On entry, LDC specifies the first dimension of C as declared
+           in  the  calling  (sub)  program.   LDC  must  be  at  least
+           max( 1, n ).
+</PRE>
+<P>
+<P>
+</BLOCKQUOTE>
+<P>
+<B>Author</B>
+<BLOCKQUOTE>
+Univ&#46; of Tennessee
+<P>
+Univ&#46; of California Berkeley
+<P>
+Univ&#46; of Colorado Denver
+<P>
+NAG Ltd&#46;
+</BLOCKQUOTE>
+<P>
+<B>Further Details:</B>
+<BLOCKQUOTE>
+<P>
+<P>
+<PRE>
+  Level 3 Blas routine.
+<P>
+  -- Written on 8-February-1989.
+     Jack Dongarra, Argonne National Laboratory.
+     Iain Duff, AERE Harwell.
+     Jeremy Du Croz, Numerical Algorithms Group Ltd.
+     Sven Hammarling, Numerical Algorithms Group Ltd.
+</PRE>
+<P>
+<P>
+</BLOCKQUOTE>
+<P>
+<P>
+<P>
+Definition at line 187 of file zsyr2k&#46;f&#46;
+</BLOCKQUOTE>
+<A name=>
+
+    <H4>&nbsp; &nbsp; subroutine zsyrk (character UPLO, character TRANS, integer N, integer K, complex*16 ALPHA, complex*16, dimension(lda,*) A, integer LDA, complex*16 BETA, complex*16, dimension(ldc,*) C, integer LDC)</H4>
+</A>
+<BLOCKQUOTE>
+<P>
+<P>
+<B>ZSYRK</B>
+<P>
+<B>Purpose:</B>
+<BLOCKQUOTE>
+<P>
+<P>
+<PRE>
+ ZSYRK  performs one of the symmetric rank k operations
+<P>
+    C := alpha*A*A**T + beta*C,
+<P>
+ or
+<P>
+    C := alpha*A**T*A + beta*C,
+<P>
+ where  alpha and beta  are scalars,  C is an  n by n symmetric matrix
+ and  A  is an  n by k  matrix in the first case and a  k by n  matrix
+ in the second case.
+</PRE>
+<P>
+<P>
+</BLOCKQUOTE>
+<P>
+<B>Parameters</B>
+<BLOCKQUOTE>
+<I>UPLO</I>
+<P>
+<PRE>
+          UPLO is CHARACTER*1
+           On  entry,   UPLO  specifies  whether  the  upper  or  lower
+           triangular  part  of the  array  C  is to be  referenced  as
+           follows:
+<P>
+              UPLO = &#146;U&#146; or &#146;u&#146;   Only the  upper triangular part of  C
+                                  is to be referenced.
+<P>
+              UPLO = &#146;L&#146; or &#146;l&#146;   Only the  lower triangular part of  C
+                                  is to be referenced.
+</PRE>
+<P>
+<I>TRANS</I>
+<P>
+<PRE>
+          TRANS is CHARACTER*1
+           On entry,  TRANS  specifies the operation to be performed as
+           follows:
+<P>
+              TRANS = &#146;N&#146; or &#146;n&#146;   C := alpha*A*A**T + beta*C.
+<P>
+              TRANS = &#146;T&#146; or &#146;t&#146;   C := alpha*A**T*A + beta*C.
+</PRE>
+<P>
+<I>N</I>
+<P>
+<PRE>
+          N is INTEGER
+           On entry,  N specifies the order of the matrix C.  N must be
+           at least zero.
+</PRE>
+<P>
+<I>K</I>
+<P>
+<PRE>
+          K is INTEGER
+           On entry with  TRANS = &#146;N&#146; or &#146;n&#146;,  K  specifies  the number
+           of  columns   of  the   matrix   A,   and  on   entry   with
+           TRANS = &#146;T&#146; or &#146;t&#146;,  K  specifies  the number of rows of the
+           matrix A.  K must be at least zero.
+</PRE>
+<P>
+<I>ALPHA</I>
+<P>
+<PRE>
+          ALPHA is COMPLEX*16
+           On entry, ALPHA specifies the scalar alpha.
+</PRE>
+<P>
+<I>A</I>
+<P>
+<PRE>
+          A is COMPLEX*16 array, dimension ( LDA, ka ), where ka is
+           k  when  TRANS = &#146;N&#146; or &#146;n&#146;,  and is  n  otherwise.
+           Before entry with  TRANS = &#146;N&#146; or &#146;n&#146;,  the  leading  n by k
+           part of the array  A  must contain the matrix  A,  otherwise
+           the leading  k by n  part of the array  A  must contain  the
+           matrix A.
+</PRE>
+<P>
+<I>LDA</I>
+<P>
+<PRE>
+          LDA is INTEGER
+           On entry, LDA specifies the first dimension of A as declared
+           in  the  calling  (sub)  program.   When  TRANS = &#146;N&#146; or &#146;n&#146;
+           then  LDA must be at least  max( 1, n ), otherwise  LDA must
+           be at least  max( 1, k ).
+</PRE>
+<P>
+<I>BETA</I>
+<P>
+<PRE>
+          BETA is COMPLEX*16
+           On entry, BETA specifies the scalar beta.
+</PRE>
+<P>
+<I>C</I>
+<P>
+<PRE>
+          C is COMPLEX*16 array, dimension ( LDC, N )
+           Before entry  with  UPLO = &#146;U&#146; or &#146;u&#146;,  the leading  n by n
+           upper triangular part of the array C must contain the upper
+           triangular part  of the  symmetric matrix  and the strictly
+           lower triangular part of C is not referenced.  On exit, the
+           upper triangular part of the array  C is overwritten by the
+           upper triangular part of the updated matrix.
+           Before entry  with  UPLO = &#146;L&#146; or &#146;l&#146;,  the leading  n by n
+           lower triangular part of the array C must contain the lower
+           triangular part  of the  symmetric matrix  and the strictly
+           upper triangular part of C is not referenced.  On exit, the
+           lower triangular part of the array  C is overwritten by the
+           lower triangular part of the updated matrix.
+</PRE>
+<P>
+<I>LDC</I>
+<P>
+<PRE>
+          LDC is INTEGER
+           On entry, LDC specifies the first dimension of C as declared
+           in  the  calling  (sub)  program.   LDC  must  be  at  least
+           max( 1, n ).
+</PRE>
+<P>
+<P>
+</BLOCKQUOTE>
+<P>
+<B>Author</B>
+<BLOCKQUOTE>
+Univ&#46; of Tennessee
+<P>
+Univ&#46; of California Berkeley
+<P>
+Univ&#46; of Colorado Denver
+<P>
+NAG Ltd&#46;
+</BLOCKQUOTE>
+<P>
+<B>Further Details:</B>
+<BLOCKQUOTE>
+<P>
+<P>
+<PRE>
+  Level 3 Blas routine.
+<P>
+  -- Written on 8-February-1989.
+     Jack Dongarra, Argonne National Laboratory.
+     Iain Duff, AERE Harwell.
+     Jeremy Du Croz, Numerical Algorithms Group Ltd.
+     Sven Hammarling, Numerical Algorithms Group Ltd.
+</PRE>
+<P>
+<P>
+</BLOCKQUOTE>
+<P>
+<P>
+<P>
+Definition at line 166 of file zsyrk&#46;f&#46;
+</BLOCKQUOTE>
+<A name=>
+
+    <H4>&nbsp; &nbsp; subroutine ztrmm (character SIDE, character UPLO, character TRANSA, character DIAG, integer M, integer N, complex*16 ALPHA, complex*16, dimension(lda,*) A, integer LDA, complex*16, dimension(ldb,*) B, integer LDB)</H4>
+</A>
+<BLOCKQUOTE>
+<P>
+<P>
+<B>ZTRMM</B>
+<P>
+<B>Purpose:</B>
+<BLOCKQUOTE>
+<P>
+<P>
+<PRE>
+ ZTRMM  performs one of the matrix-matrix operations
+<P>
+    B := alpha*op( A )*B,   or   B := alpha*B*op( A )
+<P>
+ where  alpha  is a scalar,  B  is an m by n matrix,  A  is a unit, or
+ non-unit,  upper or lower triangular matrix  and  op( A )  is one  of
+<P>
+    op( A ) = A   or   op( A ) = A**T   or   op( A ) = A**H.
+</PRE>
+<P>
+<P>
+</BLOCKQUOTE>
+<P>
+<B>Parameters</B>
+<BLOCKQUOTE>
+<I>SIDE</I>
+<P>
+<PRE>
+          SIDE is CHARACTER*1
+           On entry,  SIDE specifies whether  op( A ) multiplies B from
+           the left or right as follows:
+<P>
+              SIDE = &#146;L&#146; or &#146;l&#146;   B := alpha*op( A )*B.
+<P>
+              SIDE = &#146;R&#146; or &#146;r&#146;   B := alpha*B*op( A ).
+</PRE>
+<P>
+<I>UPLO</I>
+<P>
+<PRE>
+          UPLO is CHARACTER*1
+           On entry, UPLO specifies whether the matrix A is an upper or
+           lower triangular matrix as follows:
+<P>
+              UPLO = &#146;U&#146; or &#146;u&#146;   A is an upper triangular matrix.
+<P>
+              UPLO = &#146;L&#146; or &#146;l&#146;   A is a lower triangular matrix.
+</PRE>
+<P>
+<I>TRANSA</I>
+<P>
+<PRE>
+          TRANSA is CHARACTER*1
+           On entry, TRANSA specifies the form of op( A ) to be used in
+           the matrix multiplication as follows:
+<P>
+              TRANSA = &#146;N&#146; or &#146;n&#146;   op( A ) = A.
+<P>
+              TRANSA = &#146;T&#146; or &#146;t&#146;   op( A ) = A**T.
+<P>
+              TRANSA = &#146;C&#146; or &#146;c&#146;   op( A ) = A**H.
+</PRE>
+<P>
+<I>DIAG</I>
+<P>
+<PRE>
+          DIAG is CHARACTER*1
+           On entry, DIAG specifies whether or not A is unit triangular
+           as follows:
+<P>
+              DIAG = &#146;U&#146; or &#146;u&#146;   A is assumed to be unit triangular.
+<P>
+              DIAG = &#146;N&#146; or &#146;n&#146;   A is not assumed to be unit
+                                  triangular.
+</PRE>
+<P>
+<I>M</I>
+<P>
+<PRE>
+          M is INTEGER
+           On entry, M specifies the number of rows of B. M must be at
+           least zero.
+</PRE>
+<P>
+<I>N</I>
+<P>
+<PRE>
+          N is INTEGER
+           On entry, N specifies the number of columns of B.  N must be
+           at least zero.
+</PRE>
+<P>
+<I>ALPHA</I>
+<P>
+<PRE>
+          ALPHA is COMPLEX*16
+           On entry,  ALPHA specifies the scalar  alpha. When  alpha is
+           zero then  A is not referenced and  B need not be set before
+           entry.
+</PRE>
+<P>
+<I>A</I>
+<P>
+<PRE>
+          A is COMPLEX*16 array, dimension ( LDA, k ), where k is m
+           when  SIDE = &#146;L&#146; or &#146;l&#146;  and is  n  when  SIDE = &#146;R&#146; or &#146;r&#146;.
+           Before entry  with  UPLO = &#146;U&#146; or &#146;u&#146;,  the  leading  k by k
+           upper triangular part of the array  A must contain the upper
+           triangular matrix  and the strictly lower triangular part of
+           A is not referenced.
+           Before entry  with  UPLO = &#146;L&#146; or &#146;l&#146;,  the  leading  k by k
+           lower triangular part of the array  A must contain the lower
+           triangular matrix  and the strictly upper triangular part of
+           A is not referenced.
+           Note that when  DIAG = &#146;U&#146; or &#146;u&#146;,  the diagonal elements of
+           A  are not referenced either,  but are assumed to be  unity.
+</PRE>
+<P>
+<I>LDA</I>
+<P>
+<PRE>
+          LDA is INTEGER
+           On entry, LDA specifies the first dimension of A as declared
+           in the calling (sub) program.  When  SIDE = &#146;L&#146; or &#146;l&#146;  then
+           LDA  must be at least  max( 1, m ),  when  SIDE = &#146;R&#146; or &#146;r&#146;
+           then LDA must be at least max( 1, n ).
+</PRE>
+<P>
+<I>B</I>
+<P>
+<PRE>
+          B is COMPLEX*16 array, dimension ( LDB, N ).
+           Before entry,  the leading  m by n part of the array  B must
+           contain the matrix  B,  and  on exit  is overwritten  by the
+           transformed matrix.
+</PRE>
+<P>
+<I>LDB</I>
+<P>
+<PRE>
+          LDB is INTEGER
+           On entry, LDB specifies the first dimension of B as declared
+           in  the  calling  (sub)  program.   LDB  must  be  at  least
+           max( 1, m ).
+</PRE>
+<P>
+<P>
+</BLOCKQUOTE>
+<P>
+<B>Author</B>
+<BLOCKQUOTE>
+Univ&#46; of Tennessee
+<P>
+Univ&#46; of California Berkeley
+<P>
+Univ&#46; of Colorado Denver
+<P>
+NAG Ltd&#46;
+</BLOCKQUOTE>
+<P>
+<B>Further Details:</B>
+<BLOCKQUOTE>
+<P>
+<P>
+<PRE>
+  Level 3 Blas routine.
+<P>
+  -- Written on 8-February-1989.
+     Jack Dongarra, Argonne National Laboratory.
+     Iain Duff, AERE Harwell.
+     Jeremy Du Croz, Numerical Algorithms Group Ltd.
+     Sven Hammarling, Numerical Algorithms Group Ltd.
+</PRE>
+<P>
+<P>
+</BLOCKQUOTE>
+<P>
+<P>
+<P>
+Definition at line 176 of file ztrmm&#46;f&#46;
+</BLOCKQUOTE>
+<A name=>
+
+    <H4>&nbsp; &nbsp; subroutine ztrsm (character SIDE, character UPLO, character TRANSA, character DIAG, integer M, integer N, complex*16 ALPHA, complex*16, dimension(lda,*) A, integer LDA, complex*16, dimension(ldb,*) B, integer LDB)</H4>
+</A>
+<BLOCKQUOTE>
+<P>
+<P>
+<B>ZTRSM</B>
+<P>
+<B>Purpose:</B>
+<BLOCKQUOTE>
+<P>
+<P>
+<PRE>
+ ZTRSM  solves one of the matrix equations
+<P>
+    op( A )*X = alpha*B,   or   X*op( A ) = alpha*B,
+<P>
+ where alpha is a scalar, X and B are m by n matrices, A is a unit, or
+ non-unit,  upper or lower triangular matrix  and  op( A )  is one  of
+<P>
+    op( A ) = A   or   op( A ) = A**T   or   op( A ) = A**H.
+<P>
+ The matrix X is overwritten on B.
+</PRE>
+<P>
+<P>
+</BLOCKQUOTE>
+<P>
+<B>Parameters</B>
+<BLOCKQUOTE>
+<I>SIDE</I>
+<P>
+<PRE>
+          SIDE is CHARACTER*1
+           On entry, SIDE specifies whether op( A ) appears on the left
+           or right of X as follows:
+<P>
+              SIDE = &#146;L&#146; or &#146;l&#146;   op( A )*X = alpha*B.
+<P>
+              SIDE = &#146;R&#146; or &#146;r&#146;   X*op( A ) = alpha*B.
+</PRE>
+<P>
+<I>UPLO</I>
+<P>
+<PRE>
+          UPLO is CHARACTER*1
+           On entry, UPLO specifies whether the matrix A is an upper or
+           lower triangular matrix as follows:
+<P>
+              UPLO = &#146;U&#146; or &#146;u&#146;   A is an upper triangular matrix.
+<P>
+              UPLO = &#146;L&#146; or &#146;l&#146;   A is a lower triangular matrix.
+</PRE>
+<P>
+<I>TRANSA</I>
+<P>
+<PRE>
+          TRANSA is CHARACTER*1
+           On entry, TRANSA specifies the form of op( A ) to be used in
+           the matrix multiplication as follows:
+<P>
+              TRANSA = &#146;N&#146; or &#146;n&#146;   op( A ) = A.
+<P>
+              TRANSA = &#146;T&#146; or &#146;t&#146;   op( A ) = A**T.
+<P>
+              TRANSA = &#146;C&#146; or &#146;c&#146;   op( A ) = A**H.
+</PRE>
+<P>
+<I>DIAG</I>
+<P>
+<PRE>
+          DIAG is CHARACTER*1
+           On entry, DIAG specifies whether or not A is unit triangular
+           as follows:
+<P>
+              DIAG = &#146;U&#146; or &#146;u&#146;   A is assumed to be unit triangular.
+<P>
+              DIAG = &#146;N&#146; or &#146;n&#146;   A is not assumed to be unit
+                                  triangular.
+</PRE>
+<P>
+<I>M</I>
+<P>
+<PRE>
+          M is INTEGER
+           On entry, M specifies the number of rows of B. M must be at
+           least zero.
+</PRE>
+<P>
+<I>N</I>
+<P>
+<PRE>
+          N is INTEGER
+           On entry, N specifies the number of columns of B.  N must be
+           at least zero.
+</PRE>
+<P>
+<I>ALPHA</I>
+<P>
+<PRE>
+          ALPHA is COMPLEX*16
+           On entry,  ALPHA specifies the scalar  alpha. When  alpha is
+           zero then  A is not referenced and  B need not be set before
+           entry.
+</PRE>
+<P>
+<I>A</I>
+<P>
+<PRE>
+          A is COMPLEX*16 array, dimension ( LDA, k ),
+           where k is m when SIDE = &#146;L&#146; or &#146;l&#146;
+             and k is n when SIDE = &#146;R&#146; or &#146;r&#146;.
+           Before entry  with  UPLO = &#146;U&#146; or &#146;u&#146;,  the  leading  k by k
+           upper triangular part of the array  A must contain the upper
+           triangular matrix  and the strictly lower triangular part of
+           A is not referenced.
+           Before entry  with  UPLO = &#146;L&#146; or &#146;l&#146;,  the  leading  k by k
+           lower triangular part of the array  A must contain the lower
+           triangular matrix  and the strictly upper triangular part of
+           A is not referenced.
+           Note that when  DIAG = &#146;U&#146; or &#146;u&#146;,  the diagonal elements of
+           A  are not referenced either,  but are assumed to be  unity.
+</PRE>
+<P>
+<I>LDA</I>
+<P>
+<PRE>
+          LDA is INTEGER
+           On entry, LDA specifies the first dimension of A as declared
+           in the calling (sub) program.  When  SIDE = &#146;L&#146; or &#146;l&#146;  then
+           LDA  must be at least  max( 1, m ),  when  SIDE = &#146;R&#146; or &#146;r&#146;
+           then LDA must be at least max( 1, n ).
+</PRE>
+<P>
+<I>B</I>
+<P>
+<PRE>
+          B is COMPLEX*16 array, dimension ( LDB, N )
+           Before entry,  the leading  m by n part of the array  B must
+           contain  the  right-hand  side  matrix  B,  and  on exit  is
+           overwritten by the solution matrix  X.
+</PRE>
+<P>
+<I>LDB</I>
+<P>
+<PRE>
+          LDB is INTEGER
+           On entry, LDB specifies the first dimension of B as declared
+           in  the  calling  (sub)  program.   LDB  must  be  at  least
+           max( 1, m ).
+</PRE>
+<P>
+<P>
+</BLOCKQUOTE>
+<P>
+<B>Author</B>
+<BLOCKQUOTE>
+Univ&#46; of Tennessee
+<P>
+Univ&#46; of California Berkeley
+<P>
+Univ&#46; of Colorado Denver
+<P>
+NAG Ltd&#46;
+</BLOCKQUOTE>
+<P>
+<B>Further Details:</B>
+<BLOCKQUOTE>
+<P>
+<P>
+<PRE>
+  Level 3 Blas routine.
+<P>
+  -- Written on 8-February-1989.
+     Jack Dongarra, Argonne National Laboratory.
+     Iain Duff, AERE Harwell.
+     Jeremy Du Croz, Numerical Algorithms Group Ltd.
+     Sven Hammarling, Numerical Algorithms Group Ltd.
+</PRE>
+<P>
+<P>
+</BLOCKQUOTE>
+<P>
+<P>
+<P>
+Definition at line 179 of file ztrsm&#46;f&#46;
+</BLOCKQUOTE>
+<A name=>
+
+     <H3>Author</H3>
+
+</A>
+<BLOCKQUOTE>
+<P>
+Generated automatically by Doxygen for LAPACK from the source code&#46;
+</BLOCKQUOTE>
+<P><HR>
+<TABLE width=100%><TR> <TD width=33%><I>Version 3.10.0</I></TD> <TD width=33% align=center>complex16_blas_level3 (3)</TD> <TD align=right width=33%><I>Mon Jun 28 2021</I></TD> </TR></TABLE><FONT SIZE=-1>Generated by <A HREF="http://www.squarebox.co.uk/download/manServer.shtml">manServer 1.08</A> from ccef35bc-db00-4ee9-b431-2b63f320fadf using man macros.</FONT>
+<br><br><center><img src="images/IMAGE.gif"></center>
+</div>
+</div>
+</body>
+</HTML>
