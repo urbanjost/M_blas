@@ -322,7 +322,7 @@
                           C(J,J) = DBLE(C(J,J)) + DBLE(TEMP*A(J,L))
                           DO I = J + 1,N
                               C(I,J) = C(I,J) + TEMP*A(I,L)
-                          CONTINUE
+                          enddo   
                       endif
                   enddo   
               enddo   

@@ -279,17 +279,13 @@
 !
       IF (ALPHA.EQ.ZERO) THEN
           IF (BETA.EQ.ZERO) THEN
-              DO 20 J = 1,N
-                  DO 10 I = 1,M
-                      C(I,J) = ZERO
-   10             CONTINUE
-   20         CONTINUE
+              DO J = 1,N
+                  C(1:M,J) = ZERO
+              enddo   
           ELSE
-              DO 40 J = 1,N
-                  DO 30 I = 1,M
-                      C(I,J) = BETA*C(I,J)
-   30             CONTINUE
-   40         CONTINUE
+              DO J = 1,N
+                  C(1:M,J) = BETA*C(1:M,J)
+              enddo   
           endif
           RETURN
       endif
@@ -301,173 +297,157 @@
 !
 !           Form  C := alpha*A*B + beta*C.
 !
-              DO 90 J = 1,N
+              DO J = 1,N
                   IF (BETA.EQ.ZERO) THEN
-                      DO 50 I = 1,M
-                          C(I,J) = ZERO
-   50                 CONTINUE
+                      C(1:M,J) = ZERO
                   ELSE IF (BETA.NE.ONE) THEN
-                      DO 60 I = 1,M
-                          C(I,J) = BETA*C(I,J)
-   60                 CONTINUE
+                      C(1:M,J) = BETA*C(1:M,J)
                   endif
-                  DO 80 L = 1,K
+                  DO L = 1,K
                       TEMP = ALPHA*B(L,J)
-                      DO 70 I = 1,M
-                          C(I,J) = C(I,J) + TEMP*A(I,L)
-   70                 CONTINUE
-   80             CONTINUE
-   90         CONTINUE
+                      C(1:M,J) = C(1:M,J) + TEMP*A(1:M,L)
+                  enddo   
+              enddo    
           ELSE IF (CONJA) THEN
 !
 !           Form  C := alpha*A**H*B + beta*C.
 !
-              DO 120 J = 1,N
-                  DO 110 I = 1,M
+              DO J = 1,N
+                  DO I = 1,M
                       TEMP = ZERO
-                      DO 100 L = 1,K
+                      DO L = 1,K
                           TEMP = TEMP + DCONJG(A(L,I))*B(L,J)
-  100                 CONTINUE
+                      enddo   
                       IF (BETA.EQ.ZERO) THEN
                           C(I,J) = ALPHA*TEMP
                       ELSE
                           C(I,J) = ALPHA*TEMP + BETA*C(I,J)
                       endif
-  110             CONTINUE
-  120         CONTINUE
+                  enddo   
+              enddo   
           ELSE
 !
 !           Form  C := alpha*A**T*B + beta*C
 !
-              DO 150 J = 1,N
-                  DO 140 I = 1,M
+              DO J = 1,N
+                  DO I = 1,M
                       TEMP = ZERO
-                      DO 130 L = 1,K
+                      DO L = 1,K
                           TEMP = TEMP + A(L,I)*B(L,J)
-  130                 CONTINUE
+                      enddo   
                       IF (BETA.EQ.ZERO) THEN
                           C(I,J) = ALPHA*TEMP
                       ELSE
                           C(I,J) = ALPHA*TEMP + BETA*C(I,J)
                       endif
-  140             CONTINUE
-  150         CONTINUE
+                  enddo   
+              enddo   
           endif
       ELSE IF (NOTA) THEN
           IF (CONJB) THEN
 !
 !           Form  C := alpha*A*B**H + beta*C.
 !
-              DO 200 J = 1,N
+              DO J = 1,N
                   IF (BETA.EQ.ZERO) THEN
-                      DO 160 I = 1,M
-                          C(I,J) = ZERO
-  160                 CONTINUE
+                      C(1:M,J) = ZERO
                   ELSE IF (BETA.NE.ONE) THEN
-                      DO 170 I = 1,M
-                          C(I,J) = BETA*C(I,J)
-  170                 CONTINUE
+                      C(1:M,J) = BETA*C(1:M,J)
                   endif
-                  DO 190 L = 1,K
+                  DO L = 1,K
                       TEMP = ALPHA*DCONJG(B(J,L))
-                      DO 180 I = 1,M
+                      DO I = 1,M
                           C(I,J) = C(I,J) + TEMP*A(I,L)
-  180                 CONTINUE
-  190             CONTINUE
-  200         CONTINUE
+                      enddo    
+                  enddo    
+              enddo   
           ELSE
 !
 !           Form  C := alpha*A*B**T + beta*C
 !
-              DO 250 J = 1,N
+              DO J = 1,N
                   IF (BETA.EQ.ZERO) THEN
-                      DO 210 I = 1,M
-                          C(I,J) = ZERO
-  210                 CONTINUE
+                      C(1:M,J) = ZERO
                   ELSE IF (BETA.NE.ONE) THEN
-                      DO 220 I = 1,M
-                          C(I,J) = BETA*C(I,J)
-  220                 CONTINUE
+                      C(1:M,J) = BETA*C(1:M,J)
                   endif
-                  DO 240 L = 1,K
+                  DO L = 1,K
                       TEMP = ALPHA*B(J,L)
-                      DO 230 I = 1,M
-                          C(I,J) = C(I,J) + TEMP*A(I,L)
-  230                 CONTINUE
-  240             CONTINUE
-  250         CONTINUE
+                      C(1:M,J) = C(1:M,J) + TEMP*A(1:M,L)
+                  enddo   
+              enddo   
           endif
       ELSE IF (CONJA) THEN
           IF (CONJB) THEN
 !
 !           Form  C := alpha*A**H*B**H + beta*C.
 !
-              DO 280 J = 1,N
-                  DO 270 I = 1,M
+              DO J = 1,N
+                  DO I = 1,M
                       TEMP = ZERO
-                      DO 260 L = 1,K
+                      DO L = 1,K
                           TEMP = TEMP + DCONJG(A(L,I))*DCONJG(B(J,L))
-  260                 CONTINUE
+                      enddo   
                       IF (BETA.EQ.ZERO) THEN
                           C(I,J) = ALPHA*TEMP
                       ELSE
                           C(I,J) = ALPHA*TEMP + BETA*C(I,J)
                       endif
-  270             CONTINUE
-  280         CONTINUE
+                  enddo   
+              enddo   
           ELSE
 !
 !           Form  C := alpha*A**H*B**T + beta*C
 !
-              DO 310 J = 1,N
-                  DO 300 I = 1,M
+              DO J = 1,N
+                  DO I = 1,M
                       TEMP = ZERO
-                      DO 290 L = 1,K
+                      DO L = 1,K
                           TEMP = TEMP + DCONJG(A(L,I))*B(J,L)
-  290                 CONTINUE
+                      enddo   
                       IF (BETA.EQ.ZERO) THEN
                           C(I,J) = ALPHA*TEMP
                       ELSE
                           C(I,J) = ALPHA*TEMP + BETA*C(I,J)
                       endif
-  300             CONTINUE
-  310         CONTINUE
+                  enddo   
+              enddo   
           endif
       ELSE
           IF (CONJB) THEN
 !
 !           Form  C := alpha*A**T*B**H + beta*C
 !
-              DO 340 J = 1,N
-                  DO 330 I = 1,M
+              DO J = 1,N
+                  DO I = 1,M
                       TEMP = ZERO
-                      DO 320 L = 1,K
+                      DO L = 1,K
                           TEMP = TEMP + A(L,I)*DCONJG(B(J,L))
-  320                 CONTINUE
+                      enddo   
                       IF (BETA.EQ.ZERO) THEN
                           C(I,J) = ALPHA*TEMP
                       ELSE
                           C(I,J) = ALPHA*TEMP + BETA*C(I,J)
                       endif
-  330             CONTINUE
-  340         CONTINUE
+                  enddo   
+              enddo   
           ELSE
 !
 !           Form  C := alpha*A**T*B**T + beta*C
 !
-              DO 370 J = 1,N
-                  DO 360 I = 1,M
+              DO J = 1,N
+                  DO I = 1,M
                       TEMP = ZERO
-                      DO 350 L = 1,K
+                      DO L = 1,K
                           TEMP = TEMP + A(L,I)*B(J,L)
-  350                 CONTINUE
+                      enddo   
                       IF (BETA.EQ.ZERO) THEN
                           C(I,J) = ALPHA*TEMP
                       ELSE
                           C(I,J) = ALPHA*TEMP + BETA*C(I,J)
                       endif
-  360             CONTINUE
-  370         CONTINUE
+                  enddo   
+              enddo    
           endif
       endif
 !

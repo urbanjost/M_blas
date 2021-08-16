@@ -256,11 +256,7 @@ implicit none
 !     And when  alpha.eq.zero.
 !
       IF (ALPHA.EQ.ZERO) THEN
-          DO J = 1,N
-              DO I = 1,M
-                  B(I,J) = ZERO
-              continue
-          enddo   
+          B(1:M,1:N) = ZERO
           RETURN
       endif
 !
