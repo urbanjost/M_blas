@@ -14,7 +14,7 @@
 !       INTEGER SRNAME_LEN, INFO
 !       ..
 !       .. Array Arguments ..
-!       CHARACTER(1) SRNAME_ARRAY(SRNAME_LEN)
+!       CHARACTER(*) SRNAME_ARRAY(SRNAME_LEN)
 !       ..
 !
 !
@@ -48,7 +48,7 @@
 !
 !> \param[in] SRNAME_ARRAY
 !> \verbatim
-!>          SRNAME_ARRAY is CHARACTER(1) array, dimension (SRNAME_LEN)
+!>          SRNAME_ARRAY is CHARACTER(*) array, dimension (SRNAME_LEN)
 !>          The name of the routine which called XERBLA_ARRAY.
 !> \endverbatim
 !>
@@ -90,7 +90,7 @@
       INTEGER SRNAME_LEN, INFO
 !     ..
 !     .. Array Arguments ..
-      CHARACTER(1) SRNAME_ARRAY(SRNAME_LEN)
+      CHARACTER(*) SRNAME_ARRAY(SRNAME_LEN)
 !     ..
 !
 ! =====================================================================

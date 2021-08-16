@@ -456,7 +456,7 @@
 *
 *     .. Scalar Arguments ..
       INTEGER,intent(in)          :: INFO
-      CHARACTER(len=6),intent(in) :: SRNAME
+      CHARACTER(len=*),intent(in) :: SRNAME
 *     .. Scalars in Common ..
       INTEGER            INFOT, NOUT
       LOGICAL            LERR, OK

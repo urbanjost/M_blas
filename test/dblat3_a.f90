@@ -402,8 +402,8 @@
 !     Sven Hammarling, Numerical Algorithms Group Ltd.
 !
 !     .. Scalar Arguments ..
+      CHARACTER(len=*),intent(in) :: SRNAME
       INTEGER,intent(in)          :: INFO
-      CHARACTER(len=6),intent(in) :: SRNAME
 !     .. Scalars in Common ..
       INTEGER            INFOT, NOUT
       LOGICAL            LERR, OK

@@ -432,8 +432,8 @@ SUBROUTINE test_XERBLA( SRNAME, INFO )
 !     Jeremy Du Croz, NAG Central Office.
 !
 !     .. Scalar Arguments ..
+      CHARACTER(len=*),intent(in) :: SRNAME
       INTEGER,intent(in)          :: INFO
-      CHARACTER(len=6),intent(in) :: SRNAME
 !     .. Scalars in Common ..
       INTEGER            INFOT, NOUT
       LOGICAL            LERR, OK

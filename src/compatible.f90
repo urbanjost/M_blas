@@ -20548,7 +20548,7 @@ subroutine XERBLA_ARRAY(SRNAME_ARRAY, SRNAME_LEN, INFO)
 !       INTEGER SRNAME_LEN, INFO
 !       ..
 !       .. Array Arguments ..
-!       CHARACTER(1) SRNAME_ARRAY(SRNAME_LEN)
+!       CHARACTER(*) SRNAME_ARRAY(SRNAME_LEN)
 !       ..
 !
 !
@@ -20582,7 +20582,7 @@ subroutine XERBLA_ARRAY(SRNAME_ARRAY, SRNAME_LEN, INFO)
 !
 !> \param[in] SRNAME_ARRAY
 !> \verbatim
-!>          SRNAME_ARRAY is CHARACTER(1) array, dimension (SRNAME_LEN)
+!>          SRNAME_ARRAY is CHARACTER(*) array, dimension (SRNAME_LEN)
 !>          The name of the routine which called XERBLA_ARRAY.
 !> \endverbatim
 !>
@@ -20639,7 +20639,7 @@ subroutine XERBLA_ARRAY(SRNAME_ARRAY, SRNAME_LEN, INFO)
 use M_blas, only : xerbla_array_=>XERBLA_ARRAY
 implicit none
       INTEGER SRNAME_LEN, INFO
-      CHARACTER(1) SRNAME_ARRAY(SRNAME_LEN)
+      CHARACTER(len=1) SRNAME_ARRAY(SRNAME_LEN)
     call XERBLA_ARRAY_(SRNAME_ARRAY, SRNAME_LEN, INFO)
 end subroutine XERBLA_ARRAY
 
@@ -20728,8 +20728,8 @@ subroutine XERBLA( SRNAME, INFO )
 ! END
 use M_blas, only : xerbla_=>XERBLA
 implicit none
-      CHARACTER*(*)      SRNAME
-      INTEGER            INFO
+      CHARACTER(len=*),intent(in) :: SRNAME
+      INTEGER,intent(in)          :: INFO
     call XERBLA_( SRNAME, INFO )
 END SUBROUTINE XERBLA
 
