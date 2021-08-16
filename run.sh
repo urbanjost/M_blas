@@ -32,7 +32,7 @@ cat zblat3.out
 
 rm -f cblat2.out cblat3.out dblat2.out dblat3.out sblat2.out sblat3.out zblat2.out zblat3.out
 
-)|tee run.log
+)|cat -n|tee run.log
 
 grep -i fail run.log
 exit

@@ -250,17 +250,17 @@
       INFO = 0
       IF ((.NOT.UPPER) .AND. (.NOT.LSAME(UPLO,'L'))) THEN
           INFO = 1
-      ELSE IF ((.NOT.LSAME(TRANS,'N')) .AND.  (.NOT.LSAME(TRANS,'C'))) THEN
+      ELSEIF ((.NOT.LSAME(TRANS,'N')) .AND.  (.NOT.LSAME(TRANS,'C'))) THEN
           INFO = 2
-      ELSE IF (N.LT.0) THEN
+      ELSEIF (N.LT.0) THEN
           INFO = 3
-      ELSE IF (K.LT.0) THEN
+      ELSEIF (K.LT.0) THEN
           INFO = 4
-      ELSE IF (LDA.LT.MAX(1,NROWA)) THEN
+      ELSEIF (LDA.LT.MAX(1,NROWA)) THEN
           INFO = 7
-      ELSE IF (LDB.LT.MAX(1,NROWA)) THEN
+      ELSEIF (LDB.LT.MAX(1,NROWA)) THEN
           INFO = 9
-      ELSE IF (LDC.LT.MAX(1,N)) THEN
+      ELSEIF (LDC.LT.MAX(1,N)) THEN
           INFO = 12
       endif
       IF (INFO.NE.0) THEN
@@ -277,33 +277,25 @@
       IF (ALPHA.EQ.ZERO) THEN
           IF (UPPER) THEN
               IF (BETA.EQ.DBLE(ZERO)) THEN
-                  DO 20 J = 1,N
-                      DO 10 I = 1,J
-                          C(I,J) = ZERO
-   10                 CONTINUE
-   20             CONTINUE
+                  DO J = 1,N
+                      C(1:J,J) = ZERO
+                  enddo    
               ELSE
-                  DO 40 J = 1,N
-                      DO 30 I = 1,J - 1
-                          C(I,J) = BETA*C(I,J)
-   30                 CONTINUE
+                  DO J = 1,N
+                      C(1:J-1,J) = BETA*C(1:J-1,J)
                       C(J,J) = BETA*DBLE(C(J,J))
-   40             CONTINUE
+                  enddo   
               endif
           ELSE
               IF (BETA.EQ.DBLE(ZERO)) THEN
-                  DO 60 J = 1,N
-                      DO 50 I = J,N
-                          C(I,J) = ZERO
-   50                 CONTINUE
-   60             CONTINUE
+                  DO J = 1,N
+                      C(J:N,J) = ZERO
+                  enddo   
               ELSE
-                  DO 80 J = 1,N
+                  DO J = 1,N
                       C(J,J) = BETA*DBLE(C(J,J))
-                      DO 70 I = J + 1,N
-                          C(I,J) = BETA*C(I,J)
-   70                 CONTINUE
-   80             CONTINUE
+                      C(J+1:N,J) = BETA*C(J+1:N,J)
+                  enddo   
               endif
           endif
           RETURN
@@ -317,55 +309,47 @@
 !                   C.
 !
           IF (UPPER) THEN
-              DO 130 J = 1,N
+              DO J = 1,N
                   IF (BETA.EQ.DBLE(ZERO)) THEN
-                      DO 90 I = 1,J
-                          C(I,J) = ZERO
-   90                 CONTINUE
-                  ELSE IF (BETA.NE.ONE) THEN
-                      DO 100 I = 1,J - 1
-                          C(I,J) = BETA*C(I,J)
-  100                 CONTINUE
+                      C(1:J,J) = ZERO
+                  ELSEIF (BETA.NE.ONE) THEN
+                      C(1:J-1,J) = BETA*C(1:J-1,J)
                       C(J,J) = BETA*DBLE(C(J,J))
                   ELSE
                       C(J,J) = DBLE(C(J,J))
                   endif
-                  DO 120 L = 1,K
+                  DO L = 1,K
                       IF ((A(J,L).NE.ZERO) .OR. (B(J,L).NE.ZERO)) THEN
                           TEMP1 = ALPHA*DCONJG(B(J,L))
                           TEMP2 = DCONJG(ALPHA*A(J,L))
-                          DO 110 I = 1,J - 1
+                          DO I = 1,J - 1
                               C(I,J) = C(I,J) + A(I,L)*TEMP1 + B(I,L)*TEMP2
-  110                     CONTINUE
+                          enddo   
                           C(J,J) = DBLE(C(J,J)) + DBLE(A(J,L)*TEMP1+B(J,L)*TEMP2)
                       endif
-  120             CONTINUE
-  130         CONTINUE
+                  enddo   
+              enddo   
           ELSE
-              DO 180 J = 1,N
+              DO J = 1,N
                   IF (BETA.EQ.DBLE(ZERO)) THEN
-                      DO 140 I = J,N
-                          C(I,J) = ZERO
-  140                 CONTINUE
-                  ELSE IF (BETA.NE.ONE) THEN
-                      DO 150 I = J + 1,N
-                          C(I,J) = BETA*C(I,J)
-  150                 CONTINUE
+                      C(J:N,J) = ZERO
+                  ELSEIF (BETA.NE.ONE) THEN
+                      C(J+1:N,J) = BETA*C(J+1:N,J)
                       C(J,J) = BETA*DBLE(C(J,J))
                   ELSE
                       C(J,J) = DBLE(C(J,J))
                   endif
-                  DO 170 L = 1,K
+                  DO L = 1,K
                       IF ((A(J,L).NE.ZERO) .OR. (B(J,L).NE.ZERO)) THEN
                           TEMP1 = ALPHA*DCONJG(B(J,L))
                           TEMP2 = DCONJG(ALPHA*A(J,L))
-                          DO 160 I = J + 1,N
+                          DO I = J + 1,N
                               C(I,J) = C(I,J) + A(I,L)*TEMP1 + B(I,L)*TEMP2
-  160                     CONTINUE
+                          enddo   
                           C(J,J) = DBLE(C(J,J)) + DBLE(A(J,L)*TEMP1+B(J,L)*TEMP2)
                       endif
-  170             CONTINUE
-  180         CONTINUE
+                  enddo   
+              enddo   
           endif
       ELSE
 !
@@ -373,14 +357,14 @@
 !                   C.
 !
           IF (UPPER) THEN
-              DO 210 J = 1,N
-                  DO 200 I = 1,J
+              DO J = 1,N
+                  DO I = 1,J
                       TEMP1 = ZERO
                       TEMP2 = ZERO
-                      DO 190 L = 1,K
+                      DO L = 1,K
                           TEMP1 = TEMP1 + DCONJG(A(L,I))*B(L,J)
                           TEMP2 = TEMP2 + DCONJG(B(L,I))*A(L,J)
-  190                 CONTINUE
+                      enddo   
                       IF (I.EQ.J) THEN
                           IF (BETA.EQ.DBLE(ZERO)) THEN
                               C(J,J) = DBLE(ALPHA*TEMP1+ DCONJG(ALPHA)*TEMP2)
@@ -394,17 +378,17 @@
                               C(I,J) = BETA*C(I,J) + ALPHA*TEMP1 + DCONJG(ALPHA)*TEMP2
                           endif
                       endif
-  200             CONTINUE
-  210         CONTINUE
+                  enddo   
+              enddo   
           ELSE
-              DO 240 J = 1,N
-                  DO 230 I = J,N
+              DO J = 1,N
+                  DO I = J,N
                       TEMP1 = ZERO
                       TEMP2 = ZERO
-                      DO 220 L = 1,K
+                      DO L = 1,K
                           TEMP1 = TEMP1 + DCONJG(A(L,I))*B(L,J)
                           TEMP2 = TEMP2 + DCONJG(B(L,I))*A(L,J)
-  220                 CONTINUE
+                      enddo   
                       IF (I.EQ.J) THEN
                           IF (BETA.EQ.DBLE(ZERO)) THEN
                               C(J,J) = DBLE(ALPHA*TEMP1+ DCONJG(ALPHA)*TEMP2)
@@ -418,8 +402,8 @@
                               C(I,J) = BETA*C(I,J) + ALPHA*TEMP1 + DCONJG(ALPHA)*TEMP2
                           endif
                       endif
-  230             CONTINUE
-  240         CONTINUE
+                  enddo   
+              enddo   
           endif
       endif
 
