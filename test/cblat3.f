@@ -122,7 +122,7 @@
      $                   CC( NMAX*NMAX ), CS( NMAX*NMAX ), CT( NMAX ),
      $                   W( 2*NMAX )
       REAL               G( NMAX )
-      INTEGER            IDIM( NIDMAX )
+      INTEGER            JDIM( NIDMAX )
       LOGICAL            LTEST( NSUBS )
       CHARACTER*6        SNAMES( NSUBS )
 *     .. External Functions ..
@@ -180,9 +180,9 @@
          WRITE( NOUT, FMT = 9997 )'N', NIDMAX
          GO TO 220
       END IF
-      READ( NIN, FMT = * )( IDIM( I ), I = 1, NIDIM )
+      READ( NIN, FMT = * )( JDIM( I ), I = 1, NIDIM )
       DO 10 I = 1, NIDIM
-         IF( IDIM( I ).LT.0.OR.IDIM( I ).GT.NMAX )THEN
+         IF( JDIM( I ).LT.0.OR.JDIM( I ).GT.NMAX )THEN
             WRITE( NOUT, FMT = 9996 )NMAX
             GO TO 220
          END IF
@@ -205,7 +205,7 @@
 *     Report values of parameters.
 *
       WRITE( NOUT, FMT = 9995 )
-      WRITE( NOUT, FMT = 9994 )( IDIM( I ), I = 1, NIDIM )
+      WRITE( NOUT, FMT = 9994 )( JDIM( I ), I = 1, NIDIM )
       WRITE( NOUT, FMT = 9993 )( ALF( I ), I = 1, NALF )
       WRITE( NOUT, FMT = 9992 )( BET( I ), I = 1, NBET )
       IF( .NOT.TSTERR )THEN
@@ -325,30 +325,30 @@
      $              180, 180 )ISNUM
 *           Test CGEMM, 01.
   140       CALL CCHK1( SNAMES( ISNUM ), EPS, THRESH, NOUT, NTRA, TRACE,
-     $                  REWI, FATAL, NIDIM, IDIM, NALF, ALF, NBET, BET,
+     $                  REWI, FATAL, NIDIM, JDIM, NALF, ALF, NBET, BET,
      $                  NMAX, AB, AA, AS, AB( 1, NMAX + 1 ), BB, BS, C,
      $                  CC, CS, CT, G )
             GO TO 190
 *           Test CHEMM, 02, CSYMM, 03.
   150       CALL CCHK2( SNAMES( ISNUM ), EPS, THRESH, NOUT, NTRA, TRACE,
-     $                  REWI, FATAL, NIDIM, IDIM, NALF, ALF, NBET, BET,
+     $                  REWI, FATAL, NIDIM, JDIM, NALF, ALF, NBET, BET,
      $                  NMAX, AB, AA, AS, AB( 1, NMAX + 1 ), BB, BS, C,
      $                  CC, CS, CT, G )
             GO TO 190
 *           Test CTRMM, 04, CTRSM, 05.
   160       CALL CCHK3( SNAMES( ISNUM ), EPS, THRESH, NOUT, NTRA, TRACE,
-     $                  REWI, FATAL, NIDIM, IDIM, NALF, ALF, NMAX, AB,
+     $                  REWI, FATAL, NIDIM, JDIM, NALF, ALF, NMAX, AB,
      $                  AA, AS, AB( 1, NMAX + 1 ), BB, BS, CT, G, C )
             GO TO 190
 *           Test CHERK, 06, CSYRK, 07.
   170       CALL CCHK4( SNAMES( ISNUM ), EPS, THRESH, NOUT, NTRA, TRACE,
-     $                  REWI, FATAL, NIDIM, IDIM, NALF, ALF, NBET, BET,
+     $                  REWI, FATAL, NIDIM, JDIM, NALF, ALF, NBET, BET,
      $                  NMAX, AB, AA, AS, AB( 1, NMAX + 1 ), BB, BS, C,
      $                  CC, CS, CT, G )
             GO TO 190
 *           Test CHER2K, 08, CSYR2K, 09.
   180       CALL CCHK5( SNAMES( ISNUM ), EPS, THRESH, NOUT, NTRA, TRACE,
-     $                  REWI, FATAL, NIDIM, IDIM, NALF, ALF, NBET, BET,
+     $                  REWI, FATAL, NIDIM, JDIM, NALF, ALF, NBET, BET,
      $                  NMAX, AB, AA, AS, BB, BS, C, CC, CS, CT, G, W )
             GO TO 190
 *
@@ -461,7 +461,7 @@
       END SUBROUTINE test_XERBLA
       END program
       SUBROUTINE CCHK1( SNAME, EPS, THRESH, NOUT, NTRA, TRACE, REWI,
-     $                  FATAL, NIDIM, IDIM, NALF, ALF, NBET, BET, NMAX,
+     $                  FATAL, NIDIM, JDIM, NALF, ALF, NBET, BET, NMAX,
      $                  A, AA, AS, B, BB, BS, C, CC, CS, CT, G )
 *
 *  Tests CGEMM.
@@ -491,14 +491,14 @@
      $                   C( NMAX, NMAX ), CC( NMAX*NMAX ),
      $                   CS( NMAX*NMAX ), CT( NMAX )
       REAL               G( NMAX )
-      INTEGER            IDIM( NIDIM )
+      INTEGER            JDIM( NIDIM )
 *     .. Local Scalars ..
       COMPLEX            ALPHA, ALS, BETA, BLS
       REAL               ERR, ERRMAX
       INTEGER            I, IA, IB, ICA, ICB, IK, IM, IN, K, KS, LAA,
      $                   LBB, LCC, LDA, LDAS, LDB, LDBS, LDC, LDCS, M,
      $                   MA, MB, MS, N, NA, NARGS, NB, NC, NS
-      LOGICAL            NULL, RESET, SAME, TRANA, TRANB
+      LOGICAL            NILL, RESET, SAME, TRANA, TRANB
       CHARACTER*1        TRANAS, TRANBS, TRANSA, TRANSB
       CHARACTER*3        ICH
 *     .. Local Arrays ..
@@ -525,10 +525,10 @@
       ERRMAX = RZERO
 *
       DO 110 IM = 1, NIDIM
-         M = IDIM( IM )
+         M = JDIM( IM )
 *
          DO 100 IN = 1, NIDIM
-            N = IDIM( IN )
+            N = JDIM( IN )
 *           Set LDC to 1 more than minimum value if room.
             LDC = M
             IF( LDC.LT.NMAX )
@@ -537,10 +537,10 @@
             IF( LDC.GT.NMAX )
      $         GO TO 100
             LCC = LDC*N
-            NULL = N.LE.0.OR.M.LE.0
+            NILL = N.LE.0.OR.M.LE.0
 *
             DO 90 IK = 1, NIDIM
-               K = IDIM( IK )
+               K = JDIM( IK )
 *
                DO 80 ICA = 1, 3
                   TRANSA = ICH( ICA: ICA )
@@ -660,7 +660,7 @@
                            ISAME( 9 ) = LCE( BS, BB, LBB )
                            ISAME( 10 ) = LDBS.EQ.LDB
                            ISAME( 11 ) = BLS.EQ.BETA
-                           IF( NULL )THEN
+                           IF( NILL )THEN
                               ISAME( 12 ) = LCE( CS, CC, LCC )
                            ELSE
                               ISAME( 12 ) = LCERES( 'GE', ' ', M, N, CS,
@@ -682,7 +682,7 @@
                               GO TO 120
                            END IF
 *
-                           IF( .NOT.NULL )THEN
+                           IF( .NOT.NILL )THEN
 *
 *                             Check the result.
 *
@@ -746,7 +746,7 @@
 *
       END
       SUBROUTINE CCHK2( SNAME, EPS, THRESH, NOUT, NTRA, TRACE, REWI,
-     $                  FATAL, NIDIM, IDIM, NALF, ALF, NBET, BET, NMAX,
+     $                  FATAL, NIDIM, JDIM, NALF, ALF, NBET, BET, NMAX,
      $                  A, AA, AS, B, BB, BS, C, CC, CS, CT, G )
 *
 *  Tests CHEMM and CSYMM.
@@ -776,14 +776,14 @@
      $                   C( NMAX, NMAX ), CC( NMAX*NMAX ),
      $                   CS( NMAX*NMAX ), CT( NMAX )
       REAL               G( NMAX )
-      INTEGER            IDIM( NIDIM )
+      INTEGER            JDIM( NIDIM )
 *     .. Local Scalars ..
       COMPLEX            ALPHA, ALS, BETA, BLS
       REAL               ERR, ERRMAX
       INTEGER            I, IA, IB, ICS, ICU, IM, IN, LAA, LBB, LCC,
      $                   LDA, LDAS, LDB, LDBS, LDC, LDCS, M, MS, N, NA,
      $                   NARGS, NC, NS
-      LOGICAL            CONJ, LEFT, NULL, RESET, SAME
+      LOGICAL            CONJ, LEFT, NILL, RESET, SAME
       CHARACTER*1        SIDE, SIDES, UPLO, UPLOS
       CHARACTER*2        ICHS, ICHU
 *     .. Local Arrays ..
@@ -811,10 +811,10 @@
       ERRMAX = RZERO
 *
       DO 100 IM = 1, NIDIM
-         M = IDIM( IM )
+         M = JDIM( IM )
 *
          DO 90 IN = 1, NIDIM
-            N = IDIM( IN )
+            N = JDIM( IN )
 *           Set LDC to 1 more than minimum value if room.
             LDC = M
             IF( LDC.LT.NMAX )
@@ -823,7 +823,7 @@
             IF( LDC.GT.NMAX )
      $         GO TO 90
             LCC = LDC*N
-            NULL = N.LE.0.OR.M.LE.0
+            NILL = N.LE.0.OR.M.LE.0
 *           Set LDB to 1 more than minimum value if room.
             LDB = M
             IF( LDB.LT.NMAX )
@@ -934,7 +934,7 @@
                         ISAME( 8 ) = LCE( BS, BB, LBB )
                         ISAME( 9 ) = LDBS.EQ.LDB
                         ISAME( 10 ) = BLS.EQ.BETA
-                        IF( NULL )THEN
+                        IF( NILL )THEN
                            ISAME( 11 ) = LCE( CS, CC, LCC )
                         ELSE
                            ISAME( 11 ) = LCERES( 'GE', ' ', M, N, CS,
@@ -956,7 +956,7 @@
                            GO TO 110
                         END IF
 *
-                        IF( .NOT.NULL )THEN
+                        IF( .NOT.NILL )THEN
 *
 *                          Check the result.
 *
@@ -1025,7 +1025,7 @@
 *
       END
       SUBROUTINE CCHK3( SNAME, EPS, THRESH, NOUT, NTRA, TRACE, REWI,
-     $                  FATAL, NIDIM, IDIM, NALF, ALF, NMAX, A, AA, AS,
+     $                  FATAL, NIDIM, JDIM, NALF, ALF, NMAX, A, AA, AS,
      $                  B, BB, BS, CT, G, C )
 *
 *  Tests CTRMM and CTRSM.
@@ -1054,14 +1054,14 @@
      $                   BB( NMAX*NMAX ), BS( NMAX*NMAX ),
      $                   C( NMAX, NMAX ), CT( NMAX )
       REAL               G( NMAX )
-      INTEGER            IDIM( NIDIM )
+      INTEGER            JDIM( NIDIM )
 *     .. Local Scalars ..
       COMPLEX            ALPHA, ALS
       REAL               ERR, ERRMAX
       INTEGER            I, IA, ICD, ICS, ICT, ICU, IM, IN, J, LAA, LBB,
      $                   LDA, LDAS, LDB, LDBS, M, MS, N, NA, NARGS, NC,
      $                   NS
-      LOGICAL            LEFT, NULL, RESET, SAME
+      LOGICAL            LEFT, NILL, RESET, SAME
       CHARACTER*1        DIAG, DIAGS, SIDE, SIDES, TRANAS, TRANSA, UPLO,
      $                   UPLOS
       CHARACTER*2        ICHD, ICHS, ICHU
@@ -1096,10 +1096,10 @@
    20 CONTINUE
 *
       DO 140 IM = 1, NIDIM
-         M = IDIM( IM )
+         M = JDIM( IM )
 *
          DO 130 IN = 1, NIDIM
-            N = IDIM( IN )
+            N = JDIM( IN )
 *           Set LDB to 1 more than minimum value if room.
             LDB = M
             IF( LDB.LT.NMAX )
@@ -1108,7 +1108,7 @@
             IF( LDB.GT.NMAX )
      $         GO TO 130
             LBB = LDB*N
-            NULL = M.LE.0.OR.N.LE.0
+            NILL = M.LE.0.OR.N.LE.0
 *
             DO 120 ICS = 1, 2
                SIDE = ICHS( ICS: ICS )
@@ -1211,7 +1211,7 @@
                            ISAME( 7 ) = ALS.EQ.ALPHA
                            ISAME( 8 ) = LCE( AS, AA, LAA )
                            ISAME( 9 ) = LDAS.EQ.LDA
-                           IF( NULL )THEN
+                           IF( NILL )THEN
                               ISAME( 10 ) = LCE( BS, BB, LBB )
                            ELSE
                               ISAME( 10 ) = LCERES( 'GE', ' ', M, N, BS,
@@ -1233,7 +1233,7 @@
                               GO TO 150
                            END IF
 *
-                           IF( .NOT.NULL )THEN
+                           IF( .NOT.NILL )THEN
                               IF( SNAME( 4: 5 ).EQ.'MM' )THEN
 *
 *                                Check the result.
@@ -1335,7 +1335,7 @@
 *
       END
       SUBROUTINE CCHK4( SNAME, EPS, THRESH, NOUT, NTRA, TRACE, REWI,
-     $                  FATAL, NIDIM, IDIM, NALF, ALF, NBET, BET, NMAX,
+     $                  FATAL, NIDIM, JDIM, NALF, ALF, NBET, BET, NMAX,
      $                  A, AA, AS, B, BB, BS, C, CC, CS, CT, G )
 *
 *  Tests CHERK and CSYRK.
@@ -1365,14 +1365,14 @@
      $                   C( NMAX, NMAX ), CC( NMAX*NMAX ),
      $                   CS( NMAX*NMAX ), CT( NMAX )
       REAL               G( NMAX )
-      INTEGER            IDIM( NIDIM )
+      INTEGER            JDIM( NIDIM )
 *     .. Local Scalars ..
       COMPLEX            ALPHA, ALS, BETA, BETS
       REAL               ERR, ERRMAX, RALPHA, RALS, RBETA, RBETS
       INTEGER            I, IA, IB, ICT, ICU, IK, IN, J, JC, JJ, K, KS,
      $                   LAA, LCC, LDA, LDAS, LDC, LDCS, LJ, MA, N, NA,
      $                   NARGS, NC, NS
-      LOGICAL            CONJ, NULL, RESET, SAME, TRAN, UPPER
+      LOGICAL            CONJ, NILL, RESET, SAME, TRAN, UPPER
       CHARACTER*1        TRANS, TRANSS, TRANST, UPLO, UPLOS
       CHARACTER*2        ICHT, ICHU
 *     .. Local Arrays ..
@@ -1400,7 +1400,7 @@
       ERRMAX = RZERO
 *
       DO 100 IN = 1, NIDIM
-         N = IDIM( IN )
+         N = JDIM( IN )
 *        Set LDC to 1 more than minimum value if room.
          LDC = N
          IF( LDC.LT.NMAX )
@@ -1411,7 +1411,7 @@
          LCC = LDC*N
 *
          DO 90 IK = 1, NIDIM
-            K = IDIM( IK )
+            K = JDIM( IK )
 *
             DO 80 ICT = 1, 2
                TRANS = ICHT( ICT: ICT )
@@ -1456,9 +1456,9 @@
                            RBETA = REAL( BETA )
                            BETA = CMPLX( RBETA, RZERO )
                         END IF
-                        NULL = N.LE.0
+                        NILL = N.LE.0
                         IF( CONJ )
-     $                     NULL = NULL.OR.( ( K.LE.0.OR.RALPHA.EQ.
+     $                     NILL = NILL.OR.( ( K.LE.0.OR.RALPHA.EQ.
      $                            RZERO ).AND.RBETA.EQ.RONE )
 *
 *                       Generate the matrix C.
@@ -1539,7 +1539,7 @@
                         ELSE
                            ISAME( 8 ) = BETS.EQ.BETA
                         END IF
-                        IF( NULL )THEN
+                        IF( NILL )THEN
                            ISAME( 9 ) = LCE( CS, CC, LCC )
                         ELSE
                            ISAME( 9 ) = LCERES( SNAME( 2: 3 ), UPLO, N,
@@ -1561,7 +1561,7 @@
                            GO TO 120
                         END IF
 *
-                        IF( .NOT.NULL )THEN
+                        IF( .NOT.NILL )THEN
 *
 *                          Check the result column by column.
 *
@@ -1667,7 +1667,7 @@
 *
       END
       SUBROUTINE CCHK5( SNAME, EPS, THRESH, NOUT, NTRA, TRACE, REWI,
-     $                  FATAL, NIDIM, IDIM, NALF, ALF, NBET, BET, NMAX,
+     $                  FATAL, NIDIM, JDIM, NALF, ALF, NBET, BET, NMAX,
      $                  AB, AA, AS, BB, BS, C, CC, CS, CT, G, W )
 *
 *  Tests CHER2K and CSYR2K.
@@ -1697,14 +1697,14 @@
      $                   CC( NMAX*NMAX ), CS( NMAX*NMAX ), CT( NMAX ),
      $                   W( 2*NMAX )
       REAL               G( NMAX )
-      INTEGER            IDIM( NIDIM )
+      INTEGER            JDIM( NIDIM )
 *     .. Local Scalars ..
       COMPLEX            ALPHA, ALS, BETA, BETS
       REAL               ERR, ERRMAX, RBETA, RBETS
       INTEGER            I, IA, IB, ICT, ICU, IK, IN, J, JC, JJ, JJAB,
      $                   K, KS, LAA, LBB, LCC, LDA, LDAS, LDB, LDBS,
      $                   LDC, LDCS, LJ, MA, N, NA, NARGS, NC, NS
-      LOGICAL            CONJ, NULL, RESET, SAME, TRAN, UPPER
+      LOGICAL            CONJ, NILL, RESET, SAME, TRAN, UPPER
       CHARACTER*1        TRANS, TRANSS, TRANST, UPLO, UPLOS
       CHARACTER*2        ICHT, ICHU
 *     .. Local Arrays ..
@@ -1732,7 +1732,7 @@
       ERRMAX = RZERO
 *
       DO 130 IN = 1, NIDIM
-         N = IDIM( IN )
+         N = JDIM( IN )
 *        Set LDC to 1 more than minimum value if room.
          LDC = N
          IF( LDC.LT.NMAX )
@@ -1743,7 +1743,7 @@
          LCC = LDC*N
 *
          DO 120 IK = 1, NIDIM
-            K = IDIM( IK )
+            K = JDIM( IK )
 *
             DO 110 ICT = 1, 2
                TRANS = ICHT( ICT: ICT )
@@ -1801,9 +1801,9 @@
                            RBETA = REAL( BETA )
                            BETA = CMPLX( RBETA, RZERO )
                         END IF
-                        NULL = N.LE.0
+                        NILL = N.LE.0
                         IF( CONJ )
-     $                     NULL = NULL.OR.( ( K.LE.0.OR.ALPHA.EQ.
+     $                     NILL = NILL.OR.( ( K.LE.0.OR.ALPHA.EQ.
      $                            ZERO ).AND.RBETA.EQ.RONE )
 *
 *                       Generate the matrix C.
@@ -1882,7 +1882,7 @@
                         ELSE
                            ISAME( 10 ) = BETS.EQ.BETA
                         END IF
-                        IF( NULL )THEN
+                        IF( NILL )THEN
                            ISAME( 11 ) = LCE( CS, CC, LCC )
                         ELSE
                            ISAME( 11 ) = LCERES( 'HE', UPLO, N, N, CS,
@@ -1904,7 +1904,7 @@
                            GO TO 150
                         END IF
 *
-                        IF( .NOT.NULL )THEN
+                        IF( .NOT.NILL )THEN
 *
 *                          Check the result column by column.
 *

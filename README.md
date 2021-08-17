@@ -1,9 +1,9 @@
-## NAME 
+## NAME
 ##  M_blas -- BLAS routines in a Fortran module format
 
 The BLAS (Basic Linear Algebra Subprograms) are well-established routines
 that provide standard building blocks for performing basic vector and
-matrix operations. 
+matrix operations.
 
 There are several versions of the library available; this is based off
 the Public Domain
@@ -55,7 +55,15 @@ their current libblas.a or libregblas.a.
    ```bash
         git clone https://github.com/urbanjost/M_blas.git
         cd M_blas
-	bash run.sh
+        # currently the tests are run from a script because they need redirection
+        # and I want some timing information and to test multiple compilers. You
+        # will have to make your own run script or run the tests manually if you
+        # do not have bash(1).
+        #
+        # Take out or add the compilers from run.sh you wish to run then execute
+        # the run.sh(1) script, twice if you just want run-times:
+        bash run.sh
+        # or just run "fpm build".
    ```
 
    or just list it as a dependency in your fpm.toml project file.
@@ -66,8 +74,8 @@ their current libblas.a or libregblas.a.
 ```
 ## References
 
-- There is an `fpm` version of the 
-  [reference BLAS library]( https://github.com/brocolis/blas.git) 
+- There is an `fpm` version of the
+  [reference BLAS library]( https://github.com/brocolis/blas.git)
   available.
 
 - See the homepage for [BLAS](http://www.netlib.org/blas)

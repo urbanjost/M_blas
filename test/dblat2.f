@@ -138,7 +138,7 @@
      $                   XX( NMAX*INCMAX ), Y( NMAX ),
      $                   YS( NMAX*INCMAX ), YT( NMAX ),
      $                   YY( NMAX*INCMAX ), Z( 2*NMAX )
-      INTEGER            IDIM( NIDMAX ), INC( NINMAX ), KB( NKBMAX )
+      INTEGER            JDIM( NIDMAX ), INC( NINMAX ), KB( NKBMAX )
       LOGICAL            LTEST( NSUBS )
       CHARACTER*6        SNAMES( NSUBS )
 *     .. External Functions ..
@@ -198,9 +198,9 @@
          WRITE( NOUT, FMT = 9997 )'N', NIDMAX
          GO TO 230
       END IF
-      READ( NIN, FMT = * )( IDIM( I ), I = 1, NIDIM )
+      READ( NIN, FMT = * )( JDIM( I ), I = 1, NIDIM )
       DO 10 I = 1, NIDIM
-         IF( IDIM( I ).LT.0.OR.IDIM( I ).GT.NMAX )THEN
+         IF( JDIM( I ).LT.0.OR.JDIM( I ).GT.NMAX )THEN
             WRITE( NOUT, FMT = 9996 )NMAX
             GO TO 230
          END IF
@@ -249,7 +249,7 @@
 *     Report values of parameters.
 *
       WRITE( NOUT, FMT = 9993 )
-      WRITE( NOUT, FMT = 9992 )( IDIM( I ), I = 1, NIDIM )
+      WRITE( NOUT, FMT = 9992 )( JDIM( I ), I = 1, NIDIM )
       WRITE( NOUT, FMT = 9991 )( KB( I ), I = 1, NKB )
       WRITE( NOUT, FMT = 9990 )( INC( I ), I = 1, NINC )
       WRITE( NOUT, FMT = 9989 )( ALF( I ), I = 1, NALF )
@@ -341,37 +341,37 @@
      $              190, 190 )ISNUM
 *           Test DGEMV, 01, and DGBMV, 02.
   140       CALL DCHK1( SNAMES( ISNUM ), EPS, THRESH, NOUT, NTRA, TRACE,
-     $                  REWI, FATAL, NIDIM, IDIM, NKB, KB, NALF, ALF,
+     $                  REWI, FATAL, NIDIM, JDIM, NKB, KB, NALF, ALF,
      $                  NBET, BET, NINC, INC, NMAX, INCMAX, A, AA, AS,
      $                  X, XX, XS, Y, YY, YS, YT, G )
             GO TO 200
 *           Test DSYMV, 03, DSBMV, 04, and DSPMV, 05.
   150       CALL DCHK2( SNAMES( ISNUM ), EPS, THRESH, NOUT, NTRA, TRACE,
-     $                  REWI, FATAL, NIDIM, IDIM, NKB, KB, NALF, ALF,
+     $                  REWI, FATAL, NIDIM, JDIM, NKB, KB, NALF, ALF,
      $                  NBET, BET, NINC, INC, NMAX, INCMAX, A, AA, AS,
      $                  X, XX, XS, Y, YY, YS, YT, G )
             GO TO 200
 *           Test DTRMV, 06, DTBMV, 07, DTPMV, 08,
 *           DTRSV, 09, DTBSV, 10, and DTPSV, 11.
   160       CALL DCHK3( SNAMES( ISNUM ), EPS, THRESH, NOUT, NTRA, TRACE,
-     $                  REWI, FATAL, NIDIM, IDIM, NKB, KB, NINC, INC,
+     $                  REWI, FATAL, NIDIM, JDIM, NKB, KB, NINC, INC,
      $                  NMAX, INCMAX, A, AA, AS, Y, YY, YS, YT, G, Z )
             GO TO 200
 *           Test DGER, 12.
   170       CALL DCHK4( SNAMES( ISNUM ), EPS, THRESH, NOUT, NTRA, TRACE,
-     $                  REWI, FATAL, NIDIM, IDIM, NALF, ALF, NINC, INC,
+     $                  REWI, FATAL, NIDIM, JDIM, NALF, ALF, NINC, INC,
      $                  NMAX, INCMAX, A, AA, AS, X, XX, XS, Y, YY, YS,
      $                  YT, G, Z )
             GO TO 200
 *           Test DSYR, 13, and DSPR, 14.
   180       CALL DCHK5( SNAMES( ISNUM ), EPS, THRESH, NOUT, NTRA, TRACE,
-     $                  REWI, FATAL, NIDIM, IDIM, NALF, ALF, NINC, INC,
+     $                  REWI, FATAL, NIDIM, JDIM, NALF, ALF, NINC, INC,
      $                  NMAX, INCMAX, A, AA, AS, X, XX, XS, Y, YY, YS,
      $                  YT, G, Z )
             GO TO 200
 *           Test DSYR2, 15, and DSPR2, 16.
   190       CALL DCHK6( SNAMES( ISNUM ), EPS, THRESH, NOUT, NTRA, TRACE,
-     $                  REWI, FATAL, NIDIM, IDIM, NALF, ALF, NINC, INC,
+     $                  REWI, FATAL, NIDIM, JDIM, NALF, ALF, NINC, INC,
      $                  NMAX, INCMAX, A, AA, AS, X, XX, XS, Y, YY, YS,
      $                  YT, G, Z )
 *
@@ -485,7 +485,7 @@
 
       END PROGRAM DBLAT2
       SUBROUTINE DCHK1( SNAME, EPS, THRESH, NOUT, NTRA, TRACE, REWI,
-     $                  FATAL, NIDIM, IDIM, NKB, KB, NALF, ALF, NBET,
+     $                  FATAL, NIDIM, JDIM, NKB, KB, NALF, ALF, NBET,
      $                  BET, NINC, INC, NMAX, INCMAX, A, AA, AS, X, XX,
      $                  XS, Y, YY, YS, YT, G )
 *
@@ -513,14 +513,14 @@
      $                   XX( NMAX*INCMAX ), Y( NMAX ),
      $                   YS( NMAX*INCMAX ), YT( NMAX ),
      $                   YY( NMAX*INCMAX )
-      INTEGER            IDIM( NIDIM ), INC( NINC ), KB( NKB )
+      INTEGER            JDIM( NIDIM ), INC( NINC ), KB( NKB )
 *     .. Local Scalars ..
       DOUBLE PRECISION   ALPHA, ALS, BETA, BLS, ERR, ERRMAX, TRANSL
       INTEGER            I, IA, IB, IC, IKU, IM, IN, INCX, INCXS, INCY,
      $                   INCYS, IX, IY, KL, KLS, KU, KUS, LAA, LDA,
      $                   LDAS, LX, LY, M, ML, MS, N, NARGS, NC, ND, NK,
      $                   NL, NS
-      LOGICAL            BANDED, FULL, NULL, RESET, SAME, TRAN
+      LOGICAL            BANDED, FULL, NILL, RESET, SAME, TRAN
       CHARACTER*1        TRANS, TRANSS
       CHARACTER*3        ICH
 *     .. Local Arrays ..
@@ -554,7 +554,7 @@
       ERRMAX = ZERO
 *
       DO 120 IN = 1, NIDIM
-         N = IDIM( IN )
+         N = JDIM( IN )
          ND = N/2 + 1
 *
          DO 110 IM = 1, 2
@@ -588,7 +588,7 @@
                IF( LDA.GT.NMAX )
      $            GO TO 100
                LAA = LDA*N
-               NULL = N.LE.0.OR.M.LE.0
+               NILL = N.LE.0.OR.M.LE.0
 *
 *              Generate the matrix A.
 *
@@ -708,7 +708,7 @@
                                  ISAME( 7 ) = LDE( XS, XX, LX )
                                  ISAME( 8 ) = INCXS.EQ.INCX
                                  ISAME( 9 ) = BLS.EQ.BETA
-                                 IF( NULL )THEN
+                                 IF( NILL )THEN
                                     ISAME( 10 ) = LDE( YS, YY, LY )
                                  ELSE
                                     ISAME( 10 ) = LDERES( 'GE', ' ', 1,
@@ -725,7 +725,7 @@
                                  ISAME( 9 ) = LDE( XS, XX, LX )
                                  ISAME( 10 ) = INCXS.EQ.INCX
                                  ISAME( 11 ) = BLS.EQ.BETA
-                                 IF( NULL )THEN
+                                 IF( NILL )THEN
                                     ISAME( 12 ) = LDE( YS, YY, LY )
                                  ELSE
                                     ISAME( 12 ) = LDERES( 'GE', ' ', 1,
@@ -749,7 +749,7 @@
                                  GO TO 130
                               END IF
 *
-                              IF( .NOT.NULL )THEN
+                              IF( .NOT.NILL )THEN
 *
 *                                Check the result.
 *
@@ -826,7 +826,7 @@
 *
       END
       SUBROUTINE DCHK2( SNAME, EPS, THRESH, NOUT, NTRA, TRACE, REWI,
-     $                  FATAL, NIDIM, IDIM, NKB, KB, NALF, ALF, NBET,
+     $                  FATAL, NIDIM, JDIM, NKB, KB, NALF, ALF, NBET,
      $                  BET, NINC, INC, NMAX, INCMAX, A, AA, AS, X, XX,
      $                  XS, Y, YY, YS, YT, G )
 *
@@ -854,13 +854,13 @@
      $                   XX( NMAX*INCMAX ), Y( NMAX ),
      $                   YS( NMAX*INCMAX ), YT( NMAX ),
      $                   YY( NMAX*INCMAX )
-      INTEGER            IDIM( NIDIM ), INC( NINC ), KB( NKB )
+      INTEGER            JDIM( NIDIM ), INC( NINC ), KB( NKB )
 *     .. Local Scalars ..
       DOUBLE PRECISION   ALPHA, ALS, BETA, BLS, ERR, ERRMAX, TRANSL
       INTEGER            I, IA, IB, IC, IK, IN, INCX, INCXS, INCY,
      $                   INCYS, IX, IY, K, KS, LAA, LDA, LDAS, LX, LY,
      $                   N, NARGS, NC, NK, NS
-      LOGICAL            BANDED, FULL, NULL, PACKED, RESET, SAME
+      LOGICAL            BANDED, FULL, NILL, PACKED, RESET, SAME
       CHARACTER*1        UPLO, UPLOS
       CHARACTER*2        ICH
 *     .. Local Arrays ..
@@ -897,7 +897,7 @@
       ERRMAX = ZERO
 *
       DO 110 IN = 1, NIDIM
-         N = IDIM( IN )
+         N = JDIM( IN )
 *
          IF( BANDED )THEN
             NK = NKB
@@ -926,7 +926,7 @@
             ELSE
                LAA = LDA*N
             END IF
-            NULL = N.LE.0
+            NILL = N.LE.0
 *
             DO 90 IC = 1, 2
                UPLO = ICH( IC: IC )
@@ -1039,7 +1039,7 @@
                               ISAME( 6 ) = LDE( XS, XX, LX )
                               ISAME( 7 ) = INCXS.EQ.INCX
                               ISAME( 8 ) = BLS.EQ.BETA
-                              IF( NULL )THEN
+                              IF( NILL )THEN
                                  ISAME( 9 ) = LDE( YS, YY, LY )
                               ELSE
                                  ISAME( 9 ) = LDERES( 'GE', ' ', 1, N,
@@ -1054,7 +1054,7 @@
                               ISAME( 7 ) = LDE( XS, XX, LX )
                               ISAME( 8 ) = INCXS.EQ.INCX
                               ISAME( 9 ) = BLS.EQ.BETA
-                              IF( NULL )THEN
+                              IF( NILL )THEN
                                  ISAME( 10 ) = LDE( YS, YY, LY )
                               ELSE
                                  ISAME( 10 ) = LDERES( 'GE', ' ', 1, N,
@@ -1067,7 +1067,7 @@
                               ISAME( 5 ) = LDE( XS, XX, LX )
                               ISAME( 6 ) = INCXS.EQ.INCX
                               ISAME( 7 ) = BLS.EQ.BETA
-                              IF( NULL )THEN
+                              IF( NILL )THEN
                                  ISAME( 8 ) = LDE( YS, YY, LY )
                               ELSE
                                  ISAME( 8 ) = LDERES( 'GE', ' ', 1, N,
@@ -1090,7 +1090,7 @@
                               GO TO 120
                            END IF
 *
-                           IF( .NOT.NULL )THEN
+                           IF( .NOT.NILL )THEN
 *
 *                             Check the result.
 *
@@ -1169,7 +1169,7 @@
 *
       END
       SUBROUTINE DCHK3( SNAME, EPS, THRESH, NOUT, NTRA, TRACE, REWI,
-     $                  FATAL, NIDIM, IDIM, NKB, KB, NINC, INC, NMAX,
+     $                  FATAL, NIDIM, JDIM, NKB, KB, NINC, INC, NMAX,
      $                  INCMAX, A, AA, AS, X, XX, XS, XT, G, Z )
 *
 *  Tests DTRMV, DTBMV, DTPMV, DTRSV, DTBSV and DTPSV.
@@ -1193,12 +1193,12 @@
      $                   AS( NMAX*NMAX ), G( NMAX ), X( NMAX ),
      $                   XS( NMAX*INCMAX ), XT( NMAX ),
      $                   XX( NMAX*INCMAX ), Z( NMAX )
-      INTEGER            IDIM( NIDIM ), INC( NINC ), KB( NKB )
+      INTEGER            JDIM( NIDIM ), INC( NINC ), KB( NKB )
 *     .. Local Scalars ..
       DOUBLE PRECISION   ERR, ERRMAX, TRANSL
       INTEGER            I, ICD, ICT, ICU, IK, IN, INCX, INCXS, IX, K,
      $                   KS, LAA, LDA, LDAS, LX, N, NARGS, NC, NK, NS
-      LOGICAL            BANDED, FULL, NULL, PACKED, RESET, SAME
+      LOGICAL            BANDED, FULL, NILL, PACKED, RESET, SAME
       CHARACTER*1        DIAG, DIAGS, TRANS, TRANSS, UPLO, UPLOS
       CHARACTER*2        ICHD, ICHU
       CHARACTER*3        ICHT
@@ -1241,7 +1241,7 @@
    10 CONTINUE
 *
       DO 110 IN = 1, NIDIM
-         N = IDIM( IN )
+         N = JDIM( IN )
 *
          IF( BANDED )THEN
             NK = NKB
@@ -1270,7 +1270,7 @@
             ELSE
                LAA = LDA*N
             END IF
-            NULL = N.LE.0
+            NILL = N.LE.0
 *
             DO 90 ICU = 1, 2
                UPLO = ICHU( ICU: ICU )
@@ -1393,7 +1393,7 @@
                         IF( FULL )THEN
                            ISAME( 5 ) = LDE( AS, AA, LAA )
                            ISAME( 6 ) = LDAS.EQ.LDA
-                           IF( NULL )THEN
+                           IF( NILL )THEN
                               ISAME( 7 ) = LDE( XS, XX, LX )
                            ELSE
                               ISAME( 7 ) = LDERES( 'GE', ' ', 1, N, XS,
@@ -1404,7 +1404,7 @@
                            ISAME( 5 ) = KS.EQ.K
                            ISAME( 6 ) = LDE( AS, AA, LAA )
                            ISAME( 7 ) = LDAS.EQ.LDA
-                           IF( NULL )THEN
+                           IF( NILL )THEN
                               ISAME( 8 ) = LDE( XS, XX, LX )
                            ELSE
                               ISAME( 8 ) = LDERES( 'GE', ' ', 1, N, XS,
@@ -1413,7 +1413,7 @@
                            ISAME( 9 ) = INCXS.EQ.INCX
                         ELSE IF( PACKED )THEN
                            ISAME( 5 ) = LDE( AS, AA, LAA )
-                           IF( NULL )THEN
+                           IF( NILL )THEN
                               ISAME( 6 ) = LDE( XS, XX, LX )
                            ELSE
                               ISAME( 6 ) = LDERES( 'GE', ' ', 1, N, XS,
@@ -1436,7 +1436,7 @@
                            GO TO 120
                         END IF
 *
-                        IF( .NOT.NULL )THEN
+                        IF( .NOT.NILL )THEN
                            IF( SNAME( 4: 5 ).EQ.'MV' )THEN
 *
 *                             Check the result.
@@ -1526,7 +1526,7 @@
 *
       END
       SUBROUTINE DCHK4( SNAME, EPS, THRESH, NOUT, NTRA, TRACE, REWI,
-     $                  FATAL, NIDIM, IDIM, NALF, ALF, NINC, INC, NMAX,
+     $                  FATAL, NIDIM, JDIM, NALF, ALF, NINC, INC, NMAX,
      $                  INCMAX, A, AA, AS, X, XX, XS, Y, YY, YS, YT, G,
      $                  Z )
 *
@@ -1552,13 +1552,13 @@
      $                   XS( NMAX*INCMAX ), XX( NMAX*INCMAX ),
      $                   Y( NMAX ), YS( NMAX*INCMAX ), YT( NMAX ),
      $                   YY( NMAX*INCMAX ), Z( NMAX )
-      INTEGER            IDIM( NIDIM ), INC( NINC )
+      INTEGER            JDIM( NIDIM ), INC( NINC )
 *     .. Local Scalars ..
       DOUBLE PRECISION   ALPHA, ALS, ERR, ERRMAX, TRANSL
       INTEGER            I, IA, IM, IN, INCX, INCXS, INCY, INCYS, IX,
      $                   IY, J, LAA, LDA, LDAS, LX, LY, M, MS, N, NARGS,
      $                   NC, ND, NS
-      LOGICAL            NULL, RESET, SAME
+      LOGICAL            NILL, RESET, SAME
 *     .. Local Arrays ..
       DOUBLE PRECISION   W( 1 )
       LOGICAL            ISAME( 13 )
@@ -1583,7 +1583,7 @@
       ERRMAX = ZERO
 *
       DO 120 IN = 1, NIDIM
-         N = IDIM( IN )
+         N = JDIM( IN )
          ND = N/2 + 1
 *
          DO 110 IM = 1, 2
@@ -1600,7 +1600,7 @@
             IF( LDA.GT.NMAX )
      $         GO TO 110
             LAA = LDA*N
-            NULL = N.LE.0.OR.M.LE.0
+            NILL = N.LE.0.OR.M.LE.0
 *
             DO 100 IX = 1, NINC
                INCX = INC( IX )
@@ -1686,7 +1686,7 @@
                      ISAME( 5 ) = INCXS.EQ.INCX
                      ISAME( 6 ) = LDE( YS, YY, LY )
                      ISAME( 7 ) = INCYS.EQ.INCY
-                     IF( NULL )THEN
+                     IF( NILL )THEN
                         ISAME( 8 ) = LDE( AS, AA, LAA )
                      ELSE
                         ISAME( 8 ) = LDERES( 'GE', ' ', M, N, AS, AA,
@@ -1707,7 +1707,7 @@
                         GO TO 140
                      END IF
 *
-                     IF( .NOT.NULL )THEN
+                     IF( .NOT.NILL )THEN
 *
 *                       Check the result column by column.
 *
@@ -1787,7 +1787,7 @@
 *
       END
       SUBROUTINE DCHK5( SNAME, EPS, THRESH, NOUT, NTRA, TRACE, REWI,
-     $                  FATAL, NIDIM, IDIM, NALF, ALF, NINC, INC, NMAX,
+     $                  FATAL, NIDIM, JDIM, NALF, ALF, NINC, INC, NMAX,
      $                  INCMAX, A, AA, AS, X, XX, XS, Y, YY, YS, YT, G,
      $                  Z )
 *
@@ -1813,12 +1813,12 @@
      $                   XS( NMAX*INCMAX ), XX( NMAX*INCMAX ),
      $                   Y( NMAX ), YS( NMAX*INCMAX ), YT( NMAX ),
      $                   YY( NMAX*INCMAX ), Z( NMAX )
-      INTEGER            IDIM( NIDIM ), INC( NINC )
+      INTEGER            JDIM( NIDIM ), INC( NINC )
 *     .. Local Scalars ..
       DOUBLE PRECISION   ALPHA, ALS, ERR, ERRMAX, TRANSL
       INTEGER            I, IA, IC, IN, INCX, INCXS, IX, J, JA, JJ, LAA,
      $                   LDA, LDAS, LJ, LX, N, NARGS, NC, NS
-      LOGICAL            FULL, NULL, PACKED, RESET, SAME, UPPER
+      LOGICAL            FULL, NILL, PACKED, RESET, SAME, UPPER
       CHARACTER*1        UPLO, UPLOS
       CHARACTER*2        ICH
 *     .. Local Arrays ..
@@ -1853,7 +1853,7 @@
       ERRMAX = ZERO
 *
       DO 100 IN = 1, NIDIM
-         N = IDIM( IN )
+         N = JDIM( IN )
 *        Set LDA to 1 more than minimum value if room.
          LDA = N
          IF( LDA.LT.NMAX )
@@ -1887,7 +1887,7 @@
 *
                DO 70 IA = 1, NALF
                   ALPHA = ALF( IA )
-                  NULL = N.LE.0.OR.ALPHA.EQ.ZERO
+                  NILL = N.LE.0.OR.ALPHA.EQ.ZERO
 *
 *                 Generate the matrix A.
 *
@@ -1944,7 +1944,7 @@
                   ISAME( 3 ) = ALS.EQ.ALPHA
                   ISAME( 4 ) = LDE( XS, XX, LX )
                   ISAME( 5 ) = INCXS.EQ.INCX
-                  IF( NULL )THEN
+                  IF( NILL )THEN
                      ISAME( 6 ) = LDE( AS, AA, LAA )
                   ELSE
                      ISAME( 6 ) = LDERES( SNAME( 2: 3 ), UPLO, N, N, AS,
@@ -1967,7 +1967,7 @@
                      GO TO 120
                   END IF
 *
-                  IF( .NOT.NULL )THEN
+                  IF( .NOT.NILL )THEN
 *
 *                    Check the result column by column.
 *
@@ -2065,7 +2065,7 @@
 *
       END
       SUBROUTINE DCHK6( SNAME, EPS, THRESH, NOUT, NTRA, TRACE, REWI,
-     $                  FATAL, NIDIM, IDIM, NALF, ALF, NINC, INC, NMAX,
+     $                  FATAL, NIDIM, JDIM, NALF, ALF, NINC, INC, NMAX,
      $                  INCMAX, A, AA, AS, X, XX, XS, Y, YY, YS, YT, G,
      $                  Z )
 *
@@ -2091,13 +2091,13 @@
      $                   XS( NMAX*INCMAX ), XX( NMAX*INCMAX ),
      $                   Y( NMAX ), YS( NMAX*INCMAX ), YT( NMAX ),
      $                   YY( NMAX*INCMAX ), Z( NMAX, 2 )
-      INTEGER            IDIM( NIDIM ), INC( NINC )
+      INTEGER            JDIM( NIDIM ), INC( NINC )
 *     .. Local Scalars ..
       DOUBLE PRECISION   ALPHA, ALS, ERR, ERRMAX, TRANSL
       INTEGER            I, IA, IC, IN, INCX, INCXS, INCY, INCYS, IX,
      $                   IY, J, JA, JJ, LAA, LDA, LDAS, LJ, LX, LY, N,
      $                   NARGS, NC, NS
-      LOGICAL            FULL, NULL, PACKED, RESET, SAME, UPPER
+      LOGICAL            FULL, NILL, PACKED, RESET, SAME, UPPER
       CHARACTER*1        UPLO, UPLOS
       CHARACTER*2        ICH
 *     .. Local Arrays ..
@@ -2132,7 +2132,7 @@
       ERRMAX = ZERO
 *
       DO 140 IN = 1, NIDIM
-         N = IDIM( IN )
+         N = JDIM( IN )
 *        Set LDA to 1 more than minimum value if room.
          LDA = N
          IF( LDA.LT.NMAX )
@@ -2180,7 +2180,7 @@
 *
                   DO 100 IA = 1, NALF
                      ALPHA = ALF( IA )
-                     NULL = N.LE.0.OR.ALPHA.EQ.ZERO
+                     NILL = N.LE.0.OR.ALPHA.EQ.ZERO
 *
 *                    Generate the matrix A.
 *
@@ -2246,7 +2246,7 @@
                      ISAME( 5 ) = INCXS.EQ.INCX
                      ISAME( 6 ) = LDE( YS, YY, LY )
                      ISAME( 7 ) = INCYS.EQ.INCY
-                     IF( NULL )THEN
+                     IF( NILL )THEN
                         ISAME( 8 ) = LDE( AS, AA, LAA )
                      ELSE
                         ISAME( 8 ) = LDERES( SNAME( 2: 3 ), UPLO, N, N,
@@ -2269,7 +2269,7 @@
                         GO TO 160
                      END IF
 *
-                     IF( .NOT.NULL )THEN
+                     IF( .NOT.NILL )THEN
 *
 *                       Check the result column by column.
 *

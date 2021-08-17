@@ -127,7 +127,7 @@
 *     .. Local Scalars ..
       COMPLEX*16        CA
       DOUBLE PRECISION  SA
-      INTEGER           I, IX, J, LEN, NP1
+      INTEGER           I, IX, J, LENG, NP1
 *     .. Local Arrays ..
       COMPLEX*16        CTRUE5(8,5,2), CTRUE6(8,5,2), CV(8,5,2), CVR(8),
      +                  CX(8), CXR(15), MWPCS(5), MWPCT(5)
@@ -246,9 +246,9 @@
       DO 60 INCX = 1, 2
          DO 40 NP1 = 1, 5
             N = NP1 - 1
-            LEN = 2*MAX(N,1)
+            LENG = 2*MAX(N,1)
 *           .. Set vector arguments ..
-            DO 20 I = 1, LEN
+            DO 20 I = 1, LENG
                CX(I) = CV(I,NP1,INCX)
    20       CONTINUE
             IF (ICASE.EQ.6) THEN
@@ -262,17 +262,17 @@
             ELSE IF (ICASE.EQ.8) THEN
 *              .. ZSCAL ..
                CALL ZSCAL(N,CA,CX,INCX)
-               CALL CTEST(LEN,CX,CTRUE5(1,NP1,INCX),CTRUE5(1,NP1,INCX),
+               CALL CTEST(LENG,CX,CTRUE5(1,NP1,INCX),CTRUE5(1,NP1,INCX),
      +                    SFAC)
             ELSE IF (ICASE.EQ.9) THEN
 *              .. ZDSCAL ..
                CALL ZDSCAL(N,SA,CX,INCX)
-               CALL CTEST(LEN,CX,CTRUE6(1,NP1,INCX),CTRUE6(1,NP1,INCX),
+               CALL CTEST(LENG,CX,CTRUE6(1,NP1,INCX),CTRUE6(1,NP1,INCX),
      +                    SFAC)
             ELSE IF (ICASE.EQ.10) THEN
 *              .. IZAMAX ..
                CALL ITEST1(IZAMAX(N,CX,INCX),ITRUE3(NP1))
-               DO 160 I = 1, LEN
+               DO 160 I = 1, LENG
                   CX(I) = (42.0D0,43.0D0)
   160          CONTINUE
                CALL ITEST1(IZAMAX(N,CX,INCX),ITRUEC(NP1))
@@ -596,10 +596,10 @@
    60 CONTINUE
       RETURN
       END
-      SUBROUTINE STEST(LEN,SCOMP,STRUE,SSIZE,SFAC)
+      SUBROUTINE STEST(LENG,SCOMP,STRUE,SSIZE,SFAC)
 *     ********************************* STEST **************************
 *
-*     THIS SUBR COMPARES ARRAYS  SCOMP() AND STRUE() OF LENGTH LEN TO
+*     THIS SUBR COMPARES ARRAYS  SCOMP() AND STRUE() OF LENGTH LENG TO
 *     SEE IF THE TERM BY TERM DIFFERENCES, MULTIPLIED BY SFAC, ARE
 *     NEGLIGIBLE.
 *
@@ -611,9 +611,9 @@
       PARAMETER        (NOUT=6, ZERO=0.0D0)
 *     .. Scalar Arguments ..
       DOUBLE PRECISION SFAC
-      INTEGER          LEN
+      INTEGER          LENG
 *     .. Array Arguments ..
-      DOUBLE PRECISION SCOMP(LEN), SSIZE(LEN), STRUE(LEN)
+      DOUBLE PRECISION SCOMP(LENG), SSIZE(LENG), STRUE(LENG)
 *     .. Scalars in Common ..
       INTEGER          ICASE, INCX, INCY, MODE, N
       LOGICAL          PASS
@@ -629,7 +629,7 @@
       COMMON           /COMBLA/ICASE, N, INCX, INCY, MODE, PASS
 *     .. Executable Statements ..
 *
-      DO 40 I = 1, LEN
+      DO 40 I = 1, LENG
          SD = SCOMP(I) - STRUE(I)
          IF (ABS(SFAC*SD) .LE. ABS(SSIZE(I))*EPSILON(ZERO))
      +       GO TO 40
@@ -687,16 +687,16 @@
       SDIFF = SA - SB
       RETURN
       END
-      SUBROUTINE CTEST(LEN,CCOMP,CTRUE,CSIZE,SFAC)
+      SUBROUTINE CTEST(LENG,CCOMP,CTRUE,CSIZE,SFAC)
 *     **************************** CTEST *****************************
 *
 *     C.L. LAWSON, JPL, 1978 DEC 6
 *
 *     .. Scalar Arguments ..
       DOUBLE PRECISION SFAC
-      INTEGER          LEN
+      INTEGER          LENG
 *     .. Array Arguments ..
-      COMPLEX*16       CCOMP(LEN), CSIZE(LEN), CTRUE(LEN)
+      COMPLEX*16       CCOMP(LENG), CSIZE(LENG), CTRUE(LENG)
 *     .. Local Scalars ..
       INTEGER          I
 *     .. Local Arrays ..
@@ -706,7 +706,7 @@
 *     .. Intrinsic Functions ..
       INTRINSIC        DIMAG, DBLE
 *     .. Executable Statements ..
-      DO 20 I = 1, LEN
+      DO 20 I = 1, LENG
          SCOMP(2*I-1) = DBLE(CCOMP(I))
          SCOMP(2*I) = DIMAG(CCOMP(I))
          STRUE(2*I-1) = DBLE(CTRUE(I))
@@ -715,7 +715,7 @@
          SSIZE(2*I) = DIMAG(CSIZE(I))
    20 CONTINUE
 *
-      CALL STEST(2*LEN,SCOMP,STRUE,SSIZE,SFAC)
+      CALL STEST(2*LENG,SCOMP,STRUE,SSIZE,SFAC)
       RETURN
       END
       SUBROUTINE ITEST1(ICOMP,ITRUE)

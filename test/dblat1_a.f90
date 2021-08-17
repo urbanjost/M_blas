@@ -241,7 +241,7 @@ contains
       INTEGER           ICASE, INCX, INCY, N
       LOGICAL           PASS
 !     .. Local Scalars ..
-      INTEGER           I, IX, LEN, NP1
+      INTEGER           I, IX, LENG, NP1
 !     .. Local Arrays ..
       DOUBLE PRECISION  DTRUE1(5), DTRUE3(5), DTRUE5(8,5,2), DV(8,5,2), DVR(8), SA(10), STEMP(1), STRUE(8), SX(8), SXR(15)
       INTEGER           ITRUE2(5), ITRUEC(5)
@@ -289,9 +289,9 @@ contains
       DO 80 INCX = 1, 2
          DO 60 NP1 = 1, 5
             N = NP1 - 1
-            LEN = 2*MAX(N,1)
+            LENG = 2*MAX(N,1)
 !           .. Set vector arguments ..
-            DO 20 I = 1, LEN
+            DO 20 I = 1, LENG
                SX(I) = DV(I,NP1,INCX)
    20       CONTINUE
 !
@@ -306,14 +306,14 @@ contains
             ELSE IF (ICASE.EQ.9) THEN
 !              .. DSCAL ..
                CALL DSCAL(N,SA((INCX-1)*5+NP1),SX,INCX)
-               DO 40 I = 1, LEN
+               DO 40 I = 1, LENG
                   STRUE(I) = DTRUE5(I,NP1,INCX)
    40          CONTINUE
-               CALL STEST(LEN,SX,STRUE,STRUE,SFAC)
+               CALL STEST(LENG,SX,STRUE,STRUE,SFAC)
             ELSE IF (ICASE.EQ.10) THEN
 !              .. IDAMAX ..
                CALL ITEST1(IDAMAX(N,SX,INCX),ITRUE2(NP1))
-               DO 100 I = 1, LEN
+               DO 100 I = 1, LENG
                   SX(I) = 42.0D0
   100          CONTINUE
                CALL ITEST1(IDAMAX(N,SX,INCX),ITRUEC(NP1))
@@ -884,10 +884,10 @@ contains
   200 CONTINUE
       RETURN
       END
-      SUBROUTINE STEST(LEN,SCOMP,STRUE,SSIZE,SFAC)
+      SUBROUTINE STEST(LENG,SCOMP,STRUE,SSIZE,SFAC)
 !     ********************************* STEST **************************
 !
-!     THIS SUBR COMPARES ARRAYS  SCOMP() AND STRUE() OF LENGTH LEN TO
+!     THIS SUBR COMPARES ARRAYS  SCOMP() AND STRUE() OF LENGTH LENG TO
 !     SEE IF THE TERM BY TERM DIFFERENCES, MULTIPLIED BY SFAC, ARE
 !     NEGLIGIBLE.
 !
@@ -899,9 +899,9 @@ contains
       PARAMETER        (NOUT=6, ZERO=0.0D0)
 !     .. Scalar Arguments ..
       DOUBLE PRECISION SFAC
-      INTEGER          LEN
+      INTEGER          LENG
 !     .. Array Arguments ..
-      DOUBLE PRECISION SCOMP(LEN), SSIZE(LEN), STRUE(LEN)
+      DOUBLE PRECISION SCOMP(LENG), SSIZE(LENG), STRUE(LENG)
 !     .. Scalars in Common ..
       INTEGER          ICASE, INCX, INCY, N
       LOGICAL          PASS
@@ -915,7 +915,7 @@ contains
       COMMON           /COMBLA/ICASE, N, INCX, INCY, PASS
 !     .. Executable Statements ..
 !
-      DO 40 I = 1, LEN
+      DO 40 I = 1, LENG
          SD = SCOMP(I) - STRUE(I)
          IF (ABS(SFAC*SD) .LE. ABS(SSIZE(I))*EPSILON(ZERO)) GO TO 40
 !
@@ -939,7 +939,7 @@ contains
       SUBROUTINE TESTDSDOT(SCOMP,STRUE,SSIZE,SFAC)
 !     ********************************* STEST **************************
 !
-!     THIS SUBR COMPARES ARRAYS  SCOMP() AND STRUE() OF LENGTH LEN TO
+!     THIS SUBR COMPARES ARRAYS  SCOMP() AND STRUE() OF LENGTH LENG TO
 !     SEE IF THE TERM BY TERM DIFFERENCES, MULTIPLIED BY SFAC, ARE
 !     NEGLIGIBLE.
 !
