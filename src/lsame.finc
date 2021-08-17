@@ -92,7 +92,7 @@ implicit none
           if (inta.ge.97 .and. inta.le.122) inta = inta - 32
           if (intb.ge.97 .and. intb.le.122) intb = intb - 32
 
-      else if (zcode.eq.233 .or. zcode.eq.169) then
+      elseif (zcode.eq.233 .or. zcode.eq.169) then
 
 !        EBCDIC is assumed - ZCODE is the EBCDIC code of either lower or
 !        upper case 'Z'.
@@ -100,7 +100,7 @@ implicit none
           if (inta.ge.129 .and. inta.le.137 .or.  inta.ge.145 .and. inta.le.153 .or. inta.ge.162 .and. inta.le.169) inta = inta + 64
           if (intb.ge.129 .and. intb.le.137 .or.  intb.ge.145 .and. intb.le.153 .or. intb.ge.162 .and. intb.le.169) intb = intb + 64
 
-      else if (zcode.eq.218 .or. zcode.eq.250) then
+      elseif (zcode.eq.218 .or. zcode.eq.250) then
 
 !        ASCII is assumed, on Prime machines - ZCODE is the ASCII code
 !        plus 128 of either lower or upper case 'Z'.

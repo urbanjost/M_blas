@@ -194,13 +194,13 @@
       INFO = 0
       IF (.NOT.LSAME(UPLO,'U') .AND. .NOT.LSAME(UPLO,'L')) THEN
           INFO = 1
-      ELSE IF (N.LT.0) THEN
+      elseif (N.LT.0) THEN
           INFO = 2
-      ELSE IF (LDA.LT.MAX(1,N)) THEN
+      elseif (LDA.LT.MAX(1,N)) THEN
           INFO = 5
-      ELSE IF (INCX.EQ.0) THEN
+      elseif (INCX.EQ.0) THEN
           INFO = 7
-      ELSE IF (INCY.EQ.0) THEN
+      elseif (INCY.EQ.0) THEN
           INFO = 10
       endif
       IF (INFO.NE.0) THEN

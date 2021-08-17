@@ -142,7 +142,7 @@ subroutine CROTG( a, b, c, s )
       c = one
       s = czero
       r = f
-   else if( f == czero ) then
+   elseif ( f == czero ) then
       c = zero
       g1 = max( abs(real(g)), abs(aimag(g)) )
       if( g1 > rtmin .and. g1 < rtmax ) then

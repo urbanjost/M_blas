@@ -135,7 +135,7 @@
                DX(I) = W*DH11 + Z*DH12
                DY(I) = W*DH21 + Z*DH22
             END DO
-         ELSE IF (DFLAG.EQ.ZERO) THEN
+         elseif (DFLAG.EQ.ZERO) THEN
             DH12 = DPARAM(4)
             DH21 = DPARAM(3)
             DO I = 1,NSTEPS,INCX
@@ -173,7 +173,7 @@
                KX = KX + INCX
                KY = KY + INCY
             END DO
-         ELSE IF (DFLAG.EQ.ZERO) THEN
+         elseif (DFLAG.EQ.ZERO) THEN
             DH12 = DPARAM(4)
             DH21 = DPARAM(3)
             DO I = 1,N

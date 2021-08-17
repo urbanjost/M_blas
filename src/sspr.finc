@@ -162,9 +162,9 @@
       INFO = 0
       IF (.NOT.LSAME(UPLO,'U') .AND. .NOT.LSAME(UPLO,'L')) THEN
           INFO = 1
-      ELSE IF (N.LT.0) THEN
+      elseif (N.LT.0) THEN
           INFO = 2
-      ELSE IF (INCX.EQ.0) THEN
+      elseif (INCX.EQ.0) THEN
           INFO = 5
       endif
       IF (INFO.NE.0) THEN
@@ -180,7 +180,7 @@
 !
       IF (INCX.LE.0) THEN
           KX = 1 - (N-1)*INCX
-      ELSE IF (INCX.NE.1) THEN
+      elseif (INCX.NE.1) THEN
           KX = 1
       endif
 !

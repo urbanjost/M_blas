@@ -220,15 +220,15 @@
       INFO = 0
       IF ((.NOT.UPPER) .AND. (.NOT.LSAME(UPLO,'L'))) THEN
           INFO = 1
-      ELSE IF ((.NOT.LSAME(TRANS,'N')) .AND.  (.NOT.LSAME(TRANS,'C'))) THEN
+      elseif ((.NOT.LSAME(TRANS,'N')) .AND.  (.NOT.LSAME(TRANS,'C'))) THEN
           INFO = 2
-      ELSE IF (N.LT.0) THEN
+      elseif (N.LT.0) THEN
           INFO = 3
-      ELSE IF (K.LT.0) THEN
+      elseif (K.LT.0) THEN
           INFO = 4
-      ELSE IF (LDA.LT.MAX(1,NROWA)) THEN
+      elseif (LDA.LT.MAX(1,NROWA)) THEN
           INFO = 7
-      ELSE IF (LDC.LT.MAX(1,N)) THEN
+      elseif (LDC.LT.MAX(1,N)) THEN
           INFO = 10
       endif
       IF (INFO.NE.0) THEN
@@ -287,7 +287,7 @@
               DO J = 1,N
                   IF (BETA.EQ.ZERO) THEN
                       C(1:J,J) = ZERO
-                  ELSE IF (BETA.NE.ONE) THEN
+                  elseif (BETA.NE.ONE) THEN
                       DO I = 1,J - 1
                           C(I,J) = BETA*C(I,J)
                       enddo   
@@ -311,7 +311,7 @@
                       DO I = J,N
                           C(I,J) = ZERO
                       enddo   
-                  ELSE IF (BETA.NE.ONE) THEN
+                  elseif (BETA.NE.ONE) THEN
                       C(J,J) = BETA*REAL(C(J,J))
                       DO I = J + 1,N
                           C(I,J) = BETA*C(I,J)

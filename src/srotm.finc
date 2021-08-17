@@ -135,7 +135,7 @@
                SX(I) = W*SH11 + Z*SH12
                SY(I) = W*SH21 + Z*SH22
             END DO
-         ELSE IF (SFLAG.EQ.ZERO) THEN
+         elseif (SFLAG.EQ.ZERO) THEN
             SH12 = SPARAM(4)
             SH21 = SPARAM(3)
             DO I = 1,NSTEPS,INCX
@@ -173,7 +173,7 @@
                KX = KX + INCX
                KY = KY + INCY
             END DO
-         ELSE IF (SFLAG.EQ.ZERO) THEN
+         elseif (SFLAG.EQ.ZERO) THEN
             SH12 = SPARAM(4)
             SH21 = SPARAM(3)
             DO I = 1,N

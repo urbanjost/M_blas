@@ -243,26 +243,22 @@
       IF (BETA.NE.ONE) THEN
           IF (INCY.EQ.1) THEN
               IF (BETA.EQ.ZERO) THEN
-                  DO 10 I = 1,LENY
-                      Y(I) = ZERO
-   10             CONTINUE
+                  Y(1:LENY) = ZERO
               ELSE
-                  DO 20 I = 1,LENY
-                      Y(I) = BETA*Y(I)
-   20             CONTINUE
+                  Y(1:LENY) = BETA*Y(1:LENY)
               endif
           ELSE
               IY = KY
               IF (BETA.EQ.ZERO) THEN
-                  DO 30 I = 1,LENY
+                  DO I = 1,LENY
                       Y(IY) = ZERO
                       IY = IY + INCY
-   30             CONTINUE
+                  enddo   
               ELSE
-                  DO 40 I = 1,LENY
+                  DO I = 1,LENY
                       Y(IY) = BETA*Y(IY)
                       IY = IY + INCY
-   40             CONTINUE
+                  enddo   
               endif
           endif
       endif
@@ -273,23 +269,21 @@
 !
           JX = KX
           IF (INCY.EQ.1) THEN
-              DO 60 J = 1,N
+              DO J = 1,N
                   TEMP = ALPHA*X(JX)
-                  DO 50 I = 1,M
-                      Y(I) = Y(I) + TEMP*A(I,J)
-   50             CONTINUE
+                  Y(1:M) = Y(1:M) + TEMP*A(1:M,J)
                   JX = JX + INCX
-   60         CONTINUE
+              enddo   
           ELSE
-              DO 80 J = 1,N
+              DO J = 1,N
                   TEMP = ALPHA*X(JX)
                   IY = KY
-                  DO 70 I = 1,M
+                  DO I = 1,M
                       Y(IY) = Y(IY) + TEMP*A(I,J)
                       IY = IY + INCY
-   70             CONTINUE
+                  enddo   
                   JX = JX + INCX
-   80         CONTINUE
+              enddo   
           endif
       ELSE
 !
@@ -297,25 +291,25 @@
 !
           JY = KY
           IF (INCX.EQ.1) THEN
-              DO 100 J = 1,N
+              DO J = 1,N
                   TEMP = ZERO
-                  DO 90 I = 1,M
+                  DO I = 1,M
                       TEMP = TEMP + A(I,J)*X(I)
-   90             CONTINUE
+                  enddo   
                   Y(JY) = Y(JY) + ALPHA*TEMP
                   JY = JY + INCY
-  100         CONTINUE
+              enddo   
           ELSE
-              DO 120 J = 1,N
+              DO J = 1,N
                   TEMP = ZERO
                   IX = KX
-                  DO 110 I = 1,M
+                  DO I = 1,M
                       TEMP = TEMP + A(I,J)*X(IX)
                       IX = IX + INCX
-  110             CONTINUE
+                  enddo   
                   Y(JY) = Y(JY) + ALPHA*TEMP
                   JY = JY + INCY
-  120         CONTINUE
+              enddo   
           endif
       endif
 !

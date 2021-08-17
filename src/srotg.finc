@@ -122,7 +122,7 @@ subroutine SROTG( a, b, c, s )
       c = one
       s = zero
       b = zero
-   else if( anorm == zero ) then
+   elseif ( anorm == zero ) then
       c = zero
       s = one
       a = b
@@ -139,7 +139,7 @@ subroutine SROTG( a, b, c, s )
       s = b/r
       if( anorm > bnorm ) then
          z = s
-      else if( c /= zero ) then
+      elseif ( c /= zero ) then
          z = one/c
       else
          z = one

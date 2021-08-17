@@ -248,19 +248,19 @@
       INFO = 0
       IF ((.NOT.NOTA) .AND. (.NOT.CONJA) .AND.  (.NOT.LSAME(TRANSA,'T'))) THEN
           INFO = 1
-      ELSE IF ((.NOT.NOTB) .AND. (.NOT.CONJB) .AND.  (.NOT.LSAME(TRANSB,'T'))) THEN
+      elseif ((.NOT.NOTB) .AND. (.NOT.CONJB) .AND.  (.NOT.LSAME(TRANSB,'T'))) THEN
           INFO = 2
-      ELSE IF (M.LT.0) THEN
+      elseif (M.LT.0) THEN
           INFO = 3
-      ELSE IF (N.LT.0) THEN
+      elseif (N.LT.0) THEN
           INFO = 4
-      ELSE IF (K.LT.0) THEN
+      elseif (K.LT.0) THEN
           INFO = 5
-      ELSE IF (LDA.LT.MAX(1,NROWA)) THEN
+      elseif (LDA.LT.MAX(1,NROWA)) THEN
           INFO = 8
-      ELSE IF (LDB.LT.MAX(1,NROWB)) THEN
+      elseif (LDB.LT.MAX(1,NROWB)) THEN
           INFO = 10
-      ELSE IF (LDC.LT.MAX(1,M)) THEN
+      elseif (LDC.LT.MAX(1,M)) THEN
           INFO = 13
       endif
       IF (INFO.NE.0) THEN
@@ -303,7 +303,7 @@
                       DO I = 1,M
                           C(I,J) = ZERO
                       enddo   
-                  ELSE IF (BETA.NE.ONE) THEN
+                  elseif (BETA.NE.ONE) THEN
                       DO I = 1,M
                           C(I,J) = BETA*C(I,J)
                       enddo   
@@ -315,7 +315,7 @@
                       enddo   
                   enddo   
               enddo   
-          ELSE IF (CONJA) THEN
+          elseif (CONJA) THEN
 !
 !           Form  C := alpha*A**H*B + beta*C.
 !
@@ -350,7 +350,7 @@
                   enddo   
               enddo   
           endif
-      ELSE IF (NOTA) THEN
+      elseif (NOTA) THEN
           IF (CONJB) THEN
 !
 !           Form  C := alpha*A*B**H + beta*C.
@@ -360,7 +360,7 @@
                       DO I = 1,M
                           C(I,J) = ZERO
                       enddo   
-                  ELSE IF (BETA.NE.ONE) THEN
+                  elseif (BETA.NE.ONE) THEN
                       DO I = 1,M
                           C(I,J) = BETA*C(I,J)
                       enddo   
@@ -381,7 +381,7 @@
                       DO I = 1,M
                           C(I,J) = ZERO
                       enddo   
-                  ELSE IF (BETA.NE.ONE) THEN
+                  elseif (BETA.NE.ONE) THEN
                       DO I = 1,M
                           C(I,J) = BETA*C(I,J)
                       enddo   
@@ -394,7 +394,7 @@
                   enddo   
               enddo   
           endif
-      ELSE IF (CONJA) THEN
+      elseif (CONJA) THEN
           IF (CONJB) THEN
 !
 !           Form  C := alpha*A**H*B**H + beta*C.

@@ -222,15 +222,15 @@
       INFO = 0
       IF (.NOT.LSAME(UPLO,'U') .AND. .NOT.LSAME(UPLO,'L')) THEN
           INFO = 1
-      ELSE IF (N.LT.0) THEN
+      elseif (N.LT.0) THEN
           INFO = 2
-      ELSE IF (K.LT.0) THEN
+      elseif (K.LT.0) THEN
           INFO = 3
-      ELSE IF (LDA.LT. (K+1)) THEN
+      elseif (LDA.LT. (K+1)) THEN
           INFO = 6
-      ELSE IF (INCX.EQ.0) THEN
+      elseif (INCX.EQ.0) THEN
           INFO = 8
-      ELSE IF (INCY.EQ.0) THEN
+      elseif (INCY.EQ.0) THEN
           INFO = 11
       endif
       IF (INFO.NE.0) THEN

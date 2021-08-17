@@ -251,7 +251,7 @@
          SPARAM(3) = SH21
          SPARAM(4) = SH12
          SPARAM(5) = SH22
-      ELSE IF (SFLAG.EQ.ZERO) THEN
+      elseif (SFLAG.EQ.ZERO) THEN
          SPARAM(3) = SH21
          SPARAM(4) = SH12
       ELSE

@@ -252,7 +252,7 @@
          DPARAM(3) = DH21
          DPARAM(4) = DH12
          DPARAM(5) = DH22
-      ELSE IF (DFLAG.EQ.ZERO) THEN
+      elseif (DFLAG.EQ.ZERO) THEN
          DPARAM(3) = DH21
          DPARAM(4) = DH12
       ELSE

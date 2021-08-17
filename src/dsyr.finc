@@ -170,11 +170,11 @@
       INFO = 0
       IF (.NOT.LSAME(UPLO,'U') .AND. .NOT.LSAME(UPLO,'L')) THEN
           INFO = 1
-      ELSE IF (N.LT.0) THEN
+      elseif (N.LT.0) THEN
           INFO = 2
-      ELSE IF (INCX.EQ.0) THEN
+      elseif (INCX.EQ.0) THEN
           INFO = 5
-      ELSE IF (LDA.LT.MAX(1,N)) THEN
+      elseif (LDA.LT.MAX(1,N)) THEN
           INFO = 7
       endif
       IF (INFO.NE.0) THEN
@@ -190,7 +190,7 @@
 !
       IF (INCX.LE.0) THEN
           KX = 1 - (N-1)*INCX
-      ELSE IF (INCX.NE.1) THEN
+      elseif (INCX.NE.1) THEN
           KX = 1
       endif
 !
@@ -203,54 +203,50 @@
 !        Form  A  when A is stored in upper triangle.
 !
           IF (INCX.EQ.1) THEN
-              DO 20 J = 1,N
+              DO J = 1,N
                   IF (X(J).NE.ZERO) THEN
                       TEMP = ALPHA*X(J)
-                      DO 10 I = 1,J
-                          A(I,J) = A(I,J) + X(I)*TEMP
-   10                 CONTINUE
+                      A(1:J,J) = A(1:J,J) + X(1:J)*TEMP
                   endif
-   20         CONTINUE
+              enddo   
           ELSE
               JX = KX
-              DO 40 J = 1,N
+              DO J = 1,N
                   IF (X(JX).NE.ZERO) THEN
                       TEMP = ALPHA*X(JX)
                       IX = KX
-                      DO 30 I = 1,J
+                      DO I = 1,J
                           A(I,J) = A(I,J) + X(IX)*TEMP
                           IX = IX + INCX
-   30                 CONTINUE
+                      enddo   
                   endif
                   JX = JX + INCX
-   40         CONTINUE
+              enddo   
           endif
       ELSE
 !
 !        Form  A  when A is stored in lower triangle.
 !
           IF (INCX.EQ.1) THEN
-              DO 60 J = 1,N
+              DO J = 1,N
                   IF (X(J).NE.ZERO) THEN
                       TEMP = ALPHA*X(J)
-                      DO 50 I = J,N
-                          A(I,J) = A(I,J) + X(I)*TEMP
-   50                 CONTINUE
+                      A(J:N,J) = A(J:N,J) + X(J:N)*TEMP
                   endif
-   60         CONTINUE
+              enddo   
           ELSE
               JX = KX
-              DO 80 J = 1,N
+              DO J = 1,N
                   IF (X(JX).NE.ZERO) THEN
                       TEMP = ALPHA*X(JX)
                       IX = JX
-                      DO 70 I = J,N
+                      DO I = J,N
                           A(I,J) = A(I,J) + X(IX)*TEMP
                           IX = IX + INCX
-   70                 CONTINUE
+                      enddo   
                   endif
                   JX = JX + INCX
-   80         CONTINUE
+              enddo   
           endif
       endif
 !

@@ -236,17 +236,17 @@
       INFO = 0
       IF ((.NOT.LSAME(SIDE,'L')) .AND. (.NOT.LSAME(SIDE,'R'))) THEN
           INFO = 1
-      ELSE IF ((.NOT.UPPER) .AND. (.NOT.LSAME(UPLO,'L'))) THEN
+      elseif ((.NOT.UPPER) .AND. (.NOT.LSAME(UPLO,'L'))) THEN
           INFO = 2
-      ELSE IF (M.LT.0) THEN
+      elseif (M.LT.0) THEN
           INFO = 3
-      ELSE IF (N.LT.0) THEN
+      elseif (N.LT.0) THEN
           INFO = 4
-      ELSE IF (LDA.LT.MAX(1,NROWA)) THEN
+      elseif (LDA.LT.MAX(1,NROWA)) THEN
           INFO = 7
-      ELSE IF (LDB.LT.MAX(1,M)) THEN
+      elseif (LDB.LT.MAX(1,M)) THEN
           INFO = 9
-      ELSE IF (LDC.LT.MAX(1,M)) THEN
+      elseif (LDC.LT.MAX(1,M)) THEN
           INFO = 12
       endif
       IF (INFO.NE.0) THEN

@@ -243,19 +243,19 @@
       INFO = 0
       IF ((.NOT.NOTA) .AND. (.NOT.LSAME(TRANSA,'C')) .AND.  (.NOT.LSAME(TRANSA,'T'))) THEN
           INFO = 1
-      ELSE IF ((.NOT.NOTB) .AND. (.NOT.LSAME(TRANSB,'C')) .AND.  (.NOT.LSAME(TRANSB,'T'))) THEN
+      elseif ((.NOT.NOTB) .AND. (.NOT.LSAME(TRANSB,'C')) .AND.  (.NOT.LSAME(TRANSB,'T'))) THEN
           INFO = 2
-      ELSE IF (M.LT.0) THEN
+      elseif (M.LT.0) THEN
           INFO = 3
-      ELSE IF (N.LT.0) THEN
+      elseif (N.LT.0) THEN
           INFO = 4
-      ELSE IF (K.LT.0) THEN
+      elseif (K.LT.0) THEN
           INFO = 5
-      ELSE IF (LDA.LT.MAX(1,NROWA)) THEN
+      elseif (LDA.LT.MAX(1,NROWA)) THEN
           INFO = 8
-      ELSE IF (LDB.LT.MAX(1,NROWB)) THEN
+      elseif (LDB.LT.MAX(1,NROWB)) THEN
           INFO = 10
-      ELSE IF (LDC.LT.MAX(1,M)) THEN
+      elseif (LDC.LT.MAX(1,M)) THEN
           INFO = 13
       endif
       IF (INFO.NE.0) THEN
@@ -292,7 +292,7 @@
               DO J = 1,N
                   IF (BETA.EQ.ZERO) THEN
                       C(1:M,J) = ZERO
-                  ELSE IF (BETA.NE.ONE) THEN
+                  elseif (BETA.NE.ONE) THEN
                       C(1:M,J) = BETA*C(1:M,J)
                   endif
                   DO L = 1,K
@@ -326,7 +326,7 @@
               DO J = 1,N
                   IF (BETA.EQ.ZERO) THEN
                       C(1:M,J) = ZERO
-                  ELSE IF (BETA.NE.ONE) THEN
+                  elseif (BETA.NE.ONE) THEN
                       C(1:M,J) = BETA*C(1:M,J)
                   endif
                   DO L = 1,K

@@ -147,7 +147,7 @@ function SNRM2( n, x, incx )
       if (ax > tbig) then
          abig = abig + (ax*sbig)**2
          notbig = .false.
-      else if (ax < tsml) then
+      elseif (ax < tsml) then
          if (notbig) asml = asml + (ax*ssml)**2
       else
          amed = amed + ax**2
@@ -167,7 +167,7 @@ function SNRM2( n, x, incx )
       endif
       scl = one / sbig
       sumsq = abig
-   else if (asml > zero) then
+   elseif (asml > zero) then
 !
 !     Combine amed and asml if asml > 0.
 !
