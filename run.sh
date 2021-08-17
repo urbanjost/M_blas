@@ -1,5 +1,6 @@
 #!/bin/bash
-export FPM_COMPILER
+export FPM_COMPILER PROFILE
+rm -f run.log.*
 for PROFILE in debug release
 do
 # take out or add the compilers you have
@@ -7,6 +8,7 @@ for FPM_COMPILER in gfortran ifort nvfortran
 do
    (
    exec 2>&1
+   echo COMPILER $FPM_COMPILER PROFILE $PROFILE
    time (
       exec 2>&1
       fpm  test  cblat1    -profile  $PROFILE
@@ -36,10 +38,10 @@ do
       
       rm -f cblat2.out cblat3.out dblat2.out dblat3.out sblat2.out sblat3.out zblat2.out zblat3.out
    
-   )
-   )
-   done|cat -n|tee run.log.$FPM_COMPILER
+   ) 
+   ) |cat -n|tee -a run.log.$FPM_COMPILER
+   done
    
-   grep -i fail run.log.$FPM_COMPILER
+   egrep -i 'fail' run.log.*
 done
 exit
