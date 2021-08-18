@@ -267,21 +267,21 @@
               if (beta.eq.zero) then
                   do j = 1,n
                       c(1:j,j) = zero
-                  enddo   
+                  enddo
               else
                   do j = 1,n
                       c(1:j,j) = beta*c(1:j,j)
-                  enddo   
+                  enddo
               endif
           else
               if (beta.eq.zero) then
                   do j = 1,n
                       c(j:n,j) = zero
-                  enddo   
+                  enddo
               else
                   do j = 1,n
                       c(j:n,j) = beta*c(j:n,j)
-                  enddo   
+                  enddo
               endif
           endif
           return
@@ -306,10 +306,10 @@
                           temp2 = alpha*a(j,l)
                           do i = 1,j
                               c(i,j) = c(i,j) + a(i,l)*temp1 + b(i,l)*temp2
-                          enddo   
+                          enddo
                       endif
-                  enddo   
-              enddo   
+                  enddo
+              enddo
           else
               do j = 1,n
                   if (beta.eq.zero) then
@@ -323,10 +323,10 @@
                           temp2 = alpha*a(j,l)
                           do i = j,n
                               c(i,j) = c(i,j) + a(i,l)*temp1 + b(i,l)*temp2
-                          enddo   
+                          enddo
                       endif
-                  enddo   
-              enddo   
+                  enddo
+              enddo
           endif
       else
 !
@@ -340,14 +340,14 @@
                       do l = 1,k
                           temp1 = temp1 + a(l,i)*b(l,j)
                           temp2 = temp2 + b(l,i)*a(l,j)
-                      enddo    
+                      enddo
                       if (beta.eq.zero) then
                           c(i,j) = alpha*temp1 + alpha*temp2
                       else
                           c(i,j) = beta*c(i,j) + alpha*temp1 + alpha*temp2
                       endif
-                  enddo   
-              enddo   
+                  enddo
+              enddo
           else
               do j = 1,n
                   do i = j,n
@@ -356,14 +356,14 @@
                       do l = 1,k
                           temp1 = temp1 + a(l,i)*b(l,j)
                           temp2 = temp2 + b(l,i)*a(l,j)
-                      enddo   
+                      enddo
                       if (beta.eq.zero) then
                           c(i,j) = alpha*temp1 + alpha*temp2
                       else
                           c(i,j) = beta*c(i,j) + alpha*temp1 + alpha*temp2
                       endif
-                  enddo   
-              enddo  
+                  enddo
+              enddo
           endif
       endif
 !

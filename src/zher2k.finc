@@ -279,23 +279,23 @@
               IF (BETA.EQ.DBLE(ZERO)) THEN
                   DO J = 1,N
                       C(1:J,J) = ZERO
-                  enddo    
+                  enddo
               ELSE
                   DO J = 1,N
                       C(1:J-1,J) = BETA*C(1:J-1,J)
                       C(J,J) = BETA*DBLE(C(J,J))
-                  enddo   
+                  enddo
               endif
           ELSE
               IF (BETA.EQ.DBLE(ZERO)) THEN
                   DO J = 1,N
                       C(J:N,J) = ZERO
-                  enddo   
+                  enddo
               ELSE
                   DO J = 1,N
                       C(J,J) = BETA*DBLE(C(J,J))
                       C(J+1:N,J) = BETA*C(J+1:N,J)
-                  enddo   
+                  enddo
               endif
           endif
           RETURN
@@ -324,11 +324,11 @@
                           TEMP2 = DCONJG(ALPHA*A(J,L))
                           DO I = 1,J - 1
                               C(I,J) = C(I,J) + A(I,L)*TEMP1 + B(I,L)*TEMP2
-                          enddo   
+                          enddo
                           C(J,J) = DBLE(C(J,J)) + DBLE(A(J,L)*TEMP1+B(J,L)*TEMP2)
                       endif
-                  enddo   
-              enddo   
+                  enddo
+              enddo
           ELSE
               DO J = 1,N
                   IF (BETA.EQ.DBLE(ZERO)) THEN
@@ -345,11 +345,11 @@
                           TEMP2 = DCONJG(ALPHA*A(J,L))
                           DO I = J + 1,N
                               C(I,J) = C(I,J) + A(I,L)*TEMP1 + B(I,L)*TEMP2
-                          enddo   
+                          enddo
                           C(J,J) = DBLE(C(J,J)) + DBLE(A(J,L)*TEMP1+B(J,L)*TEMP2)
                       endif
-                  enddo   
-              enddo   
+                  enddo
+              enddo
           endif
       ELSE
 !
@@ -364,7 +364,7 @@
                       DO L = 1,K
                           TEMP1 = TEMP1 + DCONJG(A(L,I))*B(L,J)
                           TEMP2 = TEMP2 + DCONJG(B(L,I))*A(L,J)
-                      enddo   
+                      enddo
                       IF (I.EQ.J) THEN
                           IF (BETA.EQ.DBLE(ZERO)) THEN
                               C(J,J) = DBLE(ALPHA*TEMP1+ DCONJG(ALPHA)*TEMP2)
@@ -378,8 +378,8 @@
                               C(I,J) = BETA*C(I,J) + ALPHA*TEMP1 + DCONJG(ALPHA)*TEMP2
                           endif
                       endif
-                  enddo   
-              enddo   
+                  enddo
+              enddo
           ELSE
               DO J = 1,N
                   DO I = J,N
@@ -388,7 +388,7 @@
                       DO L = 1,K
                           TEMP1 = TEMP1 + DCONJG(A(L,I))*B(L,J)
                           TEMP2 = TEMP2 + DCONJG(B(L,I))*A(L,J)
-                      enddo   
+                      enddo
                       IF (I.EQ.J) THEN
                           IF (BETA.EQ.DBLE(ZERO)) THEN
                               C(J,J) = DBLE(ALPHA*TEMP1+ DCONJG(ALPHA)*TEMP2)
@@ -402,8 +402,8 @@
                               C(I,J) = BETA*C(I,J) + ALPHA*TEMP1 + DCONJG(ALPHA)*TEMP2
                           endif
                       endif
-                  enddo   
-              enddo   
+                  enddo
+              enddo
           endif
       endif
 

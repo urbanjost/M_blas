@@ -228,10 +228,10 @@
                       DO I = 1,J
                           AP(K) = AP(K) + X(I)*TEMP1 + Y(I)*TEMP2
                           K = K + 1
-                      enddo   
+                      enddo
                   endif
                   KK = KK + J
-              enddo   
+              enddo
           ELSE
               DO J = 1,N
                   IF ((X(JX).NE.ZERO) .OR. (Y(JY).NE.ZERO)) THEN
@@ -243,12 +243,12 @@
                           AP(K) = AP(K) + X(IX)*TEMP1 + Y(IY)*TEMP2
                           IX = IX + INCX
                           IY = IY + INCY
-                      enddo   
+                      enddo
                   endif
                   JX = JX + INCX
                   JY = JY + INCY
                   KK = KK + J
-              enddo   
+              enddo
           endif
       ELSE
 !
@@ -263,10 +263,10 @@
                       DO I = J,N
                           AP(K) = AP(K) + X(I)*TEMP1 + Y(I)*TEMP2
                           K = K + 1
-                      enddo   
+                      enddo
                   endif
                   KK = KK + N - J + 1
-              enddo   
+              enddo
           ELSE
               DO J = 1,N
                   IF ((X(JX).NE.ZERO) .OR. (Y(JY).NE.ZERO)) THEN
@@ -278,12 +278,12 @@
                           AP(K) = AP(K) + X(IX)*TEMP1 + Y(IY)*TEMP2
                           IX = IX + INCX
                           IY = IY + INCY
-                      enddo   
+                      enddo
                   endif
                   JX = JX + INCX
                   JY = JY + INCY
                   KK = KK + N - J + 1
-              enddo   
+              enddo
           endif
       endif
 !

@@ -242,21 +242,21 @@
               IF (BETA.EQ.ZERO) THEN
                   DO J = 1,N
                       C(1:J,J) = ZERO
-                  enddo   
+                  enddo
               ELSE
                   DO J = 1,N
                       C(1:J,J) = BETA*C(1:J,J)
-                  enddo   
+                  enddo
               endif
           ELSE
               IF (BETA.EQ.ZERO) THEN
                   DO J = 1,N
                       C(J:N,J) = ZERO
-                  enddo   
+                  enddo
               ELSE
                   DO J = 1,N
                       C(J:N,J) = BETA*C(J:N,J)
-                  enddo   
+                  enddo
               endif
           endif
           RETURN
@@ -280,8 +280,8 @@
                           TEMP = ALPHA*A(J,L)
                           C(1:N,J) = C(1:N,J) + TEMP*A(1:N,L)
                       endif
-                  enddo   
-              enddo   
+                  enddo
+              enddo
           ELSE
               DO J = 1,N
                   IF (BETA.EQ.ZERO) THEN
@@ -294,10 +294,10 @@
                           TEMP = ALPHA*A(J,L)
                           DO I = J,N
                               C(I,J) = C(I,J) + TEMP*A(I,L)
-                          enddo   
+                          enddo
                       endif
-                  enddo   
-              enddo   
+                  enddo
+              enddo
           endif
       ELSE
 !
@@ -309,28 +309,28 @@
                       TEMP = ZERO
                       DO L = 1,K
                           TEMP = TEMP + A(L,I)*A(L,J)
-                      enddo   
+                      enddo
                       IF (BETA.EQ.ZERO) THEN
                           C(I,J) = ALPHA*TEMP
                       ELSE
                           C(I,J) = ALPHA*TEMP + BETA*C(I,J)
                       endif
-                  enddo   
-              enddo   
+                  enddo
+              enddo
           ELSE
               DO J = 1,N
                   DO I = J,N
                       TEMP = ZERO
                       DO L = 1,K
                           TEMP = TEMP + A(L,I)*A(L,J)
-                      enddo   
+                      enddo
                       IF (BETA.EQ.ZERO) THEN
                           C(I,J) = ALPHA*TEMP
                       ELSE
                           C(I,J) = ALPHA*TEMP + BETA*C(I,J)
                       endif
-                  enddo   
-              enddo   
+                  enddo
+              enddo
           endif
       endif
 !

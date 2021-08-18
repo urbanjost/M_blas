@@ -260,12 +260,12 @@
                   DO I = 1,LENY
                       Y(IY) = ZERO
                       IY = IY + INCY
-                  enddo   
+                  enddo
               ELSE
                   DO I = 1,LENY
                       Y(IY) = BETA*Y(IY)
                       IY = IY + INCY
-                  enddo   
+                  enddo
               endif
           endif
       endif
@@ -280,9 +280,9 @@
                   TEMP = ALPHA*X(JX)
                   DO I = 1,M
                       Y(I) = Y(I) + TEMP*A(I,J)
-                  enddo   
+                  enddo
                   JX = JX + INCX
-              enddo   
+              enddo
           ELSE
               DO J = 1,N
                   TEMP = ALPHA*X(JX)
@@ -290,9 +290,9 @@
                   DO I = 1,M
                       Y(IY) = Y(IY) + TEMP*A(I,J)
                       IY = IY + INCY
-                  enddo   
+                  enddo
                   JX = JX + INCX
-              enddo   
+              enddo
           endif
       ELSE
 !
@@ -305,15 +305,15 @@
                   IF (NOCONJ) THEN
                       DO I = 1,M
                           TEMP = TEMP + A(I,J)*X(I)
-                      enddo   
+                      enddo
                   ELSE
                       DO I = 1,M
                           TEMP = TEMP + CONJG(A(I,J))*X(I)
-                      enddo   
+                      enddo
                   endif
                   Y(JY) = Y(JY) + ALPHA*TEMP
                   JY = JY + INCY
-              enddo   
+              enddo
           ELSE
               DO J = 1,N
                   TEMP = ZERO
@@ -322,16 +322,16 @@
                       DO I = 1,M
                           TEMP = TEMP + A(I,J)*X(IX)
                           IX = IX + INCX
-                      enddo   
+                      enddo
                   ELSE
                       DO I = 1,M
                           TEMP = TEMP + CONJG(A(I,J))*X(IX)
                           IX = IX + INCX
-                      enddo   
+                      enddo
                   endif
                   Y(JY) = Y(JY) + ALPHA*TEMP
                   JY = JY + INCY
-              enddo   
+              enddo
           endif
       endif
 !

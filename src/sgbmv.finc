@@ -286,12 +286,12 @@
                   DO I = 1,LENY
                       Y(IY) = ZERO
                       IY = IY + INCY
-                  enddo   
+                  enddo
               ELSE
                   DO I = 1,LENY
                       Y(IY) = BETA*Y(IY)
                       IY = IY + INCY
-                  enddo   
+                  enddo
               endif
           endif
       endif
@@ -308,9 +308,9 @@
                   K = KUP1 - J
                   DO I = MAX(1,J-KU),MIN(M,J+KL)
                       Y(I) = Y(I) + TEMP*A(K+I,J)
-                  enddo   
+                  enddo
                   JX = JX + INCX
-              enddo   
+              enddo
           ELSE
               DO J = 1,N
                   TEMP = ALPHA*X(JX)
@@ -319,10 +319,10 @@
                   DO I = MAX(1,J-KU),MIN(M,J+KL)
                       Y(IY) = Y(IY) + TEMP*A(K+I,J)
                       IY = IY + INCY
-                  enddo   
+                  enddo
                   JX = JX + INCX
                   IF (J.GT.KU) KY = KY + INCY
-              enddo   
+              enddo
           endif
       ELSE
 !
@@ -335,10 +335,10 @@
                   K = KUP1 - J
                   DO I = MAX(1,J-KU),MIN(M,J+KL)
                       TEMP = TEMP + A(K+I,J)*X(I)
-                  enddo   
+                  enddo
                   Y(JY) = Y(JY) + ALPHA*TEMP
                   JY = JY + INCY
-              enddo  
+              enddo
           ELSE
               DO J = 1,N
                   TEMP = ZERO
@@ -347,12 +347,12 @@
                   DO I = MAX(1,J-KU),MIN(M,J+KL)
                       TEMP = TEMP + A(K+I,J)*X(IX)
                       IX = IX + INCX
-                  enddo   
+                  enddo
                   Y(JY) = Y(JY) + ALPHA*TEMP
                   JY = JY + INCY
                   IF (J.GT.KU) KX = KX + INCX
-              enddo   
+              enddo
           endif
       endif
- 
+
       END SUBROUTINE SGBMV

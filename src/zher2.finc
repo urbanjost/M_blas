@@ -245,7 +245,7 @@
                   else
                       a(j,j) = dble(a(j,j))
                   endif
-              enddo   
+              enddo
           else
               do j = 1,n
                   if ((x(jx).ne.zero) .or. (y(jy).ne.zero)) then
@@ -257,14 +257,14 @@
                           a(i,j) = a(i,j) + x(ix)*temp1 + y(iy)*temp2
                           ix = ix + incx
                           iy = iy + incy
-                      enddo   
+                      enddo
                       a(j,j) = dble(a(j,j)) + dble(x(jx)*temp1+y(jy)*temp2)
                   else
                       a(j,j) = dble(a(j,j))
                   endif
                   jx = jx + incx
                   jy = jy + incy
-              enddo   
+              enddo
           endif
       else
 !
@@ -278,11 +278,11 @@
                       a(j,j) = dble(a(j,j)) + dble(x(j)*temp1+y(j)*temp2)
                       do i = j + 1,n
                           a(i,j) = a(i,j) + x(i)*temp1 + y(i)*temp2
-                      enddo   
+                      enddo
                   else
                       a(j,j) = dble(a(j,j))
                   endif
-              enddo   
+              enddo
           else
               do j = 1,n
                   if ((x(jx).ne.zero) .or. (y(jy).ne.zero)) then
@@ -295,14 +295,14 @@
                           ix = ix + incx
                           iy = iy + incy
                           a(i,j) = a(i,j) + x(ix)*temp1 + y(iy)*temp2
-                      enddo   
+                      enddo
                   else
                       a(j,j) = dble(a(j,j))
                   endif
                   jx = jx + incx
                   jy = jy + incy
-              enddo   
+              enddo
           endif
       endif
- 
+
       end subroutine zher2

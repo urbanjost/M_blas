@@ -270,21 +270,21 @@
               IF (BETA.EQ.ZERO) THEN
                   DO J = 1,N
                       C(1:J,J) = ZERO
-                  enddo   
+                  enddo
               ELSE
                   DO J = 1,N
                       C(1:J,J) = BETA*C(1:J,J)
-                  enddo   
+                  enddo
               endif
           ELSE
               IF (BETA.EQ.ZERO) THEN
                   DO J = 1,N
                       C(J:N,J) = ZERO
-                  enddo   
+                  enddo
               ELSE
                   DO J = 1,N
                       C(J:N,J) = BETA*C(J:N,J)
-                  enddo   
+                  enddo
               endif
           endif
           RETURN
@@ -309,10 +309,10 @@
                           TEMP2 = ALPHA*A(J,L)
                           DO I = 1,J
                               C(I,J) = C(I,J) + A(I,L)*TEMP1 + B(I,L)*TEMP2
-                          enddo   
+                          enddo
                       endif
-                  enddo   
-              enddo   
+                  enddo
+              enddo
           ELSE
               DO J = 1,N
                   IF (BETA.EQ.ZERO) THEN
@@ -326,8 +326,8 @@
                           TEMP2 = ALPHA*A(J,L)
                           C(J:N,J) = C(J:N,J) + A(J:N,L)*TEMP1 + B(J:N,L)*TEMP2
                       endif
-                  enddo   
-              enddo   
+                  enddo
+              enddo
           endif
       ELSE
 !
@@ -341,14 +341,14 @@
                       DO L = 1,K
                           TEMP1 = TEMP1 + A(L,I)*B(L,J)
                           TEMP2 = TEMP2 + B(L,I)*A(L,J)
-                      enddo   
+                      enddo
                       IF (BETA.EQ.ZERO) THEN
                           C(I,J) = ALPHA*TEMP1 + ALPHA*TEMP2
                       ELSE
                           C(I,J) = BETA*C(I,J) + ALPHA*TEMP1 + ALPHA*TEMP2
                       endif
-                  enddo   
-              enddo   
+                  enddo
+              enddo
           ELSE
               DO J = 1,N
                   DO I = J,N
@@ -357,15 +357,15 @@
                       DO L = 1,K
                           TEMP1 = TEMP1 + A(L,I)*B(L,J)
                           TEMP2 = TEMP2 + B(L,I)*A(L,J)
-                      enddo   
+                      enddo
                       IF (BETA.EQ.ZERO) THEN
                           C(I,J) = ALPHA*TEMP1 + ALPHA*TEMP2
                       ELSE
                           C(I,J) = BETA*C(I,J) + ALPHA*TEMP1 + ALPHA*TEMP2
                       endif
-                  enddo   
-              enddo   
+                  enddo
+              enddo
           endif
       endif
- 
+
       END SUBROUTINE SSYR2K

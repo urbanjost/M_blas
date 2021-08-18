@@ -126,5 +126,5 @@
          END DO
       endif
       DASUM = DTEMP
-      
+
       END FUNCTION DASUM

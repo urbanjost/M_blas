@@ -211,12 +211,12 @@ implicit none
                       TEMP = ALPHA*CONJG(X(J))
                       DO I = 1,J - 1
                           A(I,J) = A(I,J) + X(I)*TEMP
-                      enddo    
+                      enddo
                       A(J,J) = REAL(A(J,J)) + REAL(X(J)*TEMP)
                   ELSE
                       A(J,J) = REAL(A(J,J))
                   endif
-              enddo   
+              enddo
           ELSE
               JX = KX
               DO J = 1,N
@@ -226,13 +226,13 @@ implicit none
                       DO I = 1,J - 1
                           A(I,J) = A(I,J) + X(IX)*TEMP
                           IX = IX + INCX
-                      enddo   
+                      enddo
                       A(J,J) = REAL(A(J,J)) + REAL(X(JX)*TEMP)
                   ELSE
                       A(J,J) = REAL(A(J,J))
                   endif
                   JX = JX + INCX
-              enddo   
+              enddo
           endif
       ELSE
 !
@@ -245,11 +245,11 @@ implicit none
                       A(J,J) = REAL(A(J,J)) + REAL(TEMP*X(J))
                       DO I = J + 1,N
                           A(I,J) = A(I,J) + X(I)*TEMP
-                      enddo   
+                      enddo
                   ELSE
                       A(J,J) = REAL(A(J,J))
                   endif
-              enddo   
+              enddo
           ELSE
               JX = KX
               DO J = 1,N
@@ -260,12 +260,12 @@ implicit none
                       DO I = J + 1,N
                           IX = IX + INCX
                           A(I,J) = A(I,J) + X(IX)*TEMP
-                      enddo   
+                      enddo
                   ELSE
                       A(J,J) = REAL(A(J,J))
                   endif
                   JX = JX + INCX
-              enddo   
+              enddo
           endif
       endif
 !

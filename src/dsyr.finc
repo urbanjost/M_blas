@@ -208,7 +208,7 @@
                       TEMP = ALPHA*X(J)
                       A(1:J,J) = A(1:J,J) + X(1:J)*TEMP
                   endif
-              enddo   
+              enddo
           ELSE
               JX = KX
               DO J = 1,N
@@ -218,10 +218,10 @@
                       DO I = 1,J
                           A(I,J) = A(I,J) + X(IX)*TEMP
                           IX = IX + INCX
-                      enddo   
+                      enddo
                   endif
                   JX = JX + INCX
-              enddo   
+              enddo
           endif
       ELSE
 !
@@ -233,7 +233,7 @@
                       TEMP = ALPHA*X(J)
                       A(J:N,J) = A(J:N,J) + X(J:N)*TEMP
                   endif
-              enddo   
+              enddo
           ELSE
               JX = KX
               DO J = 1,N
@@ -243,10 +243,10 @@
                       DO I = J,N
                           A(I,J) = A(I,J) + X(IX)*TEMP
                           IX = IX + INCX
-                      enddo   
+                      enddo
                   endif
                   JX = JX + INCX
-              enddo   
+              enddo
           endif
       endif
 !

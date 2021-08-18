@@ -199,7 +199,7 @@
                   A(1:M,J) = A(1:M,J) + X(1:M)*TEMP
               endif
               JY = JY + INCY
-          enddo   
+          enddo
       ELSE
           IF (INCX.GT.0) THEN
               KX = 1
@@ -213,10 +213,10 @@
                   DO I = 1,M
                       A(I,J) = A(I,J) + X(IX)*TEMP
                       IX = IX + INCX
-                  enddo   
+                  enddo
               endif
               JY = JY + INCY
-          enddo   
+          enddo
       endif
- 
+
       END SUBROUTINE ZGERC

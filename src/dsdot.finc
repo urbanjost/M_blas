@@ -169,5 +169,5 @@
             KY = KY + INCY
          END DO
       endif
-      
+
       END FUNCTION DSDOT

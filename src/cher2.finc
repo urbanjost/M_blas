@@ -239,12 +239,12 @@
                       TEMP2 = CONJG(ALPHA*X(J))
                       DO I = 1,J - 1
                           A(I,J) = A(I,J) + X(I)*TEMP1 + Y(I)*TEMP2
-                      enddo   
+                      enddo
                       A(J,J) = REAL(A(J,J)) + REAL(X(J)*TEMP1+Y(J)*TEMP2)
                   ELSE
                       A(J,J) = REAL(A(J,J))
                   endif
-              enddo   
+              enddo
           ELSE
               DO J = 1,N
                   IF ((X(JX).NE.ZERO) .OR. (Y(JY).NE.ZERO)) THEN
@@ -256,14 +256,14 @@
                           A(I,J) = A(I,J) + X(IX)*TEMP1 + Y(IY)*TEMP2
                           IX = IX + INCX
                           IY = IY + INCY
-                      enddo   
+                      enddo
                       A(J,J) = REAL(A(J,J)) + REAL(X(JX)*TEMP1+Y(JY)*TEMP2)
                   ELSE
                       A(J,J) = REAL(A(J,J))
                   endif
                   JX = JX + INCX
                   JY = JY + INCY
-              enddo   
+              enddo
           endif
       ELSE
 !
@@ -277,11 +277,11 @@
                       A(J,J) = REAL(A(J,J)) + REAL(X(J)*TEMP1+Y(J)*TEMP2)
                       DO I = J + 1,N
                           A(I,J) = A(I,J) + X(I)*TEMP1 + Y(I)*TEMP2
-                      enddo   
+                      enddo
                   ELSE
                       A(J,J) = REAL(A(J,J))
                   endif
-              enddo   
+              enddo
           ELSE
               DO J = 1,N
                   IF ((X(JX).NE.ZERO) .OR. (Y(JY).NE.ZERO)) THEN
@@ -294,13 +294,13 @@
                           IX = IX + INCX
                           IY = IY + INCY
                           A(I,J) = A(I,J) + X(IX)*TEMP1 + Y(IY)*TEMP2
-                      enddo   
+                      enddo
                   ELSE
                       A(J,J) = REAL(A(J,J))
                   endif
                   JX = JX + INCX
                   JY = JY + INCY
-              enddo   
+              enddo
           endif
       endif
 !

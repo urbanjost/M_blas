@@ -63,5 +63,5 @@
       INTRINSIC ABS,DBLE,DIMAG
 !
       DCABS1 = ABS(DBLE(Z)) + ABS(DIMAG(Z))
-      
+
       END FUNCTION DCABS1

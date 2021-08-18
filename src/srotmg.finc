@@ -116,7 +116,7 @@
       real,parameter :: one=1.0e0
       real,parameter :: two=2.0e0
 !
-      real,parameter :: GAM=4096.E0 
+      real,parameter :: GAM=4096.E0
       real,parameter :: GAMSQ=1.67772E7
       real,parameter :: RGAMSQ=5.96046E-8
 !     ..

@@ -239,12 +239,12 @@
                   DO I = 1,N
                       Y(IY) = ZERO
                       IY = IY + INCY
-                  enddo   
+                  enddo
               ELSE
                   DO I = 1,N
                       Y(IY) = BETA*Y(IY)
                       IY = IY + INCY
-                  enddo   
+                  enddo
               endif
           endif
       endif
@@ -263,10 +263,10 @@
                       Y(I) = Y(I) + TEMP1*AP(K)
                       TEMP2 = TEMP2 + DCONJG(AP(K))*X(I)
                       K = K + 1
-                  enddo   
+                  enddo
                   Y(J) = Y(J) + TEMP1*DBLE(AP(KK+J-1)) + ALPHA*TEMP2
                   KK = KK + J
-              enddo   
+              enddo
           ELSE
               JX = KX
               JY = KY
@@ -280,12 +280,12 @@
                       TEMP2 = TEMP2 + DCONJG(AP(K))*X(IX)
                       IX = IX + INCX
                       IY = IY + INCY
-                  enddo   
+                  enddo
                   Y(JY) = Y(JY) + TEMP1*DBLE(AP(KK+J-1)) + ALPHA*TEMP2
                   JX = JX + INCX
                   JY = JY + INCY
                   KK = KK + J
-              enddo   
+              enddo
           endif
       ELSE
 !
@@ -301,10 +301,10 @@
                       Y(I) = Y(I) + TEMP1*AP(K)
                       TEMP2 = TEMP2 + DCONJG(AP(K))*X(I)
                       K = K + 1
-                  enddo   
+                  enddo
                   Y(J) = Y(J) + ALPHA*TEMP2
                   KK = KK + (N-J+1)
-              enddo   
+              enddo
           ELSE
               JX = KX
               JY = KY
@@ -319,13 +319,13 @@
                       IY = IY + INCY
                       Y(IY) = Y(IY) + TEMP1*AP(K)
                       TEMP2 = TEMP2 + DCONJG(AP(K))*X(IX)
-                  enddo   
+                  enddo
                   Y(JY) = Y(JY) + ALPHA*TEMP2
                   JX = JX + INCX
                   JY = JY + INCY
                   KK = KK + (N-J+1)
-              enddo   
+              enddo
           endif
       endif
- 
+
       END SUBROUTINE ZHPMV

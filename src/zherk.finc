@@ -250,27 +250,27 @@
               IF (BETA.EQ.ZERO) THEN
                   DO J = 1,N
                       C(1:J,J) = ZERO
-                  enddo   
+                  enddo
               ELSE
                   DO J = 1,N
                       DO I = 1,J - 1
                           C(I,J) = BETA*C(I,J)
-                      enddo   
+                      enddo
                       C(J,J) = BETA*DBLE(C(J,J))
-                  enddo   
+                  enddo
               endif
           ELSE
               IF (BETA.EQ.ZERO) THEN
                   DO J = 1,N
                       C(J:N,J) = ZERO
-                  enddo   
+                  enddo
               ELSE
                   DO J = 1,N
                       C(J,J) = BETA*DBLE(C(J,J))
                       DO I = J + 1,N
                           C(I,J) = BETA*C(I,J)
-                      enddo   
-                  enddo   
+                      enddo
+                  enddo
               endif
           endif
           RETURN
@@ -289,7 +289,7 @@
                   ELSEIF (BETA.NE.ONE) THEN
                       DO I = 1,J - 1
                           C(I,J) = BETA*C(I,J)
-                      enddo   
+                      enddo
                       C(J,J) = BETA*DBLE(C(J,J))
                   ELSE
                       C(J,J) = DBLE(C(J,J))
@@ -299,11 +299,11 @@
                           TEMP = ALPHA*DCONJG(A(J,L))
                           DO I = 1,J - 1
                               C(I,J) = C(I,J) + TEMP*A(I,L)
-                          enddo   
+                          enddo
                           C(J,J) = DBLE(C(J,J)) + DBLE(TEMP*A(I,L))
                       endif
-                  enddo   
-              enddo   
+                  enddo
+              enddo
           ELSE
               DO J = 1,N
                   IF (BETA.EQ.ZERO) THEN
@@ -312,7 +312,7 @@
                       C(J,J) = BETA*DBLE(C(J,J))
                       DO I = J + 1,N
                           C(I,J) = BETA*C(I,J)
-                      enddo   
+                      enddo
                   ELSE
                       C(J,J) = DBLE(C(J,J))
                   endif
@@ -322,10 +322,10 @@
                           C(J,J) = DBLE(C(J,J)) + DBLE(TEMP*A(J,L))
                           DO I = J + 1,N
                               C(I,J) = C(I,J) + TEMP*A(I,L)
-                          enddo   
+                          enddo
                       endif
-                  enddo   
-              enddo   
+                  enddo
+              enddo
           endif
       ELSE
 !
@@ -337,29 +337,29 @@
                       TEMP = ZERO
                       DO L = 1,K
                           TEMP = TEMP + DCONJG(A(L,I))*A(L,J)
-                      enddo   
+                      enddo
                       IF (BETA.EQ.ZERO) THEN
                           C(I,J) = ALPHA*TEMP
                       ELSE
                           C(I,J) = ALPHA*TEMP + BETA*C(I,J)
                       endif
-                  enddo   
+                  enddo
                   RTEMP = ZERO
                   DO L = 1,K
                       RTEMP = RTEMP + DCONJG(A(L,J))*A(L,J)
-                  enddo   
+                  enddo
                   IF (BETA.EQ.ZERO) THEN
                       C(J,J) = ALPHA*RTEMP
                   ELSE
                       C(J,J) = ALPHA*RTEMP + BETA*DBLE(C(J,J))
                   endif
-              enddo   
+              enddo
           ELSE
               DO J = 1,N
                   RTEMP = ZERO
                   DO L = 1,K
                       RTEMP = RTEMP + DCONJG(A(L,J))*A(L,J)
-                  enddo   
+                  enddo
                   IF (BETA.EQ.ZERO) THEN
                       C(J,J) = ALPHA*RTEMP
                   ELSE
@@ -369,15 +369,15 @@
                       TEMP = ZERO
                       DO L = 1,K
                           TEMP = TEMP + DCONJG(A(L,I))*A(L,J)
-                      enddo   
+                      enddo
                       IF (BETA.EQ.ZERO) THEN
                           C(I,J) = ALPHA*TEMP
                       ELSE
                           C(I,J) = ALPHA*TEMP + BETA*C(I,J)
                       endif
-                  enddo   
-              enddo   
+                  enddo
+              enddo
           endif
       endif
- 
+
       END SUBROUTINE ZHERK

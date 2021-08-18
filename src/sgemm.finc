@@ -273,11 +273,11 @@
           IF (BETA.EQ.ZERO) THEN
               DO J = 1,N
                   C(1:M,J) = ZERO
-              enddo   
+              enddo
           ELSE
               DO J = 1,N
                   C(1:M,J) = BETA*C(1:M,J)
-              enddo   
+              enddo
           endif
           RETURN
       endif
@@ -298,8 +298,8 @@
                   DO L = 1,K
                       TEMP = ALPHA*B(L,J)
                       C(1:M,J) = C(1:M,J) + TEMP*A(1:M,L)
-                  enddo   
-              enddo   
+                  enddo
+              enddo
           ELSE
 !
 !           Form  C := alpha*A**T*B + beta*C
@@ -309,14 +309,14 @@
                       TEMP = ZERO
                       DO L = 1,K
                           TEMP = TEMP + A(L,I)*B(L,J)
-                      enddo   
+                      enddo
                       IF (BETA.EQ.ZERO) THEN
                           C(I,J) = ALPHA*TEMP
                       ELSE
                           C(I,J) = ALPHA*TEMP + BETA*C(I,J)
                       endif
-                  enddo   
-              enddo   
+                  enddo
+              enddo
           endif
       ELSE
           IF (NOTA) THEN
@@ -332,8 +332,8 @@
                   DO L = 1,K
                       TEMP = ALPHA*B(J,L)
                       C(1:M,J) = C(1:M,J) + TEMP*A(1:M,L)
-                  enddo   
-              enddo   
+                  enddo
+              enddo
           ELSE
 !
 !           Form  C := alpha*A**T*B**T + beta*C
@@ -343,14 +343,14 @@
                       TEMP = ZERO
                       DO L = 1,K
                           TEMP = TEMP + A(L,I)*B(J,L)
-                      enddo   
+                      enddo
                       IF (BETA.EQ.ZERO) THEN
                           C(I,J) = ALPHA*TEMP
                       ELSE
                           C(I,J) = ALPHA*TEMP + BETA*C(I,J)
                       endif
-                  enddo   
-              enddo   
+                  enddo
+              enddo
           endif
       endif
 !

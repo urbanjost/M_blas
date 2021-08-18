@@ -85,7 +85,7 @@
 !> \endverbatim
 !>
 !  =====================================================================
-function DNRM2( n, x, incx ) 
+function DNRM2( n, x, incx )
    integer, parameter :: wp = kind(1.d0)
    real(wp) :: DNRM2
 !

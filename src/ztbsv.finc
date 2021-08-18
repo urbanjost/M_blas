@@ -281,9 +281,9 @@
                           TEMP = X(J)
                           DO I = J - 1,MAX(1,J-K),-1
                               X(I) = X(I) - TEMP*A(L+I,J)
-                          enddo   
+                          enddo
                       endif
-                  enddo   
+                  enddo
               ELSE
                   KX = KX + (N-1)*INCX
                   JX = KX
@@ -297,10 +297,10 @@
                           DO I = J - 1,MAX(1,J-K),-1
                               X(IX) = X(IX) - TEMP*A(L+I,J)
                               IX = IX - INCX
-                          enddo 
+                          enddo
                       endif
                       JX = JX - INCX
-                  enddo   
+                  enddo
               endif
           ELSE
               IF (INCX.EQ.1) THEN
@@ -311,9 +311,9 @@
                           TEMP = X(J)
                           DO I = J + 1,MIN(N,J+K)
                               X(I) = X(I) - TEMP*A(L+I,J)
-                          enddo   
+                          enddo
                       endif
-                  enddo   
+                  enddo
               ELSE
                   JX = KX
                   DO J = 1,N
@@ -326,10 +326,10 @@
                           DO I = J + 1,MIN(N,J+K)
                               X(IX) = X(IX) - TEMP*A(L+I,J)
                               IX = IX + INCX
-                          enddo   
+                          enddo
                       endif
                       JX = JX + INCX
-                  enddo   
+                  enddo
               endif
           endif
       ELSE
@@ -345,16 +345,16 @@
                       IF (NOCONJ) THEN
                           DO I = MAX(1,J-K),J - 1
                               TEMP = TEMP - A(L+I,J)*X(I)
-                          enddo   
+                          enddo
                           IF (NOUNIT) TEMP = TEMP/A(KPLUS1,J)
                       ELSE
                           DO I = MAX(1,J-K),J - 1
                               TEMP = TEMP - DCONJG(A(L+I,J))*X(I)
-                          enddo   
+                          enddo
                           IF (NOUNIT) TEMP = TEMP/DCONJG(A(KPLUS1,J))
                       endif
                       X(J) = TEMP
-                  enddo   
+                  enddo
               ELSE
                   JX = KX
                   DO J = 1,N
@@ -365,19 +365,19 @@
                           DO I = MAX(1,J-K),J - 1
                               TEMP = TEMP - A(L+I,J)*X(IX)
                               IX = IX + INCX
-                          enddo   
+                          enddo
                           IF (NOUNIT) TEMP = TEMP/A(KPLUS1,J)
                       ELSE
                           DO I = MAX(1,J-K),J - 1
                               TEMP = TEMP - DCONJG(A(L+I,J))*X(IX)
                               IX = IX + INCX
-                          enddo   
+                          enddo
                           IF (NOUNIT) TEMP = TEMP/DCONJG(A(KPLUS1,J))
                       endif
                       X(JX) = TEMP
                       JX = JX + INCX
                       IF (J.GT.K) KX = KX + INCX
-                  enddo   
+                  enddo
               endif
           ELSE
               IF (INCX.EQ.1) THEN
@@ -387,16 +387,16 @@
                       IF (NOCONJ) THEN
                           DO I = MIN(N,J+K),J + 1,-1
                               TEMP = TEMP - A(L+I,J)*X(I)
-                          enddo   
+                          enddo
                           IF (NOUNIT) TEMP = TEMP/A(1,J)
                       ELSE
                           DO I = MIN(N,J+K),J + 1,-1
                               TEMP = TEMP - DCONJG(A(L+I,J))*X(I)
-                          enddo   
+                          enddo
                           IF (NOUNIT) TEMP = TEMP/DCONJG(A(1,J))
                       endif
                       X(J) = TEMP
-                  enddo   
+                  enddo
               ELSE
                   KX = KX + (N-1)*INCX
                   JX = KX
@@ -408,21 +408,21 @@
                           DO I = MIN(N,J+K),J + 1,-1
                               TEMP = TEMP - A(L+I,J)*X(IX)
                               IX = IX - INCX
-                          enddo   
+                          enddo
                           IF (NOUNIT) TEMP = TEMP/A(1,J)
                       ELSE
                           DO I = MIN(N,J+K),J + 1,-1
                               TEMP = TEMP - DCONJG(A(L+I,J))*X(IX)
                               IX = IX - INCX
-                          enddo   
+                          enddo
                           IF (NOUNIT) TEMP = TEMP/DCONJG(A(1,J))
                       endif
                       X(JX) = TEMP
                       JX = JX - INCX
                       IF ((N-J).GE.K) KX = KX - INCX
-                  enddo   
+                  enddo
               endif
           endif
       endif
- 
+
       END SUBROUTINE ZTBSV

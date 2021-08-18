@@ -284,14 +284,14 @@
                       DO K = 1,I - 1
                           C(K,J) = C(K,J) + TEMP1*A(K,I)
                           TEMP2 = TEMP2 + B(K,J)*A(K,I)
-                      enddo    
+                      enddo
                       IF (BETA.EQ.ZERO) THEN
                           C(I,J) = TEMP1*A(I,I) + ALPHA*TEMP2
                       ELSE
                           C(I,J) = BETA*C(I,J) + TEMP1*A(I,I) + ALPHA*TEMP2
                       endif
-                  enddo   
-              enddo   
+                  enddo
+              enddo
           ELSE
               DO J = 1,N
                   DO I = M,1,-1
@@ -300,14 +300,14 @@
                       DO K = I + 1,M
                           C(K,J) = C(K,J) + TEMP1*A(K,I)
                           TEMP2 = TEMP2 + B(K,J)*A(K,I)
-                      enddo   
+                      enddo
                       IF (BETA.EQ.ZERO) THEN
                           C(I,J) = TEMP1*A(I,I) + ALPHA*TEMP2
                       ELSE
                           C(I,J) = BETA*C(I,J) + TEMP1*A(I,I) + ALPHA*TEMP2
                       endif
-                  enddo   
-              enddo   
+                  enddo
+              enddo
           endif
       ELSE
 !
@@ -327,7 +327,7 @@
                       TEMP1 = ALPHA*A(J,K)
                   endif
                   C(1:M,J) = C(1:M,J) + TEMP1*B(1:M,K)
-              enddo   
+              enddo
               DO K = J + 1,N
                   IF (UPPER) THEN
                       TEMP1 = ALPHA*A(J,K)
@@ -335,8 +335,8 @@
                       TEMP1 = ALPHA*A(K,J)
                   endif
                   C(1:M,J) = C(1:M,J) + TEMP1*B(1:M,K)
-              enddo   
-          enddo   
+              enddo
+          enddo
       endif
 !
       END SUBROUTINE DSYMM

@@ -247,12 +247,12 @@
                   do i = 1,n
                       y(iy) = zero
                       iy = iy + incy
-                  enddo   
+                  enddo
               else
                   do i = 1,n
                       y(iy) = beta*y(iy)
                       iy = iy + incy
-                  enddo   
+                  enddo
               endif
           endif
       endif
@@ -268,9 +268,9 @@
                   do i = 1,j - 1
                       y(i) = y(i) + temp1*a(i,j)
                       temp2 = temp2 + dconjg(a(i,j))*x(i)
-                  enddo   
+                  enddo
                   y(j) = y(j) + temp1*dble(a(j,j)) + alpha*temp2
-              enddo   
+              enddo
           else
               jx = kx
               jy = ky
@@ -284,11 +284,11 @@
                       temp2 = temp2 + dconjg(a(i,j))*x(ix)
                       ix = ix + incx
                       iy = iy + incy
-                  enddo   
+                  enddo
                   y(jy) = y(jy) + temp1*dble(a(j,j)) + alpha*temp2
                   jx = jx + incx
                   jy = jy + incy
-              enddo   
+              enddo
           endif
       else
 !
@@ -302,9 +302,9 @@
                   do i = j + 1,n
                       y(i) = y(i) + temp1*a(i,j)
                       temp2 = temp2 + dconjg(a(i,j))*x(i)
-                  enddo   
+                  enddo
                   y(j) = y(j) + alpha*temp2
-              enddo   
+              enddo
           else
               jx = kx
               jy = ky
@@ -319,11 +319,11 @@
                       iy = iy + incy
                       y(iy) = y(iy) + temp1*a(i,j)
                       temp2 = temp2 + dconjg(a(i,j))*x(ix)
-                  enddo   
+                  enddo
                   y(jy) = y(jy) + alpha*temp2
                   jx = jx + incx
                   jy = jy + incy
-              enddo   
+              enddo
           endif
       endif
 

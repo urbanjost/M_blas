@@ -206,13 +206,13 @@
                       DO I = 1,J - 1
                           AP(K) = AP(K) + X(I)*TEMP
                           K = K + 1
-                      enddo   
+                      enddo
                       AP(KK+J-1) = REAL(AP(KK+J-1)) + REAL(X(J)*TEMP)
                   ELSE
                       AP(KK+J-1) = REAL(AP(KK+J-1))
                   endif
                   KK = KK + J
-              enddo   
+              enddo
           ELSE
               JX = KX
               DO J = 1,N
@@ -222,14 +222,14 @@
                       DO K = KK,KK + J - 2
                           AP(K) = AP(K) + X(IX)*TEMP
                           IX = IX + INCX
-                      enddo    
+                      enddo
                       AP(KK+J-1) = REAL(AP(KK+J-1)) + REAL(X(JX)*TEMP)
                   ELSE
                       AP(KK+J-1) = REAL(AP(KK+J-1))
                   endif
                   JX = JX + INCX
                   KK = KK + J
-              enddo   
+              enddo
           endif
       ELSE
 !
@@ -244,12 +244,12 @@
                       DO I = J + 1,N
                           AP(K) = AP(K) + X(I)*TEMP
                           K = K + 1
-                      enddo   
+                      enddo
                   ELSE
                       AP(KK) = REAL(AP(KK))
                   endif
                   KK = KK + N - J + 1
-              enddo   
+              enddo
           ELSE
               JX = KX
               DO J = 1,N
@@ -260,13 +260,13 @@
                       DO K = KK + 1,KK + N - J
                           IX = IX + INCX
                           AP(K) = AP(K) + X(IX)*TEMP
-                      enddo   
+                      enddo
                   ELSE
                       AP(KK) = REAL(AP(KK))
                   endif
                   JX = JX + INCX
                   KK = KK + N - J + 1
-              enddo   
+              enddo
           endif
       endif
 !

@@ -275,27 +275,27 @@
               IF (BETA.EQ.REAL(ZERO)) THEN
                   DO J = 1,N
                       C(1:J,J) = ZERO
-                  enddo   
+                  enddo
               ELSE
                   DO J = 1,N
                       DO I = 1,J - 1
                           C(I,J) = BETA*C(I,J)
-                      enddo   
+                      enddo
                       C(J,J) = BETA*REAL(C(J,J))
-                  enddo   
+                  enddo
               endif
           ELSE
               IF (BETA.EQ.REAL(ZERO)) THEN
                   DO J = 1,N
                       C(J:N,J) = ZERO
-                  enddo   
+                  enddo
               ELSE
                   DO J = 1,N
                       C(J,J) = BETA*REAL(C(J,J))
                       DO I = J + 1,N
                           C(I,J) = BETA*C(I,J)
-                      enddo   
-                  enddo   
+                      enddo
+                  enddo
               endif
           endif
           RETURN
@@ -313,11 +313,11 @@
                   IF (BETA.EQ.REAL(ZERO)) THEN
                       DO I = 1,J
                           C(I,J) = ZERO
-                      enddo   
+                      enddo
                   elseif (BETA.NE.ONE) THEN
                       DO I = 1,J - 1
                           C(I,J) = BETA*C(I,J)
-                      enddo   
+                      enddo
                       C(J,J) = BETA*REAL(C(J,J))
                   ELSE
                       C(J,J) = REAL(C(J,J))
@@ -328,11 +328,11 @@
                           TEMP2 = CONJG(ALPHA*A(J,L))
                           DO I = 1,J - 1
                               C(I,J) = C(I,J) + A(I,L)*TEMP1 + B(I,L)*TEMP2
-                          enddo   
+                          enddo
                           C(J,J) = REAL(C(J,J)) + REAL(A(J,L)*TEMP1+B(J,L)*TEMP2)
                       endif
-                  enddo   
-              enddo   
+                  enddo
+              enddo
           ELSE
               DO J = 1,N
                   IF (BETA.EQ.REAL(ZERO)) THEN
@@ -340,7 +340,7 @@
                   elseif (BETA.NE.ONE) THEN
                       DO I = J + 1,N
                           C(I,J) = BETA*C(I,J)
-                      enddo   
+                      enddo
                       C(J,J) = BETA*REAL(C(J,J))
                   ELSE
                       C(J,J) = REAL(C(J,J))
@@ -351,11 +351,11 @@
                           TEMP2 = CONJG(ALPHA*A(J,L))
                           DO I = J + 1,N
                               C(I,J) = C(I,J) + A(I,L)*TEMP1 + B(I,L)*TEMP2
-                          enddo   
+                          enddo
                           C(J,J) = REAL(C(J,J)) + REAL(A(J,L)*TEMP1+B(J,L)*TEMP2)
                       endif
-                  enddo   
-              enddo   
+                  enddo
+              enddo
           endif
       ELSE
 !
@@ -370,7 +370,7 @@
                       DO L = 1,K
                           TEMP1 = TEMP1 + CONJG(A(L,I))*B(L,J)
                           TEMP2 = TEMP2 + CONJG(B(L,I))*A(L,J)
-                      enddo   
+                      enddo
                       IF (I.EQ.J) THEN
                           IF (BETA.EQ.REAL(ZERO)) THEN
                               C(J,J) = REAL(ALPHA*TEMP1+ CONJG(ALPHA)*TEMP2)
@@ -384,8 +384,8 @@
                               C(I,J) = BETA*C(I,J) + ALPHA*TEMP1 + CONJG(ALPHA)*TEMP2
                           endif
                       endif
-                  enddo   
-              enddo   
+                  enddo
+              enddo
           ELSE
               DO J = 1,N
                   DO I = J,N
@@ -394,7 +394,7 @@
                       DO L = 1,K
                           TEMP1 = TEMP1 + CONJG(A(L,I))*B(L,J)
                           TEMP2 = TEMP2 + CONJG(B(L,I))*A(L,J)
-                      enddo   
+                      enddo
                       IF (I.EQ.J) THEN
                           IF (BETA.EQ.REAL(ZERO)) THEN
                               C(J,J) = REAL(ALPHA*TEMP1+ CONJG(ALPHA)*TEMP2)
@@ -408,8 +408,8 @@
                               C(I,J) = BETA*C(I,J) + ALPHA*TEMP1 + CONJG(ALPHA)*TEMP2
                           endif
                       endif
-                  enddo   
-              enddo   
+                  enddo
+              enddo
           endif
       endif
 !

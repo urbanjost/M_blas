@@ -279,14 +279,14 @@
               DO J = 1,N
                   DO I = 1,M
                       C(I,J) = ZERO
-                  enddo   
-              enddo   
+                  enddo
+              enddo
           ELSE
               DO J = 1,N
                   DO I = 1,M
                       C(I,J) = BETA*C(I,J)
-                  enddo   
-              enddo   
+                  enddo
+              enddo
           endif
           RETURN
       endif
@@ -302,19 +302,19 @@
                   IF (BETA.EQ.ZERO) THEN
                       DO I = 1,M
                           C(I,J) = ZERO
-                      enddo   
+                      enddo
                   elseif (BETA.NE.ONE) THEN
                       DO I = 1,M
                           C(I,J) = BETA*C(I,J)
-                      enddo   
+                      enddo
                   endif
                   DO L = 1,K
                       TEMP = ALPHA*B(L,J)
                       DO I = 1,M
                           C(I,J) = C(I,J) + TEMP*A(I,L)
-                      enddo   
-                  enddo   
-              enddo   
+                      enddo
+                  enddo
+              enddo
           elseif (CONJA) THEN
 !
 !           Form  C := alpha*A**H*B + beta*C.
@@ -324,14 +324,14 @@
                       TEMP = ZERO
                       DO L = 1,K
                           TEMP = TEMP + CONJG(A(L,I))*B(L,J)
-                      enddo    
+                      enddo
                       IF (BETA.EQ.ZERO) THEN
                           C(I,J) = ALPHA*TEMP
                       ELSE
                           C(I,J) = ALPHA*TEMP + BETA*C(I,J)
                       endif
-                  enddo   
-              enddo   
+                  enddo
+              enddo
           ELSE
 !
 !           Form  C := alpha*A**T*B + beta*C
@@ -341,14 +341,14 @@
                       TEMP = ZERO
                       DO L = 1,K
                           TEMP = TEMP + A(L,I)*B(L,J)
-                      enddo   
+                      enddo
                       IF (BETA.EQ.ZERO) THEN
                           C(I,J) = ALPHA*TEMP
                       ELSE
                           C(I,J) = ALPHA*TEMP + BETA*C(I,J)
                       endif
-                  enddo   
-              enddo   
+                  enddo
+              enddo
           endif
       elseif (NOTA) THEN
           IF (CONJB) THEN
@@ -359,19 +359,19 @@
                   IF (BETA.EQ.ZERO) THEN
                       DO I = 1,M
                           C(I,J) = ZERO
-                      enddo   
+                      enddo
                   elseif (BETA.NE.ONE) THEN
                       DO I = 1,M
                           C(I,J) = BETA*C(I,J)
-                      enddo   
+                      enddo
                   endif
                   DO L = 1,K
                       TEMP = ALPHA*CONJG(B(J,L))
                       DO I = 1,M
                           C(I,J) = C(I,J) + TEMP*A(I,L)
-                      enddo   
-                  enddo   
-              enddo   
+                      enddo
+                  enddo
+              enddo
           ELSE
 !
 !           Form  C := alpha*A*B**T + beta*C
@@ -380,19 +380,19 @@
                   IF (BETA.EQ.ZERO) THEN
                       DO I = 1,M
                           C(I,J) = ZERO
-                      enddo   
+                      enddo
                   elseif (BETA.NE.ONE) THEN
                       DO I = 1,M
                           C(I,J) = BETA*C(I,J)
-                      enddo   
+                      enddo
                   endif
                   DO L = 1,K
                       TEMP = ALPHA*B(J,L)
                       DO I = 1,M
                           C(I,J) = C(I,J) + TEMP*A(I,L)
-                      enddo   
-                  enddo   
-              enddo   
+                      enddo
+                  enddo
+              enddo
           endif
       elseif (CONJA) THEN
           IF (CONJB) THEN
@@ -404,14 +404,14 @@
                       TEMP = ZERO
                       DO L = 1,K
                           TEMP = TEMP + CONJG(A(L,I))*CONJG(B(J,L))
-                      enddo   
+                      enddo
                       IF (BETA.EQ.ZERO) THEN
                           C(I,J) = ALPHA*TEMP
                       ELSE
                           C(I,J) = ALPHA*TEMP + BETA*C(I,J)
                       endif
-                  enddo   
-              enddo   
+                  enddo
+              enddo
           ELSE
 !
 !           Form  C := alpha*A**H*B**T + beta*C
@@ -421,14 +421,14 @@
                       TEMP = ZERO
                       DO L = 1,K
                           TEMP = TEMP + CONJG(A(L,I))*B(J,L)
-                      enddo   
+                      enddo
                       IF (BETA.EQ.ZERO) THEN
                           C(I,J) = ALPHA*TEMP
                       ELSE
                           C(I,J) = ALPHA*TEMP + BETA*C(I,J)
                       endif
-                  enddo   
-              enddo    
+                  enddo
+              enddo
           endif
       ELSE
           IF (CONJB) THEN
@@ -440,14 +440,14 @@
                       TEMP = ZERO
                       DO L = 1,K
                           TEMP = TEMP + A(L,I)*CONJG(B(J,L))
-                      enddo   
+                      enddo
                       IF (BETA.EQ.ZERO) THEN
                           C(I,J) = ALPHA*TEMP
                       ELSE
                           C(I,J) = ALPHA*TEMP + BETA*C(I,J)
                       endif
-                  enddo   
-              enddo    
+                  enddo
+              enddo
           ELSE
 !
 !           Form  C := alpha*A**T*B**T + beta*C
@@ -457,14 +457,14 @@
                       TEMP = ZERO
                       DO L = 1,K
                           TEMP = TEMP + A(L,I)*B(J,L)
-                      enddo   
+                      enddo
                       IF (BETA.EQ.ZERO) THEN
                           C(I,J) = ALPHA*TEMP
                       ELSE
                           C(I,J) = ALPHA*TEMP + BETA*C(I,J)
                       endif
-                  enddo   
-              enddo   
+                  enddo
+              enddo
           endif
       endif
 !

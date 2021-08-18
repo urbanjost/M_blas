@@ -261,7 +261,7 @@
       IF (ALPHA.EQ.ZERO) THEN
           DO J = 1,N
               B(1:M,J) = ZERO
-          enddo   
+          enddo
           RETURN
       endif
 !
@@ -282,10 +282,10 @@
                               IF (NOUNIT) B(K,J) = B(K,J)/A(K,K)
                               DO I = 1,K - 1
                                   B(I,J) = B(I,J) - B(K,J)*A(I,K)
-                              enddo   
+                              enddo
                           endif
-                      enddo   
-                  enddo   
+                      enddo
+                  enddo
               ELSE
                   DO J = 1,N
                       IF (ALPHA.NE.ONE) THEN
@@ -296,10 +296,10 @@
                               IF (NOUNIT) B(K,J) = B(K,J)/A(K,K)
                               DO I = K + 1,M
                                   B(I,J) = B(I,J) - B(K,J)*A(I,K)
-                              enddo   
+                              enddo
                           endif
-                      enddo   
-                  enddo   
+                      enddo
+                  enddo
               endif
           ELSE
 !
@@ -311,22 +311,22 @@
                           TEMP = ALPHA*B(I,J)
                           DO K = 1,I - 1
                               TEMP = TEMP - A(K,I)*B(K,J)
-                          enddo   
+                          enddo
                           IF (NOUNIT) TEMP = TEMP/A(I,I)
                           B(I,J) = TEMP
-                      enddo   
-                  enddo   
+                      enddo
+                  enddo
               ELSE
                   DO J = 1,N
                       DO I = M,1,-1
                           TEMP = ALPHA*B(I,J)
                           DO K = I + 1,M
                               TEMP = TEMP - A(K,I)*B(K,J)
-                          enddo   
+                          enddo
                           IF (NOUNIT) TEMP = TEMP/A(I,I)
                           B(I,J) = TEMP
-                      enddo   
-                  enddo   
+                      enddo
+                  enddo
               endif
           endif
       ELSE
@@ -343,12 +343,12 @@
                           IF (A(K,J).NE.ZERO) THEN
                               B(1:M,J) = B(1:M,J) - A(K,J)*B(1:M,K)
                           endif
-                      enddo   
+                      enddo
                       IF (NOUNIT) THEN
                           TEMP = ONE/A(J,J)
                           B(1:M,J) = TEMP*B(1:M,J)
                       endif
-                  enddo   
+                  enddo
               ELSE
                   DO J = N,1,-1
                       IF (ALPHA.NE.ONE) THEN
@@ -358,12 +358,12 @@
                           IF (A(K,J).NE.ZERO) THEN
                               B(1:M,J) = B(1:M,J) - A(K,J)*B(1:M,K)
                           endif
-                      enddo   
+                      enddo
                       IF (NOUNIT) THEN
                           TEMP = ONE/A(J,J)
                           B(1:M,J) = TEMP*B(1:M,J)
                       endif
-                  enddo   
+                  enddo
               endif
           ELSE
 !
@@ -380,11 +380,11 @@
                               TEMP = A(J,K)
                               B(1:M,J) = B(1:M,J) - TEMP*B(1:M,K)
                           endif
-                      enddo   
+                      enddo
                       IF (ALPHA.NE.ONE) THEN
                           B(1:M,K) = ALPHA*B(1:M,K)
                       endif
-                  enddo   
+                  enddo
               ELSE
                   DO K = 1,N
                       IF (NOUNIT) THEN
@@ -396,13 +396,13 @@
                               TEMP = A(J,K)
                               B(1:M,J) = B(1:M,J) - TEMP*B(1:M,K)
                           endif
-                      enddo   
+                      enddo
                       IF (ALPHA.NE.ONE) THEN
                           B(1:M,K) = ALPHA*B(1:M,K)
                       endif
-                  enddo   
+                  enddo
               endif
           endif
       endif
- 
+
       END SUBROUTINE STRSM

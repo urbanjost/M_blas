@@ -214,12 +214,12 @@
                       TEMP = ALPHA*DCONJG(X(J))
                       DO I = 1,J - 1
                           A(I,J) = A(I,J) + X(I)*TEMP
-                      enddo    
+                      enddo
                       A(J,J) = DBLE(A(J,J)) + DBLE(X(J)*TEMP)
                   ELSE
                       A(J,J) = DBLE(A(J,J))
                   endif
-              enddo   
+              enddo
           ELSE
               JX = KX
               DO J = 1,N
@@ -229,13 +229,13 @@
                       DO I = 1,J - 1
                           A(I,J) = A(I,J) + X(IX)*TEMP
                           IX = IX + INCX
-                      enddo   
+                      enddo
                       A(J,J) = DBLE(A(J,J)) + DBLE(X(JX)*TEMP)
                   ELSE
                       A(J,J) = DBLE(A(J,J))
                   endif
                   JX = JX + INCX
-              enddo   
+              enddo
           endif
       ELSE
 !
@@ -248,11 +248,11 @@
                       A(J,J) = DBLE(A(J,J)) + DBLE(TEMP*X(J))
                       DO I = J + 1,N
                           A(I,J) = A(I,J) + X(I)*TEMP
-                      enddo    
+                      enddo
                   ELSE
                       A(J,J) = DBLE(A(J,J))
                   endif
-              enddo   
+              enddo
           ELSE
               JX = KX
               DO J = 1,N
@@ -263,13 +263,13 @@
                       DO I = J + 1,N
                           IX = IX + INCX
                           A(I,J) = A(I,J) + X(IX)*TEMP
-                      enddo   
+                      enddo
                   ELSE
                       A(J,J) = DBLE(A(J,J))
                   endif
                   JX = JX + INCX
-              enddo    
+              enddo
           endif
       endif
- 
+
       END SUBROUTINE ZHER

@@ -234,13 +234,13 @@
                       DO I = 1,J - 1
                           AP(K) = AP(K) + X(I)*TEMP1 + Y(I)*TEMP2
                           K = K + 1
-                      enddo   
+                      enddo
                       AP(KK+J-1) = REAL(AP(KK+J-1)) + REAL(X(J)*TEMP1+Y(J)*TEMP2)
                   ELSE
                       AP(KK+J-1) = REAL(AP(KK+J-1))
                   endif
                   KK = KK + J
-              enddo   
+              enddo
           ELSE
               DO J = 1,N
                   IF ((X(JX).NE.ZERO) .OR. (Y(JY).NE.ZERO)) THEN
@@ -252,7 +252,7 @@
                           AP(K) = AP(K) + X(IX)*TEMP1 + Y(IY)*TEMP2
                           IX = IX + INCX
                           IY = IY + INCY
-                      enddo   
+                      enddo
                       AP(KK+J-1) = REAL(AP(KK+J-1)) + REAL(X(JX)*TEMP1+Y(JY)*TEMP2)
                   ELSE
                       AP(KK+J-1) = REAL(AP(KK+J-1))
@@ -260,7 +260,7 @@
                   JX = JX + INCX
                   JY = JY + INCY
                   KK = KK + J
-              enddo   
+              enddo
           endif
       ELSE
 !
@@ -276,12 +276,12 @@
                       DO I = J + 1,N
                           AP(K) = AP(K) + X(I)*TEMP1 + Y(I)*TEMP2
                           K = K + 1
-                      enddo   
+                      enddo
                   ELSE
                       AP(KK) = REAL(AP(KK))
                   endif
                   KK = KK + N - J + 1
-              enddo   
+              enddo
           ELSE
               DO J = 1,N
                   IF ((X(JX).NE.ZERO) .OR. (Y(JY).NE.ZERO)) THEN
@@ -294,14 +294,14 @@
                           IX = IX + INCX
                           IY = IY + INCY
                           AP(K) = AP(K) + X(IX)*TEMP1 + Y(IY)*TEMP2
-                      enddo   
+                      enddo
                   ELSE
                       AP(KK) = REAL(AP(KK))
                   endif
                   JX = JX + INCX
                   JY = JY + INCY
                   KK = KK + N - J + 1
-              enddo   
+              enddo
           endif
       endif
 !

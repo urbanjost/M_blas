@@ -236,9 +236,9 @@
                       TEMP2 = ALPHA*X(J)
                       DO I = 1,J
                           A(I,J) = A(I,J) + X(I)*TEMP1 + Y(I)*TEMP2
-                      enddo   
+                      enddo
                   endif
-              enddo   
+              enddo
           ELSE
               DO J = 1,N
                   IF ((X(JX).NE.ZERO) .OR. (Y(JY).NE.ZERO)) THEN
@@ -250,11 +250,11 @@
                           A(I,J) = A(I,J) + X(IX)*TEMP1 + Y(IY)*TEMP2
                           IX = IX + INCX
                           IY = IY + INCY
-                      enddo   
+                      enddo
                   endif
                   JX = JX + INCX
                   JY = JY + INCY
-              enddo   
+              enddo
           endif
       ELSE
 !
@@ -267,9 +267,9 @@
                       TEMP2 = ALPHA*X(J)
                       DO I = J,N
                           A(I,J) = A(I,J) + X(I)*TEMP1 + Y(I)*TEMP2
-                      enddo   
+                      enddo
                   endif
-              enddo   
+              enddo
           ELSE
               DO J = 1,N
                   IF ((X(JX).NE.ZERO) .OR. (Y(JY).NE.ZERO)) THEN
@@ -281,11 +281,11 @@
                           A(I,J) = A(I,J) + X(IX)*TEMP1 + Y(IY)*TEMP2
                           IX = IX + INCX
                           IY = IY + INCY
-                      enddo   
+                      enddo
                   endif
                   JX = JX + INCX
                   JY = JY + INCY
-              enddo   
+              enddo
           endif
       endif
 !

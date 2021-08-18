@@ -122,5 +122,5 @@
             IX = IX + INCX
          END DO
       endif
-      
+
       END FUNCTION IZAMAX

@@ -133,5 +133,5 @@
             DX(I) = DA*DX(I)
          END DO
       endif
-      
+
       END SUBROUTINE DSCAL

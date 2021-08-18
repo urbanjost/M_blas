@@ -200,10 +200,10 @@
                       DO I = 1,J
                           AP(K) = AP(K) + X(I)*TEMP
                           K = K + 1
-                      enddo   
+                      enddo
                   endif
                   KK = KK + J
-              enddo   
+              enddo
           ELSE
               JX = KX
               DO J = 1,N
@@ -213,11 +213,11 @@
                       DO K = KK,KK + J - 1
                           AP(K) = AP(K) + X(IX)*TEMP
                           IX = IX + INCX
-                      enddo   
+                      enddo
                   endif
                   JX = JX + INCX
                   KK = KK + J
-              enddo   
+              enddo
           endif
       ELSE
 !
@@ -231,10 +231,10 @@
                       DO I = J,N
                           AP(K) = AP(K) + X(I)*TEMP
                           K = K + 1
-                      enddo   
+                      enddo
                   endif
                   KK = KK + N - J + 1
-              enddo   
+              enddo
           ELSE
               JX = KX
               DO J = 1,N
@@ -244,11 +244,11 @@
                       DO K = KK,KK + N - J
                           AP(K) = AP(K) + X(IX)*TEMP
                           IX = IX + INCX
-                      enddo   
+                      enddo
                   endif
                   JX = JX + INCX
                   KK = KK + N - J + 1
-              enddo   
+              enddo
           endif
       endif
 !

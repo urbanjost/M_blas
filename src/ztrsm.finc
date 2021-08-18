@@ -264,8 +264,8 @@
           DO J = 1,N
               DO I = 1,M
                   B(I,J) = ZERO
-              enddo   
-          enddo    
+              enddo
+          enddo
           RETURN
       endif
 !
@@ -281,33 +281,33 @@
                       IF (ALPHA.NE.ONE) THEN
                           DO I = 1,M
                               B(I,J) = ALPHA*B(I,J)
-                          enddo   
+                          enddo
                       endif
                       DO K = M,1,-1
                           IF (B(K,J).NE.ZERO) THEN
                               IF (NOUNIT) B(K,J) = B(K,J)/A(K,K)
                               DO I = 1,K - 1
                                   B(I,J) = B(I,J) - B(K,J)*A(I,K)
-                              enddo    
+                              enddo
                           endif
-                      enddo   
-                  enddo   
+                      enddo
+                  enddo
               ELSE
                   DO J = 1,N
                       IF (ALPHA.NE.ONE) THEN
                           DO I = 1,M
                               B(I,J) = ALPHA*B(I,J)
-                          enddo    
+                          enddo
                       endif
                       DO K = 1,M
                           IF (B(K,J).NE.ZERO) THEN
                               IF (NOUNIT) B(K,J) = B(K,J)/A(K,K)
                               DO I = K + 1,M
                                   B(I,J) = B(I,J) - B(K,J)*A(I,K)
-                              enddo   
+                              enddo
                           endif
-                      enddo    
-                  enddo   
+                      enddo
+                  enddo
               endif
           ELSE
 !
@@ -321,17 +321,17 @@
                           IF (NOCONJ) THEN
                               DO K = 1,I - 1
                                   TEMP = TEMP - A(K,I)*B(K,J)
-                              enddo   
+                              enddo
                               IF (NOUNIT) TEMP = TEMP/A(I,I)
                           ELSE
                               DO K = 1,I - 1
                                   TEMP = TEMP - DCONJG(A(K,I))*B(K,J)
-                              enddo   
+                              enddo
                               IF (NOUNIT) TEMP = TEMP/DCONJG(A(I,I))
                           endif
                           B(I,J) = TEMP
-                      enddo   
-                  enddo    
+                      enddo
+                  enddo
               ELSE
                   DO J = 1,N
                       DO I = M,1,-1
@@ -339,17 +339,17 @@
                           IF (NOCONJ) THEN
                               DO K = I + 1,M
                                   TEMP = TEMP - A(K,I)*B(K,J)
-                              enddo   
+                              enddo
                               IF (NOUNIT) TEMP = TEMP/A(I,I)
                           ELSE
                               DO K = I + 1,M
                                   TEMP = TEMP - DCONJG(A(K,I))*B(K,J)
-                              enddo   
+                              enddo
                               IF (NOUNIT) TEMP = TEMP/DCONJG(A(I,I))
                           endif
                           B(I,J) = TEMP
-                      enddo   
-                  enddo   
+                      enddo
+                  enddo
               endif
           endif
       ELSE
@@ -362,43 +362,43 @@
                       IF (ALPHA.NE.ONE) THEN
                           DO I = 1,M
                               B(I,J) = ALPHA*B(I,J)
-                          enddo   
+                          enddo
                       endif
                       DO K = 1,J - 1
                           IF (A(K,J).NE.ZERO) THEN
                               DO I = 1,M
                                   B(I,J) = B(I,J) - A(K,J)*B(I,K)
-                              enddo   
+                              enddo
                           endif
-                      enddo   
+                      enddo
                       IF (NOUNIT) THEN
                           TEMP = ONE/A(J,J)
                           DO I = 1,M
                               B(I,J) = TEMP*B(I,J)
-                          enddo   
+                          enddo
                       endif
-                  enddo   
+                  enddo
               ELSE
                   DO J = N,1,-1
                       IF (ALPHA.NE.ONE) THEN
                           DO I = 1,M
                               B(I,J) = ALPHA*B(I,J)
-                          enddo   
+                          enddo
                       endif
                       DO K = J + 1,N
                           IF (A(K,J).NE.ZERO) THEN
                               DO I = 1,M
                                   B(I,J) = B(I,J) - A(K,J)*B(I,K)
-                              enddo   
+                              enddo
                           endif
-                      enddo   
+                      enddo
                       IF (NOUNIT) THEN
                           TEMP = ONE/A(J,J)
                           DO I = 1,M
                               B(I,J) = TEMP*B(I,J)
-                          enddo   
+                          enddo
                       endif
-                  enddo   
+                  enddo
               endif
           ELSE
 !
@@ -415,7 +415,7 @@
                           endif
                           DO I = 1,M
                               B(I,K) = TEMP*B(I,K)
-                          enddo   
+                          enddo
                       endif
                       DO J = 1,K - 1
                           IF (A(J,K).NE.ZERO) THEN
@@ -426,15 +426,15 @@
                               endif
                               DO I = 1,M
                                   B(I,J) = B(I,J) - TEMP*B(I,K)
-                              enddo   
+                              enddo
                           endif
-                      enddo   
+                      enddo
                       IF (ALPHA.NE.ONE) THEN
                           DO I = 1,M
                               B(I,K) = ALPHA*B(I,K)
-                          enddo   
+                          enddo
                       endif
-                  enddo   
+                  enddo
               ELSE
                   DO K = 1,N
                       IF (NOUNIT) THEN
@@ -445,7 +445,7 @@
                           endif
                           DO I = 1,M
                               B(I,K) = TEMP*B(I,K)
-                          enddo   
+                          enddo
                       endif
                       DO J = K + 1,N
                           IF (A(J,K).NE.ZERO) THEN
@@ -456,17 +456,17 @@
                               endif
                               DO I = 1,M
                                   B(I,J) = B(I,J) - TEMP*B(I,K)
-                              enddo    
+                              enddo
                           endif
-                      enddo   
+                      enddo
                       IF (ALPHA.NE.ONE) THEN
                           DO I = 1,M
                               B(I,K) = ALPHA*B(I,K)
-                          enddo   
+                          enddo
                       endif
-                  enddo   
+                  enddo
               endif
           endif
       endif
- 
+
       END SUBROUTINE ZTRSM
