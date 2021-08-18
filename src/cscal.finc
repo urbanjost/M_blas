@@ -85,11 +85,11 @@
 !     November 2017
 !
 !     .. Scalar Arguments ..
-      COMPLEX CA
-      INTEGER INCX,N
+      COMPLEX,intent(in)    :: CA
+      INTEGER,intent(in)    :: INCX,N
 !     ..
 !     .. Array Arguments ..
-      COMPLEX CX(*)
+      COMPLEX,intent(inout) :: CX(*)
 !     ..
 !
 !  =====================================================================

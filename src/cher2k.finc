@@ -204,13 +204,14 @@
 !     December 2016
 !
 !     .. Scalar Arguments ..
-      COMPLEX ALPHA
-      REAL BETA
-      INTEGER K,LDA,LDB,LDC,N
-      CHARACTER TRANS,UPLO
+      COMPLEX,intent(in)    :: ALPHA
+      REAL,intent(in)       :: BETA
+      INTEGER,intent(in)    :: K,LDA,LDB,LDC,N
+      CHARACTER,intent(in)  :: TRANS,UPLO
 !     ..
 !     .. Array Arguments ..
-      COMPLEX A(LDA,*),B(LDB,*),C(LDC,*)
+      COMPLEX,intent(in)    :: A(LDA,*),B(LDB,*)
+      COMPLEX,intent(inout) :: C(LDC,*)
 !     ..
 !
 !  =====================================================================

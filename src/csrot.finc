@@ -105,11 +105,11 @@
 !     December 2016
 !
 !     .. Scalar Arguments ..
-      INTEGER           INCX, INCY, N
-      REAL              C, S
+      INTEGER,intent(in)       :: INCX, INCY, N
+      REAL,intent(in)          :: C, S
 !     ..
 !     .. Array Arguments ..
-      COMPLEX           CX( * ), CY( * )
+      COMPLEX,intent(inout)    :: CX( * ), CY( * )
 !     ..
 !
 !  =====================================================================

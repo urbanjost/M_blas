@@ -194,12 +194,13 @@
 !     December 2016
 !
 !     .. Scalar Arguments ..
-      COMPLEX ALPHA,BETA
-      INTEGER K,LDA,LDB,LDC,M,N
-      CHARACTER TRANSA,TRANSB
+      COMPLEX,intent(in)    :: ALPHA,BETA
+      INTEGER,intent(in)    :: K,LDA,LDB,LDC,M,N
+      CHARACTER,intent(in)  :: TRANSA,TRANSB
 !     ..
 !     .. Array Arguments ..
-      COMPLEX A(LDA,*),B(LDB,*),C(LDC,*)
+      COMPLEX,intent(in)    :: A(LDA,*),B(LDB,*)
+      COMPLEX,intent(inout) :: C(LDC,*)
 !     ..
 !
 !  =====================================================================
@@ -217,10 +218,8 @@
       LOGICAL CONJA,CONJB,NOTA,NOTB
 !     ..
 !     .. Parameters ..
-      COMPLEX ONE
-      PARAMETER (ONE= (1.0E+0,0.0E+0))
-      COMPLEX ZERO
-      PARAMETER (ZERO= (0.0E+0,0.0E+0))
+      COMPLEX,PARAMETER :: ONE= (1.0E+0,0.0E+0)
+      COMPLEX,PARAMETER :: ZERO= (0.0E+0,0.0E+0)
 !     ..
 !
 !     Set  NOTA  and  NOTB  as  true if  A  and  B  respectively are not

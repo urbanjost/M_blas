@@ -165,21 +165,20 @@
 !     December 2016
 !
 !     .. Scalar Arguments ..
-      COMPLEX ALPHA,BETA
-      INTEGER INCX,INCY,LDA,M,N
-      CHARACTER TRANS
+      COMPLEX,intent(in)    :: ALPHA,BETA
+      INTEGER,intent(in)    :: INCX,INCY,LDA,M,N
+      CHARACTER,intent(in)  :: TRANS
 !     ..
 !     .. Array Arguments ..
-      COMPLEX A(LDA,*),X(*),Y(*)
+      COMPLEX,intent(in)    :: A(LDA,*),X(*)
+      COMPLEX,intent(inout) :: Y(*)
 !     ..
 !
 !  =====================================================================
 !
 !     .. Parameters ..
-      COMPLEX ONE
-      PARAMETER (ONE= (1.0E+0,0.0E+0))
-      COMPLEX ZERO
-      PARAMETER (ZERO= (0.0E+0,0.0E+0))
+      COMPLEX, PARAMETER :: ONE= (1.0E+0,0.0E+0)
+      COMPLEX, PARAMETER :: ZERO= (0.0E+0,0.0E+0)
 !     ..
 !     .. Local Scalars ..
       COMPLEX TEMP

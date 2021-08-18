@@ -118,8 +118,10 @@ subroutine CROTG( a, b, c, s )
    ) * epsilon(0._wp) )
 !  ..
 !  .. Scalar Arguments ..
-   real(wp) :: c
-   complex(wp) :: a, b, s
+   complex(wp),intent(inout) :: a
+   complex(wp),intent(in)    :: b
+   real(wp),intent(out)      :: c
+   complex(wp),intent(out)   :: s
 !  ..
 !  .. Local Scalars ..
    real(wp) :: d, f1, f2, g1, g2, h2, p, u, uu, v, vv, w
@@ -225,5 +227,4 @@ subroutine CROTG( a, b, c, s )
       endif
    endif
    a = r
-   return
-end subroutine
+end subroutine CROTG

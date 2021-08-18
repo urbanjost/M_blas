@@ -96,11 +96,12 @@
 !     November 2017
 !
 !     .. Scalar Arguments ..
-      DOUBLE PRECISION DA
-      INTEGER INCX,INCY,N
+      DOUBLE PRECISION,intent(in)    :: DA
+      INTEGER,intent(in)             :: INCX,INCY,N
 !     ..
 !     .. Array Arguments ..
-      DOUBLE PRECISION DX(*),DY(*)
+      DOUBLE PRECISION,intent(in)    :: DX(*)
+      DOUBLE PRECISION,intent(inout) :: DY(*)
 !     ..
 !
 !  =====================================================================

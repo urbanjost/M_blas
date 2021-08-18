@@ -152,12 +152,13 @@
 !     December 2016
 !
 !     .. Scalar Arguments ..
-      COMPLEX ALPHA
-      INTEGER INCX,INCY,N
-      CHARACTER UPLO
+      COMPLEX,intent(in)    :: ALPHA
+      INTEGER,intent(in)    :: INCX,INCY,N
+      CHARACTER,intent(in)  :: UPLO
 !     ..
 !     .. Array Arguments ..
-      COMPLEX AP(*),X(*),Y(*)
+      COMPLEX,intent(inout) :: AP(*)
+      COMPLEX,intent(in)    :: X(*),Y(*)
 !     ..
 !
 !  =====================================================================

@@ -194,12 +194,13 @@
 !     December 2016
 !
 !     .. Scalar Arguments ..
-      COMPLEX ALPHA,BETA
-      INTEGER INCX,INCY,K,LDA,N
-      CHARACTER UPLO
+      COMPLEX,intent(in)    :: ALPHA,BETA
+      INTEGER,intent(in)    :: INCX,INCY,K,LDA,N
+      CHARACTER,intent(in)  :: UPLO
 !     ..
 !     .. Array Arguments ..
-      COMPLEX A(LDA,*),X(*),Y(*)
+      COMPLEX,intent(in)    :: A(LDA,*),X(*)
+      COMPLEX,intent(inout) :: Y(*)
 !     ..
 !
 !  =====================================================================
