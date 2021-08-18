@@ -1,4 +1,5 @@
 module M_blas
+use, intrinsic :: iso_fortran_env, only : int8, int16, int32, int64, real32, real64, real128
 !==============================================================================
 ! xerbla needs a special version for the test programs to run
 ! so it is a pointer to the standard procedure, but allows for

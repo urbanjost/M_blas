@@ -11,7 +11,7 @@
 !       DOUBLE PRECISION FUNCTION DCABS1(Z)
 !
 !       .. Scalar Arguments ..
-!       COMPLEX*16 Z
+!       complex(kind=real64) :: Z
 !       ..
 !       ..
 !
@@ -29,7 +29,7 @@
 !
 !> \param[in] Z
 !> \verbatim
-!>          Z is COMPLEX*16
+!>          Z is complex(kind=real64)
 !> \endverbatim
 !
 !  Authors:
@@ -45,8 +45,8 @@
 !> \ingroup double_blas_level1
 !
 !  =====================================================================
-       DOUBLE PRECISION FUNCTION DCABS1(Z)
-      implicit none
+pure double precision function dcabs1(z)
+implicit none
 !
 !  -- Reference BLAS level1 routine (version 3.8.0) --
 !  -- Reference BLAS is a software package provided by Univ. of Tennessee,    --
@@ -54,14 +54,14 @@
 !     November 2017
 !
 !     .. Scalar Arguments ..
-      COMPLEX*16 Z
+      complex(kind=real64),intent(in) ::  Z
 !     ..
 !     ..
 !  =====================================================================
 !
 !     .. Intrinsic Functions ..
-      INTRINSIC ABS,DBLE,DIMAG
+      intrinsic abs,dble,dimag
 !
-      DCABS1 = ABS(DBLE(Z)) + ABS(DIMAG(Z))
+      dcabs1 = abs(dble(z)) + abs(dimag(z))
 
-      END FUNCTION DCABS1
+end function dcabs1

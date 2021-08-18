@@ -12,9 +12,10 @@ provided by the National Science Foundation.
 
 It has been converted to a free-format Fortran module and is in the
 process of being changed to use more recent Fortran features primarily
-for investigating the significance of what benefits this can have,
-such as an automatic calling interface provided by being modularized,
-INTENT specifications, array syntax and so on.
+for investigating the significance of what benefits this can have, such
+as an __automatic calling interface__ and __name collision avoidance__
+provided by being modularized, __INTENT specifications__, __array syntax__
+and so on.
 
 For compatibility purposes the wrapper file src/compatible.f90 is
 included, which allows for an old non-interface calling style so if

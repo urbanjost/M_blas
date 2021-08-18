@@ -85,7 +85,7 @@
 !> \endverbatim
 !>
 !  =====================================================================
-function DNRM2( n, x, incx )
+pure function DNRM2( n, x, incx )
    integer, parameter :: wp = kind(1.d0)
    real(wp) :: DNRM2
 !
@@ -110,10 +110,10 @@ function DNRM2( n, x, incx )
        (maxexponent(0._wp) - digits(0._wp) + 1) * 0.5_wp))
 !  ..
 !  .. Scalar Arguments ..
-   integer :: incx, n
+   integer,intent(in) :: incx, n
 !  ..
 !  .. Array Arguments ..
-   real(wp) :: x(*)
+   real(wp),intent(in) :: x(*)
 !  ..
 !  .. Local Scalars ..
    integer :: i, ix

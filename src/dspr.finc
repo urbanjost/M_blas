@@ -134,12 +134,13 @@
 !     December 2016
 !
 !     .. Scalar Arguments ..
-      DOUBLE PRECISION ALPHA
-      INTEGER INCX,N
-      CHARACTER UPLO
+      DOUBLE PRECISION,intent(in)    :: ALPHA
+      INTEGER,intent(in)             :: INCX,N
+      CHARACTER,intent(in)           :: UPLO
 !     ..
 !     .. Array Arguments ..
-      DOUBLE PRECISION AP(*),X(*)
+      DOUBLE PRECISION,intent(inout) :: AP(*)
+      DOUBLE PRECISION,intent(in)    :: X(*)
 !     ..
 !
 !  =====================================================================

@@ -11,11 +11,11 @@
 !       SUBROUTINE ZAXPY(N,ZA,ZX,INCX,ZY,INCY)
 !
 !       .. Scalar Arguments ..
-!       COMPLEX*16 ZA
+!       complex(kind=real64) :: ZA
 !       INTEGER INCX,INCY,N
 !       ..
 !       .. Array Arguments ..
-!       COMPLEX*16 ZX(*),ZY(*)
+!       complex(kind=real64) :: ZX(*),ZY(*)
 !       ..
 !
 !
@@ -38,13 +38,13 @@
 !>
 !> \param[in] ZA
 !> \verbatim
-!>          ZA is COMPLEX*16
+!>          ZA is complex(kind=real64)
 !>           On entry, ZA specifies the scalar alpha.
 !> \endverbatim
 !>
 !> \param[in] ZX
 !> \verbatim
-!>          ZX is COMPLEX*16 array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
+!>          ZX is complex(kind=real64) array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
 !> \endverbatim
 !>
 !> \param[in] INCX
@@ -55,7 +55,7 @@
 !>
 !> \param[in,out] ZY
 !> \verbatim
-!>          ZY is COMPLEX*16 array, dimension ( 1 + ( N - 1 )*abs( INCY ) )
+!>          ZY is complex(kind=real64) array, dimension ( 1 + ( N - 1 )*abs( INCY ) )
 !> \endverbatim
 !>
 !> \param[in] INCY
@@ -95,11 +95,11 @@
 !     November 2017
 !
 !     .. Scalar Arguments ..
-      COMPLEX*16 ZA
+      complex(kind=real64) :: ZA
       INTEGER INCX,INCY,N
 !     ..
 !     .. Array Arguments ..
-      COMPLEX*16 ZX(*),ZY(*)
+      complex(kind=real64) :: ZX(*),ZY(*)
 !     ..
 !
 !  =====================================================================

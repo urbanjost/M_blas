@@ -69,8 +69,8 @@
 !> \endverbatim
 !>
 !  =====================================================================
-       INTEGER FUNCTION ISAMAX(N,SX,INCX)
-      implicit none
+integer function isamax(n,sx,incx)
+implicit none
 !
 !  -- Reference BLAS level1 routine (version 3.8.0) --
 !  -- Reference BLAS is a software package provided by Univ. of Tennessee,    --
@@ -78,50 +78,48 @@
 !     November 2017
 !
 !     .. Scalar Arguments ..
-      INTEGER INCX,N
+      integer,intent(in) :: incx,n
 !     ..
 !     .. Array Arguments ..
-      REAL SX(*)
+      real,intent(in) :: sx(*)
 !     ..
-!
 !  =====================================================================
-!
 !     .. Local Scalars ..
-      REAL SMAX
-      INTEGER I,IX
+      real smax
+      integer i,ix
 !     ..
 !     .. Intrinsic Functions ..
-      INTRINSIC ABS
+      intrinsic abs
 !     ..
-      ISAMAX = 0
-      IF (N.LT.1 .OR. INCX.LE.0) RETURN
-      ISAMAX = 1
-      IF (N.EQ.1) RETURN
-      IF (INCX.EQ.1) THEN
+      isamax = 0
+      if (n.lt.1 .or. incx.le.0) return
+      isamax = 1
+      if (n.eq.1) return
+      if (incx.eq.1) then
 !
 !        code for increment equal to 1
 !
-         SMAX = ABS(SX(1))
-         DO I = 2,N
-            IF (ABS(SX(I)).GT.SMAX) THEN
-               ISAMAX = I
-               SMAX = ABS(SX(I))
+         smax = abs(sx(1))
+         do i = 2,n
+            if (abs(sx(i)).gt.smax) then
+               isamax = i
+               smax = abs(sx(i))
             endif
          enddo
-      ELSE
+      else
 !
 !        code for increment not equal to 1
 !
-         IX = 1
-         SMAX = ABS(SX(1))
-         IX = IX + INCX
-         DO I = 2,N
-            IF (ABS(SX(IX)).GT.SMAX) THEN
-               ISAMAX = I
-               SMAX = ABS(SX(IX))
+         ix = 1
+         smax = abs(sx(1))
+         ix = ix + incx
+         do i = 2,n
+            if (abs(sx(ix)).gt.smax) then
+               isamax = i
+               smax = abs(sx(ix))
             endif
-            IX = IX + INCX
+            ix = ix + incx
          enddo
       endif
 
-      END FUNCTION ISAMAX
+end function isamax

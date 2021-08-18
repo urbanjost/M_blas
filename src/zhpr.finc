@@ -16,7 +16,7 @@
 !       CHARACTER UPLO
 !       ..
 !       .. Array Arguments ..
-!       COMPLEX*16 AP(*),X(*)
+!       complex(kind=real64) :: AP(*),X(*)
 !       ..
 !
 !
@@ -65,7 +65,7 @@
 !>
 !> \param[in] X
 !> \verbatim
-!>          X is COMPLEX*16 array, dimension at least
+!>          X is complex(kind=real64) array, dimension at least
 !>           ( 1 + ( n - 1 )*abs( INCX ) ).
 !>           Before entry, the incremented array X must contain the n
 !>           element vector x.
@@ -80,7 +80,7 @@
 !>
 !> \param[in,out] AP
 !> \verbatim
-!>          AP is COMPLEX*16 array, dimension at least
+!>          AP is complex(kind=real64) array, dimension at least
 !>           ( ( n*( n + 1 ) )/2 ).
 !>           Before entry with  UPLO = 'U' or 'u', the array AP must
 !>           contain the upper triangular part of the hermitian matrix
@@ -142,17 +142,17 @@
       CHARACTER UPLO
 !     ..
 !     .. Array Arguments ..
-      COMPLEX*16 AP(*),X(*)
+      complex(kind=real64) :: AP(*),X(*)
 !     ..
 !
 !  =====================================================================
 !
 !     .. Parameters ..
-      COMPLEX*16 ZERO
+      complex(kind=real64) :: ZERO
       PARAMETER (ZERO= (0.0D+0,0.0D+0))
 !     ..
 !     .. Local Scalars ..
-      COMPLEX*16 TEMP
+      complex(kind=real64) :: TEMP
       INTEGER I,INFO,IX,J,JX,K,KK,KX
 !     ..
 !     .. External Functions ..

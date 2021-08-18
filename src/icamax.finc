@@ -69,7 +69,7 @@
 !> \endverbatim
 !>
 !  =====================================================================
-       INTEGER FUNCTION ICAMAX(N,CX,INCX)
+pure INTEGER FUNCTION ICAMAX(N,CX,INCX)
       implicit none
 !
 !  -- Reference BLAS level1 routine (version 3.8.0) --
@@ -78,14 +78,12 @@
 !     November 2017
 !
 !     .. Scalar Arguments ..
-      INTEGER INCX,N
+      INTEGER,intent(in) :: INCX,N
 !     ..
 !     .. Array Arguments ..
-      COMPLEX CX(*)
+      COMPLEX,intent(in) :: CX(*)
 !     ..
-!
 !  =====================================================================
-!
 !     .. Local Scalars ..
       REAL SMAX
       INTEGER I,IX
@@ -122,4 +120,4 @@
             IX = IX + INCX
          enddo
       endif
-      END FUNCTION ICAMAX
+end function icamax

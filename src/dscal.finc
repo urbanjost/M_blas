@@ -86,15 +86,13 @@
 !     November 2017
 !
 !     .. Scalar Arguments ..
-      DOUBLE PRECISION DA
-      INTEGER INCX,N
+      DOUBLE PRECISION,intent(in)    :: DA
+      INTEGER,intent(in)             :: INCX,N
 !     ..
 !     .. Array Arguments ..
-      DOUBLE PRECISION DX(*)
+      DOUBLE PRECISION,intent(inout) :: DX(*)
 !     ..
-!
 !  =====================================================================
-!
 !     .. Local Scalars ..
       INTEGER I,M,MP1,NINCX
 !     ..

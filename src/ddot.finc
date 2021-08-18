@@ -80,7 +80,7 @@
 !> \endverbatim
 !>
 !  =====================================================================
-       DOUBLE PRECISION FUNCTION DDOT(N,DX,INCX,DY,INCY)
+pure DOUBLE PRECISION FUNCTION DDOT(N,DX,INCX,DY,INCY)
       implicit none
 !
 !  -- Reference BLAS level1 routine (version 3.8.0) --
@@ -89,10 +89,10 @@
 !     November 2017
 !
 !     .. Scalar Arguments ..
-      INTEGER INCX,INCY,N
+      INTEGER,intent(in) :: INCX,INCY,N
 !     ..
 !     .. Array Arguments ..
-      DOUBLE PRECISION DX(*),DY(*)
+      DOUBLE PRECISION,intent(in) :: DX(*),DY(*)
 !     ..
 !
 !  =====================================================================

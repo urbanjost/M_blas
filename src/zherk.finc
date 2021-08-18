@@ -16,7 +16,7 @@
 !       CHARACTER TRANS,UPLO
 !       ..
 !       .. Array Arguments ..
-!       COMPLEX*16 A(LDA,*),C(LDC,*)
+!       complex(kind=real64) :: A(LDA,*),C(LDC,*)
 !       ..
 !
 !
@@ -90,7 +90,7 @@
 !>
 !> \param[in] A
 !> \verbatim
-!>          A is COMPLEX*16 array, dimension ( LDA, ka ), where ka is
+!>          A is complex(kind=real64) array, dimension ( LDA, ka ), where ka is
 !>           k  when  TRANS = 'N' or 'n',  and is  n  otherwise.
 !>           Before entry with  TRANS = 'N' or 'n',  the  leading  n by k
 !>           part of the array  A  must contain the matrix  A,  otherwise
@@ -115,7 +115,7 @@
 !>
 !> \param[in,out] C
 !> \verbatim
-!>          C is COMPLEX*16 array, dimension ( LDC, N )
+!>          C is complex(kind=real64) array, dimension ( LDC, N )
 !>           Before entry  with  UPLO = 'U' or 'u',  the leading  n by n
 !>           upper triangular part of the array C must contain the upper
 !>           triangular part  of the  hermitian matrix  and the strictly
@@ -185,7 +185,7 @@
       CHARACTER TRANS,UPLO
 !     ..
 !     .. Array Arguments ..
-      COMPLEX*16 A(LDA,*),C(LDC,*)
+      complex(kind=real64) :: A(LDA,*),C(LDC,*)
 !     ..
 !
 !  =====================================================================
@@ -201,7 +201,7 @@
       INTRINSIC DBLE,DCMPLX,DCONJG,MAX
 !     ..
 !     .. Local Scalars ..
-      COMPLEX*16 TEMP
+      complex(kind=real64) :: TEMP
       DOUBLE PRECISION RTEMP
       INTEGER I,INFO,J,L,NROWA
       LOGICAL UPPER

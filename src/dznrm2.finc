@@ -40,7 +40,7 @@
 !>
 !> \param[in] X
 !> \verbatim
-!>          X is COMPLEX*16 array, dimension (N)
+!>          X is complex(kind=real64) array, dimension (N)
 !>         complex vector with N elements
 !> \endverbatim
 !>
@@ -86,7 +86,7 @@
 !> \endverbatim
 !>
 !  =====================================================================
-function DZNRM2( n, x, incx )
+pure function DZNRM2( n, x, incx )
    integer, parameter :: wp = kind(1.d0)
    real(wp) :: DZNRM2
 !
@@ -100,21 +100,17 @@ function DZNRM2( n, x, incx )
    real(wp), parameter :: one  = 1.0_wp
    real(wp), parameter :: maxN = huge(0.0_wp)
 !  ..
-!  .. Blue's ccaling constants ..
-   real(wp), parameter :: tsml = real(radix(0._wp), wp)**ceiling( &
-       (minexponent(0._wp) - 1) * 0.5_wp)
-   real(wp), parameter :: tbig = real(radix(0._wp), wp)**floor( &
-       (maxexponent(0._wp) - digits(0._wp) + 1) * 0.5_wp)
-   real(wp), parameter :: ssml = real(radix(0._wp), wp)**( - floor( &
-       (minexponent(0._wp) - 1) * 0.5_wp))
-   real(wp), parameter :: sbig = real(radix(0._wp), wp)**( - ceiling( &
-       (maxexponent(0._wp) - digits(0._wp) + 1) * 0.5_wp))
+!  .. Blue's scaling constants ..
+   real(wp), parameter :: tsml = real(radix(0._wp), wp)**ceiling( (minexponent(0._wp) - 1) * 0.5_wp)
+   real(wp), parameter :: tbig = real(radix(0._wp), wp)**floor( (maxexponent(0._wp) - digits(0._wp) + 1) * 0.5_wp)
+   real(wp), parameter :: ssml = real(radix(0._wp), wp)**( - floor( (minexponent(0._wp) - 1) * 0.5_wp))
+   real(wp), parameter :: sbig = real(radix(0._wp), wp)**( - ceiling( (maxexponent(0._wp) - digits(0._wp) + 1) * 0.5_wp))
 !  ..
 !  .. Scalar Arguments ..
-   integer :: incx, n
+   integer,intent(in) :: incx, n
 !  ..
 !  .. Array Arguments ..
-   complex(wp) :: x(*)
+   complex(wp),intent(in) :: x(*)
 !  ..
 !  .. Local Scalars ..
    integer :: i, ix
@@ -205,5 +201,4 @@ function DZNRM2( n, x, incx )
       sumsq = amed
    endif
    DZNRM2 = scl*sqrt( sumsq )
-   return
-end function
+end function DZNRM2

@@ -103,10 +103,11 @@
 !     November 2017
 !
 !     .. Scalar Arguments ..
-      INTEGER INCX,INCY,N
+      INTEGER,intent(in)             :: INCX,INCY,N
 !     ..
 !     .. Array Arguments ..
-      DOUBLE PRECISION DPARAM(5),DX(*),DY(*)
+      DOUBLE PRECISION,intent(in)    :: DPARAM(5)
+      DOUBLE PRECISION,intent(inout) :: DX(*),DY(*)
 !     ..
 !
 !  =====================================================================

@@ -50,7 +50,7 @@
 !> \ingroup aux_blas
 
 !  =====================================================================
-logical function lsame(ca,cb)
+pure logical function lsame(ca,cb)
 implicit none
 
 !  -- Reference BLAS level1 routine (version 3.1) --
@@ -63,51 +63,24 @@ implicit none
 !     ..
 ! =====================================================================
 !     .. Intrinsic Functions ..
-      intrinsic ichar
+      intrinsic iachar
 !     ..
 !     .. Local Scalars ..
-      integer :: inta,intb,zcode
+      integer :: inta,intb
 !     ..
-
 !     Test if the characters are equal
       lsame = ca .eq. cb
       if (lsame) return
 
-!     Now test for equivalence if both characters are alphabetic.
-      zcode = ichar('Z')
-
-!     Use 'Z' rather than 'A' so that ASCII can be detected on Prime
-!     machines, on which ICHAR returns a value with bit 8 set.
-!     ICHAR('A') on Prime machines returns 193 which is the same as
-!     ICHAR('A') on an EBCDIC machine.
+!     Now test for equivalence after converting uppercase to lowercase
+!     if characters are alphameric
 
       inta = ichar(ca)
       intb = ichar(cb)
 
-      if (zcode.eq.90 .or. zcode.eq.122) then
+      if (inta.ge.97 .and. inta.le.122) inta = inta - 32
+      if (intb.ge.97 .and. intb.le.122) intb = intb - 32
 
-!        ASCII is assumed - ZCODE is the ASCII code of either lower or
-!        upper case 'Z'.
-
-          if (inta.ge.97 .and. inta.le.122) inta = inta - 32
-          if (intb.ge.97 .and. intb.le.122) intb = intb - 32
-
-      elseif (zcode.eq.233 .or. zcode.eq.169) then
-
-!        EBCDIC is assumed - ZCODE is the EBCDIC code of either lower or
-!        upper case 'Z'.
-
-          if (inta.ge.129 .and. inta.le.137 .or.  inta.ge.145 .and. inta.le.153 .or. inta.ge.162 .and. inta.le.169) inta = inta + 64
-          if (intb.ge.129 .and. intb.le.137 .or.  intb.ge.145 .and. intb.le.153 .or. intb.ge.162 .and. intb.le.169) intb = intb + 64
-
-      elseif (zcode.eq.218 .or. zcode.eq.250) then
-
-!        ASCII is assumed, on Prime machines - ZCODE is the ASCII code
-!        plus 128 of either lower or upper case 'Z'.
-
-          if (inta.ge.225 .and. inta.le.250) inta = inta - 32
-          if (intb.ge.225 .and. intb.le.250) intb = intb - 32
-      endif
       lsame = inta .eq. intb
 
 end function lsame

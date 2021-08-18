@@ -97,10 +97,11 @@
 !     November 2017
 !
 !     .. Scalar Arguments ..
-      DOUBLE PRECISION DD1,DD2,DX1,DY1
+      DOUBLE PRECISION,intent(inout) :: DD1,DD2,DX1
+      DOUBLE PRECISION,intent(in)    :: DY1
 !     ..
 !     .. Array Arguments ..
-      DOUBLE PRECISION DPARAM(5)
+      DOUBLE PRECISION,intent(out)   :: DPARAM(5)
 !     ..
 !
 !  =====================================================================

@@ -176,12 +176,13 @@
 !     December 2016
 !
 !     .. Scalar Arguments ..
-      DOUBLE PRECISION ALPHA,BETA
-      INTEGER K,LDA,LDC,N
-      CHARACTER TRANS,UPLO
+      DOUBLE PRECISION,intent(in)    :: ALPHA,BETA
+      INTEGER,intent(in)             :: K,LDA,LDC,N
+      CHARACTER,intent(in)           :: TRANS,UPLO
 !     ..
 !     .. Array Arguments ..
-      DOUBLE PRECISION A(LDA,*),C(LDC,*)
+      DOUBLE PRECISION,intent(in)    :: A(LDA,*)
+      DOUBLE PRECISION,intent(inout) :: C(LDC,*)
 !     ..
 !
 !  =====================================================================

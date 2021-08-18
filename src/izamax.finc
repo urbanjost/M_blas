@@ -14,7 +14,7 @@
 !       INTEGER INCX,N
 !       ..
 !       .. Array Arguments ..
-!       COMPLEX*16 ZX(*)
+!       complex(kind=real64) :: ZX(*)
 !       ..
 !
 !
@@ -37,7 +37,7 @@
 !>
 !> \param[in] ZX
 !> \verbatim
-!>          ZX is COMPLEX*16 array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
+!>          ZX is complex(kind=real64) array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
 !> \endverbatim
 !>
 !> \param[in] INCX
@@ -69,8 +69,8 @@
 !> \endverbatim
 !>
 !  =====================================================================
-       INTEGER FUNCTION IZAMAX(N,ZX,INCX)
-      implicit none
+pure INTEGER FUNCTION IZAMAX(N,ZX,INCX)
+implicit none
 !
 !  -- Reference BLAS level1 routine (version 3.8.0) --
 !  -- Reference BLAS is a software package provided by Univ. of Tennessee,    --
@@ -78,10 +78,10 @@
 !     November 2017
 !
 !     .. Scalar Arguments ..
-      INTEGER INCX,N
+      INTEGER,intent(in)              :: INCX,N
 !     ..
 !     .. Array Arguments ..
-      COMPLEX*16 ZX(*)
+      complex(kind=real64),intent(in) :: ZX(*)
 !     ..
 !
 !  =====================================================================

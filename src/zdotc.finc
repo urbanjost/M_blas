@@ -8,13 +8,13 @@
 !  Definition:
 !  ===========
 !
-!       COMPLEX*16 FUNCTION ZDOTC(N,ZX,INCX,ZY,INCY)
+!       complex(kind=real64) FUNCTION ZDOTC(N,ZX,INCX,ZY,INCY)
 !
 !       .. Scalar Arguments ..
 !       INTEGER INCX,INCY,N
 !       ..
 !       .. Array Arguments ..
-!       COMPLEX*16 ZX(*),ZY(*)
+!       complex(kind=real64) :: ZX(*),ZY(*)
 !       ..
 !
 !
@@ -39,7 +39,7 @@
 !>
 !> \param[in] ZX
 !> \verbatim
-!>          ZX is COMPLEX*16 array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
+!>          ZX is complex(kind=real64) array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
 !> \endverbatim
 !>
 !> \param[in] INCX
@@ -50,7 +50,7 @@
 !>
 !> \param[in] ZY
 !> \verbatim
-!>          ZY is COMPLEX*16 array, dimension ( 1 + ( N - 1 )*abs( INCY ) )
+!>          ZY is complex(kind=real64) array, dimension ( 1 + ( N - 1 )*abs( INCY ) )
 !> \endverbatim
 !>
 !> \param[in] INCY
@@ -81,7 +81,7 @@
 !> \endverbatim
 !>
 !  =====================================================================
-       COMPLEX*16 FUNCTION ZDOTC(N,ZX,INCX,ZY,INCY)
+   complex(kind=real64) FUNCTION ZDOTC(N,ZX,INCX,ZY,INCY)
       implicit none
 !
 !  -- Reference BLAS level1 routine (version 3.8.0) --
@@ -93,13 +93,13 @@
       INTEGER INCX,INCY,N
 !     ..
 !     .. Array Arguments ..
-      COMPLEX*16 ZX(*),ZY(*)
+      complex(kind=real64) :: ZX(*),ZY(*)
 !     ..
 !
 !  =====================================================================
 !
 !     .. Local Scalars ..
-      COMPLEX*16 ZTEMP
+      complex(kind=real64) :: ZTEMP
       INTEGER I,IX,IY
 !     ..
 !     .. Intrinsic Functions ..

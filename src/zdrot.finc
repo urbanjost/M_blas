@@ -15,7 +15,7 @@
 !       DOUBLE PRECISION   C, S
 !       ..
 !       .. Array Arguments ..
-!       COMPLEX*16         ZX( * ), ZY( * )
+!       complex(kind=real64) ::         ZX( * ), ZY( * )
 !       ..
 !
 !
@@ -41,7 +41,7 @@
 !>
 !> \param[in,out] ZX
 !> \verbatim
-!>          ZX is COMPLEX*16 array, dimension at least
+!>          ZX is complex(kind=real64) array, dimension at least
 !>           ( 1 + ( N - 1 )*abs( INCX ) ).
 !>           Before entry, the incremented array ZX must contain the n
 !>           element vector cx. On exit, ZX is overwritten by the updated
@@ -57,7 +57,7 @@
 !>
 !> \param[in,out] ZY
 !> \verbatim
-!>          ZY is COMPLEX*16 array, dimension at least
+!>          ZY is complex(kind=real64) array, dimension at least
 !>           ( 1 + ( N - 1 )*abs( INCY ) ).
 !>           Before entry, the incremented array ZY must contain the n
 !>           element vector cy. On exit, ZY is overwritten by the updated
@@ -109,14 +109,14 @@
       DOUBLE PRECISION   C, S
 !     ..
 !     .. Array Arguments ..
-      COMPLEX*16         ZX( * ), ZY( * )
+      complex(kind=real64) ::         ZX( * ), ZY( * )
 !     ..
 !
 ! =====================================================================
 !
 !     .. Local Scalars ..
       INTEGER            I, IX, IY
-      COMPLEX*16         CTEMP
+      complex(kind=real64) ::         CTEMP
 !     ..
 !     .. Executable Statements ..
 !

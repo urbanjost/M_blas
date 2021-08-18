@@ -199,12 +199,13 @@
 !     December 2016
 !
 !     .. Scalar Arguments ..
-      double precision alpha,beta
-      integer k,lda,ldb,ldc,n
-      character trans,uplo
+      double precision,intent(in)    :: alpha,beta
+      integer,intent(in)             :: k,lda,ldb,ldc,n
+      character,intent(in)           :: trans,uplo
 !     ..
 !     .. Array Arguments ..
-      double precision a(lda,*),b(ldb,*),c(ldc,*)
+      double precision,intent(in)    :: a(lda,*),b(ldb,*)
+      double precision,intent(inout) :: c(ldc,*)
 !     ..
 !
 !  =====================================================================
