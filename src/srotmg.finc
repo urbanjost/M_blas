@@ -241,7 +241,7 @@
                   SH21 = SH21*GAM
                   SH22 = SH22*GAM
                endif
-            END DO
+            enddo
          endif
 
       endif

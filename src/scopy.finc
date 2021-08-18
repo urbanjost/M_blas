@@ -115,7 +115,7 @@
          IF (M.NE.0) THEN
             DO I = 1,M
                SY(I) = SX(I)
-            END DO
+            enddo
             IF (N.LT.7) RETURN
          endif
          MP1 = M + 1
@@ -127,7 +127,7 @@
             SY(I+4) = SX(I+4)
             SY(I+5) = SX(I+5)
             SY(I+6) = SX(I+6)
-         END DO
+         enddo
       ELSE
 !
 !        code for unequal increments or equal increments
@@ -141,7 +141,7 @@
             SY(IY) = SX(IX)
             IX = IX + INCX
             IY = IY + INCY
-         END DO
+         enddo
       endif
 
       END SUBROUTINE SCOPY

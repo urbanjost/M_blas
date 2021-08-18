@@ -106,7 +106,7 @@
                IZAMAX = I
                DMAX = DCABS1(ZX(I))
             endif
-         END DO
+         enddo
       ELSE
 !
 !        code for increment not equal to 1
@@ -120,7 +120,7 @@
                DMAX = DCABS1(ZX(IX))
             endif
             IX = IX + INCX
-         END DO
+         enddo
       endif
 
       END FUNCTION IZAMAX

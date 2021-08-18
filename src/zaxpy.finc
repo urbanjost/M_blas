@@ -119,7 +119,7 @@
 !
          DO I = 1,N
             ZY(I) = ZY(I) + ZA*ZX(I)
-         END DO
+         enddo
       ELSE
 !
 !        code for unequal increments or equal increments
@@ -133,7 +133,7 @@
             ZY(IY) = ZY(IY) + ZA*ZX(IX)
             IX = IX + INCX
             IY = IY + INCY
-         END DO
+         enddo
       endif
 !
       END SUBROUTINE ZAXPY

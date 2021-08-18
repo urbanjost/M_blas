@@ -107,7 +107,7 @@
                ISAMAX = I
                SMAX = ABS(SX(I))
             endif
-         END DO
+         enddo
       ELSE
 !
 !        code for increment not equal to 1
@@ -121,7 +121,7 @@
                SMAX = ABS(SX(IX))
             endif
             IX = IX + INCX
-         END DO
+         enddo
       endif
 
       END FUNCTION ISAMAX

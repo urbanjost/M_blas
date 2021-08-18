@@ -114,7 +114,7 @@
 !
          DO I = 1,N
             ZTEMP = ZTEMP + DCONJG(ZX(I))*ZY(I)
-         END DO
+         enddo
       ELSE
 !
 !        code for unequal increments or equal increments
@@ -128,7 +128,7 @@
             ZTEMP = ZTEMP + DCONJG(ZX(IX))*ZY(IY)
             IX = IX + INCX
             IY = IY + INCY
-         END DO
+         enddo
       endif
       ZDOTC = ZTEMP
 

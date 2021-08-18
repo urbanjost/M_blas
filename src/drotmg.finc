@@ -242,7 +242,7 @@
                   DH21 = DH21*GAM
                   DH22 = DH22*GAM
                endif
-            END DO
+            enddo
          endif
 
       endif

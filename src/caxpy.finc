@@ -118,7 +118,7 @@
 !
          DO I = 1,N
             CY(I) = CY(I) + CA*CX(I)
-         END DO
+         enddo
       ELSE
 !
 !        code for unequal increments or equal increments
@@ -132,7 +132,7 @@
             CY(IY) = CY(IY) + CA*CX(IX)
             IX = IX + INCX
             IY = IY + INCY
-         END DO
+         enddo
       endif
 !
       END SUBROUTINE CAXPY

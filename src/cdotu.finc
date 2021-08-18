@@ -111,7 +111,7 @@
 !
          DO I = 1,N
             CTEMP = CTEMP + CX(I)*CY(I)
-         END DO
+         enddo
       ELSE
 !
 !        code for unequal increments or equal increments
@@ -125,7 +125,7 @@
             CTEMP = CTEMP + CX(IX)*CY(IY)
             IX = IX + INCX
             IY = IY + INCY
-         END DO
+         enddo
       endif
       CDOTU = CTEMP
       END FUNCTION CDOTU

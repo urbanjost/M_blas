@@ -106,7 +106,7 @@
                ICAMAX = I
                SMAX = SCABS1(CX(I))
             endif
-         END DO
+         enddo
       ELSE
 !
 !        code for increment not equal to 1
@@ -120,6 +120,6 @@
                SMAX = SCABS1(CX(IX))
             endif
             IX = IX + INCX
-         END DO
+         enddo
       endif
       END FUNCTION ICAMAX

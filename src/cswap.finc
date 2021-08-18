@@ -108,7 +108,7 @@
             CTEMP = CX(I)
             CX(I) = CY(I)
             CY(I) = CTEMP
-         END DO
+         enddo
       ELSE
 !
 !       code for unequal increments or equal increments not equal
@@ -124,7 +124,7 @@
             CY(IY) = CTEMP
             IX = IX + INCX
             IY = IY + INCY
-         END DO
+         enddo
       endif
 
       END SUBROUTINE CSWAP

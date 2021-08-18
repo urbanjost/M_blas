@@ -107,7 +107,7 @@
                IDAMAX = I
                DMAX = DABS(DX(I))
             endif
-         END DO
+         enddo
       ELSE
 !
 !        code for increment not equal to 1
@@ -121,7 +121,7 @@
                DMAX = DABS(DX(IX))
             endif
             IX = IX + INCX
-         END DO
+         enddo
       endif
 
       END FUNCTION IDAMAX

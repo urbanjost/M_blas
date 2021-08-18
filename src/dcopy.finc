@@ -115,7 +115,7 @@
          IF (M.NE.0) THEN
             DO I = 1,M
                DY(I) = DX(I)
-            END DO
+            enddo
             IF (N.LT.7) RETURN
          endif
          MP1 = M + 1
@@ -127,7 +127,7 @@
             DY(I+4) = DX(I+4)
             DY(I+5) = DX(I+5)
             DY(I+6) = DX(I+6)
-         END DO
+         enddo
       ELSE
 !
 !        code for unequal increments or equal increments
@@ -141,7 +141,7 @@
             DY(IY) = DX(IX)
             IX = IX + INCX
             IY = IY + INCY
-         END DO
+         enddo
       endif
 
       END SUBROUTINE DCOPY

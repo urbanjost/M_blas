@@ -113,7 +113,7 @@
          IF (M.NE.0) THEN
             DO I = 1,M
                SX(I) = SA*SX(I)
-            END DO
+            enddo
             IF (N.LT.5) RETURN
          endif
          MP1 = M + 1
@@ -123,7 +123,7 @@
             SX(I+2) = SA*SX(I+2)
             SX(I+3) = SA*SX(I+3)
             SX(I+4) = SA*SX(I+4)
-         END DO
+         enddo
       ELSE
 !
 !        code for increment not equal to 1
@@ -131,7 +131,7 @@
          NINCX = N*INCX
          DO I = 1,NINCX,INCX
             SX(I) = SA*SX(I)
-         END DO
+         enddo
       endif
 
       END SUBROUTINE SSCAL
