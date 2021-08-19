@@ -101,21 +101,19 @@ subroutine SROTG( a, b, c, s )
    real(wp), parameter :: one  = 1.0_wp
 !  ..
 !  .. Scaling constants ..
-   real(wp), parameter :: safmin = real(radix(0._wp),wp)**max( &
-      minexponent(0._wp)-1, &
-      1-maxexponent(0._wp) &
-   )
-   real(wp), parameter :: safmax = real(radix(0._wp),wp)**max( &
-      1-minexponent(0._wp), &
-      maxexponent(0._wp)-1 &
-   )
+   real(wp), parameter :: safmin = real(radix(0._wp),wp)**max( minexponent(0._wp)-1, 1-maxexponent(0._wp) )
+   real(wp), parameter :: safmax = real(radix(0._wp),wp)**max( 1-minexponent(0._wp), maxexponent(0._wp)-1 )
 !  ..
 !  .. Scalar Arguments ..
-   real(wp) :: a, b, c, s
+   real(wp),intent(inout) :: a, b
+   real(wp),intent(out)   :: c, s
 !  ..
 !  .. Local Scalars ..
    real(wp) :: anorm, bnorm, scl, sigma, r, z
 !  ..
+!  .. Intrinsics
+   intrinsic :: abs, sqrt, max, sign, min
+
    anorm = abs(a)
    bnorm = abs(b)
    if( bnorm == zero ) then
@@ -147,5 +145,4 @@ subroutine SROTG( a, b, c, s )
       a = r
       b = z
    endif
-   return
 end subroutine

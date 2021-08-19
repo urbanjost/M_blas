@@ -97,12 +97,12 @@
 !     November 2017
 !
 !     .. Scalar Arguments ..
-      REAL SD1,SD2,SX1,SY1
+      REAL,intent(inout) :: SD1,SD2,SX1
+      REAL,intent(in)    :: SY1
 !     ..
 !     .. Array Arguments ..
-      REAL SPARAM(5)
+      REAL,intent(out)   :: SPARAM(5)
 !     ..
-!
 !  =====================================================================
 !
 !     .. Local Scalars ..

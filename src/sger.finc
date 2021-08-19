@@ -137,11 +137,12 @@
 !     December 2016
 !
 !     .. Scalar Arguments ..
-      REAL ALPHA
-      INTEGER INCX,INCY,LDA,M,N
+      REAL,intent(in)    :: ALPHA
+      INTEGER,intent(in) :: INCX,INCY,LDA,M,N
 !     ..
 !     .. Array Arguments ..
-      REAL A(LDA,*),X(*),Y(*)
+      REAL,intent(in)    :: X(*),Y(*)
+      REAL,intent(inout) :: A(LDA,*)
 !     ..
 !
 !  =====================================================================

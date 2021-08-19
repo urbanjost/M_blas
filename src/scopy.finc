@@ -80,8 +80,8 @@
 !> \endverbatim
 !>
 !  =====================================================================
-       SUBROUTINE SCOPY(N,SX,INCX,SY,INCY)
-      implicit none
+SUBROUTINE SCOPY(N,SX,INCX,SY,INCY)
+implicit none
 !
 !  -- Reference BLAS level1 routine (version 3.8.0) --
 !  -- Reference BLAS is a software package provided by Univ. of Tennessee,    --
@@ -89,14 +89,13 @@
 !     November 2017
 !
 !     .. Scalar Arguments ..
-      INTEGER INCX,INCY,N
+      INTEGER,intent(in) :: INCX,INCY,N
 !     ..
 !     .. Array Arguments ..
-      REAL SX(*),SY(*)
+      REAL,intent(in)  :: SX(*)
+      REAL,intent(out) :: SY(*)
 !     ..
-!
 !  =====================================================================
-!
 !     .. Local Scalars ..
       INTEGER I,IX,IY,M,MP1
 !     ..
@@ -144,4 +143,4 @@
          enddo
       endif
 
-      END SUBROUTINE SCOPY
+END SUBROUTINE SCOPY

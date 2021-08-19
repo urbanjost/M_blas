@@ -111,7 +111,7 @@
 !> \endverbatim
 !>
 !  =====================================================================
-       REAL FUNCTION SDSDOT(N,SB,SX,INCX,SY,INCY)
+pure REAL FUNCTION SDSDOT(N,SB,SX,INCX,SY,INCY)
       implicit none
 !
 !  -- Reference BLAS level1 routine (version 3.8.0) --
@@ -120,11 +120,12 @@
 !     November 2017
 !
 !     .. Scalar Arguments ..
-      REAL SB
-      INTEGER INCX,INCY,N
+      REAL,intent(in) :: SB
+      INTEGER,intent(in) :: INCX,INCY,N
 !     ..
 !     .. Array Arguments ..
-      REAL SX(*),SY(*)
+      REAL,intent(in) :: SX(*),SY(*)
+!     ..
 !     .. Local Scalars ..
       DOUBLE PRECISION DSDOT
       INTEGER I,KX,KY,NS
@@ -161,4 +162,4 @@
       endif
       SDSDOT = real(DSDOT)
 
-      END FUNCTION SDSDOT
+END FUNCTION SDSDOT

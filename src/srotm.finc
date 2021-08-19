@@ -104,10 +104,11 @@
 !     November 2017
 !
 !     .. Scalar Arguments ..
-      INTEGER INCX,INCY,N
+      INTEGER,intent(in) :: INCX,INCY,N
 !     ..
 !     .. Array Arguments ..
-      REAL SPARAM(5),SX(*),SY(*)
+      REAL,intent(in)    :: SPARAM(5)
+      REAL,intent(inout) :: SX(*),SY(*)
 !     ..
 !
 !  =====================================================================

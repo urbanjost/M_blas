@@ -70,8 +70,8 @@
 !> \endverbatim
 !>
 !  =====================================================================
-       REAL FUNCTION SCASUM(N,CX,INCX)
-      implicit none
+REAL FUNCTION SCASUM(N,CX,INCX)
+implicit none
 !
 !  -- Reference BLAS level1 routine (version 3.8.0) --
 !  -- Reference BLAS is a software package provided by Univ. of Tennessee,    --
@@ -79,14 +79,12 @@
 !     November 2017
 !
 !     .. Scalar Arguments ..
-      INTEGER INCX,N
+      INTEGER,intent(in)    :: INCX,N
 !     ..
 !     .. Array Arguments ..
-      COMPLEX CX(*)
+      COMPLEX,intent(inout) :: CX(*)
 !     ..
-!
 !  =====================================================================
-!
 !     .. Local Scalars ..
       REAL STEMP
       INTEGER I,NINCX
@@ -115,4 +113,4 @@
       endif
       SCASUM = STEMP
 
-      END FUNCTION SCASUM
+END FUNCTION SCASUM

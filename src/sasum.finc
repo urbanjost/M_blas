@@ -70,8 +70,8 @@
 !> \endverbatim
 !>
 !  =====================================================================
-       REAL FUNCTION SASUM(N,SX,INCX)
-      implicit none
+pure REAL FUNCTION SASUM(N,SX,INCX)
+implicit none
 !
 !  -- Reference BLAS level1 routine (version 3.8.0) --
 !  -- Reference BLAS is a software package provided by Univ. of Tennessee,    --
@@ -79,10 +79,10 @@
 !     November 2017
 !
 !     .. Scalar Arguments ..
-      INTEGER INCX,N
+      INTEGER,intent(in) :: INCX,N
 !     ..
 !     .. Array Arguments ..
-      REAL SX(*)
+      REAL,intent(in) :: SX(*)
 !     ..
 !
 !  =====================================================================
@@ -128,4 +128,4 @@
       endif
       SASUM = STEMP
 
-      END FUNCTION SASUM
+END FUNCTION SASUM

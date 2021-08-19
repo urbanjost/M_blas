@@ -43,7 +43,7 @@
 !> \ingroup single_blas_level1
 !
 !  =====================================================================
-      elemental real function scabs1(z)
+pure elemental real function scabs1(z)
       implicit none
 !
 !  -- Reference BLAS level1 routine (version 3.8.0) --
@@ -60,4 +60,4 @@
 !     ..
       scabs1 = abs(real(z)) + abs(aimag(z))
 
-      end function scabs1
+end function scabs1

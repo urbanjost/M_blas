@@ -80,8 +80,8 @@
 !> \endverbatim
 !>
 !  =====================================================================
-       REAL FUNCTION SDOT(N,SX,INCX,SY,INCY)
-      implicit none
+pure REAL FUNCTION SDOT(N,SX,INCX,SY,INCY)
+implicit none
 !
 !  -- Reference BLAS level1 routine (version 3.8.0) --
 !  -- Reference BLAS is a software package provided by Univ. of Tennessee,    --
@@ -89,10 +89,10 @@
 !     November 2017
 !
 !     .. Scalar Arguments ..
-      INTEGER INCX,INCY,N
+      INTEGER,intent(in) :: INCX,INCY,N
 !     ..
 !     .. Array Arguments ..
-      REAL SX(*),SY(*)
+      REAL,intent(in) :: SX(*),SY(*)
 !     ..
 !
 !  =====================================================================
@@ -145,4 +145,4 @@
       endif
       SDOT = STEMP
 
-      END FUNCTION SDOT
+END FUNCTION SDOT
