@@ -164,6 +164,7 @@
      $                   'DSYR  ', 'DSPR  ', 'DSYR2 ', 'DSPR2 '/
 *     .. Executable Statements ..
       call set_xerbla(test_xerbla)
+      open(unit=nin,file='test/dblat2.in')
 *
 *     Read name and unit number for summary output file and open file.
 *

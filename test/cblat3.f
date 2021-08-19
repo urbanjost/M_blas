@@ -146,6 +146,7 @@
      $                   'CSYR2K'/
 *     .. Executable Statements ..
       call set_xerbla(test_xerbla)
+      open(unit=nin,file='test/cblat3.in')
 *
 *     Read name and unit number for summary output file and open file.
 *

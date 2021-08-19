@@ -164,6 +164,7 @@
      &                   'CHPR2 '/
 !     .. Executable Statements ..
       call set_xerbla(test_xerbla)
+      open(unit=nin,file='test/cblat2.in')
 !
 !     Read name and unit number for summary output file and open file.
 !
