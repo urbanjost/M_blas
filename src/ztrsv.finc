@@ -156,11 +156,12 @@
 !     December 2016
 !
 !     .. Scalar Arguments ..
-      INTEGER INCX,LDA,N
-      CHARACTER DIAG,TRANS,UPLO
+      INTEGER,intent(in)                 :: INCX,LDA,N
+      CHARACTER,intent(in)               :: DIAG,TRANS,UPLO
 !     ..
 !     .. Array Arguments ..
-      complex(kind=real64) :: A(LDA,*),X(*)
+      complex(kind=real64),intent(in)    :: A(LDA,*)
+      complex(kind=real64),intent(inout) :: X(*)
 !     ..
 !
 !  =====================================================================

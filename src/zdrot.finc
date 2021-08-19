@@ -105,11 +105,11 @@
 !     December 2016
 !
 !     .. Scalar Arguments ..
-      INTEGER            INCX, INCY, N
-      DOUBLE PRECISION   C, S
+      INTEGER,intent(in)          :: INCX, INCY, N
+      DOUBLE PRECISION,intent(in) :: C, S
 !     ..
 !     .. Array Arguments ..
-      complex(kind=real64) ::         ZX( * ), ZY( * )
+      complex(kind=real64),intent(inout) :: ZX( * ), ZY( * )
 !     ..
 !
 ! =====================================================================

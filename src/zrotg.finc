@@ -100,26 +100,16 @@ subroutine ZROTG( a, b, c, s )
    complex(wp), parameter :: czero  = 0.0_wp
 !  ..
 !  .. Scaling constants ..
-   real(wp), parameter :: safmin = real(radix(0._wp),wp)**max( &
-      minexponent(0._wp)-1, &
-      1-maxexponent(0._wp) &
-   )
-   real(wp), parameter :: safmax = real(radix(0._wp),wp)**max( &
-      1-minexponent(0._wp), &
-      maxexponent(0._wp)-1 &
-   )
-   real(wp), parameter :: rtmin = sqrt( real(radix(0._wp),wp)**max( &
-      minexponent(0._wp)-1, &
-      1-maxexponent(0._wp) &
-   ) / epsilon(0._wp) )
-   real(wp), parameter :: rtmax = sqrt( real(radix(0._wp),wp)**max( &
-      1-minexponent(0._wp), &
-      maxexponent(0._wp)-1 &
-   ) * epsilon(0._wp) )
+   real(wp), parameter :: safmin = real(radix(0._wp),wp)**max( minexponent(0._wp)-1, 1-maxexponent(0._wp) )
+   real(wp), parameter :: safmax = real(radix(0._wp),wp)**max( 1-minexponent(0._wp), maxexponent(0._wp)-1 )
+   real(wp), parameter :: rtmin = sqrt( real(radix(0._wp),wp)**max( minexponent(0._wp)-1, 1-maxexponent(0._wp) ) / epsilon(0._wp) )
+   real(wp), parameter :: rtmax = sqrt( real(radix(0._wp),wp)**max( 1-minexponent(0._wp), maxexponent(0._wp)-1 ) * epsilon(0._wp) )
 !  ..
 !  .. Scalar Arguments ..
-   real(wp) :: c
-   complex(wp) :: a, b, s
+   real(wp),intent(out)      :: c
+   complex(wp),intent(in)    :: b
+   complex(wp),intent(out)   :: s
+   complex(wp),intent(inout) :: a
 !  ..
 !  .. Local Scalars ..
    real(wp) :: d, f1, f2, g1, g2, h2, p, u, uu, v, vv, w

@@ -85,11 +85,11 @@
 !     November 2017
 !
 !     .. Scalar Arguments ..
-      complex(kind=real64) :: ZA
-      INTEGER INCX,N
+      complex(kind=real64),intent(in)    :: ZA
+      INTEGER,intent(in)                 :: INCX,N
 !     ..
 !     .. Array Arguments ..
-      complex(kind=real64) :: ZX(*)
+      complex(kind=real64),intent(inout) :: ZX(*)
 !     ..
 !
 !  =====================================================================

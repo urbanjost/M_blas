@@ -205,13 +205,14 @@
 !     December 2016
 !
 !     .. Scalar Arguments ..
-      complex(kind=real64) :: ALPHA
-      DOUBLE PRECISION BETA
-      INTEGER K,LDA,LDB,LDC,N
-      CHARACTER TRANS,UPLO
+      complex(kind=real64),intent(in)    :: ALPHA
+      DOUBLE PRECISION,intent(in)        :: BETA
+      INTEGER ,intent(in)                ::K,LDA,LDB,LDC,N
+      CHARACTER,intent(in)               :: TRANS,UPLO
 !     ..
 !     .. Array Arguments ..
-      complex(kind=real64) :: A(LDA,*),B(LDB,*),C(LDC,*)
+      complex(kind=real64),intent(in)    :: A(LDA,*),B(LDB,*)
+      complex(kind=real64),intent(inout) :: C(LDC,*)
 !     ..
 !
 !  =====================================================================

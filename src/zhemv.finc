@@ -161,12 +161,13 @@ implicit none
 !     December 2016
 !
 !     .. Scalar Arguments ..
-      complex(kind=real64) :: alpha,beta
-      integer incx,incy,lda,n
-      character uplo
+      complex(kind=real64),intent(in)    :: alpha,beta
+      integer,intent(in)                 :: incx,incy,lda,n
+      character,intent(in)               :: uplo
 !     ..
 !     .. Array Arguments ..
-      complex(kind=real64) :: a(lda,*),x(*),y(*)
+      complex(kind=real64),intent(in)    :: a(lda,*),x(*)
+      complex(kind=real64),intent(inout) :: y(*)
 !     ..
 !
 !  =====================================================================

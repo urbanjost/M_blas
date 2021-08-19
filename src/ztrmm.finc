@@ -184,12 +184,13 @@
 !     December 2016
 !
 !     .. Scalar Arguments ..
-      complex(kind=real64) :: ALPHA
-      INTEGER LDA,LDB,M,N
-      CHARACTER DIAG,SIDE,TRANSA,UPLO
+      complex(kind=real64),intent(in)    :: ALPHA
+      INTEGER,intent(in)                 :: LDA,LDB,M,N
+      CHARACTER,intent(in)               :: DIAG,SIDE,TRANSA,UPLO
 !     ..
 !     .. Array Arguments ..
-      complex(kind=real64) :: A(LDA,*),B(LDB,*)
+      complex(kind=real64),intent(in)    :: A(LDA,*)
+      complex(kind=real64),intent(inout) :: B(LDB,*)
 !     ..
 !
 !  =====================================================================

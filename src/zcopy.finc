@@ -88,10 +88,11 @@
 !     November 2017
 !
 !     .. Scalar Arguments ..
-      INTEGER INCX,INCY,N
+      INTEGER,intent(in)               :: INCX,INCY,N
 !     ..
 !     .. Array Arguments ..
-      complex(kind=real64) :: ZX(*),ZY(*)
+      complex(kind=real64),intent(in)  :: ZX(*)
+      complex(kind=real64),intent(out) :: ZY(*)
 !     ..
 !
 !  =====================================================================

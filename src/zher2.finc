@@ -157,12 +157,13 @@
 !     December 2016
 !
 !     .. Scalar Arguments ..
-      complex(kind=real64) :: ALPHA
-      INTEGER INCX,INCY,LDA,N
-      CHARACTER UPLO
+      complex(kind=real64),intent(in)    :: ALPHA
+      INTEGER,intent(in)                 :: INCX,INCY,LDA,N
+      CHARACTER,intent(in)               :: UPLO
 !     ..
 !     .. Array Arguments ..
-      complex(kind=real64) :: A(LDA,*),X(*),Y(*)
+      complex(kind=real64),intent(in)    :: X(*),Y(*)
+      complex(kind=real64),intent(inout) :: A(LDA,*)
 !     ..
 !
 !  =====================================================================

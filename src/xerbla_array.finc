@@ -87,10 +87,10 @@
 !     December 2016
 !
 !     .. Scalar Arguments ..
-      INTEGER SRNAME_LEN, INFO
+      INTEGER,intent(in) :: SRNAME_LEN, INFO
 !     ..
 !     .. Array Arguments ..
-      CHARACTER(*) SRNAME_ARRAY(SRNAME_LEN)
+      CHARACTER(len=*),intent(in) :: SRNAME_ARRAY(SRNAME_LEN)
 !     ..
 !
 ! =====================================================================

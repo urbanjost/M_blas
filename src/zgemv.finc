@@ -156,8 +156,8 @@
 !> \endverbatim
 !>
 !  =====================================================================
-       SUBROUTINE ZGEMV(TRANS,M,N,ALPHA,A,LDA,X,INCX,BETA,Y,INCY)
-      implicit none
+SUBROUTINE ZGEMV(TRANS,M,N,ALPHA,A,LDA,X,INCX,BETA,Y,INCY)
+implicit none
 !
 !  -- Reference BLAS level2 routine (version 3.7.0) --
 !  -- Reference BLAS is a software package provided by Univ. of Tennessee,    --
@@ -165,12 +165,13 @@
 !     December 2016
 !
 !     .. Scalar Arguments ..
-      complex(kind=real64) :: ALPHA,BETA
-      INTEGER INCX,INCY,LDA,M,N
-      CHARACTER TRANS
+      complex(kind=real64),intent(in)    :: ALPHA,BETA
+      INTEGER,intent(in)                 :: INCX,INCY,LDA,M,N
+      CHARACTER,intent(in)               :: TRANS
 !     ..
 !     .. Array Arguments ..
-      complex(kind=real64) :: A(LDA,*),X(*),Y(*)
+      complex(kind=real64),intent(in)    :: A(LDA,*),X(*)
+      complex(kind=real64),intent(inout) :: Y(*)
 !     ..
 !
 !  =====================================================================
@@ -342,4 +343,4 @@
           endif
       endif
 !
-      END SUBROUTINE ZGEMV
+END SUBROUTINE ZGEMV
