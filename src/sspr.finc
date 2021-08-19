@@ -134,12 +134,13 @@
 !     December 2016
 !
 !     .. Scalar Arguments ..
-      REAL ALPHA
-      INTEGER INCX,N
-      CHARACTER UPLO
+      REAL,intent(in)      :: ALPHA
+      INTEGER,intent(in)   :: INCX,N
+      CHARACTER,intent(in) :: UPLO
 !     ..
 !     .. Array Arguments ..
-      REAL AP(*),X(*)
+      REAL,intent(in)    :: X(*)
+      REAL,intent(inout) :: AP(*)
 !     ..
 !
 !  =====================================================================

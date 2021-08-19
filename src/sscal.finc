@@ -86,11 +86,11 @@
 !     November 2017
 !
 !     .. Scalar Arguments ..
-      REAL SA
-      INTEGER INCX,N
+      REAL,intent(in)    :: SA
+      INTEGER,intent(in) :: INCX,N
 !     ..
 !     .. Array Arguments ..
-      REAL SX(*)
+      REAL,intent(inout) :: SX(*)
 !     ..
 !
 !  =====================================================================
