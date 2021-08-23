@@ -1,0 +1,99 @@
+$BLOCK COMMENT --file scasum.3m_blas.man
+NAME
+   scasum.(3f) -- [BLAS:SINGLE_BLAS_LEVEL1]
+
+SYNOPSIS
+    REAL FUNCTION SCASUM(N,CX,INCX)
+
+      .. Scalar Arguments ..
+      INTEGER,intent(in)    :: INCX,N
+      ..
+      .. Array Arguments ..
+      COMPLEX,intent(inout) :: CX(*)
+      ..
+
+DEFINITION
+
+    SCASUM takes the sum of the (|Re(.)| + |Im(.)|)'s of a complex vector and
+    returns a single precision result.
+ 
+OPTIONS
+
+  N
+ 
+          N is INTEGER
+         number of elements in input vector(s)
+ 
+ out] CX
+ 
+          CX is COMPLEX array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
+ 
+  INCX
+ 
+          INCX is INTEGER
+         storage spacing between elements of SX
+ 
+AUTHORS
+
++ Univ. of Tennessee
++ Univ. of California Berkeley
++ Univ. of Colorado Denver
++ NAG Ltd.
+
+ date:November 2017
+
+ FURTHER DETAILS
+
+     jack dongarra, linpack, 3/11/78.
+     modified 3/93 to return if incx .le. 0.
+     modified 12/3/93, array(1) declarations changed to array(*)
+ 
+SEE ALSO
+   Online html documentation available at
+   http://www.netlib.org/lapack/explore-html/
+$BLOCK END
+!  =====================================================================
+REAL FUNCTION SCASUM(N,CX,INCX)
+implicit none
+!
+!  -- Reference BLAS level1 routine (version 3.8.0) --
+!  -- Reference BLAS is a software package provided by Univ. of Tennessee,    --
+!  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
+!     November 2017
+!
+!     .. Scalar Arguments ..
+      INTEGER,intent(in)    :: INCX,N
+!     ..
+!     .. Array Arguments ..
+      COMPLEX,intent(inout) :: CX(*)
+!     ..
+!  =====================================================================
+!     .. Local Scalars ..
+      REAL STEMP
+      INTEGER I,NINCX
+!     ..
+!     .. Intrinsic Functions ..
+      INTRINSIC ABS,AIMAG,REAL
+!     ..
+      SCASUM = 0.0e0
+      STEMP = 0.0e0
+      IF (N.LE.0 .OR. INCX.LE.0) RETURN
+      IF (INCX.EQ.1) THEN
+!
+!        code for increment equal to 1
+!
+         DO I = 1,N
+            STEMP = STEMP + ABS(REAL(CX(I))) + ABS(AIMAG(CX(I)))
+         enddo
+      ELSE
+!
+!        code for increment not equal to 1
+!
+         NINCX = N*INCX
+         DO I = 1,NINCX,INCX
+            STEMP = STEMP + ABS(REAL(CX(I))) + ABS(AIMAG(CX(I)))
+         enddo
+      endif
+      SCASUM = STEMP
+
+END FUNCTION SCASUM

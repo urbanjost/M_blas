@@ -1,0 +1,124 @@
+$BLOCK COMMENT --file drot.3m_blas.man
+NAME
+   drot.(3f) -- [BLAS:SINGLE_BLAS_LEVEL1]
+
+SYNOPSIS
+    SUBROUTINE DROT(N,DX,INCX,DY,INCY,C,S)
+
+      .. Scalar Arguments ..
+      DOUBLE PRECISION,intent(in)    :: C,S
+      INTEGER,intent(in)             :: INCX,INCY,N
+      ..
+      .. Array Arguments ..
+      DOUBLE PRECISION,intent(inout) :: DX(*),DY(*)
+      ..
+
+DEFINITION
+
+    DROT applies a plane rotation.
+ 
+OPTIONS
+
+  N
+ 
+          N is INTEGER
+         number of elements in input vector(s)
+ 
+ out] DX
+ 
+          DX is DOUBLE PRECISION array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
+ 
+  INCX
+ 
+          INCX is INTEGER
+         storage spacing between elements of DX
+ 
+ out] DY
+ 
+          DY is DOUBLE PRECISION array, dimension ( 1 + ( N - 1 )*abs( INCY ) )
+ 
+  INCY
+ 
+          INCY is INTEGER
+         storage spacing between elements of DY
+ 
+  C
+ 
+          C is DOUBLE PRECISION
+ 
+  S
+ 
+          S is DOUBLE PRECISION
+ 
+AUTHORS
+
++ Univ. of Tennessee
++ Univ. of California Berkeley
++ Univ. of Colorado Denver
++ NAG Ltd.
+
+ date:November 2017
+
+ \ingroup double_blas_level1
+
+ FURTHER DETAILS
+
+     jack dongarra, linpack, 3/11/78.
+     modified 12/3/93, array(1) declarations changed to array(*)
+ 
+SEE ALSO
+   Online html documentation available at
+   http://www.netlib.org/lapack/explore-html/
+$BLOCK END
+!  =====================================================================
+       SUBROUTINE DROT(N,DX,INCX,DY,INCY,C,S)
+      implicit none
+!
+!  -- Reference BLAS level1 routine (version 3.8.0) --
+!  -- Reference BLAS is a software package provided by Univ. of Tennessee,    --
+!  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
+!     November 2017
+!
+!     .. Scalar Arguments ..
+      DOUBLE PRECISION,intent(in)    :: C,S
+      INTEGER,intent(in)             :: INCX,INCY,N
+!     ..
+!     .. Array Arguments ..
+      DOUBLE PRECISION,intent(inout) :: DX(*),DY(*)
+!     ..
+!
+!  =====================================================================
+!
+!     .. Local Scalars ..
+      DOUBLE PRECISION DTEMP
+      INTEGER I,IX,IY
+!     ..
+      IF (N.LE.0) RETURN
+      IF (INCX.EQ.1 .AND. INCY.EQ.1) THEN
+!
+!       code for both increments equal to 1
+!
+         DO I = 1,N
+            DTEMP = C*DX(I) + S*DY(I)
+            DY(I) = C*DY(I) - S*DX(I)
+            DX(I) = DTEMP
+         enddo
+      ELSE
+!
+!       code for unequal increments or equal increments not equal
+!         to 1
+!
+         IX = 1
+         IY = 1
+         IF (INCX.LT.0) IX = (-N+1)*INCX + 1
+         IF (INCY.LT.0) IY = (-N+1)*INCY + 1
+         DO I = 1,N
+            DTEMP = C*DX(IX) + S*DY(IY)
+            DY(IY) = C*DY(IY) - S*DX(IX)
+            DX(IX) = DTEMP
+            IX = IX + INCX
+            IY = IY + INCY
+         enddo
+      endif
+
+      END SUBROUTINE DROT

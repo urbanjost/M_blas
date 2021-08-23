@@ -1,0 +1,103 @@
+$BLOCK COMMENT --file zdscal.3m_blas.man
+NAME
+   zdscal.(3f) -- [BLAS:COMPLEX16_BLAS_LEVEL1]
+
+SYNOPSIS
+    SUBROUTINE ZDSCAL(N,DA,ZX,INCX)
+
+      .. Scalar Arguments ..
+      DOUBLE PRECISION,intent(in) :: DA
+      INTEGER,intent(in) :: INCX,N
+      ..
+      .. Array Arguments ..
+      complex(kind=real64),intent(inout) :: ZX(*)
+      ..
+
+DEFINITION
+
+    ZDSCAL scales a vector by a constant.
+ 
+OPTIONS
+
+  N
+ 
+          N is INTEGER
+         number of elements in input vector(s)
+ 
+  DA
+ 
+          DA is DOUBLE PRECISION
+           On entry, DA specifies the scalar alpha.
+ 
+ out] ZX
+ 
+          ZX is complex(kind=real64) array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
+ 
+  INCX
+ 
+          INCX is INTEGER
+         storage spacing between elements of ZX
+ 
+AUTHORS
+
++ Univ. of Tennessee
++ Univ. of California Berkeley
++ Univ. of Colorado Denver
++ NAG Ltd.
+
+ date:November 2017
+
+ FURTHER DETAILS
+
+     jack dongarra, 3/11/78.
+     modified 3/93 to return if incx .le. 0.
+     modified 12/3/93, array(1) declarations changed to array(*)
+ 
+SEE ALSO
+   Online html documentation available at
+   http://www.netlib.org/lapack/explore-html/
+$BLOCK END
+!  =====================================================================
+       SUBROUTINE ZDSCAL(N,DA,ZX,INCX)
+      implicit none
+!
+!  -- Reference BLAS level1 routine (version 3.8.0) --
+!  -- Reference BLAS is a software package provided by Univ. of Tennessee,    --
+!  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
+!     November 2017
+!
+!     .. Scalar Arguments ..
+      DOUBLE PRECISION,intent(in) :: DA
+      INTEGER,intent(in) :: INCX,N
+!     ..
+!     .. Array Arguments ..
+      complex(kind=real64),intent(inout) :: ZX(*)
+!     ..
+!
+!  =====================================================================
+!
+!     .. Local Scalars ..
+      INTEGER I,NINCX
+!     ..
+!     .. Intrinsic Functions ..
+      INTRINSIC DCMPLX
+!     ..
+      IF (N.LE.0 .OR. INCX.LE.0) RETURN
+      IF (INCX.EQ.1) THEN
+!
+!        code for increment equal to 1
+!
+         DO I = 1,N
+            ZX(I) = DCMPLX(DA,0.0d0)*ZX(I)
+         enddo
+      ELSE
+!
+!        code for increment not equal to 1
+!
+         NINCX = N*INCX
+         DO I = 1,NINCX,INCX
+            ZX(I) = DCMPLX(DA,0.0d0)*ZX(I)
+         enddo
+      endif
+
+      END SUBROUTINE ZDSCAL

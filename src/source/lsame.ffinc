@@ -1,0 +1,75 @@
+$BLOCK COMMENT --file lsame.3m_blas.man
+NAME
+   lsame.(3f) -- [BLAS:AUX_BLAS] compare two letters ignoring case
+
+SYNOPSIS
+    LOGICAL FUNCTION LSAME(CA,CB)
+
+      .. Scalar Arguments ..
+      character(len=1),intent(in) :: ca,cb
+      ..
+
+DEFINITION
+
+ LSAME returns .TRUE. if CA is the same letter as CB regardless of
+ case.
+ 
+OPTIONS
+
+  CA
+ 
+          CA is CHARACTER*1
+ 
+  CB
+ 
+          CB is CHARACTER*1
+          CA and CB specify the single characters to be compared.
+ 
+AUTHORS
+
++ Univ. of Tennessee
++ Univ. of California Berkeley
++ Univ. of Colorado Denver
++ NAG Ltd.
+
+ date:December 2016
+
+SEE ALSO
+   Online html documentation available at
+   http://www.netlib.org/lapack/explore-html/
+$BLOCK END
+!  =====================================================================
+pure logical function lsame(ca,cb)
+implicit none
+
+!  -- Reference BLAS level1 routine (version 3.1) --
+!  -- Reference BLAS is a software package provided by Univ. of Tennessee,    --
+!  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
+!     December 2016
+
+!     .. Scalar Arguments ..
+      character(len=1),intent(in) :: ca,cb
+!     ..
+! =====================================================================
+!     .. Intrinsic Functions ..
+      intrinsic iachar
+!     ..
+!     .. Local Scalars ..
+      integer :: inta,intb
+!     ..
+!     Test if the characters are equal
+      lsame = ca .eq. cb
+      if (lsame) return
+
+!     Now test for equivalence after converting uppercase to lowercase
+!     if characters are alphameric
+
+      inta = ichar(ca)
+      intb = ichar(cb)
+
+      if (inta.ge.97 .and. inta.le.122) inta = inta - 32
+      if (intb.ge.97 .and. intb.le.122) intb = intb - 32
+
+      lsame = inta .eq. intb
+
+end function lsame

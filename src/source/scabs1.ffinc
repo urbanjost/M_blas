@@ -1,0 +1,53 @@
+$BLOCK COMMENT --file scabs1.3m_blas.man
+NAME
+   scabs1.(3f) -- [BLAS:SINGLE_BLAS_LEVEL1]
+
+SYNOPSIS
+    elemental REAL FUNCTION SCABS1(Z)
+
+      .. Scalar Arguments ..
+      complex,intent(in) ::  z
+      ..
+
+DEFINITION
+
+ SCABS1 computes |Re(.)| + |Im(.)| of a complex number
+ 
+OPTIONS
+
+  Z
+ 
+          Z is COMPLEX
+ 
+AUTHORS
+
++ Univ. of Tennessee
++ Univ. of California Berkeley
++ Univ. of Colorado Denver
++ NAG Ltd.
+
+ date:November 2017
+
+SEE ALSO
+   Online html documentation available at
+   http://www.netlib.org/lapack/explore-html/
+$BLOCK END
+!  =====================================================================
+pure elemental real function scabs1(z)
+      implicit none
+!
+!  -- Reference BLAS level1 routine (version 3.8.0) --
+!  -- Reference BLAS is a software package provided by Univ. of Tennessee,    --
+!  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
+!     November 2017
+!
+!     .. Scalar Arguments ..
+      complex,intent(in) ::  z
+!     ..
+!  =====================================================================
+!     .. Intrinsic Functions ..
+      intrinsic abs,aimag,real
+!     ..
+      scabs1 = abs(real(z)) + abs(aimag(z))
+
+end function scabs1

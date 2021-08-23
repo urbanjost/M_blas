@@ -1,0 +1,130 @@
+$BLOCK COMMENT --file dcopy.3m_blas.man
+NAME
+   dcopy.(3f) -- [BLAS:DOUBLE_BLAS_LEVEL1]
+
+SYNOPSIS
+    SUBROUTINE DCOPY(N,DX,INCX,DY,INCY)
+
+      .. Scalar Arguments ..
+      integer,intent(in)           :: incx,incy,n
+      ..
+      .. Array Arguments ..
+      double precision,intent(in)  :: dx(*)
+      double precision,intent(out) :: dy(*)
+      ..
+
+DEFINITION
+
+    DCOPY copies a vector, x, to a vector, y.
+    uses unrolled loops for increments equal to 1.
+ 
+OPTIONS
+
+  N
+ 
+          N is INTEGER
+         number of elements in input vector(s)
+ 
+  DX
+ 
+          DX is DOUBLE PRECISION array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
+ 
+  INCX
+ 
+          INCX is INTEGER
+         storage spacing between elements of DX
+ 
+  DY
+ 
+          DY is DOUBLE PRECISION array, dimension ( 1 + ( N - 1 )*abs( INCY ) )
+ 
+  INCY
+ 
+          INCY is INTEGER
+         storage spacing between elements of DY
+ 
+AUTHORS
+
++ Univ. of Tennessee
++ Univ. of California Berkeley
++ Univ. of Colorado Denver
++ NAG Ltd.
+
+ date:November 2017
+
+ FURTHER DETAILS
+
+     jack dongarra, linpack, 3/11/78.
+     modified 12/3/93, array(1) declarations changed to array(*)
+ 
+SEE ALSO
+   Online html documentation available at
+   http://www.netlib.org/lapack/explore-html/
+$BLOCK END
+!  =====================================================================
+       SUBROUTINE DCOPY(N,DX,INCX,DY,INCY)
+      implicit none
+!
+!  -- Reference BLAS level1 routine (version 3.8.0) --
+!  -- Reference BLAS is a software package provided by Univ. of Tennessee,    --
+!  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
+!     November 2017
+!
+!     .. Scalar Arguments ..
+      integer,intent(in)           :: incx,incy,n
+!     ..
+!     .. Array Arguments ..
+      double precision,intent(in)  :: dx(*)
+      double precision,intent(out) :: dy(*)
+!     ..
+!
+!  =====================================================================
+!
+!     .. Local Scalars ..
+      integer i,ix,iy,m,mp1
+!     ..
+!     .. Intrinsic Functions ..
+      intrinsic mod
+!     ..
+      if (n.le.0) return
+      if (incx.eq.1 .and. incy.eq.1) then
+!
+!        code for both increments equal to 1
+!
+!
+!        clean-up loop
+!
+         m = mod(n,7)
+         if (m.ne.0) then
+            do i = 1,m
+               dy(i) = dx(i)
+            enddo
+            if (n.lt.7) return
+         endif
+         mp1 = m + 1
+         do i = mp1,n,7
+            dy(i) = dx(i)
+            dy(i+1) = dx(i+1)
+            dy(i+2) = dx(i+2)
+            dy(i+3) = dx(i+3)
+            dy(i+4) = dx(i+4)
+            dy(i+5) = dx(i+5)
+            dy(i+6) = dx(i+6)
+         enddo
+      else
+!
+!        code for unequal increments or equal increments
+!          not equal to 1
+!
+         ix = 1
+         iy = 1
+         if (incx.lt.0) ix = (-n+1)*incx + 1
+         if (incy.lt.0) iy = (-n+1)*incy + 1
+         do i = 1,n
+            dy(iy) = dx(ix)
+            ix = ix + incx
+            iy = iy + incy
+         enddo
+      endif
+
+end subroutine dcopy

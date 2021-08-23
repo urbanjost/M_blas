@@ -1,0 +1,101 @@
+$BLOCK COMMENT --file cscal.3m_blas.man
+NAME
+   cscal.(3f) -- [BLAS:COMPLEX_BLAS_LEVEL1]
+
+SYNOPSIS
+
+    SUBROUTINE CSCAL(N,CA,CX,INCX)
+
+      .. Scalar Arguments ..
+      COMPLEX,intent(in)    :: CA
+      INTEGER,intent(in)    :: INCX,N
+      ..
+      .. Array Arguments ..
+      COMPLEX,intent(inout) :: CX(*)
+      ..
+
+DEFINITION
+
+    CSCAL scales a vector by a constant.
+ 
+OPTIONS
+
+  N
+ 
+          N is INTEGER
+         number of elements in input vector(s)
+ 
+  CA
+ 
+          CA is COMPLEX
+           On entry, CA specifies the scalar alpha.
+ 
+ out] CX
+ 
+          CX is COMPLEX array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
+ 
+  INCX
+ 
+          INCX is INTEGER
+         storage spacing between elements of CX
+ 
+AUTHORS
+
++ Univ. of Tennessee
++ Univ. of California Berkeley
++ Univ. of Colorado Denver
++ NAG Ltd.
+
+ date:November 2017
+
+ FURTHER DETAILS
+
+     jack dongarra, linpack,  3/11/78.
+     modified 3/93 to return if incx .le. 0.
+     modified 12/3/93, array(1) declarations changed to array(*)
+ 
+SEE ALSO
+   Online html documentation available at
+   http://www.netlib.org/lapack/explore-html/
+$BLOCK END
+!  =====================================================================
+       SUBROUTINE CSCAL(N,CA,CX,INCX)
+      implicit none
+!
+!  -- Reference BLAS level1 routine (version 3.8.0) --
+!  -- Reference BLAS is a software package provided by Univ. of Tennessee,    --
+!  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
+!     November 2017
+!
+!     .. Scalar Arguments ..
+      COMPLEX,intent(in)    :: CA
+      INTEGER,intent(in)    :: INCX,N
+!     ..
+!     .. Array Arguments ..
+      COMPLEX,intent(inout) :: CX(*)
+!     ..
+!
+!  =====================================================================
+!
+!     .. Local Scalars ..
+      INTEGER I,NINCX
+!     ..
+      IF (N.LE.0 .OR. INCX.LE.0) RETURN
+      IF (INCX.EQ.1) THEN
+!
+!        code for increment equal to 1
+!
+         DO I = 1,N
+            CX(I) = CA*CX(I)
+         enddo
+      ELSE
+!
+!        code for increment not equal to 1
+!
+         NINCX = N*INCX
+         DO I = 1,NINCX,INCX
+            CX(I) = CA*CX(I)
+         enddo
+      endif
+
+      END SUBROUTINE CSCAL

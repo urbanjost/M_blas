@@ -1,0 +1,54 @@
+$BLOCK COMMENT --file dcabs1.3m_blas.man
+NAME
+   dcabs1.(3f) -- [BLAS:DOUBLE_BLAS_LEVEL1]
+
+SYNOPSIS
+    DOUBLE PRECISION FUNCTION DCABS1(Z)
+
+      .. Scalar Arguments ..
+      complex(kind=real64),intent(in) ::  Z
+      ..
+
+DEFINITION
+
+ DCABS1 computes |Re(.)| + |Im(.)| of a double complex number
+ 
+OPTIONS
+
+  Z
+ 
+          Z is complex(kind=real64)
+ 
+AUTHORS
+
++ Univ. of Tennessee
++ Univ. of California Berkeley
++ Univ. of Colorado Denver
++ NAG Ltd.
+
+ date:November 2017
+
+SEE ALSO
+   Online html documentation available at
+   http://www.netlib.org/lapack/explore-html/
+$BLOCK END
+!  =====================================================================
+pure double precision function dcabs1(z)
+implicit none
+!
+!  -- Reference BLAS level1 routine (version 3.8.0) --
+!  -- Reference BLAS is a software package provided by Univ. of Tennessee,    --
+!  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
+!     November 2017
+!
+!     .. Scalar Arguments ..
+      complex(kind=real64),intent(in) ::  Z
+!     ..
+!  =====================================================================
+!
+!     .. Intrinsic Functions ..
+      intrinsic abs,dble,dimag
+!
+      dcabs1 = abs(dble(z)) + abs(dimag(z))
+
+end function dcabs1

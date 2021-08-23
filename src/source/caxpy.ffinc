@@ -1,0 +1,94 @@
+$BLOCK COMMENT --file caxpy.3m_blas.man
+NAME
+    caxpy(3f) -- [BLAS:COMPLEX_BLAS_LEVEL1] constant times a vector plus a vector
+
+SYNOPSIS     
+   subroutine caxpy(n,ca,cx,incx,cy,incy)
+
+       .. Scalar Arguments ..
+       complex,intent(in)    :: ca
+       integer,intent(in)    :: incx,incy,n
+       ..
+       .. Array Arguments ..
+       complex,intent(in)    :: cx(*)
+       complex,intent(inout) :: cy(*)
+
+DESCRIPTION                             
+    CAXPY constant times a vector plus a vector.
+
+OPTIONS      
+   N      number of elements in input vector(s)
+   CA     On entry, CA specifies the scalar alpha.
+   CX     CX is COMPLEX array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
+   INCX   storage spacing between elements of CX
+   CY     CY is COMPLEX array, dimension ( 1 + ( N - 1 )*abs( INCY ) )
+   INCY   storage spacing between elements of CY
+
+AUTHORS
+
+  + Univ. of Tennessee
+  + Univ. of California Berkeley
+  + Univ. of Colorado Denver
+  + NAG Ltd.
+
+ November 2017
+
+ FURTHER DETAILS
+     Jack Dongarra, linpack, 3/11/78.
+     modified 12/3/93, array(1) declarations changed to array(*)
+
+SEE ALSO
+   Online html documentation available at
+   http://www.netlib.org/lapack/explore-html/
+$BLOCK END
+!  =====================================================================
+subroutine caxpy(n,ca,cx,incx,cy,incy)
+implicit none
+!
+!  -- Reference BLAS level1 routine (version 3.8.0) --
+!  -- Reference BLAS is a software package provided by Univ. of Tennessee,    --
+!  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
+!     November 2017
+!
+!     .. Scalar Arguments ..
+      complex,intent(in)    :: ca
+      integer,intent(in)    :: incx,incy,n
+!     ..
+!     .. Array Arguments ..
+      complex,intent(in)    :: cx(*)
+      complex,intent(inout) ::  cy(*)
+!     ..
+!
+!  =====================================================================
+!
+!     .. Local Scalars ..
+      integer :: i,ix,iy
+!     ..
+!     .. External Functions ..
+!     ..
+      if (n.le.0) return
+      if (scabs1(ca).eq.0.0e+0) return
+      if (incx.eq.1 .and. incy.eq.1) then
+!
+!        code for both increments equal to 1
+!
+         do i = 1,n
+            cy(i) = cy(i) + ca*cx(i)
+         enddo
+      else
+!
+!        code for unequal increments or equal increments
+!          not equal to 1
+!
+         ix = 1
+         iy = 1
+         if (incx.lt.0) ix = (-n+1)*incx + 1
+         if (incy.lt.0) iy = (-n+1)*incy + 1
+         do i = 1,n
+            cy(iy) = cy(iy) + ca*cx(ix)
+            ix = ix + incx
+            iy = iy + incy
+         enddo
+      endif
+!
+      end subroutine caxpy
