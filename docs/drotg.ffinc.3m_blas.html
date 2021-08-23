@@ -1,0 +1,244 @@
+<html> 
+<head> 
+<title> </title>
+<style> 
+px {font-family: "Lucida Console", Monaco }
+p { font-size:100%; line-height:1.1em; }
+body {xfont-style: sans-serif}
+body {
+color:#333; font-family:Verdana, Arial, Helvetica, sans-serif; font-size:1em; line-height:1.3em; }
+a:visited { color:#666; }
+h1,h2,h3,h4,h5,h6 { color:#333; font-family:georgia, verdana, sans-serif; }
+h1 { font-size:150%; page-break-before:auto;background-color: #aaaaff}
+h2 { font-size:143%;color:teal; }
+h3 { font-size:134%;color:blue; }
+h4 { font-size:120%;color:gray; }
+img { max-width: 55em}
+p{ padding: 0;margin:0; }
+p{ padding-right:1.4em; }
+p{ padding-bottom:1em; }
+p{ padding-top:1em; }
+p{ whitespace: pre-wrap; }
+h5,h6 { font-size:100% }
+a.nav,a:link.nav, a:visited.nav { background-color:#FFF; color:#000; }
+XXtable { border:double #000; border-collapse:collapse; }
+XXtable { border-collapse:collapse; }
+XXtd { border:thin solid #888; }
+XXtd { border:none; }
+li { margin-bottom:0.5em; }
+blockquote { display:block; font-size:100%; line-height:1.1em; margin:0 0 1.5em; padding:0 2.5em; }
+pre { background-color:#DDD; font-size:100%; overflow:auto; padding:1em; }
+a,li span { color:#000; }
+a:hover, a.nav:hover, a:hover math { background-color:#000; color:#FFF; }
+#Container { margin:0 10px; text-align:center; background-color: #BBB}
+#Content { border-top:none; margin:auto; padding:0.3em; text-align:left; width:100%; max-width:55em; background:#FFF}
+span.webName { font-size:.5em; }
+textarea#content { font-size: 1em; line-height: 1.125; }
+h1#pageName { line-height:1em; margin:0.2em 0 0.2em 0; padding:0; }
+.property { color:#666; font-size:100%; }
+a.existingWikiWord[title]{ //border: 1px dashed #BBB; }
+.byline { color:#666; font-size:1.0em; font-style:italic; margin-bottom:1em; padding-top:1px; } 
+</style> 
+</head>
+<BODY bgcolor=#F0F0F0 text=#000000 link=#0000ff vlink=#C000C0 alink=#ff0000><A NAME=top></A>
+<h5><a href="https://github.com/urbanjost/M_blas">[UP]</a></h5>
+<div id="Container">
+<div id="Content">
+<CENTER>
+<H1><HR><I>Manual Reference Pages &nbsp;-&nbsp;</I><NOBR>drotg.ffinc (3m_blas)</NOBR><HR></H1>
+</CENTER>
+<A name=0>
+
+     <H3>NAME</H3>
+
+</A>
+<BLOCKQUOTE>
+<B>drotg.ffinc</B>(3f) -- [BLAS:SINGLE_BLAS_LEVEL1]
+<P>
+</BLOCKQUOTE>
+<A name=contents></A><H3>CONTENTS</H3></A>
+<BLOCKQUOTE>
+<A HREF=#1>Synopsis</A><BR>
+<A HREF=#2>Definition</A><BR>
+<A HREF=#3>Options</A><BR>
+<A HREF=#4>Authors</A><BR>
+&nbsp; &nbsp; &nbsp;<A HREF=#5>Further Details</A><BR>
+<A HREF=#6>See Also</A><BR>
+</BLOCKQUOTE>
+<A name=7>
+
+     <H3>SYNOPSIS</H3>
+
+</A>
+<BLOCKQUOTE>
+subroutine <B>DROTG</B>( <I>a</I>, <I>b</I>, <I>c</I>, s )
+<P>
+<PRE>
+    .. Scalar Arguments ..
+    real(wp),intent(inout) :: a, b
+    real(wp),intent(out)   :: c, s
+<P>
+</PRE>
+</BLOCKQUOTE>
+<A name=2>
+
+     <H3>DEFINITION</H3>
+
+</A>
+<BLOCKQUOTE>
+DROTG constructs <I>a</I> plane rotation
+<BLOCKQUOTE>
+<TABLE cellpadding=3><!-- tsb: DROTG constructs <I>a</I> plane rotation
+ -->
+<TR></TR><TR></TR>
+<TR valign=top><TD width=6% nowrap>
+<B>[</B> </TD><TD valign=bottom>
+<I>c</I>  s ] [ <I>a</I> ] = [ r ]
+</TD></TR>
+<TR valign=top><TD width=6% nowrap>
+<B>[ </B><B>-s</B> </TD><TD valign=bottom>
+<I>c</I> ] [ <I>b</I> ]   [ 0 ]
+satisfying <I>c</I>**2 + s**2 = 1.
+</TD></TR>
+<TR></TR></TABLE></BLOCKQUOTE>
+</BLOCKQUOTE>
+<P>
+The computation uses the formulas
+<BLOCKQUOTE>
+<TABLE cellpadding=3><!-- tsb: The computation uses the formulas
+ -->
+<TR></TR><TR></TR>
+<TR valign=top><TD colspan=2>
+<B>sigma = </B><B>sgn</B>(<I>a</I>) </TD></TR><TR valign=top><TD width=6%>&nbsp;</TD><TD>
+if |<I>a</I>| &gt;  |<I>b</I>|
+<TABLE width=100% cellpadding=3><!-- tsb: if |<I>a</I>| &gt;  |<I>b</I>|
+ -->
+<TR></TR><TR></TR>
+<TR valign=top><TD colspan=2>
+<B>= </B><B>sgn</B>(<I>b</I>) </TD></TR><TR valign=top><TD width=6%>&nbsp;</TD><TD>
+if |<I>b</I>| &gt;= |<I>a</I>|
+r = sigma*sqrt( <I>a</I>**2 + <I>b</I>**2 )
+</TD></TR>
+<TR></TR></TABLE><!-- .TP -->
+</TD></TR>
+<TR valign=top><TD colspan=2>
+<B></B><I>c</I> = 1; s = 0 </TD></TR><TR valign=top><TD width=6%>&nbsp;</TD><TD>
+if r = 0
+</TD></TR>
+<TR valign=top><TD colspan=2>
+<B></B><I>c</I> = <I>a</I>/r; s = <I>b</I>/r </TD></TR><TR valign=top><TD width=6%>&nbsp;</TD><TD>
+if r != 0
+The subroutine also computes
+</TD></TR>
+<TR valign=top><TD width=6% nowrap>
+<B>z = s</B> </TD><TD valign=bottom>
+if |<I>a</I>| &gt; |<I>b</I>|,
+<TABLE width=100% cellpadding=3><!-- tsb: if |<I>a</I>| &gt; |<I>b</I>|,
+ -->
+<TR></TR><TR></TR>
+<TR valign=top><TD width=6% nowrap>
+<B>= 1/</B><I>c</I> </TD><TD valign=bottom>
+if |<I>b</I>| &gt;= |<I>a</I>| and <I>c</I> != 0
+</TD></TR>
+<TR valign=top><TD width=6% nowrap>
+<B>= 1</B> </TD><TD valign=bottom>
+if <I>c</I> = 0
+This allows <I>c</I> and s to be reconstructed from z as follows:
+If z = 1, set <I>c</I> = 0, s = 1.
+If |z| &lt; 1, set <I>c</I> = <B>sqrt</B>(1 - z**2) and s = z.
+If |z| &gt; 1, set <I>c</I> = 1/z and s = <B>sqrt</B>( 1 - <I>c</I>**2).
+</TD></TR>
+<TR></TR></TABLE></TD></TR>
+<TR></TR></TABLE></BLOCKQUOTE>
+<A name=3>
+
+     <H3>OPTIONS</H3>
+
+</A>
+<BLOCKQUOTE>
+<P>
+out] A
+<P>
+<PRE>
+          A is DOUBLE PRECISION
+          On entry, the scalar a.
+          On exit, the scalar r.
+<P>
+</PRE>
+out] B
+<P>
+<PRE>
+          B is DOUBLE PRECISION
+          On entry, the scalar b.
+          On exit, the scalar z.
+<P>
+</PRE>
+</BLOCKQUOTE>
+<A name=>
+
+    <H4>&nbsp; &nbsp; C</H4>
+</A>
+<BLOCKQUOTE>
+<P>
+C is DOUBLE PRECISION
+The scalar <I>c</I>.
+</BLOCKQUOTE>
+<A name=>
+
+    <H4>&nbsp; &nbsp; S</H4>
+</A>
+<BLOCKQUOTE>
+<P>
+S is DOUBLE PRECISION
+The scalar s.
+</BLOCKQUOTE>
+<A name=4>
+
+     <H3>AUTHORS</H3>
+
+</A>
+<BLOCKQUOTE>
+<P>
+<TABLE cellpadding=3>
+<TR valign=top><TD width=3%>
+o
+</TD><TD>
+Edward Anderson, Lockheed Martin
+</TD></TR>
+<TR></TR></TABLE><!-- .nf -->
+<PRE>
+ \par Contributors:
+<P>
+ Weslley Pereira, University of Colorado Denver, USA
+<P>
+ \ingroup single_blas_level1
+<P>
+</PRE>
+</BLOCKQUOTE>
+<A name=5>
+
+    <H4>&nbsp; &nbsp; FURTHER DETAILS</H4>
+</A>
+<BLOCKQUOTE>
+<P>
+Anderson E. (2017)
+Algorithm 978: Safe Scaling in the Level 1 BLAS
+ACM Trans Math Softw 44:1-<B>-28</B>
+https://doi.org/10.1145/3061665
+</BLOCKQUOTE>
+<A name=6>
+
+     <H3>SEE ALSO</H3>
+
+</A>
+<BLOCKQUOTE>
+Online html documentation available at
+<A HREF="http://www.netlib.org/lapack/explore-html">http://www.netlib.org/lapack/explore-html</A>/
+</BLOCKQUOTE>
+<P><HR>
+<TABLE width=100%><TR> <TD width=33%><I></I></TD> <TD width=33% align=center>drotg.ffinc (3m_blas)</TD> <TD align=right width=33%><I>August 23, 2021</I></TD> </TR></TABLE><FONT SIZE=-1>Generated by <A HREF="http://www.squarebox.co.uk/download/manServer.shtml">manServer 1.08</A> from 03a25a8c-c9ff-4eef-b6e2-6cb5d3613b05 using man macros.</FONT>
+<br><br><center><img src="images/drotg.ffinc.gif"></center>
+</div>
+</div>
+</body>
+</HTML>

@@ -145,7 +145,7 @@
 *
       READ( NIN, FMT = * )SUMMRY
       READ( NIN, FMT = * )NOUT
-      OPEN( NOUT, FILE = SUMMRY, STATUS = 'UNKNOWN' )
+      if(summry.ne.' ') OPEN( NOUT, FILE = SUMMRY, STATUS = 'UNKNOWN' )
       NOUTC = NOUT
 *
 *     Read name and unit number for snapshot output file and open file.

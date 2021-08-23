@@ -164,13 +164,13 @@
      &                   'CHPR2 '/
 !     .. Executable Statements ..
       call set_xerbla(test_xerbla)
-      open(unit=nin,file='test/cblat2.in')
+      open(unit=nin,file='test/cblat2.in',delim='apostrophe')
 !
 !     Read name and unit number for summary output file and open file.
 !
       READ( NIN, FMT = * )SUMMRY
       READ( NIN, FMT = * )NOUT
-      OPEN( NOUT, FILE = SUMMRY, STATUS = 'UNKNOWN' )
+      if(summry.ne.' ') OPEN( NOUT, FILE = SUMMRY, STATUS = 'UNKNOWN' )
       NOUTC = NOUT
 !
 !     Read name and unit number for snapshot output file and open file.

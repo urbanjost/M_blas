@@ -38,6 +38,7 @@
 PROGRAM DBLAT1
 use M_blas, only : dasum,  daxpy,  dcopy,  ddot,  dnrm2,  drot,  drotm,  dscal,  dsdot,  dswap
 use M_blas, only : idamax
+use m_blas, only :  drotg, drotmg
 !
 !  -- Reference BLAS test routine (version 3.8.0) --
 !  -- Reference BLAS is a software package provided by Univ. of Tennessee,    --
@@ -123,7 +124,6 @@ contains
 99999 FORMAT (/' Test of subprogram number',I3,12X,A6)
       END
       SUBROUTINE CHECK0(SFAC)
-      use M_blas, only :  DROTG, DROTMG
 !     .. Parameters ..
       INTEGER           NOUT
       PARAMETER         (NOUT=6)
