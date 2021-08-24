@@ -1,6 +1,6 @@
 $BLOCK COMMENT --file ztbsv.3m_blas.man
 NAME
-   ztbsv.(3f) -- [BLAS:COMPLEX_16_BLAS_LEVEL2]
+   ztbsv(3f) - [BLAS:COMPLEX_16_BLAS_LEVEL2]
 
 SYNOPSIS
     SUBROUTINE ZTBSV(UPLO,TRANS,DIAG,N,K,A,LDA,X,INCX)
@@ -16,7 +16,7 @@ SYNOPSIS
 
 DEFINITION
 
- ZTBSV  solves one of the systems of equations
+ ZTBSV solves one of the systems of equations
 
     A*x = b,   or   A**T*x = b,   or   A**H*x = b,
 
@@ -75,7 +75,7 @@ OPTIONS
            super-diagonals of the matrix A.
            On entry with UPLO = 'L' or 'l', K specifies the number of
            sub-diagonals of the matrix A.
-           K must satisfy  0 .le. K.
+           K must satisfy 0 .le. K.
  
   A
  
@@ -127,7 +127,7 @@ OPTIONS
            in the calling (sub) program. LDA must be at least
            ( k + 1 ).
  
- out] X
+ X
  
           X is complex(kind=real64) array, dimension at least
            ( 1 + ( n - 1 )*abs( INCX ) ).

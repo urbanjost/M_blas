@@ -1,6 +1,6 @@
 $BLOCK COMMENT --file zhbmv.3m_blas.man
 NAME
-   zhbmv.(3f) -- [BLAS:COMPLEX_16_BLAS_LEVEL2]
+   zhbmv(3f) - [BLAS:COMPLEX_16_BLAS_LEVEL2]
 
 SYNOPSIS
     SUBROUTINE ZHBMV(UPLO,N,K,ALPHA,A,LDA,X,INCX,BETA,Y,INCY)
@@ -17,7 +17,7 @@ SYNOPSIS
 
 DEFINITION
 
- ZHBMV  performs the matrix-vector  operation
+ ZHBMV performs the matrix-vector operation
 
     y := alpha*A*x + beta*y,
 
@@ -49,7 +49,7 @@ OPTIONS
  
           K is INTEGER
            On entry, K specifies the number of super-diagonals of the
-           matrix A. K must satisfy  0 .le. K.
+           matrix A. K must satisfy 0 .le. K.
  
   ALPHA
  
@@ -123,7 +123,7 @@ OPTIONS
           BETA is complex(kind=real64)
            On entry, BETA specifies the scalar beta.
  
- out] Y
+ Y
  
           Y is complex(kind=real64) array, dimension at least
            ( 1 + ( n - 1 )*abs( INCY ) ).

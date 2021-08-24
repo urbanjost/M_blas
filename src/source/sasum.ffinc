@@ -1,6 +1,6 @@
 $BLOCK COMMENT --file sasum.3m_blas.man
 NAME
-   sasum.(3f) -- [BLAS:SINGLE_BLAS_LEVEL1]
+   sasum(3f) - [BLAS:SINGLE_BLAS_LEVEL1] SASUM:=sum of absolute values of SX.
 
 SYNOPSIS
     REAL FUNCTION SASUM(N,SX,INCX)

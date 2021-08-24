@@ -1,6 +1,6 @@
 $BLOCK COMMENT --file stbsv.3m_blas.man
 NAME
-   stbsv.(3f) -- [BLAS:SINGLE_BLAS_LEVEL2]
+   stbsv(3f) - [BLAS:SINGLE_BLAS_LEVEL2] SX:=INVERSE(A)*SX, A a triangular band matrix.
 
 SYNOPSIS
     SUBROUTINE STBSV(UPLO,TRANS,DIAG,N,K,A,LDA,X,INCX)
@@ -16,7 +16,7 @@ SYNOPSIS
 
 DEFINITION
 
- STBSV  solves one of the systems of equations
+ STBSV solves one of the systems of equations
 
     A*x = b,   or   A**T*x = b,
 
@@ -75,7 +75,7 @@ OPTIONS
            super-diagonals of the matrix A.
            On entry with UPLO = 'L' or 'l', K specifies the number of
            sub-diagonals of the matrix A.
-           K must satisfy  0 .le. K.
+           K must satisfy 0 .le. K.
  
   A
  
@@ -127,7 +127,7 @@ OPTIONS
            in the calling (sub) program. LDA must be at least
            ( k + 1 ).
  
- out] X
+ X
  
           X is REAL array, dimension at least
            ( 1 + ( n - 1 )*abs( INCX ) ).

@@ -1,6 +1,6 @@
 $BLOCK COMMENT --file dspr.3m_blas.man
 NAME
-   dspr.(3f) -- [BLAS:DOUBLE_BLAS_LEVEL2]
+   dspr(3f) - [BLAS:DOUBLE_BLAS_LEVEL2]
 
 SYNOPSIS
     SUBROUTINE DSPR(UPLO,N,ALPHA,X,INCX,AP)
@@ -17,7 +17,7 @@ SYNOPSIS
 
 DESCRIPTION
 
- DSPR    performs the symmetric rank 1 operation
+ DSPR performs the symmetric rank 1 operation
 
     A := alpha*x*x**T + A,
 
@@ -63,7 +63,7 @@ OPTIONS
            On entry, INCX specifies the increment for the elements of
            X. INCX must not be zero.
  
- out] AP
+ AP
  
           AP is DOUBLE PRECISION array, dimension at least
            ( ( n*( n + 1 ) )/2 ).

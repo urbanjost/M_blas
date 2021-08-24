@@ -1,6 +1,6 @@
 $BLOCK COMMENT --file cgbmv.3m_blas.man
 NAME
-   cgbmv.(3f) -- [BLAS:COMPLEX_BLAS_LEVEL2]
+   cgbmv(3f) - [BLAS:COMPLEX_BLAS_LEVEL2] CY := alpha*A*CX + beta*CY; ==> A is a rectangular band matrix).
 
 SYNOPSIS
 
@@ -29,8 +29,6 @@ DESCRIPTION
 OPTIONS
 
   TRANS
- 
-          TRANS is CHARACTER*1
            On entry, TRANS specifies the operation to be performed as
            follows:
 
@@ -41,48 +39,39 @@ OPTIONS
               TRANS = 'C' or 'c'   y := alpha*A**H*x + beta*y.
  
   M
- 
-          M is INTEGER
            On entry, M specifies the number of rows of the matrix A.
            M must be at least zero.
  
   N
- 
-          N is INTEGER
            On entry, N specifies the number of columns of the matrix A.
            N must be at least zero.
  
   KL
- 
-          KL is INTEGER
            On entry, KL specifies the number of sub-diagonals of the
            matrix A. KL must satisfy  0 .le. KL.
  
   KU
- 
-          KU is INTEGER
-           On entry, KU specifies the number of super-diagonals of the
-           matrix A. KU must satisfy  0 .le. KU.
+          On entry, KU specifies the number of super-diagonals of the
+          matrix A. KU must satisfy  0 .le. KU.
  
   ALPHA
- 
-          ALPHA is COMPLEX
-           On entry, ALPHA specifies the scalar alpha.
+          On entry, ALPHA specifies the scalar alpha.
  
   A
- 
           A is COMPLEX array, dimension ( LDA, N )
-           Before entry, the leading ( kl + ku + 1 ) by n part of the
-           array A must contain the matrix of coefficients, supplied
-           column by column, with the leading diagonal of the matrix in
-           row ( ku + 1 ) of the array, the first super-diagonal
-           starting at position 2 in row ku, the first sub-diagonal
-           starting at position 1 in row ( ku + 2 ), and so on.
-           Elements in the array A that do not correspond to elements
-           in the band matrix (such as the top left ku by ku triangle)
-           are not referenced.
-           The following program segment will transfer a band matrix
-           from conventional full matrix storage to band storage:
+          Before entry, the leading ( kl + ku + 1 ) by n part of the
+          array A must contain the matrix of coefficients, supplied
+          column by column, with the leading diagonal of the matrix in
+          row ( ku + 1 ) of the array, the first super-diagonal
+          starting at position 2 in row ku, the first sub-diagonal
+          starting at position 1 in row ( ku + 2 ), and so on.
+
+          Elements in the array A that do not correspond to elements
+          in the band matrix (such as the top left ku by ku triangle)
+          are not referenced.
+
+          The following program segment will transfer a band matrix
+          from conventional full matrix storage to band storage:
 
                  DO 20, J = 1, N
                     K = KU + 1 - J
@@ -92,47 +81,40 @@ OPTIONS
               20 CONTINUE
  
   LDA
- 
-          LDA is INTEGER
-           On entry, LDA specifies the first dimension of A as declared
-           in the calling (sub) program. LDA must be at least
-           ( kl + ku + 1 ).
+          On entry, LDA specifies the first dimension of A as declared
+          in the calling (sub) program. LDA must be at least
+          ( kl + ku + 1 ).
  
   X
- 
           X is COMPLEX array, dimension at least
-           ( 1 + ( n - 1 )*abs( INCX ) ) when TRANS = 'N' or 'n'
-           and at least
-           ( 1 + ( m - 1 )*abs( INCX ) ) otherwise.
-           Before entry, the incremented array X must contain the
-           vector x.
+          ( 1 + ( n - 1 )*abs( INCX ) ) when TRANS = 'N' or 'n'
+          and at least
+          ( 1 + ( m - 1 )*abs( INCX ) ) otherwise.
+          Before entry, the incremented array X must contain the
+          vector x.
  
   INCX
- 
           INCX is INTEGER
-           On entry, INCX specifies the increment for the elements of
-           X. INCX must not be zero.
+          On entry, INCX specifies the increment for the elements of
+          X. INCX must not be zero.
  
   BETA
- 
           BETA is COMPLEX
-           On entry, BETA specifies the scalar beta. When BETA is
-           supplied as zero then Y need not be set on input.
+          On entry, BETA specifies the scalar beta. When BETA is
+          supplied as zero then Y need not be set on input.
  
- out] Y
- 
+ Y
           Y is COMPLEX array, dimension at least
-           ( 1 + ( m - 1 )*abs( INCY ) ) when TRANS = 'N' or 'n'
-           and at least
-           ( 1 + ( n - 1 )*abs( INCY ) ) otherwise.
-           Before entry, the incremented array Y must contain the
-           vector y. On exit, Y is overwritten by the updated vector y.
+          ( 1 + ( m - 1 )*abs( INCY ) ) when TRANS = 'N' or 'n'
+          and at least
+          ( 1 + ( n - 1 )*abs( INCY ) ) otherwise.
+          Before entry, the incremented array Y must contain the
+          vector y. On exit, Y is overwritten by the updated vector y.
  
   INCY
- 
           INCY is INTEGER
-           On entry, INCY specifies the increment for the elements of
-           Y. INCY must not be zero.
+          On entry, INCY specifies the increment for the elements of
+          Y. INCY must not be zero.
 
 AUTHORS
 + Univ. of Tennessee
@@ -224,8 +206,8 @@ implicit none
 !
       noconj = lsame(trans,'T')
 !
-!     Set  LENX  and  LENY, the lengths of the vectors x and y, and set
-!     up the start points in  X  and  Y.
+!     Set LENX and LENY,the lengths of the vectors x and y, and set
+!     up the start points in X and Y.
 !
       if (lsame(trans,'N')) then
           lenx = n

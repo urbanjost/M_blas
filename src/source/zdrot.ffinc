@@ -1,6 +1,6 @@
 $BLOCK COMMENT --file zdrot.3m_blas.man
 NAME
-   zdrot.(3f) -- [BLAS:COMPLEX16_BLAS_LEVEL1]
+   zdrot(3f) - [BLAS:COMPLEX16_BLAS_LEVEL1]
 
 SYNOPSIS
     SUBROUTINE ZDROT( N, ZX, INCX, ZY, INCY, C, S )
@@ -27,7 +27,7 @@ OPTIONS
            On entry, N specifies the order of the vectors cx and cy.
            N must be at least zero.
  
- out] ZX
+ ZX
  
           ZX is complex(kind=real64) array, dimension at least
            ( 1 + ( N - 1 )*abs( INCX ) ).
@@ -41,7 +41,7 @@ OPTIONS
            On entry, INCX specifies the increment for the elements of
            ZX. INCX must not be zero.
  
- out] ZY
+ ZY
  
           ZY is complex(kind=real64) array, dimension at least
            ( 1 + ( N - 1 )*abs( INCY ) ).

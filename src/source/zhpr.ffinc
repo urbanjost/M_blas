@@ -1,6 +1,6 @@
 $BLOCK COMMENT --file zhpr.3m_blas.man
 NAME
-   zhpr.(3f) -- [BLAS:COMPLEX_16_BLAS_LEVEL2]
+   zhpr(3f) - [BLAS:COMPLEX_16_BLAS_LEVEL2]
 
 SYNOPSIS
     SUBROUTINE ZHPR(UPLO,N,ALPHA,X,INCX,AP)
@@ -17,7 +17,7 @@ SYNOPSIS
 
 DEFINITION
 
- ZHPR    performs the hermitian rank 1 operation
+ ZHPR performs the hermitian rank 1 operation
 
     A := alpha*x*x**H + A,
 
@@ -63,11 +63,11 @@ OPTIONS
            On entry, INCX specifies the increment for the elements of
            X. INCX must not be zero.
  
- out] AP
+ AP
  
           AP is complex(kind=real64) array, dimension at least
            ( ( n*( n + 1 ) )/2 ).
-           Before entry with  UPLO = 'U' or 'u', the array AP must
+           Before entry with UPLO = 'U' or 'u', the array AP must
            contain the upper triangular part of the hermitian matrix
            packed sequentially, column by column, so that AP( 1 )
            contains a( 1, 1 ), AP( 2 ) and AP( 3 ) contain a( 1, 2 )

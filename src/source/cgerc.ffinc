@@ -1,6 +1,6 @@
 $BLOCK COMMENT --file cgerc.3m_blas.man
 NAME
-   cgerc.(3f) -- [BLAS:COMPLEX_BLAS_LEVEL2]
+   cgerc(3f) - [BLAS:COMPLEX_BLAS_LEVEL2] A := A + alpha*CX*CONJUGATE-TRANSPOSE(CY); ==> A is a rectangular matrix.
 
 SYNOPSIS
     SUBROUTINE CGERC(M,N,ALPHA,X,INCX,Y,INCY,A,LDA)
@@ -16,7 +16,7 @@ SYNOPSIS
 
 DEFINITION
 
- CGERC  performs the rank 1 operation
+ CGERC performs the rank 1 operation
 
     A := alpha*x*y**H + A,
 
@@ -68,7 +68,7 @@ OPTIONS
            On entry, INCY specifies the increment for the elements of
            Y. INCY must not be zero.
  
- out] A
+ A
  
           A is COMPLEX array, dimension ( LDA, N )
            Before entry, the leading m by n part of the array A must

@@ -1,6 +1,6 @@
 $BLOCK COMMENT --file cgemv.3m_blas.man
 NAME
-   cgemv.(3f) -- [BLAS:COMPLEX_BLAS_LEVEL2]
+   cgemv(3f) - [BLAS:COMPLEX_BLAS_LEVEL2] CY := alpha*A*CX + beta*CY; ==> A a rectangular matrix.
 
 SYNOPSIS
 
@@ -92,7 +92,7 @@ OPTIONS
            On entry, BETA specifies the scalar beta. When BETA is
            supplied as zero then Y need not be set on input.
  
- out] Y
+ Y
  
           Y is COMPLEX array, dimension at least
            ( 1 + ( m - 1 )*abs( INCY ) ) when TRANS = 'N' or 'n'

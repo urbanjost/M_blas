@@ -1,6 +1,6 @@
 $BLOCK COMMENT --file zrotg.3m_blas.man
 NAME
-   zrotg.(3f) -- [BLAS:COMPLEX16_BLAS_LEVEL1] constructs a plane rotation
+   zrotg(3f) - [BLAS:COMPLEX16_BLAS_LEVEL1] constructs a plane rotation
 
 SYNOPSIS
     subroutine ZROTG( a, b, c, s )
@@ -14,27 +14,33 @@ SYNOPSIS
 
 DEFINITION
   ZROTG constructs a plane rotation
+
      [  c         s ] [ a ] = [ r ]
      [ -conjg(s)  c ] [ b ]   [ 0 ]
+
   where c is real, s ic complex, and c**2 + conjg(s)*s = 1.
 
  The computation uses the formulas
+
     |x| = sqrt( Re(x)**2 + Im(x)**2 )
     sgn(x) = x / |x|  if x /= 0
            = 1        if x  = 0
     c = |a| / sqrt(|a|**2 + |b|**2)
     s = sgn(a) * conjg(b) / sqrt(|a|**2 + |b|**2)
+
  When a and b are real and r /= 0, the formulas simplify to
+
     r = sgn(a)*sqrt(|a|**2 + |b|**2)
     c = a / r
     s = b / r
- the same as in ZROTG when |a| > |b|.  When |b| >= |a|, the
+
+ the same as in ZROTG when |a| > |b|. When |b| >= |a|, the
  sign of c and s will be different from those computed by ZROTG
  if the signs of a and b are not the same.
 
 OPTIONS
 
- out] A
+ A
  
           A is DOUBLE COMPLEX
           On entry, the scalar a.

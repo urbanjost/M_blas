@@ -1,6 +1,6 @@
 $BLOCK COMMENT --file ztrmm.3m_blas.man
 NAME
-   ztrmm.(3f) -- [BLAS:COMPLEX16_BLAS_LEVEL3]
+   ztrmm(3f) - [BLAS:COMPLEX16_BLAS_LEVEL3]
 
 SYNOPSIS
     SUBROUTINE ZTRMM(SIDE,UPLO,TRANSA,DIAG,M,N,ALPHA,A,LDA,B,LDB)
@@ -17,12 +17,12 @@ SYNOPSIS
 
 DEFINITION
 
- ZTRMM  performs one of the matrix-matrix operations
+ ZTRMM performs one of the matrix-matrix operations
 
     B := alpha*op( A )*B,   or   B := alpha*B*op( A )
 
- where  alpha  is a scalar,  B  is an m by n matrix,  A  is a unit, or
- non-unit,  upper or lower triangular matrix  and  op( A )  is one  of
+ where alpha is a scalar, B is an m by n matrix, A is a unit, or
+ non-unit, upper or lower triangular matrix and op( A ) is one of
 
     op( A ) = A   or   op( A ) = A**T   or   op( A ) = A**H.
  
@@ -31,7 +31,7 @@ OPTIONS
   SIDE
  
           SIDE is CHARACTER*1
-           On entry,  SIDE specifies whether  op( A ) multiplies B from
+           On entry, SIDE specifies whether op( A ) multiplies B from
            the left or right as follows:
 
               SIDE = 'L' or 'l'   B := alpha*op( A )*B.
@@ -80,51 +80,51 @@ OPTIONS
   N
  
           N is INTEGER
-           On entry, N specifies the number of columns of B.  N must be
+           On entry, N specifies the number of columns of B. N must be
            at least zero.
  
   ALPHA
  
           ALPHA is complex(kind=real64)
-           On entry,  ALPHA specifies the scalar  alpha. When  alpha is
-           zero then  A is not referenced and  B need not be set before
+           On entry, ALPHA specifies the scalar alpha. When alpha is
+           zero then A is not referenced and B need not be set before
            entry.
  
   A
  
           A is complex(kind=real64) array, dimension ( LDA, k ), where k is m
-           when  SIDE = 'L' or 'l'  and is  n  when  SIDE = 'R' or 'r'.
-           Before entry  with  UPLO = 'U' or 'u',  the  leading  k by k
-           upper triangular part of the array  A must contain the upper
-           triangular matrix  and the strictly lower triangular part of
+           when SIDE = 'L' or 'l' and is n when SIDE = 'R' or 'r'.
+           Before entry with UPLO = 'U' or 'u', the leading k by k
+           upper triangular part of the array A must contain the upper
+           triangular matrix and the strictly lower triangular part of
            A is not referenced.
-           Before entry  with  UPLO = 'L' or 'l',  the  leading  k by k
-           lower triangular part of the array  A must contain the lower
-           triangular matrix  and the strictly upper triangular part of
+           Before entry with UPLO = 'L' or 'l', the leading k by k
+           lower triangular part of the array A must contain the lower
+           triangular matrix and the strictly upper triangular part of
            A is not referenced.
-           Note that when  DIAG = 'U' or 'u',  the diagonal elements of
-           A  are not referenced either,  but are assumed to be  unity.
+           Note that when DIAG = 'U' or 'u', the diagonal elements of
+           A are not referenced either, but are assumed to be unity.
  
   LDA
  
           LDA is INTEGER
            On entry, LDA specifies the first dimension of A as declared
-           in the calling (sub) program.  When  SIDE = 'L' or 'l'  then
-           LDA  must be at least  max( 1, m ),  when  SIDE = 'R' or 'r'
+           in the calling (sub) program. When SIDE = 'L' or 'l' then
+           LDA must be at least max( 1, m ), when SIDE = 'R' or 'r'
            then LDA must be at least max( 1, n ).
  
- out] B
+ B
  
           B is complex(kind=real64) array, dimension ( LDB, N ).
-           Before entry,  the leading  m by n part of the array  B must
-           contain the matrix  B,  and  on exit  is overwritten  by the
+           Before entry, the leading m by n part of the array B must
+           contain the matrix B, and on exit is overwritten by the
            transformed matrix.
  
   LDB
  
           LDB is INTEGER
            On entry, LDB specifies the first dimension of B as declared
-           in  the  calling  (sub)  program.   LDB  must  be  at  least
+           in the calling (sub) program. LDB must be at least
            max( 1, m ).
  
 AUTHORS

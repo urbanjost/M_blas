@@ -1,17 +1,18 @@
 $BLOCK COMMENT --file cscal.3m_blas.man
 NAME
-   cscal.(3f) -- [BLAS:COMPLEX_BLAS_LEVEL1]
+   cscal(3f) - [BLAS:COMPLEX_BLAS_LEVEL1] scales a vector by a constant.
+CX:=CA*CX (complex multiplier)
 
 SYNOPSIS
 
-    SUBROUTINE CSCAL(N,CA,CX,INCX)
+    subroutine cscal(n,ca,cx,incx)
 
       .. Scalar Arguments ..
-      COMPLEX,intent(in)    :: CA
-      INTEGER,intent(in)    :: INCX,N
+      complex,intent(in)    :: ca
+      integer,intent(in)    :: incx,n
       ..
       .. Array Arguments ..
-      COMPLEX,intent(inout) :: CX(*)
+      complex,intent(inout) :: cx(*)
       ..
 
 DEFINITION
@@ -19,24 +20,13 @@ DEFINITION
     CSCAL scales a vector by a constant.
  
 OPTIONS
-
   N
- 
-          N is INTEGER
          number of elements in input vector(s)
- 
   CA
- 
-          CA is COMPLEX
-           On entry, CA specifies the scalar alpha.
- 
- out] CX
- 
-          CX is COMPLEX array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
- 
+         On entry, CA specifies the scalar alpha.
+  CX
+         CX is COMPLEX array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
   INCX
- 
-          INCX is INTEGER
          storage spacing between elements of CX
  
 AUTHORS
@@ -50,7 +40,7 @@ AUTHORS
 
  FURTHER DETAILS
 
-     jack dongarra, linpack,  3/11/78.
+     jack dongarra, linpack, 3/11/78.
      modified 3/93 to return if incx .le. 0.
      modified 12/3/93, array(1) declarations changed to array(*)
  

@@ -1,6 +1,6 @@
 $BLOCK COMMENT --file dtpsv.3m_blas.man
 NAME
-   dtpsv.(3f) -- [BLAS:DOUBLE_BLAS_LEVEL2]
+   dtpsv(3f) - [BLAS:DOUBLE_BLAS_LEVEL2]
 
 SYNOPSIS
     SUBROUTINE DTPSV(UPLO,TRANS,DIAG,N,AP,X,INCX)
@@ -16,7 +16,7 @@ SYNOPSIS
 
 DEFINITION
 
- DTPSV  solves one of the systems of equations
+ DTPSV solves one of the systems of equations
 
     A*x = b,   or   A**T*x = b,
 
@@ -71,7 +71,7 @@ OPTIONS
  
           AP is DOUBLE PRECISION array, dimension at least
            ( ( n*( n + 1 ) )/2 ).
-           Before entry with  UPLO = 'U' or 'u', the array AP must
+           Before entry with UPLO = 'U' or 'u', the array AP must
            contain the upper triangular matrix packed sequentially,
            column by column, so that AP( 1 ) contains a( 1, 1 ),
            AP( 2 ) and AP( 3 ) contain a( 1, 2 ) and a( 2, 2 )
@@ -81,10 +81,10 @@ OPTIONS
            column by column, so that AP( 1 ) contains a( 1, 1 ),
            AP( 2 ) and AP( 3 ) contain a( 2, 1 ) and a( 3, 1 )
            respectively, and so on.
-           Note that when  DIAG = 'U' or 'u', the diagonal elements of
+           Note that when DIAG = 'U' or 'u', the diagonal elements of
            A are not referenced, but are assumed to be unity.
  
- out] X
+ X
  
           X is DOUBLE PRECISION array, dimension at least
            ( 1 + ( n - 1 )*abs( INCX ) ).

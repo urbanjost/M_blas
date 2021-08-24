@@ -1,6 +1,7 @@
 $BLOCK COMMENT --file csscal.3m_blas.man
 NAME
-   csscal.(3f) -- [BLAS:COMPLEX_BLAS_LEVEL1]
+   csscal(3f) - [BLAS:COMPLEX_BLAS_LEVEL1] CSSCAL scales a complex vector by a real constant.
+CX:=SA*CX (real multiplier).
 
 SYNOPSIS
     SUBROUTINE CSSCAL(N,SA,CX,INCX)
@@ -29,7 +30,7 @@ OPTIONS
           SA is REAL
            On entry, SA specifies the scalar alpha.
  
- out] CX
+ CX
  
           CX is COMPLEX array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
  

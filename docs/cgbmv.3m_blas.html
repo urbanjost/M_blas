@@ -53,7 +53,7 @@ a.existingWikiWord[title]{ //border: 1px dashed #BBB; }
 
 </A>
 <BLOCKQUOTE>
-<B>cgbmv.</B>(3f) -- [BLAS:COMPLEX_BLAS_LEVEL2]
+<B>cgbmv</B>(3f) - [BLAS:COMPLEX_BLAS_LEVEL2] CY := alpha*A*CX + beta*CY; ==&gt; A is a rectangular band matrix).
 <P>
 </BLOCKQUOTE>
 <A name=contents></A><H3>CONTENTS</H3></A>
@@ -61,11 +61,12 @@ a.existingWikiWord[title]{ //border: 1px dashed #BBB; }
 <A HREF=#1>Synopsis</A><BR>
 <A HREF=#2>Description</A><BR>
 <A HREF=#3>Options</A><BR>
-<A HREF=#4>Authors</A><BR>
-&nbsp; &nbsp; &nbsp;<A HREF=#5>Further Details</A><BR>
-<A HREF=#6>See Also</A><BR>
+&nbsp; &nbsp; &nbsp;<A HREF=#4>Y</A><BR>
+<A HREF=#5>Authors</A><BR>
+&nbsp; &nbsp; &nbsp;<A HREF=#6>Further Details</A><BR>
+<A HREF=#7>See Also</A><BR>
 </BLOCKQUOTE>
-<A name=7>
+<A name=8>
 
      <H3>SYNOPSIS</H3>
 
@@ -121,8 +122,6 @@ m by n band matrix, with kl sub-diagonals and ku super-diagonals.
     <H4>&nbsp; &nbsp; TRANS</H4>
 </A>
 <BLOCKQUOTE>
-<P>
-TRANS is CHARACTER*1
 On entry, TRANS specifies the operation to be performed as
 follows:
 <P>
@@ -140,8 +139,6 @@ follows:
     <H4>&nbsp; &nbsp; M</H4>
 </A>
 <BLOCKQUOTE>
-<P>
-M is INTEGER
 On entry, M specifies the number of rows of the matrix A.
 M must be at least zero.
 </BLOCKQUOTE>
@@ -150,8 +147,6 @@ M must be at least zero.
     <H4>&nbsp; &nbsp; N</H4>
 </A>
 <BLOCKQUOTE>
-<P>
-N is INTEGER
 On entry, N specifies the number of columns of the matrix A.
 N must be at least zero.
 </BLOCKQUOTE>
@@ -160,11 +155,8 @@ N must be at least zero.
     <H4>&nbsp; &nbsp; KL</H4>
 </A>
 <BLOCKQUOTE>
-<P>
-KL is INTEGER
 On entry, KL specifies the number of sub-diagonals of the
-<BLOCKQUOTE>
-<TABLE cellpadding=3><!-- tsb: KL is INTEGER
+<TABLE cellpadding=3><!-- tsb: On entry, KL specifies the number of sub-diagonals of the
  -->
 <TR></TR><TR></TR>
 <TR valign=top><TD colspan=2>
@@ -172,17 +164,13 @@ On entry, KL specifies the number of sub-diagonals of the
 0 .le. KL.
 </TD></TR>
 <TR></TR></TABLE></BLOCKQUOTE>
-</BLOCKQUOTE>
 <A name=>
 
     <H4>&nbsp; &nbsp; KU</H4>
 </A>
 <BLOCKQUOTE>
-<P>
-KU is INTEGER
 On entry, KU specifies the number of super-diagonals of the
-<BLOCKQUOTE>
-<TABLE cellpadding=3><!-- tsb: KU is INTEGER
+<TABLE cellpadding=3><!-- tsb: On entry, KU specifies the number of super-diagonals of the
  -->
 <TR></TR><TR></TR>
 <TR valign=top><TD colspan=2>
@@ -190,14 +178,11 @@ On entry, KU specifies the number of super-diagonals of the
 0 .le. KU.
 </TD></TR>
 <TR></TR></TABLE></BLOCKQUOTE>
-</BLOCKQUOTE>
 <A name=>
 
     <H4>&nbsp; &nbsp; ALPHA</H4>
 </A>
 <BLOCKQUOTE>
-<P>
-ALPHA is COMPLEX
 On entry, ALPHA specifies the scalar alpha.
 </BLOCKQUOTE>
 <A name=>
@@ -205,7 +190,6 @@ On entry, ALPHA specifies the scalar alpha.
     <H4>&nbsp; &nbsp; A</H4>
 </A>
 <BLOCKQUOTE>
-<P>
 A is COMPLEX array, dimension ( LDA, N )
 Before entry, the leading ( kl + ku + 1 ) by n part of the
 array A must contain the matrix of coefficients, supplied
@@ -213,9 +197,11 @@ column by column, with the leading diagonal of the matrix in
 row ( ku + 1 ) of the array, the first super-diagonal
 starting at position 2 in row ku, the first sub-diagonal
 starting at position 1 in row ( ku + 2 ), and so on.
+<P>
 Elements in the array A that do not correspond to elements
 in the band matrix (such as the top left ku by ku triangle)
 are not referenced.
+<P>
 The following program segment will transfer a band matrix
 from conventional full matrix storage to band storage:
 <P>
@@ -241,8 +227,6 @@ CONTINUE
     <H4>&nbsp; &nbsp; LDA</H4>
 </A>
 <BLOCKQUOTE>
-<P>
-LDA is INTEGER
 On entry, LDA specifies the first dimension of A as declared
 in the calling (sub) program. LDA must be at least
 ( kl + ku + 1 ).
@@ -252,7 +236,6 @@ in the calling (sub) program. LDA must be at least
     <H4>&nbsp; &nbsp; X</H4>
 </A>
 <BLOCKQUOTE>
-<P>
 X is COMPLEX array, dimension at least
 ( 1 + ( n - 1 )*<B>)*abs</B>( INCX ) ) when TRANS = &#146;N&#146; or &#146;n&#146;
 and at least
@@ -265,7 +248,6 @@ vector x.
     <H4>&nbsp; &nbsp; INCX</H4>
 </A>
 <BLOCKQUOTE>
-<P>
 INCX is INTEGER
 On entry, INCX specifies the increment for the elements of
 X. INCX must not be zero.
@@ -275,34 +257,32 @@ X. INCX must not be zero.
     <H4>&nbsp; &nbsp; BETA</H4>
 </A>
 <BLOCKQUOTE>
-<P>
 BETA is COMPLEX
 On entry, BETA specifies the scalar beta. When BETA is
 supplied as zero then Y need not be set on input.
 </BLOCKQUOTE>
-<P>
-out] Y
-<P>
-<PRE>
-          Y is COMPLEX array, dimension at least
-           ( 1 + ( m - 1 )*abs( INCY ) ) when TRANS = &#146;N&#146; or &#146;n&#146;
-           and at least
-           ( 1 + ( n - 1 )*abs( INCY ) ) otherwise.
-           Before entry, the incremented array Y must contain the
-           vector y. On exit, Y is overwritten by the updated vector y.
-<P>
-</PRE>
+<A name=4>
+
+    <H4>&nbsp; &nbsp; Y</H4>
+</A>
+<BLOCKQUOTE>
+Y is COMPLEX array, dimension at least
+( 1 + ( m - 1 )*<B>)*abs</B>( INCY ) ) when TRANS = &#146;N&#146; or &#146;n&#146;
+and at least
+( 1 + ( n - 1 )*<B>)*abs</B>( INCY ) ) otherwise.
+Before entry, the incremented array Y must contain the
+vector y. On exit, Y is overwritten by the updated vector y.
+</BLOCKQUOTE>
 <A name=>
 
     <H4>&nbsp; &nbsp; INCY</H4>
 </A>
 <BLOCKQUOTE>
-<P>
 INCY is INTEGER
 On entry, INCY specifies the increment for the elements of
 Y. INCY must not be zero.
 </BLOCKQUOTE>
-<A name=4>
+<A name=5>
 
      <H3>AUTHORS</H3>
 
@@ -335,7 +315,7 @@ NAG Ltd.
 <P>
 </PRE>
 </BLOCKQUOTE>
-<A name=5>
+<A name=6>
 
     <H4>&nbsp; &nbsp; FURTHER DETAILS</H4>
 </A>
@@ -348,7 +328,7 @@ Jack Dongarra, Argonne National Lab.
 Jeremy Du Croz, Nag Central Office.
 Sven Hammarling, Nag Central Office.
 </BLOCKQUOTE>
-<A name=6>
+<A name=7>
 
      <H3>SEE ALSO</H3>
 
@@ -358,7 +338,7 @@ Online html documentation available at
 <A HREF="http://www.netlib.org/lapack/explore-html">http://www.netlib.org/lapack/explore-html</A>/
 </BLOCKQUOTE>
 <P><HR>
-<TABLE width=100%><TR> <TD width=33%><I></I></TD> <TD width=33% align=center>cgbmv (3m_blas)</TD> <TD align=right width=33%><I>August 23, 2021</I></TD> </TR></TABLE><FONT SIZE=-1>Generated by <A HREF="http://www.squarebox.co.uk/download/manServer.shtml">manServer 1.08</A> from fa9b053f-5cd9-4265-8e24-91d3faa04dbc using man macros.</FONT>
+<TABLE width=100%><TR> <TD width=33%><I></I></TD> <TD width=33% align=center>cgbmv (3m_blas)</TD> <TD align=right width=33%><I>August 23, 2021</I></TD> </TR></TABLE><FONT SIZE=-1>Generated by <A HREF="http://www.squarebox.co.uk/download/manServer.shtml">manServer 1.08</A> from 990bb930-c7f2-4651-b225-16e43c7cd206 using man macros.</FONT>
 <br><br><center><img src="images/cgbmv.gif"></center>
 </div>
 </div>

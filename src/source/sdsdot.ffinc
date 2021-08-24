@@ -1,7 +1,8 @@
 $BLOCK COMMENT --file sdsdot.3m_blas.man
 NAME
-   sdsdot.(3f) -- [BLAS:SINGLE_BLAS_LEVEL1] Compute the inner
+   sdsdot(3f) - [BLAS:SINGLE_BLAS_LEVEL1] Compute the inner
    product of two vectors with extended precision accumulation.
+SDSDOT := SUM SX * SY (accumulated double precision, returned single)
 
 SYNOPSIS
     REAL FUNCTION SDSDOT(N,SB,SX,INCX,SY,INCY)
@@ -77,7 +78,7 @@ AUTHORS
     usage, Algorithm No. 539, Transactions on Mathematical
     Software 5, 3 (September 1979), pp. 308-323.
 
-    REVISION HISTORY  (YYMMDD)
+    REVISION HISTORY (YYMMDD)
 
     791001  DATE WRITTEN
     890531  Changed all specific intrinsics to generic.  (WRB)

@@ -1,6 +1,6 @@
 $BLOCK COMMENT --file dtbmv.3m_blas.man
 NAME
-   dtbmv.(3f) -- [BLAS:DOUBLE_BLAS_LEVEL3]
+   dtbmv(3f) - [BLAS:DOUBLE_BLAS_LEVEL3]
 
 SYNOPSIS
     SUBROUTINE DTBMV(UPLO,TRANS,DIAG,N,K,A,LDA,X,INCX)
@@ -16,11 +16,11 @@ SYNOPSIS
 
 DEFINITION
 
- DTBMV  performs one of the matrix-vector operations
+ DTBMV performs one of the matrix-vector operations
 
     x := A*x,   or   x := A**T*x,
 
- where x is an n element vector and  A is an n by n unit, or non-unit,
+ where x is an n element vector and A is an n by n unit, or non-unit,
  upper or lower triangular band matrix, with ( k + 1 ) diagonals.
  
 OPTIONS
@@ -71,7 +71,7 @@ OPTIONS
            super-diagonals of the matrix A.
            On entry with UPLO = 'L' or 'l', K specifies the number of
            sub-diagonals of the matrix A.
-           K must satisfy  0 .le. K.
+           K must satisfy 0 .le. K.
  
   A
  
@@ -123,7 +123,7 @@ OPTIONS
            in the calling (sub) program. LDA must be at least
            ( k + 1 ).
  
- out] X
+ X
  
           X is DOUBLE PRECISION array, dimension at least
            ( 1 + ( n - 1 )*abs( INCX ) ).

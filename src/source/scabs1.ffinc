@@ -1,6 +1,6 @@
 $BLOCK COMMENT --file scabs1.3m_blas.man
 NAME
-   scabs1.(3f) -- [BLAS:SINGLE_BLAS_LEVEL1]
+   scabs1(3f) - [BLAS:SINGLE_BLAS_LEVEL1]
 
 SYNOPSIS
     elemental REAL FUNCTION SCABS1(Z)

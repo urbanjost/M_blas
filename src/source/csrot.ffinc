@@ -1,6 +1,6 @@
 $BLOCK COMMENT --file csrot.3m_blas.man
 NAME
-   csrot.(3f) -- [BLAS:COMPLEX_BLAS_LEVEL1]
+   csrot(3f) - [BLAS:COMPLEX_BLAS_LEVEL1] Applies a real Given's rotation to complex vectors.
 
 SYNOPSIS
 
@@ -28,7 +28,7 @@ OPTIONS
            On entry, N specifies the order of the vectors cx and cy.
            N must be at least zero.
  
- out] CX
+ CX
  
           CX is COMPLEX array, dimension at least
            ( 1 + ( N - 1 )*abs( INCX ) ).
@@ -42,7 +42,7 @@ OPTIONS
            On entry, INCX specifies the increment for the elements of
            CX. INCX must not be zero.
  
- out] CY
+ CY
  
           CY is COMPLEX array, dimension at least
            ( 1 + ( N - 1 )*abs( INCY ) ).

@@ -1,6 +1,6 @@
 $BLOCK COMMENT --file sscal.3m_blas.man
 NAME
-   sscal.(3f) -- [BLAS:SINGLE_BLAS_LEVEL1]
+   sscal(3f) - [BLAS:SINGLE_BLAS_LEVEL1] SX:=SA*SX.
 
 SYNOPSIS
     SUBROUTINE SSCAL(N,SA,SX,INCX)
@@ -30,7 +30,7 @@ OPTIONS
           SA is REAL
            On entry, SA specifies the scalar alpha.
  
- out] SX
+ SX
  
           SX is REAL array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
  

@@ -1,6 +1,6 @@
 $BLOCK COMMENT --file dsdot.3m_blas.man
 NAME
-   dsdot.(3f) -- [BLAS:DOUBLE_BLAS_LEVEL1]
+   dsdot(3f) - [BLAS:DOUBLE_BLAS_LEVEL1]
 
 SYNOPSIS
     DOUBLE PRECISION FUNCTION DSDOT(N,SX,INCX,SY,INCY)
@@ -19,7 +19,7 @@ DEFINITION
  precision accumulation and result.
 
  Returns D.P. dot product accumulated in D.P., for S.P. SX and SY
- DSDOT = sum for I = 0 to N-1 of  SX(LX+I*INCX) * SY(LY+I*INCY),
+ DSDOT = sum for I = 0 to N-1 of SX(LX+I*INCX) * SY(LY+I*INCY),
  where LX = 1 if INCX .GE. 0, else LX = 1+(1-N)*INCX, and LY is
  defined in a similar way using INCY.
  
@@ -58,15 +58,15 @@ AUTHORS
   usage, Algorithm No. 539, Transactions on Mathematical
   Software 5, 3 (September 1979), pp. 308-323.
 
-  REVISION HISTORY  (YYMMDD)
+  REVISION HISTORY
 
-     791001  DATE WRITTEN
-     890831  Modified array declarations.  (WRB)
-     890831  REVISION DATE from Version 3.2
-     891214  Prologue converted to Version 4.0 format.  (BAB)
-     920310  Corrected definition of LX in DESCRIPTION.  (WRB)
-     920501  Reformatted the REFERENCES section.  (WRB)
-     070118  Reformat to LAPACK style (JL)
+     1979-10-01  DATE WRITTEN
+     1989-08-31  Modified array declarations. (WRB)
+     1989-08-31  REVISION DATE from Version 3.2
+     1989-12-14  Prologue converted to Version 4.0 format. (BAB)
+     1992-03-10  Corrected definition of LX in DESCRIPTION. (WRB)
+     1992-05-01  Reformatted the REFERENCES section. (WRB)
+     1907-01-18  Reformat to LAPACK style (JL)
  
 SEE ALSO
    Online html documentation available at

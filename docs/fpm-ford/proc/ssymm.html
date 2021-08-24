@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+   
+   <meta name="description" content="BLAS - Basic Linear Algebra Subroutines">
+    
+    <meta name="author" content="John S. Urban and many others" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>SSYMM &ndash; M_blas</title>
+
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/local.css" rel="stylesheet">
+    
+    <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+    
+    
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <script src="../js/jquery-2.1.3.min.js"></script>
+    <script src="../js/svg-pan-zoom.min.js"></script>
+
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="../index.html">M_blas </a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+        
+            <li class="dropdown hidden-xs visible-sm visible-md hidden-lg">
+              <a href="#" class="dropdown-toggle"
+              data-toggle="dropdown" role="button"
+              aria-haspopup="true"
+     aria-expanded="false">Contents <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          
+              
+            <li><a href="../lists/files.html">Source Files</a></li>
+        
+        
+        
+            <li><a href="../lists/modules.html">Modules</a></li>
+        
+            
+                                
+            <li><a href="../lists/procedures.html">Procedures</a></li>
+        
+        
+            <li><a href="../lists/absint.html">Abstract Interfaces</a></li>
+               
+        
+            <li><a href="../lists/programs.html">Programs</a></li>
+        
+            </ul>
+            </li>
+
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/files.html">Source Files</a></li>
+
+
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/modules.html">Modules</a></li>
+
+
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/procedures.html">Procedures</a></li>
+
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/absint.html">Abstract Interfaces</a></li>
+                             
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/programs.html">Programs</a></li>
+
+          </ul>
+        
+        <form action="../search.html" class="navbar-form navbar-right" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+        </div>
+<!--
+        <button type="submit" class="btn btn-default">Submit</button>
+-->
+        </form>
+        
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+    
+  
+  <div class="row">
+    <h1>SSYMM
+      <small>Subroutine</small>
+    
+    </h1>
+    
+<div class="row">
+  <div class="col-lg-12">
+<div class="well well-sm">
+  <ul class="list-inline" style="margin-bottom:0px;display:inline">
+     
+     
+     
+     
+    
+    
+     <li><i class="fa fa-list-ol"></i>
+       <a data-toggle="tooltip"
+    data-placement="bottom" data-html="true"
+    title=" 0.2% of total for procedures.">116 statements</a>
+     </li> 
+     
+     
+     
+    <li><i class="fa fa-code"></i><a href="../src/M_blas.f90"> Source File</a></li>
+     
+     
+  </ul>
+  <ol class="breadcrumb in-well text-right">
+  
+    
+     <li><a href='../sourcefile/m_blas.f90.html'>M_blas.f90</a></li>
+    
+     <li><a href='../module/m_blas.html'>M_blas</a></li>
+    
+  
+     <li class="active">SSYMM</li>
+  </ol>
+</div>
+</div>
+</div>
+<script>
+  $(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+  })
+</script>
+
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+    
+<div id="sidebar">
+  
+<h3>Contents</h3>
+ 
+
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#vars-0">Variables</a></h3></div>
+  <div id="vars-0" class="panel-collapse collapse">
+    <div class="list-group">
+      
+      <a class="list-group-item" href="../proc/ssymm.html#variable-i~200">I</a>
+      
+      <a class="list-group-item" href="../proc/ssymm.html#variable-info~57">INFO</a>
+      
+      <a class="list-group-item" href="../proc/ssymm.html#variable-j~121">J</a>
+      
+      <a class="list-group-item" href="../proc/ssymm.html#variable-k~98">K</a>
+      
+      <a class="list-group-item" href="../proc/ssymm.html#variable-nrowa~16">NROWA</a>
+      
+      <a class="list-group-item" href="../proc/ssymm.html#variable-one~71">ONE</a>
+      
+      <a class="list-group-item" href="../proc/ssymm.html#variable-temp1~19">TEMP1</a>
+      
+      <a class="list-group-item" href="../proc/ssymm.html#variable-temp2~19">TEMP2</a>
+      
+      <a class="list-group-item" href="../proc/ssymm.html#variable-upper~49">UPPER</a>
+      
+      <a class="list-group-item" href="../proc/ssymm.html#variable-zero~128">ZERO</a>
+      
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
+  <div class="list-group">
+    <a class="list-group-item" href="../proc/ssymm.html#src">SSYMM</a>
+  </div>
+</div>
+
+
+
+</div>
+
+    </div>
+    
+    <div class="col-md-9" id='text'>
+    <h2>
+public subroutine SSYMM(SIDE, UPLO, M, N, ALPHA, A, LDA, B, LDB, BETA, C, LDC)
+    
+    
+   
+</h2>
+    
+  
+
+
+    
+    <h2 id="name">NAME</h2>
+<div class="codehilite"><pre><span></span><code>ssymm.(3f) -- [BLAS:SINGLE_BLAS_LEVEL3]
+</code></pre></div>
+
+<h2 id="synopsis">SYNOPSIS</h2>
+<div class="codehilite"><pre><span></span><code> SUBROUTINE SSYMM(SIDE,UPLO,M,N,ALPHA,A,LDA,B,LDB,BETA,C,LDC)
+
+   .. Scalar Arguments ..
+   REAL,intent(in)      :: ALPHA,BETA
+   INTEGER,intent(in)   :: LDA,LDB,LDC,M,N
+   CHARACTER,intent(in) :: SIDE,UPLO
+   ..
+   .. Array Arguments ..
+   REAL,intent(in)      :: A(LDA,*),B(LDB,*)
+   REAL,intent(inout)   :: C(LDC,*)
+   ..
+</code></pre></div>
+
+<h2 id="definition">DEFINITION</h2>
+<p>SSYMM  performs one of the matrix-matrix operations</p>
+<div class="codehilite"><pre><span></span><code> C := alpha*A*B + beta*C,
+</code></pre></div>
+
+<p>or</p>
+<div class="codehilite"><pre><span></span><code> C := alpha*B*A + beta*C,
+</code></pre></div>
+
+<p>where alpha and beta are scalars,  A is a symmetric matrix and  B and
+  C are  m by n matrices.</p>
+<h2 id="options">OPTIONS</h2>
+<p>SIDE</p>
+<div class="codehilite"><pre><span></span><code>       SIDE is CHARACTER*1
+        On entry,  SIDE  specifies whether  the  symmetric matrix  A
+        appears on the  left or right  in the  operation as follows:
+
+           SIDE = &#39;L&#39; or &#39;l&#39;   C := alpha*A*B + beta*C,
+
+           SIDE = &#39;R&#39; or &#39;r&#39;   C := alpha*B*A + beta*C,
+</code></pre></div>
+
+<p>UPLO</p>
+<div class="codehilite"><pre><span></span><code>       UPLO is CHARACTER*1
+        On  entry,   UPLO  specifies  whether  the  upper  or  lower
+        triangular  part  of  the  symmetric  matrix   A  is  to  be
+        referenced as follows:
+
+           UPLO = &#39;U&#39; or &#39;u&#39;   Only the upper triangular part of the
+                               symmetric matrix is to be referenced.
+
+           UPLO = &#39;L&#39; or &#39;l&#39;   Only the lower triangular part of the
+                               symmetric matrix is to be referenced.
+</code></pre></div>
+
+<p>M</p>
+<div class="codehilite"><pre><span></span><code>       M is INTEGER
+        On entry,  M  specifies the number of rows of the matrix  C.
+        M  must be at least zero.
+</code></pre></div>
+
+<p>N</p>
+<div class="codehilite"><pre><span></span><code>       N is INTEGER
+        On entry, N specifies the number of columns of the matrix C.
+        N  must be at least zero.
+</code></pre></div>
+
+<p>ALPHA</p>
+<div class="codehilite"><pre><span></span><code>       ALPHA is REAL
+        On entry, ALPHA specifies the scalar alpha.
+</code></pre></div>
+
+<p>A</p>
+<div class="codehilite"><pre><span></span><code>       A is REAL array, dimension ( LDA, ka ), where ka is
+        m  when  SIDE = &#39;L&#39; or &#39;l&#39;  and is  n otherwise.
+        Before entry  with  SIDE = &#39;L&#39; or &#39;l&#39;,  the  m by m  part of
+        the array  A  must contain the  symmetric matrix,  such that
+        when  UPLO = &#39;U&#39; or &#39;u&#39;, the leading m by m upper triangular
+        part of the array  A  must contain the upper triangular part
+        of the  symmetric matrix and the  strictly  lower triangular
+        part of  A  is not referenced,  and when  UPLO = &#39;L&#39; or &#39;l&#39;,
+        the leading  m by m  lower triangular part  of the  array  A
+        must  contain  the  lower triangular part  of the  symmetric
+        matrix and the  strictly upper triangular part of  A  is not
+        referenced.
+        Before entry  with  SIDE = &#39;R&#39; or &#39;r&#39;,  the  n by n  part of
+        the array  A  must contain the  symmetric matrix,  such that
+        when  UPLO = &#39;U&#39; or &#39;u&#39;, the leading n by n upper triangular
+        part of the array  A  must contain the upper triangular part
+        of the  symmetric matrix and the  strictly  lower triangular
+        part of  A  is not referenced,  and when  UPLO = &#39;L&#39; or &#39;l&#39;,
+        the leading  n by n  lower triangular part  of the  array  A
+        must  contain  the  lower triangular part  of the  symmetric
+        matrix and the  strictly upper triangular part of  A  is not
+        referenced.
+</code></pre></div>
+
+<p>LDA</p>
+<div class="codehilite"><pre><span></span><code>       <span class="nv">LDA</span> <span class="nv">is</span> <span class="nv">INTEGER</span>
+        <span class="nv">On</span> <span class="nv">entry</span>, <span class="nv">LDA</span> <span class="nv">specifies</span> <span class="nv">the</span> <span class="nv">first</span> <span class="nv">dimension</span> <span class="nv">of</span> <span class="nv">A</span> <span class="nv">as</span> <span class="nv">declared</span>
+        <span class="nv">in</span> <span class="nv">the</span> <span class="nv">calling</span> <span class="ss">(</span><span class="nv">sub</span><span class="ss">)</span> <span class="nv">program</span>.  <span class="nv">When</span>  <span class="nv">SIDE</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="s">L</span><span class="s1">&#39;</span> <span class="nv">or</span> <span class="s1">&#39;</span><span class="s">l</span><span class="s1">&#39;</span>  <span class="k">then</span>
+        <span class="nv">LDA</span> <span class="nv">must</span> <span class="nv">be</span> <span class="nv">at</span> <span class="nv">least</span>  <span class="nv">max</span><span class="ss">(</span> <span class="mi">1</span>, <span class="nv">m</span> <span class="ss">)</span>, <span class="nv">otherwise</span>  <span class="nv">LDA</span> <span class="nv">must</span> <span class="nv">be</span> <span class="nv">at</span>
+        <span class="nv">least</span>  <span class="nv">max</span><span class="ss">(</span> <span class="mi">1</span>, <span class="nv">n</span> <span class="ss">)</span>.
+</code></pre></div>
+
+<p>B</p>
+<div class="codehilite"><pre><span></span><code>       B is REAL array, dimension ( LDB, N )
+        Before entry, the leading  m by n part of the array  B  must
+        contain the matrix B.
+</code></pre></div>
+
+<p>LDB</p>
+<div class="codehilite"><pre><span></span><code>       LDB is INTEGER
+        On entry, LDB specifies the first dimension of B as declared
+        in  the  calling  (sub)  program.   LDB  must  be  at  least
+        max( 1, m ).
+</code></pre></div>
+
+<p>BETA</p>
+<div class="codehilite"><pre><span></span><code>       <span class="nv">BETA</span> <span class="nv">is</span> <span class="nv">REAL</span>
+        <span class="nv">On</span> <span class="nv">entry</span>,  <span class="nv">BETA</span>  <span class="nv">specifies</span> <span class="nv">the</span> <span class="nv">scalar</span>  <span class="nv">beta</span>.  <span class="nv">When</span>  <span class="nv">BETA</span>  <span class="nv">is</span>
+        <span class="nv">supplied</span> <span class="nv">as</span> <span class="nv">zero</span> <span class="k">then</span> <span class="nv">C</span> <span class="nv">need</span> <span class="nv">not</span> <span class="nv">be</span> <span class="nv">set</span> <span class="nv">on</span> <span class="nv">input</span>.
+</code></pre></div>
+
+<p>out] C</p>
+<div class="codehilite"><pre><span></span><code>       <span class="nv">C</span> <span class="nv">is</span> <span class="nv">REAL</span> <span class="nv">array</span>, <span class="nv">dimension</span> <span class="ss">(</span> <span class="nv">LDC</span>, <span class="nv">N</span> <span class="ss">)</span>
+        <span class="nv">Before</span> <span class="nv">entry</span>, <span class="nv">the</span> <span class="nv">leading</span>  <span class="nv">m</span> <span class="nv">by</span> <span class="nv">n</span>  <span class="nv">part</span> <span class="nv">of</span> <span class="nv">the</span> <span class="nv">array</span>  <span class="nv">C</span> <span class="nv">must</span>
+        <span class="nv">contain</span> <span class="nv">the</span> <span class="nv">matrix</span>  <span class="nv">C</span>,  <span class="nv">except</span> <span class="nv">when</span>  <span class="nv">beta</span>  <span class="nv">is</span> <span class="nv">zero</span>, <span class="nv">in</span> <span class="nv">which</span>
+        <span class="nv">case</span> <span class="nv">C</span> <span class="nv">need</span> <span class="nv">not</span> <span class="nv">be</span> <span class="nv">set</span> <span class="nv">on</span> <span class="nv">entry</span>.
+        <span class="nv">On</span> <span class="k">exit</span>, <span class="nv">the</span> <span class="nv">array</span>  <span class="nv">C</span>  <span class="nv">is</span> <span class="nv">overwritten</span> <span class="nv">by</span> <span class="nv">the</span>  <span class="nv">m</span> <span class="nv">by</span> <span class="nv">n</span> <span class="nv">updated</span>
+        <span class="nv">matrix</span>.
+</code></pre></div>
+
+<p>LDC</p>
+<div class="codehilite"><pre><span></span><code>       LDC is INTEGER
+        On entry, LDC specifies the first dimension of C as declared
+        in  the  calling  (sub)  program.   LDC  must  be  at  least
+        max( 1, m ).
+</code></pre></div>
+
+<h2 id="authors">AUTHORS</h2>
+<ul>
+<li>Univ. of Tennessee</li>
+<li>Univ. of California Berkeley</li>
+<li>Univ. of Colorado Denver</li>
+<li>NAG Ltd.</li>
+</ul>
+<p>date:December 2016</p>
+<p>FURTHER DETAILS</p>
+<p>Level 3 Blas routine.</p>
+<p>&ndash; Written on 8-February-1989.
+      Jack Dongarra, Argonne National Laboratory.
+      Iain Duff, AERE Harwell.
+      Jeremy Du Croz, Numerical Algorithms Group Ltd.
+      Sven Hammarling, Numerical Algorithms Group Ltd.</p>
+<h2 id="see-also">SEE ALSO</h2>
+<div class="codehilite"><pre><span></span><code>Online html documentation available at
+http://www.netlib.org/lapack/explore-html/
+</code></pre></div>
+    
+
+    <h3>Arguments</h3>
+    
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-side~32"></span>character,</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>SIDE</strong></td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-uplo~175"></span>character,</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>UPLO</strong></td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-m~113"></span>integer,</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>M</strong></td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-n~360"></span>integer,</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>N</strong></td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-alpha~178"></span>real,</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>ALPHA</strong></td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-a~189"></span>real,</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>A</strong>(LDA,*)</td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-lda~190"></span>integer,</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>LDA</strong></td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-b~67"></span>real,</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>B</strong>(LDB,*)</td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-ldb~62"></span>integer,</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>LDB</strong></td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-beta~113"></span>real,</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>BETA</strong></td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-c~82"></span>real,</td>
+  <td>intent(inout)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>C</strong>(LDC,*)</td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-ldc~59"></span>integer,</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>LDC</strong></td><td></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+    
+    
+    
+    
+     
+    <br>
+
+    <section class="visible-xs visible-sm hidden-md">
+      
+<h3>Contents</h3>
+ 
+
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#vars-1">Variables</a></h3></div>
+  <div id="vars-1" class="panel-collapse collapse">
+    <div class="list-group">
+      
+      <a class="list-group-item" href="../proc/ssymm.html#variable-i~200">I</a>
+      
+      <a class="list-group-item" href="../proc/ssymm.html#variable-info~57">INFO</a>
+      
+      <a class="list-group-item" href="../proc/ssymm.html#variable-j~121">J</a>
+      
+      <a class="list-group-item" href="../proc/ssymm.html#variable-k~98">K</a>
+      
+      <a class="list-group-item" href="../proc/ssymm.html#variable-nrowa~16">NROWA</a>
+      
+      <a class="list-group-item" href="../proc/ssymm.html#variable-one~71">ONE</a>
+      
+      <a class="list-group-item" href="../proc/ssymm.html#variable-temp1~19">TEMP1</a>
+      
+      <a class="list-group-item" href="../proc/ssymm.html#variable-temp2~19">TEMP2</a>
+      
+      <a class="list-group-item" href="../proc/ssymm.html#variable-upper~49">UPPER</a>
+      
+      <a class="list-group-item" href="../proc/ssymm.html#variable-zero~128">ZERO</a>
+      
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
+  <div class="list-group">
+    <a class="list-group-item" href="../proc/ssymm.html#src">SSYMM</a>
+  </div>
+</div>
+
+
+
+    </section>
+    <br class="visible-xs visible-sm hidden-md">
+
+    
+
+    
+    <section>    
+      <h2>Variables</h2>
+    
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th><th>Visibility</th>
+
+<th>Attributes</th><th></th><th>Name</th><th></th><th>Initial</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-i~200"></span>integer,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>I</strong></td><td></td><td></td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-info~57"></span>integer,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>INFO</strong></td><td></td><td></td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-j~121"></span>integer,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>J</strong></td><td></td><td></td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-k~98"></span>integer,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>K</strong></td><td></td><td></td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-nrowa~16"></span>integer,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>NROWA</strong></td><td></td><td></td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-one~71"></span>real,</td>
+  
+  <td>public,</td>
+  <td>parameter</td><td>::</td>
+  <td><strong>ONE</strong></td><td> =</td><td>1.0E+0</td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-temp1~19"></span>real,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>TEMP1</strong></td><td></td><td></td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-temp2~19"></span>real,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>TEMP2</strong></td><td></td><td></td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-upper~49"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>UPPER</strong></td><td></td><td></td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-zero~128"></span>real,</td>
+  
+  <td>public,</td>
+  <td>parameter</td><td>::</td>
+  <td><strong>ZERO</strong></td><td> =</td><td>0.0E+0</td><td></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+    </section>
+    <br>
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+
+
+    
+    
+    
+    <section>
+    <h2><span class="anchor" id="src"></span>Source Code</h2>
+    <div class="highlight"><pre><span></span>       <span class="k">SUBROUTINE </span><span class="n">SSYMM</span><span class="p">(</span><span class="n">SIDE</span><span class="p">,</span><span class="n">UPLO</span><span class="p">,</span><span class="n">M</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">ALPHA</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="n">LDA</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">LDB</span><span class="p">,</span><span class="n">BETA</span><span class="p">,</span><span class="n">C</span><span class="p">,</span><span class="n">LDC</span><span class="p">)</span>
+      <span class="k">implicit none</span>
+<span class="c">!</span>
+<span class="c">!  -- Reference BLAS level3 routine (version 3.7.0) --</span>
+<span class="c">!  -- Reference BLAS is a software package provided by Univ. of Tennessee,    --</span>
+<span class="c">!  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--</span>
+<span class="c">!     December 2016</span>
+<span class="c">!</span>
+<span class="c">!     .. Scalar Arguments ..</span>
+      <span class="kt">REAL</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>      <span class="kd">::</span> <span class="n">ALPHA</span><span class="p">,</span><span class="n">BETA</span>
+      <span class="kt">INTEGER</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>   <span class="kd">::</span> <span class="n">LDA</span><span class="p">,</span><span class="n">LDB</span><span class="p">,</span><span class="n">LDC</span><span class="p">,</span><span class="n">M</span><span class="p">,</span><span class="n">N</span>
+      <span class="kt">CHARACTER</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="n">SIDE</span><span class="p">,</span><span class="n">UPLO</span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Array Arguments ..</span>
+      <span class="kt">REAL</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>      <span class="kd">::</span> <span class="n">A</span><span class="p">(</span><span class="n">LDA</span><span class="p">,</span><span class="o">*</span><span class="p">),</span><span class="n">B</span><span class="p">(</span><span class="n">LDB</span><span class="p">,</span><span class="o">*</span><span class="p">)</span>
+      <span class="kt">REAL</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span>   <span class="kd">::</span> <span class="n">C</span><span class="p">(</span><span class="n">LDC</span><span class="p">,</span><span class="o">*</span><span class="p">)</span>
+<span class="c">!     ..</span>
+<span class="c">!</span>
+<span class="c">!  =====================================================================</span>
+<span class="c">!</span>
+<span class="c">!     .. External Functions ..  LOGICAL LSAME</span>
+<span class="c">!     ..</span>
+<span class="c">!     .. External Subroutines ..  EXTERNAL XERBLA</span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Intrinsic Functions ..</span>
+      <span class="k">INTRINSIC </span><span class="nb">MAX</span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Local Scalars ..</span>
+      <span class="kt">REAL </span><span class="n">TEMP1</span><span class="p">,</span><span class="n">TEMP2</span>
+      <span class="kt">INTEGER </span><span class="n">I</span><span class="p">,</span><span class="n">INFO</span><span class="p">,</span><span class="n">J</span><span class="p">,</span><span class="n">K</span><span class="p">,</span><span class="n">NROWA</span>
+      <span class="kt">LOGICAL </span><span class="n">UPPER</span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Parameters ..</span>
+      <span class="kt">REAL</span><span class="p">,</span><span class="k">PARAMETER</span> <span class="kd">::</span> <span class="n">ONE</span><span class="o">=</span><span class="mf">1.0E+0</span><span class="p">,</span><span class="n">ZERO</span><span class="o">=</span><span class="mf">0.0E+0</span>
+<span class="c">!     ..</span>
+<span class="c">!</span>
+<span class="c">!     Set NROWA as the number of rows of A.</span>
+<span class="c">!</span>
+      <span class="k">IF</span> <span class="p">(</span><span class="n">LSAME</span><span class="p">(</span><span class="n">SIDE</span><span class="p">,</span><span class="s1">&#39;L&#39;</span><span class="p">))</span> <span class="k">THEN</span>
+<span class="k">          </span><span class="n">NROWA</span> <span class="o">=</span> <span class="n">M</span>
+      <span class="k">ELSE</span>
+<span class="k">          </span><span class="n">NROWA</span> <span class="o">=</span> <span class="n">N</span>
+      <span class="k">endif</span>
+<span class="k">      </span><span class="n">UPPER</span> <span class="o">=</span> <span class="n">LSAME</span><span class="p">(</span><span class="n">UPLO</span><span class="p">,</span><span class="s1">&#39;U&#39;</span><span class="p">)</span>
+<span class="c">!</span>
+<span class="c">!     Test the input parameters.</span>
+<span class="c">!</span>
+      <span class="n">INFO</span> <span class="o">=</span> <span class="mi">0</span>
+      <span class="k">IF</span> <span class="p">((.</span><span class="nb">NOT</span><span class="p">.</span><span class="n">LSAME</span><span class="p">(</span><span class="n">SIDE</span><span class="p">,</span><span class="s1">&#39;L&#39;</span><span class="p">))</span> <span class="p">.</span><span class="nb">AND</span><span class="p">.</span> <span class="p">(.</span><span class="nb">NOT</span><span class="p">.</span><span class="n">LSAME</span><span class="p">(</span><span class="n">SIDE</span><span class="p">,</span><span class="s1">&#39;R&#39;</span><span class="p">)))</span> <span class="k">THEN</span>
+<span class="k">          </span><span class="n">INFO</span> <span class="o">=</span> <span class="mi">1</span>
+      <span class="n">elseif</span> <span class="p">((.</span><span class="nb">NOT</span><span class="p">.</span><span class="n">UPPER</span><span class="p">)</span> <span class="p">.</span><span class="nb">AND</span><span class="p">.</span> <span class="p">(.</span><span class="nb">NOT</span><span class="p">.</span><span class="n">LSAME</span><span class="p">(</span><span class="n">UPLO</span><span class="p">,</span><span class="s1">&#39;L&#39;</span><span class="p">)))</span> <span class="k">THEN</span>
+<span class="k">          </span><span class="n">INFO</span> <span class="o">=</span> <span class="mi">2</span>
+      <span class="n">elseif</span> <span class="p">(</span><span class="n">M</span><span class="p">.</span><span class="n">LT</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span> <span class="k">THEN</span>
+<span class="k">          </span><span class="n">INFO</span> <span class="o">=</span> <span class="mi">3</span>
+      <span class="n">elseif</span> <span class="p">(</span><span class="n">N</span><span class="p">.</span><span class="n">LT</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span> <span class="k">THEN</span>
+<span class="k">          </span><span class="n">INFO</span> <span class="o">=</span> <span class="mi">4</span>
+      <span class="n">elseif</span> <span class="p">(</span><span class="n">LDA</span><span class="p">.</span><span class="n">LT</span><span class="p">.</span><span class="nb">MAX</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">NROWA</span><span class="p">))</span> <span class="k">THEN</span>
+<span class="k">          </span><span class="n">INFO</span> <span class="o">=</span> <span class="mi">7</span>
+      <span class="n">elseif</span> <span class="p">(</span><span class="n">LDB</span><span class="p">.</span><span class="n">LT</span><span class="p">.</span><span class="nb">MAX</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">M</span><span class="p">))</span> <span class="k">THEN</span>
+<span class="k">          </span><span class="n">INFO</span> <span class="o">=</span> <span class="mi">9</span>
+      <span class="n">elseif</span> <span class="p">(</span><span class="n">LDC</span><span class="p">.</span><span class="n">LT</span><span class="p">.</span><span class="nb">MAX</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">M</span><span class="p">))</span> <span class="k">THEN</span>
+<span class="k">          </span><span class="n">INFO</span> <span class="o">=</span> <span class="mi">12</span>
+      <span class="k">endif</span>
+<span class="k">      IF</span> <span class="p">(</span><span class="n">INFO</span><span class="p">.</span><span class="n">NE</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span> <span class="k">THEN</span>
+<span class="k">          CALL </span><span class="n">XERBLA</span><span class="p">(</span><span class="s1">&#39;SSYMM &#39;</span><span class="p">,</span><span class="n">INFO</span><span class="p">)</span>
+          <span class="k">RETURN</span>
+<span class="k">      endif</span>
+<span class="c">!</span>
+<span class="c">!     Quick return if possible.</span>
+<span class="c">!</span>
+      <span class="k">IF</span> <span class="p">((</span><span class="n">M</span><span class="p">.</span><span class="n">EQ</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span> <span class="p">.</span><span class="nb">OR</span><span class="p">.</span> <span class="p">(</span><span class="n">N</span><span class="p">.</span><span class="n">EQ</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span> <span class="p">.</span><span class="nb">OR</span><span class="p">.</span>  <span class="p">((</span><span class="n">ALPHA</span><span class="p">.</span><span class="n">EQ</span><span class="p">.</span><span class="n">ZERO</span><span class="p">).</span><span class="nb">AND</span><span class="p">.</span> <span class="p">(</span><span class="n">BETA</span><span class="p">.</span><span class="n">EQ</span><span class="p">.</span><span class="n">ONE</span><span class="p">)))</span> <span class="k">RETURN</span>
+<span class="c">!</span>
+<span class="c">!     And when  alpha.eq.zero.</span>
+<span class="c">!</span>
+      <span class="k">IF</span> <span class="p">(</span><span class="n">ALPHA</span><span class="p">.</span><span class="n">EQ</span><span class="p">.</span><span class="n">ZERO</span><span class="p">)</span> <span class="k">THEN</span>
+<span class="k">          IF</span> <span class="p">(</span><span class="n">BETA</span><span class="p">.</span><span class="n">EQ</span><span class="p">.</span><span class="n">ZERO</span><span class="p">)</span> <span class="k">THEN</span>
+<span class="k">              </span><span class="n">C</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">M</span><span class="p">,</span><span class="mi">1</span><span class="p">:</span><span class="n">N</span><span class="p">)</span> <span class="o">=</span> <span class="n">ZERO</span>
+          <span class="k">ELSE</span>
+<span class="k">              </span><span class="n">C</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">M</span><span class="p">,</span><span class="mi">1</span><span class="p">:</span><span class="n">N</span><span class="p">)</span> <span class="o">=</span> <span class="n">BETA</span><span class="o">*</span><span class="n">C</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">M</span><span class="p">,</span><span class="mi">1</span><span class="p">:</span><span class="n">N</span><span class="p">)</span>
+          <span class="k">ENDIF</span>
+<span class="k">          RETURN</span>
+<span class="k">      endif</span>
+<span class="c">!</span>
+<span class="c">!     Start the operations.</span>
+<span class="c">!</span>
+      <span class="k">IF</span> <span class="p">(</span><span class="n">LSAME</span><span class="p">(</span><span class="n">SIDE</span><span class="p">,</span><span class="s1">&#39;L&#39;</span><span class="p">))</span> <span class="k">THEN</span>
+<span class="c">!</span>
+<span class="c">!        Form  C := alpha*A*B + beta*C.</span>
+<span class="c">!</span>
+          <span class="k">IF</span> <span class="p">(</span><span class="n">UPPER</span><span class="p">)</span> <span class="k">THEN</span>
+<span class="k">              DO </span><span class="n">J</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">N</span>
+                  <span class="k">DO </span><span class="n">I</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">M</span>
+                      <span class="n">TEMP1</span> <span class="o">=</span> <span class="n">ALPHA</span><span class="o">*</span><span class="n">B</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">J</span><span class="p">)</span>
+                      <span class="n">TEMP2</span> <span class="o">=</span> <span class="n">ZERO</span>
+                      <span class="k">DO </span><span class="n">K</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">I</span> <span class="o">-</span> <span class="mi">1</span>
+                          <span class="n">C</span><span class="p">(</span><span class="n">K</span><span class="p">,</span><span class="n">J</span><span class="p">)</span> <span class="o">=</span> <span class="n">C</span><span class="p">(</span><span class="n">K</span><span class="p">,</span><span class="n">J</span><span class="p">)</span> <span class="o">+</span> <span class="n">TEMP1</span><span class="o">*</span><span class="n">A</span><span class="p">(</span><span class="n">K</span><span class="p">,</span><span class="n">I</span><span class="p">)</span>
+                          <span class="n">TEMP2</span> <span class="o">=</span> <span class="n">TEMP2</span> <span class="o">+</span> <span class="n">B</span><span class="p">(</span><span class="n">K</span><span class="p">,</span><span class="n">J</span><span class="p">)</span><span class="o">*</span><span class="n">A</span><span class="p">(</span><span class="n">K</span><span class="p">,</span><span class="n">I</span><span class="p">)</span>
+                      <span class="k">enddo</span>
+<span class="k">                      IF</span> <span class="p">(</span><span class="n">BETA</span><span class="p">.</span><span class="n">EQ</span><span class="p">.</span><span class="n">ZERO</span><span class="p">)</span> <span class="k">THEN</span>
+<span class="k">                          </span><span class="n">C</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">J</span><span class="p">)</span> <span class="o">=</span> <span class="n">TEMP1</span><span class="o">*</span><span class="n">A</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">I</span><span class="p">)</span> <span class="o">+</span> <span class="n">ALPHA</span><span class="o">*</span><span class="n">TEMP2</span>
+                      <span class="k">ELSE</span>
+<span class="k">                          </span><span class="n">C</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">J</span><span class="p">)</span> <span class="o">=</span> <span class="n">BETA</span><span class="o">*</span><span class="n">C</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">J</span><span class="p">)</span> <span class="o">+</span> <span class="n">TEMP1</span><span class="o">*</span><span class="n">A</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">I</span><span class="p">)</span> <span class="o">+</span> <span class="n">ALPHA</span><span class="o">*</span><span class="n">TEMP2</span>
+                      <span class="k">endif</span>
+<span class="k">                  enddo</span>
+<span class="k">              enddo</span>
+<span class="k">          ELSE</span>
+<span class="k">              DO </span><span class="n">J</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">N</span>
+                  <span class="k">DO </span><span class="n">I</span> <span class="o">=</span> <span class="n">M</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span>
+                      <span class="n">TEMP1</span> <span class="o">=</span> <span class="n">ALPHA</span><span class="o">*</span><span class="n">B</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">J</span><span class="p">)</span>
+                      <span class="n">TEMP2</span> <span class="o">=</span> <span class="n">ZERO</span>
+                      <span class="k">DO </span><span class="n">K</span> <span class="o">=</span> <span class="n">I</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span><span class="n">M</span>
+                          <span class="n">C</span><span class="p">(</span><span class="n">K</span><span class="p">,</span><span class="n">J</span><span class="p">)</span> <span class="o">=</span> <span class="n">C</span><span class="p">(</span><span class="n">K</span><span class="p">,</span><span class="n">J</span><span class="p">)</span> <span class="o">+</span> <span class="n">TEMP1</span><span class="o">*</span><span class="n">A</span><span class="p">(</span><span class="n">K</span><span class="p">,</span><span class="n">I</span><span class="p">)</span>
+                          <span class="n">TEMP2</span> <span class="o">=</span> <span class="n">TEMP2</span> <span class="o">+</span> <span class="n">B</span><span class="p">(</span><span class="n">K</span><span class="p">,</span><span class="n">J</span><span class="p">)</span><span class="o">*</span><span class="n">A</span><span class="p">(</span><span class="n">K</span><span class="p">,</span><span class="n">I</span><span class="p">)</span>
+                      <span class="k">enddo</span>
+<span class="k">                      IF</span> <span class="p">(</span><span class="n">BETA</span><span class="p">.</span><span class="n">EQ</span><span class="p">.</span><span class="n">ZERO</span><span class="p">)</span> <span class="k">THEN</span>
+<span class="k">                          </span><span class="n">C</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">J</span><span class="p">)</span> <span class="o">=</span> <span class="n">TEMP1</span><span class="o">*</span><span class="n">A</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">I</span><span class="p">)</span> <span class="o">+</span> <span class="n">ALPHA</span><span class="o">*</span><span class="n">TEMP2</span>
+                      <span class="k">ELSE</span>
+<span class="k">                          </span><span class="n">C</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">J</span><span class="p">)</span> <span class="o">=</span> <span class="n">BETA</span><span class="o">*</span><span class="n">C</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">J</span><span class="p">)</span> <span class="o">+</span> <span class="n">TEMP1</span><span class="o">*</span><span class="n">A</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">I</span><span class="p">)</span> <span class="o">+</span> <span class="n">ALPHA</span><span class="o">*</span><span class="n">TEMP2</span>
+                      <span class="k">endif</span>
+<span class="k">                  enddo</span>
+<span class="k">              enddo</span>
+<span class="k">          endif</span>
+<span class="k">      ELSE</span>
+<span class="c">!</span>
+<span class="c">!        Form  C := alpha*B*A + beta*C.</span>
+<span class="c">!</span>
+          <span class="k">DO </span><span class="n">J</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">N</span>
+              <span class="n">TEMP1</span> <span class="o">=</span> <span class="n">ALPHA</span><span class="o">*</span><span class="n">A</span><span class="p">(</span><span class="n">J</span><span class="p">,</span><span class="n">J</span><span class="p">)</span>
+              <span class="k">IF</span> <span class="p">(</span><span class="n">BETA</span><span class="p">.</span><span class="n">EQ</span><span class="p">.</span><span class="n">ZERO</span><span class="p">)</span> <span class="k">THEN</span>
+<span class="k">                  DO </span><span class="n">I</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">M</span>
+                      <span class="n">C</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">J</span><span class="p">)</span> <span class="o">=</span> <span class="n">TEMP1</span><span class="o">*</span><span class="n">B</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">J</span><span class="p">)</span>
+                  <span class="k">enddo</span>
+<span class="k">              ELSE</span>
+<span class="k">                  DO </span><span class="n">I</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">M</span>
+                      <span class="n">C</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">J</span><span class="p">)</span> <span class="o">=</span> <span class="n">BETA</span><span class="o">*</span><span class="n">C</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">J</span><span class="p">)</span> <span class="o">+</span> <span class="n">TEMP1</span><span class="o">*</span><span class="n">B</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">J</span><span class="p">)</span>
+                  <span class="k">enddo</span>
+<span class="k">              endif</span>
+<span class="k">              DO </span><span class="n">K</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">J</span> <span class="o">-</span> <span class="mi">1</span>
+                  <span class="k">IF</span> <span class="p">(</span><span class="n">UPPER</span><span class="p">)</span> <span class="k">THEN</span>
+<span class="k">                      </span><span class="n">TEMP1</span> <span class="o">=</span> <span class="n">ALPHA</span><span class="o">*</span><span class="n">A</span><span class="p">(</span><span class="n">K</span><span class="p">,</span><span class="n">J</span><span class="p">)</span>
+                  <span class="k">ELSE</span>
+<span class="k">                      </span><span class="n">TEMP1</span> <span class="o">=</span> <span class="n">ALPHA</span><span class="o">*</span><span class="n">A</span><span class="p">(</span><span class="n">J</span><span class="p">,</span><span class="n">K</span><span class="p">)</span>
+                  <span class="k">endif</span>
+<span class="k">                  DO </span><span class="n">I</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">M</span>
+                      <span class="n">C</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">J</span><span class="p">)</span> <span class="o">=</span> <span class="n">C</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">J</span><span class="p">)</span> <span class="o">+</span> <span class="n">TEMP1</span><span class="o">*</span><span class="n">B</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">K</span><span class="p">)</span>
+                  <span class="k">enddo</span>
+<span class="k">              enddo</span>
+<span class="k">              DO </span><span class="n">K</span> <span class="o">=</span> <span class="n">J</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span><span class="n">N</span>
+                  <span class="k">IF</span> <span class="p">(</span><span class="n">UPPER</span><span class="p">)</span> <span class="k">THEN</span>
+<span class="k">                      </span><span class="n">TEMP1</span> <span class="o">=</span> <span class="n">ALPHA</span><span class="o">*</span><span class="n">A</span><span class="p">(</span><span class="n">J</span><span class="p">,</span><span class="n">K</span><span class="p">)</span>
+                  <span class="k">ELSE</span>
+<span class="k">                      </span><span class="n">TEMP1</span> <span class="o">=</span> <span class="n">ALPHA</span><span class="o">*</span><span class="n">A</span><span class="p">(</span><span class="n">K</span><span class="p">,</span><span class="n">J</span><span class="p">)</span>
+                  <span class="k">endif</span>
+<span class="k">                  DO </span><span class="n">I</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">M</span>
+                      <span class="n">C</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">J</span><span class="p">)</span> <span class="o">=</span> <span class="n">C</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">J</span><span class="p">)</span> <span class="o">+</span> <span class="n">TEMP1</span><span class="o">*</span><span class="n">B</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">K</span><span class="p">)</span>
+                  <span class="k">enddo</span>
+<span class="k">              enddo</span>
+<span class="k">          enddo</span>
+<span class="k">      endif</span>
+
+<span class="k">      END SUBROUTINE </span><span class="n">SSYMM</span>
+</pre></div>
+
+    </section>
+    <br>
+    
+    
+    </div>
+  </div>
+
+
+    <hr>    
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+      <div class="row">
+        <div class="col-xs-6 col-md-4"><p>&copy; 2021 
+                                          </p></div>
+        <div class="col-xs-6 col-md-4 col-md-push-4">
+          <p class="text-right">
+            Documentation generated by 
+            <a href="https://github.com/cmacmackin/ford">FORD</a>
+             on 2021-08-23 15:25  
+          </p>
+        </div>
+        <div class="col-xs-12 col-md-4 col-md-pull-4"><p class="text-center"> M_blas was developed by John S. Urban and many others</p></div>
+      </div>
+      <br>
+      </div> <!-- /container -->    
+    </footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+<!--
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+-->
+    <script src="../js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../js/ie10-viewport-bug-workaround.js"></script>
+
+    <!-- MathJax JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+        jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+        extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
+      });
+    </script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    
+    <script src="../tipuesearch/tipuesearch_content.js"></script>
+    <script src="../tipuesearch/tipuesearch_set.js"></script>
+    <script src="../tipuesearch/tipuesearch.js"></script>
+    
+    
+  </body>
+</html>

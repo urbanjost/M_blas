@@ -1,6 +1,7 @@
 $BLOCK COMMENT --file ctrmv.3m_blas.man
 NAME
-   ctrmv.(3f) -- [BLAS:COMPLEX_BLAS_LEVEL2]
+   ctrmv(3f) - [BLAS:COMPLEX_BLAS_LEVEL2]
+CX := A*CX, A is a triangular matrix.
 
 SYNOPSIS
     SUBROUTINE CTRMV(UPLO,TRANS,DIAG,N,A,LDA,X,INCX)
@@ -16,11 +17,11 @@ SYNOPSIS
 
 DEFINITION
 
- CTRMV  performs one of the matrix-vector operations
+ CTRMV performs one of the matrix-vector operations
 
     x := A*x,   or   x := A**T*x,   or   x := A**H*x,
 
- where x is an n element vector and  A is an n by n unit, or non-unit,
+ where x is an n element vector and A is an n by n unit, or non-unit,
  upper or lower triangular matrix.
  
 OPTIONS
@@ -67,7 +68,7 @@ OPTIONS
   A
  
           A is COMPLEX array, dimension ( LDA, N ).
-           Before entry with  UPLO = 'U' or 'u', the leading n by n
+           Before entry with UPLO = 'U' or 'u', the leading n by n
            upper triangular part of the array A must contain the upper
            triangular matrix and the strictly lower triangular part of
            A is not referenced.
@@ -75,7 +76,7 @@ OPTIONS
            lower triangular part of the array A must contain the lower
            triangular matrix and the strictly upper triangular part of
            A is not referenced.
-           Note that when  DIAG = 'U' or 'u', the diagonal elements of
+           Note that when DIAG = 'U' or 'u', the diagonal elements of
            A are not referenced either, but are assumed to be unity.
  
   LDA
@@ -85,7 +86,7 @@ OPTIONS
            in the calling (sub) program. LDA must be at least
            max( 1, n ).
  
- out] X
+ X
  
           X is COMPLEX array, dimension at least
            ( 1 + ( n - 1 )*abs( INCX ) ).

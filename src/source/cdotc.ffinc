@@ -1,6 +1,6 @@
 $BLOCK COMMENT --file cdotc.3m_blas.man
 NAME
-   cdotc.(3f) -- [BLAS:COMPLEX_BLAS_LEVEL1] forms the dot product of two complex vectors
+   cdotc(3f) - [BLAS:COMPLEX_BLAS_LEVEL1] CDOTC := SUM CONJUGATE(CX) * CY (conjugated vector dot product)
 
 SYNOPSIS
 

@@ -1,6 +1,6 @@
 $BLOCK COMMENT --file crotg.3m_blas.man
 NAME
-   crotg.(3f) -- [BLAS:SINGLE_BLAS_LEVEL1] constructs a plane rotation
+   crotg(3f) - [BLAS:SINGLE_BLAS_LEVEL1] Generate a hermitian Given's rotation.
 
 SYNOPSIS
     subroutine CROTG( a, b, c, s )
@@ -33,12 +33,12 @@ DESCRIPTION
     c = a / r
     s = b / r
 
- the same as in CROTG when |a| > |b|.  When |b| >= |a|, the
+ the same as in CROTG when |a| > |b|. When |b| >= |a|, the
  sign of c and s will be different from those computed by CROTG
  if the signs of a and b are not the same.
 
 OPTIONS     
-   A  On entry, the scalar a.  On exit, the scalar r.
+   A  On entry, the scalar a. On exit, the scalar r.
    B  The scalar b.
    C  The scalar c.
    S  The scalar s.

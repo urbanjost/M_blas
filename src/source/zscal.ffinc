@@ -1,6 +1,6 @@
 $BLOCK COMMENT --file zscal.3m_blas.man
 NAME
-   zscal.(3f) -- [BLAS:COMPLEX16_BLAS_LEVEL1]
+   zscal(3f) - [BLAS:COMPLEX16_BLAS_LEVEL1]
 
 SYNOPSIS
     SUBROUTINE ZSCAL(N,ZA,ZX,INCX)
@@ -29,7 +29,7 @@ OPTIONS
           ZA is complex(kind=real64)
            On entry, ZA specifies the scalar alpha.
  
- out] ZX
+ ZX
  
           ZX is complex(kind=real64) array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
  

@@ -1,6 +1,6 @@
 $BLOCK COMMENT --file zhemv.3m_blas.man
 NAME
-   zhemv.(3f) -- [BLAS:COMPLEX_16_BLAS_LEVEL2]
+   zhemv(3f) - [BLAS:COMPLEX_16_BLAS_LEVEL2]
 
 SYNOPSIS
     SUBROUTINE ZHEMV(UPLO,N,ALPHA,A,LDA,X,INCX,BETA,Y,INCY)
@@ -17,7 +17,7 @@ SYNOPSIS
 
 DEFINITION
 
- ZHEMV  performs the matrix-vector  operation
+ ZHEMV performs the matrix-vector  operation
 
     y := alpha*A*x + beta*y,
 
@@ -53,7 +53,7 @@ OPTIONS
   A
  
           A is complex(kind=real64) array, dimension ( LDA, N )
-           Before entry with  UPLO = 'U' or 'u', the leading n by n
+           Before entry with UPLO = 'U' or 'u', the leading n by n
            upper triangular part of the array A must contain the upper
            triangular part of the hermitian matrix and the strictly
            lower triangular part of A is not referenced.
@@ -90,7 +90,7 @@ OPTIONS
            On entry, BETA specifies the scalar beta. When BETA is
            supplied as zero then Y need not be set on input.
  
- out] Y
+ Y
  
           Y is complex(kind=real64) array, dimension at least
            ( 1 + ( n - 1 )*abs( INCY ) ).

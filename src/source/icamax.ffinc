@@ -1,6 +1,6 @@
 $BLOCK COMMENT --file icamax.3m_blas.man
 NAME
-   icamax.(3f) -- [BLAS:AUX_BLAS]
+   icamax(3f) -- [BLAS:AUX_BLAS] Return index of maximum "absolute value" in CX.
 
 SYNOPSIS
     integer function icamax(n,cx,incx)

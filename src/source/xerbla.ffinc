@@ -1,6 +1,6 @@
 $BLOCK COMMENT --file xerbla.3m_blas.man
 NAME
-   xerbla.(3f) -- [BLAS:AUX_BLAS]
+   xerbla(3f) - [BLAS:AUX_BLAS] error handler routine for the BLAS/LAPACK routines
 
 SYNOPSIS
     SUBROUTINE XERBLA( SRNAME, INFO )
@@ -12,9 +12,9 @@ SYNOPSIS
 
 DEFINITION
 
- XERBLA  is an error handler for the LAPACK routines.
+ XERBLA is an error handler for the LAPACK routines.
  It is called by an LAPACK routine if an input parameter has an
- invalid value.  A message is printed and execution stops.
+ invalid value. A message is printed and execution stops.
 
  Installers may consider modifying the STOP statement in order to
  call system-specific exception-handling facilities.

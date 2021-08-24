@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+   
+   <meta name="description" content="BLAS - Basic Linear Algebra Subroutines">
+    
+    <meta name="author" content="John S. Urban and many others" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>DROTMG &ndash; M_blas</title>
+
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/local.css" rel="stylesheet">
+    
+    <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+    
+    
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <script src="../js/jquery-2.1.3.min.js"></script>
+    <script src="../js/svg-pan-zoom.min.js"></script>
+
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="../index.html">M_blas </a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+        
+            <li class="dropdown hidden-xs visible-sm visible-md hidden-lg">
+              <a href="#" class="dropdown-toggle"
+              data-toggle="dropdown" role="button"
+              aria-haspopup="true"
+     aria-expanded="false">Contents <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          
+              
+            <li><a href="../lists/files.html">Source Files</a></li>
+        
+        
+        
+            <li><a href="../lists/modules.html">Modules</a></li>
+        
+            
+                                
+            <li><a href="../lists/procedures.html">Procedures</a></li>
+        
+        
+            <li><a href="../lists/absint.html">Abstract Interfaces</a></li>
+               
+        
+            <li><a href="../lists/programs.html">Programs</a></li>
+        
+            </ul>
+            </li>
+
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/files.html">Source Files</a></li>
+
+
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/modules.html">Modules</a></li>
+
+
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/procedures.html">Procedures</a></li>
+
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/absint.html">Abstract Interfaces</a></li>
+                             
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/programs.html">Programs</a></li>
+
+          </ul>
+        
+        <form action="../search.html" class="navbar-form navbar-right" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+        </div>
+<!--
+        <button type="submit" class="btn btn-default">Submit</button>
+-->
+        </form>
+        
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+    
+  
+  <div class="row">
+    <h1>DROTMG
+      <small>Subroutine</small>
+    
+    </h1>
+    
+<div class="row">
+  <div class="col-lg-12">
+<div class="well well-sm">
+  <ul class="list-inline" style="margin-bottom:0px;display:inline">
+     
+     
+     
+     
+    
+    
+     <li><i class="fa fa-list-ol"></i>
+       <a data-toggle="tooltip"
+    data-placement="bottom" data-html="true"
+    title=" 0.0% of total for procedures.">7 statements</a>
+     </li> 
+     
+     
+     
+    <li><i class="fa fa-code"></i><a href="../src/compatible.f90"> Source File</a></li>
+     
+     
+  </ul>
+  <ol class="breadcrumb in-well text-right">
+  
+    
+     <li><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></li>
+    
+  
+     <li class="active">DROTMG</li>
+  </ol>
+</div>
+</div>
+</div>
+<script>
+  $(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+  })
+</script>
+
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+    
+<div id="sidebar">
+  
+<h3>Contents</h3>
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
+  <div class="list-group">
+    <a class="list-group-item" href="../proc/drotmg~2.html#src">DROTMG</a>
+  </div>
+</div>
+
+
+
+</div>
+
+    </div>
+    
+    <div class="col-md-9" id='text'>
+    <h2>
+subroutine DROTMG(DD1, DD2, DX1, DY1, DPARAM)
+    
+    
+   
+</h2>
+    
+  
+    <div class="panel panel-default">
+      <div class="panel-heading">
+  <h3 class="panel-title">Uses</h3>
+      </div>
+      <ul class="list-group">
+      
+      <li class="list-group-item">
+  <ul class="list-inline">
+    
+    <li><a href='../module/m_blas.html'>M_blas</a></li>
+    
+  </ul>
+      </li>
+      
+      
+      
+      </ul>
+    </div>
+    
+
+
+    
+    <p>\brief \b DROTMG
+ \par Purpose:</p>
+<p>\verbatim</p>
+<div class="codehilite"><pre><span></span><code><span class="nv">CONSTRUCT</span> <span class="nv">THE</span> <span class="nv">MODIFIED</span> <span class="nv">GIVENS</span> <span class="nv">TRANSFORMATION</span> <span class="nv">MATRIX</span> <span class="nv">H</span> <span class="nv">WHICH</span> <span class="nv">ZEROS</span>
+<span class="nv">THE</span> <span class="nv">SECOND</span> <span class="nv">COMPONENT</span> <span class="nv">OF</span> <span class="nv">THE</span> <span class="mi">2</span><span class="o">-</span><span class="nv">VECTOR</span>  <span class="ss">(</span><span class="nv">DSQRT</span><span class="ss">(</span><span class="nv">DD1</span><span class="ss">)</span><span class="o">*</span><span class="nv">DX1</span>,<span class="nv">DSQRT</span><span class="ss">(</span><span class="nv">DD2</span><span class="ss">)</span><span class="o">*&gt;</span>    <span class="nv">DY2</span><span class="ss">)</span><span class="o">**</span><span class="nv">T</span>.
+<span class="nv">WITH</span> <span class="nv">DPARAM</span><span class="ss">(</span><span class="mi">1</span><span class="ss">)</span><span class="o">=</span><span class="nv">DFLAG</span>, <span class="nv">H</span> <span class="nv">HAS</span> <span class="nv">ONE</span> <span class="nv">OF</span> <span class="nv">THE</span> <span class="nv">FOLLOWING</span> <span class="nv">FORMS</span>..
+
+<span class="nv">DFLAG</span><span class="o">=-</span><span class="mi">1</span>.<span class="nv">D0</span>     <span class="nv">DFLAG</span><span class="o">=</span><span class="mi">0</span>.<span class="nv">D0</span>        <span class="nv">DFLAG</span><span class="o">=</span><span class="mi">1</span>.<span class="nv">D0</span>     <span class="nv">DFLAG</span><span class="o">=-</span><span class="mi">2</span>.<span class="nv">D0</span>
+
+  <span class="ss">(</span><span class="nv">DH11</span>  <span class="nv">DH12</span><span class="ss">)</span>    <span class="ss">(</span><span class="mi">1</span>.<span class="nv">D0</span>  <span class="nv">DH12</span><span class="ss">)</span>    <span class="ss">(</span><span class="nv">DH11</span>  <span class="mi">1</span>.<span class="nv">D0</span><span class="ss">)</span>    <span class="ss">(</span><span class="mi">1</span>.<span class="nv">D0</span>  <span class="mi">0</span>.<span class="nv">D0</span><span class="ss">)</span>
+<span class="nv">H</span><span class="o">=</span><span class="ss">(</span>          <span class="ss">)</span>    <span class="ss">(</span>          <span class="ss">)</span>    <span class="ss">(</span>          <span class="ss">)</span>    <span class="ss">(</span>          <span class="ss">)</span>
+  <span class="ss">(</span><span class="nv">DH21</span>  <span class="nv">DH22</span><span class="ss">)</span>,   <span class="ss">(</span><span class="nv">DH21</span>  <span class="mi">1</span>.<span class="nv">D0</span><span class="ss">)</span>,   <span class="ss">(</span><span class="o">-</span><span class="mi">1</span>.<span class="nv">D0</span> <span class="nv">DH22</span><span class="ss">)</span>,   <span class="ss">(</span><span class="mi">0</span>.<span class="nv">D0</span>  <span class="mi">1</span>.<span class="nv">D0</span><span class="ss">)</span>.
+<span class="nv">LOCATIONS</span> <span class="mi">2</span><span class="o">-</span><span class="mi">4</span> <span class="nv">OF</span> <span class="nv">DPARAM</span> <span class="nv">CONTAIN</span> <span class="nv">DH11</span>, <span class="nv">DH21</span>, <span class="nv">DH12</span>, <span class="nv">AND</span> <span class="nv">DH22</span>
+<span class="nv">RESPECTIVELY</span>. <span class="ss">(</span><span class="nv">VALUES</span> <span class="nv">OF</span> <span class="mi">1</span>.<span class="nv">D0</span>, <span class="o">-</span><span class="mi">1</span>.<span class="nv">D0</span>, <span class="nv">OR</span> <span class="mi">0</span>.<span class="nv">D0</span> <span class="nv">IMPLIED</span> <span class="nv">BY</span> <span class="nv">THE</span>
+<span class="nv">VALUE</span> <span class="nv">OF</span> <span class="nv">DPARAM</span><span class="ss">(</span><span class="mi">1</span><span class="ss">)</span> <span class="nv">ARE</span> <span class="nv">NOT</span> <span class="nv">STORED</span> <span class="nv">IN</span> <span class="nv">DPARAM</span>.<span class="ss">)</span>
+
+<span class="nv">THE</span> <span class="nv">VALUES</span> <span class="nv">OF</span> <span class="nv">GAMSQ</span> <span class="nv">AND</span> <span class="nv">RGAMSQ</span> <span class="nv">SET</span> <span class="nv">IN</span> <span class="nv">THE</span> <span class="nv">DATA</span> <span class="nv">STATEMENT</span> <span class="nv">MAY</span> <span class="nv">BE</span>
+<span class="nv">INEXACT</span>.  <span class="nv">THIS</span> <span class="nv">IS</span> <span class="nv">OK</span> <span class="nv">AS</span> <span class="nv">THEY</span> <span class="nv">ARE</span> <span class="nv">ONLY</span> <span class="nv">USED</span> <span class="k">FOR</span> <span class="nv">TESTING</span> <span class="nv">THE</span> <span class="nv">SIZE</span>
+<span class="nv">OF</span> <span class="nv">DD1</span> <span class="nv">AND</span> <span class="nv">DD2</span>.  <span class="nv">ALL</span> <span class="nv">ACTUAL</span> <span class="nv">SCALING</span> <span class="nv">OF</span> <span class="nv">DATA</span> <span class="nv">IS</span> <span class="nv">DONE</span> <span class="nv">USING</span> <span class="nv">GAM</span>.
+</code></pre></div>
+
+<p>\endverbatim
+ \param[in,out] DD1
+ \verbatim
+          DD1 is DOUBLE PRECISION
+ \endverbatim</p>
+<p>\param[in,out] DD2
+ \verbatim
+          DD2 is DOUBLE PRECISION
+ \endverbatim</p>
+<p>\param[in,out] DX1
+ \verbatim
+          DX1 is DOUBLE PRECISION
+ \endverbatim</p>
+<p>\param[in] DY1
+ \verbatim
+          DY1 is DOUBLE PRECISION
+ \endverbatim</p>
+<p>\param[out] DPARAM
+ \verbatim
+          DPARAM is DOUBLE PRECISION array, dimension (5)
+     DPARAM(1)=DFLAG
+     DPARAM(2)=DH11
+     DPARAM(3)=DH21
+     DPARAM(4)=DH12
+     DPARAM(5)=DH22
+ \endverbatim
+ \author Univ. of Tennessee
+ \author Univ. of California Berkeley
+ \author Univ. of Colorado Denver
+ \author NAG Ltd.
+ \date November 2017
+ \ingroup double_blas_level1</p>
+    
+
+    <h3>Arguments</h3>
+    
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-dd1"></span>double precision</td>
+  <td></td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>DD1</strong></td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-dd2"></span>double precision</td>
+  <td></td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>DD2</strong></td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-dx1"></span>double precision</td>
+  <td></td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>DX1</strong></td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-dy1"></span>double precision</td>
+  <td></td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>DY1</strong></td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-dparam~2"></span>double precision</td>
+  <td></td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>DPARAM</strong>(5)</td><td></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+    
+    
+    
+    
+     
+    <br>
+
+    <section class="visible-xs visible-sm hidden-md">
+      
+<h3>Contents</h3>
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
+  <div class="list-group">
+    <a class="list-group-item" href="../proc/drotmg~2.html#src">DROTMG</a>
+  </div>
+</div>
+
+
+
+    </section>
+    <br class="visible-xs visible-sm hidden-md">
+
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+
+
+    
+    
+    
+    <section>
+    <h2><span class="anchor" id="src"></span>Source Code</h2>
+    <div class="highlight"><pre><span></span><span class="k">subroutine </span><span class="n">DROTMG</span><span class="p">(</span><span class="n">DD1</span><span class="p">,</span><span class="n">DD2</span><span class="p">,</span><span class="n">DX1</span><span class="p">,</span><span class="n">DY1</span><span class="p">,</span><span class="n">DPARAM</span><span class="p">)</span>
+<span class="c">! COMMENT --file drotmg.3m_blas.man</span>
+<span class="c">!&gt; \brief \b DROTMG</span>
+<span class="c">!</span>
+<span class="c">!  =========== DOCUMENTATION ===========</span>
+<span class="c">!</span>
+<span class="c">! Online html documentation available at</span>
+<span class="c">!            http://www.netlib.org/lapack/explore-html/</span>
+<span class="c">!</span>
+<span class="c">!  Definition:</span>
+<span class="c">!  ===========</span>
+<span class="c">!</span>
+<span class="c">!       SUBROUTINE DROTMG(DD1,DD2,DX1,DY1,DPARAM)</span>
+<span class="c">!</span>
+<span class="c">!       .. Scalar Arguments ..</span>
+<span class="c">!       DOUBLE PRECISION DD1,DD2,DX1,DY1</span>
+<span class="c">!       ..</span>
+<span class="c">!       .. Array Arguments ..</span>
+<span class="c">!       DOUBLE PRECISION DPARAM(5)</span>
+<span class="c">!       ..</span>
+<span class="c">!</span>
+<span class="c">!</span>
+<span class="c">!&gt; \par Purpose:</span>
+<span class="c">!  =============</span>
+<span class="c">!&gt;</span>
+<span class="c">!&gt; \verbatim</span>
+<span class="c">!&gt;</span>
+<span class="c">!&gt;    CONSTRUCT THE MODIFIED GIVENS TRANSFORMATION MATRIX H WHICH ZEROS</span>
+<span class="c">!&gt;    THE SECOND COMPONENT OF THE 2-VECTOR  (DSQRT(DD1)*DX1,DSQRT(DD2)*&gt;    DY2)**T.</span>
+<span class="c">!&gt;    WITH DPARAM(1)=DFLAG, H HAS ONE OF THE FOLLOWING FORMS..</span>
+<span class="c">!&gt;</span>
+<span class="c">!&gt;    DFLAG=-1.D0     DFLAG=0.D0        DFLAG=1.D0     DFLAG=-2.D0</span>
+<span class="c">!&gt;</span>
+<span class="c">!&gt;      (DH11  DH12)    (1.D0  DH12)    (DH11  1.D0)    (1.D0  0.D0)</span>
+<span class="c">!&gt;    H=(          )    (          )    (          )    (          )</span>
+<span class="c">!&gt;      (DH21  DH22),   (DH21  1.D0),   (-1.D0 DH22),   (0.D0  1.D0).</span>
+<span class="c">!&gt;    LOCATIONS 2-4 OF DPARAM CONTAIN DH11, DH21, DH12, AND DH22</span>
+<span class="c">!&gt;    RESPECTIVELY. (VALUES OF 1.D0, -1.D0, OR 0.D0 IMPLIED BY THE</span>
+<span class="c">!&gt;    VALUE OF DPARAM(1) ARE NOT STORED IN DPARAM.)</span>
+<span class="c">!&gt;</span>
+<span class="c">!&gt;    THE VALUES OF GAMSQ AND RGAMSQ SET IN THE DATA STATEMENT MAY BE</span>
+<span class="c">!&gt;    INEXACT.  THIS IS OK AS THEY ARE ONLY USED FOR TESTING THE SIZE</span>
+<span class="c">!&gt;    OF DD1 AND DD2.  ALL ACTUAL SCALING OF DATA IS DONE USING GAM.</span>
+<span class="c">!&gt;</span>
+<span class="c">!&gt; \endverbatim</span>
+<span class="c">!</span>
+<span class="c">!  Arguments:</span>
+<span class="c">!  ==========</span>
+<span class="c">!</span>
+<span class="c">!&gt; \param[in,out] DD1</span>
+<span class="c">!&gt; \verbatim</span>
+<span class="c">!&gt;          DD1 is DOUBLE PRECISION</span>
+<span class="c">!&gt; \endverbatim</span>
+<span class="c">!&gt;</span>
+<span class="c">!&gt; \param[in,out] DD2</span>
+<span class="c">!&gt; \verbatim</span>
+<span class="c">!&gt;          DD2 is DOUBLE PRECISION</span>
+<span class="c">!&gt; \endverbatim</span>
+<span class="c">!&gt;</span>
+<span class="c">!&gt; \param[in,out] DX1</span>
+<span class="c">!&gt; \verbatim</span>
+<span class="c">!&gt;          DX1 is DOUBLE PRECISION</span>
+<span class="c">!&gt; \endverbatim</span>
+<span class="c">!&gt;</span>
+<span class="c">!&gt; \param[in] DY1</span>
+<span class="c">!&gt; \verbatim</span>
+<span class="c">!&gt;          DY1 is DOUBLE PRECISION</span>
+<span class="c">!&gt; \endverbatim</span>
+<span class="c">!&gt;</span>
+<span class="c">!&gt; \param[out] DPARAM</span>
+<span class="c">!&gt; \verbatim</span>
+<span class="c">!&gt;          DPARAM is DOUBLE PRECISION array, dimension (5)</span>
+<span class="c">!&gt;     DPARAM(1)=DFLAG</span>
+<span class="c">!&gt;     DPARAM(2)=DH11</span>
+<span class="c">!&gt;     DPARAM(3)=DH21</span>
+<span class="c">!&gt;     DPARAM(4)=DH12</span>
+<span class="c">!&gt;     DPARAM(5)=DH22</span>
+<span class="c">!&gt; \endverbatim</span>
+<span class="c">!</span>
+<span class="c">!  Authors:</span>
+<span class="c">!  ========</span>
+<span class="c">!</span>
+<span class="c">!&gt; \author Univ. of Tennessee</span>
+<span class="c">!&gt; \author Univ. of California Berkeley</span>
+<span class="c">!&gt; \author Univ. of Colorado Denver</span>
+<span class="c">!&gt; \author NAG Ltd.</span>
+<span class="c">!</span>
+<span class="c">!&gt; \date November 2017</span>
+<span class="c">!</span>
+<span class="c">!&gt; \ingroup double_blas_level1</span>
+<span class="c">!</span>
+<span class="c">!  =====================================================================</span>
+<span class="c">!</span>
+<span class="c">!  -- Reference BLAS level1 routine (version 3.8.0) --</span>
+<span class="c">!  -- Reference BLAS is a software package provided by Univ. of Tennessee,    --</span>
+<span class="c">!  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--</span>
+<span class="c">!     November 2017</span>
+<span class="c">!</span>
+<span class="c">!     .. Scalar Arguments ..</span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Array Arguments ..</span>
+<span class="c">!     ..</span>
+<span class="c">!</span>
+<span class="c">!  =====================================================================</span>
+<span class="c">!</span>
+<span class="c">!     .. Local Scalars ..</span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Intrinsic Functions ..</span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Data statements ..</span>
+<span class="c">!</span>
+<span class="c">!     ..</span>
+<span class="c">!        GO ZERO-H-D-AND-DX1..</span>
+<span class="c">!</span>
+<span class="c">!        CASE-DD1-NONNEGATIVE</span>
+<span class="c">!        REGULAR-CASE..</span>
+<span class="c">!</span>
+<span class="c">!</span>
+<span class="c">!</span>
+<span class="c">!            This code path if here for safety. We do not expect this</span>
+<span class="c">!            condition to ever hold except in edge cases with rounding</span>
+<span class="c">!            errors. See DOI: 10.1145/355841.355847</span>
+<span class="c">!</span>
+<span class="c">!              GO ZERO-H-D-AND-DX1..</span>
+<span class="c">!</span>
+<span class="c">!     PROCEDURE..SCALE-CHECK</span>
+<span class="c">! END</span>
+<span class="k">use </span><span class="n">M_blas</span><span class="p">,</span> <span class="k">only</span> <span class="p">:</span> <span class="n">drotmg_</span><span class="o">=&gt;</span><span class="n">DROTMG</span>
+<span class="k">implicit none</span>
+<span class="k">      </span><span class="kt">DOUBLE PRECISION </span><span class="n">DD1</span><span class="p">,</span><span class="n">DD2</span><span class="p">,</span><span class="n">DX1</span><span class="p">,</span><span class="n">DY1</span>
+      <span class="kt">DOUBLE PRECISION </span><span class="n">DPARAM</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+    <span class="k">call </span><span class="n">DROTMG_</span><span class="p">(</span><span class="n">DD1</span><span class="p">,</span><span class="n">DD2</span><span class="p">,</span><span class="n">DX1</span><span class="p">,</span><span class="n">DY1</span><span class="p">,</span><span class="n">DPARAM</span><span class="p">)</span>
+<span class="k">end subroutine </span><span class="n">DROTMG</span>
+</pre></div>
+
+    </section>
+    <br>
+    
+    
+    </div>
+  </div>
+
+
+    <hr>    
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+      <div class="row">
+        <div class="col-xs-6 col-md-4"><p>&copy; 2021 
+                                          </p></div>
+        <div class="col-xs-6 col-md-4 col-md-push-4">
+          <p class="text-right">
+            Documentation generated by 
+            <a href="https://github.com/cmacmackin/ford">FORD</a>
+             on 2021-08-23 15:25  
+          </p>
+        </div>
+        <div class="col-xs-12 col-md-4 col-md-pull-4"><p class="text-center"> M_blas was developed by John S. Urban and many others</p></div>
+      </div>
+      <br>
+      </div> <!-- /container -->    
+    </footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+<!--
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+-->
+    <script src="../js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../js/ie10-viewport-bug-workaround.js"></script>
+
+    <!-- MathJax JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+        jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+        extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
+      });
+    </script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    
+    <script src="../tipuesearch/tipuesearch_content.js"></script>
+    <script src="../tipuesearch/tipuesearch_set.js"></script>
+    <script src="../tipuesearch/tipuesearch.js"></script>
+    
+    
+  </body>
+</html>

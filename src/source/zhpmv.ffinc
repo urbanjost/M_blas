@@ -1,6 +1,6 @@
 $BLOCK COMMENT --file zhpmv.3m_blas.man
 NAME
-   zhpmv.(3f) -- [BLAS:COMPLEX_16_BLAS_LEVEL2]
+   zhpmv(3f) - [BLAS:COMPLEX_16_BLAS_LEVEL2]
 
 SYNOPSIS
     SUBROUTINE ZHPMV(UPLO,N,ALPHA,AP,X,INCX,BETA,Y,INCY)
@@ -17,7 +17,7 @@ SYNOPSIS
 
 DEFINITION
 
- ZHPMV  performs the matrix-vector operation
+ ZHPMV performs the matrix-vector operation
 
     y := alpha*A*x + beta*y,
 
@@ -86,7 +86,7 @@ OPTIONS
            On entry, BETA specifies the scalar beta. When BETA is
            supplied as zero then Y need not be set on input.
  
- out] Y
+ Y
  
           Y is complex(kind=real64) array, dimension at least
            ( 1 + ( n - 1 )*abs( INCY ) ).

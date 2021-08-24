@@ -1,6 +1,6 @@
 $BLOCK COMMENT --file scopy.3m_blas.man
 NAME
-   scopy.(3f) -- [BLAS:SINGLE_BLAS_LEVEL1]
+   scopy(3f) - [BLAS:SINGLE_BLAS_LEVEL1] SY:=SX
 
 SYNOPSIS
     SUBROUTINE SCOPY(N,SX,INCX,SY,INCY)

@@ -1,6 +1,6 @@
 $BLOCK COMMENT --file dger.3m_blas.man
 NAME
-   dger.(3f) -- [BLAS:DOUBLE_BLAS_LEVEL2]
+   dger(3f) - [BLAS:DOUBLE_BLAS_LEVEL2]
 
 SYNOPSIS
     SUBROUTINE DGER(M,N,ALPHA,X,INCX,Y,INCY,A,LDA)
@@ -16,7 +16,7 @@ SYNOPSIS
 
 DEFINITION
 
- DGER   performs the rank 1 operation
+ DGER performs the rank 1 operation
 
     A := alpha*x*y**T + A,
 
@@ -68,7 +68,7 @@ OPTIONS
            On entry, INCY specifies the increment for the elements of
            Y. INCY must not be zero.
  
- out] A
+ A
  
           A is DOUBLE PRECISION array, dimension ( LDA, N )
            Before entry, the leading m by n part of the array A must

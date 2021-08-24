@@ -1,6 +1,6 @@
 $BLOCK COMMENT --file zaxpy.3m_blas.man
 NAME
-   zaxpy.(3f) -- [BLAS:COMPLEX16_BLAS_LEVEL1]
+   zaxpy(3f) - [BLAS:COMPLEX16_BLAS_LEVEL1]
 
 SYNOPSIS
     SUBROUTINE ZAXPY(N,ZA,ZX,INCX,ZY,INCY)
@@ -39,7 +39,7 @@ OPTIONS
           INCX is INTEGER
          storage spacing between elements of ZX
  
- out] ZY
+ ZY
  
           ZY is complex(kind=real64) array, dimension ( 1 + ( N - 1 )*abs( INCY ) )
  

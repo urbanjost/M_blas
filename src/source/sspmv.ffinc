@@ -1,6 +1,6 @@
 $BLOCK COMMENT --file sspmv.3m_blas.man
 NAME
-   sspmv.(3f) -- [BLAS:SINGLE_BLAS_LEVEL2]
+   sspmv(3f) - [BLAS:SINGLE_BLAS_LEVEL2] SY:=alpha*A*SX+beta*SY, A a packed symmetric matrix.
 
 SYNOPSIS
     SUBROUTINE SSPMV(UPLO,N,ALPHA,AP,X,INCX,BETA,Y,INCY)
@@ -17,7 +17,7 @@ SYNOPSIS
 
 DEFINITION
 
- SSPMV  performs the matrix-vector operation
+ SSPMV performs the matrix-vector operation
 
     y := alpha*A*x + beta*y,
 
@@ -84,7 +84,7 @@ OPTIONS
            On entry, BETA specifies the scalar beta. When BETA is
            supplied as zero then Y need not be set on input.
  
- out] Y
+ Y
  
           Y is REAL array, dimension at least
            ( 1 + ( n - 1 )*abs( INCY ) ).

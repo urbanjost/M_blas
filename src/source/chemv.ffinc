@@ -1,6 +1,6 @@
 $BLOCK COMMENT --file chemv.3m_blas.man
 NAME
-   chemv.(3f) -- [BLAS:COMPLEX_BLAS_LEVEL2]
+   chemv(3f) - [BLAS:COMPLEX_BLAS_LEVEL2] CY := alpha*A*CX + beta*CY; ==> A a (square) hermitian matrix.
 
 SYNOPSIS
     SUBROUTINE CHEMV(UPLO,N,ALPHA,A,LDA,X,INCX,BETA,Y,INCY)
@@ -17,7 +17,7 @@ SYNOPSIS
 
 DEFINITION
 
- CHEMV  performs the matrix-vector  operation
+ CHEMV  performs the matrix-vector operation
 
     y := alpha*A*x + beta*y,
 
@@ -53,7 +53,7 @@ OPTIONS
   A
  
           A is COMPLEX array, dimension ( LDA, N )
-           Before entry with  UPLO = 'U' or 'u', the leading n by n
+           Before entry with UPLO = 'U' or 'u', the leading n by n
            upper triangular part of the array A must contain the upper
            triangular part of the hermitian matrix and the strictly
            lower triangular part of A is not referenced.
@@ -90,7 +90,7 @@ OPTIONS
            On entry, BETA specifies the scalar beta. When BETA is
            supplied as zero then Y need not be set on input.
  
- out] Y
+ Y
  
           Y is COMPLEX array, dimension at least
            ( 1 + ( n - 1 )*abs( INCY ) ).

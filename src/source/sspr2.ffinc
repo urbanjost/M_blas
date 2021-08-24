@@ -1,6 +1,6 @@
 $BLOCK COMMENT --file sspr2.3m_blas.man
 NAME
-   sspr2.(3f) -- [BLAS:SINGLE_BLAS_LEVEL2]
+   sspr2(3f) - [BLAS:SINGLE_BLAS_LEVEL2] A:=A+alpha*SX*TRANSPOSE(SY)+alpha*SY*TRANSPOSE(SX), A packed symmetric.
 
 SYNOPSIS
     SUBROUTINE SSPR2(UPLO,N,ALPHA,X,INCX,Y,INCY,AP)
@@ -17,7 +17,7 @@ SYNOPSIS
 
 DEFINITION
 
- SSPR2  performs the symmetric rank 2 operation
+ SSPR2 performs the symmetric rank 2 operation
 
     A := alpha*x*y**T + alpha*y*x**T + A,
 
@@ -76,11 +76,11 @@ OPTIONS
            On entry, INCY specifies the increment for the elements of
            Y. INCY must not be zero.
  
- out] AP
+ AP
  
           AP is REAL array, dimension at least
            ( ( n*( n + 1 ) )/2 ).
-           Before entry with  UPLO = 'U' or 'u', the array AP must
+           Before entry with UPLO = 'U' or 'u', the array AP must
            contain the upper triangular part of the symmetric matrix
            packed sequentially, column by column, so that AP( 1 )
            contains a( 1, 1 ), AP( 2 ) and AP( 3 ) contain a( 1, 2 )

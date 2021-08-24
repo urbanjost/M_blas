@@ -28,7 +28,7 @@ procedure(xerbla_interface) :: proc
 end subroutine set_xerbla
 !>
 !!##NAME
-!!    xerbla_array.(3f) -- [BLAS:AUX_BLAS]
+!!    xerbla_array(3f) - [BLAS:AUX_BLAS] call XERBLA(3f) with an array of characters instead of a string
 !!
 !!##SYNOPSIS
 !!
@@ -44,11 +44,11 @@ end subroutine set_xerbla
 !!##DEFINITION
 !!
 !!  XERBLA_ARRAY assists other languages in calling XERBLA, the LAPACK
-!!  and BLAS error handler.  Rather than taking a Fortran string argument
+!!  and BLAS error handler. Rather than taking a Fortran string argument
 !!  as the function's name, XERBLA_ARRAY takes an array of single
-!!  characters along with the array's length.  XERBLA_ARRAY then copies
+!!  characters along with the array's length. XERBLA_ARRAY then copies
 !!  up to 32 characters of that array into a Fortran string and passes
-!!  that to XERBLA.  If called with a non-positive SRNAME_LEN,
+!!  that to XERBLA. If called with a non-positive SRNAME_LEN,
 !!  XERBLA_ARRAY will call XERBLA with a string of all blank characters.
 !!
 !!  Say some macro or other device makes XERBLA_ARRAY available to C99
@@ -60,7 +60,7 @@ end subroutine set_xerbla
 !!     }
 !!
 !!  Providing XERBLA_ARRAY is not necessary for intercepting LAPACK
-!!  errors.  XERBLA_ARRAY calls XERBLA.
+!!  errors. XERBLA_ARRAY calls XERBLA.
 !!
 !!##OPTIONS
 !!
@@ -134,7 +134,7 @@ end subroutine set_xerbla
       END SUBROUTINE XERBLA_ARRAY
 !>
 !!##NAME
-!!    xerbla.(3f) -- [BLAS:AUX_BLAS]
+!!    xerbla(3f) - [BLAS:AUX_BLAS] error handler routine for the BLAS/LAPACK routines
 !!
 !!##SYNOPSIS
 !!
@@ -147,9 +147,9 @@ end subroutine set_xerbla
 !!
 !!##DEFINITION
 !!
-!!  XERBLA  is an error handler for the LAPACK routines.
+!!  XERBLA is an error handler for the LAPACK routines.
 !!  It is called by an LAPACK routine if an input parameter has an
-!!  invalid value.  A message is printed and execution stops.
+!!  invalid value. A message is printed and execution stops.
 !!
 !!  Installers may consider modifying the STOP statement in order to
 !!  call system-specific exception-handling facilities.
@@ -205,7 +205,7 @@ end subroutine set_xerbla
 end subroutine std_xerbla
 !>
 !!##NAME
-!!     caxpy(3f) -- [BLAS:COMPLEX_BLAS_LEVEL1] constant times a vector plus a vector
+!!     caxpy(3f) -- [BLAS:COMPLEX_BLAS_LEVEL1] CY:=CY+CA*CX (constant times a vector plus a vector)
 !!
 !!##SYNOPSIS
 !!
@@ -240,6 +240,7 @@ end subroutine std_xerbla
 !!  November 2017
 !!
 !!  FURTHER DETAILS
+!!
 !!      Jack Dongarra, linpack, 3/11/78.
 !!      modified 12/3/93, array(1) declarations changed to array(*)
 !!
@@ -299,7 +300,7 @@ implicit none
       end subroutine caxpy
 !>
 !!##NAME
-!!    ccopy.(3f) -- [BLAS:COMPLEX_BLAS_LEVEL1] CCOPY copies elements of a vector x to a vector y.
+!!    ccopy(3f) - [BLAS:COMPLEX_BLAS_LEVEL1] CY:=CX (copies elements of a vector x to a vector y)
 !!
 !!##SYNOPSIS
 !!
@@ -387,7 +388,7 @@ end subroutine ccopy
 !      and in other cases simple array syntax statements can replace a call to this procedure
 !>
 !!##NAME
-!!    cdotc.(3f) -- [BLAS:COMPLEX_BLAS_LEVEL1] forms the dot product of two complex vectors
+!!    cdotc(3f) - [BLAS:COMPLEX_BLAS_LEVEL1] CDOTC := SUM CONJUGATE(CX) * CY (conjugated vector dot product)
 !!
 !!##SYNOPSIS
 !!
@@ -483,18 +484,17 @@ end subroutine ccopy
       END FUNCTION CDOTC
 !>
 !!##NAME
-!!    cdotu.(3f) -- [BLAS:COMPLEX_BLAS_LEVEL1] forms the dot product of two complex vectors
+!!    cdotu(3f) - [BLAS:COMPLEX_BLAS_LEVEL1] CDOTU := SUM CX * CY  (unconjugated vector dot product)
 !!
 !!##SYNOPSIS
 !!
-!!
-!!     COMPLEX FUNCTION CDOTU(N,CX,INCX,CY,INCY)
+!!     complex function cdotu(n,cx,incx,cy,incy)
 !!
 !!       .. Scalar Arguments ..
-!!       INTEGER,intent(in) ::  INCX,INCY,N
+!!       integer,intent(in) ::  incx,incy,n
 !!       ..
 !!       .. Array Arguments ..
-!!       COMPLEX,intent(in) ::  CX(*),CY(*)
+!!       complex,intent(in) ::  cx(*),cy(*)
 !!       ..
 !!
 !!##DEFINITION
@@ -503,28 +503,15 @@ end subroutine ccopy
 !!       CDOTU = X^T * Y
 !!
 !!##OPTIONS
-!!
 !!   N
-!!
-!!           N is INTEGER
 !!          number of elements in input vector(s)
-!!
 !!   CX
-!!
-!!           CX is COMPLEX array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
-!!
+!!          array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
 !!   INCX
-!!
-!!           INCX is INTEGER
 !!          storage spacing between elements of CX
-!!
 !!   CY
-!!
-!!           CY is COMPLEX array, dimension ( 1 + ( N - 1 )*abs( INCY ) )
-!!
+!!          array, dimension ( 1 + ( N - 1 )*abs( INCY ) )
 !!   INCY
-!!
-!!           INCY is INTEGER
 !!          storage spacing between elements of CY
 !!
 !!##AUTHORS
@@ -593,7 +580,7 @@ end subroutine ccopy
       END FUNCTION CDOTU
 !>
 !!##NAME
-!!    cgbmv.(3f) -- [BLAS:COMPLEX_BLAS_LEVEL2]
+!!    cgbmv(3f) - [BLAS:COMPLEX_BLAS_LEVEL2] CY := alpha*A*CX + beta*CY; ==> A is a rectangular band matrix).
 !!
 !!##SYNOPSIS
 !!
@@ -623,8 +610,6 @@ end subroutine ccopy
 !!##OPTIONS
 !!
 !!   TRANS
-!!
-!!           TRANS is CHARACTER*1
 !!            On entry, TRANS specifies the operation to be performed as
 !!            follows:
 !!
@@ -635,48 +620,39 @@ end subroutine ccopy
 !!               TRANS = 'C' or 'c'   y := alpha*A**H*x + beta*y.
 !!
 !!   M
-!!
-!!           M is INTEGER
 !!            On entry, M specifies the number of rows of the matrix A.
 !!            M must be at least zero.
 !!
 !!   N
-!!
-!!           N is INTEGER
 !!            On entry, N specifies the number of columns of the matrix A.
 !!            N must be at least zero.
 !!
 !!   KL
-!!
-!!           KL is INTEGER
 !!            On entry, KL specifies the number of sub-diagonals of the
 !!            matrix A. KL must satisfy  0 .le. KL.
 !!
 !!   KU
-!!
-!!           KU is INTEGER
-!!            On entry, KU specifies the number of super-diagonals of the
-!!            matrix A. KU must satisfy  0 .le. KU.
+!!           On entry, KU specifies the number of super-diagonals of the
+!!           matrix A. KU must satisfy  0 .le. KU.
 !!
 !!   ALPHA
-!!
-!!           ALPHA is COMPLEX
-!!            On entry, ALPHA specifies the scalar alpha.
+!!           On entry, ALPHA specifies the scalar alpha.
 !!
 !!   A
-!!
 !!           A is COMPLEX array, dimension ( LDA, N )
-!!            Before entry, the leading ( kl + ku + 1 ) by n part of the
-!!            array A must contain the matrix of coefficients, supplied
-!!            column by column, with the leading diagonal of the matrix in
-!!            row ( ku + 1 ) of the array, the first super-diagonal
-!!            starting at position 2 in row ku, the first sub-diagonal
-!!            starting at position 1 in row ( ku + 2 ), and so on.
-!!            Elements in the array A that do not correspond to elements
-!!            in the band matrix (such as the top left ku by ku triangle)
-!!            are not referenced.
-!!            The following program segment will transfer a band matrix
-!!            from conventional full matrix storage to band storage:
+!!           Before entry, the leading ( kl + ku + 1 ) by n part of the
+!!           array A must contain the matrix of coefficients, supplied
+!!           column by column, with the leading diagonal of the matrix in
+!!           row ( ku + 1 ) of the array, the first super-diagonal
+!!           starting at position 2 in row ku, the first sub-diagonal
+!!           starting at position 1 in row ( ku + 2 ), and so on.
+!!
+!!           Elements in the array A that do not correspond to elements
+!!           in the band matrix (such as the top left ku by ku triangle)
+!!           are not referenced.
+!!
+!!           The following program segment will transfer a band matrix
+!!           from conventional full matrix storage to band storage:
 !!
 !!                  DO 20, J = 1, N
 !!                     K = KU + 1 - J
@@ -686,47 +662,40 @@ end subroutine ccopy
 !!               20 CONTINUE
 !!
 !!   LDA
-!!
-!!           LDA is INTEGER
-!!            On entry, LDA specifies the first dimension of A as declared
-!!            in the calling (sub) program. LDA must be at least
-!!            ( kl + ku + 1 ).
+!!           On entry, LDA specifies the first dimension of A as declared
+!!           in the calling (sub) program. LDA must be at least
+!!           ( kl + ku + 1 ).
 !!
 !!   X
-!!
 !!           X is COMPLEX array, dimension at least
-!!            ( 1 + ( n - 1 )*abs( INCX ) ) when TRANS = 'N' or 'n'
-!!            and at least
-!!            ( 1 + ( m - 1 )*abs( INCX ) ) otherwise.
-!!            Before entry, the incremented array X must contain the
-!!            vector x.
+!!           ( 1 + ( n - 1 )*abs( INCX ) ) when TRANS = 'N' or 'n'
+!!           and at least
+!!           ( 1 + ( m - 1 )*abs( INCX ) ) otherwise.
+!!           Before entry, the incremented array X must contain the
+!!           vector x.
 !!
 !!   INCX
-!!
 !!           INCX is INTEGER
-!!            On entry, INCX specifies the increment for the elements of
-!!            X. INCX must not be zero.
+!!           On entry, INCX specifies the increment for the elements of
+!!           X. INCX must not be zero.
 !!
 !!   BETA
-!!
 !!           BETA is COMPLEX
-!!            On entry, BETA specifies the scalar beta. When BETA is
-!!            supplied as zero then Y need not be set on input.
+!!           On entry, BETA specifies the scalar beta. When BETA is
+!!           supplied as zero then Y need not be set on input.
 !!
-!!  out] Y
-!!
+!!  Y
 !!           Y is COMPLEX array, dimension at least
-!!            ( 1 + ( m - 1 )*abs( INCY ) ) when TRANS = 'N' or 'n'
-!!            and at least
-!!            ( 1 + ( n - 1 )*abs( INCY ) ) otherwise.
-!!            Before entry, the incremented array Y must contain the
-!!            vector y. On exit, Y is overwritten by the updated vector y.
+!!           ( 1 + ( m - 1 )*abs( INCY ) ) when TRANS = 'N' or 'n'
+!!           and at least
+!!           ( 1 + ( n - 1 )*abs( INCY ) ) otherwise.
+!!           Before entry, the incremented array Y must contain the
+!!           vector y. On exit, Y is overwritten by the updated vector y.
 !!
 !!   INCY
-!!
 !!           INCY is INTEGER
-!!            On entry, INCY specifies the increment for the elements of
-!!            Y. INCY must not be zero.
+!!           On entry, INCY specifies the increment for the elements of
+!!           Y. INCY must not be zero.
 !!
 !!##AUTHORS
 !! + Univ. of Tennessee
@@ -817,8 +786,8 @@ implicit none
 !
       noconj = lsame(trans,'T')
 !
-!     Set  LENX  and  LENY, the lengths of the vectors x and y, and set
-!     up the start points in  X  and  Y.
+!     Set LENX and LENY,the lengths of the vectors x and y, and set
+!     up the start points in X and Y.
 !
       if (lsame(trans,'N')) then
           lenx = n
@@ -945,7 +914,7 @@ implicit none
 end subroutine cgbmv
 !>
 !!##NAME
-!!    cgemm.(3f) -- [BLAS:COMPLEX_BLAS_LEVEL3]
+!!    cgemm(3f) - [BLAS:COMPLEX_BLAS_LEVEL3] C:=alpha*A*B+beta*C; ==> A, B, C rectangular.
 !!
 !!##SYNOPSIS
 !!
@@ -964,22 +933,21 @@ end subroutine cgbmv
 !!
 !!##DEFINITION
 !!
-!!  CGEMM  performs one of the matrix-matrix operations
+!!  CGEMM performs one of the matrix-matrix operations
 !!
 !!     C := alpha*op( A )*op( B ) + beta*C,
 !!
-!!  where  op( X ) is one of
+!!  where op( X ) is one of
 !!
 !!     op( X ) = X   or   op( X ) = X**T   or   op( X ) = X**H,
 !!
 !!  alpha and beta are scalars, and A, B and C are matrices, with op( A )
-!!  an m by k matrix,  op( B )  a  k by n matrix and  C an m by n matrix.
+!!  an m by k matrix,  op( B )  a K by N matrix and C an M by N matrix.
 !!
 !!##OPTIONS
 !!
 !!   TRANSA
 !!
-!!           TRANSA is CHARACTER*1
 !!            On entry, TRANSA specifies the form of op( A ) to be used in
 !!            the matrix multiplication as follows:
 !!
@@ -1002,24 +970,22 @@ end subroutine cgbmv
 !!               TRANSB = 'C' or 'c',  op( B ) = B**H.
 !!
 !!   M
-!!
-!!           M is INTEGER
-!!            On entry,  M  specifies  the number  of rows  of the  matrix
-!!            op( A )  and of the  matrix  C.  M  must  be at least  zero.
+!!            On entry, M specifies the number of rows of the matrix
+!!            op( A ) and of the matrix C. M must be at least zero.
 !!
 !!   N
 !!
 !!           N is INTEGER
-!!            On entry,  N  specifies the number  of columns of the matrix
+!!            On entry, N specifies the number of columns of the matrix
 !!            op( B ) and the number of columns of the matrix C. N must be
 !!            at least zero.
 !!
 !!   K
 !!
 !!           K is INTEGER
-!!            On entry,  K  specifies  the number of columns of the matrix
+!!            On entry, K specifies the number of columns of the matrix
 !!            op( A ) and the number of rows of the matrix op( B ). K must
-!!            be at least  zero.
+!!            be at least zero.
 !!
 !!   ALPHA
 !!
@@ -1029,57 +995,57 @@ end subroutine cgbmv
 !!   A
 !!
 !!           A is COMPLEX array, dimension ( LDA, ka ), where ka is
-!!            k  when  TRANSA = 'N' or 'n',  and is  m  otherwise.
-!!            Before entry with  TRANSA = 'N' or 'n',  the leading  m by k
-!!            part of the array  A  must contain the matrix  A,  otherwise
-!!            the leading  k by m  part of the array  A  must contain  the
+!!            k when TRANSA = 'N' or 'n', and is m otherwise.
+!!            Before entry with TRANSA = 'N' or 'n', the leading m by k
+!!            part of the array A must contain the matrix A, otherwise
+!!            the leading k by m part of the array A must contain the
 !!            matrix A.
 !!
 !!   LDA
 !!
 !!           LDA is INTEGER
 !!            On entry, LDA specifies the first dimension of A as declared
-!!            in the calling (sub) program. When  TRANSA = 'N' or 'n' then
-!!            LDA must be at least  max( 1, m ), otherwise  LDA must be at
-!!            least  max( 1, k ).
+!!            in the calling (sub) program. When TRANSA = 'N' or 'n' then
+!!            LDA must be at least max( 1, m ), otherwise LDA must be at
+!!            least max( 1, k ).
 !!
 !!   B
 !!
 !!           B is COMPLEX array, dimension ( LDB, kb ), where kb is
-!!            n  when  TRANSB = 'N' or 'n',  and is  k  otherwise.
-!!            Before entry with  TRANSB = 'N' or 'n',  the leading  k by n
-!!            part of the array  B  must contain the matrix  B,  otherwise
-!!            the leading  n by k  part of the array  B  must contain  the
+!!            n when TRANSB = 'N' or 'n', and is k otherwise.
+!!            Before entry with TRANSB = 'N' or 'n', the leading k by n
+!!            part of the array B must contain the matrix B, otherwise
+!!            the leading n by k part of the array B must contain the
 !!            matrix B.
 !!
 !!   LDB
 !!
 !!           LDB is INTEGER
 !!            On entry, LDB specifies the first dimension of B as declared
-!!            in the calling (sub) program. When  TRANSB = 'N' or 'n' then
-!!            LDB must be at least  max( 1, k ), otherwise  LDB must be at
-!!            least  max( 1, n ).
+!!            in the calling (sub) program. When TRANSB = 'N' or 'n' then
+!!            LDB must be at least max( 1, k ), otherwise LDB must be at
+!!            least max( 1, n ).
 !!
 !!   BETA
 !!
 !!           BETA is COMPLEX
-!!            On entry,  BETA  specifies the scalar  beta.  When  BETA  is
+!!            On entry, BETA specifies the scalar beta. When BETA is
 !!            supplied as zero then C need not be set on input.
 !!
-!!  out] C
+!!  C
 !!
 !!           C is COMPLEX array, dimension ( LDC, N )
-!!            Before entry, the leading  m by n  part of the array  C must
-!!            contain the matrix  C,  except when  beta  is zero, in which
+!!            Before entry, the leading m by n part of the array C must
+!!            contain the matrix C, except when beta is zero, in which
 !!            case C need not be set on entry.
-!!            On exit, the array  C  is overwritten by the  m by n  matrix
+!!            On exit, the array C is overwritten by the m by n matrix
 !!            ( alpha*op( A )*op( B ) + beta*C ).
 !!
 !!   LDC
 !!
 !!           LDC is INTEGER
 !!            On entry, LDC specifies the first dimension of C as declared
-!!            in  the  calling  (sub)  program.   LDC  must  be  at  least
+!!            in the calling (sub) program. LDC must be at least
 !!            max( 1, m ).
 !!
 !!##AUTHORS
@@ -1392,7 +1358,7 @@ end subroutine cgbmv
       END SUBROUTINE CGEMM
 !>
 !!##NAME
-!!    cgemv.(3f) -- [BLAS:COMPLEX_BLAS_LEVEL2]
+!!    cgemv(3f) - [BLAS:COMPLEX_BLAS_LEVEL2] CY := alpha*A*CX + beta*CY; ==> A a rectangular matrix.
 !!
 !!##SYNOPSIS
 !!
@@ -1485,7 +1451,7 @@ end subroutine cgbmv
 !!            On entry, BETA specifies the scalar beta. When BETA is
 !!            supplied as zero then Y need not be set on input.
 !!
-!!  out] Y
+!!  Y
 !!
 !!           Y is COMPLEX array, dimension at least
 !!            ( 1 + ( m - 1 )*abs( INCY ) ) when TRANS = 'N' or 'n'
@@ -1708,7 +1674,7 @@ end subroutine cgbmv
       END SUBROUTINE CGEMV
 !>
 !!##NAME
-!!    cgerc.(3f) -- [BLAS:COMPLEX_BLAS_LEVEL2]
+!!    cgerc(3f) - [BLAS:COMPLEX_BLAS_LEVEL2] A := A + alpha*CX*CONJUGATE-TRANSPOSE(CY); ==> A is a rectangular matrix.
 !!
 !!##SYNOPSIS
 !!
@@ -1725,7 +1691,7 @@ end subroutine cgbmv
 !!
 !!##DEFINITION
 !!
-!!  CGERC  performs the rank 1 operation
+!!  CGERC performs the rank 1 operation
 !!
 !!     A := alpha*x*y**H + A,
 !!
@@ -1777,7 +1743,7 @@ end subroutine cgbmv
 !!            On entry, INCY specifies the increment for the elements of
 !!            Y. INCY must not be zero.
 !!
-!!  out] A
+!!  A
 !!
 !!           A is COMPLEX array, dimension ( LDA, N )
 !!            Before entry, the leading m by n part of the array A must
@@ -1910,7 +1876,7 @@ end subroutine cgbmv
       END SUBROUTINE CGERC
 !>
 !!##NAME
-!!    cgeru.(3f) -- [BLAS:COMPLEX_BLAS_LEVEL2]
+!!    cgeru(3f) - [BLAS:COMPLEX_BLAS_LEVEL2] A := A + alpha*CX*TRANSPOSE(CY); ==> A is a rectangular matrix.
 !!
 !!##SYNOPSIS
 !!
@@ -1927,7 +1893,7 @@ end subroutine cgbmv
 !!
 !!##DEFINITION
 !!
-!!  CGERU  performs the rank 1 operation
+!!  CGERU performs the rank 1 operation
 !!
 !!     A := alpha*x*y**T + A,
 !!
@@ -1979,7 +1945,7 @@ end subroutine cgbmv
 !!            On entry, INCY specifies the increment for the elements of
 !!            Y. INCY must not be zero.
 !!
-!!  out] A
+!!  A
 !!
 !!           A is COMPLEX array, dimension ( LDA, N )
 !!            Before entry, the leading m by n part of the array A must
@@ -2112,7 +2078,7 @@ end subroutine cgbmv
       END SUBROUTINE CGERU
 !>
 !!##NAME
-!!    chbmv.(3f) -- [BLAS:COMPLEX_BLAS_LEVEL2]
+!!    chbmv(3f) - [BLAS:COMPLEX_BLAS_LEVEL2] CY := alpha*A*CX + beta*CY; ==> A a (square) hermitian band matrix.
 !!
 !!##SYNOPSIS
 !!
@@ -2130,7 +2096,7 @@ end subroutine cgbmv
 !!
 !!##DEFINITION
 !!
-!!  CHBMV  performs the matrix-vector operation
+!!  CHBMV(3f) performs the matrix-vector operation
 !!
 !!     y := alpha*A*x + beta*y,
 !!
@@ -2162,7 +2128,7 @@ end subroutine cgbmv
 !!
 !!           K is INTEGER
 !!            On entry, K specifies the number of super-diagonals of the
-!!            matrix A. K must satisfy  0 .le. K.
+!!            matrix A. K must satisfy 0 .le. K.
 !!
 !!   ALPHA
 !!
@@ -2236,7 +2202,7 @@ end subroutine cgbmv
 !!           BETA is COMPLEX
 !!            On entry, BETA specifies the scalar beta.
 !!
-!!  out] Y
+!!  Y
 !!
 !!           Y is COMPLEX array, dimension at least
 !!            ( 1 + ( n - 1 )*abs( INCY ) ).
@@ -2461,7 +2427,7 @@ end subroutine cgbmv
       END SUBROUTINE CHBMV
 !>
 !!##NAME
-!!    chemm.(3f) -- [BLAS:COMPLEX_BLAS_LEVEL3]
+!!    chemm(3f) - [BLAS:COMPLEX_BLAS_LEVEL3] C:=alpha*A*TRANSPOSE(A)+beta*C; ==> A hermitian, B, C rectangular.
 !!
 !!##SYNOPSIS
 !!
@@ -2479,7 +2445,7 @@ end subroutine cgbmv
 !!
 !!##DEFINITION
 !!
-!!  CHEMM  performs one of the matrix-matrix operations
+!!  CHEMM performs one of the matrix-matrix operations
 !!
 !!     C := alpha*A*B + beta*C,
 !!
@@ -2487,7 +2453,7 @@ end subroutine cgbmv
 !!
 !!     C := alpha*B*A + beta*C,
 !!
-!!  where alpha and beta are scalars, A is an hermitian matrix and  B and
+!!  where alpha and beta are scalars, A is an hermitian matrix and B and
 !!  C are m by n matrices.
 !!
 !!##OPTIONS
@@ -2495,8 +2461,8 @@ end subroutine cgbmv
 !!   SIDE
 !!
 !!           SIDE is CHARACTER*1
-!!            On entry,  SIDE  specifies whether  the  hermitian matrix  A
-!!            appears on the  left or right  in the  operation as follows:
+!!            On entry, SIDE specifies whether the hermitian matrix A
+!!            appears on the left or right in the operation as follows:
 !!
 !!               SIDE = 'L' or 'l'   C := alpha*A*B + beta*C,
 !!
@@ -2505,8 +2471,8 @@ end subroutine cgbmv
 !!   UPLO
 !!
 !!           UPLO is CHARACTER*1
-!!            On  entry,   UPLO  specifies  whether  the  upper  or  lower
-!!            triangular  part  of  the  hermitian  matrix   A  is  to  be
+!!            On entry, UPLO specifies whether the upper or lower
+!!            triangular part of the hermitian matrix A is to be
 !!            referenced as follows:
 !!
 !!               UPLO = 'U' or 'u'   Only the upper triangular part of the
@@ -2518,14 +2484,14 @@ end subroutine cgbmv
 !!   M
 !!
 !!           M is INTEGER
-!!            On entry,  M  specifies the number of rows of the matrix  C.
-!!            M  must be at least zero.
+!!            On entry, M specifies the number of rows of the matrix C.
+!!            M must be at least zero.
 !!
 !!   N
 !!
 !!           N is INTEGER
 !!            On entry, N specifies the number of columns of the matrix C.
-!!            N  must be at least zero.
+!!            N must be at least zero.
 !!
 !!   ALPHA
 !!
@@ -2535,71 +2501,71 @@ end subroutine cgbmv
 !!   A
 !!
 !!           A is COMPLEX array, dimension ( LDA, ka ), where ka is
-!!            m  when  SIDE = 'L' or 'l'  and is n  otherwise.
-!!            Before entry  with  SIDE = 'L' or 'l',  the  m by m  part of
-!!            the array  A  must contain the  hermitian matrix,  such that
-!!            when  UPLO = 'U' or 'u', the leading m by m upper triangular
-!!            part of the array  A  must contain the upper triangular part
-!!            of the  hermitian matrix and the  strictly  lower triangular
-!!            part of  A  is not referenced,  and when  UPLO = 'L' or 'l',
-!!            the leading  m by m  lower triangular part  of the  array  A
-!!            must  contain  the  lower triangular part  of the  hermitian
-!!            matrix and the  strictly upper triangular part of  A  is not
+!!            m when SIDE = 'L' or 'l' and is n otherwise.
+!!            Before entry with SIDE = 'L' or 'l', the m by m part of
+!!            the array A must contain the hermitian matrix, such that
+!!            when UPLO = 'U' or 'u', the leading m by m upper triangular
+!!            part of the array A must contain the upper triangular part
+!!            of the hermitian matrix and the strictly lower triangular
+!!            part of A is not referenced, and when UPLO = 'L' or 'l',
+!!            the leading m by m lower triangular part of the array A
+!!            must contain the lower triangular part of the hermitian
+!!            matrix and the strictly upper triangular part of A is not
 !!            referenced.
-!!            Before entry  with  SIDE = 'R' or 'r',  the  n by n  part of
-!!            the array  A  must contain the  hermitian matrix,  such that
-!!            when  UPLO = 'U' or 'u', the leading n by n upper triangular
-!!            part of the array  A  must contain the upper triangular part
-!!            of the  hermitian matrix and the  strictly  lower triangular
-!!            part of  A  is not referenced,  and when  UPLO = 'L' or 'l',
-!!            the leading  n by n  lower triangular part  of the  array  A
-!!            must  contain  the  lower triangular part  of the  hermitian
-!!            matrix and the  strictly upper triangular part of  A  is not
+!!            Before entry with SIDE = 'R' or 'r', the n by n part of
+!!            the array A must contain the hermitian matrix, such that
+!!            when UPLO = 'U' or 'u', the leading n by n upper triangular
+!!            part of the array A must contain the upper triangular part
+!!            of the hermitian matrix and the strictly lower triangular
+!!            part of A is not referenced, and when UPLO = 'L' or 'l',
+!!            the leading n by n lower triangular part of the array A
+!!            must contain the lower triangular part of the hermitian
+!!            matrix and the strictly upper triangular part of A is not
 !!            referenced.
-!!            Note that the imaginary parts  of the diagonal elements need
+!!            Note that the imaginary parts of the diagonal elements need
 !!            not be set, they are assumed to be zero.
 !!
 !!   LDA
 !!
 !!           LDA is INTEGER
 !!            On entry, LDA specifies the first dimension of A as declared
-!!            in the  calling (sub) program. When  SIDE = 'L' or 'l'  then
-!!            LDA must be at least  max( 1, m ), otherwise  LDA must be at
+!!            in the calling (sub) program. When SIDE = 'L' or 'l' then
+!!            LDA must be at least max( 1, m ), otherwise LDA must be at
 !!            least max( 1, n ).
 !!
 !!   B
 !!
 !!           B is COMPLEX array, dimension ( LDB, N )
-!!            Before entry, the leading  m by n part of the array  B  must
+!!            Before entry, the leading m by n part of the array B must
 !!            contain the matrix B.
 !!
 !!   LDB
 !!
 !!           LDB is INTEGER
 !!            On entry, LDB specifies the first dimension of B as declared
-!!            in  the  calling  (sub)  program.   LDB  must  be  at  least
+!!            in the calling (sub) program. LDB must be at least
 !!            max( 1, m ).
 !!
 !!   BETA
 !!
 !!           BETA is COMPLEX
-!!            On entry,  BETA  specifies the scalar  beta.  When  BETA  is
+!!            On entry, BETA specifies the scalar beta. When BETA is
 !!            supplied as zero then C need not be set on input.
 !!
-!!  out] C
+!!  C
 !!
 !!           C is COMPLEX array, dimension ( LDC, N )
-!!            Before entry, the leading  m by n  part of the array  C must
-!!            contain the matrix  C,  except when  beta  is zero, in which
+!!            Before entry, the leading m by n part of the array C must
+!!            contain the matrix C, except when beta is zero, in which
 !!            case C need not be set on entry.
-!!            On exit, the array  C  is overwritten by the  m by n updated
+!!            On exit, the array C is overwritten by the m by n updated
 !!            matrix.
 !!
 !!   LDC
 !!
 !!           LDC is INTEGER
 !!            On entry, LDC specifies the first dimension of C as declared
-!!            in  the  calling  (sub)  program.   LDC  must  be  at  least
+!!            in the calling (sub) program. LDC must be at least
 !!            max( 1, m ).
 !!
 !!##AUTHORS
@@ -2785,7 +2751,7 @@ end subroutine cgbmv
       END SUBROUTINE CHEMM
 !>
 !!##NAME
-!!    chemv.(3f) -- [BLAS:COMPLEX_BLAS_LEVEL2]
+!!    chemv(3f) - [BLAS:COMPLEX_BLAS_LEVEL2] CY := alpha*A*CX + beta*CY; ==> A a (square) hermitian matrix.
 !!
 !!##SYNOPSIS
 !!
@@ -2803,7 +2769,7 @@ end subroutine cgbmv
 !!
 !!##DEFINITION
 !!
-!!  CHEMV  performs the matrix-vector  operation
+!!  CHEMV  performs the matrix-vector operation
 !!
 !!     y := alpha*A*x + beta*y,
 !!
@@ -2839,7 +2805,7 @@ end subroutine cgbmv
 !!   A
 !!
 !!           A is COMPLEX array, dimension ( LDA, N )
-!!            Before entry with  UPLO = 'U' or 'u', the leading n by n
+!!            Before entry with UPLO = 'U' or 'u', the leading n by n
 !!            upper triangular part of the array A must contain the upper
 !!            triangular part of the hermitian matrix and the strictly
 !!            lower triangular part of A is not referenced.
@@ -2876,7 +2842,7 @@ end subroutine cgbmv
 !!            On entry, BETA specifies the scalar beta. When BETA is
 !!            supplied as zero then Y need not be set on input.
 !!
-!!  out] Y
+!!  Y
 !!
 !!           Y is COMPLEX array, dimension at least
 !!            ( 1 + ( n - 1 )*abs( INCY ) ).
@@ -3090,25 +3056,27 @@ end subroutine cgbmv
       END SUBROUTINE CHEMV
 !>
 !!##NAME
-!!    cher2.(3f) -- [BLAS:COMPLEX_BLAS_LEVEL2]
+!!    cher2(3f) - [BLAS:COMPLEX_BLAS_LEVEL2] A := A + alpha*CX*CONJUGATE-TRANSPOSE(CY)n + CONJUGATE(alpha)*CY*CONJUGATE-TRANSPOSE(CX);
+!!    ==> n A a (square) hermitian matrix.
+!!    (performs the hermitian rank 2 operation)
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE CHER2(UPLO,N,ALPHA,X,INCX,Y,INCY,A,LDA)
+!!     subroutine cher2(uplo,n,alpha,x,incx,y,incy,a,lda)
 !!
 !!       .. Scalar Arguments ..
-!!       COMPLEX,intent(in)     :: ALPHA
-!!       INTEGER,intent(in)     :: INCX,INCY,LDA,N
-!!       CHARACTER,intent(in)   :: UPLO
+!!       complex,intent(in)     :: alpha
+!!       integer,intent(in)     :: incx,incy,lda,n
+!!       character,intent(in)   :: uplo
 !!       ..
 !!       .. Array Arguments ..
-!!       COMPLEX,intent(inout)  :: A(LDA,*)
-!!       COMPLEX,intent(in)     :: X(*),Y(*)
+!!       complex,intent(inout)  :: a(lda,*)
+!!       complex,intent(in)     :: x(*),y(*)
 !!       ..
 !!
 !!##DEFINITION
 !!
-!!  CHER2  performs the hermitian rank 2 operation
+!!  CHER2 performs the hermitian rank 2 operation
 !!
 !!     A := alpha*x*y**H + conjg( alpha )*y*x**H + A,
 !!
@@ -3167,10 +3135,10 @@ end subroutine cgbmv
 !!            On entry, INCY specifies the increment for the elements of
 !!            Y. INCY must not be zero.
 !!
-!!  out] A
+!!  A
 !!
 !!           A is COMPLEX array, dimension ( LDA, N )
-!!            Before entry with  UPLO = 'U' or 'u', the leading n by n
+!!            Before entry with UPLO = 'U' or 'u', the leading n by n
 !!            upper triangular part of the array A must contain the upper
 !!            triangular part of the hermitian matrix and the strictly
 !!            lower triangular part of A is not referenced. On exit, the
@@ -3376,7 +3344,9 @@ end subroutine cgbmv
       END SUBROUTINE CHER2
 !>
 !!##NAME
-!!    cher2k.(3f) -- [BLAS:COMPLEX_BLAS_LEVEL3]
+!!    cher2k(3f) - [BLAS:COMPLEX_BLAS_LEVEL3]
+!!    C:=alpha*A*TRANSPOSE(B)+alpha*B*TRANSPOSE(A)+beta*C; ==> C hermitian.
+!!    (performs one of the hermitian rank 2k operations)
 !!
 !!##SYNOPSIS
 !!
@@ -3395,7 +3365,7 @@ end subroutine cgbmv
 !!
 !!##DEFINITION
 !!
-!!  CHER2K  performs one of the hermitian rank 2k operations
+!!  CHER2K performs one of the hermitian rank 2k operations
 !!
 !!     C := alpha*A*B**H + conjg( alpha )*B*A**H + beta*C,
 !!
@@ -3403,29 +3373,29 @@ end subroutine cgbmv
 !!
 !!     C := alpha*A**H*B + conjg( alpha )*B**H*A + beta*C,
 !!
-!!  where  alpha and beta  are scalars with  beta  real,  C is an  n by n
-!!  hermitian matrix and  A and B  are  n by k matrices in the first case
-!!  and  k by n  matrices in the second case.
+!!  where alpha and beta are scalars with beta real, C is an n by n
+!!  hermitian matrix and A and B are n by k matrices in the first case
+!!  and k by n matrices in the second case.
 !!
 !!##OPTIONS
 !!
 !!   UPLO
 !!
 !!           UPLO is CHARACTER*1
-!!            On  entry,   UPLO  specifies  whether  the  upper  or  lower
-!!            triangular  part  of the  array  C  is to be  referenced  as
+!!            On entry, UPLO specifies whether the upper or lower
+!!            triangular part of the array C is to be referenced as
 !!            follows:
 !!
-!!               UPLO = 'U' or 'u'   Only the  upper triangular part of  C
+!!               UPLO = 'U' or 'u'   Only the upper triangular part of C
 !!                                   is to be referenced.
 !!
-!!               UPLO = 'L' or 'l'   Only the  lower triangular part of  C
+!!               UPLO = 'L' or 'l'   Only the lower triangular part of C
 !!                                   is to be referenced.
 !!
 !!   TRANS
 !!
 !!           TRANS is CHARACTER*1
-!!            On entry,  TRANS  specifies the operation to be performed as
+!!            On entry, TRANS specifies the operation to be performed as
 !!            follows:
 !!
 !!               TRANS = 'N' or 'n'    C := alpha*A*B**H          +
@@ -3439,16 +3409,16 @@ end subroutine cgbmv
 !!   N
 !!
 !!           N is INTEGER
-!!            On entry,  N specifies the order of the matrix C.  N must be
+!!            On entry, N specifies the order of the matrix C. N must be
 !!            at least zero.
 !!
 !!   K
 !!
 !!           K is INTEGER
-!!            On entry with  TRANS = 'N' or 'n',  K  specifies  the number
-!!            of  columns  of the  matrices  A and B,  and on  entry  with
-!!            TRANS = 'C' or 'c',  K  specifies  the number of rows of the
-!!            matrices  A and B.  K must be at least zero.
+!!            On entry with TRANS = 'N' or 'n', K specifies the number
+!!            of columns of the matrices A and B, and on entry with
+!!            TRANS = 'C' or 'c', K specifies the number of rows of the
+!!            matrices A and B. K must be at least zero.
 !!
 !!   ALPHA
 !!
@@ -3458,66 +3428,66 @@ end subroutine cgbmv
 !!   A
 !!
 !!           A is COMPLEX array, dimension ( LDA, ka ), where ka is
-!!            k  when  TRANS = 'N' or 'n',  and is  n  otherwise.
-!!            Before entry with  TRANS = 'N' or 'n',  the  leading  n by k
-!!            part of the array  A  must contain the matrix  A,  otherwise
-!!            the leading  k by n  part of the array  A  must contain  the
+!!            k when TRANS = 'N' or 'n', and is n otherwise.
+!!            Before entry with TRANS = 'N' or 'n', the leading n by k
+!!            part of the array A must contain the matrix A, otherwise
+!!            the leading k by n part of the array A must contain the
 !!            matrix A.
 !!
 !!   LDA
 !!
 !!           LDA is INTEGER
 !!            On entry, LDA specifies the first dimension of A as declared
-!!            in  the  calling  (sub)  program.   When  TRANS = 'N' or 'n'
-!!            then  LDA must be at least  max( 1, n ), otherwise  LDA must
-!!            be at least  max( 1, k ).
+!!            in the calling (sub) program. When TRANS = 'N' or 'n'
+!!            then LDA must be at least max( 1, n ), otherwise LDA must
+!!            be at least max( 1, k ).
 !!
 !!   B
 !!
 !!           B is COMPLEX array, dimension ( LDB, kb ), where kb is
-!!            k  when  TRANS = 'N' or 'n',  and is  n  otherwise.
-!!            Before entry with  TRANS = 'N' or 'n',  the  leading  n by k
-!!            part of the array  B  must contain the matrix  B,  otherwise
-!!            the leading  k by n  part of the array  B  must contain  the
+!!            k when TRANS = 'N' or 'n', and is n otherwise.
+!!            Before entry with TRANS = 'N' or 'n', the leading n by k
+!!            part of the array B must contain the matrix B, otherwise
+!!            the leading k by n part of the array B must contain the
 !!            matrix B.
 !!
 !!   LDB
 !!
 !!           LDB is INTEGER
 !!            On entry, LDB specifies the first dimension of B as declared
-!!            in  the  calling  (sub)  program.   When  TRANS = 'N' or 'n'
-!!            then  LDB must be at least  max( 1, n ), otherwise  LDB must
-!!            be at least  max( 1, k ).
+!!            in the calling (sub) program. When TRANS = 'N' or 'n'
+!!            then LDB must be at least max( 1, n ), otherwise LDB must
+!!            be at least max( 1, k ).
 !!
 !!   BETA
 !!
 !!           BETA is REAL
 !!            On entry, BETA specifies the scalar beta.
 !!
-!!  out] C
+!!  C
 !!
 !!           C is COMPLEX array, dimension ( LDC, N )
-!!            Before entry  with  UPLO = 'U' or 'u',  the leading  n by n
+!!            Before entry with UPLO = 'U' or 'u', the leading n by n
 !!            upper triangular part of the array C must contain the upper
-!!            triangular part  of the  hermitian matrix  and the strictly
-!!            lower triangular part of C is not referenced.  On exit, the
-!!            upper triangular part of the array  C is overwritten by the
+!!            triangular part of the hermitian matrix and the strictly
+!!            lower triangular part of C is not referenced. On exit, the
+!!            upper triangular part of the array C is overwritten by the
 !!            upper triangular part of the updated matrix.
-!!            Before entry  with  UPLO = 'L' or 'l',  the leading  n by n
+!!            Before entry with UPLO = 'L' or 'l', the leading n by n
 !!            lower triangular part of the array C must contain the lower
-!!            triangular part  of the  hermitian matrix  and the strictly
-!!            upper triangular part of C is not referenced.  On exit, the
-!!            lower triangular part of the array  C is overwritten by the
+!!            triangular part of the hermitian matrix and the strictly
+!!            upper triangular part of C is not referenced. On exit, the
+!!            lower triangular part of the array C is overwritten by the
 !!            lower triangular part of the updated matrix.
 !!            Note that the imaginary parts of the diagonal elements need
-!!            not be set,  they are assumed to be zero,  and on exit they
+!!            not be set, they are assumed to be zero, and on exit they
 !!            are set to zero.
 !!
 !!   LDC
 !!
 !!           LDC is INTEGER
 !!            On entry, LDC specifies the first dimension of C as declared
-!!            in  the  calling  (sub)  program.   LDC  must  be  at  least
+!!            in the calling (sub) program. LDC must be at least
 !!            max( 1, n ).
 !!
 !!##AUTHORS
@@ -3768,7 +3738,8 @@ end subroutine cgbmv
       END SUBROUTINE CHER2K
 !>
 !!##NAME
-!!    cher.(3f) -- [BLAS:COMPLEX_BLAS_LEVEL2]
+!!    cher(3f) - [BLAS:COMPLEX_BLAS_LEVEL2] A := A + alpha*CX*CONJUGATE-TRANSPOSE(CX); ==> A a (square) hermitian matrix.
+!!    (performs the hermitian rank 1 operation)
 !!
 !!##SYNOPSIS
 !!
@@ -3786,7 +3757,7 @@ end subroutine cgbmv
 !!
 !!##DEFINITION
 !!
-!!  CHER   performs the hermitian rank 1 operation
+!!  CHER performs the hermitian rank 1 operation
 !!
 !!     A := alpha*x*x**H + A,
 !!
@@ -3832,10 +3803,10 @@ end subroutine cgbmv
 !!            On entry, INCX specifies the increment for the elements of
 !!            X. INCX must not be zero.
 !!
-!!  out] A
+!!  A
 !!
 !!           A is COMPLEX array, dimension ( LDA, N )
-!!            Before entry with  UPLO = 'U' or 'u', the leading n by n
+!!            Before entry with UPLO = 'U' or 'u', the leading n by n
 !!            upper triangular part of the array A must contain the upper
 !!            triangular part of the hermitian matrix and the strictly
 !!            lower triangular part of A is not referenced. On exit, the
@@ -4021,7 +3992,8 @@ implicit none
 END SUBROUTINE CHER
 !>
 !!##NAME
-!!    cherk.(3f) -- [BLAS:COMPLEX_BLAS_LEVEL3]
+!!    cherk(3f) - [BLAS:COMPLEX_BLAS_LEVEL3] performs one of the hermitian rank k operations
+!! C:=alpha*A*TRANSPOSE(A)+beta*C, C hermitian.
 !!
 !!##SYNOPSIS
 !!
@@ -4039,7 +4011,7 @@ END SUBROUTINE CHER
 !!
 !!##DEFINITION
 !!
-!!  CHERK  performs one of the hermitian rank k operations
+!!  CHERK performs one of the hermitian rank k operations
 !!
 !!     C := alpha*A*A**H + beta*C,
 !!
@@ -4047,8 +4019,8 @@ END SUBROUTINE CHER
 !!
 !!     C := alpha*A**H*A + beta*C,
 !!
-!!  where  alpha and beta  are  real scalars,  C is an  n by n  hermitian
-!!  matrix and  A  is an  n by k  matrix in the  first case and a  k by n
+!!  where alpha and beta are real scalars, C is an n by n hermitian
+!!  matrix and A is an n by k matrix in the first case and a k by n
 !!  matrix in the second case.
 !!
 !!##OPTIONS
@@ -4056,8 +4028,8 @@ END SUBROUTINE CHER
 !!   UPLO
 !!
 !!           UPLO is CHARACTER*1
-!!            On  entry,   UPLO  specifies  whether  the  upper  or  lower
-!!            triangular  part  of the  array  C  is to be  referenced  as
+!!            On entry, UPLO specifies whether the upper or lower
+!!            triangular part of the array C is to be referenced as
 !!            follows:
 !!
 !!               UPLO = 'U' or 'u'   Only the  upper triangular part of  C
@@ -4069,7 +4041,7 @@ END SUBROUTINE CHER
 !!   TRANS
 !!
 !!           TRANS is CHARACTER*1
-!!            On entry,  TRANS  specifies the operation to be performed as
+!!            On entry, TRANS specifies the operation to be performed as
 !!            follows:
 !!
 !!               TRANS = 'N' or 'n'   C := alpha*A*A**H + beta*C.
@@ -4079,16 +4051,16 @@ END SUBROUTINE CHER
 !!   N
 !!
 !!           N is INTEGER
-!!            On entry,  N specifies the order of the matrix C.  N must be
+!!            On entry, N specifies the order of the matrix C. N must be
 !!            at least zero.
 !!
 !!   K
 !!
 !!           K is INTEGER
-!!            On entry with  TRANS = 'N' or 'n',  K  specifies  the number
-!!            of  columns   of  the   matrix   A,   and  on   entry   with
-!!            TRANS = 'C' or 'c',  K  specifies  the number of rows of the
-!!            matrix A.  K must be at least zero.
+!!            On entry with TRANS = 'N' or 'n', K specifies the number
+!!            of columns of the matrix A, and on entry with
+!!            TRANS = 'C' or 'c', K specifies the number of rows of the
+!!            matrix A. K must be at least zero.
 !!
 !!   ALPHA
 !!
@@ -4098,49 +4070,49 @@ END SUBROUTINE CHER
 !!   A
 !!
 !!           A is COMPLEX array, dimension ( LDA, ka ), where ka is
-!!            k  when  TRANS = 'N' or 'n',  and is  n  otherwise.
-!!            Before entry with  TRANS = 'N' or 'n',  the  leading  n by k
-!!            part of the array  A  must contain the matrix  A,  otherwise
-!!            the leading  k by n  part of the array  A  must contain  the
+!!            k when TRANS = 'N' or 'n', and is n otherwise.
+!!            Before entry with TRANS = 'N' or 'n', the leading n by k
+!!            part of the array A must contain the matrix A, otherwise
+!!            the leading k by n part of the array A must contain the
 !!            matrix A.
 !!
 !!   LDA
 !!
 !!           LDA is INTEGER
 !!            On entry, LDA specifies the first dimension of A as declared
-!!            in  the  calling  (sub)  program.   When  TRANS = 'N' or 'n'
-!!            then  LDA must be at least  max( 1, n ), otherwise  LDA must
-!!            be at least  max( 1, k ).
+!!            in the calling (sub) program. When TRANS = 'N' or 'n'
+!!            then LDA must be at least max( 1, n ), otherwise LDA must
+!!            be at least max( 1, k ).
 !!
 !!   BETA
 !!
 !!           BETA is REAL
 !!            On entry, BETA specifies the scalar beta.
 !!
-!!  out] C
+!!  C
 !!
 !!           C is COMPLEX array, dimension ( LDC, N )
-!!            Before entry  with  UPLO = 'U' or 'u',  the leading  n by n
+!!            Before entry with UPLO = 'U' or 'u', the leading n by n
 !!            upper triangular part of the array C must contain the upper
-!!            triangular part  of the  hermitian matrix  and the strictly
-!!            lower triangular part of C is not referenced.  On exit, the
-!!            upper triangular part of the array  C is overwritten by the
+!!            triangular part of the hermitian matrix and the strictly
+!!            lower triangular part of C is not referenced. On exit, the
+!!            upper triangular part of the array C is overwritten by the
 !!            upper triangular part of the updated matrix.
-!!            Before entry  with  UPLO = 'L' or 'l',  the leading  n by n
+!!            Before entry with UPLO = 'L' or 'l', the leading n by n
 !!            lower triangular part of the array C must contain the lower
-!!            triangular part  of the  hermitian matrix  and the strictly
-!!            upper triangular part of C is not referenced.  On exit, the
-!!            lower triangular part of the array  C is overwritten by the
+!!            triangular part of the hermitian matrix and the strictly
+!!            upper triangular part of C is not referenced. On exit, the
+!!            lower triangular part of the array C is overwritten by the
 !!            lower triangular part of the updated matrix.
 !!            Note that the imaginary parts of the diagonal elements need
-!!            not be set,  they are assumed to be zero,  and on exit they
+!!            not be set, they are assumed to be zero, and on exit they
 !!            are set to zero.
 !!
 !!   LDC
 !!
 !!           LDC is INTEGER
 !!            On entry, LDC specifies the first dimension of C as declared
-!!            in  the  calling  (sub)  program.   LDC  must  be  at  least
+!!            in the calling (sub) program. LDC must be at least
 !!            max( 1, n ).
 !!
 !!##AUTHORS
@@ -4385,7 +4357,8 @@ END SUBROUTINE CHER
       END SUBROUTINE CHERK
 !>
 !!##NAME
-!!    chpmv.(3f) -- [BLAS:COMPLEX_BLAS_LEVEL2]
+!!    chpmv(3f) - [BLAS:COMPLEX_BLAS_LEVEL2]
+!! CY := alpha*A*CX + beta*CY, A a (square) hermitian packed matrix.
 !!
 !!##SYNOPSIS
 !!
@@ -4403,7 +4376,7 @@ END SUBROUTINE CHER
 !!
 !!##DEFINITION
 !!
-!!  CHPMV  performs the matrix-vector operation
+!!  CHPMV(3f) performs the matrix-vector operation
 !!
 !!     y := alpha*A*x + beta*y,
 !!
@@ -4472,7 +4445,7 @@ END SUBROUTINE CHER
 !!            On entry, BETA specifies the scalar beta. When BETA is
 !!            supplied as zero then Y need not be set on input.
 !!
-!!  out] Y
+!!  Y
 !!
 !!           Y is COMPLEX array, dimension at least
 !!            ( 1 + ( n - 1 )*abs( INCY ) ).
@@ -4692,7 +4665,8 @@ END SUBROUTINE CHER
       END SUBROUTINE CHPMV
 !>
 !!##NAME
-!!    chpr2.(3f) -- [BLAS:COMPLEX_BLAS_LEVEL2]
+!!    chpr2(3f) - [BLAS:COMPLEX_BLAS_LEVEL2] performs the hermitian rank 2 operation
+!! A := A + alpha*CX*CONJUGATE-TRANSPOSE(CY)n + CONJUGATE(ALPHA)*CY*CONJUGATE-TRANSPOSE(CX),n A a (square) hermitian packed matrix.
 !!
 !!##SYNOPSIS
 !!
@@ -4710,7 +4684,7 @@ END SUBROUTINE CHER
 !!
 !!##DEFINITION
 !!
-!!  CHPR2  performs the hermitian rank 2 operation
+!!  CHPR2 performs the hermitian rank 2 operation
 !!
 !!     A := alpha*x*y**H + conjg( alpha )*y*x**H + A,
 !!
@@ -4769,11 +4743,11 @@ END SUBROUTINE CHER
 !!            On entry, INCY specifies the increment for the elements of
 !!            Y. INCY must not be zero.
 !!
-!!  out] AP
+!!  AP
 !!
 !!           AP is COMPLEX array, dimension at least
 !!            ( ( n*( n + 1 ) )/2 ).
-!!            Before entry with  UPLO = 'U' or 'u', the array AP must
+!!            Before entry with UPLO = 'U' or 'u', the array AP must
 !!            contain the upper triangular part of the hermitian matrix
 !!            packed sequentially, column by column, so that AP( 1 )
 !!            contains a( 1, 1 ), AP( 2 ) and AP( 3 ) contain a( 1, 2 )
@@ -4980,7 +4954,8 @@ END SUBROUTINE CHER
       END SUBROUTINE CHPR2
 !>
 !!##NAME
-!!    chpr.(3f) -- [BLAS:COMPLEX_BLAS_LEVEL2]
+!!    chpr(3f) - [BLAS:COMPLEX_BLAS_LEVEL2] performs the hermitian rank 1 operation
+!! A := A + alpha*CX*CONJUGATE-TRANSPOSE(CX), a a (square) hermitian packed.
 !!
 !!##SYNOPSIS
 !!
@@ -4998,7 +4973,7 @@ END SUBROUTINE CHER
 !!
 !!##DEFINITION
 !!
-!!  CHPR    performs the hermitian rank 1 operation
+!!  CHPR performs the hermitian rank 1 operation
 !!
 !!     A := alpha*x*x**H + A,
 !!
@@ -5044,11 +5019,11 @@ END SUBROUTINE CHER
 !!            On entry, INCX specifies the increment for the elements of
 !!            X. INCX must not be zero.
 !!
-!!  out] AP
+!!  AP
 !!
 !!           AP is COMPLEX array, dimension at least
 !!            ( ( n*( n + 1 ) )/2 ).
-!!            Before entry with  UPLO = 'U' or 'u', the array AP must
+!!            Before entry with UPLO = 'U' or 'u', the array AP must
 !!            contain the upper triangular part of the hermitian matrix
 !!            packed sequentially, column by column, so that AP( 1 )
 !!            contains a( 1, 1 ), AP( 2 ) and AP( 3 ) contain a( 1, 2 )
@@ -5235,7 +5210,7 @@ END SUBROUTINE CHER
       END SUBROUTINE CHPR
 !>
 !!##NAME
-!!    crotg.(3f) -- [BLAS:SINGLE_BLAS_LEVEL1] constructs a plane rotation
+!!    crotg(3f) - [BLAS:SINGLE_BLAS_LEVEL1] Generate a hermitian Given's rotation.
 !!
 !!##SYNOPSIS
 !!
@@ -5269,12 +5244,12 @@ END SUBROUTINE CHER
 !!     c = a / r
 !!     s = b / r
 !!
-!!  the same as in CROTG when |a| > |b|.  When |b| >= |a|, the
+!!  the same as in CROTG when |a| > |b|. When |b| >= |a|, the
 !!  sign of c and s will be different from those computed by CROTG
 !!  if the signs of a and b are not the same.
 !!
 !!##OPTIONS
-!!    A  On entry, the scalar a.  On exit, the scalar r.
+!!    A  On entry, the scalar a. On exit, the scalar r.
 !!    B  The scalar b.
 !!    C  The scalar c.
 !!    S  The scalar s.
@@ -5427,19 +5402,20 @@ subroutine CROTG( a, b, c, s )
 end subroutine CROTG
 !>
 !!##NAME
-!!    cscal.(3f) -- [BLAS:COMPLEX_BLAS_LEVEL1]
+!!    cscal(3f) - [BLAS:COMPLEX_BLAS_LEVEL1] scales a vector by a constant.
+!! CX:=CA*CX (complex multiplier)
 !!
 !!##SYNOPSIS
 !!
 !!
-!!     SUBROUTINE CSCAL(N,CA,CX,INCX)
+!!     subroutine cscal(n,ca,cx,incx)
 !!
 !!       .. Scalar Arguments ..
-!!       COMPLEX,intent(in)    :: CA
-!!       INTEGER,intent(in)    :: INCX,N
+!!       complex,intent(in)    :: ca
+!!       integer,intent(in)    :: incx,n
 !!       ..
 !!       .. Array Arguments ..
-!!       COMPLEX,intent(inout) :: CX(*)
+!!       complex,intent(inout) :: cx(*)
 !!       ..
 !!
 !!##DEFINITION
@@ -5447,24 +5423,13 @@ end subroutine CROTG
 !!     CSCAL scales a vector by a constant.
 !!
 !!##OPTIONS
-!!
 !!   N
-!!
-!!           N is INTEGER
 !!          number of elements in input vector(s)
-!!
 !!   CA
-!!
-!!           CA is COMPLEX
-!!            On entry, CA specifies the scalar alpha.
-!!
-!!  out] CX
-!!
-!!           CX is COMPLEX array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
-!!
+!!          On entry, CA specifies the scalar alpha.
+!!   CX
+!!          CX is COMPLEX array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
 !!   INCX
-!!
-!!           INCX is INTEGER
 !!          storage spacing between elements of CX
 !!
 !!##AUTHORS
@@ -5478,7 +5443,7 @@ end subroutine CROTG
 !!
 !!  FURTHER DETAILS
 !!
-!!      jack dongarra, linpack,  3/11/78.
+!!      jack dongarra, linpack, 3/11/78.
 !!      modified 3/93 to return if incx .le. 0.
 !!      modified 12/3/93, array(1) declarations changed to array(*)
 !!
@@ -5528,7 +5493,7 @@ end subroutine CROTG
       END SUBROUTINE CSCAL
 !>
 !!##NAME
-!!    csrot.(3f) -- [BLAS:COMPLEX_BLAS_LEVEL1]
+!!    csrot(3f) - [BLAS:COMPLEX_BLAS_LEVEL1] Applies a real Given's rotation to complex vectors.
 !!
 !!##SYNOPSIS
 !!
@@ -5557,7 +5522,7 @@ end subroutine CROTG
 !!            On entry, N specifies the order of the vectors cx and cy.
 !!            N must be at least zero.
 !!
-!!  out] CX
+!!  CX
 !!
 !!           CX is COMPLEX array, dimension at least
 !!            ( 1 + ( N - 1 )*abs( INCX ) ).
@@ -5571,7 +5536,7 @@ end subroutine CROTG
 !!            On entry, INCX specifies the increment for the elements of
 !!            CX. INCX must not be zero.
 !!
-!!  out] CY
+!!  CY
 !!
 !!           CY is COMPLEX array, dimension at least
 !!            ( 1 + ( N - 1 )*abs( INCY ) ).
@@ -5663,7 +5628,8 @@ end subroutine CROTG
       END SUBROUTINE CSROT
 !>
 !!##NAME
-!!    csscal.(3f) -- [BLAS:COMPLEX_BLAS_LEVEL1]
+!!    csscal(3f) - [BLAS:COMPLEX_BLAS_LEVEL1] CSSCAL scales a complex vector by a real constant.
+!! CX:=SA*CX (real multiplier).
 !!
 !!##SYNOPSIS
 !!
@@ -5693,7 +5659,7 @@ end subroutine CROTG
 !!           SA is REAL
 !!            On entry, SA specifies the scalar alpha.
 !!
-!!  out] CX
+!!  CX
 !!
 !!           CX is COMPLEX array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
 !!
@@ -5766,7 +5732,7 @@ end subroutine CROTG
       END SUBROUTINE CSSCAL
 !>
 !!##NAME
-!!    cswap.(3f) -- [BLAS:COMPLEX_BLAS_LEVEL1]
+!!    cswap(3f) - [BLAS:COMPLEX_BLAS_LEVEL1] Interchange vectors CX and CY.
 !!
 !!##SYNOPSIS
 !!
@@ -5790,7 +5756,7 @@ end subroutine CROTG
 !!           N is INTEGER
 !!          number of elements in input vector(s)
 !!
-!!  out] CX
+!!  CX
 !!
 !!           CX is COMPLEX array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
 !!
@@ -5799,7 +5765,7 @@ end subroutine CROTG
 !!           INCX is INTEGER
 !!          storage spacing between elements of CX
 !!
-!!  out] CY
+!!  CY
 !!
 !!           CY is COMPLEX array, dimension ( 1 + ( N - 1 )*abs( INCY ) )
 !!
@@ -5877,7 +5843,8 @@ end subroutine CROTG
       END SUBROUTINE CSWAP
 !>
 !!##NAME
-!!    csymm.(3f) -- [BLAS:COMPLEX_BLAS_LEVEL3]
+!!    csymm(3f) - [BLAS:COMPLEX_BLAS_LEVEL3]
+!! C:=alpha*A*B+beta*C, A symmetric, B, C rectangular.
 !!
 !!##SYNOPSIS
 !!
@@ -5895,7 +5862,7 @@ end subroutine CROTG
 !!
 !!##DEFINITION
 !!
-!!  CSYMM  performs one of the matrix-matrix operations
+!!  CSYMM performs one of the matrix-matrix operations
 !!
 !!     C := alpha*A*B + beta*C,
 !!
@@ -5903,7 +5870,7 @@ end subroutine CROTG
 !!
 !!     C := alpha*B*A + beta*C,
 !!
-!!  where  alpha and beta are scalars, A is a symmetric matrix and  B and
+!!  where alpha and beta are scalars, A is a symmetric matrix and B and
 !!  C are m by n matrices.
 !!
 !!##OPTIONS
@@ -5911,8 +5878,8 @@ end subroutine CROTG
 !!   SIDE
 !!
 !!           SIDE is CHARACTER*1
-!!            On entry,  SIDE  specifies whether  the  symmetric matrix  A
-!!            appears on the  left or right  in the  operation as follows:
+!!            On entry, SIDE specifies whether the symmetric matrix A
+!!            appears on the left or right in the operation as follows:
 !!
 !!               SIDE = 'L' or 'l'   C := alpha*A*B + beta*C,
 !!
@@ -5921,8 +5888,8 @@ end subroutine CROTG
 !!   UPLO
 !!
 !!           UPLO is CHARACTER*1
-!!            On  entry,   UPLO  specifies  whether  the  upper  or  lower
-!!            triangular  part  of  the  symmetric  matrix   A  is  to  be
+!!            On entry, UPLO specifies whether the upper or lower
+!!            triangular part of the symmetric matrix A is to be
 !!            referenced as follows:
 !!
 !!               UPLO = 'U' or 'u'   Only the upper triangular part of the
@@ -5934,14 +5901,14 @@ end subroutine CROTG
 !!   M
 !!
 !!           M is INTEGER
-!!            On entry,  M  specifies the number of rows of the matrix  C.
-!!            M  must be at least zero.
+!!            On entry, M specifies the number of rows of the matrix C.
+!!            M must be at least zero.
 !!
 !!   N
 !!
 !!           N is INTEGER
 !!            On entry, N specifies the number of columns of the matrix C.
-!!            N  must be at least zero.
+!!            N must be at least zero.
 !!
 !!   ALPHA
 !!
@@ -5951,69 +5918,69 @@ end subroutine CROTG
 !!   A
 !!
 !!           A is COMPLEX array, dimension ( LDA, ka ), where ka is
-!!            m  when  SIDE = 'L' or 'l'  and is n  otherwise.
-!!            Before entry  with  SIDE = 'L' or 'l',  the  m by m  part of
-!!            the array  A  must contain the  symmetric matrix,  such that
-!!            when  UPLO = 'U' or 'u', the leading m by m upper triangular
-!!            part of the array  A  must contain the upper triangular part
-!!            of the  symmetric matrix and the  strictly  lower triangular
-!!            part of  A  is not referenced,  and when  UPLO = 'L' or 'l',
-!!            the leading  m by m  lower triangular part  of the  array  A
-!!            must  contain  the  lower triangular part  of the  symmetric
-!!            matrix and the  strictly upper triangular part of  A  is not
+!!            m when SIDE = 'L' or 'l' and is n otherwise.
+!!            Before entry with SIDE = 'L' or 'l', the m by m part of
+!!            the array A must contain the symmetric matrix, such that
+!!            when UPLO = 'U' or 'u', the leading m by m upper triangular
+!!            part of the array A must contain the upper triangular part
+!!            of the symmetric matrix and the strictly lower triangular
+!!            part of A is not referenced, and when UPLO = 'L' or 'l',
+!!            the leading m by m lower triangular part of the array A
+!!            must contain the lower triangular part of the symmetric
+!!            matrix and the strictly upper triangular part of A is not
 !!            referenced.
-!!            Before entry  with  SIDE = 'R' or 'r',  the  n by n  part of
-!!            the array  A  must contain the  symmetric matrix,  such that
-!!            when  UPLO = 'U' or 'u', the leading n by n upper triangular
-!!            part of the array  A  must contain the upper triangular part
-!!            of the  symmetric matrix and the  strictly  lower triangular
-!!            part of  A  is not referenced,  and when  UPLO = 'L' or 'l',
-!!            the leading  n by n  lower triangular part  of the  array  A
-!!            must  contain  the  lower triangular part  of the  symmetric
-!!            matrix and the  strictly upper triangular part of  A  is not
+!!            Before entry with SIDE = 'R' or 'r', the n by n part of
+!!            the array A must contain the symmetric matrix, such that
+!!            when UPLO = 'U' or 'u', the leading n by n upper triangular
+!!            part of the array A must contain the upper triangular part
+!!            of the symmetric matrix and the strictly lower triangular
+!!            part of A is not referenced, and when UPLO = 'L' or 'l',
+!!            the leading n by n lower triangular part of the array A
+!!            must contain the lower triangular part of the symmetric
+!!            matrix and the strictly upper triangular part of A is not
 !!            referenced.
 !!
 !!   LDA
 !!
 !!           LDA is INTEGER
 !!            On entry, LDA specifies the first dimension of A as declared
-!!            in the  calling (sub) program. When  SIDE = 'L' or 'l'  then
-!!            LDA must be at least  max( 1, m ), otherwise  LDA must be at
+!!            in the calling (sub) program. When SIDE = 'L' or 'l' then
+!!            LDA must be at least max( 1, m ), otherwise LDA must be at
 !!            least max( 1, n ).
 !!
 !!   B
 !!
 !!           B is COMPLEX array, dimension ( LDB, N )
-!!            Before entry, the leading  m by n part of the array  B  must
+!!            Before entry, the leading m by n part of the array B must
 !!            contain the matrix B.
 !!
 !!   LDB
 !!
 !!           LDB is INTEGER
 !!            On entry, LDB specifies the first dimension of B as declared
-!!            in  the  calling  (sub)  program.   LDB  must  be  at  least
+!!            in the calling (sub) program. LDB must be at least
 !!            max( 1, m ).
 !!
 !!   BETA
 !!
 !!           BETA is COMPLEX
-!!            On entry,  BETA  specifies the scalar  beta.  When  BETA  is
+!!            On entry, BETA specifies the scalar beta. When BETA is
 !!            supplied as zero then C need not be set on input.
 !!
-!!  out] C
+!!  C
 !!
 !!           C is COMPLEX array, dimension ( LDC, N )
-!!            Before entry, the leading  m by n  part of the array  C must
-!!            contain the matrix  C,  except when  beta  is zero, in which
+!!            Before entry, the leading m by n part of the array C must
+!!            contain the matrix C, except when beta is zero, in which
 !!            case C need not be set on entry.
-!!            On exit, the array  C  is overwritten by the  m by n updated
+!!            On exit, the array C is overwritten by the m by n updated
 !!            matrix.
 !!
 !!   LDC
 !!
 !!           LDC is INTEGER
 !!            On entry, LDC specifies the first dimension of C as declared
-!!            in  the  calling  (sub)  program.   LDC  must  be  at  least
+!!            in the calling (sub) program. LDC must be at least
 !!            max( 1, m ).
 !!
 !!##AUTHORS
@@ -6199,7 +6166,8 @@ end subroutine CROTG
       END SUBROUTINE CSYMM
 !>
 !!##NAME
-!!    csyr2k.(3f) -- [BLAS:COMPLEX_BLAS_LEVEL3]
+!!    csyr2k(3f) - [BLAS:COMPLEX_BLAS_LEVEL3]
+!! C:=alpha*A*TRANSPOSE(B)+alpha*B*TRANSPOSE(A)+beta*C, C symmetric.
 !!
 !!##SYNOPSIS
 !!
@@ -6217,7 +6185,7 @@ end subroutine CROTG
 !!
 !!##DEFINITION
 !!
-!!  CSYR2K  performs one of the symmetric rank 2k operations
+!!  CSYR2K performs one of the symmetric rank 2k operations
 !!
 !!     C := alpha*A*B**T + alpha*B*A**T + beta*C,
 !!
@@ -6225,8 +6193,8 @@ end subroutine CROTG
 !!
 !!     C := alpha*A**T*B + alpha*B**T*A + beta*C,
 !!
-!!  where  alpha and beta  are scalars,  C is an  n by n symmetric matrix
-!!  and  A and B  are  n by k  matrices  in the  first  case  and  k by n
+!!  where alpha and beta are scalars, C is an n by n symmetric matrix
+!!  and A and B are n by k matrices in the first case and k by n
 !!  matrices in the second case.
 !!
 !!##OPTIONS
@@ -6234,8 +6202,8 @@ end subroutine CROTG
 !!   UPLO
 !!
 !!           UPLO is CHARACTER*1
-!!            On  entry,   UPLO  specifies  whether  the  upper  or  lower
-!!            triangular  part  of the  array  C  is to be  referenced  as
+!!            On entry, UPLO specifies whether the upper or lower
+!!            triangular part of the array C is to be referenced as
 !!            follows:
 !!
 !!               UPLO = 'U' or 'u'   Only the  upper triangular part of  C
@@ -6247,7 +6215,7 @@ end subroutine CROTG
 !!   TRANS
 !!
 !!           TRANS is CHARACTER*1
-!!            On entry,  TRANS  specifies the operation to be performed as
+!!            On entry, TRANS specifies the operation to be performed as
 !!            follows:
 !!
 !!               TRANS = 'N' or 'n'    C := alpha*A*B**T + alpha*B*A**T +
@@ -6259,16 +6227,16 @@ end subroutine CROTG
 !!   N
 !!
 !!           N is INTEGER
-!!            On entry,  N specifies the order of the matrix C.  N must be
+!!            On entry, N specifies the order of the matrix C. N must be
 !!            at least zero.
 !!
 !!   K
 !!
 !!           K is INTEGER
-!!            On entry with  TRANS = 'N' or 'n',  K  specifies  the number
-!!            of  columns  of the  matrices  A and B,  and on  entry  with
-!!            TRANS = 'T' or 't',  K  specifies  the number of rows of the
-!!            matrices  A and B.  K must be at least zero.
+!!            On entry with TRANS = 'N' or 'n', K specifies the number
+!!            of columns of the matrices A and B, and on entry with
+!!            TRANS = 'T' or 't', K specifies the number of rows of the
+!!            matrices A and B. K must be at least zero.
 !!
 !!   ALPHA
 !!
@@ -6278,63 +6246,63 @@ end subroutine CROTG
 !!   A
 !!
 !!           A is COMPLEX array, dimension ( LDA, ka ), where ka is
-!!            k  when  TRANS = 'N' or 'n',  and is  n  otherwise.
-!!            Before entry with  TRANS = 'N' or 'n',  the  leading  n by k
-!!            part of the array  A  must contain the matrix  A,  otherwise
-!!            the leading  k by n  part of the array  A  must contain  the
+!!            k when TRANS = 'N' or 'n', and is n otherwise.
+!!            Before entry with TRANS = 'N' or 'n', the leading n by k
+!!            part of the array A must contain the matrix A, otherwise
+!!            the leading k by n part of the array A must contain the
 !!            matrix A.
 !!
 !!   LDA
 !!
 !!           LDA is INTEGER
 !!            On entry, LDA specifies the first dimension of A as declared
-!!            in  the  calling  (sub)  program.   When  TRANS = 'N' or 'n'
-!!            then  LDA must be at least  max( 1, n ), otherwise  LDA must
-!!            be at least  max( 1, k ).
+!!            in the calling (sub) program. When TRANS = 'N' or 'n'
+!!            then LDA must be at least max( 1, n ), otherwise LDA must
+!!            be at least max( 1, k ).
 !!
 !!   B
 !!
 !!           B is COMPLEX array, dimension ( LDB, kb ), where kb is
-!!            k  when  TRANS = 'N' or 'n',  and is  n  otherwise.
-!!            Before entry with  TRANS = 'N' or 'n',  the  leading  n by k
-!!            part of the array  B  must contain the matrix  B,  otherwise
-!!            the leading  k by n  part of the array  B  must contain  the
+!!            k when TRANS = 'N' or 'n', and is n otherwise.
+!!            Before entry with TRANS = 'N' or 'n', the leading n by k
+!!            part of the array B must contain the matrix B, otherwise
+!!            the leading k by n part of the array B must contain the
 !!            matrix B.
 !!
 !!   LDB
 !!
 !!           LDB is INTEGER
 !!            On entry, LDB specifies the first dimension of B as declared
-!!            in  the  calling  (sub)  program.   When  TRANS = 'N' or 'n'
-!!            then  LDB must be at least  max( 1, n ), otherwise  LDB must
-!!            be at least  max( 1, k ).
+!!            in the calling (sub) program. When TRANS = 'N' or 'n'
+!!            then LDB must be at least max( 1, n ), otherwise LDB must
+!!            be at least max( 1, k ).
 !!
 !!   BETA
 !!
 !!           BETA is COMPLEX
 !!            On entry, BETA specifies the scalar beta.
 !!
-!!  out] C
+!!  C
 !!
 !!           C is COMPLEX array, dimension ( LDC, N )
-!!            Before entry  with  UPLO = 'U' or 'u',  the leading  n by n
+!!            Before entry with UPLO = 'U' or 'u', the leading n by n
 !!            upper triangular part of the array C must contain the upper
-!!            triangular part  of the  symmetric matrix  and the strictly
-!!            lower triangular part of C is not referenced.  On exit, the
-!!            upper triangular part of the array  C is overwritten by the
+!!            triangular part of the symmetric matrix and the strictly
+!!            lower triangular part of C is not referenced. On exit, the
+!!            upper triangular part of the array C is overwritten by the
 !!            upper triangular part of the updated matrix.
-!!            Before entry  with  UPLO = 'L' or 'l',  the leading  n by n
+!!            Before entry with UPLO = 'L' or 'l', the leading n by n
 !!            lower triangular part of the array C must contain the lower
-!!            triangular part  of the  symmetric matrix  and the strictly
-!!            upper triangular part of C is not referenced.  On exit, the
-!!            lower triangular part of the array  C is overwritten by the
+!!            triangular part of the symmetric matrix and the strictly
+!!            upper triangular part of C is not referenced. On exit, the
+!!            lower triangular part of the array C is overwritten by the
 !!            lower triangular part of the updated matrix.
 !!
 !!   LDC
 !!
 !!           LDC is INTEGER
 !!            On entry, LDC specifies the first dimension of C as declared
-!!            in  the  calling  (sub)  program.   LDC  must  be  at  least
+!!            in the calling (sub) program. LDC must be at least
 !!            max( 1, n ).
 !!
 !!##AUTHORS
@@ -6545,7 +6513,8 @@ end subroutine CROTG
       END SUBROUTINE CSYR2K
 !>
 !!##NAME
-!!    csyrk.(3f) -- [BLAS:COMPLEX_BLAS_LEVEL3]
+!!    csyrk(3f) - [BLAS:COMPLEX_BLAS_LEVEL3]
+!! C:=alpha*A*TRANSPOSE(A)+beta*C, C symmetric.
 !!
 !!##SYNOPSIS
 !!
@@ -6563,7 +6532,7 @@ end subroutine CROTG
 !!
 !!##DEFINITION
 !!
-!!  CSYRK  performs one of the symmetric rank k operations
+!!  CSYRK performs one of the symmetric rank k operations
 !!
 !!     C := alpha*A*A**T + beta*C,
 !!
@@ -6571,8 +6540,8 @@ end subroutine CROTG
 !!
 !!     C := alpha*A**T*A + beta*C,
 !!
-!!  where  alpha and beta  are scalars,  C is an  n by n symmetric matrix
-!!  and  A  is an  n by k  matrix in the first case and a  k by n  matrix
+!!  where alpha and beta are scalars, C is an n by n symmetric matrix
+!!  and A is an n by k matrix in the first case and a k by n matrix
 !!  in the second case.
 !!
 !!##OPTIONS
@@ -6580,8 +6549,8 @@ end subroutine CROTG
 !!   UPLO
 !!
 !!           UPLO is CHARACTER*1
-!!            On  entry,   UPLO  specifies  whether  the  upper  or  lower
-!!            triangular  part  of the  array  C  is to be  referenced  as
+!!            On entry, UPLO specifies whether the upper or lower
+!!            triangular part of the array C is to be referenced as
 !!            follows:
 !!
 !!               UPLO = 'U' or 'u'   Only the  upper triangular part of  C
@@ -6593,7 +6562,7 @@ end subroutine CROTG
 !!   TRANS
 !!
 !!           TRANS is CHARACTER*1
-!!            On entry,  TRANS  specifies the operation to be performed as
+!!            On entry, TRANS specifies the operation to be performed as
 !!            follows:
 !!
 !!               TRANS = 'N' or 'n'   C := alpha*A*A**T + beta*C.
@@ -6603,16 +6572,16 @@ end subroutine CROTG
 !!   N
 !!
 !!           N is INTEGER
-!!            On entry,  N specifies the order of the matrix C.  N must be
+!!            On entry, N specifies the order of the matrix C. N must be
 !!            at least zero.
 !!
 !!   K
 !!
 !!           K is INTEGER
-!!            On entry with  TRANS = 'N' or 'n',  K  specifies  the number
-!!            of  columns   of  the   matrix   A,   and  on   entry   with
-!!            TRANS = 'T' or 't',  K  specifies  the number of rows of the
-!!            matrix A.  K must be at least zero.
+!!            On entry with TRANS = 'N' or 'n', K specifies the number
+!!            of columns of the matrix A, and on entry with
+!!            TRANS = 'T' or 't', K specifies the number of rows of the
+!!            matrix A. K must be at least zero.
 !!
 !!   ALPHA
 !!
@@ -6622,46 +6591,46 @@ end subroutine CROTG
 !!   A
 !!
 !!           A is COMPLEX array, dimension ( LDA, ka ), where ka is
-!!            k  when  TRANS = 'N' or 'n',  and is  n  otherwise.
-!!            Before entry with  TRANS = 'N' or 'n',  the  leading  n by k
-!!            part of the array  A  must contain the matrix  A,  otherwise
-!!            the leading  k by n  part of the array  A  must contain  the
+!!            k when TRANS = 'N' or 'n', and is n otherwise.
+!!            Before entry with TRANS = 'N' or 'n', the leading n by k
+!!            part of the array A must contain the matrix A, otherwise
+!!            the leading k by n part of the array A must contain the
 !!            matrix A.
 !!
 !!   LDA
 !!
 !!           LDA is INTEGER
 !!            On entry, LDA specifies the first dimension of A as declared
-!!            in  the  calling  (sub)  program.   When  TRANS = 'N' or 'n'
-!!            then  LDA must be at least  max( 1, n ), otherwise  LDA must
-!!            be at least  max( 1, k ).
+!!            in the calling (sub) program. When TRANS = 'N' or 'n'
+!!            then LDA must be at least max( 1, n ), otherwise LDA must
+!!            be at least max( 1, k ).
 !!
 !!   BETA
 !!
 !!           BETA is COMPLEX
 !!            On entry, BETA specifies the scalar beta.
 !!
-!!  out] C
+!!  C
 !!
 !!           C is COMPLEX array, dimension ( LDC, N )
-!!            Before entry  with  UPLO = 'U' or 'u',  the leading  n by n
+!!            Before entry with UPLO = 'U' or 'u', the leading n by n
 !!            upper triangular part of the array C must contain the upper
-!!            triangular part  of the  symmetric matrix  and the strictly
-!!            lower triangular part of C is not referenced.  On exit, the
-!!            upper triangular part of the array  C is overwritten by the
+!!            triangular part of the symmetric matrix and the strictly
+!!            lower triangular part of C is not referenced. On exit, the
+!!            upper triangular part of the array C is overwritten by the
 !!            upper triangular part of the updated matrix.
-!!            Before entry  with  UPLO = 'L' or 'l',  the leading  n by n
+!!            Before entry with UPLO = 'L' or 'l', the leading n by n
 !!            lower triangular part of the array C must contain the lower
-!!            triangular part  of the  symmetric matrix  and the strictly
-!!            upper triangular part of C is not referenced.  On exit, the
-!!            lower triangular part of the array  C is overwritten by the
+!!            triangular part of the symmetric matrix and the strictly
+!!            upper triangular part of C is not referenced. On exit, the
+!!            lower triangular part of the array C is overwritten by the
 !!            lower triangular part of the updated matrix.
 !!
 !!   LDC
 !!
 !!           LDC is INTEGER
 !!            On entry, LDC specifies the first dimension of C as declared
-!!            in  the  calling  (sub)  program.   LDC  must  be  at  least
+!!            in the calling (sub) program. LDC must be at least
 !!            max( 1, n ).
 !!
 !!##AUTHORS
@@ -6862,7 +6831,8 @@ end subroutine CROTG
       END SUBROUTINE CSYRK
 !>
 !!##NAME
-!!    ctbmv.(3f) -- [BLAS:COMPLEX_BLAS_LEVEL2]
+!!    ctbmv(3f) - [BLAS:COMPLEX_BLAS_LEVEL2]
+!! CX := A*CX, A is a triangular band matrix.
 !!
 !!##SYNOPSIS
 !!
@@ -6879,11 +6849,11 @@ end subroutine CROTG
 !!
 !!##DEFINITION
 !!
-!!  CTBMV  performs one of the matrix-vector operations
+!!  CTBMV performs one of the matrix-vector operations
 !!
 !!     x := A*x,   or   x := A**T*x,   or   x := A**H*x,
 !!
-!!  where x is an n element vector and  A is an n by n unit, or non-unit,
+!!  where x is an n element vector and A is an n by n unit, or non-unit,
 !!  upper or lower triangular band matrix, with ( k + 1 ) diagonals.
 !!
 !!##OPTIONS
@@ -6934,7 +6904,7 @@ end subroutine CROTG
 !!            super-diagonals of the matrix A.
 !!            On entry with UPLO = 'L' or 'l', K specifies the number of
 !!            sub-diagonals of the matrix A.
-!!            K must satisfy  0 .le. K.
+!!            K must satisfy 0 .le. K.
 !!
 !!   A
 !!
@@ -6986,7 +6956,7 @@ end subroutine CROTG
 !!            in the calling (sub) program. LDA must be at least
 !!            ( k + 1 ).
 !!
-!!  out] X
+!!  X
 !!
 !!           X is COMPLEX array, dimension at least
 !!            ( 1 + ( n - 1 )*abs( INCX ) ).
@@ -7265,7 +7235,8 @@ end subroutine CROTG
       END SUBROUTINE CTBMV
 !>
 !!##NAME
-!!    ctbsv.(3f) -- [BLAS:COMPLEX_BLAS_LEVEL2]
+!!    ctbsv(3f) - [BLAS:COMPLEX_BLAS_LEVEL2]
+!! CX := INVERSE(A)*CX, where A is a triangular band matrix.
 !!
 !!##SYNOPSIS
 !!
@@ -7282,7 +7253,7 @@ end subroutine CROTG
 !!
 !!##DEFINITION
 !!
-!!  CTBSV  solves one of the systems of equations
+!!  CTBSV solves one of the systems of equations
 !!
 !!     A*x = b,   or   A**T*x = b,   or   A**H*x = b,
 !!
@@ -7341,7 +7312,7 @@ end subroutine CROTG
 !!            super-diagonals of the matrix A.
 !!            On entry with UPLO = 'L' or 'l', K specifies the number of
 !!            sub-diagonals of the matrix A.
-!!            K must satisfy  0 .le. K.
+!!            K must satisfy 0 .le. K.
 !!
 !!   A
 !!
@@ -7393,7 +7364,7 @@ end subroutine CROTG
 !!            in the calling (sub) program. LDA must be at least
 !!            ( k + 1 ).
 !!
-!!  out] X
+!!  X
 !!
 !!           X is COMPLEX array, dimension at least
 !!            ( 1 + ( n - 1 )*abs( INCX ) ).
@@ -7671,7 +7642,8 @@ end subroutine CROTG
       END SUBROUTINE CTBSV
 !>
 !!##NAME
-!!    ctpmv.(3f) -- [BLAS:COMPLEX_BLAS_LEVEL2]
+!!    ctpmv(3f) - [BLAS:COMPLEX_BLAS_LEVEL2]
+!! CX := A*CX, A is a packed triangular band matrix.
 !!
 !!##SYNOPSIS
 !!
@@ -7692,7 +7664,7 @@ end subroutine CROTG
 !!
 !!     x := A*x,   or   x := A**T*x,   or   x := A**H*x,
 !!
-!!  where x is an n element vector and  A is an n by n unit, or non-unit,
+!!  where x is an n element vector and A is an n by n unit, or non-unit,
 !!  upper or lower triangular matrix, supplied in packed form.
 !!
 !!##OPTIONS
@@ -7740,7 +7712,7 @@ end subroutine CROTG
 !!
 !!           AP is COMPLEX array, dimension at least
 !!            ( ( n*( n + 1 ) )/2 ).
-!!            Before entry with  UPLO = 'U' or 'u', the array AP must
+!!            Before entry with UPLO = 'U' or 'u', the array AP must
 !!            contain the upper triangular matrix packed sequentially,
 !!            column by column, so that AP( 1 ) contains a( 1, 1 ),
 !!            AP( 2 ) and AP( 3 ) contain a( 1, 2 ) and a( 2, 2 )
@@ -7750,10 +7722,10 @@ end subroutine CROTG
 !!            column by column, so that AP( 1 ) contains a( 1, 1 ),
 !!            AP( 2 ) and AP( 3 ) contain a( 2, 1 ) and a( 3, 1 )
 !!            respectively, and so on.
-!!            Note that when  DIAG = 'U' or 'u', the diagonal elements of
+!!            Note that when DIAG = 'U' or 'u', the diagonal elements of
 !!            A are not referenced, but are assumed to be unity.
 !!
-!!  out] X
+!!  X
 !!
 !!           X is COMPLEX array, dimension at least
 !!            ( 1 + ( n - 1 )*abs( INCX ) ).
@@ -8035,7 +8007,8 @@ end subroutine CROTG
       END SUBROUTINE CTPMV
 !>
 !!##NAME
-!!    ctpsv.(3f) -- [BLAS:COMPLEX_BLAS_LEVEL2]
+!!    ctpsv(3f) - [BLAS:COMPLEX_BLAS_LEVEL2]
+!! CX := INVERSE(A)*CX, where A is a packed triangular band matrix.
 !!
 !!##SYNOPSIS
 !!
@@ -8052,7 +8025,7 @@ end subroutine CROTG
 !!
 !!##DEFINITION
 !!
-!!  CTPSV  solves one of the systems of equations
+!!  CTPSV solves one of the systems of equations
 !!
 !!     A*x = b,   or   A**T*x = b,   or   A**H*x = b,
 !!
@@ -8107,7 +8080,7 @@ end subroutine CROTG
 !!
 !!           AP is COMPLEX array, dimension at least
 !!            ( ( n*( n + 1 ) )/2 ).
-!!            Before entry with  UPLO = 'U' or 'u', the array AP must
+!!            Before entry with UPLO = 'U' or 'u', the array AP must
 !!            contain the upper triangular matrix packed sequentially,
 !!            column by column, so that AP( 1 ) contains a( 1, 1 ),
 !!            AP( 2 ) and AP( 3 ) contain a( 1, 2 ) and a( 2, 2 )
@@ -8117,10 +8090,10 @@ end subroutine CROTG
 !!            column by column, so that AP( 1 ) contains a( 1, 1 ),
 !!            AP( 2 ) and AP( 3 ) contain a( 2, 1 ) and a( 3, 1 )
 !!            respectively, and so on.
-!!            Note that when  DIAG = 'U' or 'u', the diagonal elements of
+!!            Note that when DIAG = 'U' or 'u', the diagonal elements of
 !!            A are not referenced, but are assumed to be unity.
 !!
-!!  out] X
+!!  X
 !!
 !!           X is COMPLEX array, dimension at least
 !!            ( 1 + ( n - 1 )*abs( INCX ) ).
@@ -8401,7 +8374,8 @@ end subroutine CROTG
       END SUBROUTINE CTPSV
 !>
 !!##NAME
-!!    ctrmm.(3f) -- [BLAS:COMPLEX_BLAS_LEVEL3]
+!!    ctrmm(3f) - [BLAS:COMPLEX_BLAS_LEVEL3]
+!! B:=A*B or B:=B*A, A triangular, B rectangular.
 !!
 !!##SYNOPSIS
 !!
@@ -8419,12 +8393,12 @@ end subroutine CROTG
 !!
 !!##DEFINITION
 !!
-!!  CTRMM  performs one of the matrix-matrix operations
+!!  CTRMM performs one of the matrix-matrix operations
 !!
 !!     B := alpha*op( A )*B,   or   B := alpha*B*op( A )
 !!
-!!  where  alpha  is a scalar,  B  is an m by n matrix,  A  is a unit, or
-!!  non-unit,  upper or lower triangular matrix  and  op( A )  is one  of
+!!  where alpha is a scalar, B is an m by n matrix, A is a unit, or
+!!  non-unit, upper or lower triangular matrix and op( A ) is one of
 !!
 !!     op( A ) = A   or   op( A ) = A**T   or   op( A ) = A**H.
 !!
@@ -8433,7 +8407,7 @@ end subroutine CROTG
 !!   SIDE
 !!
 !!           SIDE is CHARACTER*1
-!!            On entry,  SIDE specifies whether  op( A ) multiplies B from
+!!            On entry, SIDE specifies whether op( A ) multiplies B from
 !!            the left or right as follows:
 !!
 !!               SIDE = 'L' or 'l'   B := alpha*op( A )*B.
@@ -8482,51 +8456,51 @@ end subroutine CROTG
 !!   N
 !!
 !!           N is INTEGER
-!!            On entry, N specifies the number of columns of B.  N must be
+!!            On entry, N specifies the number of columns of B. N must be
 !!            at least zero.
 !!
 !!   ALPHA
 !!
 !!           ALPHA is COMPLEX
-!!            On entry,  ALPHA specifies the scalar  alpha. When  alpha is
-!!            zero then  A is not referenced and  B need not be set before
+!!            On entry, ALPHA specifies the scalar alpha. When alpha is
+!!            zero then A is not referenced and B need not be set before
 !!            entry.
 !!
 !!   A
 !!
 !!           A is COMPLEX array, dimension ( LDA, k ), where k is m
-!!            when  SIDE = 'L' or 'l'  and is  n  when  SIDE = 'R' or 'r'.
-!!            Before entry  with  UPLO = 'U' or 'u',  the  leading  k by k
-!!            upper triangular part of the array  A must contain the upper
-!!            triangular matrix  and the strictly lower triangular part of
+!!            when SIDE = 'L' or 'l' and is n when SIDE = 'R' or 'r'.
+!!            Before entry with UPLO = 'U' or 'u', the leading k by k
+!!            upper triangular part of the array A must contain the upper
+!!            triangular matrix and the strictly lower triangular part of
 !!            A is not referenced.
-!!            Before entry  with  UPLO = 'L' or 'l',  the  leading  k by k
-!!            lower triangular part of the array  A must contain the lower
-!!            triangular matrix  and the strictly upper triangular part of
+!!            Before entry with UPLO = 'L' or 'l', the leading k by k
+!!            lower triangular part of the array A must contain the lower
+!!            triangular matrix and the strictly upper triangular part of
 !!            A is not referenced.
-!!            Note that when  DIAG = 'U' or 'u',  the diagonal elements of
-!!            A  are not referenced either,  but are assumed to be  unity.
+!!            Note that when DIAG = 'U' or 'u', the diagonal elements of
+!!            A are not referenced either, but are assumed to be unity.
 !!
 !!   LDA
 !!
 !!           LDA is INTEGER
 !!            On entry, LDA specifies the first dimension of A as declared
-!!            in the calling (sub) program.  When  SIDE = 'L' or 'l'  then
-!!            LDA  must be at least  max( 1, m ),  when  SIDE = 'R' or 'r'
+!!            in the calling (sub) program. When SIDE = 'L' or 'l' then
+!!            LDA must be at least max( 1, m ), when SIDE = 'R' or 'r'
 !!            then LDA must be at least max( 1, n ).
 !!
-!!  out] B
+!!  B
 !!
 !!           B is COMPLEX array, dimension ( LDB, N ).
-!!            Before entry,  the leading  m by n part of the array  B must
-!!            contain the matrix  B,  and  on exit  is overwritten  by the
+!!            Before entry, the leading m by n part of the array B must
+!!            contain the matrix B, and on exit is overwritten by the
 !!            transformed matrix.
 !!
 !!   LDB
 !!
 !!           LDB is INTEGER
 !!            On entry, LDB specifies the first dimension of B as declared
-!!            in  the  calling  (sub)  program.   LDB  must  be  at  least
+!!            in the calling (sub) program. LDB must be at least
 !!            max( 1, m ).
 !!
 !!##AUTHORS
@@ -8804,7 +8778,8 @@ end subroutine CROTG
       END SUBROUTINE CTRMM
 !>
 !!##NAME
-!!    ctrmv.(3f) -- [BLAS:COMPLEX_BLAS_LEVEL2]
+!!    ctrmv(3f) - [BLAS:COMPLEX_BLAS_LEVEL2]
+!! CX := A*CX, A is a triangular matrix.
 !!
 !!##SYNOPSIS
 !!
@@ -8821,11 +8796,11 @@ end subroutine CROTG
 !!
 !!##DEFINITION
 !!
-!!  CTRMV  performs one of the matrix-vector operations
+!!  CTRMV performs one of the matrix-vector operations
 !!
 !!     x := A*x,   or   x := A**T*x,   or   x := A**H*x,
 !!
-!!  where x is an n element vector and  A is an n by n unit, or non-unit,
+!!  where x is an n element vector and A is an n by n unit, or non-unit,
 !!  upper or lower triangular matrix.
 !!
 !!##OPTIONS
@@ -8872,7 +8847,7 @@ end subroutine CROTG
 !!   A
 !!
 !!           A is COMPLEX array, dimension ( LDA, N ).
-!!            Before entry with  UPLO = 'U' or 'u', the leading n by n
+!!            Before entry with UPLO = 'U' or 'u', the leading n by n
 !!            upper triangular part of the array A must contain the upper
 !!            triangular matrix and the strictly lower triangular part of
 !!            A is not referenced.
@@ -8880,7 +8855,7 @@ end subroutine CROTG
 !!            lower triangular part of the array A must contain the lower
 !!            triangular matrix and the strictly upper triangular part of
 !!            A is not referenced.
-!!            Note that when  DIAG = 'U' or 'u', the diagonal elements of
+!!            Note that when DIAG = 'U' or 'u', the diagonal elements of
 !!            A are not referenced either, but are assumed to be unity.
 !!
 !!   LDA
@@ -8890,7 +8865,7 @@ end subroutine CROTG
 !!            in the calling (sub) program. LDA must be at least
 !!            max( 1, n ).
 !!
-!!  out] X
+!!  X
 !!
 !!           X is COMPLEX array, dimension at least
 !!            ( 1 + ( n - 1 )*abs( INCX ) ).
@@ -9152,7 +9127,8 @@ end subroutine CROTG
       END SUBROUTINE CTRMV
 !>
 !!##NAME
-!!    ctrsm.(3f) -- [BLAS:COMPLEX_BLAS_LEVEL3]
+!!    ctrsm(3f) - [BLAS:COMPLEX_BLAS_LEVEL3]
+!! B:=INVERSE(A)*C or B:=C*INVERSE(A), B, C rectangular, A triangular.
 !!
 !!##SYNOPSIS
 !!
@@ -9170,12 +9146,12 @@ end subroutine CROTG
 !!
 !!##DEFINITION
 !!
-!!  CTRSM  solves one of the matrix equations
+!!  CTRSM solves one of the matrix equations
 !!
 !!     op( A )*X = alpha*B,   or   X*op( A ) = alpha*B,
 !!
 !!  where alpha is a scalar, X and B are m by n matrices, A is a unit, or
-!!  non-unit,  upper or lower triangular matrix  and  op( A )  is one  of
+!!  non-unit, upper or lower triangular matrix and op( A ) is one of
 !!
 !!     op( A ) = A   or   op( A ) = A**T   or   op( A ) = A**H.
 !!
@@ -9235,14 +9211,14 @@ end subroutine CROTG
 !!   N
 !!
 !!           N is INTEGER
-!!            On entry, N specifies the number of columns of B.  N must be
+!!            On entry, N specifies the number of columns of B. N must be
 !!            at least zero.
 !!
 !!   ALPHA
 !!
 !!           ALPHA is COMPLEX
-!!            On entry,  ALPHA specifies the scalar  alpha. When  alpha is
-!!            zero then  A is not referenced and  B need not be set before
+!!            On entry, ALPHA specifies the scalar alpha. When alpha is
+!!            zero then A is not referenced and B need not be set before
 !!            entry.
 !!
 !!   A
@@ -9250,37 +9226,37 @@ end subroutine CROTG
 !!           A is COMPLEX array, dimension ( LDA, k ),
 !!            where k is m when SIDE = 'L' or 'l'
 !!              and k is n when SIDE = 'R' or 'r'.
-!!            Before entry  with  UPLO = 'U' or 'u',  the  leading  k by k
-!!            upper triangular part of the array  A must contain the upper
-!!            triangular matrix  and the strictly lower triangular part of
+!!            Before entry with UPLO = 'U' or 'u', the leading k by k
+!!            upper triangular part of the array A must contain the upper
+!!            triangular matrix and the strictly lower triangular part of
 !!            A is not referenced.
-!!            Before entry  with  UPLO = 'L' or 'l',  the  leading  k by k
-!!            lower triangular part of the array  A must contain the lower
-!!            triangular matrix  and the strictly upper triangular part of
+!!            Before entry with UPLO = 'L' or 'l', the leading k by k
+!!            lower triangular part of the array A must contain the lower
+!!            triangular matrix and the strictly upper triangular part of
 !!            A is not referenced.
-!!            Note that when  DIAG = 'U' or 'u',  the diagonal elements of
-!!            A  are not referenced either,  but are assumed to be  unity.
+!!            Note that when DIAG = 'U' or 'u', the diagonal elements of
+!!            A are not referenced either, but are assumed to be unity.
 !!
 !!   LDA
 !!
 !!           LDA is INTEGER
 !!            On entry, LDA specifies the first dimension of A as declared
-!!            in the calling (sub) program.  When  SIDE = 'L' or 'l'  then
-!!            LDA  must be at least  max( 1, m ),  when  SIDE = 'R' or 'r'
+!!            in the calling (sub) program. When SIDE = 'L' or 'l' then
+!!            LDA must be at least max( 1, m ), when SIDE = 'R' or 'r'
 !!            then LDA must be at least max( 1, n ).
 !!
-!!  out] B
+!!  B
 !!
 !!           B is COMPLEX array, dimension ( LDB, N )
-!!            Before entry,  the leading  m by n part of the array  B must
-!!            contain  the  right-hand  side  matrix  B,  and  on exit  is
-!!            overwritten by the solution matrix  X.
+!!            Before entry, the leading m by n part of the array B must
+!!            contain the right-hand side matrix B, and on exit is
+!!            overwritten by the solution matrix X.
 !!
 !!   LDB
 !!
 !!           LDB is INTEGER
 !!            On entry, LDB specifies the first dimension of B as declared
-!!            in  the  calling  (sub)  program.   LDB  must  be  at  least
+!!            in the calling (sub) program. LDB must be at least
 !!            max( 1, m ).
 !!
 !!##AUTHORS
@@ -9564,7 +9540,8 @@ implicit none
 END SUBROUTINE CTRSM
 !>
 !!##NAME
-!!    ctrsv.(3f) -- [BLAS:COMPLEX_BLAS_LEVEL2]
+!!    ctrsv(3f) - [BLAS:COMPLEX_BLAS_LEVEL2]
+!! CX := INVERSE(A)*CX, where A is a triangular matrix.
 !!
 !!##SYNOPSIS
 !!
@@ -9581,7 +9558,7 @@ END SUBROUTINE CTRSM
 !!
 !!##DEFINITION
 !!
-!!  CTRSV  solves one of the systems of equations
+!!  CTRSV solves one of the systems of equations
 !!
 !!     A*x = b,   or   A**T*x = b,   or   A**H*x = b,
 !!
@@ -9635,7 +9612,7 @@ END SUBROUTINE CTRSM
 !!   A
 !!
 !!           A is COMPLEX array, dimension ( LDA, N )
-!!            Before entry with  UPLO = 'U' or 'u', the leading n by n
+!!            Before entry with UPLO = 'U' or 'u', the leading n by n
 !!            upper triangular part of the array A must contain the upper
 !!            triangular matrix and the strictly lower triangular part of
 !!            A is not referenced.
@@ -9643,7 +9620,7 @@ END SUBROUTINE CTRSM
 !!            lower triangular part of the array A must contain the lower
 !!            triangular matrix and the strictly upper triangular part of
 !!            A is not referenced.
-!!            Note that when  DIAG = 'U' or 'u', the diagonal elements of
+!!            Note that when DIAG = 'U' or 'u', the diagonal elements of
 !!            A are not referenced either, but are assumed to be unity.
 !!
 !!   LDA
@@ -9653,7 +9630,7 @@ END SUBROUTINE CTRSM
 !!            in the calling (sub) program. LDA must be at least
 !!            max( 1, n ).
 !!
-!!  out] X
+!!  X
 !!
 !!           X is COMPLEX array, dimension at least
 !!            ( 1 + ( n - 1 )*abs( INCX ) ).
@@ -9914,7 +9891,7 @@ END SUBROUTINE CTRSM
       END SUBROUTINE CTRSV
 !>
 !!##NAME
-!!    dasum.(3f) -- [BLAS:DOUBLE_BLAS_LEVEL1]
+!!    dasum(3f) - [BLAS:DOUBLE_BLAS_LEVEL1] takes the sum of the absolute values.
 !!
 !!##SYNOPSIS
 !!
@@ -10027,7 +10004,7 @@ pure double precision function dasum(n,dx,incx)
       END FUNCTION DASUM
 !>
 !!##NAME
-!!    daxpy.(3f) -- [BLAS:DOUBLE_BLAS_LEVEL1]
+!!    daxpy(3f) - [BLAS:DOUBLE_BLAS_LEVEL1] constant times a vector plus a vector.
 !!
 !!##SYNOPSIS
 !!
@@ -10068,7 +10045,7 @@ pure double precision function dasum(n,dx,incx)
 !!           INCX is INTEGER
 !!          storage spacing between elements of DX
 !!
-!!  out] DY
+!!  DY
 !!
 !!           DY is DOUBLE PRECISION array, dimension ( 1 + ( N - 1 )*abs( INCY ) )
 !!
@@ -10162,7 +10139,8 @@ pure double precision function dasum(n,dx,incx)
       END SUBROUTINE DAXPY
 !>
 !!##NAME
-!!    dcabs1.(3f) -- [BLAS:DOUBLE_BLAS_LEVEL1]
+!!    dcabs1(3f) - [BLAS:DOUBLE_BLAS_LEVEL1] DCABS1 computes
+!!    |Re(.)| + |Im(.)| of a double complex number
 !!
 !!##SYNOPSIS
 !!
@@ -10216,7 +10194,8 @@ implicit none
 end function dcabs1
 !>
 !!##NAME
-!!    dcopy.(3f) -- [BLAS:DOUBLE_BLAS_LEVEL1]
+!!    dcopy(3f) - [BLAS:DOUBLE_BLAS_LEVEL1] copies elements of a vector,
+!!                x, to a vector, y.
 !!
 !!##SYNOPSIS
 !!
@@ -10346,7 +10325,7 @@ end function dcabs1
 end subroutine dcopy
 !>
 !!##NAME
-!!    ddot.(3f) -- [BLAS:DOUBLE_BLAS_LEVEL1]
+!!    ddot(3f) - [BLAS:DOUBLE_BLAS_LEVEL1] forms the dot product of two vectors.
 !!
 !!##SYNOPSIS
 !!
@@ -10475,7 +10454,7 @@ pure DOUBLE PRECISION FUNCTION DDOT(N,DX,INCX,DY,INCY)
       END FUNCTION DDOT
 !>
 !!##NAME
-!!    dgbmv.(3f) -- [BLAS:DOUBLE_BLAS_LEVEL2]
+!!    dgbmv(3f) - [BLAS:DOUBLE_BLAS_LEVEL2]
 !!
 !!##SYNOPSIS
 !!
@@ -10493,7 +10472,7 @@ pure DOUBLE PRECISION FUNCTION DDOT(N,DX,INCX,DY,INCY)
 !!
 !!##DEFINITION
 !!
-!!  DGBMV  performs one of the matrix-vector operations
+!!  DGBMV performs one of the matrix-vector operations
 !!
 !!     y := alpha*A*x + beta*y,   or   y := alpha*A**T*x + beta*y,
 !!
@@ -10530,13 +10509,13 @@ pure DOUBLE PRECISION FUNCTION DDOT(N,DX,INCX,DY,INCY)
 !!
 !!           KL is INTEGER
 !!            On entry, KL specifies the number of sub-diagonals of the
-!!            matrix A. KL must satisfy  0 .le. KL.
+!!            matrix A. KL must satisfy 0 .le. KL.
 !!
 !!   KU
 !!
 !!           KU is INTEGER
 !!            On entry, KU specifies the number of super-diagonals of the
-!!            matrix A. KU must satisfy  0 .le. KU.
+!!            matrix A. KU must satisfy 0 .le. KU.
 !!
 !!   ALPHA
 !!
@@ -10593,7 +10572,7 @@ pure DOUBLE PRECISION FUNCTION DDOT(N,DX,INCX,DY,INCY)
 !!            On entry, BETA specifies the scalar beta. When BETA is
 !!            supplied as zero then Y need not be set on input.
 !!
-!!  out] Y
+!!  Y
 !!
 !!           Y is DOUBLE PRECISION array, dimension at least
 !!            ( 1 + ( m - 1 )*abs( INCY ) ) when TRANS = 'N' or 'n'
@@ -10808,7 +10787,7 @@ pure DOUBLE PRECISION FUNCTION DDOT(N,DX,INCX,DY,INCY)
 END SUBROUTINE DGBMV
 !>
 !!##NAME
-!!    dgemm.(3f) -- [BLAS:DOUBLE_BLAS_LEVEL3]
+!!    dgemm(3f) - [BLAS:DOUBLE_BLAS_LEVEL3]
 !!
 !!##SYNOPSIS
 !!
@@ -10826,16 +10805,16 @@ END SUBROUTINE DGBMV
 !!
 !!##DEFINITION
 !!
-!!  DGEMM  performs one of the matrix-matrix operations
+!!  DGEMM performs one of the matrix-matrix operations
 !!
 !!     C := alpha*op( A )*op( B ) + beta*C,
 !!
-!!  where  op( X ) is one of
+!!  where op( X ) is one of
 !!
 !!     op( X ) = X   or   op( X ) = X**T,
 !!
 !!  alpha and beta are scalars, and A, B and C are matrices, with op( A )
-!!  an m by k matrix,  op( B )  a  k by n matrix and  C an m by n matrix.
+!!  an m by k matrix, op( B ) a k by n matrix and C an m by n matrix.
 !!
 !!##OPTIONS
 !!
@@ -10866,22 +10845,22 @@ END SUBROUTINE DGBMV
 !!   M
 !!
 !!           M is INTEGER
-!!            On entry,  M  specifies  the number  of rows  of the  matrix
-!!            op( A )  and of the  matrix  C.  M  must  be at least  zero.
+!!            On entry, M specifies the number of rows of the matrix
+!!            op( A ) and of the matrix C. M must be at least zero.
 !!
 !!   N
 !!
 !!           N is INTEGER
-!!            On entry,  N  specifies the number  of columns of the matrix
+!!            On entry, N specifies the number of columns of the matrix
 !!            op( B ) and the number of columns of the matrix C. N must be
 !!            at least zero.
 !!
 !!   K
 !!
 !!           K is INTEGER
-!!            On entry,  K  specifies  the number of columns of the matrix
+!!            On entry, K specifies the number of columns of the matrix
 !!            op( A ) and the number of rows of the matrix op( B ). K must
-!!            be at least  zero.
+!!            be at least zero.
 !!
 !!   ALPHA
 !!
@@ -10891,57 +10870,57 @@ END SUBROUTINE DGBMV
 !!   A
 !!
 !!           A is DOUBLE PRECISION array, dimension ( LDA, ka ), where ka is
-!!            k  when  TRANSA = 'N' or 'n',  and is  m  otherwise.
-!!            Before entry with  TRANSA = 'N' or 'n',  the leading  m by k
-!!            part of the array  A  must contain the matrix  A,  otherwise
-!!            the leading  k by m  part of the array  A  must contain  the
+!!            k when TRANSA = 'N' or 'n', and is m otherwise.
+!!            Before entry with TRANSA = 'N' or 'n', the leading m by k
+!!            part of the array A must contain the matrix A, otherwise
+!!            the leading k by m part of the array A must contain the
 !!            matrix A.
 !!
 !!   LDA
 !!
 !!           LDA is INTEGER
 !!            On entry, LDA specifies the first dimension of A as declared
-!!            in the calling (sub) program. When  TRANSA = 'N' or 'n' then
-!!            LDA must be at least  max( 1, m ), otherwise  LDA must be at
-!!            least  max( 1, k ).
+!!            in the calling (sub) program. When TRANSA = 'N' or 'n' then
+!!            LDA must be at least max( 1, m ), otherwise LDA must be at
+!!            least max( 1, k ).
 !!
 !!   B
 !!
 !!           B is DOUBLE PRECISION array, dimension ( LDB, kb ), where kb is
-!!            n  when  TRANSB = 'N' or 'n',  and is  k  otherwise.
-!!            Before entry with  TRANSB = 'N' or 'n',  the leading  k by n
-!!            part of the array  B  must contain the matrix  B,  otherwise
-!!            the leading  n by k  part of the array  B  must contain  the
+!!            n when TRANSB = 'N' or 'n', and is k otherwise.
+!!            Before entry with TRANSB = 'N' or 'n', the leading k by n
+!!            part of the array B must contain the matrix B, otherwise
+!!            the leading n by k part of the array B must contain the
 !!            matrix B.
 !!
 !!   LDB
 !!
 !!           LDB is INTEGER
 !!            On entry, LDB specifies the first dimension of B as declared
-!!            in the calling (sub) program. When  TRANSB = 'N' or 'n' then
-!!            LDB must be at least  max( 1, k ), otherwise  LDB must be at
-!!            least  max( 1, n ).
+!!            in the calling (sub) program. When TRANSB = 'N' or 'n' then
+!!            LDB must be at least max( 1, k ), otherwise LDB must be at
+!!            least max( 1, n ).
 !!
 !!   BETA
 !!
 !!           BETA is DOUBLE PRECISION.
-!!            On entry,  BETA  specifies the scalar  beta.  When  BETA  is
+!!            On entry, BETA specifies the scalar beta. When BETA is
 !!            supplied as zero then C need not be set on input.
 !!
-!!  out] C
+!!  C
 !!
 !!           C is DOUBLE PRECISION array, dimension ( LDC, N )
-!!            Before entry, the leading  m by n  part of the array  C must
-!!            contain the matrix  C,  except when  beta  is zero, in which
+!!            Before entry, the leading m by n part of the array C must
+!!            contain the matrix C, except when beta is zero, in which
 !!            case C need not be set on entry.
-!!            On exit, the array  C  is overwritten by the  m by n  matrix
+!!            On exit, the array C is overwritten by the m by n matrix
 !!            ( alpha*op( A )*op( B ) + beta*C ).
 !!
 !!   LDC
 !!
 !!           LDC is INTEGER
 !!            On entry, LDC specifies the first dimension of C as declared
-!!            in  the  calling  (sub)  program.   LDC  must  be  at  least
+!!            in the calling (sub) program. LDC must be at least
 !!            max( 1, m ).
 !!
 !!##AUTHORS
@@ -11148,7 +11127,7 @@ END SUBROUTINE DGBMV
       END SUBROUTINE DGEMM
 !>
 !!##NAME
-!!    dgemv.(3f) -- [BLAS:DOUBLE_BLAS_LEVEL2]
+!!    dgemv(3f) - [BLAS:DOUBLE_BLAS_LEVEL2]
 !!
 !!##SYNOPSIS
 !!
@@ -11166,7 +11145,7 @@ END SUBROUTINE DGBMV
 !!
 !!##DEFINITION
 !!
-!!  DGEMV  performs one of the matrix-vector operations
+!!  DGEMV performs one of the matrix-vector operations
 !!
 !!     y := alpha*A*x + beta*y,   or   y := alpha*A**T*x + beta*y,
 !!
@@ -11238,7 +11217,7 @@ END SUBROUTINE DGBMV
 !!            On entry, BETA specifies the scalar beta. When BETA is
 !!            supplied as zero then Y need not be set on input.
 !!
-!!  out] Y
+!!  Y
 !!
 !!           Y is DOUBLE PRECISION array, dimension at least
 !!            ( 1 + ( m - 1 )*abs( INCY ) ) when TRANS = 'N' or 'n'
@@ -11441,7 +11420,7 @@ END SUBROUTINE DGBMV
       END SUBROUTINE DGEMV
 !>
 !!##NAME
-!!    dger.(3f) -- [BLAS:DOUBLE_BLAS_LEVEL2]
+!!    dger(3f) - [BLAS:DOUBLE_BLAS_LEVEL2]
 !!
 !!##SYNOPSIS
 !!
@@ -11458,7 +11437,7 @@ END SUBROUTINE DGBMV
 !!
 !!##DEFINITION
 !!
-!!  DGER   performs the rank 1 operation
+!!  DGER performs the rank 1 operation
 !!
 !!     A := alpha*x*y**T + A,
 !!
@@ -11510,7 +11489,7 @@ END SUBROUTINE DGBMV
 !!            On entry, INCY specifies the increment for the elements of
 !!            Y. INCY must not be zero.
 !!
-!!  out] A
+!!  A
 !!
 !!           A is DOUBLE PRECISION array, dimension ( LDA, N )
 !!            Before entry, the leading m by n part of the array A must
@@ -11643,7 +11622,8 @@ END SUBROUTINE DGBMV
       END SUBROUTINE DGER
 !>
 !!##NAME
-!!    dnrm2.(3f) -- [BLAS:SINGLE_BLAS_LEVEL1]
+!!    dnrm2(3f) - [BLAS:SINGLE_BLAS_LEVEL1] returns the euclidean norm of
+!!    a vector via the function name
 !!
 !!##SYNOPSIS
 !!
@@ -11664,24 +11644,18 @@ END SUBROUTINE DGBMV
 !!     DNRM2 := sqrt( x'*x )
 !!
 !!##OPTIONS
-!!
 !!   N
-!!
-!!           N is INTEGER
-!!          number of elements in input vector(s)
-!!
+!!           number of elements in input vector(s)
 !!   X
-!!
 !!           X is DOUBLE PRECISION array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
-!!
 !!   INCX
-!!
 !!           INCX is INTEGER, storage spacing between elements of X
-!!           If INCX > 0, X(1+(i-1)*INCX) = x(i) for 1 <= i <= n
-!!           If INCX < 0, X(1-(n-i)*INCX) = x(i) for 1 <= i <= n
-!!           If INCX = 0, x isn't a vector so there is no need to call
-!!           this subroutine.  If you call it anyway, it will count x(1)
-!!           in the vector norm N times.
+!!
+!!            If INCX > 0, X(1+(i-1)*INCX) = x(i) for 1 <= i <= n
+!!            If INCX < 0, X(1-(n-i)*INCX) = x(i) for 1 <= i <= n
+!!            If INCX = 0, x isn't a vector so there is no need to call
+!!            this subroutine. If you call it anyway, it will count x(1)
+!!            in the vector norm N times.
 !!
 !!##AUTHORS
 !!
@@ -11819,18 +11793,18 @@ pure function DNRM2( n, x, incx )
 end function
 !>
 !!##NAME
-!!    drot.(3f) -- [BLAS:SINGLE_BLAS_LEVEL1]
+!!    drot(3f) - [BLAS:SINGLE_BLAS_LEVEL1] DROT applies a plane rotation.
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE DROT(N,DX,INCX,DY,INCY,C,S)
+!!     subroutine drot(n,dx,incx,dy,incy,c,s) applies a plane rotation.
 !!
 !!       .. Scalar Arguments ..
-!!       DOUBLE PRECISION,intent(in)    :: C,S
-!!       INTEGER,intent(in)             :: INCX,INCY,N
+!!       double precision,intent(in)    :: c,s
+!!       integer,intent(in)             :: incx,incy,n
 !!       ..
 !!       .. Array Arguments ..
-!!       DOUBLE PRECISION,intent(inout) :: DX(*),DY(*)
+!!       double precision,intent(inout) :: dx(*),dy(*)
 !!       ..
 !!
 !!##DEFINITION
@@ -11840,35 +11814,19 @@ end function
 !!##OPTIONS
 !!
 !!   N
-!!
-!!           N is INTEGER
 !!          number of elements in input vector(s)
-!!
-!!  out] DX
-!!
-!!           DX is DOUBLE PRECISION array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
-!!
+!!   DX
+!!           array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
 !!   INCX
 !!
-!!           INCX is INTEGER
 !!          storage spacing between elements of DX
 !!
-!!  out] DY
-!!
+!!   DY
 !!           DY is DOUBLE PRECISION array, dimension ( 1 + ( N - 1 )*abs( INCY ) )
-!!
 !!   INCY
-!!
-!!           INCY is INTEGER
 !!          storage spacing between elements of DY
-!!
 !!   C
-!!
-!!           C is DOUBLE PRECISION
-!!
 !!   S
-!!
-!!           S is DOUBLE PRECISION
 !!
 !!##AUTHORS
 !!
@@ -11943,7 +11901,7 @@ end function
       END SUBROUTINE DROT
 !>
 !!##NAME
-!!    drotg.(3f) -- [BLAS:SINGLE_BLAS_LEVEL1]
+!!    drotg(3f) - [BLAS:SINGLE_BLAS_LEVEL1] constructs a plane rotation
 !!
 !!##SYNOPSIS
 !!
@@ -11955,47 +11913,46 @@ end function
 !!
 !!##DEFINITION
 !!   DROTG constructs a plane rotation
+!!
 !!      [  c  s ] [ a ] = [ r ]
 !!      [ -s  c ] [ b ]   [ 0 ]
+!!
 !!   satisfying c**2 + s**2 = 1.
 !!
 !!  The computation uses the formulas
+!!
 !!     sigma = sgn(a)    if |a| >  |b|
 !!           = sgn(b)    if |b| >= |a|
 !!     r = sigma*sqrt( a**2 + b**2 )
 !!     c = 1; s = 0      if r = 0
 !!     c = a/r; s = b/r  if r != 0
+!!
 !!  The subroutine also computes
+!!
 !!     z = s    if |a| > |b|,
 !!       = 1/c  if |b| >= |a| and c != 0
 !!       = 1    if c = 0
+!!
 !!  This allows c and s to be reconstructed from z as follows:
+!!
 !!     If z = 1, set c = 0, s = 1.
 !!     If |z| < 1, set c = sqrt(1 - z**2) and s = z.
 !!     If |z| > 1, set c = 1/z and s = sqrt( 1 - c**2).
 !!
 !!##OPTIONS
 !!
-!!  out] A
-!!
-!!           A is DOUBLE PRECISION
+!!   A
 !!           On entry, the scalar a.
 !!           On exit, the scalar r.
 !!
-!!  out] B
-!!
-!!           B is DOUBLE PRECISION
+!!   B
 !!           On entry, the scalar b.
 !!           On exit, the scalar z.
 !!
 !!   C
-!!
-!!           C is DOUBLE PRECISION
 !!           The scalar c.
 !!
 !!   S
-!!
-!!           S is DOUBLE PRECISION
 !!           The scalar s.
 !!
 !!##AUTHORS
@@ -12076,7 +12033,8 @@ subroutine DROTG( a, b, c, s )
 end subroutine
 !>
 !!##NAME
-!!    drotm.(3f) -- [BLAS:SINGLE_BLAS_LEVEL1]
+!!    drotm(3f) - [BLAS:SINGLE_BLAS_LEVEL1] Apply the Modified Givens
+!!    Transformation, H, to the 2 by N matrix
 !!
 !!##SYNOPSIS
 !!
@@ -12092,55 +12050,45 @@ end subroutine
 !!
 !!##DEFINITION
 !!
-!!     APPLY THE MODIFIED GIVENS TRANSFORMATION, H, TO THE 2 BY N MATRIX
+!!     Apply the Modified Givens Transformation, H, to the 2 by N matrix
 !!
-!!     (DX**T) , WHERE **T INDICATES TRANSPOSE. THE ELEMENTS OF DX ARE IN
+!!     (DX**T) , where **T indicates transpose. the elements of DX are in
 !!     (DY**T)
 !!
-!!     DX(LX+I*INCX), I = 0 TO N-1, WHERE LX = 1 IF INCX .GE. 0, ELSE
-!!     LX = (-INCX)*N, AND SIMILARLY FOR SY USING LY AND INCY.
-!!     WITH DPARAM(1)=DFLAG, H HAS ONE OF THE FOLLOWING FORMS..
+!!     DX(LX+I*INCX), I = 0 to N-1, where LX = 1 if INCX .ge. 0, else
+!!     LX = (-INCX)*N, and similarly for SY using LY and INCY.
+!!     with DPARAM(1)=DFLAG, H has one of the following forms..
 !!
-!!     DFLAG=-1.D0     DFLAG=0.D0        DFLAG=1.D0     DFLAG=-2.D0
+!!        DFLAG=-1.D0     DFLAG=0.D0        DFLAG=1.D0     DFLAG=-2.D0
 !!
-!!       (DH11  DH12)    (1.D0  DH12)    (DH11  1.D0)    (1.D0  0.D0)
-!!     H=(          )    (          )    (          )    (          )
-!!       (DH21  DH22),   (DH21  1.D0),   (-1.D0 DH22),   (0.D0  1.D0).
+!!          (DH11  DH12)    (1.D0  DH12)    (DH11  1.D0)    (1.D0  0.D0)
+!!        H=(          )    (          )    (          )    (          )
+!!          (DH21  DH22),   (DH21  1.D0),   (-1.D0 DH22),   (0.D0  1.D0).
+!!
 !!     SEE DROTMG FOR A DESCRIPTION OF DATA STORAGE IN DPARAM.
 !!
 !!##OPTIONS
-!!
 !!   N
-!!
-!!           N is INTEGER
 !!          number of elements in input vector(s)
-!!
-!!  out] DX
-!!
+!!   DX
 !!           DX is DOUBLE PRECISION array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
 !!
 !!   INCX
-!!
-!!           INCX is INTEGER
 !!          storage spacing between elements of DX
 !!
-!!  out] DY
-!!
+!!   DY
 !!           DY is DOUBLE PRECISION array, dimension ( 1 + ( N - 1 )*abs( INCY ) )
-!!
 !!   INCY
-!!
-!!           INCY is INTEGER
 !!          storage spacing between elements of DY
 !!
 !!   DPARAM
+!!           array, dimension (5)
 !!
-!!           DPARAM is DOUBLE PRECISION array, dimension (5)
-!!      DPARAM(1)=DFLAG
-!!      DPARAM(2)=DH11
-!!      DPARAM(3)=DH21
-!!      DPARAM(4)=DH12
-!!      DPARAM(5)=DH22
+!!            DPARAM(1)=DFLAG
+!!            DPARAM(2)=DH11
+!!            DPARAM(3)=DH21
+!!            DPARAM(4)=DH12
+!!            DPARAM(5)=DH22
 !!
 !!##AUTHORS
 !!
@@ -12265,7 +12213,7 @@ end subroutine
       END SUBROUTINE DROTM
 !>
 !!##NAME
-!!    drotmg.(3f) -- [BLAS:DOUBLE_BLAS_LEVEL1]
+!!    drotmg(3f) - [BLAS:DOUBLE_BLAS_LEVEL1]
 !!
 !!##SYNOPSIS
 !!
@@ -12282,33 +12230,34 @@ end subroutine
 !!##DEFINITION
 !!
 !!     CONSTRUCT THE MODIFIED GIVENS TRANSFORMATION MATRIX H WHICH ZEROS
-!!     THE SECOND COMPONENT OF THE 2-VECTOR  (DSQRT(DD1)*DX1,DSQRT(DD2)*>    DY2)**T.
+!!     THE SECOND COMPONENT OF THE 2-VECTOR (DSQRT(DD1)*DX1,DSQRT(DD2)*> DY2)**T.
 !!     WITH DPARAM(1)=DFLAG, H HAS ONE OF THE FOLLOWING FORMS..
 !!
-!!     DFLAG=-1.D0     DFLAG=0.D0        DFLAG=1.D0     DFLAG=-2.D0
+!!        DFLAG=-1.D0     DFLAG=0.D0        DFLAG=1.D0     DFLAG=-2.D0
 !!
-!!       (DH11  DH12)    (1.D0  DH12)    (DH11  1.D0)    (1.D0  0.D0)
-!!     H=(          )    (          )    (          )    (          )
-!!       (DH21  DH22),   (DH21  1.D0),   (-1.D0 DH22),   (0.D0  1.D0).
+!!          (DH11  DH12)    (1.D0  DH12)    (DH11  1.D0)    (1.D0  0.D0)
+!!        H=(          )    (          )    (          )    (          )
+!!          (DH21  DH22),   (DH21  1.D0),   (-1.D0 DH22),   (0.D0  1.D0).
+!!
 !!     LOCATIONS 2-4 OF DPARAM CONTAIN DH11, DH21, DH12, AND DH22
 !!     RESPECTIVELY. (VALUES OF 1.D0, -1.D0, OR 0.D0 IMPLIED BY THE
 !!     VALUE OF DPARAM(1) ARE NOT STORED IN DPARAM.)
 !!
 !!     THE VALUES OF GAMSQ AND RGAMSQ SET IN THE DATA STATEMENT MAY BE
-!!     INEXACT.  THIS IS OK AS THEY ARE ONLY USED FOR TESTING THE SIZE
-!!     OF DD1 AND DD2.  ALL ACTUAL SCALING OF DATA IS DONE USING GAM.
+!!     INEXACT. THIS IS OK AS THEY ARE ONLY USED FOR TESTING THE SIZE
+!!     OF DD1 AND DD2. ALL ACTUAL SCALING OF DATA IS DONE USING GAM.
 !!
 !!##OPTIONS
 !!
-!!  out] DD1
+!!  DD1
 !!
 !!           DD1 is DOUBLE PRECISION
 !!
-!!  out] DD2
+!!  DD2
 !!
 !!           DD2 is DOUBLE PRECISION
 !!
-!!  out] DX1
+!!  DX1
 !!
 !!           DX1 is DOUBLE PRECISION
 !!
@@ -12516,7 +12465,7 @@ end subroutine
       END SUBROUTINE DROTMG
 !>
 !!##NAME
-!!    dsbmv.(3f) -- [BLAS:DOUBLE_BLAS_LEVEL2]
+!!    dsbmv(3f) - [BLAS:DOUBLE_BLAS_LEVEL2]
 !!
 !!##SYNOPSIS
 !!
@@ -12534,7 +12483,7 @@ end subroutine
 !!
 !!##DEFINITION
 !!
-!!  DSBMV  performs the matrix-vector  operation
+!!  DSBMV performs the matrix-vector operation
 !!
 !!     y := alpha*A*x + beta*y,
 !!
@@ -12566,7 +12515,7 @@ end subroutine
 !!
 !!           K is INTEGER
 !!            On entry, K specifies the number of super-diagonals of the
-!!            matrix A. K must satisfy  0 .le. K.
+!!            matrix A. K must satisfy 0 .le. K.
 !!
 !!   ALPHA
 !!
@@ -12637,7 +12586,7 @@ end subroutine
 !!           BETA is DOUBLE PRECISION.
 !!            On entry, BETA specifies the scalar beta.
 !!
-!!  out] Y
+!!  Y
 !!
 !!           Y is DOUBLE PRECISION array, dimension at least
 !!            ( 1 + ( n - 1 )*abs( INCY ) ).
@@ -12858,7 +12807,7 @@ end subroutine
       END SUBROUTINE DSBMV
 !>
 !!##NAME
-!!    dscal.(3f) -- [BLAS:DOUBLE_BLAS_LEVEL1]
+!!    dscal(3f) - [BLAS:DOUBLE_BLAS_LEVEL1] scales a vector by a constant.
 !!
 !!##SYNOPSIS
 !!
@@ -12878,25 +12827,14 @@ end subroutine
 !!     uses unrolled loops for increment equal to 1.
 !!
 !!##OPTIONS
-!!
 !!   N
-!!
-!!           N is INTEGER
-!!          number of elements in input vector(s)
-!!
+!!           number of elements in input vector(s)
 !!   DA
-!!
-!!           DA is DOUBLE PRECISION
-!!            On entry, DA specifies the scalar alpha.
-!!
-!!  out] DX
-!!
-!!           DX is DOUBLE PRECISION array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
-!!
+!!           On entry, DA specifies the scalar alpha.
+!!   DX
+!!           array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
 !!   INCX
-!!
-!!           INCX is INTEGER
-!!          storage spacing between elements of DX
+!!           storage spacing between elements of DX
 !!
 !!##AUTHORS
 !!
@@ -12975,7 +12913,7 @@ end subroutine
       END SUBROUTINE DSCAL
 !>
 !!##NAME
-!!    dsdot.(3f) -- [BLAS:DOUBLE_BLAS_LEVEL1]
+!!    dsdot(3f) - [BLAS:DOUBLE_BLAS_LEVEL1]
 !!
 !!##SYNOPSIS
 !!
@@ -12995,7 +12933,7 @@ end subroutine
 !!  precision accumulation and result.
 !!
 !!  Returns D.P. dot product accumulated in D.P., for S.P. SX and SY
-!!  DSDOT = sum for I = 0 to N-1 of  SX(LX+I*INCX) * SY(LY+I*INCY),
+!!  DSDOT = sum for I = 0 to N-1 of SX(LX+I*INCX) * SY(LY+I*INCY),
 !!  where LX = 1 if INCX .GE. 0, else LX = 1+(1-N)*INCX, and LY is
 !!  defined in a similar way using INCY.
 !!
@@ -13034,15 +12972,15 @@ end subroutine
 !!   usage, Algorithm No. 539, Transactions on Mathematical
 !!   Software 5, 3 (September 1979), pp. 308-323.
 !!
-!!   REVISION HISTORY  (YYMMDD)
+!!   REVISION HISTORY
 !!
-!!      791001  DATE WRITTEN
-!!      890831  Modified array declarations.  (WRB)
-!!      890831  REVISION DATE from Version 3.2
-!!      891214  Prologue converted to Version 4.0 format.  (BAB)
-!!      920310  Corrected definition of LX in DESCRIPTION.  (WRB)
-!!      920501  Reformatted the REFERENCES section.  (WRB)
-!!      070118  Reformat to LAPACK style (JL)
+!!      1979-10-01  DATE WRITTEN
+!!      1989-08-31  Modified array declarations. (WRB)
+!!      1989-08-31  REVISION DATE from Version 3.2
+!!      1989-12-14  Prologue converted to Version 4.0 format. (BAB)
+!!      1992-03-10  Corrected definition of LX in DESCRIPTION. (WRB)
+!!      1992-05-01  Reformatted the REFERENCES section. (WRB)
+!!      1907-01-18  Reformat to LAPACK style (JL)
 !!
 !!##SEE ALSO
 !!    Online html documentation available at
@@ -13104,7 +13042,7 @@ implicit none
 end function dsdot
 !>
 !!##NAME
-!!    dspmv.(3f) -- [BLAS:DOUBLE_BLAS_LEVEL2]
+!!    dspmv(3f) - [BLAS:DOUBLE_BLAS_LEVEL2]
 !!
 !!##SYNOPSIS
 !!
@@ -13122,7 +13060,7 @@ end function dsdot
 !!
 !!##DEFINITION
 !!
-!!  DSPMV  performs the matrix-vector operation
+!!  DSPMV performs the matrix-vector operation
 !!
 !!     y := alpha*A*x + beta*y,
 !!
@@ -13189,7 +13127,7 @@ end function dsdot
 !!            On entry, BETA specifies the scalar beta. When BETA is
 !!            supplied as zero then Y need not be set on input.
 !!
-!!  out] Y
+!!  Y
 !!
 !!           Y is DOUBLE PRECISION array, dimension at least
 !!            ( 1 + ( n - 1 )*abs( INCY ) ).
@@ -13404,7 +13342,7 @@ end function dsdot
       END SUBROUTINE DSPMV
 !>
 !!##NAME
-!!    dspr2.(3f) -- [BLAS:DOUBLE_BLAS_LEVEL2]
+!!    dspr2(3f) - [BLAS:DOUBLE_BLAS_LEVEL2]
 !!
 !!##SYNOPSIS
 !!
@@ -13421,7 +13359,7 @@ end function dsdot
 !!       ..
 !!
 !!##DEFINITION
-!!  DSPR2  performs the symmetric rank 2 operation
+!!  DSPR2 performs the symmetric rank 2 operation
 !!
 !!     A := alpha*x*y**T + alpha*y*x**T + A,
 !!
@@ -13480,11 +13418,11 @@ end function dsdot
 !!            On entry, INCY specifies the increment for the elements of
 !!            Y. INCY must not be zero.
 !!
-!!  out] AP
+!!  AP
 !!
 !!           AP is DOUBLE PRECISION array, dimension at least
 !!            ( ( n*( n + 1 ) )/2 ).
-!!            Before entry with  UPLO = 'U' or 'u', the array AP must
+!!            Before entry with UPLO = 'U' or 'u', the array AP must
 !!            contain the upper triangular part of the symmetric matrix
 !!            packed sequentially, column by column, so that AP( 1 )
 !!            contains a( 1, 1 ), AP( 2 ) and AP( 3 ) contain a( 1, 2 )
@@ -13673,7 +13611,7 @@ end function dsdot
       END SUBROUTINE DSPR2
 !>
 !!##NAME
-!!    dspr.(3f) -- [BLAS:DOUBLE_BLAS_LEVEL2]
+!!    dspr(3f) - [BLAS:DOUBLE_BLAS_LEVEL2]
 !!
 !!##SYNOPSIS
 !!
@@ -13691,7 +13629,7 @@ end function dsdot
 !!
 !!##DESCRIPTION
 !!
-!!  DSPR    performs the symmetric rank 1 operation
+!!  DSPR performs the symmetric rank 1 operation
 !!
 !!     A := alpha*x*x**T + A,
 !!
@@ -13737,7 +13675,7 @@ end function dsdot
 !!            On entry, INCX specifies the increment for the elements of
 !!            X. INCX must not be zero.
 !!
-!!  out] AP
+!!  AP
 !!
 !!           AP is DOUBLE PRECISION array, dimension at least
 !!            ( ( n*( n + 1 ) )/2 ).
@@ -13910,7 +13848,7 @@ end function dsdot
       END SUBROUTINE DSPR
 !>
 !!##NAME
-!!    dswap.(3f) -- [BLAS:DOUBLE_BLAS_LEVEL1]
+!!    dswap(3f) - [BLAS:DOUBLE_BLAS_LEVEL1] interchanges two vectors.
 !!
 !!##SYNOPSIS
 !!
@@ -13935,7 +13873,7 @@ end function dsdot
 !!           N is INTEGER
 !!          number of elements in input vector(s)
 !!
-!!  out] DX
+!!  DX
 !!
 !!           DX is DOUBLE PRECISION array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
 !!
@@ -13944,7 +13882,7 @@ end function dsdot
 !!           INCX is INTEGER
 !!          storage spacing between elements of DX
 !!
-!!  out] DY
+!!  DY
 !!
 !!           DY is DOUBLE PRECISION array, dimension ( 1 + ( N - 1 )*abs( INCY ) )
 !!
@@ -14045,7 +13983,7 @@ end function dsdot
       END SUBROUTINE DSWAP
 !>
 !!##NAME
-!!    dsymm.(3f) -- [BLAS:DOUBLE_BLAS_LEVEL3]
+!!    dsymm(3f) - [BLAS:DOUBLE_BLAS_LEVEL3]
 !!
 !!##SYNOPSIS
 !!
@@ -14063,7 +14001,7 @@ end function dsdot
 !!
 !!##DEFINITION
 !!
-!!  DSYMM  performs one of the matrix-matrix operations
+!!  DSYMM performs one of the matrix-matrix operations
 !!
 !!     C := alpha*A*B + beta*C,
 !!
@@ -14071,16 +14009,16 @@ end function dsdot
 !!
 !!     C := alpha*B*A + beta*C,
 !!
-!!  where alpha and beta are scalars,  A is a symmetric matrix and  B and
-!!  C are  m by n matrices.
+!!  where alpha and beta are scalars, A is a symmetric matrix and B and
+!!  C are m by n matrices.
 !!
 !!##OPTIONS
 !!
 !!   SIDE
 !!
 !!           SIDE is CHARACTER*1
-!!            On entry,  SIDE  specifies whether  the  symmetric matrix  A
-!!            appears on the  left or right  in the  operation as follows:
+!!            On entry, SIDE specifies whether the symmetric matrix A
+!!            appears on the left or right in the operation as follows:
 !!
 !!               SIDE = 'L' or 'l'   C := alpha*A*B + beta*C,
 !!
@@ -14089,8 +14027,8 @@ end function dsdot
 !!   UPLO
 !!
 !!           UPLO is CHARACTER*1
-!!            On  entry,   UPLO  specifies  whether  the  upper  or  lower
-!!            triangular  part  of  the  symmetric  matrix   A  is  to  be
+!!            On entry, UPLO specifies whether the upper or lower
+!!            triangular part of the symmetric matrix A is to be
 !!            referenced as follows:
 !!
 !!               UPLO = 'U' or 'u'   Only the upper triangular part of the
@@ -14102,14 +14040,14 @@ end function dsdot
 !!   M
 !!
 !!           M is INTEGER
-!!            On entry,  M  specifies the number of rows of the matrix  C.
-!!            M  must be at least zero.
+!!            On entry, M specifies the number of rows of the matrix C.
+!!            M must be at least zero.
 !!
 !!   N
 !!
 !!           N is INTEGER
 !!            On entry, N specifies the number of columns of the matrix C.
-!!            N  must be at least zero.
+!!            N must be at least zero.
 !!
 !!   ALPHA
 !!
@@ -14119,69 +14057,70 @@ end function dsdot
 !!   A
 !!
 !!           A is DOUBLE PRECISION array, dimension ( LDA, ka ), where ka is
-!!            m  when  SIDE = 'L' or 'l'  and is  n otherwise.
-!!            Before entry  with  SIDE = 'L' or 'l',  the  m by m  part of
-!!            the array  A  must contain the  symmetric matrix,  such that
-!!            when  UPLO = 'U' or 'u', the leading m by m upper triangular
-!!            part of the array  A  must contain the upper triangular part
-!!            of the  symmetric matrix and the  strictly  lower triangular
-!!            part of  A  is not referenced,  and when  UPLO = 'L' or 'l',
-!!            the leading  m by m  lower triangular part  of the  array  A
-!!            must  contain  the  lower triangular part  of the  symmetric
-!!            matrix and the  strictly upper triangular part of  A  is not
+!!            m when SIDE = 'L' or 'l' and is n otherwise.
+!!
+!!            Before entry with SIDE = 'L' or 'l', the m by m part of
+!!            the array A must contain the symmetric matrix, such that
+!!            when UPLO = 'U' or 'u', the leading m by m upper triangular
+!!            part of the array A must contain the upper triangular part
+!!            of the symmetric matrix and the strictly lower triangular
+!!            part of A is not referenced, and when UPLO = 'L' or 'l',
+!!            the leading m by m lower triangular part of the array A
+!!            must contain the lower triangular part of the symmetric
+!!            matrix and the strictly upper triangular part of A is not
 !!            referenced.
-!!            Before entry  with  SIDE = 'R' or 'r',  the  n by n  part of
-!!            the array  A  must contain the  symmetric matrix,  such that
-!!            when  UPLO = 'U' or 'u', the leading n by n upper triangular
-!!            part of the array  A  must contain the upper triangular part
-!!            of the  symmetric matrix and the  strictly  lower triangular
-!!            part of  A  is not referenced,  and when  UPLO = 'L' or 'l',
-!!            the leading  n by n  lower triangular part  of the  array  A
-!!            must  contain  the  lower triangular part  of the  symmetric
-!!            matrix and the  strictly upper triangular part of  A  is not
+!!            Before entry with SIDE = 'R' or 'r', the n by n part of
+!!            the array A must contain the symmetric matrix, such that
+!!            when UPLO = 'U' or 'u', the leading n by n upper triangular
+!!            part of the array A must contain the upper triangular part
+!!            of the symmetric matrix and the strictly lower triangular
+!!            part of A is not referenced, and when UPLO = 'L' or 'l',
+!!            the leading n by n lower triangular part of the array A
+!!            must contain the lower triangular part of the symmetric
+!!            matrix and the strictly upper triangular part of A is not
 !!            referenced.
 !!
 !!   LDA
 !!
 !!           LDA is INTEGER
 !!            On entry, LDA specifies the first dimension of A as declared
-!!            in the calling (sub) program.  When  SIDE = 'L' or 'l'  then
-!!            LDA must be at least  max( 1, m ), otherwise  LDA must be at
-!!            least  max( 1, n ).
+!!            in the calling (sub) program. When SIDE = 'L' or 'l' then
+!!            LDA must be at least max( 1, m ), otherwise LDA must be at
+!!            least max( 1, n ).
 !!
 !!   B
 !!
 !!           B is DOUBLE PRECISION array, dimension ( LDB, N )
-!!            Before entry, the leading  m by n part of the array  B  must
+!!            Before entry, the leading m by n part of the array B must
 !!            contain the matrix B.
 !!
 !!   LDB
 !!
 !!           LDB is INTEGER
 !!            On entry, LDB specifies the first dimension of B as declared
-!!            in  the  calling  (sub)  program.   LDB  must  be  at  least
+!!            in the calling (sub) program. LDB must be at least
 !!            max( 1, m ).
 !!
 !!   BETA
 !!
 !!           BETA is DOUBLE PRECISION.
-!!            On entry,  BETA  specifies the scalar  beta.  When  BETA  is
+!!            On entry, BETA specifies the scalar beta. When BETA is
 !!            supplied as zero then C need not be set on input.
 !!
-!!  out] C
+!!  C
 !!
 !!           C is DOUBLE PRECISION array, dimension ( LDC, N )
-!!            Before entry, the leading  m by n  part of the array  C must
-!!            contain the matrix  C,  except when  beta  is zero, in which
+!!            Before entry, the leading m by n part of the array C must
+!!            contain the matrix C, except when beta is zero, in which
 !!            case C need not be set on entry.
-!!            On exit, the array  C  is overwritten by the  m by n updated
+!!            On exit, the array C is overwritten by the m by n updated
 !!            matrix.
 !!
 !!   LDC
 !!
 !!           LDC is INTEGER
 !!            On entry, LDC specifies the first dimension of C as declared
-!!            in  the  calling  (sub)  program.   LDC  must  be  at  least
+!!            in the calling (sub) program. LDC must be at least
 !!            max( 1, m ).
 !!
 !!##AUTHORS
@@ -14363,7 +14302,7 @@ end function dsdot
       END SUBROUTINE DSYMM
 !>
 !!##NAME
-!!    dsymv.(3f) -- [BLAS:DOUBLE_BLAS_LEVEL2]
+!!    dsymv(3f) - [BLAS:DOUBLE_BLAS_LEVEL2]
 !!
 !!##SYNOPSIS
 !!
@@ -14381,7 +14320,7 @@ end function dsdot
 !!
 !!##DEFINITION
 !!
-!!  DSYMV  performs the matrix-vector  operation
+!!  DSYMV performs the matrix-vector  operation
 !!
 !!     y := alpha*A*x + beta*y,
 !!
@@ -14417,7 +14356,7 @@ end function dsdot
 !!   A
 !!
 !!           A is DOUBLE PRECISION array, dimension ( LDA, N )
-!!            Before entry with  UPLO = 'U' or 'u', the leading n by n
+!!            Before entry with UPLO = 'U' or 'u', the leading n by n
 !!            upper triangular part of the array A must contain the upper
 !!            triangular part of the symmetric matrix and the strictly
 !!            lower triangular part of A is not referenced.
@@ -14452,7 +14391,7 @@ end function dsdot
 !!            On entry, BETA specifies the scalar beta. When BETA is
 !!            supplied as zero then Y need not be set on input.
 !!
-!!  out] Y
+!!  Y
 !!
 !!           Y is DOUBLE PRECISION array, dimension at least
 !!            ( 1 + ( n - 1 )*abs( INCY ) ).
@@ -14664,7 +14603,7 @@ end function dsdot
       END SUBROUTINE DSYMV
 !>
 !!##NAME
-!!    dsyr2.(3f) -- [BLAS:DOUBLE_BLAS_LEVEL2]
+!!    dsyr2(3f) - [BLAS:DOUBLE_BLAS_LEVEL2]
 !!
 !!##SYNOPSIS
 !!
@@ -14682,7 +14621,7 @@ end function dsdot
 !!
 !!##DEFINITION
 !!
-!!  DSYR2  performs the symmetric rank 2 operation
+!!  DSYR2 performs the symmetric rank 2 operation
 !!
 !!     A := alpha*x*y**T + alpha*y*x**T + A,
 !!
@@ -14741,10 +14680,10 @@ end function dsdot
 !!            On entry, INCY specifies the increment for the elements of
 !!            Y. INCY must not be zero.
 !!
-!!  out] A
+!!  A
 !!
 !!           A is DOUBLE PRECISION array, dimension ( LDA, N )
-!!            Before entry with  UPLO = 'U' or 'u', the leading n by n
+!!            Before entry with UPLO = 'U' or 'u', the leading n by n
 !!            upper triangular part of the array A must contain the upper
 !!            triangular part of the symmetric matrix and the strictly
 !!            lower triangular part of A is not referenced. On exit, the
@@ -14935,7 +14874,7 @@ end function dsdot
       END SUBROUTINE DSYR2
 !>
 !!##NAME
-!!    dsyr2k.(3f) -- [BLAS:DOUBLE_BLAS_LEVEL3]
+!!    dsyr2k(3f) - [BLAS:DOUBLE_BLAS_LEVEL3]
 !!
 !!##SYNOPSIS
 !!
@@ -14953,7 +14892,7 @@ end function dsdot
 !!
 !!##DEFINITION
 !!
-!!  DSYR2K  performs one of the symmetric rank 2k operations
+!!  DSYR2K performs one of the symmetric rank 2k operations
 !!
 !!     C := alpha*A*B**T + alpha*B*A**T + beta*C,
 !!
@@ -14961,17 +14900,16 @@ end function dsdot
 !!
 !!     C := alpha*A**T*B + alpha*B**T*A + beta*C,
 !!
-!!  where  alpha and beta  are scalars, C is an  n by n  symmetric matrix
-!!  and  A and B  are  n by k  matrices  in the  first  case  and  k by n
+!!  where alpha and beta are scalars, C is an n by n symmetric matrix
+!!  and A and B are n by k matrices in the first case and k by n
 !!  matrices in the second case.
 !!
 !!##OPTIONS
 !!
 !!   UPLO
 !!
-!!           UPLO is CHARACTER*1
-!!            On  entry,   UPLO  specifies  whether  the  upper  or  lower
-!!            triangular  part  of the  array  C  is to be  referenced  as
+!!            On entry, UPLO specifies whether the upper or lower
+!!            triangular part of the array C is to be referenced as
 !!            follows:
 !!
 !!               UPLO = 'U' or 'u'   Only the  upper triangular part of  C
@@ -14982,8 +14920,7 @@ end function dsdot
 !!
 !!   TRANS
 !!
-!!           TRANS is CHARACTER*1
-!!            On entry,  TRANS  specifies the operation to be performed as
+!!            On entry, TRANS specifies the operation to be performed as
 !!            follows:
 !!
 !!               TRANS = 'N' or 'n'   C := alpha*A*B**T + alpha*B*A**T +
@@ -14997,17 +14934,16 @@ end function dsdot
 !!
 !!   N
 !!
-!!           N is INTEGER
-!!            On entry,  N specifies the order of the matrix C.  N must be
+!!            On entry, N specifies the order of the matrix C. N must be
 !!            at least zero.
 !!
 !!   K
 !!
 !!           K is INTEGER
-!!            On entry with  TRANS = 'N' or 'n',  K  specifies  the number
-!!            of  columns  of the  matrices  A and B,  and on  entry  with
-!!            TRANS = 'T' or 't' or 'C' or 'c',  K  specifies  the  number
-!!            of rows of the matrices  A and B.  K must be at least  zero.
+!!            On entry with TRANS = 'N' or 'n', K specifies the number
+!!            of columns of the matrices A and B, and on entry with
+!!            TRANS = 'T' or 't' or 'C' or 'c', K specifies the number
+!!            of rows of the matrices A and B. K must be at least zero.
 !!
 !!   ALPHA
 !!
@@ -15017,63 +14953,63 @@ end function dsdot
 !!   A
 !!
 !!           A is DOUBLE PRECISION array, dimension ( LDA, ka ), where ka is
-!!            k  when  TRANS = 'N' or 'n',  and is  n  otherwise.
-!!            Before entry with  TRANS = 'N' or 'n',  the  leading  n by k
-!!            part of the array  A  must contain the matrix  A,  otherwise
-!!            the leading  k by n  part of the array  A  must contain  the
+!!            k when TRANS = 'N' or 'n', and is n otherwise.
+!!            Before entry with TRANS = 'N' or 'n', the leading n by k
+!!            part of the array A must contain the matrix A, otherwise
+!!            the leading k by n part of the array A must contain the
 !!            matrix A.
 !!
 !!   LDA
 !!
 !!           LDA is INTEGER
 !!            On entry, LDA specifies the first dimension of A as declared
-!!            in  the  calling  (sub)  program.   When  TRANS = 'N' or 'n'
-!!            then  LDA must be at least  max( 1, n ), otherwise  LDA must
-!!            be at least  max( 1, k ).
+!!            in the  calling (sub) program. When TRANS = 'N' or 'n'
+!!            then LDA must be at least max( 1, n ), otherwise LDA must
+!!            be at least max( 1, k ).
 !!
 !!   B
 !!
 !!           B is DOUBLE PRECISION array, dimension ( LDB, kb ), where kb is
-!!            k  when  TRANS = 'N' or 'n',  and is  n  otherwise.
-!!            Before entry with  TRANS = 'N' or 'n',  the  leading  n by k
-!!            part of the array  B  must contain the matrix  B,  otherwise
-!!            the leading  k by n  part of the array  B  must contain  the
+!!            k when TRANS = 'N' or 'n', and is n otherwise.
+!!            Before entry with TRANS = 'N' or 'n', the leading n by k
+!!            part of the array B must contain the matrix B, otherwise
+!!            the leading k by n part of the array B must contain the
 !!            matrix B.
 !!
 !!   LDB
 !!
 !!           LDB is INTEGER
 !!            On entry, LDB specifies the first dimension of B as declared
-!!            in  the  calling  (sub)  program.   When  TRANS = 'N' or 'n'
-!!            then  LDB must be at least  max( 1, n ), otherwise  LDB must
-!!            be at least  max( 1, k ).
+!!            in the calling (sub) program. When TRANS = 'N' or 'n'
+!!            then LDB must be at least max( 1, n ), otherwise LDB must
+!!            be at least max( 1, k ).
 !!
 !!   BETA
 !!
 !!           BETA is DOUBLE PRECISION.
 !!            On entry, BETA specifies the scalar beta.
 !!
-!!  out] C
+!!  C
 !!
 !!           C is DOUBLE PRECISION array, dimension ( LDC, N )
-!!            Before entry  with  UPLO = 'U' or 'u',  the leading  n by n
+!!            Before entry with UPLO = 'U' or 'u', the leading n by n
 !!            upper triangular part of the array C must contain the upper
-!!            triangular part  of the  symmetric matrix  and the strictly
-!!            lower triangular part of C is not referenced.  On exit, the
-!!            upper triangular part of the array  C is overwritten by the
+!!            triangular part of the symmetric matrix and the strictly
+!!            lower triangular part of C is not referenced. On exit, the
+!!            upper triangular part of the array C is overwritten by the
 !!            upper triangular part of the updated matrix.
-!!            Before entry  with  UPLO = 'L' or 'l',  the leading  n by n
+!!            Before entry with UPLO = 'L' or 'l', the leading n by n
 !!            lower triangular part of the array C must contain the lower
-!!            triangular part  of the  symmetric matrix  and the strictly
-!!            upper triangular part of C is not referenced.  On exit, the
-!!            lower triangular part of the array  C is overwritten by the
+!!            triangular part of the symmetric matrix and the strictly
+!!            upper triangular part of C is not referenced. On exit, the
+!!            lower triangular part of the array C is overwritten by the
 !!            lower triangular part of the updated matrix.
 !!
 !!   LDC
 !!
 !!           LDC is INTEGER
 !!            On entry, LDC specifies the first dimension of C as declared
-!!            in  the  calling  (sub)  program.   LDC  must  be  at  least
+!!            in the calling (sub) program. LDC must be at least
 !!            max( 1, n ).
 !!
 !!##AUTHORS
@@ -15280,7 +15216,7 @@ end function dsdot
       end subroutine dsyr2k
 !>
 !!##NAME
-!!    dsyr.(3f) -- [BLAS:DOUBLE_BLAS_LEVEL3]
+!!    dsyr(3f) - [BLAS:DOUBLE_BLAS_LEVEL3]
 !!
 !!##SYNOPSIS
 !!
@@ -15298,7 +15234,7 @@ end function dsdot
 !!
 !!##DEFINITION
 !!
-!!  DSYR   performs the symmetric rank 1 operation
+!!  DSYR performs the symmetric rank 1 operation
 !!
 !!     A := alpha*x*x**T + A,
 !!
@@ -15344,10 +15280,10 @@ end function dsdot
 !!            On entry, INCX specifies the increment for the elements of
 !!            X. INCX must not be zero.
 !!
-!!  out] A
+!!  A
 !!
 !!           A is DOUBLE PRECISION array, dimension ( LDA, N )
-!!            Before entry with  UPLO = 'U' or 'u', the leading n by n
+!!            Before entry with UPLO = 'U' or 'u', the leading n by n
 !!            upper triangular part of the array A must contain the upper
 !!            triangular part of the symmetric matrix and the strictly
 !!            lower triangular part of A is not referenced. On exit, the
@@ -15516,7 +15452,7 @@ end function dsdot
       END SUBROUTINE DSYR
 !>
 !!##NAME
-!!    dsyrk.(3f) -- [BLAS:DOUBLE_BLAS_LEVEL3]
+!!    dsyrk(3f) - [BLAS:DOUBLE_BLAS_LEVEL3]
 !!
 !!##SYNOPSIS
 !!
@@ -15534,7 +15470,7 @@ end function dsdot
 !!
 !!##DEFINITION
 !!
-!!  DSYRK  performs one of the symmetric rank k operations
+!!  DSYRK performs one of the symmetric rank k operations
 !!
 !!     C := alpha*A*A**T + beta*C,
 !!
@@ -15542,8 +15478,8 @@ end function dsdot
 !!
 !!     C := alpha*A**T*A + beta*C,
 !!
-!!  where  alpha and beta  are scalars, C is an  n by n  symmetric matrix
-!!  and  A  is an  n by k  matrix in the first case and a  k by n  matrix
+!!  where alpha and beta are scalars, C is an n by n symmetric matrix
+!!  and A is an n by k matrix in the first case and a k by n matrix
 !!  in the second case.
 !!
 !!##OPTIONS
@@ -15551,8 +15487,8 @@ end function dsdot
 !!   UPLO
 !!
 !!           UPLO is CHARACTER*1
-!!            On  entry,   UPLO  specifies  whether  the  upper  or  lower
-!!            triangular  part  of the  array  C  is to be  referenced  as
+!!            On entry, UPLO specifies whether the upper or lower
+!!            triangular part of the array C is to be referenced as
 !!            follows:
 !!
 !!               UPLO = 'U' or 'u'   Only the  upper triangular part of  C
@@ -15564,7 +15500,7 @@ end function dsdot
 !!   TRANS
 !!
 !!           TRANS is CHARACTER*1
-!!            On entry,  TRANS  specifies the operation to be performed as
+!!            On entry, TRANS specifies the operation to be performed as
 !!            follows:
 !!
 !!               TRANS = 'N' or 'n'   C := alpha*A*A**T + beta*C.
@@ -15576,16 +15512,16 @@ end function dsdot
 !!   N
 !!
 !!           N is INTEGER
-!!            On entry,  N specifies the order of the matrix C.  N must be
+!!            On entry, N specifies the order of the matrix C. N must be
 !!            at least zero.
 !!
 !!   K
 !!
 !!           K is INTEGER
-!!            On entry with  TRANS = 'N' or 'n',  K  specifies  the number
-!!            of  columns   of  the   matrix   A,   and  on   entry   with
-!!            TRANS = 'T' or 't' or 'C' or 'c',  K  specifies  the  number
-!!            of rows of the matrix  A.  K must be at least zero.
+!!            On entry with TRANS = 'N' or 'n', K specifies the number
+!!            of columns of the matrix A, and on entry with
+!!            TRANS = 'T' or 't' or 'C' or 'c', K specifies the number
+!!            of rows of the matrix A. K must be at least zero.
 !!
 !!   ALPHA
 !!
@@ -15595,46 +15531,46 @@ end function dsdot
 !!   A
 !!
 !!           A is DOUBLE PRECISION array, dimension ( LDA, ka ), where ka is
-!!            k  when  TRANS = 'N' or 'n',  and is  n  otherwise.
-!!            Before entry with  TRANS = 'N' or 'n',  the  leading  n by k
-!!            part of the array  A  must contain the matrix  A,  otherwise
-!!            the leading  k by n  part of the array  A  must contain  the
+!!            k when TRANS = 'N' or 'n', and is n otherwise.
+!!            Before entry with TRANS = 'N' or 'n', the leading n by k
+!!            part of the array A must contain the matrix A, otherwise
+!!            the leading k by n part of the array A must contain the
 !!            matrix A.
 !!
 !!   LDA
 !!
 !!           LDA is INTEGER
 !!            On entry, LDA specifies the first dimension of A as declared
-!!            in  the  calling  (sub)  program.   When  TRANS = 'N' or 'n'
-!!            then  LDA must be at least  max( 1, n ), otherwise  LDA must
-!!            be at least  max( 1, k ).
+!!            in the calling (sub) program. When TRANS = 'N' or 'n'
+!!            then LDA must be at least max( 1, n ), otherwise LDA must
+!!            be at least max( 1, k ).
 !!
 !!   BETA
 !!
 !!           BETA is DOUBLE PRECISION.
 !!            On entry, BETA specifies the scalar beta.
 !!
-!!  out] C
+!!  C
 !!
 !!           C is DOUBLE PRECISION array, dimension ( LDC, N )
-!!            Before entry  with  UPLO = 'U' or 'u',  the leading  n by n
+!!            Before entry with UPLO = 'U' or 'u', the leading n by n
 !!            upper triangular part of the array C must contain the upper
-!!            triangular part  of the  symmetric matrix  and the strictly
-!!            lower triangular part of C is not referenced.  On exit, the
-!!            upper triangular part of the array  C is overwritten by the
+!!            triangular part of the symmetric matrix and the strictly
+!!            lower triangular part of C is not referenced. On exit, the
+!!            upper triangular part of the array C is overwritten by the
 !!            upper triangular part of the updated matrix.
-!!            Before entry  with  UPLO = 'L' or 'l',  the leading  n by n
+!!            Before entry with UPLO = 'L' or 'l', the leading n by n
 !!            lower triangular part of the array C must contain the lower
-!!            triangular part  of the  symmetric matrix  and the strictly
-!!            upper triangular part of C is not referenced.  On exit, the
-!!            lower triangular part of the array  C is overwritten by the
+!!            triangular part of the symmetric matrix and the strictly
+!!            upper triangular part of C is not referenced. On exit, the
+!!            lower triangular part of the array C is overwritten by the
 !!            lower triangular part of the updated matrix.
 !!
 !!   LDC
 !!
 !!           LDC is INTEGER
 !!            On entry, LDC specifies the first dimension of C as declared
-!!            in  the  calling  (sub)  program.   LDC  must  be  at  least
+!!            in the calling (sub) program. LDC must be at least
 !!            max( 1, n ).
 !!
 !!##AUTHORS
@@ -15831,7 +15767,7 @@ end function dsdot
       END SUBROUTINE DSYRK
 !>
 !!##NAME
-!!    dtbmv.(3f) -- [BLAS:DOUBLE_BLAS_LEVEL3]
+!!    dtbmv(3f) - [BLAS:DOUBLE_BLAS_LEVEL3]
 !!
 !!##SYNOPSIS
 !!
@@ -15848,11 +15784,11 @@ end function dsdot
 !!
 !!##DEFINITION
 !!
-!!  DTBMV  performs one of the matrix-vector operations
+!!  DTBMV performs one of the matrix-vector operations
 !!
 !!     x := A*x,   or   x := A**T*x,
 !!
-!!  where x is an n element vector and  A is an n by n unit, or non-unit,
+!!  where x is an n element vector and A is an n by n unit, or non-unit,
 !!  upper or lower triangular band matrix, with ( k + 1 ) diagonals.
 !!
 !!##OPTIONS
@@ -15903,7 +15839,7 @@ end function dsdot
 !!            super-diagonals of the matrix A.
 !!            On entry with UPLO = 'L' or 'l', K specifies the number of
 !!            sub-diagonals of the matrix A.
-!!            K must satisfy  0 .le. K.
+!!            K must satisfy 0 .le. K.
 !!
 !!   A
 !!
@@ -15955,7 +15891,7 @@ end function dsdot
 !!            in the calling (sub) program. LDA must be at least
 !!            ( k + 1 ).
 !!
-!!  out] X
+!!  X
 !!
 !!           X is DOUBLE PRECISION array, dimension at least
 !!            ( 1 + ( n - 1 )*abs( INCX ) ).
@@ -16203,7 +16139,7 @@ end function dsdot
       END SUBROUTINE DTBMV
 !>
 !!##NAME
-!!    dtbsv.(3f) -- [BLAS:DOUBLE_BLAS_LEVEL3]
+!!    dtbsv(3f) - [BLAS:DOUBLE_BLAS_LEVEL3]
 !!
 !!##SYNOPSIS
 !!
@@ -16220,7 +16156,7 @@ end function dsdot
 !!
 !!##DEFINITION
 !!
-!!  DTBSV  solves one of the systems of equations
+!!  DTBSV solves one of the systems of equations
 !!
 !!     A*x = b,   or   A**T*x = b,
 !!
@@ -16279,7 +16215,7 @@ end function dsdot
 !!            super-diagonals of the matrix A.
 !!            On entry with UPLO = 'L' or 'l', K specifies the number of
 !!            sub-diagonals of the matrix A.
-!!            K must satisfy  0 .le. K.
+!!            K must satisfy 0 .le. K.
 !!
 !!   A
 !!
@@ -16331,7 +16267,7 @@ end function dsdot
 !!            in the calling (sub) program. LDA must be at least
 !!            ( k + 1 ).
 !!
-!!  out] X
+!!  X
 !!
 !!           X is DOUBLE PRECISION array, dimension at least
 !!            ( 1 + ( n - 1 )*abs( INCX ) ).
@@ -16578,7 +16514,7 @@ end function dsdot
       END SUBROUTINE DTBSV
 !>
 !!##NAME
-!!    dtpmv.(3f) -- [BLAS:DOUBLE_BLAS_LEVEL3]
+!!    dtpmv(3f) - [BLAS:DOUBLE_BLAS_LEVEL3]
 !!
 !!##SYNOPSIS
 !!
@@ -16595,11 +16531,11 @@ end function dsdot
 !!
 !!##DEFINITION
 !!
-!!  DTPMV  performs one of the matrix-vector operations
+!!  DTPMV performs one of the matrix-vector operations
 !!
 !!     x := A*x,   or   x := A**T*x,
 !!
-!!  where x is an n element vector and  A is an n by n unit, or non-unit,
+!!  where x is an n element vector and A is an n by n unit, or non-unit,
 !!  upper or lower triangular matrix, supplied in packed form.
 !!
 !!##OPTIONS
@@ -16647,7 +16583,7 @@ end function dsdot
 !!
 !!           AP is DOUBLE PRECISION array, dimension at least
 !!            ( ( n*( n + 1 ) )/2 ).
-!!            Before entry with  UPLO = 'U' or 'u', the array AP must
+!!            Before entry with UPLO = 'U' or 'u', the array AP must
 !!            contain the upper triangular matrix packed sequentially,
 !!            column by column, so that AP( 1 ) contains a( 1, 1 ),
 !!            AP( 2 ) and AP( 3 ) contain a( 1, 2 ) and a( 2, 2 )
@@ -16657,10 +16593,10 @@ end function dsdot
 !!            column by column, so that AP( 1 ) contains a( 1, 1 ),
 !!            AP( 2 ) and AP( 3 ) contain a( 2, 1 ) and a( 3, 1 )
 !!            respectively, and so on.
-!!            Note that when  DIAG = 'U' or 'u', the diagonal elements of
+!!            Note that when DIAG = 'U' or 'u', the diagonal elements of
 !!            A are not referenced, but are assumed to be unity.
 !!
-!!  out] X
+!!  X
 !!
 !!           X is DOUBLE PRECISION array, dimension at least
 !!            ( 1 + ( n - 1 )*abs( INCX ) ).
@@ -16906,7 +16842,7 @@ end function dsdot
       END SUBROUTINE DTPMV
 !>
 !!##NAME
-!!    dtpsv.(3f) -- [BLAS:DOUBLE_BLAS_LEVEL2]
+!!    dtpsv(3f) - [BLAS:DOUBLE_BLAS_LEVEL2]
 !!
 !!##SYNOPSIS
 !!
@@ -16923,7 +16859,7 @@ end function dsdot
 !!
 !!##DEFINITION
 !!
-!!  DTPSV  solves one of the systems of equations
+!!  DTPSV solves one of the systems of equations
 !!
 !!     A*x = b,   or   A**T*x = b,
 !!
@@ -16978,7 +16914,7 @@ end function dsdot
 !!
 !!           AP is DOUBLE PRECISION array, dimension at least
 !!            ( ( n*( n + 1 ) )/2 ).
-!!            Before entry with  UPLO = 'U' or 'u', the array AP must
+!!            Before entry with UPLO = 'U' or 'u', the array AP must
 !!            contain the upper triangular matrix packed sequentially,
 !!            column by column, so that AP( 1 ) contains a( 1, 1 ),
 !!            AP( 2 ) and AP( 3 ) contain a( 1, 2 ) and a( 2, 2 )
@@ -16988,10 +16924,10 @@ end function dsdot
 !!            column by column, so that AP( 1 ) contains a( 1, 1 ),
 !!            AP( 2 ) and AP( 3 ) contain a( 2, 1 ) and a( 3, 1 )
 !!            respectively, and so on.
-!!            Note that when  DIAG = 'U' or 'u', the diagonal elements of
+!!            Note that when DIAG = 'U' or 'u', the diagonal elements of
 !!            A are not referenced, but are assumed to be unity.
 !!
-!!  out] X
+!!  X
 !!
 !!           X is DOUBLE PRECISION array, dimension at least
 !!            ( 1 + ( n - 1 )*abs( INCX ) ).
@@ -17234,7 +17170,7 @@ end function dsdot
       END SUBROUTINE DTPSV
 !>
 !!##NAME
-!!    dtrmm.(3f) -- [BLAS:DOUBLE_BLAS_LEVEL3]
+!!    dtrmm(3f) - [BLAS:DOUBLE_BLAS_LEVEL3]
 !!
 !!##SYNOPSIS
 !!
@@ -17252,12 +17188,12 @@ end function dsdot
 !!
 !!##DEFINITION
 !!
-!!  DTRMM  performs one of the matrix-matrix operations
+!!  DTRMM performs one of the matrix-matrix operations
 !!
 !!     B := alpha*op( A )*B,   or   B := alpha*B*op( A ),
 !!
-!!  where  alpha  is a scalar,  B  is an m by n matrix,  A  is a unit, or
-!!  non-unit,  upper or lower triangular matrix  and  op( A )  is one  of
+!!  where alpha is a scalar, B is an m by n matrix, A is a unit, or
+!!  non-unit, upper or lower triangular matrix and op( A ) is one of
 !!
 !!     op( A ) = A   or   op( A ) = A**T.
 !!
@@ -17266,7 +17202,7 @@ end function dsdot
 !!   SIDE
 !!
 !!           SIDE is CHARACTER*1
-!!            On entry,  SIDE specifies whether  op( A ) multiplies B from
+!!            On entry, SIDE specifies whether op( A ) multiplies B from
 !!            the left or right as follows:
 !!
 !!               SIDE = 'L' or 'l'   B := alpha*op( A )*B.
@@ -17315,51 +17251,51 @@ end function dsdot
 !!   N
 !!
 !!           N is INTEGER
-!!            On entry, N specifies the number of columns of B.  N must be
+!!            On entry, N specifies the number of columns of B. N must be
 !!            at least zero.
 !!
 !!   ALPHA
 !!
 !!           ALPHA is DOUBLE PRECISION.
-!!            On entry,  ALPHA specifies the scalar  alpha. When  alpha is
-!!            zero then  A is not referenced and  B need not be set before
+!!            On entry, ALPHA specifies the scalar alpha. When alpha is
+!!            zero then A is not referenced and B need not be set before
 !!            entry.
 !!
 !!   A
 !!
 !!            A is DOUBLE PRECISION array, dimension ( LDA, k ), where k is m
-!!            when  SIDE = 'L' or 'l'  and is  n  when  SIDE = 'R' or 'r'.
-!!            Before entry  with  UPLO = 'U' or 'u',  the  leading  k by k
-!!            upper triangular part of the array  A must contain the upper
-!!            triangular matrix  and the strictly lower triangular part of
+!!            when SIDE = 'L' or 'l' and is n when SIDE = 'R' or 'r'.
+!!            Before entry with UPLO = 'U' or 'u', the leading k by k
+!!            upper triangular part of the array A must contain the upper
+!!            triangular matrix and the strictly lower triangular part of
 !!            A is not referenced.
-!!            Before entry  with  UPLO = 'L' or 'l',  the  leading  k by k
-!!            lower triangular part of the array  A must contain the lower
-!!            triangular matrix  and the strictly upper triangular part of
+!!            Before entry with UPLO = 'L' or 'l', the leading k by k
+!!            lower triangular part of the array A must contain the lower
+!!            triangular matrix and the strictly upper triangular part of
 !!            A is not referenced.
-!!            Note that when  DIAG = 'U' or 'u',  the diagonal elements of
-!!            A  are not referenced either,  but are assumed to be  unity.
+!!            Note that when DIAG = 'U' or 'u', the diagonal elements of
+!!            A are not referenced either, but are assumed to be unity.
 !!
 !!   LDA
 !!
 !!           LDA is INTEGER
 !!            On entry, LDA specifies the first dimension of A as declared
-!!            in the calling (sub) program.  When  SIDE = 'L' or 'l'  then
-!!            LDA  must be at least  max( 1, m ),  when  SIDE = 'R' or 'r'
+!!            in the calling (sub) program. When SIDE = 'L' or 'l' then
+!!            LDA must be at least max( 1, m ), when SIDE = 'R' or 'r'
 !!            then LDA must be at least max( 1, n ).
 !!
-!!  out] B
+!!  B
 !!
 !!           B is DOUBLE PRECISION array, dimension ( LDB, N )
-!!            Before entry,  the leading  m by n part of the array  B must
-!!            contain the matrix  B,  and  on exit  is overwritten  by the
+!!            Before entry, the leading m by n part of the array B must
+!!            contain the matrix B, and on exit is overwritten by the
 !!            transformed matrix.
 !!
 !!   LDB
 !!
 !!           LDB is INTEGER
 !!            On entry, LDB specifies the first dimension of B as declared
-!!            in  the  calling  (sub)  program.   LDB  must  be  at  least
+!!            in the calling (sub) program. LDB must be at least
 !!            max( 1, m ).
 !!
 !!##AUTHORS
@@ -17598,7 +17534,7 @@ end function dsdot
       END SUBROUTINE DTRMM
 !>
 !!##NAME
-!!    dtrmv.(3f) -- [BLAS:DOUBLE_BLAS_LEVEL2]
+!!    dtrmv(3f) - [BLAS:DOUBLE_BLAS_LEVEL2]
 !!
 !!##SYNOPSIS
 !!
@@ -17615,11 +17551,11 @@ end function dsdot
 !!
 !!##DEFINITION
 !!
-!!  DTRMV  performs one of the matrix-vector operations
+!!  DTRMV performs one of the matrix-vector operations
 !!
 !!     x := A*x,   or   x := A**T*x,
 !!
-!!  where x is an n element vector and  A is an n by n unit, or non-unit,
+!!  where x is an n element vector and A is an n by n unit, or non-unit,
 !!  upper or lower triangular matrix.
 !!
 !!##OPTIONS
@@ -17666,7 +17602,7 @@ end function dsdot
 !!   A
 !!
 !!           A is DOUBLE PRECISION array, dimension ( LDA, N )
-!!            Before entry with  UPLO = 'U' or 'u', the leading n by n
+!!            Before entry with UPLO = 'U' or 'u', the leading n by n
 !!            upper triangular part of the array A must contain the upper
 !!            triangular matrix and the strictly lower triangular part of
 !!            A is not referenced.
@@ -17674,7 +17610,7 @@ end function dsdot
 !!            lower triangular part of the array A must contain the lower
 !!            triangular matrix and the strictly upper triangular part of
 !!            A is not referenced.
-!!            Note that when  DIAG = 'U' or 'u', the diagonal elements of
+!!            Note that when DIAG = 'U' or 'u', the diagonal elements of
 !!            A are not referenced either, but are assumed to be unity.
 !!
 !!   LDA
@@ -17684,7 +17620,7 @@ end function dsdot
 !!            in the calling (sub) program. LDA must be at least
 !!            max( 1, n ).
 !!
-!!  out] X
+!!  X
 !!
 !!           X is DOUBLE PRECISION array, dimension at least
 !!            ( 1 + ( n - 1 )*abs( INCX ) ).
@@ -17913,7 +17849,7 @@ end function dsdot
       END SUBROUTINE DTRMV
 !>
 !!##NAME
-!!    dtrsm.(3f) -- [BLAS:DOUBLE_BLAS_LEVEL3]
+!!    dtrsm(3f) - [BLAS:DOUBLE_BLAS_LEVEL3]
 !!
 !!##SYNOPSIS
 !!
@@ -17931,12 +17867,12 @@ end function dsdot
 !!
 !!##DEFINITION
 !!
-!!  DTRSM  solves one of the matrix equations
+!!  DTRSM solves one of the matrix equations
 !!
 !!     op( A )*X = alpha*B,   or   X*op( A ) = alpha*B,
 !!
 !!  where alpha is a scalar, X and B are m by n matrices, A is a unit, or
-!!  non-unit,  upper or lower triangular matrix  and  op( A )  is one  of
+!!  non-unit, upper or lower triangular matrix and op( A ) is one of
 !!
 !!     op( A ) = A   or   op( A ) = A**T.
 !!
@@ -17996,52 +17932,50 @@ end function dsdot
 !!   N
 !!
 !!           N is INTEGER
-!!            On entry, N specifies the number of columns of B.  N must be
+!!            On entry, N specifies the number of columns of B. N must be
 !!            at least zero.
 !!
 !!   ALPHA
 !!
 !!           ALPHA is DOUBLE PRECISION.
-!!            On entry,  ALPHA specifies the scalar  alpha. When  alpha is
-!!            zero then  A is not referenced and  B need not be set before
+!!            On entry, ALPHA specifies the scalar alpha. When alpha is
+!!            zero then A is not referenced and B need not be set before
 !!            entry.
 !!
 !!   A
 !!
 !!           A is DOUBLE PRECISION array, dimension ( LDA, k ),
+!!
 !!            where k is m when SIDE = 'L' or 'l'
 !!              and k is n when SIDE = 'R' or 'r'.
-!!            Before entry  with  UPLO = 'U' or 'u',  the  leading  k by k
-!!            upper triangular part of the array  A must contain the upper
-!!            triangular matrix  and the strictly lower triangular part of
+!!
+!!            Before entry with UPLO = 'U' or 'u', the leading k by k
+!!            upper triangular part of the array A must contain the upper
+!!            triangular matrix and the strictly lower triangular part of
 !!            A is not referenced.
-!!            Before entry  with  UPLO = 'L' or 'l',  the  leading  k by k
-!!            lower triangular part of the array  A must contain the lower
-!!            triangular matrix  and the strictly upper triangular part of
+!!
+!!            Before entry with UPLO = 'L' or 'l', the leading k by k
+!!            lower triangular part of the array A must contain the lower
+!!            triangular matrix and the strictly upper triangular part of
 !!            A is not referenced.
-!!            Note that when  DIAG = 'U' or 'u',  the diagonal elements of
-!!            A  are not referenced either,  but are assumed to be  unity.
+!!
+!!            Note that when DIAG = 'U' or 'u', the diagonal elements of
+!!            A are not referenced either, but are assumed to be unity.
 !!
 !!   LDA
-!!
-!!           LDA is INTEGER
 !!            On entry, LDA specifies the first dimension of A as declared
-!!            in the calling (sub) program.  When  SIDE = 'L' or 'l'  then
-!!            LDA  must be at least  max( 1, m ),  when  SIDE = 'R' or 'r'
+!!            in the calling (sub) program. When SIDE = 'L' or 'l' then
+!!            LDA must be at least max( 1, m ), when SIDE = 'R' or 'r'
 !!            then LDA must be at least max( 1, n ).
 !!
-!!  out] B
-!!
-!!           B is DOUBLE PRECISION array, dimension ( LDB, N )
-!!            Before entry,  the leading  m by n part of the array  B must
-!!            contain  the  right-hand  side  matrix  B,  and  on exit  is
-!!            overwritten by the solution matrix  X.
+!!  B
+!!            Before entry, the leading m by n part of the array B must
+!!            contain the right-hand side matrix B, and on exit is
+!!            overwritten by the solution matrix X.
 !!
 !!   LDB
-!!
-!!           LDB is INTEGER
 !!            On entry, LDB specifies the first dimension of B as declared
-!!            in  the  calling  (sub)  program.   LDB  must  be  at  least
+!!            in the calling (sub) program. LDB must be at least
 !!            max( 1, m ).
 !!
 !!##AUTHORS
@@ -18292,7 +18226,7 @@ end function dsdot
       END SUBROUTINE DTRSM
 !>
 !!##NAME
-!!    dtrsv.(3f) -- [BLAS:DOUBLE_BLAS_LEVEL1]
+!!    dtrsv(3f) - [BLAS:DOUBLE_BLAS_LEVEL1]
 !!
 !!##SYNOPSIS
 !!
@@ -18309,7 +18243,7 @@ end function dsdot
 !!
 !!##DEFINITION
 !!
-!!  DTRSV  solves one of the systems of equations
+!!  DTRSV solves one of the systems of equations
 !!
 !!     A*x = b,   or   A**T*x = b,
 !!
@@ -18363,7 +18297,7 @@ end function dsdot
 !!   A
 !!
 !!           A is DOUBLE PRECISION array, dimension ( LDA, N )
-!!            Before entry with  UPLO = 'U' or 'u', the leading n by n
+!!            Before entry with UPLO = 'U' or 'u', the leading n by n
 !!            upper triangular part of the array A must contain the upper
 !!            triangular matrix and the strictly lower triangular part of
 !!            A is not referenced.
@@ -18371,7 +18305,7 @@ end function dsdot
 !!            lower triangular part of the array A must contain the lower
 !!            triangular matrix and the strictly upper triangular part of
 !!            A is not referenced.
-!!            Note that when  DIAG = 'U' or 'u', the diagonal elements of
+!!            Note that when DIAG = 'U' or 'u', the diagonal elements of
 !!            A are not referenced either, but are assumed to be unity.
 !!
 !!   LDA
@@ -18381,7 +18315,7 @@ end function dsdot
 !!            in the calling (sub) program. LDA must be at least
 !!            max( 1, n ).
 !!
-!!  out] X
+!!  X
 !!
 !!           X is DOUBLE PRECISION array, dimension at least
 !!            ( 1 + ( n - 1 )*abs( INCX ) ).
@@ -18607,7 +18541,7 @@ end function dsdot
       END SUBROUTINE DTRSV
 !>
 !!##NAME
-!!    dzasum.(3f) -- [BLAS:DOUBLE_BLAS_LEVEL1]
+!!    dzasum(3f) - [BLAS:DOUBLE_BLAS_LEVEL1]
 !!
 !!##SYNOPSIS
 !!
@@ -18632,7 +18566,7 @@ end function dsdot
 !!           N is INTEGER
 !!          number of elements in input vector(s)
 !!
-!!  out] ZX
+!!  ZX
 !!
 !!           ZX is complex(kind=real64) array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
 !!
@@ -18706,7 +18640,7 @@ end function dsdot
       END FUNCTION DZASUM
 !>
 !!##NAME
-!!    dznrm2.(3f) -- [BLAS:SINGLE_BLAS_LEVEL1]
+!!    dznrm2(3f) - [BLAS:SINGLE_BLAS_LEVEL1]
 !!
 !!##SYNOPSIS
 !!
@@ -18726,22 +18660,17 @@ end function dsdot
 !!##OPTIONS
 !!
 !!   N
-!!
-!!           N is INTEGER
 !!          number of elements in input vector(s)
-!!
 !!   X
-!!
-!!           X is complex(kind=real64) array, dimension (N)
-!!          complex vector with N elements
-!!
+!!          array, dimension (N) complex vector with N elements
 !!   INCX
-!!
 !!           INCX is INTEGER, storage spacing between elements of X
-!!           If INCX > 0, X(1+(i-1)*INCX) = x(i) for 1 <= i <= n
-!!           If INCX < 0, X(1-(n-i)*INCX) = x(i) for 1 <= i <= n
-!!           If INCX = 0, x isn't a vector so there is no need to call
-!!           this subroutine.  If you call it anyway, it will count x(1)
+!!
+!!             If INCX > 0, X(1+(i-1)*INCX) = x(i) for 1 <= i <= n
+!!             If INCX < 0, X(1-(n-i)*INCX) = x(i) for 1 <= i <= n
+!!             If INCX = 0, x isn't a vector so there is no need to call
+!!
+!!           this subroutine. If you call it anyway, it will count x(1)
 !!           in the vector norm N times.
 !!
 !!##AUTHORS
@@ -18888,7 +18817,7 @@ pure function DZNRM2( n, x, incx )
 end function DZNRM2
 !>
 !!##NAME
-!!    icamax.(3f) -- [BLAS:AUX_BLAS]
+!!    icamax(3f) -- [BLAS:AUX_BLAS] Return index of maximum "absolute value" in CX.
 !!
 !!##SYNOPSIS
 !!
@@ -18994,7 +18923,7 @@ pure INTEGER FUNCTION ICAMAX(N,CX,INCX)
 end function icamax
 !>
 !!##NAME
-!!    idamax.(3f) -- [BLAS:AUX_BLAS]
+!!    idamax(3f) - [BLAS:AUX_BLAS]
 !!
 !!##SYNOPSIS
 !!
@@ -19102,7 +19031,7 @@ pure INTEGER FUNCTION IDAMAX(N,DX,INCX)
 end function idamax
 !>
 !!##NAME
-!!    isamax.(3f) -- [BLAS:AUX_BLAS]
+!!    isamax(3f) - [BLAS:AUX_BLAS] Return index of maximum absolute value in SX.
 !!
 !!##SYNOPSIS
 !!
@@ -19210,7 +19139,7 @@ implicit none
 end function isamax
 !>
 !!##NAME
-!!    izamax.(3f) -- [BLAS:AUX_BLAS]
+!!    izamax(3f) - [BLAS:AUX_BLAS]
 !!
 !!##SYNOPSIS
 !!
@@ -19313,7 +19242,7 @@ implicit none
       END FUNCTION IZAMAX
 !>
 !!##NAME
-!!    lsame.(3f) -- [BLAS:AUX_BLAS] compare two letters ignoring case
+!!    lsame(3f) - [BLAS:AUX_BLAS] compare two letters ignoring case
 !!
 !!##SYNOPSIS
 !!
@@ -19388,7 +19317,7 @@ implicit none
 end function lsame
 !>
 !!##NAME
-!!    sasum.(3f) -- [BLAS:SINGLE_BLAS_LEVEL1]
+!!    sasum(3f) - [BLAS:SINGLE_BLAS_LEVEL1] SASUM:=sum of absolute values of SX.
 !!
 !!##SYNOPSIS
 !!
@@ -19502,7 +19431,7 @@ implicit none
 END FUNCTION SASUM
 !>
 !!##NAME
-!!    saxpy.(3f) -- [BLAS:SINGLE_BLAS_LEVEL1]
+!!    saxpy(3f) - [BLAS:SINGLE_BLAS_LEVEL1] SY:=SY+SA*SX (constant times a vector plus a vector)
 !!
 !!##SYNOPSIS
 !!
@@ -19523,33 +19452,17 @@ END FUNCTION SASUM
 !!     uses unrolled loops for increments equal to one.
 !!
 !!##OPTIONS
-!!
 !!   N
-!!
-!!           N is INTEGER
 !!          number of elements in input vector(s)
-!!
 !!   SA
-!!
-!!           SA is REAL
-!!            On entry, SA specifies the scalar alpha.
-!!
+!!          On entry, SA specifies the scalar alpha.
 !!   SX
-!!
-!!           SX is REAL array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
-!!
+!!          SX is REAL array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
 !!   INCX
-!!
-!!           INCX is INTEGER
 !!          storage spacing between elements of SX
-!!
-!!  out] SY
-!!
-!!           SY is REAL array, dimension ( 1 + ( N - 1 )*abs( INCY ) )
-!!
+!!   SY
+!!          SY is REAL array, dimension ( 1 + ( N - 1 )*abs( INCY ) )
 !!   INCY
-!!
-!!           INCY is INTEGER
 !!          storage spacing between elements of SY
 !!
 !!##AUTHORS
@@ -19637,7 +19550,7 @@ END FUNCTION SASUM
       END SUBROUTINE SAXPY
 !>
 !!##NAME
-!!    scabs1.(3f) -- [BLAS:SINGLE_BLAS_LEVEL1]
+!!    scabs1(3f) - [BLAS:SINGLE_BLAS_LEVEL1]
 !!
 !!##SYNOPSIS
 !!
@@ -19690,7 +19603,7 @@ pure elemental real function scabs1(z)
 end function scabs1
 !>
 !!##NAME
-!!    scasum.(3f) -- [BLAS:SINGLE_BLAS_LEVEL1]
+!!    scasum(3f) - [BLAS:SINGLE_BLAS_LEVEL1] SCASUM:=SUM(I=1 to N) ABS(REAL(CX(I)))+ABS(AIMAG(CX(I))).
 !!
 !!##SYNOPSIS
 !!
@@ -19715,7 +19628,7 @@ end function scabs1
 !!           N is INTEGER
 !!          number of elements in input vector(s)
 !!
-!!  out] CX
+!!  CX
 !!
 !!           CX is COMPLEX array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
 !!
@@ -19789,7 +19702,7 @@ implicit none
 END FUNCTION SCASUM
 !>
 !!##NAME
-!!    scnrm2.(3f) -- [BLAS:SINGLE_BLAS_LEVEL1]
+!!    scnrm2(3f) - [BLAS:SINGLE_BLAS_LEVEL1] SCNRM2:= square root of sum of magnitudes of entries of CX.
 !!
 !!##SYNOPSIS
 !!
@@ -19828,7 +19741,7 @@ END FUNCTION SCASUM
 !!           If INCX > 0, X(1+(i-1)*INCX) = x(i) for 1 <= i <= n
 !!           If INCX < 0, X(1-(n-i)*INCX) = x(i) for 1 <= i <= n
 !!           If INCX = 0, x isn't a vector so there is no need to call
-!!           this subroutine.  If you call it anyway, it will count x(1)
+!!           this subroutine. If you call it anyway, it will count x(1)
 !!           in the vector norm N times.
 !!
 !!##AUTHORS
@@ -19975,7 +19888,7 @@ pure function scnrm2( n, x, incx )
 end function scnrm2
 !>
 !!##NAME
-!!    scopy.(3f) -- [BLAS:SINGLE_BLAS_LEVEL1]
+!!    scopy(3f) - [BLAS:SINGLE_BLAS_LEVEL1] SY:=SX
 !!
 !!##SYNOPSIS
 !!
@@ -20103,7 +20016,7 @@ implicit none
 END SUBROUTINE SCOPY
 !>
 !!##NAME
-!!    sdot.(3f) -- [BLAS:SINGLE_BLAS_LEVEL1]
+!!    sdot(3f) - [BLAS:SINGLE_BLAS_LEVEL1] SDOT := SUM SX * SY (vector dot product)
 !!
 !!##SYNOPSIS
 !!
@@ -20232,8 +20145,9 @@ implicit none
 END FUNCTION SDOT
 !>
 !!##NAME
-!!    sdsdot.(3f) -- [BLAS:SINGLE_BLAS_LEVEL1] Compute the inner
+!!    sdsdot(3f) - [BLAS:SINGLE_BLAS_LEVEL1] Compute the inner
 !!    product of two vectors with extended precision accumulation.
+!! SDSDOT := SUM SX * SY (accumulated double precision, returned single)
 !!
 !!##SYNOPSIS
 !!
@@ -20310,7 +20224,7 @@ END FUNCTION SDOT
 !!     usage, Algorithm No. 539, Transactions on Mathematical
 !!     Software 5, 3 (September 1979), pp. 308-323.
 !!
-!!     REVISION HISTORY  (YYMMDD)
+!!     REVISION HISTORY (YYMMDD)
 !!
 !!     791001  DATE WRITTEN
 !!     890531  Changed all specific intrinsics to generic.  (WRB)
@@ -20379,7 +20293,8 @@ pure REAL FUNCTION SDSDOT(N,SB,SX,INCX,SY,INCY)
 END FUNCTION SDSDOT
 !>
 !!##NAME
-!!    sgbmv.(3f) -- [BLAS:SINGLE_BLAS_LEVEL2]
+!!    sgbmv(3f) - [BLAS:SINGLE_BLAS_LEVEL2]
+!! SY:=alpha*A*SX+beta*SY, A a band matrix.
 !!
 !!##SYNOPSIS
 !!
@@ -20397,7 +20312,7 @@ END FUNCTION SDSDOT
 !!
 !!##DEFINITION
 !!
-!!  SGBMV  performs one of the matrix-vector operations
+!!  SGBMV performs one of the matrix-vector operations
 !!
 !!     y := alpha*A*x + beta*y,   or   y := alpha*A**T*x + beta*y,
 !!
@@ -20434,13 +20349,13 @@ END FUNCTION SDSDOT
 !!
 !!           KL is INTEGER
 !!            On entry, KL specifies the number of sub-diagonals of the
-!!            matrix A. KL must satisfy  0 .le. KL.
+!!            matrix A. KL must satisfy 0 .le. KL.
 !!
 !!   KU
 !!
 !!           KU is INTEGER
 !!            On entry, KU specifies the number of super-diagonals of the
-!!            matrix A. KU must satisfy  0 .le. KU.
+!!            matrix A. KU must satisfy 0 .le. KU.
 !!
 !!   ALPHA
 !!
@@ -20497,7 +20412,7 @@ END FUNCTION SDSDOT
 !!            On entry, BETA specifies the scalar beta. When BETA is
 !!            supplied as zero then Y need not be set on input.
 !!
-!!  out] Y
+!!  Y
 !!
 !!           Y is REAL array, dimension at least
 !!            ( 1 + ( m - 1 )*abs( INCY ) ) when TRANS = 'N' or 'n'
@@ -20712,7 +20627,8 @@ END FUNCTION SDSDOT
       END SUBROUTINE SGBMV
 !>
 !!##NAME
-!!    sgemm.(3f) -- [BLAS:SINGLE_BLAS_LEVEL3]
+!!    sgemm(3f) - [BLAS:SINGLE_BLAS_LEVEL3]
+!! C:=alpha*A*B+beta*C, A, B, C rectangular.
 !!
 !!##SYNOPSIS
 !!
@@ -20730,16 +20646,16 @@ END FUNCTION SDSDOT
 !!
 !!##DEFINITION
 !!
-!!  SGEMM  performs one of the matrix-matrix operations
+!!  SGEMM performs one of the matrix-matrix operations
 !!
 !!     C := alpha*op( A )*op( B ) + beta*C,
 !!
-!!  where  op( X ) is one of
+!!  where op( X ) is one of
 !!
 !!     op( X ) = X   or   op( X ) = X**T,
 !!
 !!  alpha and beta are scalars, and A, B and C are matrices, with op( A )
-!!  an m by k matrix,  op( B )  a  k by n matrix and  C an m by n matrix.
+!!  an m by k matrix, op( B ) a k by n matrix and C an m by n matrix.
 !!
 !!##OPTIONS
 !!
@@ -20770,22 +20686,22 @@ END FUNCTION SDSDOT
 !!   M
 !!
 !!           M is INTEGER
-!!            On entry,  M  specifies  the number  of rows  of the  matrix
-!!            op( A )  and of the  matrix  C.  M  must  be at least  zero.
+!!            On entry, M specifies the number of rows of the matrix
+!!            op( A ) and of the matrix C. M must be at least zero.
 !!
 !!   N
 !!
 !!           N is INTEGER
-!!            On entry,  N  specifies the number  of columns of the matrix
+!!            On entry, N specifies the number of columns of the matrix
 !!            op( B ) and the number of columns of the matrix C. N must be
 !!            at least zero.
 !!
 !!   K
 !!
 !!           K is INTEGER
-!!            On entry,  K  specifies  the number of columns of the matrix
+!!            On entry, K specifies the number of columns of the matrix
 !!            op( A ) and the number of rows of the matrix op( B ). K must
-!!            be at least  zero.
+!!            be at least zero.
 !!
 !!   ALPHA
 !!
@@ -20795,57 +20711,61 @@ END FUNCTION SDSDOT
 !!   A
 !!
 !!           A is REAL array, dimension ( LDA, ka ), where ka is
-!!            k  when  TRANSA = 'N' or 'n',  and is  m  otherwise.
-!!            Before entry with  TRANSA = 'N' or 'n',  the leading  m by k
-!!            part of the array  A  must contain the matrix  A,  otherwise
-!!            the leading  k by m  part of the array  A  must contain  the
+!!            k when TRANSA = 'N' or 'n', and is m otherwise.
+!!
+!!            Before entry with TRANSA = 'N' or 'n', the leading m by k
+!!            part of the array A must contain the matrix A, otherwise
+!!            the leading k by m part of the array A must contain the
 !!            matrix A.
 !!
 !!   LDA
 !!
 !!           LDA is INTEGER
 !!            On entry, LDA specifies the first dimension of A as declared
-!!            in the calling (sub) program. When  TRANSA = 'N' or 'n' then
-!!            LDA must be at least  max( 1, m ), otherwise  LDA must be at
-!!            least  max( 1, k ).
+!!            in the calling (sub) program. When TRANSA = 'N' or 'n' then
+!!            LDA must be at least max( 1, m ), otherwise LDA must be at
+!!            least max( 1, k ).
 !!
 !!   B
 !!
 !!           B is REAL array, dimension ( LDB, kb ), where kb is
-!!            n  when  TRANSB = 'N' or 'n',  and is  k  otherwise.
-!!            Before entry with  TRANSB = 'N' or 'n',  the leading  k by n
-!!            part of the array  B  must contain the matrix  B,  otherwise
-!!            the leading  n by k  part of the array  B  must contain  the
+!!            n when TRANSB = 'N' or 'n', and is k otherwise.
+!!
+!!            Before entry with TRANSB = 'N' or 'n', the leading k by n
+!!            part of the array B must contain the matrix B, otherwise
+!!            the leading n by k part of the array B must contain the
 !!            matrix B.
 !!
 !!   LDB
 !!
 !!           LDB is INTEGER
 !!            On entry, LDB specifies the first dimension of B as declared
-!!            in the calling (sub) program. When  TRANSB = 'N' or 'n' then
-!!            LDB must be at least  max( 1, k ), otherwise  LDB must be at
-!!            least  max( 1, n ).
+!!            in the calling (sub) program. When TRANSB = 'N' or 'n' then
+!!            LDB must be at least max( 1, k ), otherwise LDB must be at
+!!            least max( 1, n ).
 !!
 !!   BETA
 !!
 !!           BETA is REAL
-!!            On entry,  BETA  specifies the scalar  beta.  When  BETA  is
+!!            On entry, BETA specifies the scalar beta. When BETA is
 !!            supplied as zero then C need not be set on input.
 !!
-!!  out] C
+!!  C
 !!
 !!           C is REAL array, dimension ( LDC, N )
-!!            Before entry, the leading  m by n  part of the array  C must
-!!            contain the matrix  C,  except when  beta  is zero, in which
+!!
+!!            Before entry, the leading m by n part of the array C must
+!!            contain the matrix C, except when beta is zero, in which
 !!            case C need not be set on entry.
-!!            On exit, the array  C  is overwritten by the  m by n  matrix
+!!
+!!            On exit, the array C is overwritten by the m by n matrix
 !!            ( alpha*op( A )*op( B ) + beta*C ).
 !!
 !!   LDC
 !!
 !!           LDC is INTEGER
 !!            On entry, LDC specifies the first dimension of C as declared
-!!            in  the  calling  (sub)  program.   LDC  must  be  at  least
+!!            in the calling (sub) program. LDC must be at least
 !!            max( 1, m ).
 !!
 !!##AUTHORS
@@ -21044,7 +20964,8 @@ END FUNCTION SDSDOT
       END SUBROUTINE SGEMM
 !>
 !!##NAME
-!!    sgemv.(3f) -- [BLAS:SINGLE_BLAS_LEVEL2]
+!!    sgemv(3f) - [BLAS:SINGLE_BLAS_LEVEL2]
+!! SY:=alpha*A*SX+beta*SY, A a rectangular matrix.
 !!
 !!##SYNOPSIS
 !!
@@ -21062,7 +20983,7 @@ END FUNCTION SDSDOT
 !!
 !!##DEFINITION
 !!
-!!  SGEMV  performs one of the matrix-vector operations
+!!  SGEMV performs one of the matrix-vector operations
 !!
 !!     y := alpha*A*x + beta*y,   or   y := alpha*A**T*x + beta*y,
 !!
@@ -21134,7 +21055,7 @@ END FUNCTION SDSDOT
 !!            On entry, BETA specifies the scalar beta. When BETA is
 !!            supplied as zero then Y need not be set on input.
 !!
-!!  out] Y
+!!  Y
 !!
 !!           Y is REAL array, dimension at least
 !!            ( 1 + ( m - 1 )*abs( INCY ) ) when TRANS = 'N' or 'n'
@@ -21339,7 +21260,8 @@ END FUNCTION SDSDOT
       END SUBROUTINE SGEMV
 !>
 !!##NAME
-!!    sger.(3f) -- [BLAS:SINGLE_BLAS_LEVEL2]
+!!    sger(3f) - [BLAS:SINGLE_BLAS_LEVEL2]
+!! A:=A+alpha*SX*TRANSPOSE(SY), rank 1 update, A a rectangular matrix.
 !!
 !!##SYNOPSIS
 !!
@@ -21356,7 +21278,7 @@ END FUNCTION SDSDOT
 !!
 !!##DEFINITION
 !!
-!!  SGER   performs the rank 1 operation
+!!  SGER performs the rank 1 operation
 !!
 !!     A := alpha*x*y**T + A,
 !!
@@ -21408,7 +21330,7 @@ END FUNCTION SDSDOT
 !!            On entry, INCY specifies the increment for the elements of
 !!            Y. INCY must not be zero.
 !!
-!!  out] A
+!!  A
 !!
 !!           A is REAL array, dimension ( LDA, N )
 !!            Before entry, the leading m by n part of the array A must
@@ -21541,7 +21463,8 @@ END FUNCTION SDSDOT
       END SUBROUTINE SGER
 !>
 !!##NAME
-!!    snrm2.(3f) -- [BLAS:SINGLE_BLAS_LEVEL1]
+!!    snrm2(3f) - [BLAS:SINGLE_BLAS_LEVEL1]
+!! SNRM2 := square root of sum of SX(I)**2
 !!
 !!##SYNOPSIS
 !!
@@ -21578,7 +21501,7 @@ END FUNCTION SDSDOT
 !!           If INCX > 0, X(1+(i-1)*INCX) = x(i) for 1 <= i <= n
 !!           If INCX < 0, X(1-(n-i)*INCX) = x(i) for 1 <= i <= n
 !!           If INCX = 0, x isn't a vector so there is no need to call
-!!           this subroutine.  If you call it anyway, it will count x(1)
+!!           this subroutine. If you call it anyway, it will count x(1)
 !!           in the vector norm N times.
 !!
 !!##AUTHORS
@@ -21716,7 +21639,7 @@ function SNRM2( n, x, incx )
 end function SNRM2
 !>
 !!##NAME
-!!    srot.(3f) -- [BLAS:SINGLE_BLAS_LEVEL1]
+!!    srot(3f) - [BLAS:SINGLE_BLAS_LEVEL1] Apply Given's rotation.
 !!
 !!##SYNOPSIS
 !!
@@ -21741,7 +21664,7 @@ end function SNRM2
 !!           N is INTEGER
 !!          number of elements in input vector(s)
 !!
-!!  out] SX
+!!  SX
 !!
 !!           SX is REAL array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
 !!
@@ -21750,7 +21673,7 @@ end function SNRM2
 !!           INCX is INTEGER
 !!          storage spacing between elements of SX
 !!
-!!  out] SY
+!!  SY
 !!
 !!           SY is REAL array, dimension ( 1 + ( N - 1 )*abs( INCY ) )
 !!
@@ -21838,7 +21761,7 @@ end function SNRM2
       END SUBROUTINE SROT
 !>
 !!##NAME
-!!    srotg.(3f) -- [BLAS:SINGLE_BLAS_LEVEL1]
+!!    srotg(3f) - [BLAS:SINGLE_BLAS_LEVEL1] Generate Given's rotation.
 !!
 !!##SYNOPSIS
 !!
@@ -21855,34 +21778,41 @@ end function SNRM2
 !!
 !!##DEFINITION
 !!   SROTG constructs a plane rotation
+!!
 !!      [  c  s ] [ a ] = [ r ]
 !!      [ -s  c ] [ b ]   [ 0 ]
+!!
 !!   satisfying c**2 + s**2 = 1.
 !!
 !!  The computation uses the formulas
+!!
 !!     sigma = sgn(a)    if |a| >  |b|
 !!           = sgn(b)    if |b| >= |a|
 !!     r = sigma*sqrt( a**2 + b**2 )
 !!     c = 1; s = 0      if r = 0
 !!     c = a/r; s = b/r  if r != 0
+!!
 !!  The subroutine also computes
+!!
 !!     z = s    if |a| > |b|,
 !!       = 1/c  if |b| >= |a| and c != 0
 !!       = 1    if c = 0
+!!
 !!  This allows c and s to be reconstructed from z as follows:
+!!
 !!     If z = 1, set c = 0, s = 1.
 !!     If |z| < 1, set c = sqrt(1 - z**2) and s = z.
 !!     If |z| > 1, set c = 1/z and s = sqrt( 1 - c**2).
 !!
 !!##OPTIONS
 !!
-!!  out] A
+!!  A
 !!
 !!           A is REAL
 !!           On entry, the scalar a.
 !!           On exit, the scalar r.
 !!
-!!  out] B
+!!  B
 !!
 !!           B is REAL
 !!           On entry, the scalar b.
@@ -21976,7 +21906,7 @@ subroutine SROTG( a, b, c, s )
 end subroutine
 !>
 !!##NAME
-!!    srotm.(3f) -- [BLAS:SINGLE_BLAS_LEVEL1]
+!!    srotm(3f) - [BLAS:SINGLE_BLAS_LEVEL1] Apply a modified Given's rotation.
 !!
 !!##SYNOPSIS
 !!
@@ -22001,11 +21931,12 @@ end subroutine
 !!     LX = (-INCX)*N, AND SIMILARLY FOR SY USING USING LY AND INCY.
 !!     WITH SPARAM(1)=SFLAG, H HAS ONE OF THE FOLLOWING FORMS..
 !!
-!!     SFLAG=-1.E0     SFLAG=0.E0        SFLAG=1.E0     SFLAG=-2.E0
+!!        SFLAG=-1.E0     SFLAG=0.E0        SFLAG=1.E0     SFLAG=-2.E0
 !!
-!!       (SH11  SH12)    (1.E0  SH12)    (SH11  1.E0)    (1.E0  0.E0)
-!!     H=(          )    (          )    (          )    (          )
-!!       (SH21  SH22),   (SH21  1.E0),   (-1.E0 SH22),   (0.E0  1.E0).
+!!          (SH11  SH12)    (1.E0  SH12)    (SH11  1.E0)    (1.E0  0.E0)
+!!        H=(          )    (          )    (          )    (          )
+!!          (SH21  SH22),   (SH21  1.E0),   (-1.E0 SH22),   (0.E0  1.E0).
+!!
 !!     SEE  SROTMG FOR A DESCRIPTION OF DATA STORAGE IN SPARAM.
 !!
 !!##OPTIONS
@@ -22015,7 +21946,7 @@ end subroutine
 !!           N is INTEGER
 !!          number of elements in input vector(s)
 !!
-!!  out] SX
+!!  SX
 !!
 !!           SX is REAL array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
 !!
@@ -22024,7 +21955,7 @@ end subroutine
 !!           INCX is INTEGER
 !!          storage spacing between elements of SX
 !!
-!!  out] SY
+!!  SY
 !!
 !!           SY is REAL array, dimension ( 1 + ( N - 1 )*abs( INCY ) )
 !!
@@ -22162,7 +22093,7 @@ end subroutine
       END SUBROUTINE SROTM
 !>
 !!##NAME
-!!    srotmg.(3f) -- [BLAS:SINGLE_BLAS_LEVEL1]
+!!    srotmg(3f) - [BLAS:SINGLE_BLAS_LEVEL1] Generate a modified Given's rotation.
 !!
 !!##SYNOPSIS
 !!
@@ -22185,11 +22116,11 @@ end subroutine
 !!
 !!     with sparam(1)=sflag, H has one of the following forms..
 !!
-!!     SFLAG=-1.E0     SFLAG=0.E0        SFLAG=1.E0     SFLAG=-2.E0
+!!        SFLAG=-1.E0     SFLAG=0.E0        SFLAG=1.E0     SFLAG=-2.E0
 !!
-!!       (SH11  SH12)    (1.E0  SH12)    (SH11  1.E0)    (1.E0  0.E0)
-!!     H=(          )    (          )    (          )    (          )
-!!       (SH21  SH22),   (SH21  1.E0),   (-1.E0 SH22),   (0.E0  1.E0).
+!!          (SH11  SH12)    (1.E0  SH12)    (SH11  1.E0)    (1.E0  0.E0)
+!!        H=(          )    (          )    (          )    (          )
+!!          (SH21  SH22),   (SH21  1.E0),   (-1.E0 SH22),   (0.E0  1.E0).
 !!
 !!     locations 2-4 of SPARAM contain SH11,SH21,SH12, and SH22
 !!     respectively. (values of 1.e0, -1.e0, or 0.e0 implied by the value
@@ -22197,19 +22128,19 @@ end subroutine
 !!
 !!     the values of GAMSQ and RGAMSQ set in the data statement may be
 !!     inexact. This is OK as they are only used for testing the size of
-!!     SD1 and SD2.  All actual scaling of data is done using GAM.
+!!     SD1 and SD2. All actual scaling of data is done using GAM.
 !!
 !!##OPTIONS
 !!
-!!  out] SD1
+!!  SD1
 !!
 !!           SD1 is REAL
 !!
-!!  out] SD2
+!!  SD2
 !!
 !!           SD2 is REAL
 !!
-!!  out] SX1
+!!  SX1
 !!
 !!           SX1 is REAL
 !!
@@ -22415,7 +22346,7 @@ end subroutine
       END SUBROUTINE SROTMG
 !>
 !!##NAME
-!!    ssbmv.(3f) -- [BLAS:SINGLE_BLAS_LEVEL2]
+!!    ssbmv(3f) - [BLAS:SINGLE_BLAS_LEVEL2] SY:=alpha*A*SX+beta*SY, A a symmetric band matrix.
 !!
 !!##SYNOPSIS
 !!
@@ -22433,7 +22364,7 @@ end subroutine
 !!
 !!##DEFINITION
 !!
-!!  SSBMV  performs the matrix-vector  operation
+!!  SSBMV performs the matrix-vector operation
 !!
 !!     y := alpha*A*x + beta*y,
 !!
@@ -22465,7 +22396,7 @@ end subroutine
 !!
 !!           K is INTEGER
 !!            On entry, K specifies the number of super-diagonals of the
-!!            matrix A. K must satisfy  0 .le. K.
+!!            matrix A. K must satisfy 0 .le. K.
 !!
 !!   ALPHA
 !!
@@ -22536,7 +22467,7 @@ end subroutine
 !!           BETA is REAL
 !!            On entry, BETA specifies the scalar beta.
 !!
-!!  out] Y
+!!  Y
 !!
 !!           Y is REAL array, dimension at least
 !!            ( 1 + ( n - 1 )*abs( INCY ) ).
@@ -22757,7 +22688,7 @@ end subroutine
       END SUBROUTINE SSBMV
 !>
 !!##NAME
-!!    sscal.(3f) -- [BLAS:SINGLE_BLAS_LEVEL1]
+!!    sscal(3f) - [BLAS:SINGLE_BLAS_LEVEL1] SX:=SA*SX.
 !!
 !!##SYNOPSIS
 !!
@@ -22788,7 +22719,7 @@ end subroutine
 !!           SA is REAL
 !!            On entry, SA specifies the scalar alpha.
 !!
-!!  out] SX
+!!  SX
 !!
 !!           SX is REAL array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
 !!
@@ -22876,7 +22807,7 @@ end subroutine
       END SUBROUTINE SSCAL
 !>
 !!##NAME
-!!    sspmv.(3f) -- [BLAS:SINGLE_BLAS_LEVEL2]
+!!    sspmv(3f) - [BLAS:SINGLE_BLAS_LEVEL2] SY:=alpha*A*SX+beta*SY, A a packed symmetric matrix.
 !!
 !!##SYNOPSIS
 !!
@@ -22894,7 +22825,7 @@ end subroutine
 !!
 !!##DEFINITION
 !!
-!!  SSPMV  performs the matrix-vector operation
+!!  SSPMV performs the matrix-vector operation
 !!
 !!     y := alpha*A*x + beta*y,
 !!
@@ -22961,7 +22892,7 @@ end subroutine
 !!            On entry, BETA specifies the scalar beta. When BETA is
 !!            supplied as zero then Y need not be set on input.
 !!
-!!  out] Y
+!!  Y
 !!
 !!           Y is REAL array, dimension at least
 !!            ( 1 + ( n - 1 )*abs( INCY ) ).
@@ -23176,7 +23107,7 @@ end subroutine
       END SUBROUTINE SSPMV
 !>
 !!##NAME
-!!    sspr2.(3f) -- [BLAS:SINGLE_BLAS_LEVEL2]
+!!    sspr2(3f) - [BLAS:SINGLE_BLAS_LEVEL2] A:=A+alpha*SX*TRANSPOSE(SY)+alpha*SY*TRANSPOSE(SX), A packed symmetric.
 !!
 !!##SYNOPSIS
 !!
@@ -23194,7 +23125,7 @@ end subroutine
 !!
 !!##DEFINITION
 !!
-!!  SSPR2  performs the symmetric rank 2 operation
+!!  SSPR2 performs the symmetric rank 2 operation
 !!
 !!     A := alpha*x*y**T + alpha*y*x**T + A,
 !!
@@ -23253,11 +23184,11 @@ end subroutine
 !!            On entry, INCY specifies the increment for the elements of
 !!            Y. INCY must not be zero.
 !!
-!!  out] AP
+!!  AP
 !!
 !!           AP is REAL array, dimension at least
 !!            ( ( n*( n + 1 ) )/2 ).
-!!            Before entry with  UPLO = 'U' or 'u', the array AP must
+!!            Before entry with UPLO = 'U' or 'u', the array AP must
 !!            contain the upper triangular part of the symmetric matrix
 !!            packed sequentially, column by column, so that AP( 1 )
 !!            contains a( 1, 1 ), AP( 2 ) and AP( 3 ) contain a( 1, 2 )
@@ -23446,7 +23377,7 @@ end subroutine
       END SUBROUTINE SSPR2
 !>
 !!##NAME
-!!    sspr.(3f) -- [BLAS:SINGLE_BLAS_LEVEL2]
+!!    sspr(3f) - [BLAS:SINGLE_BLAS_LEVEL2] A:=A+alpha*SX*TRANSPOSE(SX), A a packed symmetric matrix.
 !!
 !!##SYNOPSIS
 !!
@@ -23464,7 +23395,7 @@ end subroutine
 !!
 !!##DEFINITION
 !!
-!!  SSPR    performs the symmetric rank 1 operation
+!!  SSPR performs the symmetric rank 1 operation
 !!
 !!     A := alpha*x*x**T + A,
 !!
@@ -23510,11 +23441,11 @@ end subroutine
 !!            On entry, INCX specifies the increment for the elements of
 !!            X. INCX must not be zero.
 !!
-!!  out] AP
+!!  AP
 !!
 !!           AP is REAL array, dimension at least
 !!            ( ( n*( n + 1 ) )/2 ).
-!!            Before entry with  UPLO = 'U' or 'u', the array AP must
+!!            Before entry with UPLO = 'U' or 'u', the array AP must
 !!            contain the upper triangular part of the symmetric matrix
 !!            packed sequentially, column by column, so that AP( 1 )
 !!            contains a( 1, 1 ), AP( 2 ) and AP( 3 ) contain a( 1, 2 )
@@ -23683,7 +23614,7 @@ end subroutine
       END SUBROUTINE SSPR
 !>
 !!##NAME
-!!    sswap.(3f) -- [BLAS:SINGLE_BLAS_LEVEL1]
+!!    sswap(3f) - [BLAS:SINGLE_BLAS_LEVEL1] Interchange vectors SX and SY.
 !!
 !!##SYNOPSIS
 !!
@@ -23708,7 +23639,7 @@ end subroutine
 !!           N is INTEGER
 !!          number of elements in input vector(s)
 !!
-!!  out] SX
+!!  SX
 !!
 !!           SX is REAL array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
 !!
@@ -23717,7 +23648,7 @@ end subroutine
 !!           INCX is INTEGER
 !!          storage spacing between elements of SX
 !!
-!!  out] SY
+!!  SY
 !!
 !!           SY is REAL array, dimension ( 1 + ( N - 1 )*abs( INCY ) )
 !!
@@ -23818,7 +23749,7 @@ end subroutine
       END SUBROUTINE SSWAP
 !>
 !!##NAME
-!!    ssymm.(3f) -- [BLAS:SINGLE_BLAS_LEVEL3]
+!!    ssymm(3f) - [BLAS:SINGLE_BLAS_LEVEL3] C:=alpha*A*B+beta*C, A symmetric, B, C rectangular.
 !!
 !!##SYNOPSIS
 !!
@@ -23836,7 +23767,7 @@ end subroutine
 !!
 !!##DEFINITION
 !!
-!!  SSYMM  performs one of the matrix-matrix operations
+!!  SSYMM performs one of the matrix-matrix operations
 !!
 !!     C := alpha*A*B + beta*C,
 !!
@@ -23844,16 +23775,16 @@ end subroutine
 !!
 !!     C := alpha*B*A + beta*C,
 !!
-!!  where alpha and beta are scalars,  A is a symmetric matrix and  B and
-!!  C are  m by n matrices.
+!!  where alpha and beta are scalars, A is a symmetric matrix and B and
+!!  C are m by n matrices.
 !!
 !!##OPTIONS
 !!
 !!   SIDE
 !!
 !!           SIDE is CHARACTER*1
-!!            On entry,  SIDE  specifies whether  the  symmetric matrix  A
-!!            appears on the  left or right  in the  operation as follows:
+!!            On entry, SIDE specifies whether the symmetric matrix A
+!!            appears on the left or right in the operation as follows:
 !!
 !!               SIDE = 'L' or 'l'   C := alpha*A*B + beta*C,
 !!
@@ -23862,8 +23793,8 @@ end subroutine
 !!   UPLO
 !!
 !!           UPLO is CHARACTER*1
-!!            On  entry,   UPLO  specifies  whether  the  upper  or  lower
-!!            triangular  part  of  the  symmetric  matrix   A  is  to  be
+!!            On entry, UPLO specifies whether the upper or lower
+!!            triangular part of the symmetric matrix A is to be
 !!            referenced as follows:
 !!
 !!               UPLO = 'U' or 'u'   Only the upper triangular part of the
@@ -23875,14 +23806,14 @@ end subroutine
 !!   M
 !!
 !!           M is INTEGER
-!!            On entry,  M  specifies the number of rows of the matrix  C.
-!!            M  must be at least zero.
+!!            On entry, M specifies the number of rows of the matrix C.
+!!            M must be at least zero.
 !!
 !!   N
 !!
 !!           N is INTEGER
 !!            On entry, N specifies the number of columns of the matrix C.
-!!            N  must be at least zero.
+!!            N must be at least zero.
 !!
 !!   ALPHA
 !!
@@ -23892,69 +23823,69 @@ end subroutine
 !!   A
 !!
 !!           A is REAL array, dimension ( LDA, ka ), where ka is
-!!            m  when  SIDE = 'L' or 'l'  and is  n otherwise.
-!!            Before entry  with  SIDE = 'L' or 'l',  the  m by m  part of
-!!            the array  A  must contain the  symmetric matrix,  such that
-!!            when  UPLO = 'U' or 'u', the leading m by m upper triangular
-!!            part of the array  A  must contain the upper triangular part
-!!            of the  symmetric matrix and the  strictly  lower triangular
-!!            part of  A  is not referenced,  and when  UPLO = 'L' or 'l',
-!!            the leading  m by m  lower triangular part  of the  array  A
-!!            must  contain  the  lower triangular part  of the  symmetric
-!!            matrix and the  strictly upper triangular part of  A  is not
+!!            m when SIDE = 'L' or 'l' and is n otherwise.
+!!            Before entry with SIDE = 'L' or 'l', the m by m part of
+!!            the array A must contain the symmetric matrix, such that
+!!            when UPLO = 'U' or 'u', the leading m by m upper triangular
+!!            part of the array A must contain the upper triangular part
+!!            of the symmetric matrix and the strictly lower triangular
+!!            part of A is not referenced, and when UPLO = 'L' or 'l',
+!!            the leading m by m lower triangular part of the array A
+!!            must contain the lower triangular part of the symmetric
+!!            matrix and the strictly upper triangular part of A is not
 !!            referenced.
-!!            Before entry  with  SIDE = 'R' or 'r',  the  n by n  part of
-!!            the array  A  must contain the  symmetric matrix,  such that
-!!            when  UPLO = 'U' or 'u', the leading n by n upper triangular
-!!            part of the array  A  must contain the upper triangular part
-!!            of the  symmetric matrix and the  strictly  lower triangular
-!!            part of  A  is not referenced,  and when  UPLO = 'L' or 'l',
-!!            the leading  n by n  lower triangular part  of the  array  A
-!!            must  contain  the  lower triangular part  of the  symmetric
-!!            matrix and the  strictly upper triangular part of  A  is not
+!!            Before entry with SIDE = 'R' or 'r', the n by n part of
+!!            the array A must contain the symmetric matrix, such that
+!!            when UPLO = 'U' or 'u', the leading n by n upper triangular
+!!            part of the array A must contain the upper triangular part
+!!            of the symmetric matrix and the strictly lower triangular
+!!            part of A is not referenced, and when UPLO = 'L' or 'l',
+!!            the leading n by n lower triangular part of the array A
+!!            must contain the lower triangular part of the symmetric
+!!            matrix and the strictly upper triangular part of A is not
 !!            referenced.
 !!
 !!   LDA
 !!
 !!           LDA is INTEGER
 !!            On entry, LDA specifies the first dimension of A as declared
-!!            in the calling (sub) program.  When  SIDE = 'L' or 'l'  then
-!!            LDA must be at least  max( 1, m ), otherwise  LDA must be at
-!!            least  max( 1, n ).
+!!            in the calling (sub) program. When SIDE = 'L' or 'l' then
+!!            LDA must be at least max( 1, m ), otherwise LDA must be at
+!!            least max( 1, n ).
 !!
 !!   B
 !!
 !!           B is REAL array, dimension ( LDB, N )
-!!            Before entry, the leading  m by n part of the array  B  must
+!!            Before entry, the leading m by n part of the array B must
 !!            contain the matrix B.
 !!
 !!   LDB
 !!
 !!           LDB is INTEGER
 !!            On entry, LDB specifies the first dimension of B as declared
-!!            in  the  calling  (sub)  program.   LDB  must  be  at  least
+!!            in the calling (sub) program. LDB must be at least
 !!            max( 1, m ).
 !!
 !!   BETA
 !!
 !!           BETA is REAL
-!!            On entry,  BETA  specifies the scalar  beta.  When  BETA  is
+!!            On entry, BETA specifies the scalar beta. When BETA is
 !!            supplied as zero then C need not be set on input.
 !!
-!!  out] C
+!!  C
 !!
 !!           C is REAL array, dimension ( LDC, N )
-!!            Before entry, the leading  m by n  part of the array  C must
-!!            contain the matrix  C,  except when  beta  is zero, in which
+!!            Before entry, the leading m by n part of the array C must
+!!            contain the matrix C, except when beta is zero, in which
 !!            case C need not be set on entry.
-!!            On exit, the array  C  is overwritten by the  m by n updated
+!!            On exit, the array C is overwritten by the m by n updated
 !!            matrix.
 !!
 !!   LDC
 !!
 !!           LDC is INTEGER
 !!            On entry, LDC specifies the first dimension of C as declared
-!!            in  the  calling  (sub)  program.   LDC  must  be  at  least
+!!            in the calling (sub) program. LDC must be at least
 !!            max( 1, m ).
 !!
 !!##AUTHORS
@@ -24143,7 +24074,7 @@ end subroutine
       END SUBROUTINE SSYMM
 !>
 !!##NAME
-!!    ssymv.(3f) -- [BLAS:SINGLE_BLAS_LEVEL2]
+!!    ssymv(3f) - [BLAS:SINGLE_BLAS_LEVEL2] SY:=alpha*A*SX+beta*SY, A a symmetric matrix.
 !!
 !!##SYNOPSIS
 !!
@@ -24161,7 +24092,7 @@ end subroutine
 !!
 !!##DEFINITION
 !!
-!!  SSYMV  performs the matrix-vector  operation
+!!  SSYMV performs the matrix-vector operation
 !!
 !!     y := alpha*A*x + beta*y,
 !!
@@ -24197,7 +24128,7 @@ end subroutine
 !!   A
 !!
 !!           A is REAL array, dimension ( LDA, N )
-!!            Before entry with  UPLO = 'U' or 'u', the leading n by n
+!!            Before entry with UPLO = 'U' or 'u', the leading n by n
 !!            upper triangular part of the array A must contain the upper
 !!            triangular part of the symmetric matrix and the strictly
 !!            lower triangular part of A is not referenced.
@@ -24232,7 +24163,7 @@ end subroutine
 !!            On entry, BETA specifies the scalar beta. When BETA is
 !!            supplied as zero then Y need not be set on input.
 !!
-!!  out] Y
+!!  Y
 !!
 !!           Y is REAL array, dimension at least
 !!            ( 1 + ( n - 1 )*abs( INCY ) ).
@@ -24444,7 +24375,7 @@ end subroutine
       END SUBROUTINE SSYMV
 !>
 !!##NAME
-!!    ssyr2.(3f) -- [BLAS:SINGLE_BLAS_LEVEL2]
+!!    ssyr2(3f) - [BLAS:SINGLE_BLAS_LEVEL2] A:=A+alpha*SX*TRANSPOSE(SY)+alpha*SY*TRANSPOSE(SX), A a symmetric
 !!
 !!##SYNOPSIS
 !!
@@ -24462,7 +24393,7 @@ end subroutine
 !!
 !!##DEFINITION
 !!
-!!  SSYR2  performs the symmetric rank 2 operation
+!!  SSYR2 performs the symmetric rank 2 operation
 !!
 !!     A := alpha*x*y**T + alpha*y*x**T + A,
 !!
@@ -24521,10 +24452,10 @@ end subroutine
 !!            On entry, INCY specifies the increment for the elements of
 !!            Y. INCY must not be zero.
 !!
-!!  out] A
+!!  A
 !!
 !!           A is REAL array, dimension ( LDA, N )
-!!            Before entry with  UPLO = 'U' or 'u', the leading n by n
+!!            Before entry with UPLO = 'U' or 'u', the leading n by n
 !!            upper triangular part of the array A must contain the upper
 !!            triangular part of the symmetric matrix and the strictly
 !!            lower triangular part of A is not referenced. On exit, the
@@ -24715,7 +24646,7 @@ end subroutine
       END SUBROUTINE SSYR2
 !>
 !!##NAME
-!!    ssyr2k.(3f) -- [BLAS:SINGLE_BLAS_LEVEL3]
+!!    ssyr2k(3f) - [BLAS:SINGLE_BLAS_LEVEL3] C:=alpha*A*TRANSPOSE(B)+alpha*B*TRANSPOSE(A)+beta*C, C symmetric.
 !!
 !!##SYNOPSIS
 !!
@@ -24733,7 +24664,7 @@ end subroutine
 !!
 !!##DEFINITION
 !!
-!!  SSYR2K  performs one of the symmetric rank 2k operations
+!!  SSYR2K performs one of the symmetric rank 2k operations
 !!
 !!     C := alpha*A*B**T + alpha*B*A**T + beta*C,
 !!
@@ -24741,8 +24672,8 @@ end subroutine
 !!
 !!     C := alpha*A**T*B + alpha*B**T*A + beta*C,
 !!
-!!  where  alpha and beta  are scalars, C is an  n by n  symmetric matrix
-!!  and  A and B  are  n by k  matrices  in the  first  case  and  k by n
+!!  where alpha and beta are scalars, C is an n by n symmetric matrix
+!!  and A and B are n by k matrices in the first case and k by n
 !!  matrices in the second case.
 !!
 !!##OPTIONS
@@ -24750,8 +24681,8 @@ end subroutine
 !!   UPLO
 !!
 !!           UPLO is CHARACTER*1
-!!            On  entry,   UPLO  specifies  whether  the  upper  or  lower
-!!            triangular  part  of the  array  C  is to be  referenced  as
+!!            On entry, UPLO specifies whether the upper or lower
+!!            triangular part of the array C is to be referenced as
 !!            follows:
 !!
 !!               UPLO = 'U' or 'u'   Only the  upper triangular part of  C
@@ -24763,7 +24694,7 @@ end subroutine
 !!   TRANS
 !!
 !!           TRANS is CHARACTER*1
-!!            On entry,  TRANS  specifies the operation to be performed as
+!!            On entry, TRANS specifies the operation to be performed as
 !!            follows:
 !!
 !!               TRANS = 'N' or 'n'   C := alpha*A*B**T + alpha*B*A**T +
@@ -24778,16 +24709,16 @@ end subroutine
 !!   N
 !!
 !!           N is INTEGER
-!!            On entry,  N specifies the order of the matrix C.  N must be
+!!            On entry, N specifies the order of the matrix C. N must be
 !!            at least zero.
 !!
 !!   K
 !!
 !!           K is INTEGER
-!!            On entry with  TRANS = 'N' or 'n',  K  specifies  the number
-!!            of  columns  of the  matrices  A and B,  and on  entry  with
-!!            TRANS = 'T' or 't' or 'C' or 'c',  K  specifies  the  number
-!!            of rows of the matrices  A and B.  K must be at least  zero.
+!!            On entry with TRANS = 'N' or 'n', K specifies the number
+!!            of columns of the matrices A and B, and on entry with
+!!            TRANS = 'T' or 't' or 'C' or 'c', K specifies the number
+!!            of rows of the matrices A and B. K must be at least zero.
 !!
 !!   ALPHA
 !!
@@ -24797,63 +24728,63 @@ end subroutine
 !!   A
 !!
 !!           A is REAL array, dimension ( LDA, ka ), where ka is
-!!            k  when  TRANS = 'N' or 'n',  and is  n  otherwise.
-!!            Before entry with  TRANS = 'N' or 'n',  the  leading  n by k
-!!            part of the array  A  must contain the matrix  A,  otherwise
-!!            the leading  k by n  part of the array  A  must contain  the
+!!            k when TRANS = 'N' or 'n', and is n otherwise.
+!!            Before entry with TRANS = 'N' or 'n', the leading n by k
+!!            part of the array A must contain the matrix A, otherwise
+!!            the leading k by n part of the array A must contain the
 !!            matrix A.
 !!
 !!   LDA
 !!
 !!           LDA is INTEGER
 !!            On entry, LDA specifies the first dimension of A as declared
-!!            in  the  calling  (sub)  program.   When  TRANS = 'N' or 'n'
-!!            then  LDA must be at least  max( 1, n ), otherwise  LDA must
-!!            be at least  max( 1, k ).
+!!            in the calling (sub) program. When TRANS = 'N' or 'n'
+!!            then LDA must be at least max( 1, n ), otherwise LDA must
+!!            be at least max( 1, k ).
 !!
 !!   B
 !!
 !!           B is REAL array, dimension ( LDB, kb ), where kb is
-!!            k  when  TRANS = 'N' or 'n',  and is  n  otherwise.
-!!            Before entry with  TRANS = 'N' or 'n',  the  leading  n by k
-!!            part of the array  B  must contain the matrix  B,  otherwise
-!!            the leading  k by n  part of the array  B  must contain  the
+!!            k when TRANS = 'N' or 'n', and is n otherwise.
+!!            Before entry with TRANS = 'N' or 'n', the leading n by k
+!!            part of the array B must contain the matrix B, otherwise
+!!            the leading k by n part of the array B must contain the
 !!            matrix B.
 !!
 !!   LDB
 !!
 !!           LDB is INTEGER
 !!            On entry, LDB specifies the first dimension of B as declared
-!!            in  the  calling  (sub)  program.   When  TRANS = 'N' or 'n'
-!!            then  LDB must be at least  max( 1, n ), otherwise  LDB must
-!!            be at least  max( 1, k ).
+!!            in the calling (sub) program. When TRANS = 'N' or 'n'
+!!            then LDB must be at least max( 1, n ), otherwise LDB must
+!!            be at least max( 1, k ).
 !!
 !!   BETA
 !!
 !!           BETA is REAL
 !!            On entry, BETA specifies the scalar beta.
 !!
-!!  out] C
+!!  C
 !!
 !!           C is REAL array, dimension ( LDC, N )
-!!            Before entry  with  UPLO = 'U' or 'u',  the leading  n by n
+!!            Before entry with UPLO = 'U' or 'u', the leading n by n
 !!            upper triangular part of the array C must contain the upper
-!!            triangular part  of the  symmetric matrix  and the strictly
-!!            lower triangular part of C is not referenced.  On exit, the
-!!            upper triangular part of the array  C is overwritten by the
+!!            triangular part of the symmetric matrix and the strictly
+!!            lower triangular part of C is not referenced. On exit, the
+!!            upper triangular part of the array C is overwritten by the
 !!            upper triangular part of the updated matrix.
-!!            Before entry  with  UPLO = 'L' or 'l',  the leading  n by n
+!!            Before entry with UPLO = 'L' or 'l', the leading n by n
 !!            lower triangular part of the array C must contain the lower
-!!            triangular part  of the  symmetric matrix  and the strictly
-!!            upper triangular part of C is not referenced.  On exit, the
-!!            lower triangular part of the array  C is overwritten by the
+!!            triangular part of the symmetric matrix and the strictly
+!!            upper triangular part of C is not referenced. On exit, the
+!!            lower triangular part of the array C is overwritten by the
 !!            lower triangular part of the updated matrix.
 !!
 !!   LDC
 !!
 !!           LDC is INTEGER
 !!            On entry, LDC specifies the first dimension of C as declared
-!!            in  the  calling  (sub)  program.   LDC  must  be  at  least
+!!            in the calling (sub) program. LDC must be at least
 !!            max( 1, n ).
 !!
 !!##AUTHORS
@@ -25061,7 +24992,7 @@ end subroutine
       END SUBROUTINE SSYR2K
 !>
 !!##NAME
-!!    ssyr.(3f) -- [BLAS:SINGLE_BLAS_LEVEL2]
+!!    ssyr(3f) - [BLAS:SINGLE_BLAS_LEVEL2] A:=A+alpha*SX*TRANSPOSE(SX), A a symmetric matrix.
 !!
 !!##SYNOPSIS
 !!
@@ -25079,7 +25010,7 @@ end subroutine
 !!
 !!##DEFINITION
 !!
-!!  SSYR   performs the symmetric rank 1 operation
+!!  SSYR performs the symmetric rank 1 operation
 !!
 !!     A := alpha*x*x**T + A,
 !!
@@ -25125,10 +25056,10 @@ end subroutine
 !!            On entry, INCX specifies the increment for the elements of
 !!            X. INCX must not be zero.
 !!
-!!  out] A
+!!  A
 !!
 !!           A is REAL array, dimension ( LDA, N )
-!!            Before entry with  UPLO = 'U' or 'u', the leading n by n
+!!            Before entry with UPLO = 'U' or 'u', the leading n by n
 !!            upper triangular part of the array A must contain the upper
 !!            triangular part of the symmetric matrix and the strictly
 !!            lower triangular part of A is not referenced. On exit, the
@@ -25295,7 +25226,7 @@ end subroutine
       END SUBROUTINE SSYR
 !>
 !!##NAME
-!!    ssyrk.(3f) -- [BLAS:SINGLE_BLAS_LEVEL3]
+!!    ssyrk(3f) - [BLAS:SINGLE_BLAS_LEVEL3] C:=alpha*A*TRANSPOSE(A)+beta*C, C symmetric.
 !!
 !!##SYNOPSIS
 !!
@@ -25313,7 +25244,7 @@ end subroutine
 !!
 !!##DEFINITION
 !!
-!!  SSYRK  performs one of the symmetric rank k operations
+!!  SSYRK performs one of the symmetric rank k operations
 !!
 !!     C := alpha*A*A**T + beta*C,
 !!
@@ -25321,8 +25252,8 @@ end subroutine
 !!
 !!     C := alpha*A**T*A + beta*C,
 !!
-!!  where  alpha and beta  are scalars, C is an  n by n  symmetric matrix
-!!  and  A  is an  n by k  matrix in the first case and a  k by n  matrix
+!!  where alpha and beta are scalars, C is an n by n symmetric matrix
+!!  and A is an n by k matrix in the first case and a k by n matrix
 !!  in the second case.
 !!
 !!##OPTIONS
@@ -25330,8 +25261,8 @@ end subroutine
 !!   UPLO
 !!
 !!           UPLO is CHARACTER*1
-!!            On  entry,   UPLO  specifies  whether  the  upper  or  lower
-!!            triangular  part  of the  array  C  is to be  referenced  as
+!!            On entry, UPLO specifies whether the upper or lower
+!!            triangular part of the array C is to be referenced as
 !!            follows:
 !!
 !!               UPLO = 'U' or 'u'   Only the  upper triangular part of  C
@@ -25343,7 +25274,7 @@ end subroutine
 !!   TRANS
 !!
 !!           TRANS is CHARACTER*1
-!!            On entry,  TRANS  specifies the operation to be performed as
+!!            On entry, TRANS specifies the operation to be performed as
 !!            follows:
 !!
 !!               TRANS = 'N' or 'n'   C := alpha*A*A**T + beta*C.
@@ -25355,16 +25286,16 @@ end subroutine
 !!   N
 !!
 !!           N is INTEGER
-!!            On entry,  N specifies the order of the matrix C.  N must be
+!!            On entry, N specifies the order of the matrix C. N must be
 !!            at least zero.
 !!
 !!   K
 !!
 !!           K is INTEGER
-!!            On entry with  TRANS = 'N' or 'n',  K  specifies  the number
-!!            of  columns   of  the   matrix   A,   and  on   entry   with
-!!            TRANS = 'T' or 't' or 'C' or 'c',  K  specifies  the  number
-!!            of rows of the matrix  A.  K must be at least zero.
+!!            On entry with TRANS = 'N' or 'n', K specifies the number
+!!            of columns  of the  matrix A, and on entry with
+!!            TRANS = 'T' or 't' or 'C' or 'c', K specifies the number
+!!            of rows of the matrix A. K must be at least zero.
 !!
 !!   ALPHA
 !!
@@ -25374,46 +25305,46 @@ end subroutine
 !!   A
 !!
 !!           A is REAL array, dimension ( LDA, ka ), where ka is
-!!            k  when  TRANS = 'N' or 'n',  and is  n  otherwise.
-!!            Before entry with  TRANS = 'N' or 'n',  the  leading  n by k
-!!            part of the array  A  must contain the matrix  A,  otherwise
-!!            the leading  k by n  part of the array  A  must contain  the
+!!            k when TRANS = 'N' or 'n', and is n otherwise.
+!!            Before entry with TRANS = 'N' or 'n', the leading n by k
+!!            part of the array A must contain the matrix A, otherwise
+!!            the leading k by n part of the array A must contain the
 !!            matrix A.
 !!
 !!   LDA
 !!
 !!           LDA is INTEGER
 !!            On entry, LDA specifies the first dimension of A as declared
-!!            in  the  calling  (sub)  program.   When  TRANS = 'N' or 'n'
-!!            then  LDA must be at least  max( 1, n ), otherwise  LDA must
-!!            be at least  max( 1, k ).
+!!            in the calling (sub) program. When TRANS = 'N' or 'n'
+!!            then LDA must be at least max( 1, n ), otherwise LDA must
+!!            be at least max( 1, k ).
 !!
 !!   BETA
 !!
 !!           BETA is REAL
 !!            On entry, BETA specifies the scalar beta.
 !!
-!!  out] C
+!!  C
 !!
 !!           C is REAL array, dimension ( LDC, N )
-!!            Before entry  with  UPLO = 'U' or 'u',  the leading  n by n
+!!            Before entry with UPLO = 'U' or 'u', the leading n by n
 !!            upper triangular part of the array C must contain the upper
-!!            triangular part  of the  symmetric matrix  and the strictly
-!!            lower triangular part of C is not referenced.  On exit, the
-!!            upper triangular part of the array  C is overwritten by the
+!!            triangular part of the symmetric matrix and the strictly
+!!            lower triangular part of C is not referenced. On exit, the
+!!            upper triangular part of the array C is overwritten by the
 !!            upper triangular part of the updated matrix.
-!!            Before entry  with  UPLO = 'L' or 'l',  the leading  n by n
+!!            Before entry with UPLO = 'L' or 'l', the leading n by n
 !!            lower triangular part of the array C must contain the lower
-!!            triangular part  of the  symmetric matrix  and the strictly
-!!            upper triangular part of C is not referenced.  On exit, the
-!!            lower triangular part of the array  C is overwritten by the
+!!            triangular part of the symmetric matrix and the strictly
+!!            upper triangular part of C is not referenced. On exit, the
+!!            lower triangular part of the array C is overwritten by the
 !!            lower triangular part of the updated matrix.
 !!
 !!   LDC
 !!
 !!           LDC is INTEGER
 !!            On entry, LDC specifies the first dimension of C as declared
-!!            in  the  calling  (sub)  program.   LDC  must  be  at  least
+!!            in the calling (sub) program. LDC must be at least
 !!            max( 1, n ).
 !!
 !!##AUTHORS
@@ -25613,7 +25544,7 @@ end subroutine
       END SUBROUTINE SSYRK
 !>
 !!##NAME
-!!    stbmv.(3f) -- [BLAS:SINGLE_BLAS_LEVEL2]
+!!    stbmv(3f) - [BLAS:SINGLE_BLAS_LEVEL2] SX:=A*SX, A a triangular band matrix.
 !!
 !!##SYNOPSIS
 !!
@@ -25630,11 +25561,11 @@ end subroutine
 !!
 !!##DEFINITION
 !!
-!!  STBMV  performs one of the matrix-vector operations
+!!  STBMV performs one of the matrix-vector operations
 !!
 !!     x := A*x,   or   x := A**T*x,
 !!
-!!  where x is an n element vector and  A is an n by n unit, or non-unit,
+!!  where x is an n element vector and A is an n by n unit, or non-unit,
 !!  upper or lower triangular band matrix, with ( k + 1 ) diagonals.
 !!
 !!##OPTIONS
@@ -25685,7 +25616,7 @@ end subroutine
 !!            super-diagonals of the matrix A.
 !!            On entry with UPLO = 'L' or 'l', K specifies the number of
 !!            sub-diagonals of the matrix A.
-!!            K must satisfy  0 .le. K.
+!!            K must satisfy 0 .le. K.
 !!
 !!   A
 !!
@@ -25737,7 +25668,7 @@ end subroutine
 !!            in the calling (sub) program. LDA must be at least
 !!            ( k + 1 ).
 !!
-!!  out] X
+!!  X
 !!
 !!           X is REAL array, dimension at least
 !!            ( 1 + ( n - 1 )*abs( INCX ) ).
@@ -25986,7 +25917,7 @@ end subroutine
       END SUBROUTINE STBMV
 !>
 !!##NAME
-!!    stbsv.(3f) -- [BLAS:SINGLE_BLAS_LEVEL2]
+!!    stbsv(3f) - [BLAS:SINGLE_BLAS_LEVEL2] SX:=INVERSE(A)*SX, A a triangular band matrix.
 !!
 !!##SYNOPSIS
 !!
@@ -26003,7 +25934,7 @@ end subroutine
 !!
 !!##DEFINITION
 !!
-!!  STBSV  solves one of the systems of equations
+!!  STBSV solves one of the systems of equations
 !!
 !!     A*x = b,   or   A**T*x = b,
 !!
@@ -26062,7 +25993,7 @@ end subroutine
 !!            super-diagonals of the matrix A.
 !!            On entry with UPLO = 'L' or 'l', K specifies the number of
 !!            sub-diagonals of the matrix A.
-!!            K must satisfy  0 .le. K.
+!!            K must satisfy 0 .le. K.
 !!
 !!   A
 !!
@@ -26114,7 +26045,7 @@ end subroutine
 !!            in the calling (sub) program. LDA must be at least
 !!            ( k + 1 ).
 !!
-!!  out] X
+!!  X
 !!
 !!           X is REAL array, dimension at least
 !!            ( 1 + ( n - 1 )*abs( INCX ) ).
@@ -26362,7 +26293,7 @@ end subroutine
       END SUBROUTINE STBSV
 !>
 !!##NAME
-!!    stpmv.(3f) -- [BLAS:SINGLE_BLAS_LEVEL2]
+!!    stpmv(3f) - [BLAS:SINGLE_BLAS_LEVEL2] SX:=A*SX, A a packed symmetric matrix.
 !!
 !!##SYNOPSIS
 !!
@@ -26379,11 +26310,11 @@ end subroutine
 !!
 !!##DEFINITION
 !!
-!!  STPMV  performs one of the matrix-vector operations
+!!  STPMV performs one of the matrix-vector operations
 !!
 !!     x := A*x,   or   x := A**T*x,
 !!
-!!  where x is an n element vector and  A is an n by n unit, or non-unit,
+!!  where x is an n element vector and A is an n by n unit, or non-unit,
 !!  upper or lower triangular matrix, supplied in packed form.
 !!
 !!##OPTIONS
@@ -26431,7 +26362,7 @@ end subroutine
 !!
 !!           AP is REAL array, dimension at least
 !!            ( ( n*( n + 1 ) )/2 ).
-!!            Before entry with  UPLO = 'U' or 'u', the array AP must
+!!            Before entry with UPLO = 'U' or 'u', the array AP must
 !!            contain the upper triangular matrix packed sequentially,
 !!            column by column, so that AP( 1 ) contains a( 1, 1 ),
 !!            AP( 2 ) and AP( 3 ) contain a( 1, 2 ) and a( 2, 2 )
@@ -26441,10 +26372,10 @@ end subroutine
 !!            column by column, so that AP( 1 ) contains a( 1, 1 ),
 !!            AP( 2 ) and AP( 3 ) contain a( 2, 1 ) and a( 3, 1 )
 !!            respectively, and so on.
-!!            Note that when  DIAG = 'U' or 'u', the diagonal elements of
+!!            Note that when DIAG = 'U' or 'u', the diagonal elements of
 !!            A are not referenced, but are assumed to be unity.
 !!
-!!  out] X
+!!  X
 !!
 !!           X is REAL array, dimension at least
 !!            ( 1 + ( n - 1 )*abs( INCX ) ).
@@ -26690,7 +26621,7 @@ end subroutine
       END SUBROUTINE STPMV
 !>
 !!##NAME
-!!    stpsv.(3f) -- [BLAS:SINGLE_BLAS_LEVEL2]
+!!    stpsv(3f) - [BLAS:SINGLE_BLAS_LEVEL2] SX:=INVERSE(A)*SX, A a packed symmetric matrix.
 !!
 !!##SYNOPSIS
 !!
@@ -26762,7 +26693,7 @@ end subroutine
 !!
 !!           AP is REAL array, dimension at least
 !!            ( ( n*( n + 1 ) )/2 ).
-!!            Before entry with  UPLO = 'U' or 'u', the array AP must
+!!            Before entry with UPLO = 'U' or 'u', the array AP must
 !!            contain the upper triangular matrix packed sequentially,
 !!            column by column, so that AP( 1 ) contains a( 1, 1 ),
 !!            AP( 2 ) and AP( 3 ) contain a( 1, 2 ) and a( 2, 2 )
@@ -26772,10 +26703,10 @@ end subroutine
 !!            column by column, so that AP( 1 ) contains a( 1, 1 ),
 !!            AP( 2 ) and AP( 3 ) contain a( 2, 1 ) and a( 3, 1 )
 !!            respectively, and so on.
-!!            Note that when  DIAG = 'U' or 'u', the diagonal elements of
+!!            Note that when DIAG = 'U' or 'u', the diagonal elements of
 !!            A are not referenced, but are assumed to be unity.
 !!
-!!  out] X
+!!  X
 !!
 !!           X is REAL array, dimension at least
 !!            ( 1 + ( n - 1 )*abs( INCX ) ).
@@ -27021,7 +26952,7 @@ end subroutine
       END SUBROUTINE STPSV
 !>
 !!##NAME
-!!    strmm.(3f) -- [BLAS:SINGLE_BLAS_LEVEL3]
+!!    strmm(3f) - [BLAS:SINGLE_BLAS_LEVEL3] B:=A*B or B:=B*A, A triangular, B rectangular.
 !!
 !!##SYNOPSIS
 !!
@@ -27039,12 +26970,12 @@ end subroutine
 !!
 !!##DEFINITION
 !!
-!!  STRMM  performs one of the matrix-matrix operations
+!!  STRMM performs one of the matrix-matrix operations
 !!
 !!     B := alpha*op( A )*B,   or   B := alpha*B*op( A ),
 !!
-!!  where  alpha  is a scalar,  B  is an m by n matrix,  A  is a unit, or
-!!  non-unit,  upper or lower triangular matrix  and  op( A )  is one  of
+!!  where alpha is a scalar, B is an m by n matrix, A is a unit, or
+!!  non-unit, upper or lower triangular matrix and op( A ) is one of
 !!
 !!     op( A ) = A   or   op( A ) = A**T.
 !!
@@ -27053,7 +26984,7 @@ end subroutine
 !!   SIDE
 !!
 !!           SIDE is CHARACTER*1
-!!            On entry,  SIDE specifies whether  op( A ) multiplies B from
+!!            On entry, SIDE specifies whether op( A ) multiplies B from
 !!            the left or right as follows:
 !!
 !!               SIDE = 'L' or 'l'   B := alpha*op( A )*B.
@@ -27102,51 +27033,51 @@ end subroutine
 !!   N
 !!
 !!           N is INTEGER
-!!            On entry, N specifies the number of columns of B.  N must be
+!!            On entry, N specifies the number of columns of B. N must be
 !!            at least zero.
 !!
 !!   ALPHA
 !!
 !!           ALPHA is REAL
-!!            On entry,  ALPHA specifies the scalar  alpha. When  alpha is
-!!            zero then  A is not referenced and  B need not be set before
+!!            On entry, ALPHA specifies the scalar alpha. When alpha is
+!!            zero then A is not referenced and B need not be set before
 !!            entry.
 !!
 !!   A
 !!
 !!           A is REAL array, dimension ( LDA, k ), where k is m
-!!            when  SIDE = 'L' or 'l'  and is  n  when  SIDE = 'R' or 'r'.
-!!            Before entry  with  UPLO = 'U' or 'u',  the  leading  k by k
-!!            upper triangular part of the array  A must contain the upper
-!!            triangular matrix  and the strictly lower triangular part of
+!!            when SIDE = 'L' or 'l' and is n when SIDE = 'R' or 'r'.
+!!            Before entry with UPLO = 'U' or 'u', the leading k by k
+!!            upper triangular part of the array A must contain the upper
+!!            triangular matrix and the strictly lower triangular part of
 !!            A is not referenced.
-!!            Before entry  with  UPLO = 'L' or 'l',  the  leading  k by k
-!!            lower triangular part of the array  A must contain the lower
-!!            triangular matrix  and the strictly upper triangular part of
+!!            Before entry with UPLO = 'L' or 'l', the leading k by k
+!!            lower triangular part of the array A must contain the lower
+!!            triangular matrix and the strictly upper triangular part of
 !!            A is not referenced.
-!!            Note that when  DIAG = 'U' or 'u',  the diagonal elements of
-!!            A  are not referenced either,  but are assumed to be  unity.
+!!            Note that when DIAG = 'U' or 'u', the diagonal elements of
+!!            A are not referenced either, but are assumed to be unity.
 !!
 !!   LDA
 !!
 !!           LDA is INTEGER
 !!            On entry, LDA specifies the first dimension of A as declared
-!!            in the calling (sub) program.  When  SIDE = 'L' or 'l'  then
-!!            LDA  must be at least  max( 1, m ),  when  SIDE = 'R' or 'r'
+!!            in the calling (sub) program. When SIDE = 'L' or 'l' then
+!!            LDA must be at least max( 1, m ), when SIDE = 'R' or 'r'
 !!            then LDA must be at least max( 1, n ).
 !!
-!!  out] B
+!!  B
 !!
 !!           B is REAL array, dimension ( LDB, N )
-!!            Before entry,  the leading  m by n part of the array  B must
-!!            contain the matrix  B,  and  on exit  is overwritten  by the
+!!            Before entry, the leading m by n part of the array B must
+!!            contain the matrix B, and on exit is overwritten by the
 !!            transformed matrix.
 !!
 !!   LDB
 !!
 !!           LDB is INTEGER
 !!            On entry, LDB specifies the first dimension of B as declared
-!!            in  the  calling  (sub)  program.   LDB  must  be  at  least
+!!            in the calling (sub) program. LDB must be at least
 !!            max( 1, m ).
 !!
 !!##AUTHORS
@@ -27388,7 +27319,7 @@ end subroutine
       END SUBROUTINE STRMM
 !>
 !!##NAME
-!!    strmv.(3f) -- [BLAS:SINGLE_BLAS_LEVEL2]
+!!    strmv(3f) - [BLAS:SINGLE_BLAS_LEVEL2] SX:=A*SX, A a triangular matrix.
 !!
 !!##SYNOPSIS
 !!
@@ -27405,7 +27336,7 @@ end subroutine
 !!
 !!##DEFINITION
 !!
-!!  STRMV  performs one of the matrix-vector operations
+!!  STRMV performs one of the matrix-vector operations
 !!
 !!     x := A*x,   or   x := A**T*x,
 !!
@@ -27456,7 +27387,7 @@ end subroutine
 !!   A
 !!
 !!           A is REAL array, dimension ( LDA, N )
-!!            Before entry with  UPLO = 'U' or 'u', the leading n by n
+!!            Before entry with UPLO = 'U' or 'u', the leading n by n
 !!            upper triangular part of the array A must contain the upper
 !!            triangular matrix and the strictly lower triangular part of
 !!            A is not referenced.
@@ -27464,7 +27395,7 @@ end subroutine
 !!            lower triangular part of the array A must contain the lower
 !!            triangular matrix and the strictly upper triangular part of
 !!            A is not referenced.
-!!            Note that when  DIAG = 'U' or 'u', the diagonal elements of
+!!            Note that when DIAG = 'U' or 'u', the diagonal elements of
 !!            A are not referenced either, but are assumed to be unity.
 !!
 !!   LDA
@@ -27474,7 +27405,7 @@ end subroutine
 !!            in the calling (sub) program. LDA must be at least
 !!            max( 1, n ).
 !!
-!!  out] X
+!!  X
 !!
 !!           X is REAL array, dimension at least
 !!            ( 1 + ( n - 1 )*abs( INCX ) ).
@@ -27703,7 +27634,7 @@ end subroutine
       END SUBROUTINE STRMV
 !>
 !!##NAME
-!!    strsm.(3f) -- [BLAS:SINGLE_BLAS_LEVEL3]
+!!    strsm(3f) - [BLAS:SINGLE_BLAS_LEVEL3] B:=INVERSE(A)*C or B:=C*INVERSE(A), B, C rectangular, A triangular.
 !!
 !!##SYNOPSIS
 !!
@@ -27721,12 +27652,12 @@ end subroutine
 !!
 !!##DEFINITION
 !!
-!!  STRSM  solves one of the matrix equations
+!!  STRSM solves one of the matrix equations
 !!
 !!     op( A )*X = alpha*B,   or   X*op( A ) = alpha*B,
 !!
 !!  where alpha is a scalar, X and B are m by n matrices, A is a unit, or
-!!  non-unit,  upper or lower triangular matrix  and  op( A )  is one  of
+!!  non-unit, upper or lower triangular matrix and op( A ) is one of
 !!
 !!     op( A ) = A   or   op( A ) = A**T.
 !!
@@ -27786,14 +27717,14 @@ end subroutine
 !!   N
 !!
 !!           N is INTEGER
-!!            On entry, N specifies the number of columns of B.  N must be
+!!            On entry, N specifies the number of columns of B. N must be
 !!            at least zero.
 !!
 !!   ALPHA
 !!
 !!           ALPHA is REAL
-!!            On entry,  ALPHA specifies the scalar  alpha. When  alpha is
-!!            zero then  A is not referenced and  B need not be set before
+!!            On entry, ALPHA specifies the scalar alpha. When alpha is
+!!            zero then A is not referenced and B need not be set before
 !!            entry.
 !!
 !!   A
@@ -27801,37 +27732,37 @@ end subroutine
 !!           A is REAL array, dimension ( LDA, k ),
 !!            where k is m when SIDE = 'L' or 'l'
 !!              and k is n when SIDE = 'R' or 'r'.
-!!            Before entry  with  UPLO = 'U' or 'u',  the  leading  k by k
-!!            upper triangular part of the array  A must contain the upper
-!!            triangular matrix  and the strictly lower triangular part of
+!!            Before entry with UPLO = 'U' or 'u', the leading k by k
+!!            upper triangular part of the array A must contain the upper
+!!            triangular matrix and the strictly lower triangular part of
 !!            A is not referenced.
-!!            Before entry  with  UPLO = 'L' or 'l',  the  leading  k by k
-!!            lower triangular part of the array  A must contain the lower
-!!            triangular matrix  and the strictly upper triangular part of
+!!            Before entry with UPLO = 'L' or 'l', the leading k by k
+!!            lower triangular part of the array A must contain the lower
+!!            triangular matrix and the strictly upper triangular part of
 !!            A is not referenced.
-!!            Note that when  DIAG = 'U' or 'u',  the diagonal elements of
-!!            A  are not referenced either,  but are assumed to be  unity.
+!!            Note that when DIAG = 'U' or 'u', the diagonal elements of
+!!            A are not referenced either, but are assumed to be unity.
 !!
 !!   LDA
 !!
 !!           LDA is INTEGER
 !!            On entry, LDA specifies the first dimension of A as declared
-!!            in the calling (sub) program.  When  SIDE = 'L' or 'l'  then
-!!            LDA  must be at least  max( 1, m ),  when  SIDE = 'R' or 'r'
+!!            in the calling (sub) program. When SIDE = 'L' or 'l' then
+!!            LDA must be at least max( 1, m ), when SIDE = 'R' or 'r'
 !!            then LDA must be at least max( 1, n ).
 !!
-!!  out] B
+!!  B
 !!
 !!           B is REAL array, dimension ( LDB, N )
-!!            Before entry,  the leading  m by n part of the array  B must
-!!            contain  the  right-hand  side  matrix  B,  and  on exit  is
-!!            overwritten by the solution matrix  X.
+!!            Before entry, the leading m by n part of the array B must
+!!            contain the right-hand side matrix B, and on exit is
+!!            overwritten by the solution matrix X.
 !!
 !!   LDB
 !!
 !!           LDB is INTEGER
 !!            On entry, LDB specifies the first dimension of B as declared
-!!            in  the  calling  (sub)  program.   LDB  must  be  at  least
+!!            in the calling (sub) program. LDB must be at least
 !!            max( 1, m ).
 !!
 !!##AUTHORS
@@ -28087,7 +28018,7 @@ end subroutine
       END SUBROUTINE STRSM
 !>
 !!##NAME
-!!    strsv.(3f) -- [BLAS:SINGLE_BLAS_LEVEL2]
+!!    strsv(3f) - [BLAS:SINGLE_BLAS_LEVEL2] SX:=INVERSE(A)*SX, A a triangular matrix.
 !!
 !!##SYNOPSIS
 !!
@@ -28104,7 +28035,7 @@ end subroutine
 !!
 !!##DEFINITION
 !!
-!!  STRSV  solves one of the systems of equations
+!!  STRSV solves one of the systems of equations
 !!
 !!     A*x = b,   or   A**T*x = b,
 !!
@@ -28158,7 +28089,7 @@ end subroutine
 !!   A
 !!
 !!           A is REAL array, dimension ( LDA, N )
-!!            Before entry with  UPLO = 'U' or 'u', the leading n by n
+!!            Before entry with UPLO = 'U' or 'u', the leading n by n
 !!            upper triangular part of the array A must contain the upper
 !!            triangular matrix and the strictly lower triangular part of
 !!            A is not referenced.
@@ -28166,7 +28097,7 @@ end subroutine
 !!            lower triangular part of the array A must contain the lower
 !!            triangular matrix and the strictly upper triangular part of
 !!            A is not referenced.
-!!            Note that when  DIAG = 'U' or 'u', the diagonal elements of
+!!            Note that when DIAG = 'U' or 'u', the diagonal elements of
 !!            A are not referenced either, but are assumed to be unity.
 !!
 !!   LDA
@@ -28176,7 +28107,7 @@ end subroutine
 !!            in the calling (sub) program. LDA must be at least
 !!            max( 1, n ).
 !!
-!!  out] X
+!!  X
 !!
 !!           X is REAL array, dimension at least
 !!            ( 1 + ( n - 1 )*abs( INCX ) ).
@@ -28406,7 +28337,7 @@ end subroutine
       END SUBROUTINE STRSV
 !>
 !!##NAME
-!!    zaxpy.(3f) -- [BLAS:COMPLEX16_BLAS_LEVEL1]
+!!    zaxpy(3f) - [BLAS:COMPLEX16_BLAS_LEVEL1]
 !!
 !!##SYNOPSIS
 !!
@@ -28446,7 +28377,7 @@ end subroutine
 !!           INCX is INTEGER
 !!          storage spacing between elements of ZX
 !!
-!!  out] ZY
+!!  ZY
 !!
 !!           ZY is complex(kind=real64) array, dimension ( 1 + ( N - 1 )*abs( INCY ) )
 !!
@@ -28527,7 +28458,7 @@ end subroutine
       END SUBROUTINE ZAXPY
 !>
 !!##NAME
-!!    zcopy.(3f) -- [BLAS:COMPLEX16_BLAS_LEVEL1]
+!!    zcopy(3f) - [BLAS:COMPLEX16_BLAS_LEVEL1]
 !!
 !!##SYNOPSIS
 !!
@@ -28636,7 +28567,7 @@ end subroutine
       END SUBROUTINE ZCOPY
 !>
 !!##NAME
-!!    zdotc.(3f) -- [BLAS:COMPLEX16_BLAS_LEVEL1]
+!!    zdotc(3f) - [BLAS:COMPLEX16_BLAS_LEVEL1]
 !!
 !!##SYNOPSIS
 !!
@@ -28751,7 +28682,7 @@ pure complex(kind=real64) FUNCTION ZDOTC(N,ZX,INCX,ZY,INCY)
       END FUNCTION ZDOTC
 !>
 !!##NAME
-!!    zdotu.(3f) -- [BLAS:COMPLEX16_BLAS_LEVEL1]
+!!    zdotu(3f) - [BLAS:COMPLEX16_BLAS_LEVEL1]
 !!
 !!##SYNOPSIS
 !!
@@ -28863,7 +28794,7 @@ pure complex(kind=real64) FUNCTION ZDOTU(N,ZX,INCX,ZY,INCY)
       END
 !>
 !!##NAME
-!!    zdrot.(3f) -- [BLAS:COMPLEX16_BLAS_LEVEL1]
+!!    zdrot(3f) - [BLAS:COMPLEX16_BLAS_LEVEL1]
 !!
 !!##SYNOPSIS
 !!
@@ -28891,7 +28822,7 @@ pure complex(kind=real64) FUNCTION ZDOTU(N,ZX,INCX,ZY,INCY)
 !!            On entry, N specifies the order of the vectors cx and cy.
 !!            N must be at least zero.
 !!
-!!  out] ZX
+!!  ZX
 !!
 !!           ZX is complex(kind=real64) array, dimension at least
 !!            ( 1 + ( N - 1 )*abs( INCX ) ).
@@ -28905,7 +28836,7 @@ pure complex(kind=real64) FUNCTION ZDOTU(N,ZX,INCX,ZY,INCY)
 !!            On entry, INCX specifies the increment for the elements of
 !!            ZX. INCX must not be zero.
 !!
-!!  out] ZY
+!!  ZY
 !!
 !!           ZY is complex(kind=real64) array, dimension at least
 !!            ( 1 + ( N - 1 )*abs( INCY ) ).
@@ -28997,7 +28928,7 @@ pure complex(kind=real64) FUNCTION ZDOTU(N,ZX,INCX,ZY,INCY)
       END
 !>
 !!##NAME
-!!    zdscal.(3f) -- [BLAS:COMPLEX16_BLAS_LEVEL1]
+!!    zdscal(3f) - [BLAS:COMPLEX16_BLAS_LEVEL1]
 !!
 !!##SYNOPSIS
 !!
@@ -29027,7 +28958,7 @@ pure complex(kind=real64) FUNCTION ZDOTU(N,ZX,INCX,ZY,INCY)
 !!           DA is DOUBLE PRECISION
 !!            On entry, DA specifies the scalar alpha.
 !!
-!!  out] ZX
+!!  ZX
 !!
 !!           ZX is complex(kind=real64) array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
 !!
@@ -29100,7 +29031,7 @@ pure complex(kind=real64) FUNCTION ZDOTU(N,ZX,INCX,ZY,INCY)
       END SUBROUTINE ZDSCAL
 !>
 !!##NAME
-!!    zgbmv.(3f) -- [BLAS:COMPLEX_16_BLAS_LEVEL2]
+!!    zgbmv(3f) - [BLAS:COMPLEX_16_BLAS_LEVEL2]
 !!
 !!##SYNOPSIS
 !!
@@ -29118,7 +29049,7 @@ pure complex(kind=real64) FUNCTION ZDOTU(N,ZX,INCX,ZY,INCY)
 !!
 !!##DEFINITION
 !!
-!!  ZGBMV  performs one of the matrix-vector operations
+!!  ZGBMV performs one of the matrix-vector operations
 !!
 !!     y := alpha*A*x + beta*y,   or   y := alpha*A**T*x + beta*y,   or
 !!
@@ -29157,13 +29088,13 @@ pure complex(kind=real64) FUNCTION ZDOTU(N,ZX,INCX,ZY,INCY)
 !!
 !!           KL is INTEGER
 !!            On entry, KL specifies the number of sub-diagonals of the
-!!            matrix A. KL must satisfy  0 .le. KL.
+!!            matrix A. KL must satisfy 0 .le. KL.
 !!
 !!   KU
 !!
 !!           KU is INTEGER
 !!            On entry, KU specifies the number of super-diagonals of the
-!!            matrix A. KU must satisfy  0 .le. KU.
+!!            matrix A. KU must satisfy 0 .le. KU.
 !!
 !!   ALPHA
 !!
@@ -29220,7 +29151,7 @@ pure complex(kind=real64) FUNCTION ZDOTU(N,ZX,INCX,ZY,INCY)
 !!            On entry, BETA specifies the scalar beta. When BETA is
 !!            supplied as zero then Y need not be set on input.
 !!
-!!  out] Y
+!!  Y
 !!
 !!           Y is complex(kind=real64) array, dimension at least
 !!            ( 1 + ( m - 1 )*abs( INCY ) ) when TRANS = 'N' or 'n'
@@ -29456,7 +29387,7 @@ pure complex(kind=real64) FUNCTION ZDOTU(N,ZX,INCX,ZY,INCY)
       END SUBROUTINE ZGBMV
 !>
 !!##NAME
-!!    zgemm.(3f) -- [BLAS:COMPLEX16_BLAS_LEVEL3]
+!!    zgemm(3f) - [BLAS:COMPLEX16_BLAS_LEVEL3]
 !!
 !!##SYNOPSIS
 !!
@@ -29474,16 +29405,16 @@ pure complex(kind=real64) FUNCTION ZDOTU(N,ZX,INCX,ZY,INCY)
 !!
 !!##DEFINITION
 !!
-!!  ZGEMM  performs one of the matrix-matrix operations
+!!  ZGEMM performs one of the matrix-matrix operations
 !!
 !!     C := alpha*op( A )*op( B ) + beta*C,
 !!
-!!  where  op( X ) is one of
+!!  where op( X ) is one of
 !!
 !!     op( X ) = X   or   op( X ) = X**T   or   op( X ) = X**H,
 !!
 !!  alpha and beta are scalars, and A, B and C are matrices, with op( A )
-!!  an m by k matrix,  op( B )  a  k by n matrix and  C an m by n matrix.
+!!  an m by k matrix, op( B ) a k by n matrix and C an m by n matrix.
 !!
 !!##OPTIONS
 !!
@@ -29514,22 +29445,22 @@ pure complex(kind=real64) FUNCTION ZDOTU(N,ZX,INCX,ZY,INCY)
 !!   M
 !!
 !!           M is INTEGER
-!!            On entry,  M  specifies  the number  of rows  of the  matrix
-!!            op( A )  and of the  matrix  C.  M  must  be at least  zero.
+!!            On entry, M specifies the number of rows of the matrix
+!!            op( A ) and of the matrix C. M must be at least zero.
 !!
 !!   N
 !!
 !!           N is INTEGER
-!!            On entry,  N  specifies the number  of columns of the matrix
+!!            On entry, N specifies the number of columns of the matrix
 !!            op( B ) and the number of columns of the matrix C. N must be
 !!            at least zero.
 !!
 !!   K
 !!
 !!           K is INTEGER
-!!            On entry,  K  specifies  the number of columns of the matrix
+!!            On entry, K specifies the number of columns of the matrix
 !!            op( A ) and the number of rows of the matrix op( B ). K must
-!!            be at least  zero.
+!!            be at least zero.
 !!
 !!   ALPHA
 !!
@@ -29539,57 +29470,57 @@ pure complex(kind=real64) FUNCTION ZDOTU(N,ZX,INCX,ZY,INCY)
 !!   A
 !!
 !!           A is complex(kind=real64) array, dimension ( LDA, ka ), where ka is
-!!            k  when  TRANSA = 'N' or 'n',  and is  m  otherwise.
-!!            Before entry with  TRANSA = 'N' or 'n',  the leading  m by k
-!!            part of the array  A  must contain the matrix  A,  otherwise
-!!            the leading  k by m  part of the array  A  must contain  the
+!!            k when TRANSA = 'N' or 'n', and is m otherwise.
+!!            Before entry with TRANSA = 'N' or 'n', the leading m by k
+!!            part of the array A must contain the matrix A, otherwise
+!!            the leading k by m part of the array A must contain the
 !!            matrix A.
 !!
 !!   LDA
 !!
 !!           LDA is INTEGER
 !!            On entry, LDA specifies the first dimension of A as declared
-!!            in the calling (sub) program. When  TRANSA = 'N' or 'n' then
-!!            LDA must be at least  max( 1, m ), otherwise  LDA must be at
-!!            least  max( 1, k ).
+!!            in the calling (sub) program. When TRANSA = 'N' or 'n' then
+!!            LDA must be at least max( 1, m ), otherwise LDA must be at
+!!            least max( 1, k ).
 !!
 !!   B
 !!
 !!           B is complex(kind=real64) array, dimension ( LDB, kb ), where kb is
-!!            n  when  TRANSB = 'N' or 'n',  and is  k  otherwise.
-!!            Before entry with  TRANSB = 'N' or 'n',  the leading  k by n
-!!            part of the array  B  must contain the matrix  B,  otherwise
-!!            the leading  n by k  part of the array  B  must contain  the
+!!            n when TRANSB = 'N' or 'n', and is k otherwise.
+!!            Before entry with TRANSB = 'N' or 'n', the leading k by n
+!!            part of the array B must contain the matrix B, otherwise
+!!            the leading n by k part of the array B must contain the
 !!            matrix B.
 !!
 !!   LDB
 !!
 !!           LDB is INTEGER
 !!            On entry, LDB specifies the first dimension of B as declared
-!!            in the calling (sub) program. When  TRANSB = 'N' or 'n' then
-!!            LDB must be at least  max( 1, k ), otherwise  LDB must be at
-!!            least  max( 1, n ).
+!!            in the calling (sub) program. When TRANSB = 'N' or 'n' then
+!!            LDB must be at least max( 1, k ), otherwise LDB must be at
+!!            least max( 1, n ).
 !!
 !!   BETA
 !!
 !!           BETA is complex(kind=real64)
-!!            On entry,  BETA  specifies the scalar  beta.  When  BETA  is
+!!            On entry, BETA specifies the scalar beta. When BETA is
 !!            supplied as zero then C need not be set on input.
 !!
-!!  out] C
+!!  C
 !!
 !!           C is complex(kind=real64) array, dimension ( LDC, N )
-!!            Before entry, the leading  m by n  part of the array  C must
-!!            contain the matrix  C,  except when  beta  is zero, in which
+!!            Before entry, the leading m by n part of the array C must
+!!            contain the matrix C, except when beta is zero, in which
 !!            case C need not be set on entry.
-!!            On exit, the array  C  is overwritten by the  m by n  matrix
+!!            On exit, the array C is overwritten by the m by n matrix
 !!            ( alpha*op( A )*op( B ) + beta*C ).
 !!
 !!   LDC
 !!
 !!           LDC is INTEGER
 !!            On entry, LDC specifies the first dimension of C as declared
-!!            in  the  calling  (sub)  program.   LDC  must  be  at  least
+!!            in the calling (sub) program. LDC must be at least
 !!            max( 1, m ).
 !!
 !!##AUTHORS
@@ -29885,7 +29816,7 @@ pure complex(kind=real64) FUNCTION ZDOTU(N,ZX,INCX,ZY,INCY)
       END SUBROUTINE ZGEMM
 !>
 !!##NAME
-!!    zgemv.(3f) -- [BLAS:COMPLEX_16_BLAS_LEVEL2]
+!!    zgemv(3f) - [BLAS:COMPLEX_16_BLAS_LEVEL2]
 !!
 !!##SYNOPSIS
 !!
@@ -29903,7 +29834,7 @@ pure complex(kind=real64) FUNCTION ZDOTU(N,ZX,INCX,ZY,INCY)
 !!
 !!##DEFINITION
 !!
-!!  ZGEMV  performs one of the matrix-vector operations
+!!  ZGEMV performs one of the matrix-vector operations
 !!
 !!     y := alpha*A*x + beta*y,   or   y := alpha*A**T*x + beta*y,   or
 !!
@@ -29977,7 +29908,7 @@ pure complex(kind=real64) FUNCTION ZDOTU(N,ZX,INCX,ZY,INCY)
 !!            On entry, BETA specifies the scalar beta. When BETA is
 !!            supplied as zero then Y need not be set on input.
 !!
-!!  out] Y
+!!  Y
 !!
 !!           Y is complex(kind=real64) array, dimension at least
 !!            ( 1 + ( m - 1 )*abs( INCY ) ) when TRANS = 'N' or 'n'
@@ -30207,7 +30138,7 @@ implicit none
 END SUBROUTINE ZGEMV
 !>
 !!##NAME
-!!    zgerc.(3f) -- [BLAS:COMPLEX_16_BLAS_LEVEL2]
+!!    zgerc(3f) - [BLAS:COMPLEX_16_BLAS_LEVEL2]
 !!
 !!##SYNOPSIS
 !!
@@ -30224,7 +30155,7 @@ END SUBROUTINE ZGEMV
 !!
 !!##DEFINITION
 !!
-!!  ZGERC  performs the rank 1 operation
+!!  ZGERC performs the rank 1 operation
 !!
 !!     A := alpha*x*y**H + A,
 !!
@@ -30276,7 +30207,7 @@ END SUBROUTINE ZGEMV
 !!            On entry, INCY specifies the increment for the elements of
 !!            Y. INCY must not be zero.
 !!
-!!  out] A
+!!  A
 !!
 !!           A is complex(kind=real64) array, dimension ( LDA, N )
 !!            Before entry, the leading m by n part of the array A must
@@ -30408,7 +30339,7 @@ END SUBROUTINE ZGEMV
       END SUBROUTINE ZGERC
 !>
 !!##NAME
-!!    zgeru.(3f) -- [BLAS:COMPLEX_16_BLAS_LEVEL2]
+!!    zgeru(3f) - [BLAS:COMPLEX_16_BLAS_LEVEL2]
 !!
 !!##SYNOPSIS
 !!
@@ -30425,7 +30356,7 @@ END SUBROUTINE ZGEMV
 !!
 !!##DEFINITION
 !!
-!!  ZGERU  performs the rank 1 operation
+!!  ZGERU performs the rank 1 operation
 !!
 !!     A := alpha*x*y**T + A,
 !!
@@ -30591,7 +30522,7 @@ END SUBROUTINE ZGEMV
       END SUBROUTINE ZGERU
 !>
 !!##NAME
-!!    zhbmv.(3f) -- [BLAS:COMPLEX_16_BLAS_LEVEL2]
+!!    zhbmv(3f) - [BLAS:COMPLEX_16_BLAS_LEVEL2]
 !!
 !!##SYNOPSIS
 !!
@@ -30609,7 +30540,7 @@ END SUBROUTINE ZGEMV
 !!
 !!##DEFINITION
 !!
-!!  ZHBMV  performs the matrix-vector  operation
+!!  ZHBMV performs the matrix-vector operation
 !!
 !!     y := alpha*A*x + beta*y,
 !!
@@ -30641,7 +30572,7 @@ END SUBROUTINE ZGEMV
 !!
 !!           K is INTEGER
 !!            On entry, K specifies the number of super-diagonals of the
-!!            matrix A. K must satisfy  0 .le. K.
+!!            matrix A. K must satisfy 0 .le. K.
 !!
 !!   ALPHA
 !!
@@ -30715,7 +30646,7 @@ END SUBROUTINE ZGEMV
 !!           BETA is complex(kind=real64)
 !!            On entry, BETA specifies the scalar beta.
 !!
-!!  out] Y
+!!  Y
 !!
 !!           Y is complex(kind=real64) array, dimension at least
 !!            ( 1 + ( n - 1 )*abs( INCY ) ).
@@ -30941,7 +30872,7 @@ END SUBROUTINE ZGEMV
       END SUBROUTINE ZHBMV
 !>
 !!##NAME
-!!    zhemm.(3f) -- [BLAS:COMPLEX16_BLAS_LEVEL3]
+!!    zhemm(3f) - [BLAS:COMPLEX16_BLAS_LEVEL3]
 !!
 !!##SYNOPSIS
 !!
@@ -30959,7 +30890,7 @@ END SUBROUTINE ZGEMV
 !!
 !!##DEFINITION
 !!
-!!  ZHEMM  performs one of the matrix-matrix operations
+!!  ZHEMM performs one of the matrix-matrix operations
 !!
 !!     C := alpha*A*B + beta*C,
 !!
@@ -30967,7 +30898,7 @@ END SUBROUTINE ZGEMV
 !!
 !!     C := alpha*B*A + beta*C,
 !!
-!!  where alpha and beta are scalars, A is an hermitian matrix and  B and
+!!  where alpha and beta are scalars, A is an hermitian matrix and B and
 !!  C are m by n matrices.
 !!
 !!##OPTIONS
@@ -30975,8 +30906,8 @@ END SUBROUTINE ZGEMV
 !!   SIDE
 !!
 !!           SIDE is CHARACTER*1
-!!            On entry,  SIDE  specifies whether  the  hermitian matrix  A
-!!            appears on the  left or right  in the  operation as follows:
+!!            On entry, SIDE specifies whether the hermitian matrix A
+!!            appears on the left or right in the operation as follows:
 !!
 !!               SIDE = 'L' or 'l'   C := alpha*A*B + beta*C,
 !!
@@ -30985,8 +30916,8 @@ END SUBROUTINE ZGEMV
 !!   UPLO
 !!
 !!           UPLO is CHARACTER*1
-!!            On  entry,   UPLO  specifies  whether  the  upper  or  lower
-!!            triangular  part  of  the  hermitian  matrix   A  is  to  be
+!!            On entry, UPLO specifies whether the upper or lower
+!!            triangular part of the hermitian matrix A is to be
 !!            referenced as follows:
 !!
 !!               UPLO = 'U' or 'u'   Only the upper triangular part of the
@@ -30998,14 +30929,14 @@ END SUBROUTINE ZGEMV
 !!   M
 !!
 !!           M is INTEGER
-!!            On entry,  M  specifies the number of rows of the matrix  C.
-!!            M  must be at least zero.
+!!            On entry, M specifies the number of rows of the matrix C.
+!!            M must be at least zero.
 !!
 !!   N
 !!
 !!           N is INTEGER
 !!            On entry, N specifies the number of columns of the matrix C.
-!!            N  must be at least zero.
+!!            N must be at least zero.
 !!
 !!   ALPHA
 !!
@@ -31015,71 +30946,71 @@ END SUBROUTINE ZGEMV
 !!   A
 !!
 !!           A is complex(kind=real64) array, dimension ( LDA, ka ), where ka is
-!!            m  when  SIDE = 'L' or 'l'  and is n  otherwise.
-!!            Before entry  with  SIDE = 'L' or 'l',  the  m by m  part of
-!!            the array  A  must contain the  hermitian matrix,  such that
-!!            when  UPLO = 'U' or 'u', the leading m by m upper triangular
-!!            part of the array  A  must contain the upper triangular part
-!!            of the  hermitian matrix and the  strictly  lower triangular
-!!            part of  A  is not referenced,  and when  UPLO = 'L' or 'l',
-!!            the leading  m by m  lower triangular part  of the  array  A
-!!            must  contain  the  lower triangular part  of the  hermitian
-!!            matrix and the  strictly upper triangular part of  A  is not
+!!            m when SIDE = 'L' or 'l' and is n otherwise.
+!!            Before entry with SIDE = 'L' or 'l', the m by m part of
+!!            the array A must contain the hermitian matrix, such that
+!!            when UPLO = 'U' or 'u', the leading m by m upper triangular
+!!            part of the array A must contain the upper triangular part
+!!            of the hermitian matrix and the strictly lower triangular
+!!            part of A is not referenced, and when UPLO = 'L' or 'l',
+!!            the leading m by m lower triangular part of the array A
+!!            must contain the lower triangular part of the hermitian
+!!            matrix and the strictly upper triangular part of A is not
 !!            referenced.
-!!            Before entry  with  SIDE = 'R' or 'r',  the  n by n  part of
-!!            the array  A  must contain the  hermitian matrix,  such that
-!!            when  UPLO = 'U' or 'u', the leading n by n upper triangular
-!!            part of the array  A  must contain the upper triangular part
-!!            of the  hermitian matrix and the  strictly  lower triangular
-!!            part of  A  is not referenced,  and when  UPLO = 'L' or 'l',
-!!            the leading  n by n  lower triangular part  of the  array  A
-!!            must  contain  the  lower triangular part  of the  hermitian
-!!            matrix and the  strictly upper triangular part of  A  is not
+!!            Before entry with SIDE = 'R' or 'r', the n by n part of
+!!            the array A must contain the hermitian matrix, such that
+!!            when UPLO = 'U' or 'u', the leading n by n upper triangular
+!!            part of the array A must contain the upper triangular part
+!!            of the hermitian matrix and the strictly lower triangular
+!!            part of A is not referenced, and when UPLO = 'L' or 'l',
+!!            the leading n by n lower triangular part of the array A
+!!            must contain the lower triangular part of the hermitian
+!!            matrix and the strictly upper triangular part of A is not
 !!            referenced.
-!!            Note that the imaginary parts  of the diagonal elements need
+!!            Note that the imaginary parts of the diagonal elements need
 !!            not be set, they are assumed to be zero.
 !!
 !!   LDA
 !!
 !!           LDA is INTEGER
 !!            On entry, LDA specifies the first dimension of A as declared
-!!            in the  calling (sub) program. When  SIDE = 'L' or 'l'  then
-!!            LDA must be at least  max( 1, m ), otherwise  LDA must be at
+!!            in the calling (sub) program. When SIDE = 'L' or 'l' then
+!!            LDA must be at least max( 1, m ), otherwise LDA must be at
 !!            least max( 1, n ).
 !!
 !!   B
 !!
 !!           B is complex(kind=real64) array, dimension ( LDB, N )
-!!            Before entry, the leading  m by n part of the array  B  must
+!!            Before entry, the leading m by n part of the array B must
 !!            contain the matrix B.
 !!
 !!   LDB
 !!
 !!           LDB is INTEGER
 !!            On entry, LDB specifies the first dimension of B as declared
-!!            in  the  calling  (sub)  program.   LDB  must  be  at  least
+!!            in the calling (sub) program. LDB must be at least
 !!            max( 1, m ).
 !!
 !!   BETA
 !!
 !!           BETA is complex(kind=real64)
-!!            On entry,  BETA  specifies the scalar  beta.  When  BETA  is
+!!            On entry, BETA specifies the scalar beta. When BETA is
 !!            supplied as zero then C need not be set on input.
 !!
-!!  out] C
+!!  C
 !!
 !!           C is complex(kind=real64) array, dimension ( LDC, N )
-!!            Before entry, the leading  m by n  part of the array  C must
-!!            contain the matrix  C,  except when  beta  is zero, in which
+!!            Before entry, the leading m by n part of the array C must
+!!            contain the matrix C, except when beta is zero, in which
 !!            case C need not be set on entry.
-!!            On exit, the array  C  is overwritten by the  m by n updated
+!!            On exit, the array C is overwritten by the m by n updated
 !!            matrix.
 !!
 !!   LDC
 !!
 !!           LDC is INTEGER
 !!            On entry, LDC specifies the first dimension of C as declared
-!!            in  the  calling  (sub)  program.   LDC  must  be  at  least
+!!            in the calling (sub) program. LDC must be at least
 !!            max( 1, m ).
 !!
 !!##AUTHORS
@@ -31266,7 +31197,7 @@ END SUBROUTINE ZGEMV
       END SUBROUTINE ZHEMM
 !>
 !!##NAME
-!!    zhemv.(3f) -- [BLAS:COMPLEX_16_BLAS_LEVEL2]
+!!    zhemv(3f) - [BLAS:COMPLEX_16_BLAS_LEVEL2]
 !!
 !!##SYNOPSIS
 !!
@@ -31284,7 +31215,7 @@ END SUBROUTINE ZGEMV
 !!
 !!##DEFINITION
 !!
-!!  ZHEMV  performs the matrix-vector  operation
+!!  ZHEMV performs the matrix-vector  operation
 !!
 !!     y := alpha*A*x + beta*y,
 !!
@@ -31320,7 +31251,7 @@ END SUBROUTINE ZGEMV
 !!   A
 !!
 !!           A is complex(kind=real64) array, dimension ( LDA, N )
-!!            Before entry with  UPLO = 'U' or 'u', the leading n by n
+!!            Before entry with UPLO = 'U' or 'u', the leading n by n
 !!            upper triangular part of the array A must contain the upper
 !!            triangular part of the hermitian matrix and the strictly
 !!            lower triangular part of A is not referenced.
@@ -31357,7 +31288,7 @@ END SUBROUTINE ZGEMV
 !!            On entry, BETA specifies the scalar beta. When BETA is
 !!            supplied as zero then Y need not be set on input.
 !!
-!!  out] Y
+!!  Y
 !!
 !!           Y is complex(kind=real64) array, dimension at least
 !!            ( 1 + ( n - 1 )*abs( INCY ) ).
@@ -31574,7 +31505,7 @@ implicit none
 end subroutine zhemv
 !>
 !!##NAME
-!!    zher2.(3f) -- [BLAS:COMPLEX_16_BLAS_LEVEL2]
+!!    zher2(3f) - [BLAS:COMPLEX_16_BLAS_LEVEL2]
 !!
 !!##SYNOPSIS
 !!
@@ -31592,7 +31523,7 @@ end subroutine zhemv
 !!
 !!##DEFINITION
 !!
-!!  ZHER2  performs the hermitian rank 2 operation
+!!  ZHER2 performs the hermitian rank 2 operation
 !!
 !!     A := alpha*x*y**H + conjg( alpha )*y*x**H + A,
 !!
@@ -31651,10 +31582,10 @@ end subroutine zhemv
 !!            On entry, INCY specifies the increment for the elements of
 !!            Y. INCY must not be zero.
 !!
-!!  out] A
+!!  A
 !!
 !!           A is complex(kind=real64) array, dimension ( LDA, N )
-!!            Before entry with  UPLO = 'U' or 'u', the leading n by n
+!!            Before entry with UPLO = 'U' or 'u', the leading n by n
 !!            upper triangular part of the array A must contain the upper
 !!            triangular part of the hermitian matrix and the strictly
 !!            lower triangular part of A is not referenced. On exit, the
@@ -31861,7 +31792,7 @@ end subroutine zhemv
       end subroutine zher2
 !>
 !!##NAME
-!!    zher2k.(3f) -- [BLAS:COMPLEX16_BLAS_LEVEL3]
+!!    zher2k(3f) - [BLAS:COMPLEX16_BLAS_LEVEL3]
 !!
 !!##SYNOPSIS
 !!
@@ -31880,7 +31811,7 @@ end subroutine zhemv
 !!
 !!##DEFINITION
 !!
-!!  ZHER2K  performs one of the hermitian rank 2k operations
+!!  ZHER2K performs one of the hermitian rank 2k operations
 !!
 !!     C := alpha*A*B**H + conjg( alpha )*B*A**H + beta*C,
 !!
@@ -31888,17 +31819,17 @@ end subroutine zhemv
 !!
 !!     C := alpha*A**H*B + conjg( alpha )*B**H*A + beta*C,
 !!
-!!  where  alpha and beta  are scalars with  beta  real,  C is an  n by n
-!!  hermitian matrix and  A and B  are  n by k matrices in the first case
-!!  and  k by n  matrices in the second case.
+!!  where alpha and beta are scalars with beta real, C is an n by n
+!!  hermitian matrix and A and B are n by k matrices in the first case
+!!  and k by n matrices in the second case.
 !!
 !!##OPTIONS
 !!
 !!   UPLO
 !!
 !!           UPLO is CHARACTER*1
-!!            On  entry,   UPLO  specifies  whether  the  upper  or  lower
-!!            triangular  part  of the  array  C  is to be  referenced  as
+!!            On entry, UPLO specifies whether the upper or lower
+!!            triangular part of the array C is to be referenced as
 !!            follows:
 !!
 !!               UPLO = 'U' or 'u'   Only the  upper triangular part of  C
@@ -31910,7 +31841,7 @@ end subroutine zhemv
 !!   TRANS
 !!
 !!           TRANS is CHARACTER*1
-!!            On entry,  TRANS  specifies the operation to be performed as
+!!            On entry, TRANS specifies the operation to be performed as
 !!            follows:
 !!
 !!               TRANS = 'N' or 'n'    C := alpha*A*B**H          +
@@ -31924,16 +31855,16 @@ end subroutine zhemv
 !!   N
 !!
 !!           N is INTEGER
-!!            On entry,  N specifies the order of the matrix C.  N must be
+!!            On entry, N specifies the order of the matrix C. N must be
 !!            at least zero.
 !!
 !!   K
 !!
 !!           K is INTEGER
-!!            On entry with  TRANS = 'N' or 'n',  K  specifies  the number
-!!            of  columns  of the  matrices  A and B,  and on  entry  with
-!!            TRANS = 'C' or 'c',  K  specifies  the number of rows of the
-!!            matrices  A and B.  K must be at least zero.
+!!            On entry with TRANS = 'N' or 'n', K specifies the number
+!!            of columns of the matrices A and B, and on entry with
+!!            TRANS = 'C' or 'c', K specifies the number of rows of the
+!!            matrices A and B. K must be at least zero.
 !!
 !!   ALPHA
 !!
@@ -31943,36 +31874,36 @@ end subroutine zhemv
 !!   A
 !!
 !!           A is complex(kind=real64) array, dimension ( LDA, ka ), where ka is
-!!            k  when  TRANS = 'N' or 'n',  and is  n  otherwise.
-!!            Before entry with  TRANS = 'N' or 'n',  the  leading  n by k
-!!            part of the array  A  must contain the matrix  A,  otherwise
-!!            the leading  k by n  part of the array  A  must contain  the
+!!            k when TRANS = 'N' or 'n', and is n otherwise.
+!!            Before entry with TRANS = 'N' or 'n', the leading n by k
+!!            part of the array A must contain the matrix A, otherwise
+!!            the leading k by n part of the array A must contain the
 !!            matrix A.
 !!
 !!   LDA
 !!
 !!           LDA is INTEGER
 !!            On entry, LDA specifies the first dimension of A as declared
-!!            in  the  calling  (sub)  program.   When  TRANS = 'N' or 'n'
-!!            then  LDA must be at least  max( 1, n ), otherwise  LDA must
-!!            be at least  max( 1, k ).
+!!            in the calling (sub) program. When TRANS = 'N' or 'n'
+!!            then LDA must be at least max( 1, n ), otherwise LDA must
+!!            be at least max( 1, k ).
 !!
 !!   B
 !!
 !!           B is complex(kind=real64) array, dimension ( LDB, kb ), where kb is
-!!            k  when  TRANS = 'N' or 'n',  and is  n  otherwise.
-!!            Before entry with  TRANS = 'N' or 'n',  the  leading  n by k
-!!            part of the array  B  must contain the matrix  B,  otherwise
-!!            the leading  k by n  part of the array  B  must contain  the
+!!            k when TRANS = 'N' or 'n', and is n otherwise.
+!!            Before entry with TRANS = 'N' or 'n', the leading n by k
+!!            part of the array B must contain the matrix B, otherwise
+!!            the leading k by n part of the array B must contain the
 !!            matrix B.
 !!
 !!   LDB
 !!
 !!           LDB is INTEGER
 !!            On entry, LDB specifies the first dimension of B as declared
-!!            in  the  calling  (sub)  program.   When  TRANS = 'N' or 'n'
-!!            then  LDB must be at least  max( 1, n ), otherwise  LDB must
-!!            be at least  max( 1, k ).
+!!            in the calling (sub) program. When TRANS = 'N' or 'n'
+!!            then LDB must be at least max( 1, n ), otherwise LDB must
+!!            be at least max( 1, k ).
 !!            Unchanged on exit.
 !!
 !!   BETA
@@ -31980,30 +31911,30 @@ end subroutine zhemv
 !!           BETA is DOUBLE PRECISION .
 !!            On entry, BETA specifies the scalar beta.
 !!
-!!  out] C
+!!  C
 !!
 !!           C is complex(kind=real64) array, dimension ( LDC, N )
-!!            Before entry  with  UPLO = 'U' or 'u',  the leading  n by n
+!!            Before entry with UPLO = 'U' or 'u', the leading n by n
 !!            upper triangular part of the array C must contain the upper
-!!            triangular part  of the  hermitian matrix  and the strictly
-!!            lower triangular part of C is not referenced.  On exit, the
-!!            upper triangular part of the array  C is overwritten by the
+!!            triangular part of the hermitian matrix and the strictly
+!!            lower triangular part of C is not referenced. On exit, the
+!!            upper triangular part of the array C is overwritten by the
 !!            upper triangular part of the updated matrix.
-!!            Before entry  with  UPLO = 'L' or 'l',  the leading  n by n
+!!            Before entry with UPLO = 'L' or 'l', the leading n by n
 !!            lower triangular part of the array C must contain the lower
-!!            triangular part  of the  hermitian matrix  and the strictly
-!!            upper triangular part of C is not referenced.  On exit, the
-!!            lower triangular part of the array  C is overwritten by the
+!!            triangular part of the hermitian matrix and the strictly
+!!            upper triangular part of C is not referenced. On exit, the
+!!            lower triangular part of the array C is overwritten by the
 !!            lower triangular part of the updated matrix.
 !!            Note that the imaginary parts of the diagonal elements need
-!!            not be set,  they are assumed to be zero,  and on exit they
+!!            not be set, they are assumed to be zero, and on exit they
 !!            are set to zero.
 !!
 !!   LDC
 !!
 !!           LDC is INTEGER
 !!            On entry, LDC specifies the first dimension of C as declared
-!!            in  the  calling  (sub)  program.   LDC  must  be  at  least
+!!            in the calling (sub) program. LDC must be at least
 !!            max( 1, n ).
 !!
 !!##AUTHORS
@@ -32247,7 +32178,7 @@ end subroutine zhemv
       END SUBROUTINE ZHER2K
 !>
 !!##NAME
-!!    zher.(3f) -- [BLAS:COMPLEX_16_BLAS_LEVEL2]
+!!    zher(3f) - [BLAS:COMPLEX_16_BLAS_LEVEL2]
 !!
 !!##SYNOPSIS
 !!
@@ -32265,7 +32196,7 @@ end subroutine zhemv
 !!
 !!##DEFINITION
 !!
-!!  ZHER   performs the hermitian rank 1 operation
+!!  ZHER performs the hermitian rank 1 operation
 !!
 !!     A := alpha*x*x**H + A,
 !!
@@ -32311,10 +32242,10 @@ end subroutine zhemv
 !!            On entry, INCX specifies the increment for the elements of
 !!            X. INCX must not be zero.
 !!
-!!  out] A
+!!  A
 !!
 !!           A is complex(kind=real64) array, dimension ( LDA, N )
-!!            Before entry with  UPLO = 'U' or 'u', the leading n by n
+!!            Before entry with UPLO = 'U' or 'u', the leading n by n
 !!            upper triangular part of the array A must contain the upper
 !!            triangular part of the hermitian matrix and the strictly
 !!            lower triangular part of A is not referenced. On exit, the
@@ -32503,7 +32434,7 @@ end subroutine zhemv
       END SUBROUTINE ZHER
 !>
 !!##NAME
-!!    zherk.(3f) -- [BLAS:COMPLEX16_BLAS_LEVEL3]
+!!    zherk(3f) - [BLAS:COMPLEX16_BLAS_LEVEL3]
 !!
 !!##SYNOPSIS
 !!
@@ -32521,7 +32452,7 @@ end subroutine zhemv
 !!
 !!##DEFINITION
 !!
-!!  ZHERK  performs one of the hermitian rank k operations
+!!  ZHERK performs one of the hermitian rank k operations
 !!
 !!     C := alpha*A*A**H + beta*C,
 !!
@@ -32529,8 +32460,8 @@ end subroutine zhemv
 !!
 !!     C := alpha*A**H*A + beta*C,
 !!
-!!  where  alpha and beta  are  real scalars,  C is an  n by n  hermitian
-!!  matrix and  A  is an  n by k  matrix in the  first case and a  k by n
+!!  where alpha and beta are real scalars, C is an n by n hermitian
+!!  matrix and A is an n by k matrix in the first case and a k by n
 !!  matrix in the second case.
 !!
 !!##OPTIONS
@@ -32538,8 +32469,8 @@ end subroutine zhemv
 !!   UPLO
 !!
 !!           UPLO is CHARACTER*1
-!!            On  entry,   UPLO  specifies  whether  the  upper  or  lower
-!!            triangular  part  of the  array  C  is to be  referenced  as
+!!            On entry, UPLO specifies whether the upper or lower
+!!            triangular part of the array C is to be referenced as
 !!            follows:
 !!
 !!               UPLO = 'U' or 'u'   Only the  upper triangular part of  C
@@ -32551,7 +32482,7 @@ end subroutine zhemv
 !!   TRANS
 !!
 !!           TRANS is CHARACTER*1
-!!            On entry,  TRANS  specifies the operation to be performed as
+!!            On entry, TRANS specifies the operation to be performed as
 !!            follows:
 !!
 !!               TRANS = 'N' or 'n'   C := alpha*A*A**H + beta*C.
@@ -32561,16 +32492,16 @@ end subroutine zhemv
 !!   N
 !!
 !!           N is INTEGER
-!!            On entry,  N specifies the order of the matrix C.  N must be
+!!            On entry, N specifies the order of the matrix C. N must be
 !!            at least zero.
 !!
 !!   K
 !!
 !!           K is INTEGER
-!!            On entry with  TRANS = 'N' or 'n',  K  specifies  the number
-!!            of  columns   of  the   matrix   A,   and  on   entry   with
-!!            TRANS = 'C' or 'c',  K  specifies  the number of rows of the
-!!            matrix A.  K must be at least zero.
+!!            On entry with TRANS = 'N' or 'n', K specifies the number
+!!            of columns of the matrix A, and on entry with
+!!            TRANS = 'C' or 'c', K specifies the number of rows of the
+!!            matrix A. K must be at least zero.
 !!
 !!   ALPHA
 !!
@@ -32580,49 +32511,49 @@ end subroutine zhemv
 !!   A
 !!
 !!           A is complex(kind=real64) array, dimension ( LDA, ka ), where ka is
-!!            k  when  TRANS = 'N' or 'n',  and is  n  otherwise.
-!!            Before entry with  TRANS = 'N' or 'n',  the  leading  n by k
-!!            part of the array  A  must contain the matrix  A,  otherwise
-!!            the leading  k by n  part of the array  A  must contain  the
+!!            k when TRANS = 'N' or 'n', and is n otherwise.
+!!            Before entry with TRANS = 'N' or 'n', the leading n by k
+!!            part of the array A must contain the matrix A, otherwise
+!!            the leading k by n part of the array A must contain the
 !!            matrix A.
 !!
 !!   LDA
 !!
 !!           LDA is INTEGER
 !!            On entry, LDA specifies the first dimension of A as declared
-!!            in  the  calling  (sub)  program.   When  TRANS = 'N' or 'n'
-!!            then  LDA must be at least  max( 1, n ), otherwise  LDA must
-!!            be at least  max( 1, k ).
+!!            in the calling (sub) program. When TRANS = 'N' or 'n'
+!!            then LDA must be at least max( 1, n ), otherwise LDA must
+!!            be at least max( 1, k ).
 !!
 !!   BETA
 !!
 !!           BETA is DOUBLE PRECISION.
 !!            On entry, BETA specifies the scalar beta.
 !!
-!!  out] C
+!!  C
 !!
 !!           C is complex(kind=real64) array, dimension ( LDC, N )
-!!            Before entry  with  UPLO = 'U' or 'u',  the leading  n by n
+!!            Before entry with UPLO = 'U' or 'u', the leading n by n
 !!            upper triangular part of the array C must contain the upper
-!!            triangular part  of the  hermitian matrix  and the strictly
-!!            lower triangular part of C is not referenced.  On exit, the
-!!            upper triangular part of the array  C is overwritten by the
+!!            triangular part of the hermitian matrix and the strictly
+!!            lower triangular part of C is not referenced. On exit, the
+!!            upper triangular part of the array C is overwritten by the
 !!            upper triangular part of the updated matrix.
-!!            Before entry  with  UPLO = 'L' or 'l',  the leading  n by n
+!!            Before entry with UPLO = 'L' or 'l', the leading n by n
 !!            lower triangular part of the array C must contain the lower
-!!            triangular part  of the  hermitian matrix  and the strictly
-!!            upper triangular part of C is not referenced.  On exit, the
-!!            lower triangular part of the array  C is overwritten by the
+!!            triangular part of the hermitian matrix and the strictly
+!!            upper triangular part of C is not referenced. On exit, the
+!!            lower triangular part of the array C is overwritten by the
 !!            lower triangular part of the updated matrix.
 !!            Note that the imaginary parts of the diagonal elements need
-!!            not be set,  they are assumed to be zero,  and on exit they
+!!            not be set, they are assumed to be zero, and on exit they
 !!            are set to zero.
 !!
 !!   LDC
 !!
 !!           LDC is INTEGER
 !!            On entry, LDC specifies the first dimension of C as declared
-!!            in  the  calling  (sub)  program.   LDC  must  be  at  least
+!!            in the calling (sub) program. LDC must be at least
 !!            max( 1, n ).
 !!
 !!##AUTHORS
@@ -32864,7 +32795,7 @@ end subroutine zhemv
       END SUBROUTINE ZHERK
 !>
 !!##NAME
-!!    zhpmv.(3f) -- [BLAS:COMPLEX_16_BLAS_LEVEL2]
+!!    zhpmv(3f) - [BLAS:COMPLEX_16_BLAS_LEVEL2]
 !!
 !!##SYNOPSIS
 !!
@@ -32882,7 +32813,7 @@ end subroutine zhemv
 !!
 !!##DEFINITION
 !!
-!!  ZHPMV  performs the matrix-vector operation
+!!  ZHPMV performs the matrix-vector operation
 !!
 !!     y := alpha*A*x + beta*y,
 !!
@@ -32951,7 +32882,7 @@ end subroutine zhemv
 !!            On entry, BETA specifies the scalar beta. When BETA is
 !!            supplied as zero then Y need not be set on input.
 !!
-!!  out] Y
+!!  Y
 !!
 !!           Y is complex(kind=real64) array, dimension at least
 !!            ( 1 + ( n - 1 )*abs( INCY ) ).
@@ -33174,7 +33105,7 @@ end subroutine zhemv
       END SUBROUTINE ZHPMV
 !>
 !!##NAME
-!!    zhpr2.(3f) -- [BLAS:COMPLEX_16_BLAS_LEVEL2]
+!!    zhpr2(3f) - [BLAS:COMPLEX_16_BLAS_LEVEL2]
 !!
 !!##SYNOPSIS
 !!
@@ -33192,7 +33123,7 @@ end subroutine zhemv
 !!
 !!##DEFINITION
 !!
-!!  ZHPR2  performs the hermitian rank 2 operation
+!!  ZHPR2 performs the hermitian rank 2 operation
 !!
 !!     A := alpha*x*y**H + conjg( alpha )*y*x**H + A,
 !!
@@ -33251,11 +33182,11 @@ end subroutine zhemv
 !!            On entry, INCY specifies the increment for the elements of
 !!            Y. INCY must not be zero.
 !!
-!!  out] AP
+!!  AP
 !!
 !!           AP is complex(kind=real64) array, dimension at least
 !!            ( ( n*( n + 1 ) )/2 ).
-!!            Before entry with  UPLO = 'U' or 'u', the array AP must
+!!            Before entry with UPLO = 'U' or 'u', the array AP must
 !!            contain the upper triangular part of the hermitian matrix
 !!            packed sequentially, column by column, so that AP( 1 )
 !!            contains a( 1, 1 ), AP( 2 ) and AP( 3 ) contain a( 1, 2 )
@@ -33465,7 +33396,7 @@ end subroutine zhemv
       END SUBROUTINE ZHPR2
 !>
 !!##NAME
-!!    zhpr.(3f) -- [BLAS:COMPLEX_16_BLAS_LEVEL2]
+!!    zhpr(3f) - [BLAS:COMPLEX_16_BLAS_LEVEL2]
 !!
 !!##SYNOPSIS
 !!
@@ -33483,7 +33414,7 @@ end subroutine zhemv
 !!
 !!##DEFINITION
 !!
-!!  ZHPR    performs the hermitian rank 1 operation
+!!  ZHPR performs the hermitian rank 1 operation
 !!
 !!     A := alpha*x*x**H + A,
 !!
@@ -33529,11 +33460,11 @@ end subroutine zhemv
 !!            On entry, INCX specifies the increment for the elements of
 !!            X. INCX must not be zero.
 !!
-!!  out] AP
+!!  AP
 !!
 !!           AP is complex(kind=real64) array, dimension at least
 !!            ( ( n*( n + 1 ) )/2 ).
-!!            Before entry with  UPLO = 'U' or 'u', the array AP must
+!!            Before entry with UPLO = 'U' or 'u', the array AP must
 !!            contain the upper triangular part of the hermitian matrix
 !!            packed sequentially, column by column, so that AP( 1 )
 !!            contains a( 1, 1 ), AP( 2 ) and AP( 3 ) contain a( 1, 2 )
@@ -33723,7 +33654,7 @@ end subroutine zhemv
       END SUBROUTINE ZHPR
 !>
 !!##NAME
-!!    zrotg.(3f) -- [BLAS:COMPLEX16_BLAS_LEVEL1] constructs a plane rotation
+!!    zrotg(3f) - [BLAS:COMPLEX16_BLAS_LEVEL1] constructs a plane rotation
 !!
 !!##SYNOPSIS
 !!
@@ -33738,27 +33669,33 @@ end subroutine zhemv
 !!
 !!##DEFINITION
 !!   ZROTG constructs a plane rotation
+!!
 !!      [  c         s ] [ a ] = [ r ]
 !!      [ -conjg(s)  c ] [ b ]   [ 0 ]
+!!
 !!   where c is real, s ic complex, and c**2 + conjg(s)*s = 1.
 !!
 !!  The computation uses the formulas
+!!
 !!     |x| = sqrt( Re(x)**2 + Im(x)**2 )
 !!     sgn(x) = x / |x|  if x /= 0
 !!            = 1        if x  = 0
 !!     c = |a| / sqrt(|a|**2 + |b|**2)
 !!     s = sgn(a) * conjg(b) / sqrt(|a|**2 + |b|**2)
+!!
 !!  When a and b are real and r /= 0, the formulas simplify to
+!!
 !!     r = sgn(a)*sqrt(|a|**2 + |b|**2)
 !!     c = a / r
 !!     s = b / r
-!!  the same as in ZROTG when |a| > |b|.  When |b| >= |a|, the
+!!
+!!  the same as in ZROTG when |a| > |b|. When |b| >= |a|, the
 !!  sign of c and s will be different from those computed by ZROTG
 !!  if the signs of a and b are not the same.
 !!
 !!##OPTIONS
 !!
-!!  out] A
+!!  A
 !!
 !!           A is DOUBLE COMPLEX
 !!           On entry, the scalar a.
@@ -33930,7 +33867,7 @@ subroutine ZROTG( a, b, c, s )
 end subroutine
 !>
 !!##NAME
-!!    zscal.(3f) -- [BLAS:COMPLEX16_BLAS_LEVEL1]
+!!    zscal(3f) - [BLAS:COMPLEX16_BLAS_LEVEL1]
 !!
 !!##SYNOPSIS
 !!
@@ -33960,7 +33897,7 @@ end subroutine
 !!           ZA is complex(kind=real64)
 !!            On entry, ZA specifies the scalar alpha.
 !!
-!!  out] ZX
+!!  ZX
 !!
 !!           ZX is complex(kind=real64) array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
 !!
@@ -34030,7 +33967,7 @@ end subroutine
       END SUBROUTINE ZSCAL
 !>
 !!##NAME
-!!    zswap.(3f) -- [BLAS:COMPLEX16_BLAS_LEVEL1]
+!!    zswap(3f) - [BLAS:COMPLEX16_BLAS_LEVEL1]
 !!
 !!##SYNOPSIS
 !!
@@ -34054,7 +33991,7 @@ end subroutine
 !!           N is INTEGER
 !!          number of elements in input vector(s)
 !!
-!!  out] ZX
+!!  ZX
 !!
 !!           ZX is complex(kind=real64) array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
 !!
@@ -34063,7 +34000,7 @@ end subroutine
 !!           INCX is INTEGER
 !!          storage spacing between elements of ZX
 !!
-!!  out] ZY
+!!  ZY
 !!
 !!           ZY is complex(kind=real64) array, dimension ( 1 + ( N - 1 )*abs( INCY ) )
 !!
@@ -34141,7 +34078,7 @@ end subroutine
       END SUBROUTINE ZSWAP
 !>
 !!##NAME
-!!    zsymm.(3f) -- [BLAS:COMPLEX16_BLAS_LEVEL3]
+!!    zsymm(3f) - [BLAS:COMPLEX16_BLAS_LEVEL3]
 !!
 !!##SYNOPSIS
 !!
@@ -34159,7 +34096,7 @@ end subroutine
 !!
 !!##DEFINITION
 !!
-!!  ZSYMM  performs one of the matrix-matrix operations
+!!  ZSYMM performs one of the matrix-matrix operations
 !!
 !!     C := alpha*A*B + beta*C,
 !!
@@ -34167,7 +34104,7 @@ end subroutine
 !!
 !!     C := alpha*B*A + beta*C,
 !!
-!!  where  alpha and beta are scalars, A is a symmetric matrix and  B and
+!!  where alpha and beta are scalars, A is a symmetric matrix and B and
 !!  C are m by n matrices.
 !!
 !!##OPTIONS
@@ -34175,8 +34112,8 @@ end subroutine
 !!   SIDE
 !!
 !!           SIDE is CHARACTER*1
-!!            On entry,  SIDE  specifies whether  the  symmetric matrix  A
-!!            appears on the  left or right  in the  operation as follows:
+!!            On entry, SIDE specifies whether the symmetric matrix A
+!!            appears on the left or right in the operation as follows:
 !!
 !!               SIDE = 'L' or 'l'   C := alpha*A*B + beta*C,
 !!
@@ -34185,8 +34122,8 @@ end subroutine
 !!   UPLO
 !!
 !!           UPLO is CHARACTER*1
-!!            On  entry,   UPLO  specifies  whether  the  upper  or  lower
-!!            triangular  part  of  the  symmetric  matrix   A  is  to  be
+!!            On entry, UPLO specifies whether the upper or lower
+!!            triangular part of the symmetric matrix A is to be
 !!            referenced as follows:
 !!
 !!               UPLO = 'U' or 'u'   Only the upper triangular part of the
@@ -34198,14 +34135,14 @@ end subroutine
 !!   M
 !!
 !!           M is INTEGER
-!!            On entry,  M  specifies the number of rows of the matrix  C.
-!!            M  must be at least zero.
+!!            On entry, M specifies the number of rows of the matrix C.
+!!            M must be at least zero.
 !!
 !!   N
 !!
 !!           N is INTEGER
 !!            On entry, N specifies the number of columns of the matrix C.
-!!            N  must be at least zero.
+!!            N must be at least zero.
 !!
 !!   ALPHA
 !!
@@ -34215,69 +34152,69 @@ end subroutine
 !!   A
 !!
 !!           A is complex(kind=real64) array, dimension ( LDA, ka ), where ka is
-!!            m  when  SIDE = 'L' or 'l'  and is n  otherwise.
-!!            Before entry  with  SIDE = 'L' or 'l',  the  m by m  part of
-!!            the array  A  must contain the  symmetric matrix,  such that
-!!            when  UPLO = 'U' or 'u', the leading m by m upper triangular
-!!            part of the array  A  must contain the upper triangular part
-!!            of the  symmetric matrix and the  strictly  lower triangular
-!!            part of  A  is not referenced,  and when  UPLO = 'L' or 'l',
-!!            the leading  m by m  lower triangular part  of the  array  A
-!!            must  contain  the  lower triangular part  of the  symmetric
-!!            matrix and the  strictly upper triangular part of  A  is not
+!!            m when SIDE = 'L' or 'l' and is n otherwise.
+!!            Before entry with SIDE = 'L' or 'l', the m by m part of
+!!            the array A must contain the symmetric matrix, such that
+!!            when UPLO = 'U' or 'u', the leading m by m upper triangular
+!!            part of the array A must contain the upper triangular part
+!!            of the symmetric matrix and the strictly lower triangular
+!!            part of A is not referenced, and when UPLO = 'L' or 'l',
+!!            the leading m by m lower triangular part of the array A
+!!            must contain the lower triangular part of the symmetric
+!!            matrix and the strictly upper triangular part of A is not
 !!            referenced.
-!!            Before entry  with  SIDE = 'R' or 'r',  the  n by n  part of
-!!            the array  A  must contain the  symmetric matrix,  such that
-!!            when  UPLO = 'U' or 'u', the leading n by n upper triangular
-!!            part of the array  A  must contain the upper triangular part
-!!            of the  symmetric matrix and the  strictly  lower triangular
-!!            part of  A  is not referenced,  and when  UPLO = 'L' or 'l',
-!!            the leading  n by n  lower triangular part  of the  array  A
-!!            must  contain  the  lower triangular part  of the  symmetric
-!!            matrix and the  strictly upper triangular part of  A  is not
+!!            Before entry with SIDE = 'R' or 'r', the n by n part of
+!!            the array A must contain the symmetric matrix, such that
+!!            when UPLO = 'U' or 'u', the leading n by n upper triangular
+!!            part of the array A must contain the upper triangular part
+!!            of the symmetric matrix and the strictly lower triangular
+!!            part of A is not referenced, and when UPLO = 'L' or 'l',
+!!            the leading n by n lower triangular part of the array A
+!!            must contain the lower triangular part of the symmetric
+!!            matrix and the strictly upper triangular part of A is not
 !!            referenced.
 !!
 !!   LDA
 !!
 !!           LDA is INTEGER
 !!            On entry, LDA specifies the first dimension of A as declared
-!!            in the  calling (sub) program. When  SIDE = 'L' or 'l'  then
-!!            LDA must be at least  max( 1, m ), otherwise  LDA must be at
+!!            in the calling (sub) program. When SIDE = 'L' or 'l' then
+!!            LDA must be at least max( 1, m ), otherwise LDA must be at
 !!            least max( 1, n ).
 !!
 !!   B
 !!
 !!           B is complex(kind=real64) array, dimension ( LDB, N )
-!!            Before entry, the leading  m by n part of the array  B  must
+!!            Before entry, the leading m by n part of the array B must
 !!            contain the matrix B.
 !!
 !!   LDB
 !!
 !!           LDB is INTEGER
 !!            On entry, LDB specifies the first dimension of B as declared
-!!            in  the  calling  (sub)  program.   LDB  must  be  at  least
+!!            in the calling (sub) program. LDB must be at least
 !!            max( 1, m ).
 !!
 !!   BETA
 !!
 !!           BETA is complex(kind=real64)
-!!            On entry,  BETA  specifies the scalar  beta.  When  BETA  is
+!!            On entry, BETA specifies the scalar beta. When BETA is
 !!            supplied as zero then C need not be set on input.
 !!
-!!  out] C
+!!  C
 !!
 !!           C is complex(kind=real64) array, dimension ( LDC, N )
-!!            Before entry, the leading  m by n  part of the array  C must
-!!            contain the matrix  C,  except when  beta  is zero, in which
+!!            Before entry, the leading m by n part of the array C must
+!!            contain the matrix C, except when beta is zero, in which
 !!            case C need not be set on entry.
-!!            On exit, the array  C  is overwritten by the  m by n updated
+!!            On exit, the array C is overwritten by the m by n updated
 !!            matrix.
 !!
 !!   LDC
 !!
 !!           LDC is INTEGER
 !!            On entry, LDC specifies the first dimension of C as declared
-!!            in  the  calling  (sub)  program.   LDC  must  be  at  least
+!!            in the calling (sub) program. LDC must be at least
 !!            max( 1, m ).
 !!
 !!##AUTHORS
@@ -34463,7 +34400,7 @@ end subroutine
       END SUBROUTINE ZSYMM
 !>
 !!##NAME
-!!    zsyr2k.(3f) -- [BLAS:COMPLEX16_BLAS_LEVEL3]
+!!    zsyr2k(3f) - [BLAS:COMPLEX16_BLAS_LEVEL3]
 !!
 !!##SYNOPSIS
 !!
@@ -34481,7 +34418,7 @@ end subroutine
 !!
 !!##DEFINITION
 !!
-!!  ZSYR2K  performs one of the symmetric rank 2k operations
+!!  ZSYR2K performs one of the symmetric rank 2k operations
 !!
 !!     C := alpha*A*B**T + alpha*B*A**T + beta*C,
 !!
@@ -34489,8 +34426,8 @@ end subroutine
 !!
 !!     C := alpha*A**T*B + alpha*B**T*A + beta*C,
 !!
-!!  where  alpha and beta  are scalars,  C is an  n by n symmetric matrix
-!!  and  A and B  are  n by k  matrices  in the  first  case  and  k by n
+!!  where alpha and beta are scalars, C is an n by n symmetric matrix
+!!  and A and B are n by k matrices in the first case and k by n
 !!  matrices in the second case.
 !!
 !!##OPTIONS
@@ -34498,8 +34435,8 @@ end subroutine
 !!   UPLO
 !!
 !!           UPLO is CHARACTER*1
-!!            On  entry,   UPLO  specifies  whether  the  upper  or  lower
-!!            triangular  part  of the  array  C  is to be  referenced  as
+!!            On entry, UPLO specifies whether the upper or lower
+!!            triangular part of the array C is to be referenced as
 !!            follows:
 !!
 !!               UPLO = 'U' or 'u'   Only the  upper triangular part of  C
@@ -34511,7 +34448,7 @@ end subroutine
 !!   TRANS
 !!
 !!           TRANS is CHARACTER*1
-!!            On entry,  TRANS  specifies the operation to be performed as
+!!            On entry, TRANS specifies the operation to be performed as
 !!            follows:
 !!
 !!               TRANS = 'N' or 'n'    C := alpha*A*B**T + alpha*B*A**T +
@@ -34523,16 +34460,16 @@ end subroutine
 !!   N
 !!
 !!           N is INTEGER
-!!            On entry,  N specifies the order of the matrix C.  N must be
+!!            On entry, N specifies the order of the matrix C. N must be
 !!            at least zero.
 !!
 !!   K
 !!
 !!           K is INTEGER
-!!            On entry with  TRANS = 'N' or 'n',  K  specifies  the number
-!!            of  columns  of the  matrices  A and B,  and on  entry  with
-!!            TRANS = 'T' or 't',  K  specifies  the number of rows of the
-!!            matrices  A and B.  K must be at least zero.
+!!            On entry with TRANS = 'N' or 'n', K specifies the number
+!!            of columns of the matrices A and B, and on entry with
+!!            TRANS = 'T' or 't', K specifies the number of rows of the
+!!            matrices A and B. K must be at least zero.
 !!
 !!   ALPHA
 !!
@@ -34542,63 +34479,63 @@ end subroutine
 !!   A
 !!
 !!           A is complex(kind=real64) array, dimension ( LDA, ka ), where ka is
-!!            k  when  TRANS = 'N' or 'n',  and is  n  otherwise.
-!!            Before entry with  TRANS = 'N' or 'n',  the  leading  n by k
-!!            part of the array  A  must contain the matrix  A,  otherwise
-!!            the leading  k by n  part of the array  A  must contain  the
+!!            k when TRANS = 'N' or 'n', and is n otherwise.
+!!            Before entry with TRANS = 'N' or 'n', the leading n by k
+!!            part of the array A must contain the matrix A, otherwise
+!!            the leading k by n part of the array A must contain the
 !!            matrix A.
 !!
 !!   LDA
 !!
 !!           LDA is INTEGER
 !!            On entry, LDA specifies the first dimension of A as declared
-!!            in  the  calling  (sub)  program.   When  TRANS = 'N' or 'n'
-!!            then  LDA must be at least  max( 1, n ), otherwise  LDA must
-!!            be at least  max( 1, k ).
+!!            in the calling (sub) program. When TRANS = 'N' or 'n'
+!!            then LDA must be at least max( 1, n ), otherwise LDA must
+!!            be at least max( 1, k ).
 !!
 !!   B
 !!
 !!           B is complex(kind=real64) array, dimension ( LDB, kb ), where kb is
-!!            k  when  TRANS = 'N' or 'n',  and is  n  otherwise.
-!!            Before entry with  TRANS = 'N' or 'n',  the  leading  n by k
-!!            part of the array  B  must contain the matrix  B,  otherwise
-!!            the leading  k by n  part of the array  B  must contain  the
+!!            k when TRANS = 'N' or 'n', and is n otherwise.
+!!            Before entry with TRANS = 'N' or 'n', the leading n by k
+!!            part of the array B must contain the matrix B, otherwise
+!!            the leading k by n part of the array B must contain the
 !!            matrix B.
 !!
 !!   LDB
 !!
 !!           LDB is INTEGER
 !!            On entry, LDB specifies the first dimension of B as declared
-!!            in  the  calling  (sub)  program.   When  TRANS = 'N' or 'n'
-!!            then  LDB must be at least  max( 1, n ), otherwise  LDB must
-!!            be at least  max( 1, k ).
+!!            in the calling (sub) program. When TRANS = 'N' or 'n'
+!!            then LDB must be at least max( 1, n ), otherwise LDB must
+!!            be at least max( 1, k ).
 !!
 !!   BETA
 !!
 !!           BETA is complex(kind=real64)
 !!            On entry, BETA specifies the scalar beta.
 !!
-!!  out] C
+!!  C
 !!
 !!           C is complex(kind=real64) array, dimension ( LDC, N )
-!!            Before entry  with  UPLO = 'U' or 'u',  the leading  n by n
+!!            Before entry with UPLO = 'U' or 'u', the leading n by n
 !!            upper triangular part of the array C must contain the upper
-!!            triangular part  of the  symmetric matrix  and the strictly
-!!            lower triangular part of C is not referenced.  On exit, the
-!!            upper triangular part of the array  C is overwritten by the
+!!            triangular part of the symmetric matrix and the strictly
+!!            lower triangular part of C is not referenced. On exit, the
+!!            upper triangular part of the array C is overwritten by the
 !!            upper triangular part of the updated matrix.
-!!            Before entry  with  UPLO = 'L' or 'l',  the leading  n by n
+!!            Before entry with UPLO = 'L' or 'l', the leading n by n
 !!            lower triangular part of the array C must contain the lower
-!!            triangular part  of the  symmetric matrix  and the strictly
-!!            upper triangular part of C is not referenced.  On exit, the
-!!            lower triangular part of the array  C is overwritten by the
+!!            triangular part of the symmetric matrix and the strictly
+!!            upper triangular part of C is not referenced. On exit, the
+!!            lower triangular part of the array C is overwritten by the
 !!            lower triangular part of the updated matrix.
 !!
 !!   LDC
 !!
 !!           LDC is INTEGER
 !!            On entry, LDC specifies the first dimension of C as declared
-!!            in  the  calling  (sub)  program.   LDC  must  be  at  least
+!!            in the calling (sub) program. LDC must be at least
 !!            max( 1, n ).
 !!
 !!##AUTHORS
@@ -34806,7 +34743,7 @@ end subroutine
       END SUBROUTINE ZSYR2K
 !>
 !!##NAME
-!!    zsyrk.(3f) -- [BLAS:COMPLEX16_BLAS_LEVEL3]
+!!    zsyrk(3f) - [BLAS:COMPLEX16_BLAS_LEVEL3]
 !!
 !!##SYNOPSIS
 !!
@@ -34824,7 +34761,7 @@ end subroutine
 !!
 !!##DEFINITION
 !!
-!!  ZSYRK  performs one of the symmetric rank k operations
+!!  ZSYRK performs one of the symmetric rank k operations
 !!
 !!     C := alpha*A*A**T + beta*C,
 !!
@@ -34832,8 +34769,8 @@ end subroutine
 !!
 !!     C := alpha*A**T*A + beta*C,
 !!
-!!  where  alpha and beta  are scalars,  C is an  n by n symmetric matrix
-!!  and  A  is an  n by k  matrix in the first case and a  k by n  matrix
+!!  where alpha and beta are scalars, C is an n by n symmetric matrix
+!!  and A is an n by k matrix in the first case and a k by n matrix
 !!  in the second case.
 !!
 !!##OPTIONS
@@ -34841,8 +34778,8 @@ end subroutine
 !!   UPLO
 !!
 !!           UPLO is CHARACTER*1
-!!            On  entry,   UPLO  specifies  whether  the  upper  or  lower
-!!            triangular  part  of the  array  C  is to be  referenced  as
+!!            On entry, UPLO specifies whether the upper or lower
+!!            triangular part of the array C is to be referencedas
 !!            follows:
 !!
 !!               UPLO = 'U' or 'u'   Only the  upper triangular part of  C
@@ -34854,7 +34791,7 @@ end subroutine
 !!   TRANS
 !!
 !!           TRANS is CHARACTER*1
-!!            On entry,  TRANS  specifies the operation to be performed as
+!!            On entry, TRANS specifies the operation to be performed as
 !!            follows:
 !!
 !!               TRANS = 'N' or 'n'   C := alpha*A*A**T + beta*C.
@@ -34864,16 +34801,16 @@ end subroutine
 !!   N
 !!
 !!           N is INTEGER
-!!            On entry,  N specifies the order of the matrix C.  N must be
+!!            On entry, N specifies the order of the matrix C. N must be
 !!            at least zero.
 !!
 !!   K
 !!
 !!           K is INTEGER
-!!            On entry with  TRANS = 'N' or 'n',  K  specifies  the number
-!!            of  columns   of  the   matrix   A,   and  on   entry   with
-!!            TRANS = 'T' or 't',  K  specifies  the number of rows of the
-!!            matrix A.  K must be at least zero.
+!!            On entry with TRANS = 'N' or 'n', K specifies the number
+!!            of columns of the matrix A, and on entry with
+!!            TRANS = 'T' or 't', K specifies the number of rows of the
+!!            matrix A. K must be at least zero.
 !!
 !!   ALPHA
 !!
@@ -34883,46 +34820,46 @@ end subroutine
 !!   A
 !!
 !!           A is complex(kind=real64) array, dimension ( LDA, ka ), where ka is
-!!            k  when  TRANS = 'N' or 'n',  and is  n  otherwise.
-!!            Before entry with  TRANS = 'N' or 'n',  the  leading  n by k
-!!            part of the array  A  must contain the matrix  A,  otherwise
-!!            the leading  k by n  part of the array  A  must contain  the
+!!            k when TRANS = 'N' or 'n', and is n otherwise.
+!!            Before entry with TRANS = 'N' or 'n', the leading n by k
+!!            part of the array A must contain the matrix A, otherwise
+!!            the leading k by n part of the array A must contain the
 !!            matrix A.
 !!
 !!   LDA
 !!
 !!           LDA is INTEGER
 !!            On entry, LDA specifies the first dimension of A as declared
-!!            in  the  calling  (sub)  program.   When  TRANS = 'N' or 'n'
-!!            then  LDA must be at least  max( 1, n ), otherwise  LDA must
-!!            be at least  max( 1, k ).
+!!            in the calling (sub) program. When TRANS = 'N' or 'n'
+!!            then LDA must be at least max( 1, n ), otherwise LDA must
+!!            be at least max( 1, k ).
 !!
 !!   BETA
 !!
 !!           BETA is complex(kind=real64)
 !!            On entry, BETA specifies the scalar beta.
 !!
-!!  out] C
+!!  C
 !!
 !!           C is complex(kind=real64) array, dimension ( LDC, N )
-!!            Before entry  with  UPLO = 'U' or 'u',  the leading  n by n
+!!            Before entry with UPLO = 'U' or 'u', the leading n by n
 !!            upper triangular part of the array C must contain the upper
-!!            triangular part  of the  symmetric matrix  and the strictly
-!!            lower triangular part of C is not referenced.  On exit, the
-!!            upper triangular part of the array  C is overwritten by the
+!!            triangular part of the symmetric matrix and the strictly
+!!            lower triangular part of C is not referenced. On exit, the
+!!            upper triangular part of the array C is overwritten by the
 !!            upper triangular part of the updated matrix.
-!!            Before entry  with  UPLO = 'L' or 'l',  the leading  n by n
+!!            Before entry with UPLO = 'L' or 'l', the leading n by n
 !!            lower triangular part of the array C must contain the lower
-!!            triangular part  of the  symmetric matrix  and the strictly
-!!            upper triangular part of C is not referenced.  On exit, the
-!!            lower triangular part of the array  C is overwritten by the
+!!            triangular part of the symmetric matrix and the strictly
+!!            upper triangular part of C is not referenced. On exit, the
+!!            lower triangular part of the array C is overwritten by the
 !!            lower triangular part of the updated matrix.
 !!
 !!   LDC
 !!
 !!           LDC is INTEGER
 !!            On entry, LDC specifies the first dimension of C as declared
-!!            in  the  calling  (sub)  program.   LDC  must  be  at  least
+!!            in the calling (sub) program. LDC must be at least
 !!            max( 1, n ).
 !!
 !!##AUTHORS
@@ -35122,7 +35059,7 @@ end subroutine
       END SUBROUTINE ZSYRK
 !>
 !!##NAME
-!!    ztbmv.(3f) -- [BLAS:COMPLEX_16_BLAS_LEVEL2]
+!!    ztbmv(3f) - [BLAS:COMPLEX_16_BLAS_LEVEL2]
 !!
 !!##SYNOPSIS
 !!
@@ -35139,11 +35076,11 @@ end subroutine
 !!
 !!##DEFINITION
 !!
-!!  ZTBMV  performs one of the matrix-vector operations
+!!  ZTBMV performs one of the matrix-vector operations
 !!
 !!     x := A*x,   or   x := A**T*x,   or   x := A**H*x,
 !!
-!!  where x is an n element vector and  A is an n by n unit, or non-unit,
+!!  where x is an n element vector and A is an n by n unit, or non-unit,
 !!  upper or lower triangular band matrix, with ( k + 1 ) diagonals.
 !!
 !!##OPTIONS
@@ -35194,7 +35131,7 @@ end subroutine
 !!            super-diagonals of the matrix A.
 !!            On entry with UPLO = 'L' or 'l', K specifies the number of
 !!            sub-diagonals of the matrix A.
-!!            K must satisfy  0 .le. K.
+!!            K must satisfy 0 .le. K.
 !!
 !!   A
 !!
@@ -35246,7 +35183,7 @@ end subroutine
 !!            in the calling (sub) program. LDA must be at least
 !!            ( k + 1 ).
 !!
-!!  out] X
+!!  X
 !!
 !!           X is complex(kind=real64) array, dimension at least
 !!            ( 1 + ( n - 1 )*abs( INCX ) ).
@@ -35526,7 +35463,7 @@ end subroutine
       END SUBROUTINE ZTBMV
 !>
 !!##NAME
-!!    ztbsv.(3f) -- [BLAS:COMPLEX_16_BLAS_LEVEL2]
+!!    ztbsv(3f) - [BLAS:COMPLEX_16_BLAS_LEVEL2]
 !!
 !!##SYNOPSIS
 !!
@@ -35543,7 +35480,7 @@ end subroutine
 !!
 !!##DEFINITION
 !!
-!!  ZTBSV  solves one of the systems of equations
+!!  ZTBSV solves one of the systems of equations
 !!
 !!     A*x = b,   or   A**T*x = b,   or   A**H*x = b,
 !!
@@ -35602,7 +35539,7 @@ end subroutine
 !!            super-diagonals of the matrix A.
 !!            On entry with UPLO = 'L' or 'l', K specifies the number of
 !!            sub-diagonals of the matrix A.
-!!            K must satisfy  0 .le. K.
+!!            K must satisfy 0 .le. K.
 !!
 !!   A
 !!
@@ -35654,7 +35591,7 @@ end subroutine
 !!            in the calling (sub) program. LDA must be at least
 !!            ( k + 1 ).
 !!
-!!  out] X
+!!  X
 !!
 !!           X is complex(kind=real64) array, dimension at least
 !!            ( 1 + ( n - 1 )*abs( INCX ) ).
@@ -35933,7 +35870,7 @@ end subroutine
       END SUBROUTINE ZTBSV
 !>
 !!##NAME
-!!    ztpmv.(3f) -- [BLAS:COMPLEX_16_BLAS_LEVEL2]
+!!    ztpmv(3f) - [BLAS:COMPLEX_16_BLAS_LEVEL2]
 !!
 !!##SYNOPSIS
 !!
@@ -35950,11 +35887,11 @@ end subroutine
 !!
 !!##DEFINITION
 !!
-!!  ZTPMV  performs one of the matrix-vector operations
+!!  ZTPMV performs one of the matrix-vector operations
 !!
 !!     x := A*x,   or   x := A**T*x,   or   x := A**H*x,
 !!
-!!  where x is an n element vector and  A is an n by n unit, or non-unit,
+!!  where x is an n element vector and A is an n by n unit, or non-unit,
 !!  upper or lower triangular matrix, supplied in packed form.
 !!
 !!##OPTIONS
@@ -36002,7 +35939,7 @@ end subroutine
 !!
 !!           AP is complex(kind=real64) array, dimension at least
 !!            ( ( n*( n + 1 ) )/2 ).
-!!            Before entry with  UPLO = 'U' or 'u', the array AP must
+!!            Before entry with UPLO = 'U' or 'u', the array AP must
 !!            contain the upper triangular matrix packed sequentially,
 !!            column by column, so that AP( 1 ) contains a( 1, 1 ),
 !!            AP( 2 ) and AP( 3 ) contain a( 1, 2 ) and a( 2, 2 )
@@ -36012,10 +35949,10 @@ end subroutine
 !!            column by column, so that AP( 1 ) contains a( 1, 1 ),
 !!            AP( 2 ) and AP( 3 ) contain a( 2, 1 ) and a( 3, 1 )
 !!            respectively, and so on.
-!!            Note that when  DIAG = 'U' or 'u', the diagonal elements of
+!!            Note that when DIAG = 'U' or 'u', the diagonal elements of
 !!            A are not referenced, but are assumed to be unity.
 !!
-!!  out] X
+!!  X
 !!
 !!           X is complex(kind=real64) array, dimension at least
 !!            ( 1 + ( n - 1 )*abs( INCX ) ).
@@ -36298,7 +36235,7 @@ end subroutine
       END SUBROUTINE ZTPMV
 !>
 !!##NAME
-!!    ztpsv.(3f) -- [BLAS:COMPLEX_16_BLAS_LEVEL2]
+!!    ztpsv(3f) - [BLAS:COMPLEX_16_BLAS_LEVEL2]
 !!
 !!##SYNOPSIS
 !!
@@ -36315,7 +36252,7 @@ end subroutine
 !!
 !!##DEFINITION
 !!
-!!  ZTPSV  solves one of the systems of equations
+!!  ZTPSV solves one of the systems of equations
 !!
 !!     A*x = b,   or   A**T*x = b,   or   A**H*x = b,
 !!
@@ -36370,7 +36307,7 @@ end subroutine
 !!
 !!           AP is complex(kind=real64) array, dimension at least
 !!            ( ( n*( n + 1 ) )/2 ).
-!!            Before entry with  UPLO = 'U' or 'u', the array AP must
+!!            Before entry with UPLO = 'U' or 'u', the array AP must
 !!            contain the upper triangular matrix packed sequentially,
 !!            column by column, so that AP( 1 ) contains a( 1, 1 ),
 !!            AP( 2 ) and AP( 3 ) contain a( 1, 2 ) and a( 2, 2 )
@@ -36380,10 +36317,10 @@ end subroutine
 !!            column by column, so that AP( 1 ) contains a( 1, 1 ),
 !!            AP( 2 ) and AP( 3 ) contain a( 2, 1 ) and a( 3, 1 )
 !!            respectively, and so on.
-!!            Note that when  DIAG = 'U' or 'u', the diagonal elements of
+!!            Note that when DIAG = 'U' or 'u', the diagonal elements of
 !!            A are not referenced, but are assumed to be unity.
 !!
-!!  out] X
+!!  X
 !!
 !!           X is complex(kind=real64) array, dimension at least
 !!            ( 1 + ( n - 1 )*abs( INCX ) ).
@@ -36665,7 +36602,7 @@ end subroutine
       END SUBROUTINE ZTPSV
 !>
 !!##NAME
-!!    ztrmm.(3f) -- [BLAS:COMPLEX16_BLAS_LEVEL3]
+!!    ztrmm(3f) - [BLAS:COMPLEX16_BLAS_LEVEL3]
 !!
 !!##SYNOPSIS
 !!
@@ -36683,12 +36620,12 @@ end subroutine
 !!
 !!##DEFINITION
 !!
-!!  ZTRMM  performs one of the matrix-matrix operations
+!!  ZTRMM performs one of the matrix-matrix operations
 !!
 !!     B := alpha*op( A )*B,   or   B := alpha*B*op( A )
 !!
-!!  where  alpha  is a scalar,  B  is an m by n matrix,  A  is a unit, or
-!!  non-unit,  upper or lower triangular matrix  and  op( A )  is one  of
+!!  where alpha is a scalar, B is an m by n matrix, A is a unit, or
+!!  non-unit, upper or lower triangular matrix and op( A ) is one of
 !!
 !!     op( A ) = A   or   op( A ) = A**T   or   op( A ) = A**H.
 !!
@@ -36697,7 +36634,7 @@ end subroutine
 !!   SIDE
 !!
 !!           SIDE is CHARACTER*1
-!!            On entry,  SIDE specifies whether  op( A ) multiplies B from
+!!            On entry, SIDE specifies whether op( A ) multiplies B from
 !!            the left or right as follows:
 !!
 !!               SIDE = 'L' or 'l'   B := alpha*op( A )*B.
@@ -36746,51 +36683,51 @@ end subroutine
 !!   N
 !!
 !!           N is INTEGER
-!!            On entry, N specifies the number of columns of B.  N must be
+!!            On entry, N specifies the number of columns of B. N must be
 !!            at least zero.
 !!
 !!   ALPHA
 !!
 !!           ALPHA is complex(kind=real64)
-!!            On entry,  ALPHA specifies the scalar  alpha. When  alpha is
-!!            zero then  A is not referenced and  B need not be set before
+!!            On entry, ALPHA specifies the scalar alpha. When alpha is
+!!            zero then A is not referenced and B need not be set before
 !!            entry.
 !!
 !!   A
 !!
 !!           A is complex(kind=real64) array, dimension ( LDA, k ), where k is m
-!!            when  SIDE = 'L' or 'l'  and is  n  when  SIDE = 'R' or 'r'.
-!!            Before entry  with  UPLO = 'U' or 'u',  the  leading  k by k
-!!            upper triangular part of the array  A must contain the upper
-!!            triangular matrix  and the strictly lower triangular part of
+!!            when SIDE = 'L' or 'l' and is n when SIDE = 'R' or 'r'.
+!!            Before entry with UPLO = 'U' or 'u', the leading k by k
+!!            upper triangular part of the array A must contain the upper
+!!            triangular matrix and the strictly lower triangular part of
 !!            A is not referenced.
-!!            Before entry  with  UPLO = 'L' or 'l',  the  leading  k by k
-!!            lower triangular part of the array  A must contain the lower
-!!            triangular matrix  and the strictly upper triangular part of
+!!            Before entry with UPLO = 'L' or 'l', the leading k by k
+!!            lower triangular part of the array A must contain the lower
+!!            triangular matrix and the strictly upper triangular part of
 !!            A is not referenced.
-!!            Note that when  DIAG = 'U' or 'u',  the diagonal elements of
-!!            A  are not referenced either,  but are assumed to be  unity.
+!!            Note that when DIAG = 'U' or 'u', the diagonal elements of
+!!            A are not referenced either, but are assumed to be unity.
 !!
 !!   LDA
 !!
 !!           LDA is INTEGER
 !!            On entry, LDA specifies the first dimension of A as declared
-!!            in the calling (sub) program.  When  SIDE = 'L' or 'l'  then
-!!            LDA  must be at least  max( 1, m ),  when  SIDE = 'R' or 'r'
+!!            in the calling (sub) program. When SIDE = 'L' or 'l' then
+!!            LDA must be at least max( 1, m ), when SIDE = 'R' or 'r'
 !!            then LDA must be at least max( 1, n ).
 !!
-!!  out] B
+!!  B
 !!
 !!           B is complex(kind=real64) array, dimension ( LDB, N ).
-!!            Before entry,  the leading  m by n part of the array  B must
-!!            contain the matrix  B,  and  on exit  is overwritten  by the
+!!            Before entry, the leading m by n part of the array B must
+!!            contain the matrix B, and on exit is overwritten by the
 !!            transformed matrix.
 !!
 !!   LDB
 !!
 !!           LDB is INTEGER
 !!            On entry, LDB specifies the first dimension of B as declared
-!!            in  the  calling  (sub)  program.   LDB  must  be  at  least
+!!            in the calling (sub) program. LDB must be at least
 !!            max( 1, m ).
 !!
 !!##AUTHORS
@@ -37073,7 +37010,7 @@ end subroutine
       END SUBROUTINE ZTRMM
 !>
 !!##NAME
-!!    ztrmv.(3f) -- [BLAS:COMPLEX_16_BLAS_LEVEL2]
+!!    ztrmv(3f) - [BLAS:COMPLEX_16_BLAS_LEVEL2]
 !!
 !!##SYNOPSIS
 !!
@@ -37090,11 +37027,11 @@ end subroutine
 !!
 !!##DEFINITION
 !!
-!!  ZTRMV  performs one of the matrix-vector operations
+!!  ZTRMV performs one of the matrix-vector operations
 !!
 !!     x := A*x,   or   x := A**T*x,   or   x := A**H*x,
 !!
-!!  where x is an n element vector and  A is an n by n unit, or non-unit,
+!!  where x is an n element vector and A is an n by n unit, or non-unit,
 !!  upper or lower triangular matrix.
 !!
 !!##OPTIONS
@@ -37141,7 +37078,7 @@ end subroutine
 !!   A
 !!
 !!           A is complex(kind=real64) array, dimension ( LDA, N ).
-!!            Before entry with  UPLO = 'U' or 'u', the leading n by n
+!!            Before entry with UPLO = 'U' or 'u', the leading n by n
 !!            upper triangular part of the array A must contain the upper
 !!            triangular matrix and the strictly lower triangular part of
 !!            A is not referenced.
@@ -37149,7 +37086,7 @@ end subroutine
 !!            lower triangular part of the array A must contain the lower
 !!            triangular matrix and the strictly upper triangular part of
 !!            A is not referenced.
-!!            Note that when  DIAG = 'U' or 'u', the diagonal elements of
+!!            Note that when DIAG = 'U' or 'u', the diagonal elements of
 !!            A are not referenced either, but are assumed to be unity.
 !!
 !!   LDA
@@ -37159,7 +37096,7 @@ end subroutine
 !!            in the calling (sub) program. LDA must be at least
 !!            max( 1, n ).
 !!
-!!  out] X
+!!  X
 !!
 !!           X is complex(kind=real64) array, dimension at least
 !!            ( 1 + ( n - 1 )*abs( INCX ) ).
@@ -37421,7 +37358,7 @@ implicit none
 END SUBROUTINE ZTRMV
 !>
 !!##NAME
-!!    ztrsm.(3f) -- [BLAS:COMPLEX_16_BLAS_LEVEL3]
+!!    ztrsm(3f) - [BLAS:COMPLEX_16_BLAS_LEVEL3]
 !!
 !!##SYNOPSIS
 !!
@@ -37439,12 +37376,12 @@ END SUBROUTINE ZTRMV
 !!
 !!##DEFINITION
 !!
-!!  ZTRSM  solves one of the matrix equations
+!!  ZTRSM solves one of the matrix equations
 !!
 !!     op( A )*X = alpha*B,   or   X*op( A ) = alpha*B,
 !!
 !!  where alpha is a scalar, X and B are m by n matrices, A is a unit, or
-!!  non-unit,  upper or lower triangular matrix  and  op( A )  is one  of
+!!  non-unit, upper or lower triangular matrix and op( A ) is one of
 !!
 !!     op( A ) = A   or   op( A ) = A**T   or   op( A ) = A**H.
 !!
@@ -37504,14 +37441,14 @@ END SUBROUTINE ZTRMV
 !!   N
 !!
 !!           N is INTEGER
-!!            On entry, N specifies the number of columns of B.  N must be
+!!            On entry, N specifies the number of columns of B. N must be
 !!            at least zero.
 !!
 !!   ALPHA
 !!
 !!           ALPHA is complex(kind=real64)
-!!            On entry,  ALPHA specifies the scalar  alpha. When  alpha is
-!!            zero then  A is not referenced and  B need not be set before
+!!            On entry, ALPHA specifies the scalar alpha. When alpha is
+!!            zero then A is not referenced and B need not be set before
 !!            entry.
 !!
 !!   A
@@ -37519,37 +37456,37 @@ END SUBROUTINE ZTRMV
 !!           A is complex(kind=real64) array, dimension ( LDA, k ),
 !!            where k is m when SIDE = 'L' or 'l'
 !!              and k is n when SIDE = 'R' or 'r'.
-!!            Before entry  with  UPLO = 'U' or 'u',  the  leading  k by k
-!!            upper triangular part of the array  A must contain the upper
-!!            triangular matrix  and the strictly lower triangular part of
+!!            Before entry with UPLO = 'U' or 'u', the leading k by k
+!!            upper triangular part of the array A must contain the upper
+!!            triangular matrix and the strictly lower triangular part of
 !!            A is not referenced.
-!!            Before entry  with  UPLO = 'L' or 'l',  the  leading  k by k
-!!            lower triangular part of the array  A must contain the lower
-!!            triangular matrix  and the strictly upper triangular part of
+!!            Before entry with UPLO = 'L' or 'l', the leading k by k
+!!            lower triangular part of the array A must contain the lower
+!!            triangular matrix and the strictly upper triangular part of
 !!            A is not referenced.
-!!            Note that when  DIAG = 'U' or 'u',  the diagonal elements of
-!!            A  are not referenced either,  but are assumed to be  unity.
+!!            Note that when DIAG = 'U' or 'u', the diagonal elements of
+!!            A are not referenced either, but are assumed to be unity.
 !!
 !!   LDA
 !!
 !!           LDA is INTEGER
 !!            On entry, LDA specifies the first dimension of A as declared
-!!            in the calling (sub) program.  When  SIDE = 'L' or 'l'  then
-!!            LDA  must be at least  max( 1, m ),  when  SIDE = 'R' or 'r'
+!!            in the calling (sub) program. When SIDE = 'L' or 'l' then
+!!            LDA must be at least max( 1, m ), when SIDE = 'R' or 'r'
 !!            then LDA must be at least max( 1, n ).
 !!
-!!  out] B
+!!  B
 !!
 !!           B is complex(kind=real64) array, dimension ( LDB, N )
-!!            Before entry,  the leading  m by n part of the array  B must
-!!            contain  the  right-hand  side  matrix  B,  and  on exit  is
-!!            overwritten by the solution matrix  X.
+!!            Before entry, the leading m by n part of the array B must
+!!            contain the right-hand side matrix B, and on exit is
+!!            overwritten by the solution matrix X.
 !!
 !!   LDB
 !!
 !!           LDB is INTEGER
 !!            On entry, LDB specifies the first dimension of B as declared
-!!            in  the  calling  (sub)  program.   LDB  must  be  at  least
+!!            in the calling (sub) program. LDB must be at least
 !!            max( 1, m ).
 !!
 !!##AUTHORS
@@ -37870,7 +37807,7 @@ END SUBROUTINE ZTRMV
       END SUBROUTINE ZTRSM
 !>
 !!##NAME
-!!    ztrsv.(3f) -- [BLAS:COMPLEX16_BLAS_LEVEL2]
+!!    ztrsv(3f) - [BLAS:COMPLEX16_BLAS_LEVEL2]
 !!
 !!##SYNOPSIS
 !!
@@ -37887,7 +37824,7 @@ END SUBROUTINE ZTRMV
 !!
 !!##DEFINITION
 !!
-!!  ZTRSV  solves one of the systems of equations
+!!  ZTRSV solves one of the systems of equations
 !!
 !!     A*x = b,   or   A**T*x = b,   or   A**H*x = b,
 !!
@@ -37910,8 +37847,6 @@ END SUBROUTINE ZTRMV
 !!               UPLO = 'L' or 'l'   A is a lower triangular matrix.
 !!
 !!   TRANS
-!!
-!!           TRANS is CHARACTER*1
 !!            On entry, TRANS specifies the equations to be solved as
 !!            follows:
 !!
@@ -37922,8 +37857,6 @@ END SUBROUTINE ZTRMV
 !!               TRANS = 'C' or 'c'   A**H*x = b.
 !!
 !!   DIAG
-!!
-!!           DIAG is CHARACTER*1
 !!            On entry, DIAG specifies whether or not A is unit
 !!            triangular as follows:
 !!
@@ -37933,15 +37866,12 @@ END SUBROUTINE ZTRMV
 !!                                   triangular.
 !!
 !!   N
-!!
-!!           N is INTEGER
 !!            On entry, N specifies the order of the matrix A.
 !!            N must be at least zero.
 !!
 !!   A
-!!
-!!           A is complex(kind=real64) array, dimension ( LDA, N )
-!!            Before entry with  UPLO = 'U' or 'u', the leading n by n
+!!            A is complex(kind=real64) array, dimension ( LDA, N )
+!!            Before entry with UPLO = 'U' or 'u', the leading n by n
 !!            upper triangular part of the array A must contain the upper
 !!            triangular matrix and the strictly lower triangular part of
 !!            A is not referenced.
@@ -37949,7 +37879,7 @@ END SUBROUTINE ZTRMV
 !!            lower triangular part of the array A must contain the lower
 !!            triangular matrix and the strictly upper triangular part of
 !!            A is not referenced.
-!!            Note that when  DIAG = 'U' or 'u', the diagonal elements of
+!!            Note that when DIAG = 'U' or 'u', the diagonal elements of
 !!            A are not referenced either, but are assumed to be unity.
 !!
 !!   LDA
@@ -37959,7 +37889,7 @@ END SUBROUTINE ZTRMV
 !!            in the calling (sub) program. LDA must be at least
 !!            max( 1, n ).
 !!
-!!  out] X
+!!  X
 !!
 !!           X is complex(kind=real64) array, dimension at least
 !!            ( 1 + ( n - 1 )*abs( INCX ) ).
@@ -38220,3 +38150,30 @@ END SUBROUTINE ZTRMV
 
 END SUBROUTINE ZTRSV
 end module M_blas
+!===============================================================================
+! message
+! Current state of prep(1):(20:10 23 Aug 2021)
+! Total lines read ............... 38664
+! Conditional nesting level....... 0
+! G_WRITE (general processing).... T
+! G_LLWRITE (write input lines)... T
+! Arguments ...................... F90 GITHUB --noenv --comment doxygen --verbose -i M_blas.ff -o ../M_blas.f90 
+
+! Open files:
+!    unit ! line number ! filename
+!      50 !         541 ! M_blas.ff
+! INCLUDE directories:
+!    .
+! Variables:
+!    $DEFINE UNKNOWN  =  0                              
+!    $DEFINE LINUX  =  1                              
+!    $DEFINE MACOS  =  2                              
+!    $DEFINE WINDOWS  =  3                              
+!    $DEFINE CYGWIN  =  4                              
+!    $DEFINE SOLARIS  =  5                              
+!    $DEFINE FREEBSD  =  6                              
+!    $DEFINE OPENBSD  =  7                              
+!    $DEFINE OS  =  1                              
+!    $DEFINE F90  =  1                              
+!    $DEFINE GITHUB  =  1                              
+!-------------------------------------------------------------------------------

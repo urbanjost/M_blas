@@ -1,6 +1,6 @@
 $BLOCK COMMENT --file dspmv.3m_blas.man
 NAME
-   dspmv.(3f) -- [BLAS:DOUBLE_BLAS_LEVEL2]
+   dspmv(3f) - [BLAS:DOUBLE_BLAS_LEVEL2]
 
 SYNOPSIS
     SUBROUTINE DSPMV(UPLO,N,ALPHA,AP,X,INCX,BETA,Y,INCY)
@@ -17,7 +17,7 @@ SYNOPSIS
 
 DEFINITION
 
- DSPMV  performs the matrix-vector operation
+ DSPMV performs the matrix-vector operation
 
     y := alpha*A*x + beta*y,
 
@@ -84,7 +84,7 @@ OPTIONS
            On entry, BETA specifies the scalar beta. When BETA is
            supplied as zero then Y need not be set on input.
  
- out] Y
+ Y
  
           Y is DOUBLE PRECISION array, dimension at least
            ( 1 + ( n - 1 )*abs( INCY ) ).

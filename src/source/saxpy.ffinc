@@ -1,6 +1,6 @@
 $BLOCK COMMENT --file saxpy.3m_blas.man
 NAME
-   saxpy.(3f) -- [BLAS:SINGLE_BLAS_LEVEL1]
+   saxpy(3f) - [BLAS:SINGLE_BLAS_LEVEL1] SY:=SY+SA*SX (constant times a vector plus a vector)
 
 SYNOPSIS
     SUBROUTINE SAXPY(N,SA,SX,INCX,SY,INCY)
@@ -20,33 +20,17 @@ DEFINITION
     uses unrolled loops for increments equal to one.
  
 OPTIONS
-
   N
- 
-          N is INTEGER
          number of elements in input vector(s)
- 
   SA
- 
-          SA is REAL
-           On entry, SA specifies the scalar alpha.
- 
+         On entry, SA specifies the scalar alpha.
   SX
- 
-          SX is REAL array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
- 
+         SX is REAL array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
   INCX
- 
-          INCX is INTEGER
          storage spacing between elements of SX
- 
- out] SY
- 
-          SY is REAL array, dimension ( 1 + ( N - 1 )*abs( INCY ) )
- 
+  SY
+         SY is REAL array, dimension ( 1 + ( N - 1 )*abs( INCY ) )
   INCY
- 
-          INCY is INTEGER
          storage spacing between elements of SY
  
 AUTHORS

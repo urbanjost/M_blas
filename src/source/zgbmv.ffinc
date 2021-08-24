@@ -1,6 +1,6 @@
 $BLOCK COMMENT --file zgbmv.3m_blas.man
 NAME
-   zgbmv.(3f) -- [BLAS:COMPLEX_16_BLAS_LEVEL2]
+   zgbmv(3f) - [BLAS:COMPLEX_16_BLAS_LEVEL2]
 
 SYNOPSIS
     SUBROUTINE ZGBMV(TRANS,M,N,KL,KU,ALPHA,A,LDA,X,INCX,BETA,Y,INCY)
@@ -17,7 +17,7 @@ SYNOPSIS
 
 DEFINITION
 
- ZGBMV  performs one of the matrix-vector operations
+ ZGBMV performs one of the matrix-vector operations
 
     y := alpha*A*x + beta*y,   or   y := alpha*A**T*x + beta*y,   or
 
@@ -56,13 +56,13 @@ OPTIONS
  
           KL is INTEGER
            On entry, KL specifies the number of sub-diagonals of the
-           matrix A. KL must satisfy  0 .le. KL.
+           matrix A. KL must satisfy 0 .le. KL.
  
   KU
  
           KU is INTEGER
            On entry, KU specifies the number of super-diagonals of the
-           matrix A. KU must satisfy  0 .le. KU.
+           matrix A. KU must satisfy 0 .le. KU.
  
   ALPHA
  
@@ -119,7 +119,7 @@ OPTIONS
            On entry, BETA specifies the scalar beta. When BETA is
            supplied as zero then Y need not be set on input.
  
- out] Y
+ Y
  
           Y is complex(kind=real64) array, dimension at least
            ( 1 + ( m - 1 )*abs( INCY ) ) when TRANS = 'N' or 'n'

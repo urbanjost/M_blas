@@ -1,6 +1,6 @@
 $BLOCK COMMENT --file dscal.3m_blas.man
 NAME
-   dscal.(3f) -- [BLAS:DOUBLE_BLAS_LEVEL1]
+   dscal(3f) - [BLAS:DOUBLE_BLAS_LEVEL1] scales a vector by a constant.
 
 SYNOPSIS
     SUBROUTINE DSCAL(N,DA,DX,INCX)
@@ -19,25 +19,14 @@ DEFINITION
     uses unrolled loops for increment equal to 1.
  
 OPTIONS
-
   N
- 
-          N is INTEGER
-         number of elements in input vector(s)
- 
+          number of elements in input vector(s)
   DA
- 
-          DA is DOUBLE PRECISION
-           On entry, DA specifies the scalar alpha.
- 
- out] DX
- 
-          DX is DOUBLE PRECISION array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
- 
+          On entry, DA specifies the scalar alpha.
+  DX
+          array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
   INCX
- 
-          INCX is INTEGER
-         storage spacing between elements of DX
+          storage spacing between elements of DX
  
 AUTHORS
 

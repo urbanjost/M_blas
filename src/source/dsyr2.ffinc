@@ -1,6 +1,6 @@
 $BLOCK COMMENT --file dsyr2.3m_blas.man
 NAME
-   dsyr2.(3f) -- [BLAS:DOUBLE_BLAS_LEVEL2]
+   dsyr2(3f) - [BLAS:DOUBLE_BLAS_LEVEL2]
 
 SYNOPSIS
     SUBROUTINE DSYR2(UPLO,N,ALPHA,X,INCX,Y,INCY,A,LDA)
@@ -17,7 +17,7 @@ SYNOPSIS
 
 DEFINITION
 
- DSYR2  performs the symmetric rank 2 operation
+ DSYR2 performs the symmetric rank 2 operation
 
     A := alpha*x*y**T + alpha*y*x**T + A,
 
@@ -76,10 +76,10 @@ OPTIONS
            On entry, INCY specifies the increment for the elements of
            Y. INCY must not be zero.
  
- out] A
+ A
  
           A is DOUBLE PRECISION array, dimension ( LDA, N )
-           Before entry with  UPLO = 'U' or 'u', the leading n by n
+           Before entry with UPLO = 'U' or 'u', the leading n by n
            upper triangular part of the array A must contain the upper
            triangular part of the symmetric matrix and the strictly
            lower triangular part of A is not referenced. On exit, the

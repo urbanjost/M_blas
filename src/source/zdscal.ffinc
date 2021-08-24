@@ -1,6 +1,6 @@
 $BLOCK COMMENT --file zdscal.3m_blas.man
 NAME
-   zdscal.(3f) -- [BLAS:COMPLEX16_BLAS_LEVEL1]
+   zdscal(3f) - [BLAS:COMPLEX16_BLAS_LEVEL1]
 
 SYNOPSIS
     SUBROUTINE ZDSCAL(N,DA,ZX,INCX)
@@ -29,7 +29,7 @@ OPTIONS
           DA is DOUBLE PRECISION
            On entry, DA specifies the scalar alpha.
  
- out] ZX
+ ZX
  
           ZX is complex(kind=real64) array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
  

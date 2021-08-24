@@ -1,6 +1,6 @@
 $BLOCK COMMENT --file zdotc.3m_blas.man
 NAME
-   zdotc.(3f) -- [BLAS:COMPLEX16_BLAS_LEVEL1]
+   zdotc(3f) - [BLAS:COMPLEX16_BLAS_LEVEL1]
 
 SYNOPSIS
     complex(kind=real64) FUNCTION ZDOTC(N,ZX,INCX,ZY,INCY)

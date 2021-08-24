@@ -1,6 +1,6 @@
 $BLOCK COMMENT --file zgemv.3m_blas.man
 NAME
-   zgemv.(3f) -- [BLAS:COMPLEX_16_BLAS_LEVEL2]
+   zgemv(3f) - [BLAS:COMPLEX_16_BLAS_LEVEL2]
 
 SYNOPSIS
     subroutine zgemv(trans,m,n,alpha,a,lda,x,incx,beta,y,incy)
@@ -17,7 +17,7 @@ SYNOPSIS
 
 DEFINITION
 
- ZGEMV  performs one of the matrix-vector operations
+ ZGEMV performs one of the matrix-vector operations
 
     y := alpha*A*x + beta*y,   or   y := alpha*A**T*x + beta*y,   or
 
@@ -91,7 +91,7 @@ OPTIONS
            On entry, BETA specifies the scalar beta. When BETA is
            supplied as zero then Y need not be set on input.
  
- out] Y
+ Y
  
           Y is complex(kind=real64) array, dimension at least
            ( 1 + ( m - 1 )*abs( INCY ) ) when TRANS = 'N' or 'n'

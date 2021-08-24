@@ -1,6 +1,6 @@
 $BLOCK COMMENT --file zher2.3m_blas.man
 NAME
-   zher2.(3f) -- [BLAS:COMPLEX_16_BLAS_LEVEL2]
+   zher2(3f) - [BLAS:COMPLEX_16_BLAS_LEVEL2]
 
 SYNOPSIS
     SUBROUTINE ZHER2(UPLO,N,ALPHA,X,INCX,Y,INCY,A,LDA)
@@ -17,7 +17,7 @@ SYNOPSIS
 
 DEFINITION
 
- ZHER2  performs the hermitian rank 2 operation
+ ZHER2 performs the hermitian rank 2 operation
 
     A := alpha*x*y**H + conjg( alpha )*y*x**H + A,
 
@@ -76,10 +76,10 @@ OPTIONS
            On entry, INCY specifies the increment for the elements of
            Y. INCY must not be zero.
  
- out] A
+ A
  
           A is complex(kind=real64) array, dimension ( LDA, N )
-           Before entry with  UPLO = 'U' or 'u', the leading n by n
+           Before entry with UPLO = 'U' or 'u', the leading n by n
            upper triangular part of the array A must contain the upper
            triangular part of the hermitian matrix and the strictly
            lower triangular part of A is not referenced. On exit, the

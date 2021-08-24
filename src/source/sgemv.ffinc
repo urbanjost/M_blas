@@ -1,6 +1,7 @@
 $BLOCK COMMENT --file sgemv.3m_blas.man
 NAME
-   sgemv.(3f) -- [BLAS:SINGLE_BLAS_LEVEL2]
+   sgemv(3f) - [BLAS:SINGLE_BLAS_LEVEL2]
+SY:=alpha*A*SX+beta*SY, A a rectangular matrix.
 
 SYNOPSIS
     SUBROUTINE SGEMV(TRANS,M,N,ALPHA,A,LDA,X,INCX,BETA,Y,INCY)
@@ -17,7 +18,7 @@ SYNOPSIS
 
 DEFINITION
 
- SGEMV  performs one of the matrix-vector operations
+ SGEMV performs one of the matrix-vector operations
 
     y := alpha*A*x + beta*y,   or   y := alpha*A**T*x + beta*y,
 
@@ -89,7 +90,7 @@ OPTIONS
            On entry, BETA specifies the scalar beta. When BETA is
            supplied as zero then Y need not be set on input.
  
- out] Y
+ Y
  
           Y is REAL array, dimension at least
            ( 1 + ( m - 1 )*abs( INCY ) ) when TRANS = 'N' or 'n'

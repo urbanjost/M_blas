@@ -1,6 +1,7 @@
 $BLOCK COMMENT --file snrm2.3m_blas.man
 NAME
-   snrm2.(3f) -- [BLAS:SINGLE_BLAS_LEVEL1]
+   snrm2(3f) - [BLAS:SINGLE_BLAS_LEVEL1]
+SNRM2 := square root of sum of SX(I)**2
 
 SYNOPSIS
     REAL FUNCTION SNRM2(N,X,INCX)
@@ -36,7 +37,7 @@ OPTIONS
           If INCX > 0, X(1+(i-1)*INCX) = x(i) for 1 <= i <= n
           If INCX < 0, X(1-(n-i)*INCX) = x(i) for 1 <= i <= n
           If INCX = 0, x isn't a vector so there is no need to call
-          this subroutine.  If you call it anyway, it will count x(1)
+          this subroutine. If you call it anyway, it will count x(1)
           in the vector norm N times.
  
 AUTHORS

@@ -1,6 +1,6 @@
 $BLOCK COMMENT --file caxpy.3m_blas.man
 NAME
-    caxpy(3f) -- [BLAS:COMPLEX_BLAS_LEVEL1] constant times a vector plus a vector
+    caxpy(3f) -- [BLAS:COMPLEX_BLAS_LEVEL1] CY:=CY+CA*CX (constant times a vector plus a vector)
 
 SYNOPSIS     
    subroutine caxpy(n,ca,cx,incx,cy,incy)
@@ -34,6 +34,7 @@ AUTHORS
  November 2017
 
  FURTHER DETAILS
+
      Jack Dongarra, linpack, 3/11/78.
      modified 12/3/93, array(1) declarations changed to array(*)
 

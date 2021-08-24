@@ -1,6 +1,6 @@
 $BLOCK COMMENT --file dasum.3m_blas.man
 NAME
-   dasum.(3f) -- [BLAS:DOUBLE_BLAS_LEVEL1]
+   dasum(3f) - [BLAS:DOUBLE_BLAS_LEVEL1] takes the sum of the absolute values.
 
 SYNOPSIS
     DOUBLE PRECISION FUNCTION DASUM(N,DX,INCX)

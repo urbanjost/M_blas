@@ -1,6 +1,6 @@
 $BLOCK COMMENT --file dsyr.3m_blas.man
 NAME
-   dsyr.(3f) -- [BLAS:DOUBLE_BLAS_LEVEL3]
+   dsyr(3f) - [BLAS:DOUBLE_BLAS_LEVEL3]
 
 SYNOPSIS
     SUBROUTINE DSYR(UPLO,N,ALPHA,X,INCX,A,LDA)
@@ -17,7 +17,7 @@ SYNOPSIS
 
 DEFINITION
 
- DSYR   performs the symmetric rank 1 operation
+ DSYR performs the symmetric rank 1 operation
 
     A := alpha*x*x**T + A,
 
@@ -63,10 +63,10 @@ OPTIONS
            On entry, INCX specifies the increment for the elements of
            X. INCX must not be zero.
  
- out] A
+ A
  
           A is DOUBLE PRECISION array, dimension ( LDA, N )
-           Before entry with  UPLO = 'U' or 'u', the leading n by n
+           Before entry with UPLO = 'U' or 'u', the leading n by n
            upper triangular part of the array A must contain the upper
            triangular part of the symmetric matrix and the strictly
            lower triangular part of A is not referenced. On exit, the

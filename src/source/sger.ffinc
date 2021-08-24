@@ -1,6 +1,7 @@
 $BLOCK COMMENT --file sger.3m_blas.man
 NAME
-   sger.(3f) -- [BLAS:SINGLE_BLAS_LEVEL2]
+   sger(3f) - [BLAS:SINGLE_BLAS_LEVEL2]
+A:=A+alpha*SX*TRANSPOSE(SY), rank 1 update, A a rectangular matrix.
 
 SYNOPSIS
     SUBROUTINE SGER(M,N,ALPHA,X,INCX,Y,INCY,A,LDA)
@@ -16,7 +17,7 @@ SYNOPSIS
 
 DEFINITION
 
- SGER   performs the rank 1 operation
+ SGER performs the rank 1 operation
 
     A := alpha*x*y**T + A,
 
@@ -68,7 +69,7 @@ OPTIONS
            On entry, INCY specifies the increment for the elements of
            Y. INCY must not be zero.
  
- out] A
+ A
  
           A is REAL array, dimension ( LDA, N )
            Before entry, the leading m by n part of the array A must

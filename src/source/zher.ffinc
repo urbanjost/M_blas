@@ -1,6 +1,6 @@
 $BLOCK COMMENT --file zher.3m_blas.man
 NAME
-   zher.(3f) -- [BLAS:COMPLEX_16_BLAS_LEVEL2]
+   zher(3f) - [BLAS:COMPLEX_16_BLAS_LEVEL2]
 
 SYNOPSIS
     SUBROUTINE ZHER(UPLO,N,ALPHA,X,INCX,A,LDA)
@@ -17,7 +17,7 @@ SYNOPSIS
 
 DEFINITION
 
- ZHER   performs the hermitian rank 1 operation
+ ZHER performs the hermitian rank 1 operation
 
     A := alpha*x*x**H + A,
 
@@ -63,10 +63,10 @@ OPTIONS
            On entry, INCX specifies the increment for the elements of
            X. INCX must not be zero.
  
- out] A
+ A
  
           A is complex(kind=real64) array, dimension ( LDA, N )
-           Before entry with  UPLO = 'U' or 'u', the leading n by n
+           Before entry with UPLO = 'U' or 'u', the leading n by n
            upper triangular part of the array A must contain the upper
            triangular part of the hermitian matrix and the strictly
            lower triangular part of A is not referenced. On exit, the

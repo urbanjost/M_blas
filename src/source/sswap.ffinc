@@ -1,6 +1,6 @@
 $BLOCK COMMENT --file sswap.3m_blas.man
 NAME
-   sswap.(3f) -- [BLAS:SINGLE_BLAS_LEVEL1]
+   sswap(3f) - [BLAS:SINGLE_BLAS_LEVEL1] Interchange vectors SX and SY.
 
 SYNOPSIS
     SUBROUTINE SSWAP(N,SX,INCX,SY,INCY)
@@ -24,7 +24,7 @@ OPTIONS
           N is INTEGER
          number of elements in input vector(s)
  
- out] SX
+ SX
  
           SX is REAL array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
  
@@ -33,7 +33,7 @@ OPTIONS
           INCX is INTEGER
          storage spacing between elements of SX
  
- out] SY
+ SY
  
           SY is REAL array, dimension ( 1 + ( N - 1 )*abs( INCY ) )
  

@@ -1,6 +1,6 @@
 $BLOCK COMMENT --file izamax.3m_blas.man
 NAME
-   izamax.(3f) -- [BLAS:AUX_BLAS]
+   izamax(3f) - [BLAS:AUX_BLAS]
 
 SYNOPSIS
     integer function izamax(n,zx,incx)

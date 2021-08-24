@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+   
+   <meta name="description" content="BLAS - Basic Linear Algebra Subroutines">
+    
+    <meta name="author" content="John S. Urban and many others" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>DCHKE &ndash; M_blas</title>
+
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/local.css" rel="stylesheet">
+    
+    <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+    
+    
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <script src="../js/jquery-2.1.3.min.js"></script>
+    <script src="../js/svg-pan-zoom.min.js"></script>
+
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="../index.html">M_blas </a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+        
+            <li class="dropdown hidden-xs visible-sm visible-md hidden-lg">
+              <a href="#" class="dropdown-toggle"
+              data-toggle="dropdown" role="button"
+              aria-haspopup="true"
+     aria-expanded="false">Contents <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          
+              
+            <li><a href="../lists/files.html">Source Files</a></li>
+        
+        
+        
+            <li><a href="../lists/modules.html">Modules</a></li>
+        
+            
+                                
+            <li><a href="../lists/procedures.html">Procedures</a></li>
+        
+        
+            <li><a href="../lists/absint.html">Abstract Interfaces</a></li>
+               
+        
+            <li><a href="../lists/programs.html">Programs</a></li>
+        
+            </ul>
+            </li>
+
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/files.html">Source Files</a></li>
+
+
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/modules.html">Modules</a></li>
+
+
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/procedures.html">Procedures</a></li>
+
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/absint.html">Abstract Interfaces</a></li>
+                             
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/programs.html">Programs</a></li>
+
+          </ul>
+        
+        <form action="../search.html" class="navbar-form navbar-right" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+        </div>
+<!--
+        <button type="submit" class="btn btn-default">Submit</button>
+-->
+        </form>
+        
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+    
+  
+  <div class="row">
+    <h1>DCHKE
+      <small>Subroutine</small>
+    
+    </h1>
+    
+<div class="row">
+  <div class="col-lg-12">
+<div class="well well-sm">
+  <ul class="list-inline" style="margin-bottom:0px;display:inline">
+     
+     
+     
+     
+    
+    
+     <li><i class="fa fa-list-ol"></i>
+       <a data-toggle="tooltip"
+    data-placement="bottom" data-html="true"
+    title=" 1.0% of total for procedures.">517 statements</a>
+     </li> 
+     
+     
+     
+    <li><i class="fa fa-code"></i><a href="../src/dblat3_a.f90"> Source File</a></li>
+     
+     
+  </ul>
+  <ol class="breadcrumb in-well text-right">
+  
+    
+     <li><a href='../sourcefile/dblat3_a.f90.html'>dblat3_a.f90</a></li>
+    
+  
+     <li class="active">DCHKE</li>
+  </ol>
+</div>
+</div>
+</div>
+<script>
+  $(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+  })
+</script>
+
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+    
+<div id="sidebar">
+  
+<h3>Contents</h3>
+ 
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading
+  text-left"><h3 class="panel-title"><a data-toggle="collapse"
+  href="#common-0">Common Blocks</a></h3></div>
+  <div id="common-0" class="panel-collapse collapse">
+    <div class="list-group">
+      
+      <a class="list-group-item" href="../proc/dchke.html#common-infoc~6">INFOC</a>
+      
+    </div>
+  </div>
+</div>
+
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#vars-0">Variables</a></h3></div>
+  <div id="vars-0" class="panel-collapse collapse">
+    <div class="list-group">
+      
+      <a class="list-group-item" href="../proc/dchke.html#variable-a~81">A</a>
+      
+      <a class="list-group-item" href="../proc/dchke.html#variable-alpha~78">ALPHA</a>
+      
+      <a class="list-group-item" href="../proc/dchke.html#variable-b~29">B</a>
+      
+      <a class="list-group-item" href="../proc/dchke.html#variable-beta~47">BETA</a>
+      
+      <a class="list-group-item" href="../proc/dchke.html#variable-c~36">C</a>
+      
+      <a class="list-group-item" href="../proc/dchke.html#variable-infot~11">INFOT</a>
+      
+      <a class="list-group-item" href="../proc/dchke.html#variable-lerr~11">LERR</a>
+      
+      <a class="list-group-item" href="../proc/dchke.html#variable-noutc~11">NOUTC</a>
+      
+      <a class="list-group-item" href="../proc/dchke.html#variable-ok~11">OK</a>
+      
+      <a class="list-group-item" href="../proc/dchke.html#variable-one~2">ONE</a>
+      
+      <a class="list-group-item" href="../proc/dchke.html#variable-two">TWO</a>
+      
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+    </div>
+    
+    <div class="col-md-9" id='text'>
+    <h2>
+subroutine DCHKE(ISNUM, SRNAMT, NOUT)
+    
+    
+   
+</h2>
+    
+  
+    <div class="panel panel-default">
+      <div class="panel-heading">
+  <h3 class="panel-title">Uses</h3>
+      </div>
+      <ul class="list-group">
+      
+      <li class="list-group-item">
+  <ul class="list-inline">
+    
+    <li><a href='../module/m_blas.html'>M_blas</a></li>
+    
+  </ul>
+      </li>
+      
+      
+      
+      </ul>
+    </div>
+    
+
+
+    
+
+    <h3>Arguments</h3>
+    
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-isnum"></span>integer</td>
+  <td></td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>ISNUM</strong></td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-srnamt"></span>character(len=6)</td>
+  <td></td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>SRNAMT</strong></td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-nout~13"></span>integer</td>
+  <td></td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>NOUT</strong></td><td></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+    
+    
+    
+    
+     
+    <br>
+
+    <section class="visible-xs visible-sm hidden-md">
+      
+<h3>Contents</h3>
+ 
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading
+  text-left"><h3 class="panel-title"><a data-toggle="collapse"
+  href="#common-1">Common Blocks</a></h3></div>
+  <div id="common-1" class="panel-collapse collapse">
+    <div class="list-group">
+      
+      <a class="list-group-item" href="../proc/dchke.html#common-infoc~6">INFOC</a>
+      
+    </div>
+  </div>
+</div>
+
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#vars-1">Variables</a></h3></div>
+  <div id="vars-1" class="panel-collapse collapse">
+    <div class="list-group">
+      
+      <a class="list-group-item" href="../proc/dchke.html#variable-a~81">A</a>
+      
+      <a class="list-group-item" href="../proc/dchke.html#variable-alpha~78">ALPHA</a>
+      
+      <a class="list-group-item" href="../proc/dchke.html#variable-b~29">B</a>
+      
+      <a class="list-group-item" href="../proc/dchke.html#variable-beta~47">BETA</a>
+      
+      <a class="list-group-item" href="../proc/dchke.html#variable-c~36">C</a>
+      
+      <a class="list-group-item" href="../proc/dchke.html#variable-infot~11">INFOT</a>
+      
+      <a class="list-group-item" href="../proc/dchke.html#variable-lerr~11">LERR</a>
+      
+      <a class="list-group-item" href="../proc/dchke.html#variable-noutc~11">NOUTC</a>
+      
+      <a class="list-group-item" href="../proc/dchke.html#variable-ok~11">OK</a>
+      
+      <a class="list-group-item" href="../proc/dchke.html#variable-one~2">ONE</a>
+      
+      <a class="list-group-item" href="../proc/dchke.html#variable-two">TWO</a>
+      
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </section>
+    <br class="visible-xs visible-sm hidden-md">
+
+    
+    <section>
+      <h2>Common Blocks</h2>
+      
+      
+<div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="common-infoc~6"></span><h3>
+      <a data-toggle="popover" data-html="true" tabindex="0" 
+     data-trigger="focus"
+   data-content="<h4>Used Elsewhere:</h4><a href='../proc/dchk1.html#common-infoc'>DCHK1</a> (subroutine)<br><a href='../proc/dchk2.html#common-infoc~2'>DCHK2</a> (subroutine)<br><a href='../proc/dchk3.html#common-infoc~3'>DCHK3</a> (subroutine)<br><a href='../proc/dchk4.html#common-infoc~4'>DCHK4</a> (subroutine)<br><a href='../proc/dchk5.html#common-infoc~5'>DCHK5</a> (subroutine)<br><a href='../proc/dchk1~2.html#common-infoc~7'>DCHK1</a> (subroutine)<br><a href='../proc/dchk2~2.html#common-infoc~8'>DCHK2</a> (subroutine)<br><a href='../proc/dchk3~2.html#common-infoc~9'>DCHK3</a> (subroutine)<br><a href='../proc/dchk4~2.html#common-infoc~10'>DCHK4</a> (subroutine)<br><a href='../proc/dchk5~2.html#common-infoc~11'>DCHK5</a> (subroutine)<br><a href='../proc/dchke~2.html#common-infoc~12'>DCHKE</a> (subroutine)<br><a href='../proc/zchk1.html#common-infoc~13'>ZCHK1</a> (subroutine)<br><a href='../proc/zchk2.html#common-infoc~14'>ZCHK2</a> (subroutine)<br><a href='../proc/zchk3.html#common-infoc~15'>ZCHK3</a> (subroutine)<br><a href='../proc/zchk4.html#common-infoc~16'>ZCHK4</a> (subroutine)<br><a href='../proc/zchk5.html#common-infoc~17'>ZCHK5</a> (subroutine)<br><a href='../proc/zchke.html#common-infoc~18'>ZCHKE</a> (subroutine)<br><a href='../proc/cchk1.html#common-infoc~19'>CCHK1</a> (subroutine)<br><a href='../proc/cchk2.html#common-infoc~20'>CCHK2</a> (subroutine)<br><a href='../proc/cchk3.html#common-infoc~21'>CCHK3</a> (subroutine)<br><a href='../proc/cchk4.html#common-infoc~22'>CCHK4</a> (subroutine)<br><a href='../proc/cchk5.html#common-infoc~23'>CCHK5</a> (subroutine)<br><a href='../proc/cchk6.html#common-infoc~24'>CCHK6</a> (subroutine)<br><a href='../proc/cchke.html#common-infoc~25'>CCHKE</a> (subroutine)<br><a href='../proc/dchk1~3.html#common-infoc~26'>DCHK1</a> (subroutine)<br><a href='../proc/dchk2~3.html#common-infoc~27'>DCHK2</a> (subroutine)<br><a href='../proc/dchk3~3.html#common-infoc~28'>DCHK3</a> (subroutine)<br><a href='../proc/dchk4~3.html#common-infoc~29'>DCHK4</a> (subroutine)<br><a href='../proc/dchk5~3.html#common-infoc~30'>DCHK5</a> (subroutine)<br><a href='../proc/dchk6.html#common-infoc~31'>DCHK6</a> (subroutine)<br><a href='../proc/dchke~3.html#common-infoc~32'>DCHKE</a> (subroutine)<br><a href='../proc/cchk1~2.html#common-infoc~33'>CCHK1</a> (subroutine)<br><a href='../proc/cchk2~2.html#common-infoc~34'>CCHK2</a> (subroutine)<br><a href='../proc/cchk3~2.html#common-infoc~35'>CCHK3</a> (subroutine)<br><a href='../proc/cchk4~2.html#common-infoc~36'>CCHK4</a> (subroutine)<br><a href='../proc/cchk5~2.html#common-infoc~37'>CCHK5</a> (subroutine)<br><a href='../proc/cchke~2.html#common-infoc~38'>CCHKE</a> (subroutine)<br><a href='../proc/zchk1~2.html#common-infoc~39'>ZCHK1</a> (subroutine)<br><a href='../proc/zchk2~2.html#common-infoc~40'>ZCHK2</a> (subroutine)<br><a href='../proc/zchk3~2.html#common-infoc~41'>ZCHK3</a> (subroutine)<br><a href='../proc/zchk4~2.html#common-infoc~42'>ZCHK4</a> (subroutine)<br><a href='../proc/zchk5~2.html#common-infoc~43'>ZCHK5</a> (subroutine)<br><a href='../proc/zchk6.html#common-infoc~44'>ZCHK6</a> (subroutine)<br><a href='../proc/zchke~2.html#common-infoc~45'>ZCHKE</a> (subroutine)<br><a href='../proc/schk1.html#common-infoc~46'>SCHK1</a> (subroutine)<br><a href='../proc/schk2.html#common-infoc~47'>SCHK2</a> (subroutine)<br><a href='../proc/schk3.html#common-infoc~48'>SCHK3</a> (subroutine)<br><a href='../proc/schk4.html#common-infoc~49'>SCHK4</a> (subroutine)<br><a href='../proc/schk5.html#common-infoc~50'>SCHK5</a> (subroutine)<br><a href='../proc/schke.html#common-infoc~51'>SCHKE</a> (subroutine)<br><a href='../proc/schk1~2.html#common-infoc~52'>SCHK1</a> (subroutine)<br><a href='../proc/schk2~2.html#common-infoc~53'>SCHK2</a> (subroutine)<br><a href='../proc/schk3~2.html#common-infoc~54'>SCHK3</a> (subroutine)<br><a href='../proc/schk4~2.html#common-infoc~55'>SCHK4</a> (subroutine)<br><a href='../proc/schk5~2.html#common-infoc~56'>SCHK5</a> (subroutine)<br><a href='../proc/schk6.html#common-infoc~57'>SCHK6</a> (subroutine)<br><a href='../proc/schke~2.html#common-infoc~58'>SCHKE</a> (subroutine)<br><a href='../proc/test_xerbla.html#common-infoc~59'>test_XERBLA</a> (subroutine)<br><a href='../program/dblat3.html#common-infoc~60'>DBLAT3</a> (program)<br><a href='../proc/test_xerbla~2.html#common-infoc~61'>test_XERBLA</a> (subroutine)<br><a href='../program/dblat3~2.html#common-infoc~62'>DBLAT3</a> (program)<br><a href='../proc/test_xerbla~3.html#common-infoc~63'>test_XERBLA</a> (subroutine)<br><a href='../program/zblat3.html#common-infoc~64'>ZBLAT3</a> (program)<br><a href='../proc/test_xerbla~4.html#common-infoc~65'>test_XERBLA</a> (subroutine)<br><a href='../proc/cchk1~3.html#common-infoc~66'>CCHK1</a> (subroutine)<br><a href='../proc/cchk2~3.html#common-infoc~67'>CCHK2</a> (subroutine)<br><a href='../proc/cchk3~3.html#common-infoc~68'>CCHK3</a> (subroutine)<br><a href='../proc/cchk4~3.html#common-infoc~69'>CCHK4</a> (subroutine)<br><a href='../proc/cchk5~3.html#common-infoc~70'>CCHK5</a> (subroutine)<br><a href='../proc/cchk6~2.html#common-infoc~71'>CCHK6</a> (subroutine)<br><a href='../proc/cchke~3.html#common-infoc~72'>CCHKE</a> (subroutine)<br><a href='../program/cblat2.html#common-infoc~73'>CBLAT2</a> (program)<br><a href='../proc/test_xerbla~5.html#common-infoc~74'>test_XERBLA</a> (subroutine)<br><a href='../program/cblat2~2.html#common-infoc~75'>CBLAT2</a> (program)<br><a href='../proc/test_xerbla~6.html#common-infoc~76'>test_XERBLA</a> (subroutine)<br><a href='../proc/cchk1~4.html#common-infoc~77'>CCHK1</a> (subroutine)<br><a href='../proc/cchk2~4.html#common-infoc~78'>CCHK2</a> (subroutine)<br><a href='../proc/cchk3~4.html#common-infoc~79'>CCHK3</a> (subroutine)<br><a href='../proc/cchk4~4.html#common-infoc~80'>CCHK4</a> (subroutine)<br><a href='../proc/cchk5~4.html#common-infoc~81'>CCHK5</a> (subroutine)<br><a href='../proc/cchke~4.html#common-infoc~82'>CCHKE</a> (subroutine)<br><a href='../program/cblat3.html#common-infoc~83'>CBLAT3</a> (program)<br><a href='../proc/test_xerbla~7.html#common-infoc~84'>test_XERBLA</a> (subroutine)<br><a href='../program/dblat2.html#common-infoc~85'>DBLAT2</a> (program)<br><a href='../proc/test_xerbla~8.html#common-infoc~86'>test_XERBLA</a> (subroutine)<br><a href='../proc/dchk1~4.html#common-infoc~87'>DCHK1</a> (subroutine)<br><a href='../proc/dchk2~4.html#common-infoc~88'>DCHK2</a> (subroutine)<br><a href='../proc/dchk3~4.html#common-infoc~89'>DCHK3</a> (subroutine)<br><a href='../proc/dchk4~4.html#common-infoc~90'>DCHK4</a> (subroutine)<br><a href='../proc/dchk5~4.html#common-infoc~91'>DCHK5</a> (subroutine)<br><a href='../proc/dchk6~2.html#common-infoc~92'>DCHK6</a> (subroutine)<br><a href='../proc/dchke~4.html#common-infoc~93'>DCHKE</a> (subroutine)<br><a href='../program/dblat2~2.html#common-infoc~94'>DBLAT2</a> (program)<br><a href='../proc/test_xerbla~9.html#common-infoc~95'>test_XERBLA</a> (subroutine)<br><a href='../proc/schk1~3.html#common-infoc~96'>SCHK1</a> (subroutine)<br><a href='../proc/schk2~3.html#common-infoc~97'>SCHK2</a> (subroutine)<br><a href='../proc/schk3~3.html#common-infoc~98'>SCHK3</a> (subroutine)<br><a href='../proc/schk4~3.html#common-infoc~99'>SCHK4</a> (subroutine)<br><a href='../proc/schk5~3.html#common-infoc~100'>SCHK5</a> (subroutine)<br><a href='../proc/schk6~2.html#common-infoc~101'>SCHK6</a> (subroutine)<br><a href='../proc/schke~3.html#common-infoc~102'>SCHKE</a> (subroutine)<br><a href='../program/sblat2.html#common-infoc~103'>SBLAT2</a> (program)<br><a href='../proc/test_xerbla~10.html#common-infoc~104'>test_XERBLA</a> (subroutine)<br><a href='../program/cblat3~2.html#common-infoc~105'>CBLAT3</a> (program)<br><a href='../proc/test_xerbla~11.html#common-infoc~106'>test_XERBLA</a> (subroutine)<br><a href='../proc/zchk1~3.html#common-infoc~107'>ZCHK1</a> (subroutine)<br><a href='../proc/zchk2~3.html#common-infoc~108'>ZCHK2</a> (subroutine)<br><a href='../proc/zchk3~3.html#common-infoc~109'>ZCHK3</a> (subroutine)<br><a href='../proc/zchk4~3.html#common-infoc~110'>ZCHK4</a> (subroutine)<br><a href='../proc/zchk5~3.html#common-infoc~111'>ZCHK5</a> (subroutine)<br><a href='../proc/zchk6~2.html#common-infoc~112'>ZCHK6</a> (subroutine)<br><a href='../proc/zchke~3.html#common-infoc~113'>ZCHKE</a> (subroutine)<br><a href='../program/zblat2.html#common-infoc~114'>ZBLAT2</a> (program)<br><a href='../proc/test_xerbla~12.html#common-infoc~115'>test_XERBLA</a> (subroutine)<br><a href='../program/zblat2~2.html#common-infoc~116'>ZBLAT2</a> (program)<br><a href='../proc/test_xerbla~13.html#common-infoc~117'>test_XERBLA</a> (subroutine)<br><a href='../proc/schk1~4.html#common-infoc~118'>SCHK1</a> (subroutine)<br><a href='../proc/schk2~4.html#common-infoc~119'>SCHK2</a> (subroutine)<br><a href='../proc/schk3~4.html#common-infoc~120'>SCHK3</a> (subroutine)<br><a href='../proc/schk4~4.html#common-infoc~121'>SCHK4</a> (subroutine)<br><a href='../proc/schk5~4.html#common-infoc~122'>SCHK5</a> (subroutine)<br><a href='../proc/schke~4.html#common-infoc~123'>SCHKE</a> (subroutine)<br><a href='../program/sblat3.html#common-infoc~124'>SBLAT3</a> (program)<br><a href='../proc/test_xerbla~14.html#common-infoc~125'>test_XERBLA</a> (subroutine)<br><a href='../program/sblat3~2.html#common-infoc~126'>SBLAT3</a> (program)<br><a href='../proc/test_xerbla~15.html#common-infoc~127'>test_XERBLA</a> (subroutine)<br><a href='../proc/zchk1~4.html#common-infoc~128'>ZCHK1</a> (subroutine)<br><a href='../proc/zchk2~4.html#common-infoc~129'>ZCHK2</a> (subroutine)<br><a href='../proc/zchk3~4.html#common-infoc~130'>ZCHK3</a> (subroutine)<br><a href='../proc/zchk4~4.html#common-infoc~131'>ZCHK4</a> (subroutine)<br><a href='../proc/zchk5~4.html#common-infoc~132'>ZCHK5</a> (subroutine)<br><a href='../proc/zchke~4.html#common-infoc~133'>ZCHKE</a> (subroutine)<br><a href='../program/zblat3~2.html#common-infoc~134'>ZBLAT3</a> (program)<br><a href='../proc/test_xerbla~16.html#common-infoc~135'>test_XERBLA</a> (subroutine)<br><a href='../program/sblat2~2.html#common-infoc~136'>SBLAT2</a> (program)<br>">common /INFOC/</a>
+      
+  </h3></div>
+  <div class="panel-body">
+    
+    
+    
+    
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+
+<th>Attributes</th><th></th><th>Name</th><th></th><th>Initial</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-infot~12"></span>integer</td>
+  
+  
+  <td></td><td>::</td>
+  <td><strong>INFOT</strong></td><td></td><td></td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-lerr~12"></span>integer</td>
+  
+  
+  <td></td><td>::</td>
+  <td><strong>LERR</strong></td><td></td><td></td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-noutc~12"></span>integer</td>
+  
+  
+  <td></td><td>::</td>
+  <td><strong>NOUTC</strong></td><td></td><td></td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-ok~12"></span>real</td>
+  
+  
+  <td></td><td>::</td>
+  <td><strong>OK</strong></td><td></td><td></td><td></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+    
+</div>
+</div>
+
+      
+    </section>
+    <br>
+    <script>
+      $(function () {
+      $('[data-toggle="popover"]').popover()
+      })
+    </script>
+    
+
+    
+    <section>    
+      <h2>Variables</h2>
+    
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th><th>Visibility</th>
+
+<th>Attributes</th><th></th><th>Name</th><th></th><th>Initial</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-a~81"></span>double precision,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>A</strong>(2,1)</td><td></td><td></td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-alpha~78"></span>double precision,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>ALPHA</strong></td><td></td><td></td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-b~29"></span>double precision,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>B</strong>(2,1)</td><td></td><td></td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-beta~47"></span>double precision,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>BETA</strong></td><td></td><td></td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-c~36"></span>double precision,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>C</strong>(2,1)</td><td></td><td></td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-infot~11"></span>integer,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>INFOT</strong></td><td></td><td></td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-lerr~11"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>LERR</strong></td><td></td><td></td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-noutc~11"></span>integer,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>NOUTC</strong></td><td></td><td></td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-ok~11"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>OK</strong></td><td></td><td></td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-one~2"></span>double precision,</td>
+  
+  <td>public,</td>
+  <td>parameter</td><td>::</td>
+  <td><strong>ONE</strong></td><td> =</td><td> 1.0D0</td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-two"></span>double precision,</td>
+  
+  <td>public,</td>
+  <td>parameter</td><td>::</td>
+  <td><strong>TWO</strong></td><td> =</td><td> 2.0D0</td><td></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+    </section>
+    <br>
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+
+
+    
+    
+    
+    
+    </div>
+  </div>
+
+
+    <hr>    
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+      <div class="row">
+        <div class="col-xs-6 col-md-4"><p>&copy; 2021 
+                                          </p></div>
+        <div class="col-xs-6 col-md-4 col-md-push-4">
+          <p class="text-right">
+            Documentation generated by 
+            <a href="https://github.com/cmacmackin/ford">FORD</a>
+             on 2021-08-23 15:25  
+          </p>
+        </div>
+        <div class="col-xs-12 col-md-4 col-md-pull-4"><p class="text-center"> M_blas was developed by John S. Urban and many others</p></div>
+      </div>
+      <br>
+      </div> <!-- /container -->    
+    </footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+<!--
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+-->
+    <script src="../js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../js/ie10-viewport-bug-workaround.js"></script>
+
+    <!-- MathJax JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+        jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+        extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
+      });
+    </script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    
+    <script src="../tipuesearch/tipuesearch_content.js"></script>
+    <script src="../tipuesearch/tipuesearch_set.js"></script>
+    <script src="../tipuesearch/tipuesearch.js"></script>
+    
+    
+  </body>
+</html>

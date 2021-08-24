@@ -1,23 +1,25 @@
 $BLOCK COMMENT --file cher2.3m_blas.man
 NAME
-   cher2.(3f) -- [BLAS:COMPLEX_BLAS_LEVEL2]
+   cher2(3f) - [BLAS:COMPLEX_BLAS_LEVEL2] A := A + alpha*CX*CONJUGATE-TRANSPOSE(CY)n + CONJUGATE(alpha)*CY*CONJUGATE-TRANSPOSE(CX);
+   ==> n A a (square) hermitian matrix.
+   (performs the hermitian rank 2 operation)
 
 SYNOPSIS
-    SUBROUTINE CHER2(UPLO,N,ALPHA,X,INCX,Y,INCY,A,LDA)
+    subroutine cher2(uplo,n,alpha,x,incx,y,incy,a,lda)
 
       .. Scalar Arguments ..
-      COMPLEX,intent(in)     :: ALPHA
-      INTEGER,intent(in)     :: INCX,INCY,LDA,N
-      CHARACTER,intent(in)   :: UPLO
+      complex,intent(in)     :: alpha
+      integer,intent(in)     :: incx,incy,lda,n
+      character,intent(in)   :: uplo
       ..
       .. Array Arguments ..
-      COMPLEX,intent(inout)  :: A(LDA,*)
-      COMPLEX,intent(in)     :: X(*),Y(*)
+      complex,intent(inout)  :: a(lda,*)
+      complex,intent(in)     :: x(*),y(*)
       ..
 
 DEFINITION
 
- CHER2  performs the hermitian rank 2 operation
+ CHER2 performs the hermitian rank 2 operation
 
     A := alpha*x*y**H + conjg( alpha )*y*x**H + A,
 
@@ -76,10 +78,10 @@ OPTIONS
            On entry, INCY specifies the increment for the elements of
            Y. INCY must not be zero.
  
- out] A
+ A
  
           A is COMPLEX array, dimension ( LDA, N )
-           Before entry with  UPLO = 'U' or 'u', the leading n by n
+           Before entry with UPLO = 'U' or 'u', the leading n by n
            upper triangular part of the array A must contain the upper
            triangular part of the hermitian matrix and the strictly
            lower triangular part of A is not referenced. On exit, the

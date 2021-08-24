@@ -1,6 +1,6 @@
 $BLOCK COMMENT --file sdot.3m_blas.man
 NAME
-   sdot.(3f) -- [BLAS:SINGLE_BLAS_LEVEL1]
+   sdot(3f) - [BLAS:SINGLE_BLAS_LEVEL1] SDOT := SUM SX * SY (vector dot product)
 
 SYNOPSIS
     REAL FUNCTION SDOT(N,SX,INCX,SY,INCY)

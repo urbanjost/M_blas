@@ -1,6 +1,6 @@
 $BLOCK COMMENT --file ccopy.3m_blas.man
 NAME
-   ccopy.(3f) -- [BLAS:COMPLEX_BLAS_LEVEL1] CCOPY copies elements of a vector x to a vector y.
+   ccopy(3f) - [BLAS:COMPLEX_BLAS_LEVEL1] CY:=CX (copies elements of a vector x to a vector y)
 
 SYNOPSIS
    SUBROUTINE CCOPY(N,CX,INCX,CY,INCY)

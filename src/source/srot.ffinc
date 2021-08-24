@@ -1,6 +1,6 @@
 $BLOCK COMMENT --file srot.3m_blas.man
 NAME
-   srot.(3f) -- [BLAS:SINGLE_BLAS_LEVEL1]
+   srot(3f) - [BLAS:SINGLE_BLAS_LEVEL1] Apply Given's rotation.
 
 SYNOPSIS
     SUBROUTINE SROT(N,SX,INCX,SY,INCY,C,S)
@@ -24,7 +24,7 @@ OPTIONS
           N is INTEGER
          number of elements in input vector(s)
  
- out] SX
+ SX
  
           SX is REAL array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
  
@@ -33,7 +33,7 @@ OPTIONS
           INCX is INTEGER
          storage spacing between elements of SX
  
- out] SY
+ SY
  
           SY is REAL array, dimension ( 1 + ( N - 1 )*abs( INCY ) )
  

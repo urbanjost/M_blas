@@ -1,6 +1,6 @@
 $BLOCK COMMENT --file zdotu.3m_blas.man
 NAME
-   zdotu.(3f) -- [BLAS:COMPLEX16_BLAS_LEVEL1]
+   zdotu(3f) - [BLAS:COMPLEX16_BLAS_LEVEL1]
 
 SYNOPSIS
     complex(kind=real64) FUNCTION ZDOTU(N,ZX,INCX,ZY,INCY)

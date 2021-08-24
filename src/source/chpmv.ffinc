@@ -1,6 +1,7 @@
 $BLOCK COMMENT --file chpmv.3m_blas.man
 NAME
-   chpmv.(3f) -- [BLAS:COMPLEX_BLAS_LEVEL2]
+   chpmv(3f) - [BLAS:COMPLEX_BLAS_LEVEL2]
+CY := alpha*A*CX + beta*CY, A a (square) hermitian packed matrix.
 
 SYNOPSIS
     SUBROUTINE CHPMV(UPLO,N,ALPHA,AP,X,INCX,BETA,Y,INCY)
@@ -17,7 +18,7 @@ SYNOPSIS
 
 DEFINITION
 
- CHPMV  performs the matrix-vector operation
+ CHPMV(3f) performs the matrix-vector operation
 
     y := alpha*A*x + beta*y,
 
@@ -86,7 +87,7 @@ OPTIONS
            On entry, BETA specifies the scalar beta. When BETA is
            supplied as zero then Y need not be set on input.
  
- out] Y
+ Y
  
           Y is COMPLEX array, dimension at least
            ( 1 + ( n - 1 )*abs( INCY ) ).

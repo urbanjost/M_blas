@@ -53,7 +53,7 @@ a.existingWikiWord[title]{ //border: 1px dashed #BBB; }
 
 </A>
 <BLOCKQUOTE>
-<B>chemm.</B>(3f) -- [BLAS:COMPLEX_BLAS_LEVEL3]
+<B>chemm</B>(3f) - [BLAS:COMPLEX_BLAS_LEVEL3] C:=alpha*A*TRANSPOSE(A)+beta*C; ==&gt; A hermitian, B, C rectangular.
 <P>
 </BLOCKQUOTE>
 <A name=contents></A><H3>CONTENTS</H3></A>
@@ -61,11 +61,12 @@ a.existingWikiWord[title]{ //border: 1px dashed #BBB; }
 <A HREF=#1>Synopsis</A><BR>
 <A HREF=#2>Definition</A><BR>
 <A HREF=#3>Options</A><BR>
-<A HREF=#4>Authors</A><BR>
-&nbsp; &nbsp; &nbsp;<A HREF=#5>Further Details</A><BR>
-<A HREF=#6>See Also</A><BR>
+&nbsp; &nbsp; &nbsp;<A HREF=#4>C</A><BR>
+<A HREF=#5>Authors</A><BR>
+&nbsp; &nbsp; &nbsp;<A HREF=#6>Further Details</A><BR>
+<A HREF=#7>See Also</A><BR>
 </BLOCKQUOTE>
-<A name=7>
+<A name=8>
 
      <H3>SYNOPSIS</H3>
 
@@ -93,30 +94,21 @@ SUBROUTINE <B>CHEMM</B>(SIDE,UPLO,M,N,ALPHA,A,LDA,B,LDB,BETA,C,LDC)
 </A>
 <BLOCKQUOTE>
 <P>
-<TABLE cellpadding=3>
-<TR valign=top><TD width=6% nowrap>
-<B>CHEMM</B> </TD><TD valign=bottom>
-performs one of the matrix-matrix operations
-</TD></TR>
-<TR><TD colspan=2>
+CHEMM performs one of the matrix-matrix operations
+<P>
 <PRE>
     C := alpha*A*B + beta*C,
 <P>
 </PRE>
 or
-</TD></TR>
-<TR><TD colspan=2>
+<P>
 <PRE>
     C := alpha*B*A + beta*C,
 <P>
 </PRE>
-</TD></TR>
-<TR valign=top><TD colspan=2>
-<B>where alpha and beta are scalars, A is an hermitian matrix and</B> </TD></TR><TR valign=top><TD width=6%>&nbsp;</TD><TD>
-B and
+where alpha and beta are scalars, A is an hermitian matrix and B and
 C are m by n matrices.
-</TD></TR>
-<TR></TR></TABLE></BLOCKQUOTE>
+</BLOCKQUOTE>
 <A name=3>
 
      <H3>OPTIONS</H3>
@@ -132,26 +124,15 @@ C are m by n matrices.
 <BLOCKQUOTE>
 <P>
 SIDE is CHARACTER*1
-<BLOCKQUOTE>
-<TABLE cellpadding=3><!-- tsb: SIDE is CHARACTER*1
- -->
-<TR></TR><TR></TR>
-<TR valign=top><TD colspan=2>
-<B>On entry,</B> </TD></TR><TR valign=top><TD width=6%>&nbsp;</TD><TD>
-SIDE  specifies whether  the  hermitian matrix  A
-</TD></TR>
-<TR valign=top><TD colspan=2>
-<B>appears on the</B> </TD></TR><TR valign=top><TD width=6%>&nbsp;</TD><TD>
-left or right  in the  operation as follows:
-</TD></TR>
-<TR></TR></TABLE><!-- .nf -->
+On entry, SIDE specifies whether the hermitian matrix A
+appears on the left or right in the operation as follows:
+<P>
 <PRE>
               SIDE = &#146;L&#146; or &#146;l&#146;   C := alpha*A*B + beta*C,
 <P>
               SIDE = &#146;R&#146; or &#146;r&#146;   C := alpha*B*A + beta*C,
 <P>
 </PRE>
-</BLOCKQUOTE>
 </BLOCKQUOTE>
 <A name=>
 
@@ -160,20 +141,10 @@ left or right  in the  operation as follows:
 <BLOCKQUOTE>
 <P>
 UPLO is CHARACTER*1
-<BLOCKQUOTE>
-<TABLE cellpadding=3><!-- tsb: UPLO is CHARACTER*1
- -->
-<TR></TR><TR></TR>
-<TR valign=top><TD width=6% nowrap>
-<B>On</B> </TD><TD valign=bottom>
-entry,   UPLO  specifies  whether  the  upper  or  lower
-</TD></TR>
-<TR valign=top><TD colspan=2>
-<B>triangular</B> </TD></TR><TR valign=top><TD width=6%>&nbsp;</TD><TD>
-part  of  the  hermitian  matrix   A  is  to  be
+On entry, UPLO specifies whether the upper or lower
+triangular part of the hermitian matrix A is to be
 referenced as follows:
-</TD></TR>
-<TR></TR></TABLE><!-- .nf -->
+<P>
 <PRE>
               UPLO = &#146;U&#146; or &#146;u&#146;   Only the upper triangular part of the
                                   hermitian matrix is to be referenced.
@@ -183,7 +154,6 @@ referenced as follows:
 <P>
 </PRE>
 </BLOCKQUOTE>
-</BLOCKQUOTE>
 <A name=>
 
     <H4>&nbsp; &nbsp; M</H4>
@@ -191,19 +161,8 @@ referenced as follows:
 <BLOCKQUOTE>
 <P>
 M is INTEGER
-<BLOCKQUOTE>
-<TABLE cellpadding=3><!-- tsb: M is INTEGER
- -->
-<TR></TR><TR></TR>
-<TR valign=top><TD colspan=2>
-<B>On entry,</B> </TD></TR><TR valign=top><TD width=6%>&nbsp;</TD><TD>
-M  specifies the number of rows of the matrix  C.
-</TD></TR>
-<TR valign=top><TD width=6% nowrap>
-<B>M</B> </TD><TD valign=bottom>
-must be at least zero.
-</TD></TR>
-<TR></TR></TABLE></BLOCKQUOTE>
+On entry, M specifies the number of rows of the matrix C.
+M must be at least zero.
 </BLOCKQUOTE>
 <A name=>
 
@@ -213,15 +172,7 @@ must be at least zero.
 <P>
 N is INTEGER
 On entry, N specifies the number of columns of the matrix C.
-<BLOCKQUOTE>
-<TABLE cellpadding=3><!-- tsb: N is INTEGER
- -->
-<TR></TR><TR></TR>
-<TR valign=top><TD width=6% nowrap>
-<B>N</B> </TD><TD valign=bottom>
-must be at least zero.
-</TD></TR>
-<TR></TR></TABLE></BLOCKQUOTE>
+N must be at least zero.
 </BLOCKQUOTE>
 <A name=>
 
@@ -239,94 +190,29 @@ On entry, ALPHA specifies the scalar alpha.
 <BLOCKQUOTE>
 <P>
 A is COMPLEX array, dimension ( LDA, ka ), where ka is
-<BLOCKQUOTE>
-<TABLE cellpadding=3><!-- tsb: A is COMPLEX array, dimension ( LDA, ka ), where ka is
- -->
-<TR></TR><TR></TR>
-<TR valign=top><TD width=6% nowrap>
-<B>m</B> </TD><TD valign=bottom>
-when  SIDE = &#146;L&#146; or &#146;l&#146;  and is n  otherwise.
-</TD></TR>
-<TR valign=top><TD colspan=2>
-<B>Before entry</B> </TD></TR><TR valign=top><TD width=6%>&nbsp;</TD><TD>
-with  SIDE = &#146;L&#146; or &#146;l&#146;,  the  m by m  part of
-</TD></TR>
-<TR valign=top><TD colspan=2>
-<B>the array</B> </TD></TR><TR valign=top><TD width=6%>&nbsp;</TD><TD>
-A  must contain the  hermitian matrix,  such that
-</TD></TR>
-<TR valign=top><TD width=6% nowrap>
-<B>when</B> </TD><TD valign=bottom>
-UPLO = &#146;U&#146; or &#146;u&#146;, the leading m by m upper triangular
-</TD></TR>
-<TR valign=top><TD colspan=2>
-<B>part of the array</B> </TD></TR><TR valign=top><TD width=6%>&nbsp;</TD><TD>
-A  must contain the upper triangular part
-</TD></TR>
-<TR valign=top><TD width=6% nowrap>
-<B>of the</B> </TD><TD valign=bottom>
-hermitian matrix and the  strictly  lower triangular
-</TD></TR>
-<TR valign=top><TD colspan=2>
-<B>part of</B> </TD></TR><TR valign=top><TD width=6%>&nbsp;</TD><TD>
-A  is not referenced,  and when  UPLO = &#146;L&#146; or &#146;l&#146;,
-</TD></TR>
-<TR valign=top><TD colspan=2>
-<B>the leading</B> </TD></TR><TR valign=top><TD width=6%>&nbsp;</TD><TD>
-m by m  lower triangular part  of the  array  A
-</TD></TR>
-<TR valign=top><TD width=6% nowrap>
-<B>must</B> </TD><TD valign=bottom>
-contain  the  lower triangular part  of the  hermitian
-</TD></TR>
-<TR valign=top><TD colspan=2>
-<B>matrix and the</B> </TD></TR><TR valign=top><TD width=6%>&nbsp;</TD><TD>
-strictly upper triangular part of  A  is not
+m when SIDE = &#146;L&#146; or &#146;l&#146; and is n otherwise.
+Before entry with SIDE = &#146;L&#146; or &#146;l&#146;, the m by m part of
+the array A must contain the hermitian matrix, such that
+when UPLO = &#146;U&#146; or &#146;u&#146;, the leading m by m upper triangular
+part of the array A must contain the upper triangular part
+of the hermitian matrix and the strictly lower triangular
+part of A is not referenced, and when UPLO = &#146;L&#146; or &#146;l&#146;,
+the leading m by m lower triangular part of the array A
+must contain the lower triangular part of the hermitian
+matrix and the strictly upper triangular part of A is not
 referenced.
-</TD></TR>
-<TR valign=top><TD colspan=2>
-<B>Before entry</B> </TD></TR><TR valign=top><TD width=6%>&nbsp;</TD><TD>
-with  SIDE = &#146;R&#146; or &#146;r&#146;,  the  n by n  part of
-</TD></TR>
-<TR valign=top><TD colspan=2>
-<B>the array</B> </TD></TR><TR valign=top><TD width=6%>&nbsp;</TD><TD>
-A  must contain the  hermitian matrix,  such that
-</TD></TR>
-<TR valign=top><TD width=6% nowrap>
-<B>when</B> </TD><TD valign=bottom>
-UPLO = &#146;U&#146; or &#146;u&#146;, the leading n by n upper triangular
-</TD></TR>
-<TR valign=top><TD colspan=2>
-<B>part of the array</B> </TD></TR><TR valign=top><TD width=6%>&nbsp;</TD><TD>
-A  must contain the upper triangular part
-</TD></TR>
-<TR valign=top><TD width=6% nowrap>
-<B>of the</B> </TD><TD valign=bottom>
-hermitian matrix and the  strictly  lower triangular
-</TD></TR>
-<TR valign=top><TD colspan=2>
-<B>part of</B> </TD></TR><TR valign=top><TD width=6%>&nbsp;</TD><TD>
-A  is not referenced,  and when  UPLO = &#146;L&#146; or &#146;l&#146;,
-</TD></TR>
-<TR valign=top><TD colspan=2>
-<B>the leading</B> </TD></TR><TR valign=top><TD width=6%>&nbsp;</TD><TD>
-n by n  lower triangular part  of the  array  A
-</TD></TR>
-<TR valign=top><TD width=6% nowrap>
-<B>must</B> </TD><TD valign=bottom>
-contain  the  lower triangular part  of the  hermitian
-</TD></TR>
-<TR valign=top><TD colspan=2>
-<B>matrix and the</B> </TD></TR><TR valign=top><TD width=6%>&nbsp;</TD><TD>
-strictly upper triangular part of  A  is not
+Before entry with SIDE = &#146;R&#146; or &#146;r&#146;, the n by n part of
+the array A must contain the hermitian matrix, such that
+when UPLO = &#146;U&#146; or &#146;u&#146;, the leading n by n upper triangular
+part of the array A must contain the upper triangular part
+of the hermitian matrix and the strictly lower triangular
+part of A is not referenced, and when UPLO = &#146;L&#146; or &#146;l&#146;,
+the leading n by n lower triangular part of the array A
+must contain the lower triangular part of the hermitian
+matrix and the strictly upper triangular part of A is not
 referenced.
-</TD></TR>
-<TR valign=top><TD colspan=2>
-<B>Note that the imaginary parts</B> </TD></TR><TR valign=top><TD width=6%>&nbsp;</TD><TD>
-of the diagonal elements need
+Note that the imaginary parts of the diagonal elements need
 not be set, they are assumed to be zero.
-</TD></TR>
-<TR></TR></TABLE></BLOCKQUOTE>
 </BLOCKQUOTE>
 <A name=>
 
@@ -336,20 +222,9 @@ not be set, they are assumed to be zero.
 <P>
 LDA is INTEGER
 On entry, LDA specifies the first dimension of A as declared
-<BLOCKQUOTE>
-<TABLE cellpadding=3><!-- tsb: LDA is INTEGER
- -->
-<TR></TR><TR></TR>
-<TR valign=top><TD width=6% nowrap>
-<B>in the</B> </TD><TD valign=bottom>
-calling (sub) program. When  SIDE = &#146;L&#146; or &#146;l&#146;  then
-</TD></TR>
-<TR valign=top><TD colspan=2>
-<B>LDA must be at least</B> </TD></TR><TR valign=top><TD width=6%>&nbsp;</TD><TD>
-<B>max</B>( 1, m ), otherwise  LDA must be at
+in the calling (sub) program. When SIDE = &#146;L&#146; or &#146;l&#146; then
+LDA must be at least <B>max</B>( 1, m ), otherwise LDA must be at
 least <B>max</B>( 1, n ).
-</TD></TR>
-<TR></TR></TABLE></BLOCKQUOTE>
 </BLOCKQUOTE>
 <A name=>
 
@@ -358,16 +233,8 @@ least <B>max</B>( 1, n ).
 <BLOCKQUOTE>
 <P>
 B is COMPLEX array, dimension ( LDB, N )
-<BLOCKQUOTE>
-<TABLE cellpadding=3><!-- tsb: B is COMPLEX array, dimension ( LDB, N )
- -->
-<TR></TR><TR></TR>
-<TR valign=top><TD colspan=2>
-<B>Before entry, the leading</B> </TD></TR><TR valign=top><TD width=6%>&nbsp;</TD><TD>
-m by n part of the array  B  must
+Before entry, the leading m by n part of the array B must
 contain the matrix B.
-</TD></TR>
-<TR></TR></TABLE></BLOCKQUOTE>
 </BLOCKQUOTE>
 <A name=>
 
@@ -377,16 +244,8 @@ contain the matrix B.
 <P>
 LDB is INTEGER
 On entry, LDB specifies the first dimension of B as declared
-<BLOCKQUOTE>
-<TABLE cellpadding=3><!-- tsb: LDB is INTEGER
- -->
-<TR></TR><TR></TR>
-<TR valign=top><TD width=6% nowrap>
-<B>in</B> </TD><TD valign=bottom>
-the  calling  (sub)  program.   LDB  must  be  at  least
+in the calling (sub) program. LDB must be at least
 <B>max</B>( 1, m ).
-</TD></TR>
-<TR></TR></TABLE></BLOCKQUOTE>
 </BLOCKQUOTE>
 <A name=>
 
@@ -395,29 +254,22 @@ the  calling  (sub)  program.   LDB  must  be  at  least
 <BLOCKQUOTE>
 <P>
 BETA is COMPLEX
-<BLOCKQUOTE>
-<TABLE cellpadding=3><!-- tsb: BETA is COMPLEX
- -->
-<TR></TR><TR></TR>
-<TR valign=top><TD colspan=2>
-<B>On entry,</B> </TD></TR><TR valign=top><TD width=6%>&nbsp;</TD><TD>
-BETA  specifies the scalar  beta.  When  BETA  is
+On entry, BETA specifies the scalar beta. When BETA is
 supplied as zero then C need not be set on input.
-</TD></TR>
-<TR></TR></TABLE></BLOCKQUOTE>
 </BLOCKQUOTE>
+<A name=4>
+
+    <H4>&nbsp; &nbsp; C</H4>
+</A>
+<BLOCKQUOTE>
 <P>
-out] C
-<P>
-<PRE>
-          C is COMPLEX array, dimension ( LDC, N )
-           Before entry, the leading  m by n  part of the array  C must
-           contain the matrix  C,  except when  beta  is zero, in which
-           case C need not be set on entry.
-           On exit, the array  C  is overwritten by the  m by n updated
-           matrix.
-<P>
-</PRE>
+C is COMPLEX array, dimension ( LDC, N )
+Before entry, the leading m by n part of the array C must
+contain the matrix C, except when beta is zero, in which
+case C need not be set on entry.
+On exit, the array C is overwritten by the m by n updated
+matrix.
+</BLOCKQUOTE>
 <A name=>
 
     <H4>&nbsp; &nbsp; LDC</H4>
@@ -426,18 +278,10 @@ out] C
 <P>
 LDC is INTEGER
 On entry, LDC specifies the first dimension of C as declared
-<BLOCKQUOTE>
-<TABLE cellpadding=3><!-- tsb: LDC is INTEGER
- -->
-<TR></TR><TR></TR>
-<TR valign=top><TD width=6% nowrap>
-<B>in</B> </TD><TD valign=bottom>
-the  calling  (sub)  program.   LDC  must  be  at  least
+in the calling (sub) program. LDC must be at least
 <B>max</B>( 1, m ).
-</TD></TR>
-<TR></TR></TABLE></BLOCKQUOTE>
 </BLOCKQUOTE>
-<A name=4>
+<A name=5>
 
      <H3>AUTHORS</H3>
 
@@ -471,7 +315,7 @@ NAG Ltd.
 <P>
 </PRE>
 </BLOCKQUOTE>
-<A name=5>
+<A name=6>
 
     <H4>&nbsp; &nbsp; FURTHER DETAILS</H4>
 </A>
@@ -485,7 +329,7 @@ Iain Duff, AERE Harwell.
 Jeremy Du Croz, Numerical Algorithms Group Ltd.
 Sven Hammarling, Numerical Algorithms Group Ltd.
 </BLOCKQUOTE>
-<A name=6>
+<A name=7>
 
      <H3>SEE ALSO</H3>
 
@@ -495,7 +339,7 @@ Online html documentation available at
 <A HREF="http://www.netlib.org/lapack/explore-html">http://www.netlib.org/lapack/explore-html</A>/
 </BLOCKQUOTE>
 <P><HR>
-<TABLE width=100%><TR> <TD width=33%><I></I></TD> <TD width=33% align=center>chemm (3m_blas)</TD> <TD align=right width=33%><I>August 23, 2021</I></TD> </TR></TABLE><FONT SIZE=-1>Generated by <A HREF="http://www.squarebox.co.uk/download/manServer.shtml">manServer 1.08</A> from b205007d-3fdd-4286-9d6b-e1bdb9407243 using man macros.</FONT>
+<TABLE width=100%><TR> <TD width=33%><I></I></TD> <TD width=33% align=center>chemm (3m_blas)</TD> <TD align=right width=33%><I>August 23, 2021</I></TD> </TR></TABLE><FONT SIZE=-1>Generated by <A HREF="http://www.squarebox.co.uk/download/manServer.shtml">manServer 1.08</A> from 289963ee-dd9a-4bba-ae74-4a2e52b0950c using man macros.</FONT>
 <br><br><center><img src="images/chemm.gif"></center>
 </div>
 </div>

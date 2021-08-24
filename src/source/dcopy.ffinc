@@ -1,6 +1,7 @@
 $BLOCK COMMENT --file dcopy.3m_blas.man
 NAME
-   dcopy.(3f) -- [BLAS:DOUBLE_BLAS_LEVEL1]
+   dcopy(3f) - [BLAS:DOUBLE_BLAS_LEVEL1] copies elements of a vector,
+               x, to a vector, y.
 
 SYNOPSIS
     SUBROUTINE DCOPY(N,DX,INCX,DY,INCY)

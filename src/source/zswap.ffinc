@@ -1,6 +1,6 @@
 $BLOCK COMMENT --file zswap.3m_blas.man
 NAME
-   zswap.(3f) -- [BLAS:COMPLEX16_BLAS_LEVEL1]
+   zswap(3f) - [BLAS:COMPLEX16_BLAS_LEVEL1]
 
 SYNOPSIS
     SUBROUTINE ZSWAP(N,ZX,INCX,ZY,INCY)
@@ -23,7 +23,7 @@ OPTIONS
           N is INTEGER
          number of elements in input vector(s)
  
- out] ZX
+ ZX
  
           ZX is complex(kind=real64) array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
  
@@ -32,7 +32,7 @@ OPTIONS
           INCX is INTEGER
          storage spacing between elements of ZX
  
- out] ZY
+ ZY
  
           ZY is complex(kind=real64) array, dimension ( 1 + ( N - 1 )*abs( INCY ) )
  

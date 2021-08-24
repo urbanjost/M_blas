@@ -1,6 +1,7 @@
 $BLOCK COMMENT --file chpr.3m_blas.man
 NAME
-   chpr.(3f) -- [BLAS:COMPLEX_BLAS_LEVEL2]
+   chpr(3f) - [BLAS:COMPLEX_BLAS_LEVEL2] performs the hermitian rank 1 operation
+A := A + alpha*CX*CONJUGATE-TRANSPOSE(CX), a a (square) hermitian packed.
 
 SYNOPSIS
     SUBROUTINE CHPR(UPLO,N,ALPHA,X,INCX,AP)
@@ -17,7 +18,7 @@ SYNOPSIS
 
 DEFINITION
 
- CHPR    performs the hermitian rank 1 operation
+ CHPR performs the hermitian rank 1 operation
 
     A := alpha*x*x**H + A,
 
@@ -63,11 +64,11 @@ OPTIONS
            On entry, INCX specifies the increment for the elements of
            X. INCX must not be zero.
  
- out] AP
+ AP
  
           AP is COMPLEX array, dimension at least
            ( ( n*( n + 1 ) )/2 ).
-           Before entry with  UPLO = 'U' or 'u', the array AP must
+           Before entry with UPLO = 'U' or 'u', the array AP must
            contain the upper triangular part of the hermitian matrix
            packed sequentially, column by column, so that AP( 1 )
            contains a( 1, 1 ), AP( 2 ) and AP( 3 ) contain a( 1, 2 )

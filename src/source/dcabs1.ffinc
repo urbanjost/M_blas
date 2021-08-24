@@ -1,6 +1,7 @@
 $BLOCK COMMENT --file dcabs1.3m_blas.man
 NAME
-   dcabs1.(3f) -- [BLAS:DOUBLE_BLAS_LEVEL1]
+   dcabs1(3f) - [BLAS:DOUBLE_BLAS_LEVEL1] DCABS1 computes 
+   |Re(.)| + |Im(.)| of a double complex number
 
 SYNOPSIS
     DOUBLE PRECISION FUNCTION DCABS1(Z)

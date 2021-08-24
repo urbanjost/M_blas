@@ -1,6 +1,6 @@
 $BLOCK COMMENT --file zgeru.3m_blas.man
 NAME
-   zgeru.(3f) -- [BLAS:COMPLEX_16_BLAS_LEVEL2]
+   zgeru(3f) - [BLAS:COMPLEX_16_BLAS_LEVEL2]
 
 SYNOPSIS
     subroutine zgeru(m,n,alpha,x,incx,y,incy,a,lda)
@@ -16,7 +16,7 @@ SYNOPSIS
 
 DEFINITION
 
- ZGERU  performs the rank 1 operation
+ ZGERU performs the rank 1 operation
 
     A := alpha*x*y**T + A,
 

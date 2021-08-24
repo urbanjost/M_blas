@@ -1,6 +1,6 @@
 $BLOCK COMMENT --file srotmg.3m_blas.man
 NAME
-   srotmg.(3f) -- [BLAS:SINGLE_BLAS_LEVEL1]
+   srotmg(3f) - [BLAS:SINGLE_BLAS_LEVEL1] Generate a modified Given's rotation.
 
 SYNOPSIS
     SUBROUTINE SROTMG(SD1,SD2,SX1,SY1,SPARAM)
@@ -22,11 +22,11 @@ DEFINITION
 
     with sparam(1)=sflag, H has one of the following forms..
 
-    SFLAG=-1.E0     SFLAG=0.E0        SFLAG=1.E0     SFLAG=-2.E0
-
-      (SH11  SH12)    (1.E0  SH12)    (SH11  1.E0)    (1.E0  0.E0)
-    H=(          )    (          )    (          )    (          )
-      (SH21  SH22),   (SH21  1.E0),   (-1.E0 SH22),   (0.E0  1.E0).
+       SFLAG=-1.E0     SFLAG=0.E0        SFLAG=1.E0     SFLAG=-2.E0
+   
+         (SH11  SH12)    (1.E0  SH12)    (SH11  1.E0)    (1.E0  0.E0)
+       H=(          )    (          )    (          )    (          )
+         (SH21  SH22),   (SH21  1.E0),   (-1.E0 SH22),   (0.E0  1.E0).
 
     locations 2-4 of SPARAM contain SH11,SH21,SH12, and SH22
     respectively. (values of 1.e0, -1.e0, or 0.e0 implied by the value
@@ -34,19 +34,19 @@ DEFINITION
 
     the values of GAMSQ and RGAMSQ set in the data statement may be
     inexact. This is OK as they are only used for testing the size of
-    SD1 and SD2.  All actual scaling of data is done using GAM.
+    SD1 and SD2. All actual scaling of data is done using GAM.
 
 OPTIONS
 
- out] SD1
+ SD1
  
           SD1 is REAL
  
- out] SD2
+ SD2
  
           SD2 is REAL
  
- out] SX1
+ SX1
  
           SX1 is REAL
  

@@ -35,6 +35,23 @@ rainy-day project at this point, and __should not be considered stable__.
 
 I would love to hear from anyone who tries this as a replacement for
 their current libblas.a or libregblas.a.
+## DOCUMENTATION
+   __A WIP (work in progress)__
+
+All documents are contained in the docs/ directory including
+archive files of man(1) pages that can be installed on ULS
+(Unix-Like Systems).
+
+   + [man-pages in HTML format](https://urbanjost.github.io/M_blas/man3.html)
+   + [amalgamated man-pages (requires Javascript)](https://urbanjost.github.io/M_blas/BOOK_M_blas.html) can easily be printed as a single document.
+   + [ford(1) output](https://urbanjost.github.io/M_blas/fpm-ford/index.html)
+   + [doxygen(1) output]()
+
+## real man-pages ![gmake](docs/images/manpages.gif)
+
+   + [manpages.zip](https://urbanjost.github.io/M_blas/manpages.zip) 
+   + [manpages.tgz](https://urbanjost.github.io/M_blas/manpages.tgz) 
+
 
 ## DOWNLOAD AND BUILD
 

@@ -1,6 +1,6 @@
 $BLOCK COMMENT --file daxpy.3m_blas.man
 NAME
-   daxpy.(3f) -- [BLAS:DOUBLE_BLAS_LEVEL1]
+   daxpy(3f) - [BLAS:DOUBLE_BLAS_LEVEL1] constant times a vector plus a vector.
 
 SYNOPSIS
     SUBROUTINE DAXPY(N,DA,DX,INCX,DY,INCY)
@@ -40,7 +40,7 @@ OPTIONS
           INCX is INTEGER
          storage spacing between elements of DX
  
- out] DY
+ DY
  
           DY is DOUBLE PRECISION array, dimension ( 1 + ( N - 1 )*abs( INCY ) )
  

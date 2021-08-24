@@ -1,6 +1,6 @@
 $BLOCK COMMENT --file zhpr2.3m_blas.man
 NAME
-   zhpr2.(3f) -- [BLAS:COMPLEX_16_BLAS_LEVEL2]
+   zhpr2(3f) - [BLAS:COMPLEX_16_BLAS_LEVEL2]
 
 SYNOPSIS
     SUBROUTINE ZHPR2(UPLO,N,ALPHA,X,INCX,Y,INCY,AP)
@@ -17,7 +17,7 @@ SYNOPSIS
 
 DEFINITION
 
- ZHPR2  performs the hermitian rank 2 operation
+ ZHPR2 performs the hermitian rank 2 operation
 
     A := alpha*x*y**H + conjg( alpha )*y*x**H + A,
 
@@ -76,11 +76,11 @@ OPTIONS
            On entry, INCY specifies the increment for the elements of
            Y. INCY must not be zero.
  
- out] AP
+ AP
  
           AP is complex(kind=real64) array, dimension at least
            ( ( n*( n + 1 ) )/2 ).
-           Before entry with  UPLO = 'U' or 'u', the array AP must
+           Before entry with UPLO = 'U' or 'u', the array AP must
            contain the upper triangular part of the hermitian matrix
            packed sequentially, column by column, so that AP( 1 )
            contains a( 1, 1 ), AP( 2 ) and AP( 3 ) contain a( 1, 2 )

@@ -1,6 +1,6 @@
 $BLOCK COMMENT --file idamax.3m_blas.man
 NAME
-   idamax.(3f) -- [BLAS:AUX_BLAS]
+   idamax(3f) - [BLAS:AUX_BLAS]
 
 SYNOPSIS
     integer function idamax(n,dx,incx)

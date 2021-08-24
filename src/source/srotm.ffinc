@@ -1,6 +1,6 @@
 $BLOCK COMMENT --file srotm.3m_blas.man
 NAME
-   srotm.(3f) -- [BLAS:SINGLE_BLAS_LEVEL1]
+   srotm(3f) - [BLAS:SINGLE_BLAS_LEVEL1] Apply a modified Given's rotation.
 
 SYNOPSIS
     SUBROUTINE SROTM(N,SX,INCX,SY,INCY,SPARAM)
@@ -24,11 +24,12 @@ DEFINITION
     LX = (-INCX)*N, AND SIMILARLY FOR SY USING USING LY AND INCY.
     WITH SPARAM(1)=SFLAG, H HAS ONE OF THE FOLLOWING FORMS..
 
-    SFLAG=-1.E0     SFLAG=0.E0        SFLAG=1.E0     SFLAG=-2.E0
+       SFLAG=-1.E0     SFLAG=0.E0        SFLAG=1.E0     SFLAG=-2.E0
+   
+         (SH11  SH12)    (1.E0  SH12)    (SH11  1.E0)    (1.E0  0.E0)
+       H=(          )    (          )    (          )    (          )
+         (SH21  SH22),   (SH21  1.E0),   (-1.E0 SH22),   (0.E0  1.E0).
 
-      (SH11  SH12)    (1.E0  SH12)    (SH11  1.E0)    (1.E0  0.E0)
-    H=(          )    (          )    (          )    (          )
-      (SH21  SH22),   (SH21  1.E0),   (-1.E0 SH22),   (0.E0  1.E0).
     SEE  SROTMG FOR A DESCRIPTION OF DATA STORAGE IN SPARAM.
 
 OPTIONS
@@ -38,7 +39,7 @@ OPTIONS
           N is INTEGER
          number of elements in input vector(s)
  
- out] SX
+ SX
  
           SX is REAL array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
  
@@ -47,7 +48,7 @@ OPTIONS
           INCX is INTEGER
          storage spacing between elements of SX
  
- out] SY
+ SY
  
           SY is REAL array, dimension ( 1 + ( N - 1 )*abs( INCY ) )
  

@@ -1,6 +1,6 @@
 $BLOCK COMMENT --file cswap.3m_blas.man
 NAME
-   cswap.(3f) -- [BLAS:COMPLEX_BLAS_LEVEL1]
+   cswap(3f) - [BLAS:COMPLEX_BLAS_LEVEL1] Interchange vectors CX and CY.
 
 SYNOPSIS
     SUBROUTINE CSWAP(N,CX,INCX,CY,INCY)
@@ -23,7 +23,7 @@ OPTIONS
           N is INTEGER
          number of elements in input vector(s)
  
- out] CX
+ CX
  
           CX is COMPLEX array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
  
@@ -32,7 +32,7 @@ OPTIONS
           INCX is INTEGER
          storage spacing between elements of CX
  
- out] CY
+ CY
  
           CY is COMPLEX array, dimension ( 1 + ( N - 1 )*abs( INCY ) )
  

@@ -1,6 +1,6 @@
 $BLOCK COMMENT --file isamax.3m_blas.man
 NAME
-   isamax.(3f) -- [BLAS:AUX_BLAS]
+   isamax(3f) - [BLAS:AUX_BLAS] Return index of maximum absolute value in SX.
 
 SYNOPSIS
     integer function isamax(n,sx,incx)
