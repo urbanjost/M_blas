@@ -58,7 +58,7 @@ SEE ALSO
    http://www.netlib.org/lapack/explore-html/
 $BLOCK END
 !  =====================================================================
-       SUBROUTINE ZDSCAL(N,DA,ZX,INCX)
+       subroutine zdscal(n,da,zx,incx)
       implicit none
 !
 !  -- Reference BLAS level1 routine (version 3.8.0) --
@@ -67,37 +67,37 @@ $BLOCK END
 !     November 2017
 !
 !     .. Scalar Arguments ..
-      DOUBLE PRECISION,intent(in) :: DA
-      INTEGER,intent(in) :: INCX,N
+      double precision,intent(in) :: da
+      integer,intent(in) :: incx,n
 !     ..
 !     .. Array Arguments ..
-      complex(kind=real64),intent(inout) :: ZX(*)
+      complex(kind=real64),intent(inout) :: zx(*)
 !     ..
 !
 !  =====================================================================
 !
 !     .. Local Scalars ..
-      INTEGER I,NINCX
+      integer i,nincx
 !     ..
 !     .. Intrinsic Functions ..
-      INTRINSIC DCMPLX
+      intrinsic dcmplx
 !     ..
-      IF (N.LE.0 .OR. INCX.LE.0) RETURN
-      IF (INCX.EQ.1) THEN
+      if (n.le.0 .or. incx.le.0) return
+      if (incx.eq.1) then
 !
 !        code for increment equal to 1
 !
-         DO I = 1,N
-            ZX(I) = DCMPLX(DA,0.0d0)*ZX(I)
+         do i = 1,n
+            zx(i) = dcmplx(da,0.0d0)*zx(i)
          enddo
-      ELSE
+      else
 !
 !        code for increment not equal to 1
 !
-         NINCX = N*INCX
-         DO I = 1,NINCX,INCX
-            ZX(I) = DCMPLX(DA,0.0d0)*ZX(I)
+         nincx = n*incx
+         do i = 1,nincx,incx
+            zx(i) = dcmplx(da,0.0d0)*zx(i)
          enddo
       endif
 
-      END SUBROUTINE ZDSCAL
+      end subroutine zdscal

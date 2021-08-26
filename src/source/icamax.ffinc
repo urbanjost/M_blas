@@ -52,7 +52,7 @@ SEE ALSO
    http://www.netlib.org/lapack/explore-html/
 $BLOCK END
 !  =====================================================================
-pure INTEGER FUNCTION ICAMAX(N,CX,INCX)
+pure integer function icamax(n,cx,incx)
       implicit none
 !
 !  -- Reference BLAS level1 routine (version 3.8.0) --
@@ -61,46 +61,46 @@ pure INTEGER FUNCTION ICAMAX(N,CX,INCX)
 !     November 2017
 !
 !     .. Scalar Arguments ..
-      INTEGER,intent(in) :: INCX,N
+      integer,intent(in) :: incx,n
 !     ..
 !     .. Array Arguments ..
-      COMPLEX,intent(in) :: CX(*)
+      complex,intent(in) :: cx(*)
 !     ..
 !  =====================================================================
 !     .. Local Scalars ..
-      REAL SMAX
-      INTEGER I,IX
+      real smax
+      integer i,ix
 !     ..
 !     .. External Functions ..  REAL SCABS1
 !     ..
-      ICAMAX = 0
-      IF (N.LT.1 .OR. INCX.LE.0) RETURN
-      ICAMAX = 1
-      IF (N.EQ.1) RETURN
-      IF (INCX.EQ.1) THEN
+      icamax = 0
+      if (n.lt.1 .or. incx.le.0) return
+      icamax = 1
+      if (n.eq.1) return
+      if (incx.eq.1) then
 !
 !        code for increment equal to 1
 !
-         SMAX = SCABS1(CX(1))
-         DO I = 2,N
-            IF (SCABS1(CX(I)).GT.SMAX) THEN
-               ICAMAX = I
-               SMAX = SCABS1(CX(I))
+         smax = scabs1(cx(1))
+         do i = 2,n
+            if (scabs1(cx(i)).gt.smax) then
+               icamax = i
+               smax = scabs1(cx(i))
             endif
          enddo
-      ELSE
+      else
 !
 !        code for increment not equal to 1
 !
-         IX = 1
-         SMAX = SCABS1(CX(1))
-         IX = IX + INCX
-         DO I = 2,N
-            IF (SCABS1(CX(IX)).GT.SMAX) THEN
-               ICAMAX = I
-               SMAX = SCABS1(CX(IX))
+         ix = 1
+         smax = scabs1(cx(1))
+         ix = ix + incx
+         do i = 2,n
+            if (scabs1(cx(ix)).gt.smax) then
+               icamax = i
+               smax = scabs1(cx(ix))
             endif
-            IX = IX + INCX
+            ix = ix + incx
          enddo
       endif
 end function icamax

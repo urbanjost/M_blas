@@ -157,7 +157,7 @@ SEE ALSO
    http://www.netlib.org/lapack/explore-html/
 $BLOCK END
 !  =====================================================================
-       SUBROUTINE DGBMV(TRANS,M,N,KL,KU,ALPHA,A,LDA,X,INCX,BETA,Y,INCY)
+       subroutine dgbmv(trans,m,n,kl,ku,alpha,a,lda,x,incx,beta,y,incy)
       implicit none
 !
 !  -- Reference BLAS level2 routine (version 3.7.0) --
@@ -166,81 +166,81 @@ $BLOCK END
 !     December 2016
 !
 !     .. Scalar Arguments ..
-      DOUBLE PRECISION,intent(in)    :: ALPHA,BETA
-      INTEGER,intent(in)             :: INCX,INCY,KL,KU,LDA,M,N
-      CHARACTER,intent(in)           :: TRANS
+      double precision,intent(in)    :: alpha,beta
+      integer,intent(in)             :: incx,incy,kl,ku,lda,m,n
+      character,intent(in)           :: trans
 !     ..
 !     .. Array Arguments ..
-      DOUBLE PRECISION,intent(in)    :: A(LDA,*),X(*)
-      DOUBLE PRECISION,intent(inout) :: Y(*)
+      double precision,intent(in)    :: a(lda,*),x(*)
+      double precision,intent(inout) :: y(*)
 !     ..
 !
 !  =====================================================================
 !
 !     .. Parameters ..
-      DOUBLE PRECISION ONE,ZERO
-      PARAMETER (ONE=1.0D+0,ZERO=0.0D+0)
+      double precision one,zero
+      parameter (one=1.0d+0,zero=0.0d+0)
 !     ..
 !     .. Local Scalars ..
-      DOUBLE PRECISION TEMP
-      INTEGER I,INFO,IX,IY,J,JX,JY,K,KUP1,KX,KY,LENX,LENY
+      double precision temp
+      integer i,info,ix,iy,j,jx,jy,k,kup1,kx,ky,lenx,leny
 !     ..
 !     .. External Functions ..
 !     ..
 !     .. External Subroutines ..
 !     ..
 !     .. Intrinsic Functions ..
-      INTRINSIC MAX,MIN
+      intrinsic max,min
 !     ..
 !
 !     Test the input parameters.
 !
-      INFO = 0
-      IF (.NOT.LSAME(TRANS,'N') .AND. .NOT.LSAME(TRANS,'T') .AND.  .NOT.LSAME(TRANS,'C')) THEN
-          INFO = 1
-      elseif (M.LT.0) THEN
-          INFO = 2
-      elseif (N.LT.0) THEN
-          INFO = 3
-      elseif (KL.LT.0) THEN
-          INFO = 4
-      elseif (KU.LT.0) THEN
-          INFO = 5
-      elseif (LDA.LT. (KL+KU+1)) THEN
-          INFO = 8
-      elseif (INCX.EQ.0) THEN
-          INFO = 10
-      elseif (INCY.EQ.0) THEN
-          INFO = 13
+      info = 0
+      if (.not.lsame(trans,'N') .and. .not.lsame(trans,'T') .and.  .not.lsame(trans,'C')) then
+          info = 1
+      elseif (m.lt.0) then
+          info = 2
+      elseif (n.lt.0) then
+          info = 3
+      elseif (kl.lt.0) then
+          info = 4
+      elseif (ku.lt.0) then
+          info = 5
+      elseif (lda.lt. (kl+ku+1)) then
+          info = 8
+      elseif (incx.eq.0) then
+          info = 10
+      elseif (incy.eq.0) then
+          info = 13
       endif
-      IF (INFO.NE.0) THEN
-          CALL XERBLA('DGBMV ',INFO)
-          RETURN
+      if (info.ne.0) then
+          call xerbla('DGBMV ',info)
+          return
       endif
 !
 !     Quick return if possible.
 !
-      IF ((M.EQ.0) .OR. (N.EQ.0) .OR.  ((ALPHA.EQ.ZERO).AND. (BETA.EQ.ONE))) RETURN
+      if ((m.eq.0) .or. (n.eq.0) .or.  ((alpha.eq.zero).and. (beta.eq.one))) return
 !
 !     Set  LENX  and  LENY, the lengths of the vectors x and y, and set
 !     up the start points in  X  and  Y.
 !
-      IF (LSAME(TRANS,'N')) THEN
-          LENX = N
-          LENY = M
-      ELSE
-          LENX = M
-          LENY = N
+      if (lsame(trans,'N')) then
+          lenx = n
+          leny = m
+      else
+          lenx = m
+          leny = n
       endif
-      IF (INCX.GT.0) THEN
-          KX = 1
-      ELSE
-          KX = 1 - (LENX-1)*INCX
+      if (incx.gt.0) then
+          kx = 1
+      else
+          kx = 1 - (lenx-1)*incx
       endif
-      IF (INCY.GT.0) THEN
-          KY = 1
-      ELSE
-          KY = 1 - (LENY-1)*INCY
+      if (incy.gt.0) then
+          ky = 1
+      else
+          ky = 1 - (leny-1)*incy
       endif
 !
 !     Start the operations. In this version the elements of A are
@@ -248,86 +248,86 @@ $BLOCK END
 !
 !     First form  y := beta*y.
 !
-      IF (BETA.NE.ONE) THEN
-          IF (INCY.EQ.1) THEN
-              IF (BETA.EQ.ZERO) THEN
-                  Y(1:LENY) = ZERO
-              ELSE
-                  Y(1:LENY) = BETA*Y(1:LENY)
+      if (beta.ne.one) then
+          if (incy.eq.1) then
+              if (beta.eq.zero) then
+                  y(1:leny) = zero
+              else
+                  y(1:leny) = beta*y(1:leny)
               endif
-          ELSE
-              IY = KY
-              IF (BETA.EQ.ZERO) THEN
-                  DO I = 1,LENY
-                      Y(IY) = ZERO
-                      IY = IY + INCY
+          else
+              iy = ky
+              if (beta.eq.zero) then
+                  do i = 1,leny
+                      y(iy) = zero
+                      iy = iy + incy
                   enddo
-              ELSE
-                  DO I = 1,LENY
-                      Y(IY) = BETA*Y(IY)
-                      IY = IY + INCY
+              else
+                  do i = 1,leny
+                      y(iy) = beta*y(iy)
+                      iy = iy + incy
                   enddo
               endif
           endif
       endif
-      IF (ALPHA.EQ.ZERO) RETURN
-      KUP1 = KU + 1
-      IF (LSAME(TRANS,'N')) THEN
+      if (alpha.eq.zero) return
+      kup1 = ku + 1
+      if (lsame(trans,'N')) then
 !
 !        Form  y := alpha*A*x + y.
 !
-          JX = KX
-          IF (INCY.EQ.1) THEN
-              DO J = 1,N
-                  TEMP = ALPHA*X(JX)
-                  K = KUP1 - J
-                  DO I = MAX(1,J-KU),MIN(M,J+KL)
-                      Y(I) = Y(I) + TEMP*A(K+I,J)
+          jx = kx
+          if (incy.eq.1) then
+              do j = 1,n
+                  temp = alpha*x(jx)
+                  k = kup1 - j
+                  do i = max(1,j-ku),min(m,j+kl)
+                      y(i) = y(i) + temp*a(k+i,j)
                   enddo
-                  JX = JX + INCX
+                  jx = jx + incx
               enddo
-          ELSE
-              DO J = 1,N
-                  TEMP = ALPHA*X(JX)
-                  IY = KY
-                  K = KUP1 - J
-                  DO I = MAX(1,J-KU),MIN(M,J+KL)
-                      Y(IY) = Y(IY) + TEMP*A(K+I,J)
-                      IY = IY + INCY
+          else
+              do j = 1,n
+                  temp = alpha*x(jx)
+                  iy = ky
+                  k = kup1 - j
+                  do i = max(1,j-ku),min(m,j+kl)
+                      y(iy) = y(iy) + temp*a(k+i,j)
+                      iy = iy + incy
                   enddo
-                  JX = JX + INCX
-                  IF (J.GT.KU) KY = KY + INCY
+                  jx = jx + incx
+                  if (j.gt.ku) ky = ky + incy
               enddo
           endif
-      ELSE
+      else
 !
 !        Form  y := alpha*A**T*x + y.
 !
-          JY = KY
-          IF (INCX.EQ.1) THEN
-              DO J = 1,N
-                  TEMP = ZERO
-                  K = KUP1 - J
-                  DO I = MAX(1,J-KU),MIN(M,J+KL)
-                      TEMP = TEMP + A(K+I,J)*X(I)
+          jy = ky
+          if (incx.eq.1) then
+              do j = 1,n
+                  temp = zero
+                  k = kup1 - j
+                  do i = max(1,j-ku),min(m,j+kl)
+                      temp = temp + a(k+i,j)*x(i)
                   enddo
-                  Y(JY) = Y(JY) + ALPHA*TEMP
-                  JY = JY + INCY
+                  y(jy) = y(jy) + alpha*temp
+                  jy = jy + incy
               enddo
-          ELSE
-              DO J = 1,N
-                  TEMP = ZERO
-                  IX = KX
-                  K = KUP1 - J
-                  DO I = MAX(1,J-KU),MIN(M,J+KL)
-                      TEMP = TEMP + A(K+I,J)*X(IX)
-                      IX = IX + INCX
+          else
+              do j = 1,n
+                  temp = zero
+                  ix = kx
+                  k = kup1 - j
+                  do i = max(1,j-ku),min(m,j+kl)
+                      temp = temp + a(k+i,j)*x(ix)
+                      ix = ix + incx
                   enddo
-                  Y(JY) = Y(JY) + ALPHA*TEMP
-                  JY = JY + INCY
-                  IF (J.GT.KU) KX = KX + INCX
+                  y(jy) = y(jy) + alpha*temp
+                  jy = jy + incy
+                  if (j.gt.ku) kx = kx + incx
               enddo
           endif
       endif
 !
-END SUBROUTINE DGBMV
+end subroutine dgbmv

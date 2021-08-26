@@ -3,14 +3,14 @@ NAME
    ccopy(3f) - [BLAS:COMPLEX_BLAS_LEVEL1] CY:=CX (copies elements of a vector x to a vector y)
 
 SYNOPSIS
-   SUBROUTINE CCOPY(N,CX,INCX,CY,INCY)
+   subroutine ccopy(n,cx,incx,cy,incy)
 
-    .. Scalar Arguments ..
-       INTEGER,intent(in)  ::  INCX,INCY,N
+    .. scalar arguments ..
+       integer,intent(in)  ::  incx,incy,n
     ..
-    .. Array Arguments ..
-       COMPLEX,intent(in)  ::  CX(*)
-       COMPLEX,intent(out) ::  CY(*)
+    .. array arguments ..
+       complex,intent(in)  ::  cx(*)
+       complex,intent(out) ::  cy(*)
 
 DESCRIPTION
    CCOPY copies a vector x to a vector y.

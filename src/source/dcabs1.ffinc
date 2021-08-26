@@ -43,7 +43,7 @@ implicit none
 !     November 2017
 !
 !     .. Scalar Arguments ..
-      complex(kind=real64),intent(in) ::  Z
+      complex(kind=real64),intent(in) ::  z
 !     ..
 !  =====================================================================
 !

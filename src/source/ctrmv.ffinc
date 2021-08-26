@@ -125,7 +125,7 @@ SEE ALSO
    http://www.netlib.org/lapack/explore-html/
 $BLOCK END
 !  =====================================================================
-       SUBROUTINE CTRMV(UPLO,TRANS,DIAG,N,A,LDA,X,INCX)
+       subroutine ctrmv(uplo,trans,diag,n,a,lda,x,incx)
       implicit none
 !
 !  -- Reference BLAS level2 routine (version 3.7.0) --
@@ -134,211 +134,211 @@ $BLOCK END
 !     December 2016
 !
 !     .. Scalar Arguments ..
-      INTEGER,intent(in)    :: INCX,LDA,N
-      CHARACTER,intent(in)  :: DIAG,TRANS,UPLO
+      integer,intent(in)    :: incx,lda,n
+      character,intent(in)  :: diag,trans,uplo
 !     ..
 !     .. Array Arguments ..
-      COMPLEX,intent(in)    :: A(LDA,*)
-      COMPLEX,intent(inout) :: X(*)
+      complex,intent(in)    :: a(lda,*)
+      complex,intent(inout) :: x(*)
 !     ..
 !
 !  =====================================================================
 !
 !     .. Parameters ..
-      COMPLEX ZERO
-      PARAMETER (ZERO= (0.0E+0,0.0E+0))
+      complex zero
+      parameter (zero= (0.0e+0,0.0e+0))
 !     ..
 !     .. Local Scalars ..
-      COMPLEX TEMP
-      INTEGER I,INFO,IX,J,JX,KX
-      LOGICAL NOCONJ,NOUNIT
+      complex temp
+      integer i,info,ix,j,jx,kx
+      logical noconj,nounit
 !     ..
 !     .. External Functions ..
 !     ..
 !     .. External Subroutines ..
 !     ..
 !     .. Intrinsic Functions ..
-      INTRINSIC CONJG,MAX
+      intrinsic conjg,max
 !     ..
 !
 !     Test the input parameters.
 !
-      INFO = 0
-      IF (.NOT.LSAME(UPLO,'U') .AND. .NOT.LSAME(UPLO,'L')) THEN
-          INFO = 1
-      elseif (.NOT.LSAME(TRANS,'N') .AND. .NOT.LSAME(TRANS,'T') .AND.  .NOT.LSAME(TRANS,'C')) THEN
-          INFO = 2
-      elseif (.NOT.LSAME(DIAG,'U') .AND. .NOT.LSAME(DIAG,'N')) THEN
-          INFO = 3
-      elseif (N.LT.0) THEN
-          INFO = 4
-      elseif (LDA.LT.MAX(1,N)) THEN
-          INFO = 6
-      elseif (INCX.EQ.0) THEN
-          INFO = 8
+      info = 0
+      if (.not.lsame(uplo,'U') .and. .not.lsame(uplo,'L')) then
+          info = 1
+      elseif (.not.lsame(trans,'N') .and. .not.lsame(trans,'T') .and.  .not.lsame(trans,'C')) then
+          info = 2
+      elseif (.not.lsame(diag,'U') .and. .not.lsame(diag,'N')) then
+          info = 3
+      elseif (n.lt.0) then
+          info = 4
+      elseif (lda.lt.max(1,n)) then
+          info = 6
+      elseif (incx.eq.0) then
+          info = 8
       endif
-      IF (INFO.NE.0) THEN
-          CALL XERBLA('CTRMV ',INFO)
-          RETURN
+      if (info.ne.0) then
+          call xerbla('CTRMV ',info)
+          return
       endif
 !
 !     Quick return if possible.
 !
-      IF (N.EQ.0) RETURN
+      if (n.eq.0) return
 !
-      NOCONJ = LSAME(TRANS,'T')
-      NOUNIT = LSAME(DIAG,'N')
+      noconj = lsame(trans,'T')
+      nounit = lsame(diag,'N')
 !
 !     Set up the start point in X if the increment is not unity. This
 !     will be  ( N - 1 )*INCX  too small for descending loops.
 !
-      IF (INCX.LE.0) THEN
-          KX = 1 - (N-1)*INCX
-      elseif (INCX.NE.1) THEN
-          KX = 1
+      if (incx.le.0) then
+          kx = 1 - (n-1)*incx
+      elseif (incx.ne.1) then
+          kx = 1
       endif
 !
 !     Start the operations. In this version the elements of A are
 !     accessed sequentially with one pass through A.
 !
-      IF (LSAME(TRANS,'N')) THEN
+      if (lsame(trans,'N')) then
 !
 !        Form  x := A*x.
 !
-          IF (LSAME(UPLO,'U')) THEN
-              IF (INCX.EQ.1) THEN
-                  DO J = 1,N
-                      IF (X(J).NE.ZERO) THEN
-                          TEMP = X(J)
-                          DO I = 1,J - 1
-                              X(I) = X(I) + TEMP*A(I,J)
+          if (lsame(uplo,'U')) then
+              if (incx.eq.1) then
+                  do j = 1,n
+                      if (x(j).ne.zero) then
+                          temp = x(j)
+                          do i = 1,j - 1
+                              x(i) = x(i) + temp*a(i,j)
                           enddo
-                          IF (NOUNIT) X(J) = X(J)*A(J,J)
+                          if (nounit) x(j) = x(j)*a(j,j)
                       endif
                   enddo
-              ELSE
-                  JX = KX
-                  DO J = 1,N
-                      IF (X(JX).NE.ZERO) THEN
-                          TEMP = X(JX)
-                          IX = KX
-                          DO I = 1,J - 1
-                              X(IX) = X(IX) + TEMP*A(I,J)
-                              IX = IX + INCX
+              else
+                  jx = kx
+                  do j = 1,n
+                      if (x(jx).ne.zero) then
+                          temp = x(jx)
+                          ix = kx
+                          do i = 1,j - 1
+                              x(ix) = x(ix) + temp*a(i,j)
+                              ix = ix + incx
                           enddo
-                          IF (NOUNIT) X(JX) = X(JX)*A(J,J)
+                          if (nounit) x(jx) = x(jx)*a(j,j)
                       endif
-                      JX = JX + INCX
+                      jx = jx + incx
                   enddo
               endif
-          ELSE
-              IF (INCX.EQ.1) THEN
-                  DO J = N,1,-1
-                      IF (X(J).NE.ZERO) THEN
-                          TEMP = X(J)
-                          DO I = N,J + 1,-1
-                              X(I) = X(I) + TEMP*A(I,J)
+          else
+              if (incx.eq.1) then
+                  do j = n,1,-1
+                      if (x(j).ne.zero) then
+                          temp = x(j)
+                          do i = n,j + 1,-1
+                              x(i) = x(i) + temp*a(i,j)
                           enddo
-                          IF (NOUNIT) X(J) = X(J)*A(J,J)
+                          if (nounit) x(j) = x(j)*a(j,j)
                       endif
                   enddo
-              ELSE
-                  KX = KX + (N-1)*INCX
-                  JX = KX
-                  DO J = N,1,-1
-                      IF (X(JX).NE.ZERO) THEN
-                          TEMP = X(JX)
-                          IX = KX
-                          DO I = N,J + 1,-1
-                              X(IX) = X(IX) + TEMP*A(I,J)
-                              IX = IX - INCX
+              else
+                  kx = kx + (n-1)*incx
+                  jx = kx
+                  do j = n,1,-1
+                      if (x(jx).ne.zero) then
+                          temp = x(jx)
+                          ix = kx
+                          do i = n,j + 1,-1
+                              x(ix) = x(ix) + temp*a(i,j)
+                              ix = ix - incx
                           enddo
-                          IF (NOUNIT) X(JX) = X(JX)*A(J,J)
+                          if (nounit) x(jx) = x(jx)*a(j,j)
                       endif
-                      JX = JX - INCX
+                      jx = jx - incx
                   enddo
               endif
           endif
-      ELSE
+      else
 !
 !        Form  x := A**T*x  or  x := A**H*x.
 !
-          IF (LSAME(UPLO,'U')) THEN
-              IF (INCX.EQ.1) THEN
-                  DO J = N,1,-1
-                      TEMP = X(J)
-                      IF (NOCONJ) THEN
-                          IF (NOUNIT) TEMP = TEMP*A(J,J)
-                          DO I = J - 1,1,-1
-                              TEMP = TEMP + A(I,J)*X(I)
+          if (lsame(uplo,'U')) then
+              if (incx.eq.1) then
+                  do j = n,1,-1
+                      temp = x(j)
+                      if (noconj) then
+                          if (nounit) temp = temp*a(j,j)
+                          do i = j - 1,1,-1
+                              temp = temp + a(i,j)*x(i)
                           enddo
-                      ELSE
-                          IF (NOUNIT) TEMP = TEMP*CONJG(A(J,J))
-                          DO I = J - 1,1,-1
-                              TEMP = TEMP + CONJG(A(I,J))*X(I)
+                      else
+                          if (nounit) temp = temp*conjg(a(j,j))
+                          do i = j - 1,1,-1
+                              temp = temp + conjg(a(i,j))*x(i)
                           enddo
                       endif
-                      X(J) = TEMP
+                      x(j) = temp
                   enddo
-              ELSE
-                  JX = KX + (N-1)*INCX
-                  DO J = N,1,-1
-                      TEMP = X(JX)
-                      IX = JX
-                      IF (NOCONJ) THEN
-                          IF (NOUNIT) TEMP = TEMP*A(J,J)
-                          DO I = J - 1,1,-1
-                              IX = IX - INCX
-                              TEMP = TEMP + A(I,J)*X(IX)
+              else
+                  jx = kx + (n-1)*incx
+                  do j = n,1,-1
+                      temp = x(jx)
+                      ix = jx
+                      if (noconj) then
+                          if (nounit) temp = temp*a(j,j)
+                          do i = j - 1,1,-1
+                              ix = ix - incx
+                              temp = temp + a(i,j)*x(ix)
                           enddo
-                      ELSE
-                          IF (NOUNIT) TEMP = TEMP*CONJG(A(J,J))
-                          DO I = J - 1,1,-1
-                              IX = IX - INCX
-                              TEMP = TEMP + CONJG(A(I,J))*X(IX)
+                      else
+                          if (nounit) temp = temp*conjg(a(j,j))
+                          do i = j - 1,1,-1
+                              ix = ix - incx
+                              temp = temp + conjg(a(i,j))*x(ix)
                           enddo
                       endif
-                      X(JX) = TEMP
-                      JX = JX - INCX
+                      x(jx) = temp
+                      jx = jx - incx
                   enddo
               endif
-          ELSE
-              IF (INCX.EQ.1) THEN
-                  DO J = 1,N
-                      TEMP = X(J)
-                      IF (NOCONJ) THEN
-                          IF (NOUNIT) TEMP = TEMP*A(J,J)
-                          DO I = J + 1,N
-                              TEMP = TEMP + A(I,J)*X(I)
+          else
+              if (incx.eq.1) then
+                  do j = 1,n
+                      temp = x(j)
+                      if (noconj) then
+                          if (nounit) temp = temp*a(j,j)
+                          do i = j + 1,n
+                              temp = temp + a(i,j)*x(i)
                           enddo
-                      ELSE
-                          IF (NOUNIT) TEMP = TEMP*CONJG(A(J,J))
-                          DO I = J + 1,N
-                              TEMP = TEMP + CONJG(A(I,J))*X(I)
+                      else
+                          if (nounit) temp = temp*conjg(a(j,j))
+                          do i = j + 1,n
+                              temp = temp + conjg(a(i,j))*x(i)
                           enddo
                       endif
-                      X(J) = TEMP
+                      x(j) = temp
                   enddo
-              ELSE
-                  JX = KX
-                  DO J = 1,N
-                      TEMP = X(JX)
-                      IX = JX
-                      IF (NOCONJ) THEN
-                          IF (NOUNIT) TEMP = TEMP*A(J,J)
-                          DO I = J + 1,N
-                              IX = IX + INCX
-                              TEMP = TEMP + A(I,J)*X(IX)
+              else
+                  jx = kx
+                  do j = 1,n
+                      temp = x(jx)
+                      ix = jx
+                      if (noconj) then
+                          if (nounit) temp = temp*a(j,j)
+                          do i = j + 1,n
+                              ix = ix + incx
+                              temp = temp + a(i,j)*x(ix)
                           enddo
-                      ELSE
-                          IF (NOUNIT) TEMP = TEMP*CONJG(A(J,J))
-                          DO I = J + 1,N
-                              IX = IX + INCX
-                              TEMP = TEMP + CONJG(A(I,J))*X(IX)
+                      else
+                          if (nounit) temp = temp*conjg(a(j,j))
+                          do i = j + 1,n
+                              ix = ix + incx
+                              temp = temp + conjg(a(i,j))*x(ix)
                           enddo
                       endif
-                      X(JX) = TEMP
-                      JX = JX + INCX
+                      x(jx) = temp
+                      jx = jx + incx
                   enddo
               endif
           endif
@@ -346,4 +346,4 @@ $BLOCK END
 !
 !     End of CTRMV .
 !
-      END SUBROUTINE CTRMV
+      end subroutine ctrmv

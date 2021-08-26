@@ -86,7 +86,7 @@ SEE ALSO
    http://www.netlib.org/lapack/explore-html/
 $BLOCK END
 !  =====================================================================
-subroutine SROTG( a, b, c, s )
+subroutine srotg( a, b, c, s )
    integer, parameter :: wp = kind(1.e0)
 !
 !  -- Reference BLAS level1 routine --

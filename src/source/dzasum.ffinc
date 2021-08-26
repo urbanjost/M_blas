@@ -53,7 +53,7 @@ SEE ALSO
    http://www.netlib.org/lapack/explore-html/
 $BLOCK END
 !  =====================================================================
-       DOUBLE PRECISION FUNCTION DZASUM(N,ZX,INCX)
+       double precision function dzasum(n,zx,incx)
       implicit none
 !
 !  -- Reference BLAS level1 routine (version 3.8.0) --
@@ -62,38 +62,38 @@ $BLOCK END
 !     November 2017
 !
 !     .. Scalar Arguments ..
-      INTEGER,intent(in)                 :: INCX,N
+      integer,intent(in)                 :: incx,n
 !     ..
 !     .. Array Arguments ..
-      complex(kind=real64),intent(inout) :: ZX(*)
+      complex(kind=real64),intent(inout) :: zx(*)
 !     ..
 !
 !  =====================================================================
 !
 !     .. Local Scalars ..
-      DOUBLE PRECISION STEMP
-      INTEGER I,NINCX
+      double precision stemp
+      integer i,nincx
 !     ..
 !     .. External Functions ..  DOUBLE PRECISION DCABS1
 !     ..
-      DZASUM = 0.0d0
-      STEMP = 0.0d0
-      IF (N.LE.0 .OR. INCX.LE.0) RETURN
-      IF (INCX.EQ.1) THEN
+      dzasum = 0.0d0
+      stemp = 0.0d0
+      if (n.le.0 .or. incx.le.0) return
+      if (incx.eq.1) then
 !
 !        code for increment equal to 1
 !
-         DO I = 1,N
-            STEMP = STEMP + DCABS1(ZX(I))
+         do i = 1,n
+            stemp = stemp + dcabs1(zx(i))
          enddo
-      ELSE
+      else
 !
 !        code for increment not equal to 1
 !
-         NINCX = N*INCX
-         DO I = 1,NINCX,INCX
-            STEMP = STEMP + DCABS1(ZX(I))
+         nincx = n*incx
+         do i = 1,nincx,incx
+            stemp = stemp + dcabs1(zx(i))
          enddo
       endif
-      DZASUM = STEMP
-      END FUNCTION DZASUM
+      dzasum = stemp
+      end function dzasum

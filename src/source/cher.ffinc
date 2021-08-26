@@ -114,7 +114,7 @@ SEE ALSO
    http://www.netlib.org/lapack/explore-html/
 $BLOCK END
 !  =====================================================================
-SUBROUTINE CHER(UPLO,N,ALPHA,X,INCX,A,LDA)
+subroutine cher(uplo,n,alpha,x,incx,a,lda)
 implicit none
 !
 !  -- Reference BLAS level2 routine (version 3.7.0) --
@@ -123,132 +123,132 @@ implicit none
 !     December 2016
 !
 !     .. Scalar Arguments ..
-      REAL,intent(in)       :: ALPHA
-      INTEGER,intent(in)    :: INCX,LDA,N
-      CHARACTER,intent(in)  :: UPLO
+      real,intent(in)       :: alpha
+      integer,intent(in)    :: incx,lda,n
+      character,intent(in)  :: uplo
 !     ..
 !     .. Array Arguments ..
-      COMPLEX,intent(inout) :: A(LDA,*)
-      COMPLEX,intent(in)    :: X(*)
+      complex,intent(inout) :: a(lda,*)
+      complex,intent(in)    :: x(*)
 !     ..
 !
 !  =====================================================================
 !
 !     .. Parameters ..
-      COMPLEX ZERO
-      PARAMETER (ZERO= (0.0E+0,0.0E+0))
+      complex zero
+      parameter (zero= (0.0e+0,0.0e+0))
 !     ..
 !     .. Local Scalars ..
-      COMPLEX TEMP
-      INTEGER I,INFO,IX,J,JX,KX
+      complex temp
+      integer i,info,ix,j,jx,kx
 !     ..
 !     .. External Functions ..
 !     ..
 !     .. External Subroutines ..
 !     ..
 !     .. Intrinsic Functions ..
-      INTRINSIC CONJG,MAX,REAL
+      intrinsic conjg,max,real
 !     ..
 !
 !     Test the input parameters.
 !
-      INFO = 0
-      IF (.NOT.LSAME(UPLO,'U') .AND. .NOT.LSAME(UPLO,'L')) THEN
-          INFO = 1
-      elseif (N.LT.0) THEN
-          INFO = 2
-      elseif (INCX.EQ.0) THEN
-          INFO = 5
-      elseif (LDA.LT.MAX(1,N)) THEN
-          INFO = 7
+      info = 0
+      if (.not.lsame(uplo,'U') .and. .not.lsame(uplo,'L')) then
+          info = 1
+      elseif (n.lt.0) then
+          info = 2
+      elseif (incx.eq.0) then
+          info = 5
+      elseif (lda.lt.max(1,n)) then
+          info = 7
       endif
-      IF (INFO.NE.0) THEN
-          CALL XERBLA('CHER  ',INFO)
-          RETURN
+      if (info.ne.0) then
+          call xerbla('CHER  ',info)
+          return
       endif
 !
 !     Quick return if possible.
 !
-      IF ((N.EQ.0) .OR. (ALPHA.EQ.REAL(ZERO))) RETURN
+      if ((n.eq.0) .or. (alpha.eq.real(zero))) return
 !
 !     Set the start point in X if the increment is not unity.
 !
-      IF (INCX.LE.0) THEN
-          KX = 1 - (N-1)*INCX
-      elseif (INCX.NE.1) THEN
-          KX = 1
+      if (incx.le.0) then
+          kx = 1 - (n-1)*incx
+      elseif (incx.ne.1) then
+          kx = 1
       endif
 !
 !     Start the operations. In this version the elements of A are
 !     accessed sequentially with one pass through the triangular part
 !     of A.
 !
-      IF (LSAME(UPLO,'U')) THEN
+      if (lsame(uplo,'U')) then
 !
 !        Form  A  when A is stored in upper triangle.
 !
-          IF (INCX.EQ.1) THEN
-              DO J = 1,N
-                  IF (X(J).NE.ZERO) THEN
-                      TEMP = ALPHA*CONJG(X(J))
-                      DO I = 1,J - 1
-                          A(I,J) = A(I,J) + X(I)*TEMP
+          if (incx.eq.1) then
+              do j = 1,n
+                  if (x(j).ne.zero) then
+                      temp = alpha*conjg(x(j))
+                      do i = 1,j - 1
+                          a(i,j) = a(i,j) + x(i)*temp
                       enddo
-                      A(J,J) = REAL(A(J,J)) + REAL(X(J)*TEMP)
-                  ELSE
-                      A(J,J) = REAL(A(J,J))
+                      a(j,j) = real(a(j,j)) + real(x(j)*temp)
+                  else
+                      a(j,j) = real(a(j,j))
                   endif
               enddo
-          ELSE
-              JX = KX
-              DO J = 1,N
-                  IF (X(JX).NE.ZERO) THEN
-                      TEMP = ALPHA*CONJG(X(JX))
-                      IX = KX
-                      DO I = 1,J - 1
-                          A(I,J) = A(I,J) + X(IX)*TEMP
-                          IX = IX + INCX
+          else
+              jx = kx
+              do j = 1,n
+                  if (x(jx).ne.zero) then
+                      temp = alpha*conjg(x(jx))
+                      ix = kx
+                      do i = 1,j - 1
+                          a(i,j) = a(i,j) + x(ix)*temp
+                          ix = ix + incx
                       enddo
-                      A(J,J) = REAL(A(J,J)) + REAL(X(JX)*TEMP)
-                  ELSE
-                      A(J,J) = REAL(A(J,J))
+                      a(j,j) = real(a(j,j)) + real(x(jx)*temp)
+                  else
+                      a(j,j) = real(a(j,j))
                   endif
-                  JX = JX + INCX
+                  jx = jx + incx
               enddo
           endif
-      ELSE
+      else
 !
 !        Form  A  when A is stored in lower triangle.
 !
-          IF (INCX.EQ.1) THEN
-              DO J = 1,N
-                  IF (X(J).NE.ZERO) THEN
-                      TEMP = ALPHA*CONJG(X(J))
-                      A(J,J) = REAL(A(J,J)) + REAL(TEMP*X(J))
-                      DO I = J + 1,N
-                          A(I,J) = A(I,J) + X(I)*TEMP
+          if (incx.eq.1) then
+              do j = 1,n
+                  if (x(j).ne.zero) then
+                      temp = alpha*conjg(x(j))
+                      a(j,j) = real(a(j,j)) + real(temp*x(j))
+                      do i = j + 1,n
+                          a(i,j) = a(i,j) + x(i)*temp
                       enddo
-                  ELSE
-                      A(J,J) = REAL(A(J,J))
+                  else
+                      a(j,j) = real(a(j,j))
                   endif
               enddo
-          ELSE
-              JX = KX
-              DO J = 1,N
-                  IF (X(JX).NE.ZERO) THEN
-                      TEMP = ALPHA*CONJG(X(JX))
-                      A(J,J) = REAL(A(J,J)) + REAL(TEMP*X(JX))
-                      IX = JX
-                      DO I = J + 1,N
-                          IX = IX + INCX
-                          A(I,J) = A(I,J) + X(IX)*TEMP
+          else
+              jx = kx
+              do j = 1,n
+                  if (x(jx).ne.zero) then
+                      temp = alpha*conjg(x(jx))
+                      a(j,j) = real(a(j,j)) + real(temp*x(jx))
+                      ix = jx
+                      do i = j + 1,n
+                          ix = ix + incx
+                          a(i,j) = a(i,j) + x(ix)*temp
                       enddo
-                  ELSE
-                      A(J,J) = REAL(A(J,J))
+                  else
+                      a(j,j) = real(a(j,j))
                   endif
-                  JX = JX + INCX
+                  jx = jx + incx
               enddo
           endif
       endif
 !
-END SUBROUTINE CHER
+end subroutine cher

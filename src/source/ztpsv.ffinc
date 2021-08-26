@@ -122,7 +122,7 @@ SEE ALSO
    http://www.netlib.org/lapack/explore-html/
 $BLOCK END
 !  =====================================================================
-       SUBROUTINE ZTPSV(UPLO,TRANS,DIAG,N,AP,X,INCX)
+       subroutine ztpsv(uplo,trans,diag,n,ap,x,incx)
       implicit none
 !
 !  -- Reference BLAS level2 routine (version 3.7.0) --
@@ -131,24 +131,24 @@ $BLOCK END
 !     December 2016
 !
 !     .. Scalar Arguments ..
-      INTEGER,intent(in)                 :: INCX,N
-      CHARACTER,intent(in)               :: DIAG,TRANS,UPLO
+      integer,intent(in)                 :: incx,n
+      character,intent(in)               :: diag,trans,uplo
 !     ..
 !     .. Array Arguments ..
-      complex(kind=real64),intent(in)    :: AP(*)
-      complex(kind=real64),intent(inout) :: X(*)
+      complex(kind=real64),intent(in)    :: ap(*)
+      complex(kind=real64),intent(inout) :: x(*)
 !     ..
 !
 !  =====================================================================
 !
 !     .. Parameters ..
-      complex(kind=real64) :: ZERO
-      PARAMETER (ZERO= (0.0D+0,0.0D+0))
+      complex(kind=real64) :: zero
+      parameter (zero= (0.0d+0,0.0d+0))
 !     ..
 !     .. Local Scalars ..
-      complex(kind=real64) :: TEMP
-      INTEGER I,INFO,IX,J,JX,K,KK,KX
-      LOGICAL NOCONJ,NOUNIT
+      complex(kind=real64) :: temp
+      integer i,info,ix,j,jx,k,kk,kx
+      logical noconj,nounit
 !     ..
 !     .. External Functions ..
 !      LOGICAL LSAME
@@ -158,210 +158,210 @@ $BLOCK END
 !      EXTERNAL XERBLA
 !     ..
 !     .. Intrinsic Functions ..
-      INTRINSIC DCONJG
+      intrinsic dconjg
 !     ..
 !
 !     Test the input parameters.
 !
-      INFO = 0
-      IF (.NOT.LSAME(UPLO,'U') .AND. .NOT.LSAME(UPLO,'L')) THEN
-          INFO = 1
-      elseif (.NOT.LSAME(TRANS,'N') .AND. .NOT.LSAME(TRANS,'T') .AND.  .NOT.LSAME(TRANS,'C')) THEN
-          INFO = 2
-      elseif (.NOT.LSAME(DIAG,'U') .AND. .NOT.LSAME(DIAG,'N')) THEN
-          INFO = 3
-      elseif (N.LT.0) THEN
-          INFO = 4
-      elseif (INCX.EQ.0) THEN
-          INFO = 7
+      info = 0
+      if (.not.lsame(uplo,'U') .and. .not.lsame(uplo,'L')) then
+          info = 1
+      elseif (.not.lsame(trans,'N') .and. .not.lsame(trans,'T') .and.  .not.lsame(trans,'C')) then
+          info = 2
+      elseif (.not.lsame(diag,'U') .and. .not.lsame(diag,'N')) then
+          info = 3
+      elseif (n.lt.0) then
+          info = 4
+      elseif (incx.eq.0) then
+          info = 7
       endif
-      IF (INFO.NE.0) THEN
-          CALL XERBLA('ZTPSV ',INFO)
-          RETURN
+      if (info.ne.0) then
+          call xerbla('ZTPSV ',info)
+          return
       endif
 !
 !     Quick return if possible.
 !
-      IF (N.EQ.0) RETURN
+      if (n.eq.0) return
 !
-      NOCONJ = LSAME(TRANS,'T')
-      NOUNIT = LSAME(DIAG,'N')
+      noconj = lsame(trans,'T')
+      nounit = lsame(diag,'N')
 !
 !     Set up the start point in X if the increment is not unity. This
 !     will be  ( N - 1 )*INCX  too small for descending loops.
 !
-      IF (INCX.LE.0) THEN
-          KX = 1 - (N-1)*INCX
-      elseif (INCX.NE.1) THEN
-          KX = 1
+      if (incx.le.0) then
+          kx = 1 - (n-1)*incx
+      elseif (incx.ne.1) then
+          kx = 1
       endif
 !
 !     Start the operations. In this version the elements of AP are
 !     accessed sequentially with one pass through AP.
 !
-      IF (LSAME(TRANS,'N')) THEN
+      if (lsame(trans,'N')) then
 !
 !        Form  x := inv( A )*x.
 !
-          IF (LSAME(UPLO,'U')) THEN
-              KK = (N* (N+1))/2
-              IF (INCX.EQ.1) THEN
-                  DO J = N,1,-1
-                      IF (X(J).NE.ZERO) THEN
-                          IF (NOUNIT) X(J) = X(J)/AP(KK)
-                          TEMP = X(J)
-                          K = KK - 1
-                          DO I = J - 1,1,-1
-                              X(I) = X(I) - TEMP*AP(K)
-                              K = K - 1
+          if (lsame(uplo,'U')) then
+              kk = (n* (n+1))/2
+              if (incx.eq.1) then
+                  do j = n,1,-1
+                      if (x(j).ne.zero) then
+                          if (nounit) x(j) = x(j)/ap(kk)
+                          temp = x(j)
+                          k = kk - 1
+                          do i = j - 1,1,-1
+                              x(i) = x(i) - temp*ap(k)
+                              k = k - 1
                           enddo
                       endif
-                      KK = KK - J
+                      kk = kk - j
                   enddo
-              ELSE
-                  JX = KX + (N-1)*INCX
-                  DO J = N,1,-1
-                      IF (X(JX).NE.ZERO) THEN
-                          IF (NOUNIT) X(JX) = X(JX)/AP(KK)
-                          TEMP = X(JX)
-                          IX = JX
-                          DO K = KK - 1,KK - J + 1,-1
-                              IX = IX - INCX
-                              X(IX) = X(IX) - TEMP*AP(K)
+              else
+                  jx = kx + (n-1)*incx
+                  do j = n,1,-1
+                      if (x(jx).ne.zero) then
+                          if (nounit) x(jx) = x(jx)/ap(kk)
+                          temp = x(jx)
+                          ix = jx
+                          do k = kk - 1,kk - j + 1,-1
+                              ix = ix - incx
+                              x(ix) = x(ix) - temp*ap(k)
                           enddo
                       endif
-                      JX = JX - INCX
-                      KK = KK - J
+                      jx = jx - incx
+                      kk = kk - j
                   enddo
               endif
-          ELSE
-              KK = 1
-              IF (INCX.EQ.1) THEN
-                  DO J = 1,N
-                      IF (X(J).NE.ZERO) THEN
-                          IF (NOUNIT) X(J) = X(J)/AP(KK)
-                          TEMP = X(J)
-                          K = KK + 1
-                          DO I = J + 1,N
-                              X(I) = X(I) - TEMP*AP(K)
-                              K = K + 1
+          else
+              kk = 1
+              if (incx.eq.1) then
+                  do j = 1,n
+                      if (x(j).ne.zero) then
+                          if (nounit) x(j) = x(j)/ap(kk)
+                          temp = x(j)
+                          k = kk + 1
+                          do i = j + 1,n
+                              x(i) = x(i) - temp*ap(k)
+                              k = k + 1
                           enddo
                       endif
-                      KK = KK + (N-J+1)
+                      kk = kk + (n-j+1)
                   enddo
-              ELSE
-                  JX = KX
-                  DO J = 1,N
-                      IF (X(JX).NE.ZERO) THEN
-                          IF (NOUNIT) X(JX) = X(JX)/AP(KK)
-                          TEMP = X(JX)
-                          IX = JX
-                          DO K = KK + 1,KK + N - J
-                              IX = IX + INCX
-                              X(IX) = X(IX) - TEMP*AP(K)
+              else
+                  jx = kx
+                  do j = 1,n
+                      if (x(jx).ne.zero) then
+                          if (nounit) x(jx) = x(jx)/ap(kk)
+                          temp = x(jx)
+                          ix = jx
+                          do k = kk + 1,kk + n - j
+                              ix = ix + incx
+                              x(ix) = x(ix) - temp*ap(k)
                           enddo
                       endif
-                      JX = JX + INCX
-                      KK = KK + (N-J+1)
+                      jx = jx + incx
+                      kk = kk + (n-j+1)
                   enddo
               endif
           endif
-      ELSE
+      else
 !
 !        Form  x := inv( A**T )*x  or  x := inv( A**H )*x.
 !
-          IF (LSAME(UPLO,'U')) THEN
-              KK = 1
-              IF (INCX.EQ.1) THEN
-                  DO J = 1,N
-                      TEMP = X(J)
-                      K = KK
-                      IF (NOCONJ) THEN
-                          DO I = 1,J - 1
-                              TEMP = TEMP - AP(K)*X(I)
-                              K = K + 1
+          if (lsame(uplo,'U')) then
+              kk = 1
+              if (incx.eq.1) then
+                  do j = 1,n
+                      temp = x(j)
+                      k = kk
+                      if (noconj) then
+                          do i = 1,j - 1
+                              temp = temp - ap(k)*x(i)
+                              k = k + 1
                           enddo
-                          IF (NOUNIT) TEMP = TEMP/AP(KK+J-1)
-                      ELSE
-                          DO I = 1,J - 1
-                              TEMP = TEMP - DCONJG(AP(K))*X(I)
-                              K = K + 1
+                          if (nounit) temp = temp/ap(kk+j-1)
+                      else
+                          do i = 1,j - 1
+                              temp = temp - dconjg(ap(k))*x(i)
+                              k = k + 1
                           enddo
-                          IF (NOUNIT) TEMP = TEMP/DCONJG(AP(KK+J-1))
+                          if (nounit) temp = temp/dconjg(ap(kk+j-1))
                       endif
-                      X(J) = TEMP
-                      KK = KK + J
+                      x(j) = temp
+                      kk = kk + j
                   enddo
-              ELSE
-                  JX = KX
-                  DO J = 1,N
-                      TEMP = X(JX)
-                      IX = KX
-                      IF (NOCONJ) THEN
-                          DO K = KK,KK + J - 2
-                              TEMP = TEMP - AP(K)*X(IX)
-                              IX = IX + INCX
+              else
+                  jx = kx
+                  do j = 1,n
+                      temp = x(jx)
+                      ix = kx
+                      if (noconj) then
+                          do k = kk,kk + j - 2
+                              temp = temp - ap(k)*x(ix)
+                              ix = ix + incx
                           enddo
-                          IF (NOUNIT) TEMP = TEMP/AP(KK+J-1)
-                      ELSE
-                          DO K = KK,KK + J - 2
-                              TEMP = TEMP - DCONJG(AP(K))*X(IX)
-                              IX = IX + INCX
+                          if (nounit) temp = temp/ap(kk+j-1)
+                      else
+                          do k = kk,kk + j - 2
+                              temp = temp - dconjg(ap(k))*x(ix)
+                              ix = ix + incx
                           enddo
-                          IF (NOUNIT) TEMP = TEMP/DCONJG(AP(KK+J-1))
+                          if (nounit) temp = temp/dconjg(ap(kk+j-1))
                       endif
-                      X(JX) = TEMP
-                      JX = JX + INCX
-                      KK = KK + J
+                      x(jx) = temp
+                      jx = jx + incx
+                      kk = kk + j
                   enddo
               endif
-          ELSE
-              KK = (N* (N+1))/2
-              IF (INCX.EQ.1) THEN
-                  DO J = N,1,-1
-                      TEMP = X(J)
-                      K = KK
-                      IF (NOCONJ) THEN
-                          DO I = N,J + 1,-1
-                              TEMP = TEMP - AP(K)*X(I)
-                              K = K - 1
+          else
+              kk = (n* (n+1))/2
+              if (incx.eq.1) then
+                  do j = n,1,-1
+                      temp = x(j)
+                      k = kk
+                      if (noconj) then
+                          do i = n,j + 1,-1
+                              temp = temp - ap(k)*x(i)
+                              k = k - 1
                           enddo
-                          IF (NOUNIT) TEMP = TEMP/AP(KK-N+J)
-                      ELSE
-                          DO I = N,J + 1,-1
-                              TEMP = TEMP - DCONJG(AP(K))*X(I)
-                              K = K - 1
+                          if (nounit) temp = temp/ap(kk-n+j)
+                      else
+                          do i = n,j + 1,-1
+                              temp = temp - dconjg(ap(k))*x(i)
+                              k = k - 1
                           enddo
-                          IF (NOUNIT) TEMP = TEMP/DCONJG(AP(KK-N+J))
+                          if (nounit) temp = temp/dconjg(ap(kk-n+j))
                       endif
-                      X(J) = TEMP
-                      KK = KK - (N-J+1)
+                      x(j) = temp
+                      kk = kk - (n-j+1)
                   enddo
-              ELSE
-                  KX = KX + (N-1)*INCX
-                  JX = KX
-                  DO J = N,1,-1
-                      TEMP = X(JX)
-                      IX = KX
-                      IF (NOCONJ) THEN
-                          DO K = KK,KK - (N- (J+1)),-1
-                              TEMP = TEMP - AP(K)*X(IX)
-                              IX = IX - INCX
+              else
+                  kx = kx + (n-1)*incx
+                  jx = kx
+                  do j = n,1,-1
+                      temp = x(jx)
+                      ix = kx
+                      if (noconj) then
+                          do k = kk,kk - (n- (j+1)),-1
+                              temp = temp - ap(k)*x(ix)
+                              ix = ix - incx
                           enddo
-                          IF (NOUNIT) TEMP = TEMP/AP(KK-N+J)
-                      ELSE
-                          DO K = KK,KK - (N- (J+1)),-1
-                              TEMP = TEMP - DCONJG(AP(K))*X(IX)
-                              IX = IX - INCX
+                          if (nounit) temp = temp/ap(kk-n+j)
+                      else
+                          do k = kk,kk - (n- (j+1)),-1
+                              temp = temp - dconjg(ap(k))*x(ix)
+                              ix = ix - incx
                           enddo
-                          IF (NOUNIT) TEMP = TEMP/DCONJG(AP(KK-N+J))
+                          if (nounit) temp = temp/dconjg(ap(kk-n+j))
                       endif
-                      X(JX) = TEMP
-                      JX = JX - INCX
-                      KK = KK - (N-J+1)
+                      x(jx) = temp
+                      jx = jx - incx
+                      kk = kk - (n-j+1)
                   enddo
               endif
           endif
       endif
 
-      END SUBROUTINE ZTPSV
+      end subroutine ztpsv

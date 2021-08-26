@@ -61,53 +61,53 @@ pure double precision function dasum(n,dx,incx)
 !     November 2017
 !
 !     .. Scalar Arguments ..
-      INTEGER,intent(in) :: INCX,N
+      integer,intent(in) :: incx,n
 !     ..
 !     .. Array Arguments ..
-      DOUBLE PRECISION,intent(in) :: DX(*)
+      double precision,intent(in) :: dx(*)
 !     ..
 !
 !  =====================================================================
 !
 !     .. Local Scalars ..
-      DOUBLE PRECISION DTEMP
-      INTEGER I,M,MP1,NINCX
+      double precision dtemp
+      integer i,m,mp1,nincx
 !     ..
 !     .. Intrinsic Functions ..
-      INTRINSIC DABS,MOD
+      intrinsic dabs,mod
 !     ..
-      DASUM = 0.0d0
-      DTEMP = 0.0d0
-      IF (N.LE.0 .OR. INCX.LE.0) RETURN
-      IF (INCX.EQ.1) THEN
+      dasum = 0.0d0
+      dtemp = 0.0d0
+      if (n.le.0 .or. incx.le.0) return
+      if (incx.eq.1) then
 !        code for increment equal to 1
 !
 !
 !        clean-up loop
 !
-         M = MOD(N,6)
-         IF (M.NE.0) THEN
-            DO I = 1,M
-               DTEMP = DTEMP + DABS(DX(I))
-            ENDDO
-            IF (N.LT.6) THEN
-               DASUM = DTEMP
-               RETURN
+         m = mod(n,6)
+         if (m.ne.0) then
+            do i = 1,m
+               dtemp = dtemp + dabs(dx(i))
+            enddo
+            if (n.lt.6) then
+               dasum = dtemp
+               return
             endif
          endif
-         MP1 = M + 1
-         DO I = MP1,N,6
-            DTEMP = DTEMP + DABS(DX(I)) + DABS(DX(I+1)) + DABS(DX(I+2)) + DABS(DX(I+3)) + DABS(DX(I+4)) + DABS(DX(I+5))
-         ENDDO
-      ELSE
+         mp1 = m + 1
+         do i = mp1,n,6
+            dtemp = dtemp + dabs(dx(i)) + dabs(dx(i+1)) + dabs(dx(i+2)) + dabs(dx(i+3)) + dabs(dx(i+4)) + dabs(dx(i+5))
+         enddo
+      else
 !
 !        code for increment not equal to 1
 !
-         NINCX = N*INCX
-         DO I = 1,NINCX,INCX
-            DTEMP = DTEMP + DABS(DX(I))
-         ENDDO
+         nincx = n*incx
+         do i = 1,nincx,incx
+            dtemp = dtemp + dabs(dx(i))
+         enddo
       endif
-      DASUM = DTEMP
+      dasum = dtemp
 
-      END FUNCTION DASUM
+      end function dasum

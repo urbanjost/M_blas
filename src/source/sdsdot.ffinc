@@ -94,7 +94,7 @@ SEE ALSO
    http://www.netlib.org/lapack/explore-html/
 $BLOCK END
 !  =====================================================================
-pure REAL FUNCTION SDSDOT(N,SB,SX,INCX,SY,INCY)
+pure real function sdsdot(n,sb,sx,incx,sy,incy)
       implicit none
 !
 !  -- Reference BLAS level1 routine (version 3.8.0) --
@@ -103,46 +103,46 @@ pure REAL FUNCTION SDSDOT(N,SB,SX,INCX,SY,INCY)
 !     November 2017
 !
 !     .. Scalar Arguments ..
-      REAL,intent(in) :: SB
-      INTEGER,intent(in) :: INCX,INCY,N
+      real,intent(in) :: sb
+      integer,intent(in) :: incx,incy,n
 !     ..
 !     .. Array Arguments ..
-      REAL,intent(in) :: SX(*),SY(*)
+      real,intent(in) :: sx(*),sy(*)
 !     ..
 !     .. Local Scalars ..
-      DOUBLE PRECISION DSDOT
-      INTEGER I,KX,KY,NS
+      double precision dsdot
+      integer i,kx,ky,ns
 !     ..
 !     .. Intrinsic Functions ..
-      INTRINSIC DBLE
+      intrinsic dble
 !     ..
-      DSDOT = SB
-      IF (N.LE.0) THEN
-         SDSDOT = real(DSDOT)
-         RETURN
+      dsdot = sb
+      if (n.le.0) then
+         sdsdot = real(dsdot)
+         return
       endif
-      IF (INCX.EQ.INCY .AND. INCX.GT.0) THEN
+      if (incx.eq.incy .and. incx.gt.0) then
 !
 !     Code for equal and positive increments.
 !
-         NS = N*INCX
-         DO I = 1,NS,INCX
-            DSDOT = DSDOT + DBLE(SX(I))*DBLE(SY(I))
+         ns = n*incx
+         do i = 1,ns,incx
+            dsdot = dsdot + dble(sx(i))*dble(sy(i))
          enddo
-      ELSE
+      else
 !
 !     Code for unequal or nonpositive increments.
 !
-         KX = 1
-         KY = 1
-         IF (INCX.LT.0) KX = 1 + (1-N)*INCX
-         IF (INCY.LT.0) KY = 1 + (1-N)*INCY
-         DO I = 1,N
-            DSDOT = DSDOT + DBLE(SX(KX))*DBLE(SY(KY))
-            KX = KX + INCX
-            KY = KY + INCY
+         kx = 1
+         ky = 1
+         if (incx.lt.0) kx = 1 + (1-n)*incx
+         if (incy.lt.0) ky = 1 + (1-n)*incy
+         do i = 1,n
+            dsdot = dsdot + dble(sx(kx))*dble(sy(ky))
+            kx = kx + incx
+            ky = ky + incy
          enddo
       endif
-      SDSDOT = real(DSDOT)
+      sdsdot = real(dsdot)
 
-END FUNCTION SDSDOT
+end function sdsdot

@@ -48,7 +48,7 @@ SEE ALSO
    http://www.netlib.org/lapack/explore-html/
 $BLOCK END
 !  =====================================================================
-       SUBROUTINE DSCAL(N,DA,DX,INCX)
+       subroutine dscal(n,da,dx,incx)
       implicit none
 !
 !  -- Reference BLAS level1 routine (version 3.8.0) --
@@ -57,50 +57,50 @@ $BLOCK END
 !     November 2017
 !
 !     .. Scalar Arguments ..
-      DOUBLE PRECISION,intent(in)    :: DA
-      INTEGER,intent(in)             :: INCX,N
+      double precision,intent(in)    :: da
+      integer,intent(in)             :: incx,n
 !     ..
 !     .. Array Arguments ..
-      DOUBLE PRECISION,intent(inout) :: DX(*)
+      double precision,intent(inout) :: dx(*)
 !     ..
 !  =====================================================================
 !     .. Local Scalars ..
-      INTEGER I,M,MP1,NINCX
+      integer i,m,mp1,nincx
 !     ..
 !     .. Intrinsic Functions ..
-      INTRINSIC MOD
+      intrinsic mod
 !     ..
-      IF (N.LE.0 .OR. INCX.LE.0) RETURN
-      IF (INCX.EQ.1) THEN
+      if (n.le.0 .or. incx.le.0) return
+      if (incx.eq.1) then
 !
 !        code for increment equal to 1
 !
 !
 !        clean-up loop
 !
-         M = MOD(N,5)
-         IF (M.NE.0) THEN
-            DO I = 1,M
-               DX(I) = DA*DX(I)
+         m = mod(n,5)
+         if (m.ne.0) then
+            do i = 1,m
+               dx(i) = da*dx(i)
             enddo
-            IF (N.LT.5) RETURN
+            if (n.lt.5) return
          endif
-         MP1 = M + 1
-         DO I = MP1,N,5
-            DX(I) = DA*DX(I)
-            DX(I+1) = DA*DX(I+1)
-            DX(I+2) = DA*DX(I+2)
-            DX(I+3) = DA*DX(I+3)
-            DX(I+4) = DA*DX(I+4)
+         mp1 = m + 1
+         do i = mp1,n,5
+            dx(i) = da*dx(i)
+            dx(i+1) = da*dx(i+1)
+            dx(i+2) = da*dx(i+2)
+            dx(i+3) = da*dx(i+3)
+            dx(i+4) = da*dx(i+4)
          enddo
-      ELSE
+      else
 !
 !        code for increment not equal to 1
 !
-         NINCX = N*INCX
-         DO I = 1,NINCX,INCX
-            DX(I) = DA*DX(I)
+         nincx = n*incx
+         do i = 1,nincx,incx
+            dx(i) = da*dx(i)
          enddo
       endif
 
-      END SUBROUTINE DSCAL
+      end subroutine dscal

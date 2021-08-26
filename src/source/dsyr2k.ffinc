@@ -261,7 +261,7 @@ $BLOCK END
 !
 !     Start the operations.
 !
-      IF (LSAME(TRANS,'N')) THEN
+      if (lsame(trans,'N')) then
 !
 !        Form  C := alpha*A*B**T + alpha*B*A**T + C.
 !

@@ -126,7 +126,7 @@ SEE ALSO
    http://www.netlib.org/lapack/explore-html/
 $BLOCK END
 !  =====================================================================
-       SUBROUTINE ZHER2(UPLO,N,ALPHA,X,INCX,Y,INCY,A,LDA)
+       subroutine zher2(uplo,n,alpha,x,incx,y,incy,a,lda)
       implicit none
 !
 !  -- Reference BLAS level2 routine (version 3.7.0) --
@@ -135,24 +135,24 @@ $BLOCK END
 !     December 2016
 !
 !     .. Scalar Arguments ..
-      complex(kind=real64),intent(in)    :: ALPHA
-      INTEGER,intent(in)                 :: INCX,INCY,LDA,N
-      CHARACTER,intent(in)               :: UPLO
+      complex(kind=real64),intent(in)    :: alpha
+      integer,intent(in)                 :: incx,incy,lda,n
+      character,intent(in)               :: uplo
 !     ..
 !     .. Array Arguments ..
-      complex(kind=real64),intent(in)    :: X(*),Y(*)
-      complex(kind=real64),intent(inout) :: A(LDA,*)
+      complex(kind=real64),intent(in)    :: x(*),y(*)
+      complex(kind=real64),intent(inout) :: a(lda,*)
 !     ..
 !
 !  =====================================================================
 !
 !     .. Parameters ..
-      complex(kind=real64) :: ZERO
-      PARAMETER (ZERO= (0.0D+0,0.0D+0))
+      complex(kind=real64) :: zero
+      parameter (zero= (0.0d+0,0.0d+0))
 !     ..
 !     .. Local Scalars ..
-      complex(kind=real64) :: TEMP1,TEMP2
-      INTEGER I,INFO,IX,IY,J,JX,JY,KX,KY
+      complex(kind=real64) :: temp1,temp2
+      integer i,info,ix,iy,j,jx,jy,kx,ky
 !     ..
 !     .. External Functions ..
 !      LOGICAL LSAME
@@ -162,7 +162,7 @@ $BLOCK END
 !      EXTERNAL XERBLA
 !     ..
 !     .. Intrinsic Functions ..
-      INTRINSIC DBLE,DCONJG,MAX
+      intrinsic dble,dconjg,max
 !     ..
 !
 !     Test the input parameters.

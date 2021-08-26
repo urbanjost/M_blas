@@ -72,7 +72,7 @@ SEE ALSO
    http://www.netlib.org/lapack/explore-html/
 $BLOCK END
 !  =====================================================================
-       SUBROUTINE DROTM(N,DX,INCX,DY,INCY,DPARAM)
+       subroutine drotm(n,dx,incx,dy,incy,dparam)
       implicit none
 !
 !  -- Reference BLAS level1 routine (version 3.8.0) --
@@ -81,100 +81,100 @@ $BLOCK END
 !     November 2017
 !
 !     .. Scalar Arguments ..
-      INTEGER,intent(in)             :: INCX,INCY,N
+      integer,intent(in)             :: incx,incy,n
 !     ..
 !     .. Array Arguments ..
-      DOUBLE PRECISION,intent(in)    :: DPARAM(5)
-      DOUBLE PRECISION,intent(inout) :: DX(*),DY(*)
+      double precision,intent(in)    :: dparam(5)
+      double precision,intent(inout) :: dx(*),dy(*)
 !     ..
 !
 !  =====================================================================
 !
 !     .. Local Scalars ..
-      DOUBLE PRECISION DFLAG,DH11,DH12,DH21,DH22,W,Z
-      INTEGER I,KX,KY,NSTEPS
+      double precision dflag,dh11,dh12,dh21,dh22,w,z
+      integer i,kx,ky,nsteps
 !     ..
       doubleprecision,parameter :: zero=0.0d0
       doubleprecision,parameter :: two=2.0d0
 !     ..
 !
-      DFLAG = DPARAM(1)
-      IF (N.LE.0 .OR. (DFLAG+TWO.EQ.ZERO)) RETURN
-      IF (INCX.EQ.INCY.AND.INCX.GT.0) THEN
+      dflag = dparam(1)
+      if (n.le.0 .or. (dflag+two.eq.zero)) return
+      if (incx.eq.incy.and.incx.gt.0) then
 !
-         NSTEPS = N*INCX
-         IF (DFLAG.LT.ZERO) THEN
-            DH11 = DPARAM(2)
-            DH12 = DPARAM(4)
-            DH21 = DPARAM(3)
-            DH22 = DPARAM(5)
-            DO I = 1,NSTEPS,INCX
-               W = DX(I)
-               Z = DY(I)
-               DX(I) = W*DH11 + Z*DH12
-               DY(I) = W*DH21 + Z*DH22
+         nsteps = n*incx
+         if (dflag.lt.zero) then
+            dh11 = dparam(2)
+            dh12 = dparam(4)
+            dh21 = dparam(3)
+            dh22 = dparam(5)
+            do i = 1,nsteps,incx
+               w = dx(i)
+               z = dy(i)
+               dx(i) = w*dh11 + z*dh12
+               dy(i) = w*dh21 + z*dh22
             enddo
-         elseif (DFLAG.EQ.ZERO) THEN
-            DH12 = DPARAM(4)
-            DH21 = DPARAM(3)
-            DO I = 1,NSTEPS,INCX
-               W = DX(I)
-               Z = DY(I)
-               DX(I) = W + Z*DH12
-               DY(I) = W*DH21 + Z
+         elseif (dflag.eq.zero) then
+            dh12 = dparam(4)
+            dh21 = dparam(3)
+            do i = 1,nsteps,incx
+               w = dx(i)
+               z = dy(i)
+               dx(i) = w + z*dh12
+               dy(i) = w*dh21 + z
             enddo
-         ELSE
-            DH11 = DPARAM(2)
-            DH22 = DPARAM(5)
-            DO I = 1,NSTEPS,INCX
-               W = DX(I)
-               Z = DY(I)
-               DX(I) = W*DH11 + Z
-               DY(I) = -W + DH22*Z
+         else
+            dh11 = dparam(2)
+            dh22 = dparam(5)
+            do i = 1,nsteps,incx
+               w = dx(i)
+               z = dy(i)
+               dx(i) = w*dh11 + z
+               dy(i) = -w + dh22*z
             enddo
          endif
-      ELSE
-         KX = 1
-         KY = 1
-         IF (INCX.LT.0) KX = 1 + (1-N)*INCX
-         IF (INCY.LT.0) KY = 1 + (1-N)*INCY
+      else
+         kx = 1
+         ky = 1
+         if (incx.lt.0) kx = 1 + (1-n)*incx
+         if (incy.lt.0) ky = 1 + (1-n)*incy
 !
-         IF (DFLAG.LT.ZERO) THEN
-            DH11 = DPARAM(2)
-            DH12 = DPARAM(4)
-            DH21 = DPARAM(3)
-            DH22 = DPARAM(5)
-            DO I = 1,N
-               W = DX(KX)
-               Z = DY(KY)
-               DX(KX) = W*DH11 + Z*DH12
-               DY(KY) = W*DH21 + Z*DH22
-               KX = KX + INCX
-               KY = KY + INCY
+         if (dflag.lt.zero) then
+            dh11 = dparam(2)
+            dh12 = dparam(4)
+            dh21 = dparam(3)
+            dh22 = dparam(5)
+            do i = 1,n
+               w = dx(kx)
+               z = dy(ky)
+               dx(kx) = w*dh11 + z*dh12
+               dy(ky) = w*dh21 + z*dh22
+               kx = kx + incx
+               ky = ky + incy
             enddo
-         elseif (DFLAG.EQ.ZERO) THEN
-            DH12 = DPARAM(4)
-            DH21 = DPARAM(3)
-            DO I = 1,N
-               W = DX(KX)
-               Z = DY(KY)
-               DX(KX) = W + Z*DH12
-               DY(KY) = W*DH21 + Z
-               KX = KX + INCX
-               KY = KY + INCY
+         elseif (dflag.eq.zero) then
+            dh12 = dparam(4)
+            dh21 = dparam(3)
+            do i = 1,n
+               w = dx(kx)
+               z = dy(ky)
+               dx(kx) = w + z*dh12
+               dy(ky) = w*dh21 + z
+               kx = kx + incx
+               ky = ky + incy
             enddo
-         ELSE
-             DH11 = DPARAM(2)
-             DH22 = DPARAM(5)
-             DO I = 1,N
-                W = DX(KX)
-                Z = DY(KY)
-                DX(KX) = W*DH11 + Z
-                DY(KY) = -W + DH22*Z
-                KX = KX + INCX
-                KY = KY + INCY
+         else
+             dh11 = dparam(2)
+             dh22 = dparam(5)
+             do i = 1,n
+                w = dx(kx)
+                z = dy(ky)
+                dx(kx) = w*dh11 + z
+                dy(ky) = -w + dh22*z
+                kx = kx + incx
+                ky = ky + incy
             enddo
          endif
       endif
 
-      END SUBROUTINE DROTM
+      end subroutine drotm

@@ -106,7 +106,7 @@ SEE ALSO
    http://www.netlib.org/lapack/explore-html/
 $BLOCK END
 !  =====================================================================
-       SUBROUTINE ZGERC(M,N,ALPHA,X,INCX,Y,INCY,A,LDA)
+       subroutine zgerc(m,n,alpha,x,incx,y,incy,a,lda)
       implicit none
 !
 !  -- Reference BLAS level2 routine (version 3.7.0) --
@@ -115,87 +115,87 @@ $BLOCK END
 !     December 2016
 !
 !     .. Scalar Arguments ..
-      complex(kind=real64),intent(in)    :: ALPHA
-      INTEGER,intent(in)                 :: INCX,INCY,LDA,M,N
+      complex(kind=real64),intent(in)    :: alpha
+      integer,intent(in)                 :: incx,incy,lda,m,n
 !     ..
 !     .. Array Arguments ..
-      complex(kind=real64),intent(in)    :: X(*),Y(*)
-      complex(kind=real64),intent(inout) :: A(LDA,*)
+      complex(kind=real64),intent(in)    :: x(*),y(*)
+      complex(kind=real64),intent(inout) :: a(lda,*)
 !     ..
 !
 !  =====================================================================
 !
 !     .. Parameters ..
-      complex(kind=real64) :: ZERO
-      PARAMETER (ZERO= (0.0D+0,0.0D+0))
+      complex(kind=real64) :: zero
+      parameter (zero= (0.0d+0,0.0d+0))
 !     ..
 !     .. Local Scalars ..
-      complex(kind=real64) :: TEMP
-      INTEGER I,INFO,IX,J,JY,KX
+      complex(kind=real64) :: temp
+      integer i,info,ix,j,jy,kx
 !     ..
 !     .. External Subroutines ..
 !      EXTERNAL XERBLA
 !     ..
 !     .. Intrinsic Functions ..
-      INTRINSIC DCONJG,MAX
+      intrinsic dconjg,max
 !     ..
 !
 !     Test the input parameters.
 !
-      INFO = 0
-      IF (M.LT.0) THEN
-          INFO = 1
-      elseif (N.LT.0) THEN
-          INFO = 2
-      elseif (INCX.EQ.0) THEN
-          INFO = 5
-      elseif (INCY.EQ.0) THEN
-          INFO = 7
-      elseif (LDA.LT.MAX(1,M)) THEN
-          INFO = 9
+      info = 0
+      if (m.lt.0) then
+          info = 1
+      elseif (n.lt.0) then
+          info = 2
+      elseif (incx.eq.0) then
+          info = 5
+      elseif (incy.eq.0) then
+          info = 7
+      elseif (lda.lt.max(1,m)) then
+          info = 9
       endif
-      IF (INFO.NE.0) THEN
-          CALL XERBLA('ZGERC ',INFO)
-          RETURN
+      if (info.ne.0) then
+          call xerbla('ZGERC ',info)
+          return
       endif
 !
 !     Quick return if possible.
 !
-      IF ((M.EQ.0) .OR. (N.EQ.0) .OR. (ALPHA.EQ.ZERO)) RETURN
+      if ((m.eq.0) .or. (n.eq.0) .or. (alpha.eq.zero)) return
 !
 !     Start the operations. In this version the elements of A are
 !     accessed sequentially with one pass through A.
 !
-      IF (INCY.GT.0) THEN
-          JY = 1
-      ELSE
-          JY = 1 - (N-1)*INCY
+      if (incy.gt.0) then
+          jy = 1
+      else
+          jy = 1 - (n-1)*incy
       endif
-      IF (INCX.EQ.1) THEN
-          DO J = 1,N
-              IF (Y(JY).NE.ZERO) THEN
-                  TEMP = ALPHA*DCONJG(Y(JY))
-                  A(1:M,J) = A(1:M,J) + X(1:M)*TEMP
+      if (incx.eq.1) then
+          do j = 1,n
+              if (y(jy).ne.zero) then
+                  temp = alpha*dconjg(y(jy))
+                  a(1:m,j) = a(1:m,j) + x(1:m)*temp
               endif
-              JY = JY + INCY
+              jy = jy + incy
           enddo
-      ELSE
-          IF (INCX.GT.0) THEN
-              KX = 1
-          ELSE
-              KX = 1 - (M-1)*INCX
+      else
+          if (incx.gt.0) then
+              kx = 1
+          else
+              kx = 1 - (m-1)*incx
           endif
-          DO J = 1,N
-              IF (Y(JY).NE.ZERO) THEN
-                  TEMP = ALPHA*DCONJG(Y(JY))
-                  IX = KX
-                  DO I = 1,M
-                      A(I,J) = A(I,J) + X(IX)*TEMP
-                      IX = IX + INCX
+          do j = 1,n
+              if (y(jy).ne.zero) then
+                  temp = alpha*dconjg(y(jy))
+                  ix = kx
+                  do i = 1,m
+                      a(i,j) = a(i,j) + x(ix)*temp
+                      ix = ix + incx
                   enddo
               endif
-              JY = JY + INCY
+              jy = jy + incy
           enddo
       endif
 
-      END SUBROUTINE ZGERC
+      end subroutine zgerc

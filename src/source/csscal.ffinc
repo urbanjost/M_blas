@@ -59,7 +59,7 @@ SEE ALSO
    http://www.netlib.org/lapack/explore-html/
 $BLOCK END
 !  =====================================================================
-       SUBROUTINE CSSCAL(N,SA,CX,INCX)
+       subroutine csscal(n,sa,cx,incx)
       implicit none
 !
 !  -- Reference BLAS level1 routine (version 3.8.0) --
@@ -68,37 +68,37 @@ $BLOCK END
 !     November 2017
 !
 !     .. Scalar Arguments ..
-      REAL,intent(in)       :: SA
-      INTEGER,intent(in)    :: INCX,N
+      real,intent(in)       :: sa
+      integer,intent(in)    :: incx,n
 !     ..
 !     .. Array Arguments ..
-      COMPLEX,intent(inout) :: CX(*)
+      complex,intent(inout) :: cx(*)
 !     ..
 !
 !  =====================================================================
 !
 !     .. Local Scalars ..
-      INTEGER I,NINCX
+      integer i,nincx
 !     ..
 !     .. Intrinsic Functions ..
-      INTRINSIC AIMAG,CMPLX,REAL
+      intrinsic aimag,cmplx,real
 !     ..
-      IF (N.LE.0 .OR. INCX.LE.0) RETURN
-      IF (INCX.EQ.1) THEN
+      if (n.le.0 .or. incx.le.0) return
+      if (incx.eq.1) then
 !
 !        code for increment equal to 1
 !
-         DO I = 1,N
-            CX(I) = CMPLX(SA*REAL(CX(I)),SA*AIMAG(CX(I)))
+         do i = 1,n
+            cx(i) = cmplx(sa*real(cx(i)),sa*aimag(cx(i)))
          enddo
-      ELSE
+      else
 !
 !        code for increment not equal to 1
 !
-         NINCX = N*INCX
-         DO I = 1,NINCX,INCX
-            CX(I) = CMPLX(SA*REAL(CX(I)),SA*AIMAG(CX(I)))
+         nincx = n*incx
+         do i = 1,nincx,incx
+            cx(i) = cmplx(sa*real(cx(i)),sa*aimag(cx(i)))
          enddo
       endif
 
-      END SUBROUTINE CSSCAL
+      end subroutine csscal

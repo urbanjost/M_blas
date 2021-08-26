@@ -65,7 +65,7 @@ SEE ALSO
    http://www.netlib.org/lapack/explore-html/
 $BLOCK END
 !  =====================================================================
-       SUBROUTINE XERBLA_ARRAY(SRNAME_ARRAY, SRNAME_LEN, INFO)
+       subroutine xerbla_array(srname_array, srname_len, info)
       implicit none
 !
 !  -- Reference BLAS level1 routine (version 3.7.0) --
@@ -74,33 +74,33 @@ $BLOCK END
 !     December 2016
 !
 !     .. Scalar Arguments ..
-      INTEGER,intent(in) :: SRNAME_LEN, INFO
+      integer,intent(in) :: srname_len, info
 !     ..
 !     .. Array Arguments ..
-      CHARACTER(len=*),intent(in) :: SRNAME_ARRAY(SRNAME_LEN)
+      character(len=*),intent(in) :: srname_array(srname_len)
 !     ..
 !
 ! =====================================================================
 !
 !     ..
 !     .. Local Scalars ..
-      INTEGER I
+      integer i
 !     ..
 !     .. Local Arrays ..
-      CHARACTER*32 SRNAME
+      character*32 srname
 !     ..
 !     .. Intrinsic Functions ..
-      INTRINSIC MIN, LEN
+      intrinsic min, len
 !     ..
 !     .. External Functions ..
 !      EXTERNAL XERBLA
 !     ..
 !     .. Executable Statements ..
-      SRNAME = ''
-      DO I = 1, MIN( SRNAME_LEN, LEN( SRNAME ) )
-         SRNAME( I:I ) = SRNAME_ARRAY( I )
+      srname = ''
+      do i = 1, min( srname_len, len( srname ) )
+         srname( i:i ) = srname_array( i )
       enddo
 
-      CALL XERBLA( SRNAME, INFO )
+      call xerbla( srname, info )
 
-      END SUBROUTINE XERBLA_ARRAY
+      end subroutine xerbla_array

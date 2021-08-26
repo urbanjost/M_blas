@@ -80,7 +80,7 @@ SEE ALSO
    http://www.netlib.org/lapack/explore-html/
 $BLOCK END
 !  =====================================================================
-       SUBROUTINE SROTM(N,SX,INCX,SY,INCY,SPARAM)
+       subroutine srotm(n,sx,incx,sy,incy,sparam)
       implicit none
 !
 !  -- Reference BLAS level1 routine (version 3.8.0) --
@@ -89,99 +89,99 @@ $BLOCK END
 !     November 2017
 !
 !     .. Scalar Arguments ..
-      INTEGER,intent(in) :: INCX,INCY,N
+      integer,intent(in) :: incx,incy,n
 !     ..
 !     .. Array Arguments ..
-      REAL,intent(in)    :: SPARAM(5)
-      REAL,intent(inout) :: SX(*),SY(*)
+      real,intent(in)    :: sparam(5)
+      real,intent(inout) :: sx(*),sy(*)
 !     ..
 !
 !  =====================================================================
 !
 !     .. Local Scalars ..
-      REAL SFLAG,SH11,SH12,SH21,SH22,W,Z
+      real sflag,sh11,sh12,sh21,sh22,w,z
       real,parameter :: zero=0.0e0
       real,parameter :: two=2.0e0
-      INTEGER I,KX,KY,NSTEPS
+      integer i,kx,ky,nsteps
 !     ..
 !
-      SFLAG = SPARAM(1)
-      IF (N.LE.0 .OR. (SFLAG+TWO.EQ.ZERO)) RETURN
-      IF (INCX.EQ.INCY.AND.INCX.GT.0) THEN
+      sflag = sparam(1)
+      if (n.le.0 .or. (sflag+two.eq.zero)) return
+      if (incx.eq.incy.and.incx.gt.0) then
 !
-         NSTEPS = N*INCX
-         IF (SFLAG.LT.ZERO) THEN
-            SH11 = SPARAM(2)
-            SH12 = SPARAM(4)
-            SH21 = SPARAM(3)
-            SH22 = SPARAM(5)
-            DO I = 1,NSTEPS,INCX
-               W = SX(I)
-               Z = SY(I)
-               SX(I) = W*SH11 + Z*SH12
-               SY(I) = W*SH21 + Z*SH22
+         nsteps = n*incx
+         if (sflag.lt.zero) then
+            sh11 = sparam(2)
+            sh12 = sparam(4)
+            sh21 = sparam(3)
+            sh22 = sparam(5)
+            do i = 1,nsteps,incx
+               w = sx(i)
+               z = sy(i)
+               sx(i) = w*sh11 + z*sh12
+               sy(i) = w*sh21 + z*sh22
             enddo
-         elseif (SFLAG.EQ.ZERO) THEN
-            SH12 = SPARAM(4)
-            SH21 = SPARAM(3)
-            DO I = 1,NSTEPS,INCX
-               W = SX(I)
-               Z = SY(I)
-               SX(I) = W + Z*SH12
-               SY(I) = W*SH21 + Z
+         elseif (sflag.eq.zero) then
+            sh12 = sparam(4)
+            sh21 = sparam(3)
+            do i = 1,nsteps,incx
+               w = sx(i)
+               z = sy(i)
+               sx(i) = w + z*sh12
+               sy(i) = w*sh21 + z
             enddo
-         ELSE
-            SH11 = SPARAM(2)
-            SH22 = SPARAM(5)
-            DO I = 1,NSTEPS,INCX
-               W = SX(I)
-               Z = SY(I)
-               SX(I) = W*SH11 + Z
-               SY(I) = -W + SH22*Z
+         else
+            sh11 = sparam(2)
+            sh22 = sparam(5)
+            do i = 1,nsteps,incx
+               w = sx(i)
+               z = sy(i)
+               sx(i) = w*sh11 + z
+               sy(i) = -w + sh22*z
             enddo
          endif
-      ELSE
-         KX = 1
-         KY = 1
-         IF (INCX.LT.0) KX = 1 + (1-N)*INCX
-         IF (INCY.LT.0) KY = 1 + (1-N)*INCY
+      else
+         kx = 1
+         ky = 1
+         if (incx.lt.0) kx = 1 + (1-n)*incx
+         if (incy.lt.0) ky = 1 + (1-n)*incy
 !
-         IF (SFLAG.LT.ZERO) THEN
-            SH11 = SPARAM(2)
-            SH12 = SPARAM(4)
-            SH21 = SPARAM(3)
-            SH22 = SPARAM(5)
-            DO I = 1,N
-               W = SX(KX)
-               Z = SY(KY)
-               SX(KX) = W*SH11 + Z*SH12
-               SY(KY) = W*SH21 + Z*SH22
-               KX = KX + INCX
-               KY = KY + INCY
+         if (sflag.lt.zero) then
+            sh11 = sparam(2)
+            sh12 = sparam(4)
+            sh21 = sparam(3)
+            sh22 = sparam(5)
+            do i = 1,n
+               w = sx(kx)
+               z = sy(ky)
+               sx(kx) = w*sh11 + z*sh12
+               sy(ky) = w*sh21 + z*sh22
+               kx = kx + incx
+               ky = ky + incy
             enddo
-         elseif (SFLAG.EQ.ZERO) THEN
-            SH12 = SPARAM(4)
-            SH21 = SPARAM(3)
-            DO I = 1,N
-               W = SX(KX)
-               Z = SY(KY)
-               SX(KX) = W + Z*SH12
-               SY(KY) = W*SH21 + Z
-               KX = KX + INCX
-               KY = KY + INCY
+         elseif (sflag.eq.zero) then
+            sh12 = sparam(4)
+            sh21 = sparam(3)
+            do i = 1,n
+               w = sx(kx)
+               z = sy(ky)
+               sx(kx) = w + z*sh12
+               sy(ky) = w*sh21 + z
+               kx = kx + incx
+               ky = ky + incy
             enddo
-         ELSE
-             SH11 = SPARAM(2)
-             SH22 = SPARAM(5)
-             DO I = 1,N
-                W = SX(KX)
-                Z = SY(KY)
-                SX(KX) = W*SH11 + Z
-                SY(KY) = -W + SH22*Z
-                KX = KX + INCX
-                KY = KY + INCY
+         else
+             sh11 = sparam(2)
+             sh22 = sparam(5)
+             do i = 1,n
+                w = sx(kx)
+                z = sy(ky)
+                sx(kx) = w*sh11 + z
+                sy(ky) = -w + sh22*z
+                kx = kx + incx
+                ky = ky + incy
             enddo
          endif
       endif
 
-      END SUBROUTINE SROTM
+      end subroutine srotm

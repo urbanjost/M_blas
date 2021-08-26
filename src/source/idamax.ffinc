@@ -52,7 +52,7 @@ SEE ALSO
    http://www.netlib.org/lapack/explore-html/
 $BLOCK END
 !  =====================================================================
-pure INTEGER FUNCTION IDAMAX(N,DX,INCX)
+pure integer function idamax(n,dx,incx)
       implicit none
 !
 !  -- Reference BLAS level1 routine (version 3.8.0) --
@@ -61,47 +61,47 @@ pure INTEGER FUNCTION IDAMAX(N,DX,INCX)
 !     November 2017
 !
 !     .. Scalar Arguments ..
-      INTEGER,intent(in)          :: INCX,N
+      integer,intent(in)          :: incx,n
 !     ..
 !     .. Array Arguments ..
-      DOUBLE PRECISION,intent(in) :: DX(*)
+      double precision,intent(in) :: dx(*)
 !     ..
 !  =====================================================================
 !     .. Local Scalars ..
-      DOUBLE PRECISION DMAX
-      INTEGER I,IX
+      double precision dmax
+      integer i,ix
 !     ..
 !     .. Intrinsic Functions ..
-      INTRINSIC DABS
+      intrinsic dabs
 !     ..
-      IDAMAX = 0
-      IF (N.LT.1 .OR. INCX.LE.0) RETURN
-      IDAMAX = 1
-      IF (N.EQ.1) RETURN
-      IF (INCX.EQ.1) THEN
+      idamax = 0
+      if (n.lt.1 .or. incx.le.0) return
+      idamax = 1
+      if (n.eq.1) return
+      if (incx.eq.1) then
 !
 !        code for increment equal to 1
 !
-         DMAX = DABS(DX(1))
-         DO I = 2,N
-            IF (DABS(DX(I)).GT.DMAX) THEN
-               IDAMAX = I
-               DMAX = DABS(DX(I))
+         dmax = dabs(dx(1))
+         do i = 2,n
+            if (dabs(dx(i)).gt.dmax) then
+               idamax = i
+               dmax = dabs(dx(i))
             endif
          enddo
-      ELSE
+      else
 !
 !        code for increment not equal to 1
 !
-         IX = 1
-         DMAX = DABS(DX(1))
-         IX = IX + INCX
-         DO I = 2,N
-            IF (DABS(DX(IX)).GT.DMAX) THEN
-               IDAMAX = I
-               DMAX = DABS(DX(IX))
+         ix = 1
+         dmax = dabs(dx(1))
+         ix = ix + incx
+         do i = 2,n
+            if (dabs(dx(ix)).gt.dmax) then
+               idamax = i
+               dmax = dabs(dx(ix))
             endif
-            IX = IX + INCX
+            ix = ix + incx
          enddo
       endif
 

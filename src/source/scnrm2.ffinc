@@ -70,7 +70,7 @@ $BLOCK END
 !  =====================================================================
 pure function scnrm2( n, x, incx )
    integer, parameter :: wp = kind(1.e0)
-   real(wp) :: SCNRM2
+   real(wp) :: scnrm2
 !
 !  -- Reference BLAS level1 routine (version 3.9.1) --
 !  -- Reference BLAS is a software package provided by Univ. of Tennessee,    --
@@ -80,7 +80,7 @@ pure function scnrm2( n, x, incx )
 !  .. Constants ..
    real(wp), parameter :: zero = 0.0_wp
    real(wp), parameter :: one  = 1.0_wp
-   real(wp), parameter :: maxN = huge(0.0_wp)
+   real(wp), parameter :: maxn = huge(0.0_wp)
 !  ..
 !  .. Blue's ccaling constants ..
    real(wp), parameter :: tsml = real(radix(0._wp), wp)**ceiling( (minexponent(0._wp) - 1) * 0.5_wp)
@@ -101,7 +101,7 @@ pure function scnrm2( n, x, incx )
 !
 !  Quick return if possible
 !
-   SCNRM2 = zero
+   scnrm2 = zero
    if( n <= 0 ) return
 !
    scl = one
@@ -150,7 +150,7 @@ pure function scnrm2( n, x, incx )
 !
 !     Combine abig and amed if abig > 0.
 !
-      if ( (amed > zero) .or. (amed > maxN) .or. (amed /= amed) ) then
+      if ( (amed > zero) .or. (amed > maxn) .or. (amed /= amed) ) then
          abig = abig + (amed*sbig)*sbig
       endif
       scl = one / sbig
@@ -159,7 +159,7 @@ pure function scnrm2( n, x, incx )
 !
 !     Combine amed and asml if asml > 0.
 !
-      if ( (amed > zero) .or. (amed > maxN) .or. (amed /= amed) ) then
+      if ( (amed > zero) .or. (amed > maxn) .or. (amed /= amed) ) then
          amed = sqrt(amed)
          asml = sqrt(asml) / ssml
          if (asml > amed) then
@@ -182,5 +182,5 @@ pure function scnrm2( n, x, incx )
       scl = one
       sumsq = amed
    endif
-   SCNRM2 = scl*sqrt( sumsq )
+   scnrm2 = scl*sqrt( sumsq )
 end function scnrm2

@@ -159,7 +159,7 @@ SEE ALSO
    http://www.netlib.org/lapack/explore-html/
 $BLOCK END
 !  =====================================================================
-       SUBROUTINE ZGEMM(TRANSA,TRANSB,M,N,K,ALPHA,A,LDA,B,LDB,BETA,C,LDC)
+       subroutine zgemm(transa,transb,m,n,k,alpha,a,lda,b,ldb,beta,c,ldc)
       implicit none
 !
 !  -- Reference BLAS level3 routine (version 3.7.0) --
@@ -168,13 +168,13 @@ $BLOCK END
 !     December 2016
 !
 !     .. Scalar Arguments ..
-      complex(kind=real64),intent(in)    :: ALPHA,BETA
-      INTEGER,intent(in)                 :: K,LDA,LDB,LDC,M,N
-      CHARACTER,intent(in)               :: TRANSA,TRANSB
+      complex(kind=real64),intent(in)    :: alpha,beta
+      integer,intent(in)                 :: k,lda,ldb,ldc,m,n
+      character,intent(in)               :: transa,transb
 !     ..
 !     .. Array Arguments ..
-      complex(kind=real64),intent(in)    :: A(LDA,*),B(LDB,*)
-      complex(kind=real64),intent(inout) :: C(LDC,*)
+      complex(kind=real64),intent(in)    :: a(lda,*),b(ldb,*)
+      complex(kind=real64),intent(inout) :: c(ldc,*)
 !     ..
 !
 !  =====================================================================
@@ -187,18 +187,18 @@ $BLOCK END
 !      EXTERNAL XERBLA
 !     ..
 !     .. Intrinsic Functions ..
-      INTRINSIC DCONJG,MAX
+      intrinsic dconjg,max
 !     ..
 !     .. Local Scalars ..
-      complex(kind=real64) :: TEMP
-      INTEGER I,INFO,J,L,NROWA,NROWB
-      LOGICAL CONJA,CONJB,NOTA,NOTB
+      complex(kind=real64) :: temp
+      integer i,info,j,l,nrowa,nrowb
+      logical conja,conjb,nota,notb
 !     ..
 !     .. Parameters ..
-      complex(kind=real64) :: ONE
-      PARAMETER (ONE= (1.0D+0,0.0D+0))
-      complex(kind=real64) :: ZERO
-      PARAMETER (ZERO= (0.0D+0,0.0D+0))
+      complex(kind=real64) :: one
+      parameter (one= (1.0d+0,0.0d+0))
+      complex(kind=real64) :: zero
+      parameter (zero= (0.0d+0,0.0d+0))
 !     ..
 !
 !     Set  NOTA  and  NOTB  as  true if  A  and  B  respectively are not
@@ -206,224 +206,224 @@ $BLOCK END
 !     B  respectively are to be  transposed but  not conjugated  and set
 !     NROWA and NROWB  as the number of rows  of  A  and  B  respectively.
 !
-      NOTA = LSAME(TRANSA,'N')
-      NOTB = LSAME(TRANSB,'N')
-      CONJA = LSAME(TRANSA,'C')
-      CONJB = LSAME(TRANSB,'C')
-      IF (NOTA) THEN
-          NROWA = M
-      ELSE
-          NROWA = K
+      nota = lsame(transa,'N')
+      notb = lsame(transb,'N')
+      conja = lsame(transa,'C')
+      conjb = lsame(transb,'C')
+      if (nota) then
+          nrowa = m
+      else
+          nrowa = k
       endif
-      IF (NOTB) THEN
-          NROWB = K
-      ELSE
-          NROWB = N
+      if (notb) then
+          nrowb = k
+      else
+          nrowb = n
       endif
 !
 !     Test the input parameters.
 !
-      INFO = 0
-      IF ((.NOT.NOTA) .AND. (.NOT.CONJA) .AND.  (.NOT.LSAME(TRANSA,'T'))) THEN
-          INFO = 1
-      elseif ((.NOT.NOTB) .AND. (.NOT.CONJB) .AND.  (.NOT.LSAME(TRANSB,'T'))) THEN
-          INFO = 2
-      elseif (M.LT.0) THEN
-          INFO = 3
-      elseif (N.LT.0) THEN
-          INFO = 4
-      elseif (K.LT.0) THEN
-          INFO = 5
-      elseif (LDA.LT.MAX(1,NROWA)) THEN
-          INFO = 8
-      elseif (LDB.LT.MAX(1,NROWB)) THEN
-          INFO = 10
-      elseif (LDC.LT.MAX(1,M)) THEN
-          INFO = 13
+      info = 0
+      if ((.not.nota) .and. (.not.conja) .and.  (.not.lsame(transa,'T'))) then
+          info = 1
+      elseif ((.not.notb) .and. (.not.conjb) .and.  (.not.lsame(transb,'T'))) then
+          info = 2
+      elseif (m.lt.0) then
+          info = 3
+      elseif (n.lt.0) then
+          info = 4
+      elseif (k.lt.0) then
+          info = 5
+      elseif (lda.lt.max(1,nrowa)) then
+          info = 8
+      elseif (ldb.lt.max(1,nrowb)) then
+          info = 10
+      elseif (ldc.lt.max(1,m)) then
+          info = 13
       endif
-      IF (INFO.NE.0) THEN
-          CALL XERBLA('ZGEMM ',INFO)
-          RETURN
+      if (info.ne.0) then
+          call xerbla('ZGEMM ',info)
+          return
       endif
 !
 !     Quick return if possible.
 !
-      IF ((M.EQ.0) .OR. (N.EQ.0) .OR.  (((ALPHA.EQ.ZERO).OR. (K.EQ.0)).AND. (BETA.EQ.ONE))) RETURN
+      if ((m.eq.0) .or. (n.eq.0) .or.  (((alpha.eq.zero).or. (k.eq.0)).and. (beta.eq.one))) return
 !
 !     And when  alpha.eq.zero.
 !
-      IF (ALPHA.EQ.ZERO) THEN
-          IF (BETA.EQ.ZERO) THEN
-              DO J = 1,N
-                  C(1:M,J) = ZERO
+      if (alpha.eq.zero) then
+          if (beta.eq.zero) then
+              do j = 1,n
+                  c(1:m,j) = zero
               enddo
-          ELSE
-              DO J = 1,N
-                  C(1:M,J) = BETA*C(1:M,J)
+          else
+              do j = 1,n
+                  c(1:m,j) = beta*c(1:m,j)
               enddo
           endif
-          RETURN
+          return
       endif
 !
 !     Start the operations.
 !
-      IF (NOTB) THEN
-          IF (NOTA) THEN
+      if (notb) then
+          if (nota) then
 !
 !           Form  C := alpha*A*B + beta*C.
 !
-              DO J = 1,N
-                  IF (BETA.EQ.ZERO) THEN
-                      C(1:M,J) = ZERO
-                  elseif (BETA.NE.ONE) THEN
-                      C(1:M,J) = BETA*C(1:M,J)
+              do j = 1,n
+                  if (beta.eq.zero) then
+                      c(1:m,j) = zero
+                  elseif (beta.ne.one) then
+                      c(1:m,j) = beta*c(1:m,j)
                   endif
-                  DO L = 1,K
-                      TEMP = ALPHA*B(L,J)
-                      C(1:M,J) = C(1:M,J) + TEMP*A(1:M,L)
+                  do l = 1,k
+                      temp = alpha*b(l,j)
+                      c(1:m,j) = c(1:m,j) + temp*a(1:m,l)
                   enddo
               enddo
-          elseif (CONJA) THEN
+          elseif (conja) then
 !
 !           Form  C := alpha*A**H*B + beta*C.
 !
-              DO J = 1,N
-                  DO I = 1,M
-                      TEMP = ZERO
-                      DO L = 1,K
-                          TEMP = TEMP + DCONJG(A(L,I))*B(L,J)
+              do j = 1,n
+                  do i = 1,m
+                      temp = zero
+                      do l = 1,k
+                          temp = temp + dconjg(a(l,i))*b(l,j)
                       enddo
-                      IF (BETA.EQ.ZERO) THEN
-                          C(I,J) = ALPHA*TEMP
-                      ELSE
-                          C(I,J) = ALPHA*TEMP + BETA*C(I,J)
+                      if (beta.eq.zero) then
+                          c(i,j) = alpha*temp
+                      else
+                          c(i,j) = alpha*temp + beta*c(i,j)
                       endif
                   enddo
               enddo
-          ELSE
+          else
 !
 !           Form  C := alpha*A**T*B + beta*C
 !
-              DO J = 1,N
-                  DO I = 1,M
-                      TEMP = ZERO
-                      DO L = 1,K
-                          TEMP = TEMP + A(L,I)*B(L,J)
+              do j = 1,n
+                  do i = 1,m
+                      temp = zero
+                      do l = 1,k
+                          temp = temp + a(l,i)*b(l,j)
                       enddo
-                      IF (BETA.EQ.ZERO) THEN
-                          C(I,J) = ALPHA*TEMP
-                      ELSE
-                          C(I,J) = ALPHA*TEMP + BETA*C(I,J)
+                      if (beta.eq.zero) then
+                          c(i,j) = alpha*temp
+                      else
+                          c(i,j) = alpha*temp + beta*c(i,j)
                       endif
                   enddo
               enddo
           endif
-      elseif (NOTA) THEN
-          IF (CONJB) THEN
+      elseif (nota) then
+          if (conjb) then
 !
 !           Form  C := alpha*A*B**H + beta*C.
 !
-              DO J = 1,N
-                  IF (BETA.EQ.ZERO) THEN
-                      C(1:M,J) = ZERO
-                  elseif (BETA.NE.ONE) THEN
-                      C(1:M,J) = BETA*C(1:M,J)
+              do j = 1,n
+                  if (beta.eq.zero) then
+                      c(1:m,j) = zero
+                  elseif (beta.ne.one) then
+                      c(1:m,j) = beta*c(1:m,j)
                   endif
-                  DO L = 1,K
-                      TEMP = ALPHA*DCONJG(B(J,L))
-                      DO I = 1,M
-                          C(I,J) = C(I,J) + TEMP*A(I,L)
+                  do l = 1,k
+                      temp = alpha*dconjg(b(j,l))
+                      do i = 1,m
+                          c(i,j) = c(i,j) + temp*a(i,l)
                       enddo
                   enddo
               enddo
-          ELSE
+          else
 !
 !           Form  C := alpha*A*B**T + beta*C
 !
-              DO J = 1,N
-                  IF (BETA.EQ.ZERO) THEN
-                      C(1:M,J) = ZERO
-                  elseif (BETA.NE.ONE) THEN
-                      C(1:M,J) = BETA*C(1:M,J)
+              do j = 1,n
+                  if (beta.eq.zero) then
+                      c(1:m,j) = zero
+                  elseif (beta.ne.one) then
+                      c(1:m,j) = beta*c(1:m,j)
                   endif
-                  DO L = 1,K
-                      TEMP = ALPHA*B(J,L)
-                      C(1:M,J) = C(1:M,J) + TEMP*A(1:M,L)
+                  do l = 1,k
+                      temp = alpha*b(j,l)
+                      c(1:m,j) = c(1:m,j) + temp*a(1:m,l)
                   enddo
               enddo
           endif
-      elseif (CONJA) THEN
-          IF (CONJB) THEN
+      elseif (conja) then
+          if (conjb) then
 !
 !           Form  C := alpha*A**H*B**H + beta*C.
 !
-              DO J = 1,N
-                  DO I = 1,M
-                      TEMP = ZERO
-                      DO L = 1,K
-                          TEMP = TEMP + DCONJG(A(L,I))*DCONJG(B(J,L))
+              do j = 1,n
+                  do i = 1,m
+                      temp = zero
+                      do l = 1,k
+                          temp = temp + dconjg(a(l,i))*dconjg(b(j,l))
                       enddo
-                      IF (BETA.EQ.ZERO) THEN
-                          C(I,J) = ALPHA*TEMP
-                      ELSE
-                          C(I,J) = ALPHA*TEMP + BETA*C(I,J)
+                      if (beta.eq.zero) then
+                          c(i,j) = alpha*temp
+                      else
+                          c(i,j) = alpha*temp + beta*c(i,j)
                       endif
                   enddo
               enddo
-          ELSE
+          else
 !
 !           Form  C := alpha*A**H*B**T + beta*C
 !
-              DO J = 1,N
-                  DO I = 1,M
-                      TEMP = ZERO
-                      DO L = 1,K
-                          TEMP = TEMP + DCONJG(A(L,I))*B(J,L)
+              do j = 1,n
+                  do i = 1,m
+                      temp = zero
+                      do l = 1,k
+                          temp = temp + dconjg(a(l,i))*b(j,l)
                       enddo
-                      IF (BETA.EQ.ZERO) THEN
-                          C(I,J) = ALPHA*TEMP
-                      ELSE
-                          C(I,J) = ALPHA*TEMP + BETA*C(I,J)
+                      if (beta.eq.zero) then
+                          c(i,j) = alpha*temp
+                      else
+                          c(i,j) = alpha*temp + beta*c(i,j)
                       endif
                   enddo
               enddo
           endif
-      ELSE
-          IF (CONJB) THEN
+      else
+          if (conjb) then
 !
 !           Form  C := alpha*A**T*B**H + beta*C
 !
-              DO J = 1,N
-                  DO I = 1,M
-                      TEMP = ZERO
-                      DO L = 1,K
-                          TEMP = TEMP + A(L,I)*DCONJG(B(J,L))
+              do j = 1,n
+                  do i = 1,m
+                      temp = zero
+                      do l = 1,k
+                          temp = temp + a(l,i)*dconjg(b(j,l))
                       enddo
-                      IF (BETA.EQ.ZERO) THEN
-                          C(I,J) = ALPHA*TEMP
-                      ELSE
-                          C(I,J) = ALPHA*TEMP + BETA*C(I,J)
+                      if (beta.eq.zero) then
+                          c(i,j) = alpha*temp
+                      else
+                          c(i,j) = alpha*temp + beta*c(i,j)
                       endif
                   enddo
               enddo
-          ELSE
+          else
 !
 !           Form  C := alpha*A**T*B**T + beta*C
 !
-              DO J = 1,N
-                  DO I = 1,M
-                      TEMP = ZERO
-                      DO L = 1,K
-                          TEMP = TEMP + A(L,I)*B(J,L)
+              do j = 1,n
+                  do i = 1,m
+                      temp = zero
+                      do l = 1,k
+                          temp = temp + a(l,i)*b(j,l)
                       enddo
-                      IF (BETA.EQ.ZERO) THEN
-                          C(I,J) = ALPHA*TEMP
-                      ELSE
-                          C(I,J) = ALPHA*TEMP + BETA*C(I,J)
+                      if (beta.eq.zero) then
+                          c(i,j) = alpha*temp
+                      else
+                          c(i,j) = alpha*temp + beta*c(i,j)
                       endif
                   enddo
               enddo
           endif
       endif
 !
-      END SUBROUTINE ZGEMM
+      end subroutine zgemm

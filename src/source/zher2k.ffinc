@@ -171,7 +171,7 @@ SEE ALSO
    http://www.netlib.org/lapack/explore-html/
 $BLOCK END
 !  =====================================================================
-       SUBROUTINE ZHER2K(UPLO,TRANS,N,K,ALPHA,A,LDA,B,LDB,BETA,C,LDC)
+       subroutine zher2k(uplo,trans,n,k,alpha,a,lda,b,ldb,beta,c,ldc)
       implicit none
 !
 !  -- Reference BLAS level3 routine (version 3.7.0) --
@@ -180,14 +180,14 @@ $BLOCK END
 !     December 2016
 !
 !     .. Scalar Arguments ..
-      complex(kind=real64),intent(in)    :: ALPHA
-      DOUBLE PRECISION,intent(in)        :: BETA
-      INTEGER ,intent(in)                ::K,LDA,LDB,LDC,N
-      CHARACTER,intent(in)               :: TRANS,UPLO
+      complex(kind=real64),intent(in)    :: alpha
+      double precision,intent(in)        :: beta
+      integer ,intent(in)                ::k,lda,ldb,ldc,n
+      character,intent(in)               :: trans,uplo
 !     ..
 !     .. Array Arguments ..
-      complex(kind=real64),intent(in)    :: A(LDA,*),B(LDB,*)
-      complex(kind=real64),intent(inout) :: C(LDC,*)
+      complex(kind=real64),intent(in)    :: a(lda,*),b(ldb,*)
+      complex(kind=real64),intent(inout) :: c(ldc,*)
 !     ..
 !
 !  =====================================================================
@@ -200,182 +200,182 @@ $BLOCK END
 !      EXTERNAL XERBLA
 !     ..
 !     .. Intrinsic Functions ..
-      INTRINSIC DBLE,DCONJG,MAX
+      intrinsic dble,dconjg,max
 !     ..
 !     .. Local Scalars ..
-      complex(kind=real64) :: TEMP1,TEMP2
-      INTEGER I,INFO,J,L,NROWA
-      LOGICAL UPPER
+      complex(kind=real64) :: temp1,temp2
+      integer i,info,j,l,nrowa
+      logical upper
 !     ..
 !     .. Parameters ..
-      DOUBLE PRECISION ONE
-      PARAMETER (ONE=1.0D+0)
-      complex(kind=real64) :: ZERO
-      PARAMETER (ZERO= (0.0D+0,0.0D+0))
+      double precision one
+      parameter (one=1.0d+0)
+      complex(kind=real64) :: zero
+      parameter (zero= (0.0d+0,0.0d+0))
 !     ..
 !
 !     Test the input parameters.
 !
-      IF (LSAME(TRANS,'N')) THEN
-          NROWA = N
-      ELSE
-          NROWA = K
+      if (lsame(trans,'N')) then
+          nrowa = n
+      else
+          nrowa = k
       endif
-      UPPER = LSAME(UPLO,'U')
+      upper = lsame(uplo,'U')
 !
-      INFO = 0
-      IF ((.NOT.UPPER) .AND. (.NOT.LSAME(UPLO,'L'))) THEN
-          INFO = 1
-      ELSEIF ((.NOT.LSAME(TRANS,'N')) .AND.  (.NOT.LSAME(TRANS,'C'))) THEN
-          INFO = 2
-      ELSEIF (N.LT.0) THEN
-          INFO = 3
-      ELSEIF (K.LT.0) THEN
-          INFO = 4
-      ELSEIF (LDA.LT.MAX(1,NROWA)) THEN
-          INFO = 7
-      ELSEIF (LDB.LT.MAX(1,NROWA)) THEN
-          INFO = 9
-      ELSEIF (LDC.LT.MAX(1,N)) THEN
-          INFO = 12
+      info = 0
+      if ((.not.upper) .and. (.not.lsame(uplo,'L'))) then
+          info = 1
+      elseif ((.not.lsame(trans,'N')) .and.  (.not.lsame(trans,'C'))) then
+          info = 2
+      elseif (n.lt.0) then
+          info = 3
+      elseif (k.lt.0) then
+          info = 4
+      elseif (lda.lt.max(1,nrowa)) then
+          info = 7
+      elseif (ldb.lt.max(1,nrowa)) then
+          info = 9
+      elseif (ldc.lt.max(1,n)) then
+          info = 12
       endif
-      IF (INFO.NE.0) THEN
-          CALL XERBLA('ZHER2K',INFO)
-          RETURN
+      if (info.ne.0) then
+          call xerbla('ZHER2K',info)
+          return
       endif
 !
 !     Quick return if possible.
 !
-      IF ((N.EQ.0) .OR. (((ALPHA.EQ.ZERO).OR.  (K.EQ.0)).AND. (BETA.EQ.ONE))) RETURN
+      if ((n.eq.0) .or. (((alpha.eq.zero).or.  (k.eq.0)).and. (beta.eq.one))) return
 !
 !     And when  alpha.eq.zero.
 !
-      IF (ALPHA.EQ.ZERO) THEN
-          IF (UPPER) THEN
-              IF (BETA.EQ.DBLE(ZERO)) THEN
-                  DO J = 1,N
-                      C(1:J,J) = ZERO
+      if (alpha.eq.zero) then
+          if (upper) then
+              if (beta.eq.dble(zero)) then
+                  do j = 1,n
+                      c(1:j,j) = zero
                   enddo
-              ELSE
-                  DO J = 1,N
-                      C(1:J-1,J) = BETA*C(1:J-1,J)
-                      C(J,J) = BETA*DBLE(C(J,J))
+              else
+                  do j = 1,n
+                      c(1:j-1,j) = beta*c(1:j-1,j)
+                      c(j,j) = beta*dble(c(j,j))
                   enddo
               endif
-          ELSE
-              IF (BETA.EQ.DBLE(ZERO)) THEN
-                  DO J = 1,N
-                      C(J:N,J) = ZERO
+          else
+              if (beta.eq.dble(zero)) then
+                  do j = 1,n
+                      c(j:n,j) = zero
                   enddo
-              ELSE
-                  DO J = 1,N
-                      C(J,J) = BETA*DBLE(C(J,J))
-                      C(J+1:N,J) = BETA*C(J+1:N,J)
+              else
+                  do j = 1,n
+                      c(j,j) = beta*dble(c(j,j))
+                      c(j+1:n,j) = beta*c(j+1:n,j)
                   enddo
               endif
           endif
-          RETURN
+          return
       endif
 !
 !     Start the operations.
 !
-      IF (LSAME(TRANS,'N')) THEN
+      if (lsame(trans,'N')) then
 !
 !        Form  C := alpha*A*B**H + conjg( alpha )*B*A**H +
 !                   C.
 !
-          IF (UPPER) THEN
-              DO J = 1,N
-                  IF (BETA.EQ.DBLE(ZERO)) THEN
-                      C(1:J,J) = ZERO
-                  ELSEIF (BETA.NE.ONE) THEN
-                      C(1:J-1,J) = BETA*C(1:J-1,J)
-                      C(J,J) = BETA*DBLE(C(J,J))
-                  ELSE
-                      C(J,J) = DBLE(C(J,J))
+          if (upper) then
+              do j = 1,n
+                  if (beta.eq.dble(zero)) then
+                      c(1:j,j) = zero
+                  elseif (beta.ne.one) then
+                      c(1:j-1,j) = beta*c(1:j-1,j)
+                      c(j,j) = beta*dble(c(j,j))
+                  else
+                      c(j,j) = dble(c(j,j))
                   endif
-                  DO L = 1,K
-                      IF ((A(J,L).NE.ZERO) .OR. (B(J,L).NE.ZERO)) THEN
-                          TEMP1 = ALPHA*DCONJG(B(J,L))
-                          TEMP2 = DCONJG(ALPHA*A(J,L))
-                          DO I = 1,J - 1
-                              C(I,J) = C(I,J) + A(I,L)*TEMP1 + B(I,L)*TEMP2
+                  do l = 1,k
+                      if ((a(j,l).ne.zero) .or. (b(j,l).ne.zero)) then
+                          temp1 = alpha*dconjg(b(j,l))
+                          temp2 = dconjg(alpha*a(j,l))
+                          do i = 1,j - 1
+                              c(i,j) = c(i,j) + a(i,l)*temp1 + b(i,l)*temp2
                           enddo
-                          C(J,J) = DBLE(C(J,J)) + DBLE(A(J,L)*TEMP1+B(J,L)*TEMP2)
+                          c(j,j) = dble(c(j,j)) + dble(a(j,l)*temp1+b(j,l)*temp2)
                       endif
                   enddo
               enddo
-          ELSE
-              DO J = 1,N
-                  IF (BETA.EQ.DBLE(ZERO)) THEN
-                      C(J:N,J) = ZERO
-                  ELSEIF (BETA.NE.ONE) THEN
-                      C(J+1:N,J) = BETA*C(J+1:N,J)
-                      C(J,J) = BETA*DBLE(C(J,J))
-                  ELSE
-                      C(J,J) = DBLE(C(J,J))
+          else
+              do j = 1,n
+                  if (beta.eq.dble(zero)) then
+                      c(j:n,j) = zero
+                  elseif (beta.ne.one) then
+                      c(j+1:n,j) = beta*c(j+1:n,j)
+                      c(j,j) = beta*dble(c(j,j))
+                  else
+                      c(j,j) = dble(c(j,j))
                   endif
-                  DO L = 1,K
-                      IF ((A(J,L).NE.ZERO) .OR. (B(J,L).NE.ZERO)) THEN
-                          TEMP1 = ALPHA*DCONJG(B(J,L))
-                          TEMP2 = DCONJG(ALPHA*A(J,L))
-                          DO I = J + 1,N
-                              C(I,J) = C(I,J) + A(I,L)*TEMP1 + B(I,L)*TEMP2
+                  do l = 1,k
+                      if ((a(j,l).ne.zero) .or. (b(j,l).ne.zero)) then
+                          temp1 = alpha*dconjg(b(j,l))
+                          temp2 = dconjg(alpha*a(j,l))
+                          do i = j + 1,n
+                              c(i,j) = c(i,j) + a(i,l)*temp1 + b(i,l)*temp2
                           enddo
-                          C(J,J) = DBLE(C(J,J)) + DBLE(A(J,L)*TEMP1+B(J,L)*TEMP2)
+                          c(j,j) = dble(c(j,j)) + dble(a(j,l)*temp1+b(j,l)*temp2)
                       endif
                   enddo
               enddo
           endif
-      ELSE
+      else
 !
 !        Form  C := alpha*A**H*B + conjg( alpha )*B**H*A +
 !                   C.
 !
-          IF (UPPER) THEN
-              DO J = 1,N
-                  DO I = 1,J
-                      TEMP1 = ZERO
-                      TEMP2 = ZERO
-                      DO L = 1,K
-                          TEMP1 = TEMP1 + DCONJG(A(L,I))*B(L,J)
-                          TEMP2 = TEMP2 + DCONJG(B(L,I))*A(L,J)
+          if (upper) then
+              do j = 1,n
+                  do i = 1,j
+                      temp1 = zero
+                      temp2 = zero
+                      do l = 1,k
+                          temp1 = temp1 + dconjg(a(l,i))*b(l,j)
+                          temp2 = temp2 + dconjg(b(l,i))*a(l,j)
                       enddo
-                      IF (I.EQ.J) THEN
-                          IF (BETA.EQ.DBLE(ZERO)) THEN
-                              C(J,J) = DBLE(ALPHA*TEMP1+ DCONJG(ALPHA)*TEMP2)
-                          ELSE
-                              C(J,J) = BETA*DBLE(C(J,J)) + DBLE(ALPHA*TEMP1+ DCONJG(ALPHA)*TEMP2)
+                      if (i.eq.j) then
+                          if (beta.eq.dble(zero)) then
+                              c(j,j) = dble(alpha*temp1+ dconjg(alpha)*temp2)
+                          else
+                              c(j,j) = beta*dble(c(j,j)) + dble(alpha*temp1+ dconjg(alpha)*temp2)
                           endif
-                      ELSE
-                          IF (BETA.EQ.DBLE(ZERO)) THEN
-                              C(I,J) = ALPHA*TEMP1 + DCONJG(ALPHA)*TEMP2
-                          ELSE
-                              C(I,J) = BETA*C(I,J) + ALPHA*TEMP1 + DCONJG(ALPHA)*TEMP2
+                      else
+                          if (beta.eq.dble(zero)) then
+                              c(i,j) = alpha*temp1 + dconjg(alpha)*temp2
+                          else
+                              c(i,j) = beta*c(i,j) + alpha*temp1 + dconjg(alpha)*temp2
                           endif
                       endif
                   enddo
               enddo
-          ELSE
-              DO J = 1,N
-                  DO I = J,N
-                      TEMP1 = ZERO
-                      TEMP2 = ZERO
-                      DO L = 1,K
-                          TEMP1 = TEMP1 + DCONJG(A(L,I))*B(L,J)
-                          TEMP2 = TEMP2 + DCONJG(B(L,I))*A(L,J)
+          else
+              do j = 1,n
+                  do i = j,n
+                      temp1 = zero
+                      temp2 = zero
+                      do l = 1,k
+                          temp1 = temp1 + dconjg(a(l,i))*b(l,j)
+                          temp2 = temp2 + dconjg(b(l,i))*a(l,j)
                       enddo
-                      IF (I.EQ.J) THEN
-                          IF (BETA.EQ.DBLE(ZERO)) THEN
-                              C(J,J) = DBLE(ALPHA*TEMP1+ DCONJG(ALPHA)*TEMP2)
-                          ELSE
-                              C(J,J) = BETA*DBLE(C(J,J)) + DBLE(ALPHA*TEMP1+ DCONJG(ALPHA)*TEMP2)
+                      if (i.eq.j) then
+                          if (beta.eq.dble(zero)) then
+                              c(j,j) = dble(alpha*temp1+ dconjg(alpha)*temp2)
+                          else
+                              c(j,j) = beta*dble(c(j,j)) + dble(alpha*temp1+ dconjg(alpha)*temp2)
                           endif
-                      ELSE
-                          IF (BETA.EQ.DBLE(ZERO)) THEN
-                              C(I,J) = ALPHA*TEMP1 + DCONJG(ALPHA)*TEMP2
-                          ELSE
-                              C(I,J) = BETA*C(I,J) + ALPHA*TEMP1 + DCONJG(ALPHA)*TEMP2
+                      else
+                          if (beta.eq.dble(zero)) then
+                              c(i,j) = alpha*temp1 + dconjg(alpha)*temp2
+                          else
+                              c(i,j) = beta*c(i,j) + alpha*temp1 + dconjg(alpha)*temp2
                           endif
                       endif
                   enddo
@@ -383,4 +383,4 @@ $BLOCK END
           endif
       endif
 
-      END SUBROUTINE ZHER2K
+      end subroutine zher2k

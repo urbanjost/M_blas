@@ -46,7 +46,7 @@ SEE ALSO
    http://www.netlib.org/lapack/explore-html/
 $BLOCK END
 !  =====================================================================
-pure INTEGER FUNCTION IZAMAX(N,ZX,INCX)
+pure integer function izamax(n,zx,incx)
 implicit none
 !
 !  -- Reference BLAS level1 routine (version 3.8.0) --
@@ -55,49 +55,49 @@ implicit none
 !     November 2017
 !
 !     .. Scalar Arguments ..
-      INTEGER,intent(in)              :: INCX,N
+      integer,intent(in)              :: incx,n
 !     ..
 !     .. Array Arguments ..
-      complex(kind=real64),intent(in) :: ZX(*)
+      complex(kind=real64),intent(in) :: zx(*)
 !     ..
 !
 !  =====================================================================
 !
 !     .. Local Scalars ..
-      DOUBLE PRECISION DMAX
-      INTEGER I,IX
+      double precision dmax
+      integer i,ix
 !     ..
 !     .. External Functions ..  DOUBLE PRECISION DCABS1
 !     ..
-      IZAMAX = 0
-      IF (N.LT.1 .OR. INCX.LE.0) RETURN
-      IZAMAX = 1
-      IF (N.EQ.1) RETURN
-      IF (INCX.EQ.1) THEN
+      izamax = 0
+      if (n.lt.1 .or. incx.le.0) return
+      izamax = 1
+      if (n.eq.1) return
+      if (incx.eq.1) then
 !
 !        code for increment equal to 1
 !
-         DMAX = DCABS1(ZX(1))
-         DO I = 2,N
-            IF (DCABS1(ZX(I)).GT.DMAX) THEN
-               IZAMAX = I
-               DMAX = DCABS1(ZX(I))
+         dmax = dcabs1(zx(1))
+         do i = 2,n
+            if (dcabs1(zx(i)).gt.dmax) then
+               izamax = i
+               dmax = dcabs1(zx(i))
             endif
          enddo
-      ELSE
+      else
 !
 !        code for increment not equal to 1
 !
-         IX = 1
-         DMAX = DCABS1(ZX(1))
-         IX = IX + INCX
-         DO I = 2,N
-            IF (DCABS1(ZX(IX)).GT.DMAX) THEN
-               IZAMAX = I
-               DMAX = DCABS1(ZX(IX))
+         ix = 1
+         dmax = dcabs1(zx(1))
+         ix = ix + incx
+         do i = 2,n
+            if (dcabs1(zx(ix)).gt.dmax) then
+               izamax = i
+               dmax = dcabs1(zx(ix))
             endif
-            IX = IX + INCX
+            ix = ix + incx
          enddo
       endif
 
-      END FUNCTION IZAMAX
+      end function izamax

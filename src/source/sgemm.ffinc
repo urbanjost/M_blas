@@ -164,7 +164,7 @@ SEE ALSO
    http://www.netlib.org/lapack/explore-html/
 $BLOCK END
 !  =====================================================================
-       SUBROUTINE SGEMM(TRANSA,TRANSB,M,N,K,ALPHA,A,LDA,B,LDB,BETA,C,LDC)
+       subroutine sgemm(transa,transb,m,n,k,alpha,a,lda,b,ldb,beta,c,ldc)
       implicit none
 !
 !  -- Reference BLAS level3 routine (version 3.7.0) --
@@ -173,13 +173,13 @@ $BLOCK END
 !     December 2016
 !
 !     .. Scalar Arguments ..
-      REAL,intent(in)      :: ALPHA,BETA
-      INTEGER,intent(in)   :: K,LDA,LDB,LDC,M,N
-      CHARACTER,intent(in) :: TRANSA,TRANSB
+      real,intent(in)      :: alpha,beta
+      integer,intent(in)   :: k,lda,ldb,ldc,m,n
+      character,intent(in) :: transa,transb
 !     ..
 !     .. Array Arguments ..
-      REAL,intent(in)    :: A(LDA,*),B(LDB,*)
-      REAL,intent(inout) :: C(LDC,*)
+      real,intent(in)    :: a(lda,*),b(ldb,*)
+      real,intent(inout) :: c(ldc,*)
 !     ..
 !
 !  =====================================================================
@@ -189,149 +189,149 @@ $BLOCK END
 !     .. External Subroutines ..  EXTERNAL XERBLA
 !     ..
 !     .. Intrinsic Functions ..
-      INTRINSIC MAX
+      intrinsic max
 !     ..
 !     .. Local Scalars ..
-      REAL TEMP
-      INTEGER I,INFO,J,L,NROWA,NROWB
-      LOGICAL NOTA,NOTB
+      real temp
+      integer i,info,j,l,nrowa,nrowb
+      logical nota,notb
 !     ..
 !     .. Parameters ..
-      REAL ONE,ZERO
-      PARAMETER (ONE=1.0E+0,ZERO=0.0E+0)
+      real one,zero
+      parameter (one=1.0e+0,zero=0.0e+0)
 !     ..
 !
 !     Set  NOTA  and  NOTB  as  true if  A  and  B  respectively are not
 !     transposed and set  NROWA and NROWB  as the number of rows of  A
 !     and  B  respectively.
 !
-      NOTA = LSAME(TRANSA,'N')
-      NOTB = LSAME(TRANSB,'N')
-      IF (NOTA) THEN
-          NROWA = M
-      ELSE
-          NROWA = K
+      nota = lsame(transa,'N')
+      notb = lsame(transb,'N')
+      if (nota) then
+          nrowa = m
+      else
+          nrowa = k
       endif
-      IF (NOTB) THEN
-          NROWB = K
-      ELSE
-          NROWB = N
+      if (notb) then
+          nrowb = k
+      else
+          nrowb = n
       endif
 !
 !     Test the input parameters.
 !
-      INFO = 0
-      IF ((.NOT.NOTA) .AND. (.NOT.LSAME(TRANSA,'C')) .AND.  (.NOT.LSAME(TRANSA,'T'))) THEN
-          INFO = 1
-      elseif ((.NOT.NOTB) .AND. (.NOT.LSAME(TRANSB,'C')) .AND.  (.NOT.LSAME(TRANSB,'T'))) THEN
-          INFO = 2
-      elseif (M.LT.0) THEN
-          INFO = 3
-      elseif (N.LT.0) THEN
-          INFO = 4
-      elseif (K.LT.0) THEN
-          INFO = 5
-      elseif (LDA.LT.MAX(1,NROWA)) THEN
-          INFO = 8
-      elseif (LDB.LT.MAX(1,NROWB)) THEN
-          INFO = 10
-      elseif (LDC.LT.MAX(1,M)) THEN
-          INFO = 13
+      info = 0
+      if ((.not.nota) .and. (.not.lsame(transa,'C')) .and.  (.not.lsame(transa,'T'))) then
+          info = 1
+      elseif ((.not.notb) .and. (.not.lsame(transb,'C')) .and.  (.not.lsame(transb,'T'))) then
+          info = 2
+      elseif (m.lt.0) then
+          info = 3
+      elseif (n.lt.0) then
+          info = 4
+      elseif (k.lt.0) then
+          info = 5
+      elseif (lda.lt.max(1,nrowa)) then
+          info = 8
+      elseif (ldb.lt.max(1,nrowb)) then
+          info = 10
+      elseif (ldc.lt.max(1,m)) then
+          info = 13
       endif
-      IF (INFO.NE.0) THEN
-          CALL XERBLA('SGEMM ',INFO)
-          RETURN
+      if (info.ne.0) then
+          call xerbla('SGEMM ',info)
+          return
       endif
 !
 !     Quick return if possible.
 !
-      IF ((M.EQ.0) .OR. (N.EQ.0) .OR.  (((ALPHA.EQ.ZERO).OR. (K.EQ.0)).AND. (BETA.EQ.ONE))) RETURN
+      if ((m.eq.0) .or. (n.eq.0) .or.  (((alpha.eq.zero).or. (k.eq.0)).and. (beta.eq.one))) return
 !
 !     And if  alpha.eq.zero.
 !
-      IF (ALPHA.EQ.ZERO) THEN
-          IF (BETA.EQ.ZERO) THEN
-              DO J = 1,N
-                  C(1:M,J) = ZERO
+      if (alpha.eq.zero) then
+          if (beta.eq.zero) then
+              do j = 1,n
+                  c(1:m,j) = zero
               enddo
-          ELSE
-              DO J = 1,N
-                  C(1:M,J) = BETA*C(1:M,J)
+          else
+              do j = 1,n
+                  c(1:m,j) = beta*c(1:m,j)
               enddo
           endif
-          RETURN
+          return
       endif
 !
 !     Start the operations.
 !
-      IF (NOTB) THEN
-          IF (NOTA) THEN
+      if (notb) then
+          if (nota) then
 !
 !           Form  C := alpha*A*B + beta*C.
 !
-              DO J = 1,N
-                  IF (BETA.EQ.ZERO) THEN
-                      C(1:M,J) = ZERO
-                  elseif (BETA.NE.ONE) THEN
-                      C(1:M,J) = BETA*C(1:M,J)
+              do j = 1,n
+                  if (beta.eq.zero) then
+                      c(1:m,j) = zero
+                  elseif (beta.ne.one) then
+                      c(1:m,j) = beta*c(1:m,j)
                   endif
-                  DO L = 1,K
-                      TEMP = ALPHA*B(L,J)
-                      C(1:M,J) = C(1:M,J) + TEMP*A(1:M,L)
+                  do l = 1,k
+                      temp = alpha*b(l,j)
+                      c(1:m,j) = c(1:m,j) + temp*a(1:m,l)
                   enddo
               enddo
-          ELSE
+          else
 !
 !           Form  C := alpha*A**T*B + beta*C
 !
-              DO J = 1,N
-                  DO I = 1,M
-                      TEMP = ZERO
-                      DO L = 1,K
-                          TEMP = TEMP + A(L,I)*B(L,J)
+              do j = 1,n
+                  do i = 1,m
+                      temp = zero
+                      do l = 1,k
+                          temp = temp + a(l,i)*b(l,j)
                       enddo
-                      IF (BETA.EQ.ZERO) THEN
-                          C(I,J) = ALPHA*TEMP
-                      ELSE
-                          C(I,J) = ALPHA*TEMP + BETA*C(I,J)
+                      if (beta.eq.zero) then
+                          c(i,j) = alpha*temp
+                      else
+                          c(i,j) = alpha*temp + beta*c(i,j)
                       endif
                   enddo
               enddo
           endif
-      ELSE
-          IF (NOTA) THEN
+      else
+          if (nota) then
 !
 !           Form  C := alpha*A*B**T + beta*C
 !
-              DO J = 1,N
-                  IF (BETA.EQ.ZERO) THEN
-                      C(1:M,J) = ZERO
-                  elseif (BETA.NE.ONE) THEN
-                      C(1:M,J) = BETA*C(1:M,J)
+              do j = 1,n
+                  if (beta.eq.zero) then
+                      c(1:m,j) = zero
+                  elseif (beta.ne.one) then
+                      c(1:m,j) = beta*c(1:m,j)
                   endif
-                  DO L = 1,K
-                      TEMP = ALPHA*B(J,L)
-                      C(1:M,J) = C(1:M,J) + TEMP*A(1:M,L)
+                  do l = 1,k
+                      temp = alpha*b(j,l)
+                      c(1:m,j) = c(1:m,j) + temp*a(1:m,l)
                   enddo
               enddo
-          ELSE
+          else
 !
 !           Form  C := alpha*A**T*B**T + beta*C
 !
-              DO J = 1,N
-                  DO I = 1,M
-                      TEMP = ZERO
-                      DO L = 1,K
-                          TEMP = TEMP + A(L,I)*B(J,L)
+              do j = 1,n
+                  do i = 1,m
+                      temp = zero
+                      do l = 1,k
+                          temp = temp + a(l,i)*b(j,l)
                       enddo
-                      IF (BETA.EQ.ZERO) THEN
-                          C(I,J) = ALPHA*TEMP
-                      ELSE
-                          C(I,J) = ALPHA*TEMP + BETA*C(I,J)
+                      if (beta.eq.zero) then
+                          c(i,j) = alpha*temp
+                      else
+                          c(i,j) = alpha*temp + beta*c(i,j)
                       endif
                   enddo
               enddo
           endif
       endif
 !
-      END SUBROUTINE SGEMM
+      end subroutine sgemm

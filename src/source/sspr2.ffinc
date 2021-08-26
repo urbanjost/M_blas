@@ -119,7 +119,7 @@ SEE ALSO
    http://www.netlib.org/lapack/explore-html/
 $BLOCK END
 !  =====================================================================
-       SUBROUTINE SSPR2(UPLO,N,ALPHA,X,INCX,Y,INCY,AP)
+       subroutine sspr2(uplo,n,alpha,x,incx,y,incy,ap)
       implicit none
 !
 !  -- Reference BLAS level2 routine (version 3.7.0) --
@@ -128,24 +128,24 @@ $BLOCK END
 !     December 2016
 !
 !     .. Scalar Arguments ..
-      REAL,intent(in)      :: ALPHA
-      INTEGER,intent(in)   :: INCX,INCY,N
-      CHARACTER,intent(in) :: UPLO
+      real,intent(in)      :: alpha
+      integer,intent(in)   :: incx,incy,n
+      character,intent(in) :: uplo
 !     ..
 !     .. Array Arguments ..
-      REAL,intent(in)      :: X(*),Y(*)
-      REAL,intent(inout)   :: AP(*)
+      real,intent(in)      :: x(*),y(*)
+      real,intent(inout)   :: ap(*)
 !     ..
 !
 !  =====================================================================
 !
 !     .. Parameters ..
-      REAL ZERO
-      PARAMETER (ZERO=0.0E+0)
+      real zero
+      parameter (zero=0.0e+0)
 !     ..
 !     .. Local Scalars ..
-      REAL TEMP1,TEMP2
-      INTEGER I,INFO,IX,IY,J,JX,JY,K,KK,KX,KY
+      real temp1,temp2
+      integer i,info,ix,iy,j,jx,jy,k,kk,kx,ky
 !     ..
 !     .. External Functions ..  LOGICAL LSAME
 !     ..
@@ -154,117 +154,117 @@ $BLOCK END
 !
 !     Test the input parameters.
 !
-      INFO = 0
-      IF (.NOT.LSAME(UPLO,'U') .AND. .NOT.LSAME(UPLO,'L')) THEN
-          INFO = 1
-      elseif (N.LT.0) THEN
-          INFO = 2
-      elseif (INCX.EQ.0) THEN
-          INFO = 5
-      elseif (INCY.EQ.0) THEN
-          INFO = 7
+      info = 0
+      if (.not.lsame(uplo,'U') .and. .not.lsame(uplo,'L')) then
+          info = 1
+      elseif (n.lt.0) then
+          info = 2
+      elseif (incx.eq.0) then
+          info = 5
+      elseif (incy.eq.0) then
+          info = 7
       endif
-      IF (INFO.NE.0) THEN
-          CALL XERBLA('SSPR2 ',INFO)
-          RETURN
+      if (info.ne.0) then
+          call xerbla('SSPR2 ',info)
+          return
       endif
 !
 !     Quick return if possible.
 !
-      IF ((N.EQ.0) .OR. (ALPHA.EQ.ZERO)) RETURN
+      if ((n.eq.0) .or. (alpha.eq.zero)) return
 !
 !     Set up the start points in X and Y if the increments are not both
 !     unity.
 !
-      IF ((INCX.NE.1) .OR. (INCY.NE.1)) THEN
-          IF (INCX.GT.0) THEN
-              KX = 1
-          ELSE
-              KX = 1 - (N-1)*INCX
+      if ((incx.ne.1) .or. (incy.ne.1)) then
+          if (incx.gt.0) then
+              kx = 1
+          else
+              kx = 1 - (n-1)*incx
           endif
-          IF (INCY.GT.0) THEN
-              KY = 1
-          ELSE
-              KY = 1 - (N-1)*INCY
+          if (incy.gt.0) then
+              ky = 1
+          else
+              ky = 1 - (n-1)*incy
           endif
-          JX = KX
-          JY = KY
+          jx = kx
+          jy = ky
       endif
 !
 !     Start the operations. In this version the elements of the array AP
 !     are accessed sequentially with one pass through AP.
 !
-      KK = 1
-      IF (LSAME(UPLO,'U')) THEN
+      kk = 1
+      if (lsame(uplo,'U')) then
 !
 !        Form  A  when upper triangle is stored in AP.
 !
-          IF ((INCX.EQ.1) .AND. (INCY.EQ.1)) THEN
-              DO J = 1,N
-                  IF ((X(J).NE.ZERO) .OR. (Y(J).NE.ZERO)) THEN
-                      TEMP1 = ALPHA*Y(J)
-                      TEMP2 = ALPHA*X(J)
-                      K = KK
-                      DO I = 1,J
-                          AP(K) = AP(K) + X(I)*TEMP1 + Y(I)*TEMP2
-                          K = K + 1
+          if ((incx.eq.1) .and. (incy.eq.1)) then
+              do j = 1,n
+                  if ((x(j).ne.zero) .or. (y(j).ne.zero)) then
+                      temp1 = alpha*y(j)
+                      temp2 = alpha*x(j)
+                      k = kk
+                      do i = 1,j
+                          ap(k) = ap(k) + x(i)*temp1 + y(i)*temp2
+                          k = k + 1
                       enddo
                   endif
-                  KK = KK + J
+                  kk = kk + j
               enddo
-          ELSE
-              DO J = 1,N
-                  IF ((X(JX).NE.ZERO) .OR. (Y(JY).NE.ZERO)) THEN
-                      TEMP1 = ALPHA*Y(JY)
-                      TEMP2 = ALPHA*X(JX)
-                      IX = KX
-                      IY = KY
-                      DO K = KK,KK + J - 1
-                          AP(K) = AP(K) + X(IX)*TEMP1 + Y(IY)*TEMP2
-                          IX = IX + INCX
-                          IY = IY + INCY
+          else
+              do j = 1,n
+                  if ((x(jx).ne.zero) .or. (y(jy).ne.zero)) then
+                      temp1 = alpha*y(jy)
+                      temp2 = alpha*x(jx)
+                      ix = kx
+                      iy = ky
+                      do k = kk,kk + j - 1
+                          ap(k) = ap(k) + x(ix)*temp1 + y(iy)*temp2
+                          ix = ix + incx
+                          iy = iy + incy
                       enddo
                   endif
-                  JX = JX + INCX
-                  JY = JY + INCY
-                  KK = KK + J
+                  jx = jx + incx
+                  jy = jy + incy
+                  kk = kk + j
               enddo
           endif
-      ELSE
+      else
 !
 !        Form  A  when lower triangle is stored in AP.
 !
-          IF ((INCX.EQ.1) .AND. (INCY.EQ.1)) THEN
-              DO J = 1,N
-                  IF ((X(J).NE.ZERO) .OR. (Y(J).NE.ZERO)) THEN
-                      TEMP1 = ALPHA*Y(J)
-                      TEMP2 = ALPHA*X(J)
-                      K = KK
-                      DO I = J,N
-                          AP(K) = AP(K) + X(I)*TEMP1 + Y(I)*TEMP2
-                          K = K + 1
+          if ((incx.eq.1) .and. (incy.eq.1)) then
+              do j = 1,n
+                  if ((x(j).ne.zero) .or. (y(j).ne.zero)) then
+                      temp1 = alpha*y(j)
+                      temp2 = alpha*x(j)
+                      k = kk
+                      do i = j,n
+                          ap(k) = ap(k) + x(i)*temp1 + y(i)*temp2
+                          k = k + 1
                       enddo
                   endif
-                  KK = KK + N - J + 1
+                  kk = kk + n - j + 1
               enddo
-          ELSE
-              DO J = 1,N
-                  IF ((X(JX).NE.ZERO) .OR. (Y(JY).NE.ZERO)) THEN
-                      TEMP1 = ALPHA*Y(JY)
-                      TEMP2 = ALPHA*X(JX)
-                      IX = JX
-                      IY = JY
-                      DO K = KK,KK + N - J
-                          AP(K) = AP(K) + X(IX)*TEMP1 + Y(IY)*TEMP2
-                          IX = IX + INCX
-                          IY = IY + INCY
+          else
+              do j = 1,n
+                  if ((x(jx).ne.zero) .or. (y(jy).ne.zero)) then
+                      temp1 = alpha*y(jy)
+                      temp2 = alpha*x(jx)
+                      ix = jx
+                      iy = jy
+                      do k = kk,kk + n - j
+                          ap(k) = ap(k) + x(ix)*temp1 + y(iy)*temp2
+                          ix = ix + incx
+                          iy = iy + incy
                       enddo
                   endif
-                  JX = JX + INCX
-                  JY = JY + INCY
-                  KK = KK + N - J + 1
+                  jx = jx + incx
+                  jy = jy + incy
+                  kk = kk + n - j + 1
               enddo
           endif
       endif
 
-      END SUBROUTINE SSPR2
+      end subroutine sspr2

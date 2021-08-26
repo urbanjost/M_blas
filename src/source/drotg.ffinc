@@ -75,7 +75,7 @@ SEE ALSO
    http://www.netlib.org/lapack/explore-html/
 $BLOCK END
 !  =====================================================================
-subroutine DROTG( a, b, c, s )
+subroutine drotg( a, b, c, s )
    integer, parameter :: wp = kind(1.d0)
 !
 !  -- Reference BLAS level1 routine --

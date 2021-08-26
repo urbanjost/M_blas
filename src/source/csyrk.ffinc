@@ -143,7 +143,7 @@ SEE ALSO
    http://www.netlib.org/lapack/explore-html/
 $BLOCK END
 !  =====================================================================
-       SUBROUTINE CSYRK(UPLO,TRANS,N,K,ALPHA,A,LDA,BETA,C,LDC)
+       subroutine csyrk(uplo,trans,n,k,alpha,a,lda,beta,c,ldc)
       implicit none
 !
 !  -- Reference BLAS level3 routine (version 3.7.0) --
@@ -152,13 +152,13 @@ $BLOCK END
 !     December 2016
 !
 !     .. Scalar Arguments ..
-      COMPLEX,intent(in)    :: ALPHA,BETA
-      INTEGER,intent(in)    :: K,LDA,LDC,N
-      CHARACTER,intent(in)  :: TRANS,UPLO
+      complex,intent(in)    :: alpha,beta
+      integer,intent(in)    :: k,lda,ldc,n
+      character,intent(in)  :: trans,uplo
 !     ..
 !     .. Array Arguments ..
-      COMPLEX,intent(in)    :: A(LDA,*)
-      COMPLEX,intent(inout) :: C(LDC,*)
+      complex,intent(in)    :: a(lda,*)
+      complex,intent(inout) :: c(ldc,*)
 !     ..
 !
 !  =====================================================================
@@ -168,145 +168,145 @@ $BLOCK END
 !     .. External Subroutines ..
 !     ..
 !     .. Intrinsic Functions ..
-      INTRINSIC MAX
+      intrinsic max
 !     ..
 !     .. Local Scalars ..
-      COMPLEX TEMP
-      INTEGER I,INFO,J,L,NROWA
-      LOGICAL UPPER
+      complex temp
+      integer i,info,j,l,nrowa
+      logical upper
 !     ..
 !     .. Parameters ..
-      COMPLEX ONE
-      PARAMETER (ONE= (1.0E+0,0.0E+0))
-      COMPLEX ZERO
-      PARAMETER (ZERO= (0.0E+0,0.0E+0))
+      complex one
+      parameter (one= (1.0e+0,0.0e+0))
+      complex zero
+      parameter (zero= (0.0e+0,0.0e+0))
 !     ..
 !
 !     Test the input parameters.
 !
-      IF (LSAME(TRANS,'N')) THEN
-          NROWA = N
-      ELSE
-          NROWA = K
+      if (lsame(trans,'N')) then
+          nrowa = n
+      else
+          nrowa = k
       endif
-      UPPER = LSAME(UPLO,'U')
+      upper = lsame(uplo,'U')
 !
-      INFO = 0
-      IF ((.NOT.UPPER) .AND. (.NOT.LSAME(UPLO,'L'))) THEN
-          INFO = 1
-      elseif ((.NOT.LSAME(TRANS,'N')) .AND.  (.NOT.LSAME(TRANS,'T'))) THEN
-          INFO = 2
-      elseif (N.LT.0) THEN
-          INFO = 3
-      elseif (K.LT.0) THEN
-          INFO = 4
-      elseif (LDA.LT.MAX(1,NROWA)) THEN
-          INFO = 7
-      elseif (LDC.LT.MAX(1,N)) THEN
-          INFO = 10
+      info = 0
+      if ((.not.upper) .and. (.not.lsame(uplo,'L'))) then
+          info = 1
+      elseif ((.not.lsame(trans,'N')) .and.  (.not.lsame(trans,'T'))) then
+          info = 2
+      elseif (n.lt.0) then
+          info = 3
+      elseif (k.lt.0) then
+          info = 4
+      elseif (lda.lt.max(1,nrowa)) then
+          info = 7
+      elseif (ldc.lt.max(1,n)) then
+          info = 10
       endif
-      IF (INFO.NE.0) THEN
-          CALL XERBLA('CSYRK ',INFO)
-          RETURN
+      if (info.ne.0) then
+          call xerbla('CSYRK ',info)
+          return
       endif
 !
 !     Quick return if possible.
 !
-      IF ((N.EQ.0) .OR. (((ALPHA.EQ.ZERO).OR.  (K.EQ.0)).AND. (BETA.EQ.ONE))) RETURN
+      if ((n.eq.0) .or. (((alpha.eq.zero).or.  (k.eq.0)).and. (beta.eq.one))) return
 !
 !     And when  alpha.eq.zero.
 !
-      IF (ALPHA.EQ.ZERO) THEN
-          IF (UPPER) THEN
-              IF (BETA.EQ.ZERO) THEN
-                  DO J = 1,N
-                      C(1:J,J) = ZERO
+      if (alpha.eq.zero) then
+          if (upper) then
+              if (beta.eq.zero) then
+                  do j = 1,n
+                      c(1:j,j) = zero
                   enddo
-              ELSE
-                  DO J = 1,N
-                      C(1:J,J) = BETA*C(1:J,J)
+              else
+                  do j = 1,n
+                      c(1:j,j) = beta*c(1:j,j)
                   enddo
               endif
-          ELSE
-              IF (BETA.EQ.ZERO) THEN
-                  DO J = 1,N
-                      C(J:N,J) = ZERO
+          else
+              if (beta.eq.zero) then
+                  do j = 1,n
+                      c(j:n,j) = zero
                   enddo
-              ELSE
-                  DO J = 1,N
-                      C(J:N,J) = BETA*C(J:N,J)
+              else
+                  do j = 1,n
+                      c(j:n,j) = beta*c(j:n,j)
                   enddo
               endif
           endif
-          RETURN
+          return
       endif
 !
 !     Start the operations.
 !
-      IF (LSAME(TRANS,'N')) THEN
+      if (lsame(trans,'N')) then
 !
 !        Form  C := alpha*A*A**T + beta*C.
 !
-          IF (UPPER) THEN
-              DO J = 1,N
-                  IF (BETA.EQ.ZERO) THEN
-                      C(1:J,J) = ZERO
-                  elseif (BETA.NE.ONE) THEN
-                      C(1:J,J) = BETA*C(1:J,J)
+          if (upper) then
+              do j = 1,n
+                  if (beta.eq.zero) then
+                      c(1:j,j) = zero
+                  elseif (beta.ne.one) then
+                      c(1:j,j) = beta*c(1:j,j)
                   endif
-                  DO L = 1,K
-                      IF (A(J,L).NE.ZERO) THEN
-                          TEMP = ALPHA*A(J,L)
-                          C(1:N,J) = C(1:N,J) + TEMP*A(1:N,L)
+                  do l = 1,k
+                      if (a(j,l).ne.zero) then
+                          temp = alpha*a(j,l)
+                          c(1:n,j) = c(1:n,j) + temp*a(1:n,l)
                       endif
                   enddo
               enddo
-          ELSE
-              DO J = 1,N
-                  IF (BETA.EQ.ZERO) THEN
-                      C(J:N,J) = ZERO
-                  elseif (BETA.NE.ONE) THEN
-                      C(J:N,J) = BETA*C(J:N,J)
+          else
+              do j = 1,n
+                  if (beta.eq.zero) then
+                      c(j:n,j) = zero
+                  elseif (beta.ne.one) then
+                      c(j:n,j) = beta*c(j:n,j)
                   endif
-                  DO L = 1,K
-                      IF (A(J,L).NE.ZERO) THEN
-                          TEMP = ALPHA*A(J,L)
-                          DO I = J,N
-                              C(I,J) = C(I,J) + TEMP*A(I,L)
+                  do l = 1,k
+                      if (a(j,l).ne.zero) then
+                          temp = alpha*a(j,l)
+                          do i = j,n
+                              c(i,j) = c(i,j) + temp*a(i,l)
                           enddo
                       endif
                   enddo
               enddo
           endif
-      ELSE
+      else
 !
 !        Form  C := alpha*A**T*A + beta*C.
 !
-          IF (UPPER) THEN
-              DO J = 1,N
-                  DO I = 1,J
-                      TEMP = ZERO
-                      DO L = 1,K
-                          TEMP = TEMP + A(L,I)*A(L,J)
+          if (upper) then
+              do j = 1,n
+                  do i = 1,j
+                      temp = zero
+                      do l = 1,k
+                          temp = temp + a(l,i)*a(l,j)
                       enddo
-                      IF (BETA.EQ.ZERO) THEN
-                          C(I,J) = ALPHA*TEMP
-                      ELSE
-                          C(I,J) = ALPHA*TEMP + BETA*C(I,J)
+                      if (beta.eq.zero) then
+                          c(i,j) = alpha*temp
+                      else
+                          c(i,j) = alpha*temp + beta*c(i,j)
                       endif
                   enddo
               enddo
-          ELSE
-              DO J = 1,N
-                  DO I = J,N
-                      TEMP = ZERO
-                      DO L = 1,K
-                          TEMP = TEMP + A(L,I)*A(L,J)
+          else
+              do j = 1,n
+                  do i = j,n
+                      temp = zero
+                      do l = 1,k
+                          temp = temp + a(l,i)*a(l,j)
                       enddo
-                      IF (BETA.EQ.ZERO) THEN
-                          C(I,J) = ALPHA*TEMP
-                      ELSE
-                          C(I,J) = ALPHA*TEMP + BETA*C(I,J)
+                      if (beta.eq.zero) then
+                          c(i,j) = alpha*temp
+                      else
+                          c(i,j) = alpha*temp + beta*c(i,j)
                       endif
                   enddo
               enddo
@@ -315,4 +315,4 @@ $BLOCK END
 !
 !     End of CSYRK .
 !
-      END SUBROUTINE CSYRK
+      end subroutine csyrk

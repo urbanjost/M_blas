@@ -58,7 +58,7 @@ SEE ALSO
    http://www.netlib.org/lapack/explore-html/
 $BLOCK END
 !  =====================================================================
-       SUBROUTINE ZSCAL(N,ZA,ZX,INCX)
+       subroutine zscal(n,za,zx,incx)
       implicit none
 !
 !  -- Reference BLAS level1 routine (version 3.8.0) --
@@ -67,34 +67,34 @@ $BLOCK END
 !     November 2017
 !
 !     .. Scalar Arguments ..
-      complex(kind=real64),intent(in)    :: ZA
-      INTEGER,intent(in)                 :: INCX,N
+      complex(kind=real64),intent(in)    :: za
+      integer,intent(in)                 :: incx,n
 !     ..
 !     .. Array Arguments ..
-      complex(kind=real64),intent(inout) :: ZX(*)
+      complex(kind=real64),intent(inout) :: zx(*)
 !     ..
 !
 !  =====================================================================
 !
 !     .. Local Scalars ..
-      INTEGER I,NINCX
+      integer i,nincx
 !     ..
-      IF (N.LE.0 .OR. INCX.LE.0) RETURN
-      IF (INCX.EQ.1) THEN
+      if (n.le.0 .or. incx.le.0) return
+      if (incx.eq.1) then
 !
 !        code for increment equal to 1
 !
-         DO I = 1,N
-            ZX(I) = ZA*ZX(I)
+         do i = 1,n
+            zx(i) = za*zx(i)
          enddo
-      ELSE
+      else
 !
 !        code for increment not equal to 1
 !
-         NINCX = N*INCX
-         DO I = 1,NINCX,INCX
-            ZX(I) = ZA*ZX(I)
+         nincx = n*incx
+         do i = 1,nincx,incx
+            zx(i) = za*zx(i)
          enddo
       endif
 
-      END SUBROUTINE ZSCAL
+      end subroutine zscal

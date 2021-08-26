@@ -63,7 +63,7 @@ SEE ALSO
    http://www.netlib.org/lapack/explore-html/
 $BLOCK END
 !  =====================================================================
-       SUBROUTINE DCOPY(N,DX,INCX,DY,INCY)
+       subroutine dcopy(n,dx,incx,dy,incy)
       implicit none
 !
 !  -- Reference BLAS level1 routine (version 3.8.0) --

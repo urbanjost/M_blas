@@ -155,7 +155,7 @@ SEE ALSO
    http://www.netlib.org/lapack/explore-html/
 $BLOCK END
 !  =====================================================================
-SUBROUTINE CTRSM(SIDE,UPLO,TRANSA,DIAG,M,N,ALPHA,A,LDA,B,LDB)
+subroutine ctrsm(side,uplo,transa,diag,m,n,alpha,a,lda,b,ldb)
 implicit none
 !
 !  -- Reference BLAS level3 routine (version 3.7.0) --
@@ -164,13 +164,13 @@ implicit none
 !     December 2016
 !
 !     .. Scalar Arguments ..
-      COMPLEX,intent(in)    :: ALPHA
-      INTEGER,intent(in)    :: LDA,LDB,M,N
-      CHARACTER,intent(in)  :: DIAG,SIDE,TRANSA,UPLO
+      complex,intent(in)    :: alpha
+      integer,intent(in)    :: lda,ldb,m,n
+      character,intent(in)  :: diag,side,transa,uplo
 !     ..
 !     .. Array Arguments ..
-      COMPLEX,intent(in)    :: A(LDA,*)
-      COMPLEX,intent(inout) :: B(LDB,*)
+      complex,intent(in)    :: a(lda,*)
+      complex,intent(inout) :: b(ldb,*)
 !     ..
 !  =====================================================================
 !     .. External Functions ..
@@ -178,236 +178,236 @@ implicit none
 !     .. External Subroutines ..
 !     ..
 !     .. Intrinsic Functions ..
-      INTRINSIC CONJG,MAX
+      intrinsic conjg,max
 !     ..
 !     .. Local Scalars ..
-      COMPLEX TEMP
-      INTEGER I,INFO,J,K,NROWA
-      LOGICAL LSIDE,NOCONJ,NOUNIT,UPPER
+      complex temp
+      integer i,info,j,k,nrowa
+      logical lside,noconj,nounit,upper
 !     ..
 !     .. Parameters ..
-      COMPLEX ONE
-      PARAMETER (ONE= (1.0E+0,0.0E+0))
-      COMPLEX ZERO
-      PARAMETER (ZERO= (0.0E+0,0.0E+0))
+      complex one
+      parameter (one= (1.0e+0,0.0e+0))
+      complex zero
+      parameter (zero= (0.0e+0,0.0e+0))
 !     ..
 !
 !     Test the input parameters.
 !
-      LSIDE = LSAME(SIDE,'L')
-      IF (LSIDE) THEN
-          NROWA = M
-      ELSE
-          NROWA = N
+      lside = lsame(side,'L')
+      if (lside) then
+          nrowa = m
+      else
+          nrowa = n
       endif
-      NOCONJ = LSAME(TRANSA,'T')
-      NOUNIT = LSAME(DIAG,'N')
-      UPPER = LSAME(UPLO,'U')
+      noconj = lsame(transa,'T')
+      nounit = lsame(diag,'N')
+      upper = lsame(uplo,'U')
 !
-      INFO = 0
-      IF ((.NOT.LSIDE) .AND. (.NOT.LSAME(SIDE,'R'))) THEN
-          INFO = 1
-      elseif ((.NOT.UPPER) .AND. (.NOT.LSAME(UPLO,'L'))) THEN
-          INFO = 2
-      elseif ((.NOT.LSAME(TRANSA,'N')) .AND.  (.NOT.LSAME(TRANSA,'T')) .AND.  (.NOT.LSAME(TRANSA,'C'))) THEN
-          INFO = 3
-      elseif ((.NOT.LSAME(DIAG,'U')) .AND. (.NOT.LSAME(DIAG,'N'))) THEN
-          INFO = 4
-      elseif (M.LT.0) THEN
-          INFO = 5
-      elseif (N.LT.0) THEN
-          INFO = 6
-      elseif (LDA.LT.MAX(1,NROWA)) THEN
-          INFO = 9
-      elseif (LDB.LT.MAX(1,M)) THEN
-          INFO = 11
+      info = 0
+      if ((.not.lside) .and. (.not.lsame(side,'R'))) then
+          info = 1
+      elseif ((.not.upper) .and. (.not.lsame(uplo,'L'))) then
+          info = 2
+      elseif ((.not.lsame(transa,'N')) .and.  (.not.lsame(transa,'T')) .and.  (.not.lsame(transa,'C'))) then
+          info = 3
+      elseif ((.not.lsame(diag,'U')) .and. (.not.lsame(diag,'N'))) then
+          info = 4
+      elseif (m.lt.0) then
+          info = 5
+      elseif (n.lt.0) then
+          info = 6
+      elseif (lda.lt.max(1,nrowa)) then
+          info = 9
+      elseif (ldb.lt.max(1,m)) then
+          info = 11
       endif
-      IF (INFO.NE.0) THEN
-          CALL XERBLA('CTRSM ',INFO)
-          RETURN
+      if (info.ne.0) then
+          call xerbla('CTRSM ',info)
+          return
       endif
 !
 !     Quick return if possible.
 !
-      IF (M.EQ.0 .OR. N.EQ.0) RETURN
+      if (m.eq.0 .or. n.eq.0) return
 !
 !     And when  alpha.eq.zero.
 !
-      IF (ALPHA.EQ.ZERO) THEN
-          B(1:M,1:N) = ZERO
-          RETURN
+      if (alpha.eq.zero) then
+          b(1:m,1:n) = zero
+          return
       endif
 !
 !     Start the operations.
 !
-      IF (LSIDE) THEN
-          IF (LSAME(TRANSA,'N')) THEN
+      if (lside) then
+          if (lsame(transa,'N')) then
 !
 !           Form  B := alpha*inv( A )*B.
 !
-              IF (UPPER) THEN
-                  DO J = 1,N
-                      IF (ALPHA.NE.ONE) THEN
-                          B(1:M,J) = ALPHA*B(1:M,J)
+              if (upper) then
+                  do j = 1,n
+                      if (alpha.ne.one) then
+                          b(1:m,j) = alpha*b(1:m,j)
                       endif
-                      DO K = M,1,-1
-                          IF (B(K,J).NE.ZERO) THEN
-                              IF (NOUNIT) B(K,J) = B(K,J)/A(K,K)
-                              DO I = 1,K - 1
-                                  B(I,J) = B(I,J) - B(K,J)*A(I,K)
+                      do k = m,1,-1
+                          if (b(k,j).ne.zero) then
+                              if (nounit) b(k,j) = b(k,j)/a(k,k)
+                              do i = 1,k - 1
+                                  b(i,j) = b(i,j) - b(k,j)*a(i,k)
                               enddo
                           endif
                       enddo
                   enddo
-              ELSE
-                  DO J = 1,N
-                      IF (ALPHA.NE.ONE) THEN
-                          B(1:M,J) = ALPHA*B(1:M,J)
+              else
+                  do j = 1,n
+                      if (alpha.ne.one) then
+                          b(1:m,j) = alpha*b(1:m,j)
                       endif
-                      DO K = 1,M
-                          IF (B(K,J).NE.ZERO) THEN
-                              IF (NOUNIT) B(K,J) = B(K,J)/A(K,K)
-                              DO I = K + 1,M
-                                  B(I,J) = B(I,J) - B(K,J)*A(I,K)
+                      do k = 1,m
+                          if (b(k,j).ne.zero) then
+                              if (nounit) b(k,j) = b(k,j)/a(k,k)
+                              do i = k + 1,m
+                                  b(i,j) = b(i,j) - b(k,j)*a(i,k)
                               enddo
                           endif
                       enddo
                   enddo
               endif
-          ELSE
+          else
 !
 !           Form  B := alpha*inv( A**T )*B
 !           or    B := alpha*inv( A**H )*B.
 !
-              IF (UPPER) THEN
-                  DO J = 1,N
-                      DO I = 1,M
-                          TEMP = ALPHA*B(I,J)
-                          IF (NOCONJ) THEN
-                              DO K = 1,I - 1
-                                  TEMP = TEMP - A(K,I)*B(K,J)
+              if (upper) then
+                  do j = 1,n
+                      do i = 1,m
+                          temp = alpha*b(i,j)
+                          if (noconj) then
+                              do k = 1,i - 1
+                                  temp = temp - a(k,i)*b(k,j)
                               enddo
-                              IF (NOUNIT) TEMP = TEMP/A(I,I)
-                          ELSE
-                              DO K = 1,I - 1
-                                  TEMP = TEMP - CONJG(A(K,I))*B(K,J)
+                              if (nounit) temp = temp/a(i,i)
+                          else
+                              do k = 1,i - 1
+                                  temp = temp - conjg(a(k,i))*b(k,j)
                               enddo
-                              IF (NOUNIT) TEMP = TEMP/CONJG(A(I,I))
+                              if (nounit) temp = temp/conjg(a(i,i))
                           endif
-                          B(I,J) = TEMP
+                          b(i,j) = temp
                       enddo
                   enddo
-              ELSE
-                  DO J = 1,N
-                      DO I = M,1,-1
-                          TEMP = ALPHA*B(I,J)
-                          IF (NOCONJ) THEN
-                              DO K = I + 1,M
-                                  TEMP = TEMP - A(K,I)*B(K,J)
+              else
+                  do j = 1,n
+                      do i = m,1,-1
+                          temp = alpha*b(i,j)
+                          if (noconj) then
+                              do k = i + 1,m
+                                  temp = temp - a(k,i)*b(k,j)
                               enddo
-                              IF (NOUNIT) TEMP = TEMP/A(I,I)
-                          ELSE
-                              DO K = I + 1,M
-                                  TEMP = TEMP - CONJG(A(K,I))*B(K,J)
+                              if (nounit) temp = temp/a(i,i)
+                          else
+                              do k = i + 1,m
+                                  temp = temp - conjg(a(k,i))*b(k,j)
                               enddo
-                              IF (NOUNIT) TEMP = TEMP/CONJG(A(I,I))
+                              if (nounit) temp = temp/conjg(a(i,i))
                           endif
-                          B(I,J) = TEMP
+                          b(i,j) = temp
                       enddo
                   enddo
               endif
           endif
-      ELSE
-          IF (LSAME(TRANSA,'N')) THEN
+      else
+          if (lsame(transa,'N')) then
 !
 !           Form  B := alpha*B*inv( A ).
 !
-              IF (UPPER) THEN
-                  DO J = 1,N
-                      IF (ALPHA.NE.ONE) THEN
-                          B(1:M,J) = ALPHA*B(1:M,J)
+              if (upper) then
+                  do j = 1,n
+                      if (alpha.ne.one) then
+                          b(1:m,j) = alpha*b(1:m,j)
                       endif
-                      DO K = 1,J - 1
-                          IF (A(K,J).NE.ZERO) THEN
-                              B(1:M,J) = B(1:M,J) - A(K,J)*B(1:M,K)
+                      do k = 1,j - 1
+                          if (a(k,j).ne.zero) then
+                              b(1:m,j) = b(1:m,j) - a(k,j)*b(1:m,k)
                           endif
                       enddo
-                      IF (NOUNIT) THEN
-                          TEMP = ONE/A(J,J)
-                          B(1:M,J) = TEMP*B(1:M,J)
+                      if (nounit) then
+                          temp = one/a(j,j)
+                          b(1:m,j) = temp*b(1:m,j)
                       endif
                   enddo
-              ELSE
-                  DO J = N,1,-1
-                      IF (ALPHA.NE.ONE) THEN
-                          B(1:M,J) = ALPHA*B(1:M,J)
+              else
+                  do j = n,1,-1
+                      if (alpha.ne.one) then
+                          b(1:m,j) = alpha*b(1:m,j)
                       endif
-                      DO K = J + 1,N
-                          IF (A(K,J).NE.ZERO) THEN
-                              B(1:M,J) = B(1:M,J) - A(K,J)*B(1:M,K)
+                      do k = j + 1,n
+                          if (a(k,j).ne.zero) then
+                              b(1:m,j) = b(1:m,j) - a(k,j)*b(1:m,k)
                           endif
                       enddo
-                      IF (NOUNIT) THEN
-                          TEMP = ONE/A(J,J)
-                          B(1:M,J) = TEMP*B(1:M,J)
+                      if (nounit) then
+                          temp = one/a(j,j)
+                          b(1:m,j) = temp*b(1:m,j)
                       endif
                   enddo
               endif
-          ELSE
+          else
 !
 !           Form  B := alpha*B*inv( A**T )
 !           or    B := alpha*B*inv( A**H ).
 !
-              IF (UPPER) THEN
-                  DO K = N,1,-1
-                      IF (NOUNIT) THEN
-                          IF (NOCONJ) THEN
-                              TEMP = ONE/A(K,K)
-                          ELSE
-                              TEMP = ONE/CONJG(A(K,K))
+              if (upper) then
+                  do k = n,1,-1
+                      if (nounit) then
+                          if (noconj) then
+                              temp = one/a(k,k)
+                          else
+                              temp = one/conjg(a(k,k))
                           endif
-                          B(1:M,K) = TEMP*B(1:M,K)
+                          b(1:m,k) = temp*b(1:m,k)
                       endif
-                      DO J = 1,K - 1
-                          IF (A(J,K).NE.ZERO) THEN
-                              IF (NOCONJ) THEN
-                                  TEMP = A(J,K)
-                              ELSE
-                                  TEMP = CONJG(A(J,K))
+                      do j = 1,k - 1
+                          if (a(j,k).ne.zero) then
+                              if (noconj) then
+                                  temp = a(j,k)
+                              else
+                                  temp = conjg(a(j,k))
                               endif
-                              B(1:M,J) = B(1:M,J) - TEMP*B(1:M,K)
+                              b(1:m,j) = b(1:m,j) - temp*b(1:m,k)
                           endif
                       enddo
-                      IF (ALPHA.NE.ONE) THEN
-                          B(1:M,K) = ALPHA*B(1:M,K)
+                      if (alpha.ne.one) then
+                          b(1:m,k) = alpha*b(1:m,k)
                       endif
                   enddo
-              ELSE
-                  DO K = 1,N
-                      IF (NOUNIT) THEN
-                          IF (NOCONJ) THEN
-                              TEMP = ONE/A(K,K)
-                          ELSE
-                              TEMP = ONE/CONJG(A(K,K))
+              else
+                  do k = 1,n
+                      if (nounit) then
+                          if (noconj) then
+                              temp = one/a(k,k)
+                          else
+                              temp = one/conjg(a(k,k))
                           endif
-                          B(1:M,K) = TEMP*B(1:M,K)
+                          b(1:m,k) = temp*b(1:m,k)
                       endif
-                      DO J = K + 1,N
-                          IF (A(J,K).NE.ZERO) THEN
-                              IF (NOCONJ) THEN
-                                  TEMP = A(J,K)
-                              ELSE
-                                  TEMP = CONJG(A(J,K))
+                      do j = k + 1,n
+                          if (a(j,k).ne.zero) then
+                              if (noconj) then
+                                  temp = a(j,k)
+                              else
+                                  temp = conjg(a(j,k))
                               endif
-                              B(1:M,J) = B(1:M,J) - TEMP*B(1:M,K)
+                              b(1:m,j) = b(1:m,j) - temp*b(1:m,k)
                           endif
                       enddo
-                      IF (ALPHA.NE.ONE) THEN
-                          B(1:M,K) = ALPHA*B(1:M,K)
+                      if (alpha.ne.one) then
+                          b(1:m,k) = alpha*b(1:m,k)
                       endif
                   enddo
               endif
           endif
       endif
 
-END SUBROUTINE CTRSM
+end subroutine ctrsm

@@ -113,7 +113,7 @@ SEE ALSO
    http://www.netlib.org/lapack/explore-html/
 $BLOCK END
 !  =====================================================================
-       SUBROUTINE ZHER(UPLO,N,ALPHA,X,INCX,A,LDA)
+       subroutine zher(uplo,n,alpha,x,incx,a,lda)
       implicit none
 !
 !  -- Reference BLAS level2 routine (version 3.7.0) --
@@ -122,24 +122,24 @@ $BLOCK END
 !     December 2016
 !
 !     .. Scalar Arguments ..
-      DOUBLE PRECISION,intent(in)        :: ALPHA
-      INTEGER ,intent(in)                :: INCX,LDA,N
-      CHARACTER,intent(in)               :: UPLO
+      double precision,intent(in)        :: alpha
+      integer ,intent(in)                :: incx,lda,n
+      character,intent(in)               :: uplo
 !     ..
 !     .. Array Arguments ..
-      complex(kind=real64),intent(in)    :: X(*)
-      complex(kind=real64),intent(inout) :: A(LDA,*)
+      complex(kind=real64),intent(in)    :: x(*)
+      complex(kind=real64),intent(inout) :: a(lda,*)
 !     ..
 !
 !  =====================================================================
 !
 !     .. Parameters ..
-      complex(kind=real64) :: ZERO
-      PARAMETER (ZERO= (0.0D+0,0.0D+0))
+      complex(kind=real64) :: zero
+      parameter (zero= (0.0d+0,0.0d+0))
 !     ..
 !     .. Local Scalars ..
-      complex(kind=real64) :: TEMP
-      INTEGER I,INFO,IX,J,JX,KX
+      complex(kind=real64) :: temp
+      integer i,info,ix,j,jx,kx
 !     ..
 !     .. External Functions ..
 !      LOGICAL LSAME
@@ -149,108 +149,108 @@ $BLOCK END
 !      EXTERNAL XERBLA
 !     ..
 !     .. Intrinsic Functions ..
-      INTRINSIC DBLE,DCONJG,MAX
+      intrinsic dble,dconjg,max
 !     ..
 !
 !     Test the input parameters.
 !
-      INFO = 0
-      IF (.NOT.LSAME(UPLO,'U') .AND. .NOT.LSAME(UPLO,'L')) THEN
-          INFO = 1
-      elseif (N.LT.0) THEN
-          INFO = 2
-      elseif (INCX.EQ.0) THEN
-          INFO = 5
-      elseif (LDA.LT.MAX(1,N)) THEN
-          INFO = 7
+      info = 0
+      if (.not.lsame(uplo,'U') .and. .not.lsame(uplo,'L')) then
+          info = 1
+      elseif (n.lt.0) then
+          info = 2
+      elseif (incx.eq.0) then
+          info = 5
+      elseif (lda.lt.max(1,n)) then
+          info = 7
       endif
-      IF (INFO.NE.0) THEN
-          CALL XERBLA('ZHER  ',INFO)
-          RETURN
+      if (info.ne.0) then
+          call xerbla('ZHER  ',info)
+          return
       endif
 !
 !     Quick return if possible.
 !
-      IF ((N.EQ.0) .OR. (ALPHA.EQ.DBLE(ZERO))) RETURN
+      if ((n.eq.0) .or. (alpha.eq.dble(zero))) return
 !
 !     Set the start point in X if the increment is not unity.
 !
-      IF (INCX.LE.0) THEN
-          KX = 1 - (N-1)*INCX
-      elseif (INCX.NE.1) THEN
-          KX = 1
+      if (incx.le.0) then
+          kx = 1 - (n-1)*incx
+      elseif (incx.ne.1) then
+          kx = 1
       endif
 !
 !     Start the operations. In this version the elements of A are
 !     accessed sequentially with one pass through the triangular part
 !     of A.
 !
-      IF (LSAME(UPLO,'U')) THEN
+      if (lsame(uplo,'U')) then
 !
 !        Form  A  when A is stored in upper triangle.
 !
-          IF (INCX.EQ.1) THEN
-              DO J = 1,N
-                  IF (X(J).NE.ZERO) THEN
-                      TEMP = ALPHA*DCONJG(X(J))
-                      DO I = 1,J - 1
-                          A(I,J) = A(I,J) + X(I)*TEMP
+          if (incx.eq.1) then
+              do j = 1,n
+                  if (x(j).ne.zero) then
+                      temp = alpha*dconjg(x(j))
+                      do i = 1,j - 1
+                          a(i,j) = a(i,j) + x(i)*temp
                       enddo
-                      A(J,J) = DBLE(A(J,J)) + DBLE(X(J)*TEMP)
-                  ELSE
-                      A(J,J) = DBLE(A(J,J))
+                      a(j,j) = dble(a(j,j)) + dble(x(j)*temp)
+                  else
+                      a(j,j) = dble(a(j,j))
                   endif
               enddo
-          ELSE
-              JX = KX
-              DO J = 1,N
-                  IF (X(JX).NE.ZERO) THEN
-                      TEMP = ALPHA*DCONJG(X(JX))
-                      IX = KX
-                      DO I = 1,J - 1
-                          A(I,J) = A(I,J) + X(IX)*TEMP
-                          IX = IX + INCX
+          else
+              jx = kx
+              do j = 1,n
+                  if (x(jx).ne.zero) then
+                      temp = alpha*dconjg(x(jx))
+                      ix = kx
+                      do i = 1,j - 1
+                          a(i,j) = a(i,j) + x(ix)*temp
+                          ix = ix + incx
                       enddo
-                      A(J,J) = DBLE(A(J,J)) + DBLE(X(JX)*TEMP)
-                  ELSE
-                      A(J,J) = DBLE(A(J,J))
+                      a(j,j) = dble(a(j,j)) + dble(x(jx)*temp)
+                  else
+                      a(j,j) = dble(a(j,j))
                   endif
-                  JX = JX + INCX
+                  jx = jx + incx
               enddo
           endif
-      ELSE
+      else
 !
 !        Form  A  when A is stored in lower triangle.
 !
-          IF (INCX.EQ.1) THEN
-              DO J = 1,N
-                  IF (X(J).NE.ZERO) THEN
-                      TEMP = ALPHA*DCONJG(X(J))
-                      A(J,J) = DBLE(A(J,J)) + DBLE(TEMP*X(J))
-                      DO I = J + 1,N
-                          A(I,J) = A(I,J) + X(I)*TEMP
+          if (incx.eq.1) then
+              do j = 1,n
+                  if (x(j).ne.zero) then
+                      temp = alpha*dconjg(x(j))
+                      a(j,j) = dble(a(j,j)) + dble(temp*x(j))
+                      do i = j + 1,n
+                          a(i,j) = a(i,j) + x(i)*temp
                       enddo
-                  ELSE
-                      A(J,J) = DBLE(A(J,J))
+                  else
+                      a(j,j) = dble(a(j,j))
                   endif
               enddo
-          ELSE
-              JX = KX
-              DO J = 1,N
-                  IF (X(JX).NE.ZERO) THEN
-                      TEMP = ALPHA*DCONJG(X(JX))
-                      A(J,J) = DBLE(A(J,J)) + DBLE(TEMP*X(JX))
-                      IX = JX
-                      DO I = J + 1,N
-                          IX = IX + INCX
-                          A(I,J) = A(I,J) + X(IX)*TEMP
+          else
+              jx = kx
+              do j = 1,n
+                  if (x(jx).ne.zero) then
+                      temp = alpha*dconjg(x(jx))
+                      a(j,j) = dble(a(j,j)) + dble(temp*x(jx))
+                      ix = jx
+                      do i = j + 1,n
+                          ix = ix + incx
+                          a(i,j) = a(i,j) + x(ix)*temp
                       enddo
-                  ELSE
-                      A(J,J) = DBLE(A(J,J))
+                  else
+                      a(j,j) = dble(a(j,j))
                   endif
-                  JX = JX + INCX
+                  jx = jx + incx
               enddo
           endif
       endif
 
-      END SUBROUTINE ZHER
+      end subroutine zher

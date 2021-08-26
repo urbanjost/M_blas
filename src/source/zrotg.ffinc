@@ -81,7 +81,7 @@ SEE ALSO
    http://www.netlib.org/lapack/explore-html/
 $BLOCK END
 !  =====================================================================
-subroutine ZROTG( a, b, c, s )
+subroutine zrotg( a, b, c, s )
    integer, parameter :: wp = kind(1.d0)
 !
 !  -- Reference BLAS level1 routine --
@@ -113,10 +113,10 @@ subroutine ZROTG( a, b, c, s )
    intrinsic :: abs, aimag, conjg, max, min, real, sqrt
 !  ..
 !  .. Statement Functions ..
-   real(wp) :: ABSSQ
+   real(wp) :: abssq
 !  ..
 !  .. Statement Function definitions ..
-   ABSSQ( t ) = real( t )**2 + aimag( t )**2
+   abssq( t ) = real( t )**2 + aimag( t )**2
 !  ..
 !  .. Executable Statements ..
 !
@@ -133,7 +133,7 @@ subroutine ZROTG( a, b, c, s )
 !
 !        Use unscaled algorithm
 !
-         g2 = ABSSQ( g )
+         g2 = abssq( g )
          d = sqrt( g2 )
          s = conjg( g ) / d
          r = d
@@ -144,7 +144,7 @@ subroutine ZROTG( a, b, c, s )
          u = min( safmax, max( safmin, g1 ) )
          uu = one / u
          gs = g*uu
-         g2 = ABSSQ( gs )
+         g2 = abssq( gs )
          d = sqrt( g2 )
          s = conjg( gs ) / d
          r = d*u
@@ -157,8 +157,8 @@ subroutine ZROTG( a, b, c, s )
 !
 !        Use unscaled algorithm
 !
-         f2 = ABSSQ( f )
-         g2 = ABSSQ( g )
+         f2 = abssq( f )
+         g2 = abssq( g )
          h2 = f2 + g2
          if( f2 > rtmin .and. h2 < rtmax ) then
             d = sqrt( f2*h2 )
@@ -176,7 +176,7 @@ subroutine ZROTG( a, b, c, s )
          u = min( safmax, max( safmin, f1, g1 ) )
          uu = one / u
          gs = g*uu
-         g2 = ABSSQ( gs )
+         g2 = abssq( gs )
          if( f1*uu < rtmin ) then
 !
 !           f is not well-scaled when scaled by g1.
@@ -186,7 +186,7 @@ subroutine ZROTG( a, b, c, s )
             vv = one / v
             w = v * uu
             fs = f*vv
-            f2 = ABSSQ( fs )
+            f2 = abssq( fs )
             h2 = f2*w**2 + g2
          else
 !
@@ -194,7 +194,7 @@ subroutine ZROTG( a, b, c, s )
 !
             w = one
             fs = f*uu
-            f2 = ABSSQ( fs )
+            f2 = abssq( fs )
             h2 = f2 + g2
          endif
          if( f2 > rtmin .and. h2 < rtmax ) then

@@ -74,7 +74,7 @@ SEE ALSO
    http://www.netlib.org/lapack/explore-html/
 $BLOCK END
 !  =====================================================================
-       SUBROUTINE DROTMG(DD1,DD2,DX1,DY1,DPARAM)
+       subroutine drotmg(dd1,dd2,dx1,dy1,dparam)
       implicit none
 !
 !  -- Reference BLAS level1 routine (version 3.8.0) --
@@ -83,20 +83,20 @@ $BLOCK END
 !     November 2017
 !
 !     .. Scalar Arguments ..
-      DOUBLE PRECISION,intent(inout) :: DD1,DD2,DX1
-      DOUBLE PRECISION,intent(in)    :: DY1
+      double precision,intent(inout) :: dd1,dd2,dx1
+      double precision,intent(in)    :: dy1
 !     ..
 !     .. Array Arguments ..
-      DOUBLE PRECISION,intent(out)   :: DPARAM(5)
+      double precision,intent(out)   :: dparam(5)
 !     ..
 !
 !  =====================================================================
 !
 !     .. Local Scalars ..
-      DOUBLE PRECISION DFLAG,DH11,DH12,DH21,DH22,DP1,DP2,DQ1,DQ2,DTEMP, DU
+      double precision dflag,dh11,dh12,dh21,dh22,dp1,dp2,dq1,dq2,dtemp, du
 !     ..
 !     .. Intrinsic Functions ..
-      INTRINSIC DABS
+      intrinsic dabs
 !     ..
 !     .. Data statements ..
 !
@@ -104,149 +104,149 @@ $BLOCK END
       doubleprecision,parameter :: one=1.0d0
       doubleprecision,parameter :: two=2.0d0
 
-      doubleprecision,parameter :: GAM=4096.D0
-      doubleprecision,parameter :: GAMSQ=16777216.D0
-      doubleprecision,parameter :: RGAMSQ=5.9604645D-8
+      doubleprecision,parameter :: gam=4096.d0
+      doubleprecision,parameter :: gamsq=16777216.d0
+      doubleprecision,parameter :: rgamsq=5.9604645d-8
 !     ..
 
-      IF (DD1.LT.ZERO) THEN
+      if (dd1.lt.zero) then
 !        GO ZERO-H-D-AND-DX1..
-         DFLAG = -ONE
-         DH11 = ZERO
-         DH12 = ZERO
-         DH21 = ZERO
-         DH22 = ZERO
+         dflag = -one
+         dh11 = zero
+         dh12 = zero
+         dh21 = zero
+         dh22 = zero
 !
-         DD1 = ZERO
-         DD2 = ZERO
-         DX1 = ZERO
-      ELSE
+         dd1 = zero
+         dd2 = zero
+         dx1 = zero
+      else
 !        CASE-DD1-NONNEGATIVE
-         DP2 = DD2*DY1
-         IF (DP2.EQ.ZERO) THEN
-            DFLAG = -TWO
-            DPARAM(1) = DFLAG
-            RETURN
+         dp2 = dd2*dy1
+         if (dp2.eq.zero) then
+            dflag = -two
+            dparam(1) = dflag
+            return
          endif
 !        REGULAR-CASE..
-         DP1 = DD1*DX1
-         DQ2 = DP2*DY1
-         DQ1 = DP1*DX1
+         dp1 = dd1*dx1
+         dq2 = dp2*dy1
+         dq1 = dp1*dx1
 !
-         IF (DABS(DQ1).GT.DABS(DQ2)) THEN
-            DH21 = -DY1/DX1
-            DH12 = DP2/DP1
+         if (dabs(dq1).gt.dabs(dq2)) then
+            dh21 = -dy1/dx1
+            dh12 = dp2/dp1
 !
-            DU = ONE - DH12*DH21
+            du = one - dh12*dh21
 !
-           IF (DU.GT.ZERO) THEN
-             DFLAG = ZERO
-             DD1 = DD1/DU
-             DD2 = DD2/DU
-             DX1 = DX1*DU
-           ELSE
+           if (du.gt.zero) then
+             dflag = zero
+             dd1 = dd1/du
+             dd2 = dd2/du
+             dx1 = dx1*du
+           else
 !            This code path if here for safety. We do not expect this
 !            condition to ever hold except in edge cases with rounding
 !            errors. See DOI: 10.1145/355841.355847
-             DFLAG = -ONE
-             DH11 = ZERO
-             DH12 = ZERO
-             DH21 = ZERO
-             DH22 = ZERO
+             dflag = -one
+             dh11 = zero
+             dh12 = zero
+             dh21 = zero
+             dh22 = zero
 !
-             DD1 = ZERO
-             DD2 = ZERO
-             DX1 = ZERO
+             dd1 = zero
+             dd2 = zero
+             dx1 = zero
            endif
-         ELSE
+         else
 
-            IF (DQ2.LT.ZERO) THEN
+            if (dq2.lt.zero) then
 !              GO ZERO-H-D-AND-DX1..
-               DFLAG = -ONE
-               DH11 = ZERO
-               DH12 = ZERO
-               DH21 = ZERO
-               DH22 = ZERO
+               dflag = -one
+               dh11 = zero
+               dh12 = zero
+               dh21 = zero
+               dh22 = zero
 !
-               DD1 = ZERO
-               DD2 = ZERO
-               DX1 = ZERO
-            ELSE
-               DFLAG = ONE
-               DH11 = DP1/DP2
-               DH22 = DX1/DY1
-               DU = ONE + DH11*DH22
-               DTEMP = DD2/DU
-               DD2 = DD1/DU
-               DD1 = DTEMP
-               DX1 = DY1*DU
+               dd1 = zero
+               dd2 = zero
+               dx1 = zero
+            else
+               dflag = one
+               dh11 = dp1/dp2
+               dh22 = dx1/dy1
+               du = one + dh11*dh22
+               dtemp = dd2/du
+               dd2 = dd1/du
+               dd1 = dtemp
+               dx1 = dy1*du
             endif
          endif
 
 !     PROCEDURE..SCALE-CHECK
-         IF (DD1.NE.ZERO) THEN
-            DO WHILE ((DD1.LE.RGAMSQ) .OR. (DD1.GE.GAMSQ))
-               IF (DFLAG.EQ.ZERO) THEN
-                  DH11 = ONE
-                  DH22 = ONE
-                  DFLAG = -ONE
-               ELSE
-                  DH21 = -ONE
-                  DH12 = ONE
-                  DFLAG = -ONE
+         if (dd1.ne.zero) then
+            do while ((dd1.le.rgamsq) .or. (dd1.ge.gamsq))
+               if (dflag.eq.zero) then
+                  dh11 = one
+                  dh22 = one
+                  dflag = -one
+               else
+                  dh21 = -one
+                  dh12 = one
+                  dflag = -one
                endif
-               IF (DD1.LE.RGAMSQ) THEN
-                  DD1 = DD1*GAM**2
-                  DX1 = DX1/GAM
-                  DH11 = DH11/GAM
-                  DH12 = DH12/GAM
-               ELSE
-                  DD1 = DD1/GAM**2
-                  DX1 = DX1*GAM
-                  DH11 = DH11*GAM
-                  DH12 = DH12*GAM
+               if (dd1.le.rgamsq) then
+                  dd1 = dd1*gam**2
+                  dx1 = dx1/gam
+                  dh11 = dh11/gam
+                  dh12 = dh12/gam
+               else
+                  dd1 = dd1/gam**2
+                  dx1 = dx1*gam
+                  dh11 = dh11*gam
+                  dh12 = dh12*gam
                endif
-            ENDDO
+            enddo
          endif
 
-         IF (DD2.NE.ZERO) THEN
-            DO WHILE ( (DABS(DD2).LE.RGAMSQ) .OR. (DABS(DD2).GE.GAMSQ) )
-               IF (DFLAG.EQ.ZERO) THEN
-                  DH11 = ONE
-                  DH22 = ONE
-                  DFLAG = -ONE
-               ELSE
-                  DH21 = -ONE
-                  DH12 = ONE
-                  DFLAG = -ONE
+         if (dd2.ne.zero) then
+            do while ( (dabs(dd2).le.rgamsq) .or. (dabs(dd2).ge.gamsq) )
+               if (dflag.eq.zero) then
+                  dh11 = one
+                  dh22 = one
+                  dflag = -one
+               else
+                  dh21 = -one
+                  dh12 = one
+                  dflag = -one
                endif
-               IF (DABS(DD2).LE.RGAMSQ) THEN
-                  DD2 = DD2*GAM**2
-                  DH21 = DH21/GAM
-                  DH22 = DH22/GAM
-               ELSE
-                  DD2 = DD2/GAM**2
-                  DH21 = DH21*GAM
-                  DH22 = DH22*GAM
+               if (dabs(dd2).le.rgamsq) then
+                  dd2 = dd2*gam**2
+                  dh21 = dh21/gam
+                  dh22 = dh22/gam
+               else
+                  dd2 = dd2/gam**2
+                  dh21 = dh21*gam
+                  dh22 = dh22*gam
                endif
             enddo
          endif
 
       endif
 
-      IF (DFLAG.LT.ZERO) THEN
-         DPARAM(2) = DH11
-         DPARAM(3) = DH21
-         DPARAM(4) = DH12
-         DPARAM(5) = DH22
-      elseif (DFLAG.EQ.ZERO) THEN
-         DPARAM(3) = DH21
-         DPARAM(4) = DH12
-      ELSE
-         DPARAM(2) = DH11
-         DPARAM(5) = DH22
+      if (dflag.lt.zero) then
+         dparam(2) = dh11
+         dparam(3) = dh21
+         dparam(4) = dh12
+         dparam(5) = dh22
+      elseif (dflag.eq.zero) then
+         dparam(3) = dh21
+         dparam(4) = dh12
+      else
+         dparam(2) = dh11
+         dparam(5) = dh22
       endif
 
-      DPARAM(1) = DFLAG
+      dparam(1) = dflag
 
-      END SUBROUTINE DROTMG
+      end subroutine drotmg

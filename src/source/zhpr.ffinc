@@ -109,7 +109,7 @@ SEE ALSO
    http://www.netlib.org/lapack/explore-html/
 $BLOCK END
 !  =====================================================================
-       SUBROUTINE ZHPR(UPLO,N,ALPHA,X,INCX,AP)
+       subroutine zhpr(uplo,n,alpha,x,incx,ap)
       implicit none
 !
 !  -- Reference BLAS level2 routine (version 3.7.0) --
@@ -118,24 +118,24 @@ $BLOCK END
 !     December 2016
 !
 !     .. Scalar Arguments ..
-      DOUBLE PRECISION ,intent(in)       :: ALPHA
-      INTEGER ,intent(in)                :: INCX,N
-      CHARACTER,intent(in)               :: UPLO
+      double precision ,intent(in)       :: alpha
+      integer ,intent(in)                :: incx,n
+      character,intent(in)               :: uplo
 !     ..
 !     .. Array Arguments ..
-      complex(kind=real64),intent(in)    :: X(*)
-      complex(kind=real64),intent(inout) :: AP(*)
+      complex(kind=real64),intent(in)    :: x(*)
+      complex(kind=real64),intent(inout) :: ap(*)
 !     ..
 !
 !  =====================================================================
 !
 !     .. Parameters ..
-      complex(kind=real64) :: ZERO
-      PARAMETER (ZERO= (0.0D+0,0.0D+0))
+      complex(kind=real64) :: zero
+      parameter (zero= (0.0d+0,0.0d+0))
 !     ..
 !     .. Local Scalars ..
-      complex(kind=real64) :: TEMP
-      INTEGER I,INFO,IX,J,JX,K,KK,KX
+      complex(kind=real64) :: temp
+      integer i,info,ix,j,jx,k,kk,kx
 !     ..
 !     .. External Functions ..
 !      LOGICAL LSAME
@@ -145,114 +145,114 @@ $BLOCK END
 !      EXTERNAL XERBLA
 !     ..
 !     .. Intrinsic Functions ..
-      INTRINSIC DBLE,DCONJG
+      intrinsic dble,dconjg
 !     ..
 !
 !     Test the input parameters.
 !
-      INFO = 0
-      IF (.NOT.LSAME(UPLO,'U') .AND. .NOT.LSAME(UPLO,'L')) THEN
-          INFO = 1
-      elseif (N.LT.0) THEN
-          INFO = 2
-      elseif (INCX.EQ.0) THEN
-          INFO = 5
+      info = 0
+      if (.not.lsame(uplo,'U') .and. .not.lsame(uplo,'L')) then
+          info = 1
+      elseif (n.lt.0) then
+          info = 2
+      elseif (incx.eq.0) then
+          info = 5
       endif
-      IF (INFO.NE.0) THEN
-          CALL XERBLA('ZHPR  ',INFO)
-          RETURN
+      if (info.ne.0) then
+          call xerbla('ZHPR  ',info)
+          return
       endif
 !
 !     Quick return if possible.
 !
-      IF ((N.EQ.0) .OR. (ALPHA.EQ.DBLE(ZERO))) RETURN
+      if ((n.eq.0) .or. (alpha.eq.dble(zero))) return
 !
 !     Set the start point in X if the increment is not unity.
 !
-      IF (INCX.LE.0) THEN
-          KX = 1 - (N-1)*INCX
-      elseif (INCX.NE.1) THEN
-          KX = 1
+      if (incx.le.0) then
+          kx = 1 - (n-1)*incx
+      elseif (incx.ne.1) then
+          kx = 1
       endif
 !
 !     Start the operations. In this version the elements of the array AP
 !     are accessed sequentially with one pass through AP.
 !
-      KK = 1
-      IF (LSAME(UPLO,'U')) THEN
+      kk = 1
+      if (lsame(uplo,'U')) then
 !
 !        Form  A  when upper triangle is stored in AP.
 !
-          IF (INCX.EQ.1) THEN
-              DO J = 1,N
-                  IF (X(J).NE.ZERO) THEN
-                      TEMP = ALPHA*DCONJG(X(J))
-                      K = KK
-                      DO I = 1,J - 1
-                          AP(K) = AP(K) + X(I)*TEMP
-                          K = K + 1
+          if (incx.eq.1) then
+              do j = 1,n
+                  if (x(j).ne.zero) then
+                      temp = alpha*dconjg(x(j))
+                      k = kk
+                      do i = 1,j - 1
+                          ap(k) = ap(k) + x(i)*temp
+                          k = k + 1
                       enddo
-                      AP(KK+J-1) = DBLE(AP(KK+J-1)) + DBLE(X(J)*TEMP)
-                  ELSE
-                      AP(KK+J-1) = DBLE(AP(KK+J-1))
+                      ap(kk+j-1) = dble(ap(kk+j-1)) + dble(x(j)*temp)
+                  else
+                      ap(kk+j-1) = dble(ap(kk+j-1))
                   endif
-                  KK = KK + J
+                  kk = kk + j
               enddo
-          ELSE
-              JX = KX
-              DO J = 1,N
-                  IF (X(JX).NE.ZERO) THEN
-                      TEMP = ALPHA*DCONJG(X(JX))
-                      IX = KX
-                      DO K = KK,KK + J - 2
-                          AP(K) = AP(K) + X(IX)*TEMP
-                          IX = IX + INCX
+          else
+              jx = kx
+              do j = 1,n
+                  if (x(jx).ne.zero) then
+                      temp = alpha*dconjg(x(jx))
+                      ix = kx
+                      do k = kk,kk + j - 2
+                          ap(k) = ap(k) + x(ix)*temp
+                          ix = ix + incx
                       enddo
-                      AP(KK+J-1) = DBLE(AP(KK+J-1)) + DBLE(X(JX)*TEMP)
-                  ELSE
-                      AP(KK+J-1) = DBLE(AP(KK+J-1))
+                      ap(kk+j-1) = dble(ap(kk+j-1)) + dble(x(jx)*temp)
+                  else
+                      ap(kk+j-1) = dble(ap(kk+j-1))
                   endif
-                  JX = JX + INCX
-                  KK = KK + J
+                  jx = jx + incx
+                  kk = kk + j
               enddo
           endif
-      ELSE
+      else
 !
 !        Form  A  when lower triangle is stored in AP.
 !
-          IF (INCX.EQ.1) THEN
-              DO J = 1,N
-                  IF (X(J).NE.ZERO) THEN
-                      TEMP = ALPHA*DCONJG(X(J))
-                      AP(KK) = DBLE(AP(KK)) + DBLE(TEMP*X(J))
-                      K = KK + 1
-                      DO I = J + 1,N
-                          AP(K) = AP(K) + X(I)*TEMP
-                          K = K + 1
+          if (incx.eq.1) then
+              do j = 1,n
+                  if (x(j).ne.zero) then
+                      temp = alpha*dconjg(x(j))
+                      ap(kk) = dble(ap(kk)) + dble(temp*x(j))
+                      k = kk + 1
+                      do i = j + 1,n
+                          ap(k) = ap(k) + x(i)*temp
+                          k = k + 1
                       enddo
-                  ELSE
-                      AP(KK) = DBLE(AP(KK))
+                  else
+                      ap(kk) = dble(ap(kk))
                   endif
-                  KK = KK + N - J + 1
+                  kk = kk + n - j + 1
               enddo
-          ELSE
-              JX = KX
-              DO J = 1,N
-                  IF (X(JX).NE.ZERO) THEN
-                      TEMP = ALPHA*DCONJG(X(JX))
-                      AP(KK) = DBLE(AP(KK)) + DBLE(TEMP*X(JX))
-                      IX = JX
-                      DO K = KK + 1,KK + N - J
-                          IX = IX + INCX
-                          AP(K) = AP(K) + X(IX)*TEMP
+          else
+              jx = kx
+              do j = 1,n
+                  if (x(jx).ne.zero) then
+                      temp = alpha*dconjg(x(jx))
+                      ap(kk) = dble(ap(kk)) + dble(temp*x(jx))
+                      ix = jx
+                      do k = kk + 1,kk + n - j
+                          ix = ix + incx
+                          ap(k) = ap(k) + x(ix)*temp
                       enddo
-                  ELSE
-                      AP(KK) = DBLE(AP(KK))
+                  else
+                      ap(kk) = dble(ap(kk))
                   endif
-                  JX = JX + INCX
-                  KK = KK + N - J + 1
+                  jx = jx + incx
+                  kk = kk + n - j + 1
               enddo
           endif
       endif
 
-      END SUBROUTINE ZHPR
+      end subroutine zhpr

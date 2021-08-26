@@ -53,7 +53,7 @@ SEE ALSO
    http://www.netlib.org/lapack/explore-html/
 $BLOCK END
 !  =====================================================================
-REAL FUNCTION SCASUM(N,CX,INCX)
+real function scasum(n,cx,incx)
 implicit none
 !
 !  -- Reference BLAS level1 routine (version 3.8.0) --
@@ -62,38 +62,38 @@ implicit none
 !     November 2017
 !
 !     .. Scalar Arguments ..
-      INTEGER,intent(in)    :: INCX,N
+      integer,intent(in)    :: incx,n
 !     ..
 !     .. Array Arguments ..
-      COMPLEX,intent(inout) :: CX(*)
+      complex,intent(inout) :: cx(*)
 !     ..
 !  =====================================================================
 !     .. Local Scalars ..
-      REAL STEMP
-      INTEGER I,NINCX
+      real stemp
+      integer i,nincx
 !     ..
 !     .. Intrinsic Functions ..
-      INTRINSIC ABS,AIMAG,REAL
+      intrinsic abs,aimag,real
 !     ..
-      SCASUM = 0.0e0
-      STEMP = 0.0e0
-      IF (N.LE.0 .OR. INCX.LE.0) RETURN
-      IF (INCX.EQ.1) THEN
+      scasum = 0.0e0
+      stemp = 0.0e0
+      if (n.le.0 .or. incx.le.0) return
+      if (incx.eq.1) then
 !
 !        code for increment equal to 1
 !
-         DO I = 1,N
-            STEMP = STEMP + ABS(REAL(CX(I))) + ABS(AIMAG(CX(I)))
+         do i = 1,n
+            stemp = stemp + abs(real(cx(i))) + abs(aimag(cx(i)))
          enddo
-      ELSE
+      else
 !
 !        code for increment not equal to 1
 !
-         NINCX = N*INCX
-         DO I = 1,NINCX,INCX
-            STEMP = STEMP + ABS(REAL(CX(I))) + ABS(AIMAG(CX(I)))
+         nincx = n*incx
+         do i = 1,nincx,incx
+            stemp = stemp + abs(real(cx(i))) + abs(aimag(cx(i)))
          enddo
       endif
-      SCASUM = STEMP
+      scasum = stemp
 
-END FUNCTION SCASUM
+end function scasum

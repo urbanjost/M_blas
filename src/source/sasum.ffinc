@@ -53,7 +53,7 @@ SEE ALSO
    http://www.netlib.org/lapack/explore-html/
 $BLOCK END
 !  =====================================================================
-pure REAL FUNCTION SASUM(N,SX,INCX)
+pure real function sasum(n,sx,incx)
 implicit none
 !
 !  -- Reference BLAS level1 routine (version 3.8.0) --
@@ -62,53 +62,53 @@ implicit none
 !     November 2017
 !
 !     .. Scalar Arguments ..
-      INTEGER,intent(in) :: INCX,N
+      integer,intent(in) :: incx,n
 !     ..
 !     .. Array Arguments ..
-      REAL,intent(in) :: SX(*)
+      real,intent(in) :: sx(*)
 !     ..
 !
 !  =====================================================================
 !
 !     .. Local Scalars ..
-      REAL STEMP
-      INTEGER I,M,MP1,NINCX
+      real stemp
+      integer i,m,mp1,nincx
 !     ..
 !     .. Intrinsic Functions ..
-      INTRINSIC ABS,MOD
+      intrinsic abs,mod
 !     ..
-      SASUM = 0.0e0
-      STEMP = 0.0e0
-      IF (N.LE.0 .OR. INCX.LE.0) RETURN
-      IF (INCX.EQ.1) THEN
+      sasum = 0.0e0
+      stemp = 0.0e0
+      if (n.le.0 .or. incx.le.0) return
+      if (incx.eq.1) then
 !        code for increment equal to 1
 !
 !
 !        clean-up loop
 !
-         M = MOD(N,6)
-         IF (M.NE.0) THEN
-            DO I = 1,M
-               STEMP = STEMP + ABS(SX(I))
+         m = mod(n,6)
+         if (m.ne.0) then
+            do i = 1,m
+               stemp = stemp + abs(sx(i))
             enddo
-            IF (N.LT.6) THEN
-               SASUM = STEMP
-               RETURN
+            if (n.lt.6) then
+               sasum = stemp
+               return
             endif
          endif
-         MP1 = M + 1
-         DO I = MP1,N,6
-            STEMP = STEMP + ABS(SX(I)) + ABS(SX(I+1)) + ABS(SX(I+2)) + ABS(SX(I+3)) + ABS(SX(I+4)) + ABS(SX(I+5))
+         mp1 = m + 1
+         do i = mp1,n,6
+            stemp = stemp + abs(sx(i)) + abs(sx(i+1)) + abs(sx(i+2)) + abs(sx(i+3)) + abs(sx(i+4)) + abs(sx(i+5))
          enddo
-      ELSE
+      else
 !
 !        code for increment not equal to 1
 !
-         NINCX = N*INCX
-         DO I = 1,NINCX,INCX
-            STEMP = STEMP + ABS(SX(I))
+         nincx = n*incx
+         do i = 1,nincx,incx
+            stemp = stemp + abs(sx(i))
          enddo
       endif
-      SASUM = STEMP
+      sasum = stemp
 
-END FUNCTION SASUM
+end function sasum

@@ -59,9 +59,9 @@ SEE ALSO
    http://www.netlib.org/lapack/explore-html/
 $BLOCK END
 !  =====================================================================
-pure function DZNRM2( n, x, incx )
+pure function dznrm2( n, x, incx )
    integer, parameter :: wp = kind(1.d0)
-   real(wp) :: DZNRM2
+   real(wp) :: dznrm2
 !
 !  -- Reference BLAS level1 routine (version 3.9.1) --
 !  -- Reference BLAS is a software package provided by Univ. of Tennessee,    --
@@ -71,7 +71,7 @@ pure function DZNRM2( n, x, incx )
 !  .. Constants ..
    real(wp), parameter :: zero = 0.0_wp
    real(wp), parameter :: one  = 1.0_wp
-   real(wp), parameter :: maxN = huge(0.0_wp)
+   real(wp), parameter :: maxn = huge(0.0_wp)
 !  ..
 !  .. Blue's scaling constants ..
    real(wp), parameter :: tsml = real(radix(0._wp), wp)**ceiling( (minexponent(0._wp) - 1) * 0.5_wp)
@@ -92,7 +92,7 @@ pure function DZNRM2( n, x, incx )
 !
 !  Quick return if possible
 !
-   DZNRM2 = zero
+   dznrm2 = zero
    if( n <= 0 ) return
 !
    scl = one
@@ -141,7 +141,7 @@ pure function DZNRM2( n, x, incx )
 !
 !     Combine abig and amed if abig > 0.
 !
-      if ( (amed > zero) .or. (amed > maxN) .or. (amed /= amed) ) then
+      if ( (amed > zero) .or. (amed > maxn) .or. (amed /= amed) ) then
          abig = abig + (amed*sbig)*sbig
       endif
       scl = one / sbig
@@ -150,7 +150,7 @@ pure function DZNRM2( n, x, incx )
 !
 !     Combine amed and asml if asml > 0.
 !
-      if ( (amed > zero) .or. (amed > maxN) .or. (amed /= amed) ) then
+      if ( (amed > zero) .or. (amed > maxn) .or. (amed /= amed) ) then
          amed = sqrt(amed)
          asml = sqrt(asml) / ssml
          if (asml > amed) then
@@ -173,5 +173,5 @@ pure function DZNRM2( n, x, incx )
       scl = one
       sumsq = amed
    endif
-   DZNRM2 = scl*sqrt( sumsq )
-end function DZNRM2
+   dznrm2 = scl*sqrt( sumsq )
+end function dznrm2

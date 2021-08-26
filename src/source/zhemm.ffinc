@@ -164,7 +164,7 @@ SEE ALSO
    http://www.netlib.org/lapack/explore-html/
 $BLOCK END
 !  =====================================================================
-       SUBROUTINE ZHEMM(SIDE,UPLO,M,N,ALPHA,A,LDA,B,LDB,BETA,C,LDC)
+       subroutine zhemm(side,uplo,m,n,alpha,a,lda,b,ldb,beta,c,ldc)
       implicit none
 !
 !  -- Reference BLAS level3 routine (version 3.7.0) --
@@ -173,13 +173,13 @@ $BLOCK END
 !     December 2016
 !
 !     .. Scalar Arguments ..
-      complex(kind=real64),intent(in)    :: ALPHA,BETA
-      INTEGER,intent(in)                 :: LDA,LDB,LDC,M,N
-      CHARACTER,intent(in)               :: SIDE,UPLO
+      complex(kind=real64),intent(in)    :: alpha,beta
+      integer,intent(in)                 :: lda,ldb,ldc,m,n
+      character,intent(in)               :: side,uplo
 !     ..
 !     .. Array Arguments ..
-      complex(kind=real64),intent(in)    :: A(LDA,*),B(LDB,*)
-      complex(kind=real64),intent(inout) :: C(LDC,*)
+      complex(kind=real64),intent(in)    :: a(lda,*),b(ldb,*)
+      complex(kind=real64),intent(inout) :: c(ldc,*)
 !     ..
 !
 !  =====================================================================
@@ -192,134 +192,134 @@ $BLOCK END
 !      EXTERNAL XERBLA
 !     ..
 !     .. Intrinsic Functions ..
-      INTRINSIC DBLE,DCONJG,MAX
+      intrinsic dble,dconjg,max
 !     ..
 !     .. Local Scalars ..
-      complex(kind=real64) :: TEMP1,TEMP2
-      INTEGER I,INFO,J,K,NROWA
-      LOGICAL UPPER
+      complex(kind=real64) :: temp1,temp2
+      integer i,info,j,k,nrowa
+      logical upper
 !     ..
 !     .. Parameters ..
-      complex(kind=real64) :: ONE
-      PARAMETER (ONE= (1.0D+0,0.0D+0))
-      complex(kind=real64) :: ZERO
-      PARAMETER (ZERO= (0.0D+0,0.0D+0))
+      complex(kind=real64) :: one
+      parameter (one= (1.0d+0,0.0d+0))
+      complex(kind=real64) :: zero
+      parameter (zero= (0.0d+0,0.0d+0))
 !     ..
 !
 !     Set NROWA as the number of rows of A.
 !
-      IF (LSAME(SIDE,'L')) THEN
-          NROWA = M
-      ELSE
-          NROWA = N
+      if (lsame(side,'L')) then
+          nrowa = m
+      else
+          nrowa = n
       endif
-      UPPER = LSAME(UPLO,'U')
+      upper = lsame(uplo,'U')
 !
 !     Test the input parameters.
 !
-      INFO = 0
-      IF ((.NOT.LSAME(SIDE,'L')) .AND. (.NOT.LSAME(SIDE,'R'))) THEN
-          INFO = 1
-      ELSEIF ((.NOT.UPPER) .AND. (.NOT.LSAME(UPLO,'L'))) THEN
-          INFO = 2
-      ELSEIF (M.LT.0) THEN
-          INFO = 3
-      ELSEIF (N.LT.0) THEN
-          INFO = 4
-      ELSEIF (LDA.LT.MAX(1,NROWA)) THEN
-          INFO = 7
-      ELSEIF (LDB.LT.MAX(1,M)) THEN
-          INFO = 9
-      ELSEIF (LDC.LT.MAX(1,M)) THEN
-          INFO = 12
+      info = 0
+      if ((.not.lsame(side,'L')) .and. (.not.lsame(side,'R'))) then
+          info = 1
+      elseif ((.not.upper) .and. (.not.lsame(uplo,'L'))) then
+          info = 2
+      elseif (m.lt.0) then
+          info = 3
+      elseif (n.lt.0) then
+          info = 4
+      elseif (lda.lt.max(1,nrowa)) then
+          info = 7
+      elseif (ldb.lt.max(1,m)) then
+          info = 9
+      elseif (ldc.lt.max(1,m)) then
+          info = 12
       endif
-      IF (INFO.NE.0) THEN
-          CALL XERBLA('ZHEMM ',INFO)
-          RETURN
+      if (info.ne.0) then
+          call xerbla('ZHEMM ',info)
+          return
       endif
 !
 !     Quick return if possible.
 !
-      IF ((M.EQ.0) .OR. (N.EQ.0) .OR.  ((ALPHA.EQ.ZERO).AND. (BETA.EQ.ONE))) RETURN
+      if ((m.eq.0) .or. (n.eq.0) .or.  ((alpha.eq.zero).and. (beta.eq.one))) return
 !
 !     And when  alpha.eq.zero.
 !
-      IF (ALPHA.EQ.ZERO) THEN
-          IF (BETA.EQ.ZERO) THEN
-              C(1:M,1:N) = ZERO
-          ELSE
-              C(1:M,1:N) = BETA*C(1:M,1:N)
+      if (alpha.eq.zero) then
+          if (beta.eq.zero) then
+              c(1:m,1:n) = zero
+          else
+              c(1:m,1:n) = beta*c(1:m,1:n)
           endif
-          RETURN
+          return
       endif
 !
 !     Start the operations.
 !
-      IF (LSAME(SIDE,'L')) THEN
+      if (lsame(side,'L')) then
 !
 !        Form  C := alpha*A*B + beta*C.
 !
-          IF (UPPER) THEN
-              DO J = 1,N
-                  DO I = 1,M
-                      TEMP1 = ALPHA*B(I,J)
-                      TEMP2 = ZERO
-                      DO K = 1,I - 1
-                          C(K,J) = C(K,J) + TEMP1*A(K,I)
-                          TEMP2 = TEMP2 + B(K,J)*DCONJG(A(K,I))
+          if (upper) then
+              do j = 1,n
+                  do i = 1,m
+                      temp1 = alpha*b(i,j)
+                      temp2 = zero
+                      do k = 1,i - 1
+                          c(k,j) = c(k,j) + temp1*a(k,i)
+                          temp2 = temp2 + b(k,j)*dconjg(a(k,i))
                       enddo
-                      IF (BETA.EQ.ZERO) THEN
-                          C(I,J) = TEMP1*DBLE(A(I,I)) + ALPHA*TEMP2
-                      ELSE
-                          C(I,J) = BETA*C(I,J) + TEMP1*DBLE(A(I,I)) + ALPHA*TEMP2
+                      if (beta.eq.zero) then
+                          c(i,j) = temp1*dble(a(i,i)) + alpha*temp2
+                      else
+                          c(i,j) = beta*c(i,j) + temp1*dble(a(i,i)) + alpha*temp2
                       endif
                   enddo
               enddo
-          ELSE
-              DO J = 1,N
-                  DO I = M,1,-1
-                      TEMP1 = ALPHA*B(I,J)
-                      TEMP2 = ZERO
-                      DO K = I + 1,M
-                          C(K,J) = C(K,J) + TEMP1*A(K,I)
-                          TEMP2 = TEMP2 + B(K,J)*DCONJG(A(K,I))
+          else
+              do j = 1,n
+                  do i = m,1,-1
+                      temp1 = alpha*b(i,j)
+                      temp2 = zero
+                      do k = i + 1,m
+                          c(k,j) = c(k,j) + temp1*a(k,i)
+                          temp2 = temp2 + b(k,j)*dconjg(a(k,i))
                       enddo
-                      IF (BETA.EQ.ZERO) THEN
-                          C(I,J) = TEMP1*DBLE(A(I,I)) + ALPHA*TEMP2
-                      ELSE
-                          C(I,J) = BETA*C(I,J) + TEMP1*DBLE(A(I,I)) + ALPHA*TEMP2
+                      if (beta.eq.zero) then
+                          c(i,j) = temp1*dble(a(i,i)) + alpha*temp2
+                      else
+                          c(i,j) = beta*c(i,j) + temp1*dble(a(i,i)) + alpha*temp2
                       endif
                   enddo
               enddo
           endif
-      ELSE
+      else
 !
 !        Form  C := alpha*B*A + beta*C.
 !
-          DO J = 1,N
-              TEMP1 = ALPHA*DBLE(A(J,J))
-              IF (BETA.EQ.ZERO) THEN
-                  C(1:M,J) = TEMP1*B(1:M,J)
-              ELSE
-                  C(1:M,J) = BETA*C(1:M,J) + TEMP1*B(1:M,J)
+          do j = 1,n
+              temp1 = alpha*dble(a(j,j))
+              if (beta.eq.zero) then
+                  c(1:m,j) = temp1*b(1:m,j)
+              else
+                  c(1:m,j) = beta*c(1:m,j) + temp1*b(1:m,j)
               endif
-              DO K = 1,J - 1
-                  IF (UPPER) THEN
-                      TEMP1 = ALPHA*A(K,J)
-                  ELSE
-                      TEMP1 = ALPHA*DCONJG(A(J,K))
+              do k = 1,j - 1
+                  if (upper) then
+                      temp1 = alpha*a(k,j)
+                  else
+                      temp1 = alpha*dconjg(a(j,k))
                   endif
-                  C(1:M,J) = C(1:M,J) + TEMP1*B(1:M,K)
+                  c(1:m,j) = c(1:m,j) + temp1*b(1:m,k)
               enddo
-              DO K = J + 1,N
-                  IF (UPPER) THEN
-                      TEMP1 = ALPHA*DCONJG(A(J,K))
-                  ELSE
-                      TEMP1 = ALPHA*A(K,J)
+              do k = j + 1,n
+                  if (upper) then
+                      temp1 = alpha*dconjg(a(j,k))
+                  else
+                      temp1 = alpha*a(k,j)
                   endif
-                  C(1:M,J) = C(1:M,J) + TEMP1*B(1:M,K)
+                  c(1:m,j) = c(1:m,j) + temp1*b(1:m,k)
               enddo
           enddo
       endif
 
-      END SUBROUTINE ZHEMM
+      end subroutine zhemm

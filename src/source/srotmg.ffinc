@@ -77,7 +77,7 @@ SEE ALSO
    http://www.netlib.org/lapack/explore-html/
 $BLOCK END
 !  =====================================================================
-       SUBROUTINE SROTMG(SD1,SD2,SX1,SY1,SPARAM)
+       subroutine srotmg(sd1,sd2,sx1,sy1,sparam)
       implicit none
 !
 !  -- Reference BLAS level1 routine (version 3.8.0) --
@@ -86,168 +86,168 @@ $BLOCK END
 !     November 2017
 !
 !     .. Scalar Arguments ..
-      REAL,intent(inout) :: SD1,SD2,SX1
-      REAL,intent(in)    :: SY1
+      real,intent(inout) :: sd1,sd2,sx1
+      real,intent(in)    :: sy1
 !     ..
 !     .. Array Arguments ..
-      REAL,intent(out)   :: SPARAM(5)
+      real,intent(out)   :: sparam(5)
 !     ..
 !  =====================================================================
 !
 !     .. Local Scalars ..
-      REAL SFLAG,SH11,SH12,SH21,SH22,SP1,SP2,SQ1, SQ2,STEMP,SU
+      real sflag,sh11,sh12,sh21,sh22,sp1,sp2,sq1, sq2,stemp,su
 !     ..
 !     .. Intrinsic Functions ..
-      INTRINSIC ABS
+      intrinsic abs
 !     ..
 !     .. Data statements ..
       real,parameter :: zero=0.0e0
       real,parameter :: one=1.0e0
       real,parameter :: two=2.0e0
 !
-      real,parameter :: GAM=4096.E0
-      real,parameter :: GAMSQ=1.67772E7
-      real,parameter :: RGAMSQ=5.96046E-8
+      real,parameter :: gam=4096.e0
+      real,parameter :: gamsq=1.67772e7
+      real,parameter :: rgamsq=5.96046e-8
 !     ..
 
-      IF (SD1.LT.ZERO) THEN
+      if (sd1.lt.zero) then
 !        GO ZERO-H-D-AND-SX1..
-         SFLAG = -ONE
-         SH11 = ZERO
-         SH12 = ZERO
-         SH21 = ZERO
-         SH22 = ZERO
+         sflag = -one
+         sh11 = zero
+         sh12 = zero
+         sh21 = zero
+         sh22 = zero
 !
-         SD1 = ZERO
-         SD2 = ZERO
-         SX1 = ZERO
-      ELSE
+         sd1 = zero
+         sd2 = zero
+         sx1 = zero
+      else
 !        CASE-SD1-NONNEGATIVE
-         SP2 = SD2*SY1
-         IF (SP2.EQ.ZERO) THEN
-            SFLAG = -TWO
-            SPARAM(1) = SFLAG
-            RETURN
+         sp2 = sd2*sy1
+         if (sp2.eq.zero) then
+            sflag = -two
+            sparam(1) = sflag
+            return
          endif
 !        REGULAR-CASE..
-         SP1 = SD1*SX1
-         SQ2 = SP2*SY1
-         SQ1 = SP1*SX1
+         sp1 = sd1*sx1
+         sq2 = sp2*sy1
+         sq1 = sp1*sx1
 !
-         IF (ABS(SQ1).GT.ABS(SQ2)) THEN
-            SH21 = -SY1/SX1
-            SH12 = SP2/SP1
+         if (abs(sq1).gt.abs(sq2)) then
+            sh21 = -sy1/sx1
+            sh12 = sp2/sp1
 !
-            SU = ONE - SH12*SH21
+            su = one - sh12*sh21
 !
-           IF (SU.GT.ZERO) THEN
-             SFLAG = ZERO
-             SD1 = SD1/SU
-             SD2 = SD2/SU
-             SX1 = SX1*SU
-           ELSE
+           if (su.gt.zero) then
+             sflag = zero
+             sd1 = sd1/su
+             sd2 = sd2/su
+             sx1 = sx1*su
+           else
 !            This code path if here for safety. We do not expect this
 !            condition to ever hold except in edge cases with rounding
 !            errors. See DOI: 10.1145/355841.355847
-             SFLAG = -ONE
-             SH11 = ZERO
-             SH12 = ZERO
-             SH21 = ZERO
-             SH22 = ZERO
+             sflag = -one
+             sh11 = zero
+             sh12 = zero
+             sh21 = zero
+             sh22 = zero
 !
-             SD1 = ZERO
-             SD2 = ZERO
-             SX1 = ZERO
+             sd1 = zero
+             sd2 = zero
+             sx1 = zero
            endif
-         ELSE
+         else
 
-            IF (SQ2.LT.ZERO) THEN
+            if (sq2.lt.zero) then
 !              GO ZERO-H-D-AND-SX1..
-               SFLAG = -ONE
-               SH11 = ZERO
-               SH12 = ZERO
-               SH21 = ZERO
-               SH22 = ZERO
+               sflag = -one
+               sh11 = zero
+               sh12 = zero
+               sh21 = zero
+               sh22 = zero
 !
-               SD1 = ZERO
-               SD2 = ZERO
-               SX1 = ZERO
-            ELSE
-               SFLAG = ONE
-               SH11 = SP1/SP2
-               SH22 = SX1/SY1
-               SU = ONE + SH11*SH22
-               STEMP = SD2/SU
-               SD2 = SD1/SU
-               SD1 = STEMP
-               SX1 = SY1*SU
+               sd1 = zero
+               sd2 = zero
+               sx1 = zero
+            else
+               sflag = one
+               sh11 = sp1/sp2
+               sh22 = sx1/sy1
+               su = one + sh11*sh22
+               stemp = sd2/su
+               sd2 = sd1/su
+               sd1 = stemp
+               sx1 = sy1*su
             endif
          endif
 
 !     PROCEDURE..SCALE-CHECK
-         IF (SD1.NE.ZERO) THEN
-            DO WHILE ((SD1.LE.RGAMSQ) .OR. (SD1.GE.GAMSQ))
-               IF (SFLAG.EQ.ZERO) THEN
-                  SH11 = ONE
-                  SH22 = ONE
-                  SFLAG = -ONE
-               ELSE
-                  SH21 = -ONE
-                  SH12 = ONE
-                  SFLAG = -ONE
+         if (sd1.ne.zero) then
+            do while ((sd1.le.rgamsq) .or. (sd1.ge.gamsq))
+               if (sflag.eq.zero) then
+                  sh11 = one
+                  sh22 = one
+                  sflag = -one
+               else
+                  sh21 = -one
+                  sh12 = one
+                  sflag = -one
                endif
-               IF (SD1.LE.RGAMSQ) THEN
-                  SD1 = SD1*GAM**2
-                  SX1 = SX1/GAM
-                  SH11 = SH11/GAM
-                  SH12 = SH12/GAM
-               ELSE
-                  SD1 = SD1/GAM**2
-                  SX1 = SX1*GAM
-                  SH11 = SH11*GAM
-                  SH12 = SH12*GAM
+               if (sd1.le.rgamsq) then
+                  sd1 = sd1*gam**2
+                  sx1 = sx1/gam
+                  sh11 = sh11/gam
+                  sh12 = sh12/gam
+               else
+                  sd1 = sd1/gam**2
+                  sx1 = sx1*gam
+                  sh11 = sh11*gam
+                  sh12 = sh12*gam
                endif
-            ENDDO
+            enddo
          endif
 
-         IF (SD2.NE.ZERO) THEN
-            DO WHILE ( (ABS(SD2).LE.RGAMSQ) .OR. (ABS(SD2).GE.GAMSQ) )
-               IF (SFLAG.EQ.ZERO) THEN
-                  SH11 = ONE
-                  SH22 = ONE
-                  SFLAG = -ONE
-               ELSE
-                  SH21 = -ONE
-                  SH12 = ONE
-                  SFLAG = -ONE
+         if (sd2.ne.zero) then
+            do while ( (abs(sd2).le.rgamsq) .or. (abs(sd2).ge.gamsq) )
+               if (sflag.eq.zero) then
+                  sh11 = one
+                  sh22 = one
+                  sflag = -one
+               else
+                  sh21 = -one
+                  sh12 = one
+                  sflag = -one
                endif
-               IF (ABS(SD2).LE.RGAMSQ) THEN
-                  SD2 = SD2*GAM**2
-                  SH21 = SH21/GAM
-                  SH22 = SH22/GAM
-               ELSE
-                  SD2 = SD2/GAM**2
-                  SH21 = SH21*GAM
-                  SH22 = SH22*GAM
+               if (abs(sd2).le.rgamsq) then
+                  sd2 = sd2*gam**2
+                  sh21 = sh21/gam
+                  sh22 = sh22/gam
+               else
+                  sd2 = sd2/gam**2
+                  sh21 = sh21*gam
+                  sh22 = sh22*gam
                endif
             enddo
          endif
 
       endif
 
-      IF (SFLAG.LT.ZERO) THEN
-         SPARAM(2) = SH11
-         SPARAM(3) = SH21
-         SPARAM(4) = SH12
-         SPARAM(5) = SH22
-      elseif (SFLAG.EQ.ZERO) THEN
-         SPARAM(3) = SH21
-         SPARAM(4) = SH12
-      ELSE
-         SPARAM(2) = SH11
-         SPARAM(5) = SH22
+      if (sflag.lt.zero) then
+         sparam(2) = sh11
+         sparam(3) = sh21
+         sparam(4) = sh12
+         sparam(5) = sh22
+      elseif (sflag.eq.zero) then
+         sparam(3) = sh21
+         sparam(4) = sh12
+      else
+         sparam(2) = sh11
+         sparam(5) = sh22
       endif
 
-      SPARAM(1) = SFLAG
+      sparam(1) = sflag
 
-      END SUBROUTINE SROTMG
+      end subroutine srotmg

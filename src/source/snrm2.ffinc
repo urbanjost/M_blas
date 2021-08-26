@@ -67,9 +67,9 @@ SEE ALSO
    http://www.netlib.org/lapack/explore-html/
 $BLOCK END
 !  =====================================================================
-function SNRM2( n, x, incx )
+function snrm2( n, x, incx )
    integer, parameter :: wp = kind(1.e0)
-   real(wp) :: SNRM2
+   real(wp) :: snrm2
 !
 !  -- Reference BLAS level1 routine (version 3.9.1) --
 !  -- Reference BLAS is a software package provided by Univ. of Tennessee,    --
@@ -79,7 +79,7 @@ function SNRM2( n, x, incx )
 !  .. Constants ..
    real(wp), parameter :: zero = 0.0_wp
    real(wp), parameter :: one  = 1.0_wp
-   real(wp), parameter :: maxN = huge(0.0_wp)
+   real(wp), parameter :: maxn = huge(0.0_wp)
 !  ..
 !  .. Blue's ccaling constants ..
    real(wp), parameter :: tsml = real(radix(0._wp), wp)**ceiling( (minexponent(0._wp) - 1) * 0.5_wp)
@@ -100,7 +100,7 @@ function SNRM2( n, x, incx )
 !
 !  Quick return if possible
 !
-   SNRM2 = zero
+   snrm2 = zero
    if( n <= 0 ) return
 !
    scl = one
@@ -140,7 +140,7 @@ function SNRM2( n, x, incx )
 !
 !     Combine abig and amed if abig > 0.
 !
-      if ( (amed > zero) .or. (amed > maxN) .or. (amed /= amed) ) then
+      if ( (amed > zero) .or. (amed > maxn) .or. (amed /= amed) ) then
          abig = abig + (amed*sbig)*sbig
       endif
       scl = one / sbig
@@ -149,7 +149,7 @@ function SNRM2( n, x, incx )
 !
 !     Combine amed and asml if asml > 0.
 !
-      if ( (amed > zero) .or. (amed > maxN) .or. (amed /= amed) ) then
+      if ( (amed > zero) .or. (amed > maxn) .or. (amed /= amed) ) then
          amed = sqrt(amed)
          asml = sqrt(asml) / ssml
          if (asml > amed) then
@@ -172,5 +172,5 @@ function SNRM2( n, x, incx )
       scl = one
       sumsq = amed
    endif
-   SNRM2 = scl*sqrt( sumsq )
-end function SNRM2
+   snrm2 = scl*sqrt( sumsq )
+end function snrm2

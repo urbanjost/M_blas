@@ -73,7 +73,7 @@ SEE ALSO
    http://www.netlib.org/lapack/explore-html/
 $BLOCK END
 !  =====================================================================
-pure DOUBLE PRECISION FUNCTION DSDOT(N,SX,INCX,SY,INCY)
+pure double precision function dsdot(n,sx,incx,sy,incy)
 implicit none
 !
 !  -- Reference BLAS level1 routine (version 3.7.0) --
@@ -82,10 +82,10 @@ implicit none
 !     December 2016
 !
 !     .. Scalar Arguments ..
-      INTEGER,intent(in) :: INCX,INCY,N
+      integer,intent(in) :: incx,incy,n
 !     ..
 !     .. Array Arguments ..
-      REAL,intent(in) :: SX(*),SY(*)
+      real,intent(in) :: sx(*),sy(*)
 !     ..
 !
 !  Authors:
@@ -96,33 +96,33 @@ implicit none
 !  =====================================================================
 !
 !     .. Local Scalars ..
-      INTEGER I,KX,KY,NS
+      integer i,kx,ky,ns
 !     ..
 !     .. Intrinsic Functions ..
-      INTRINSIC DBLE
+      intrinsic dble
 !     ..
-      DSDOT = 0.0D0
-      IF (N.LE.0) RETURN
-      IF (INCX.EQ.INCY .AND. INCX.GT.0) THEN
+      dsdot = 0.0d0
+      if (n.le.0) return
+      if (incx.eq.incy .and. incx.gt.0) then
 !
 !     Code for equal, positive, non-unit increments.
 !
-         NS = N*INCX
-         DO I = 1,NS,INCX
-            DSDOT = DSDOT + DBLE(SX(I))*DBLE(SY(I))
+         ns = n*incx
+         do i = 1,ns,incx
+            dsdot = dsdot + dble(sx(i))*dble(sy(i))
          enddo
-      ELSE
+      else
 !
 !     Code for unequal or nonpositive increments.
 !
-         KX = 1
-         KY = 1
-         IF (INCX.LT.0) KX = 1 + (1-N)*INCX
-         IF (INCY.LT.0) KY = 1 + (1-N)*INCY
-         DO I = 1,N
-            DSDOT = DSDOT + DBLE(SX(KX))*DBLE(SY(KY))
-            KX = KX + INCX
-            KY = KY + INCY
+         kx = 1
+         ky = 1
+         if (incx.lt.0) kx = 1 + (1-n)*incx
+         if (incy.lt.0) ky = 1 + (1-n)*incy
+         do i = 1,n
+            dsdot = dsdot + dble(sx(kx))*dble(sy(ky))
+            kx = kx + incx
+            ky = ky + incy
          enddo
       endif
 

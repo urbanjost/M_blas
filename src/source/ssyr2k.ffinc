@@ -164,7 +164,7 @@ SEE ALSO
    http://www.netlib.org/lapack/explore-html/
 $BLOCK END
 !  =====================================================================
-       SUBROUTINE SSYR2K(UPLO,TRANS,N,K,ALPHA,A,LDA,B,LDB,BETA,C,LDC)
+       subroutine ssyr2k(uplo,trans,n,k,alpha,a,lda,b,ldb,beta,c,ldc)
       implicit none
 !
 !  -- Reference BLAS level3 routine (version 3.7.0) --
@@ -173,13 +173,13 @@ $BLOCK END
 !     December 2016
 !
 !     .. Scalar Arguments ..
-      REAL,intent(in)      :: ALPHA,BETA
-      INTEGER,intent(in)   :: K,LDA,LDB,LDC,N
-      CHARACTER,intent(in) :: TRANS,UPLO
+      real,intent(in)      :: alpha,beta
+      integer,intent(in)   :: k,lda,ldb,ldc,n
+      character,intent(in) :: trans,uplo
 !     ..
 !     .. Array Arguments ..
-      REAL,intent(in)      :: A(LDA,*),B(LDB,*)
-      REAL,intent(inout)   :: C(LDC,*)
+      real,intent(in)      :: a(lda,*),b(ldb,*)
+      real,intent(inout)   :: c(ldc,*)
 !     ..
 !
 !  =====================================================================
@@ -192,155 +192,155 @@ $BLOCK END
 !      EXTERNAL XERBLA
 !     ..
 !     .. Intrinsic Functions ..
-      INTRINSIC MAX
+      intrinsic max
 !     ..
 !     .. Local Scalars ..
-      REAL TEMP1,TEMP2
-      INTEGER I,INFO,J,L,NROWA
-      LOGICAL UPPER
+      real temp1,temp2
+      integer i,info,j,l,nrowa
+      logical upper
 !     ..
 !     .. Parameters ..
-      REAL ONE,ZERO
-      PARAMETER (ONE=1.0E+0,ZERO=0.0E+0)
+      real one,zero
+      parameter (one=1.0e+0,zero=0.0e+0)
 !     ..
 !
 !     Test the input parameters.
 !
-      IF (LSAME(TRANS,'N')) THEN
-          NROWA = N
-      ELSE
-          NROWA = K
+      if (lsame(trans,'N')) then
+          nrowa = n
+      else
+          nrowa = k
       endif
-      UPPER = LSAME(UPLO,'U')
+      upper = lsame(uplo,'U')
 !
-      INFO = 0
-      IF ((.NOT.UPPER) .AND. (.NOT.LSAME(UPLO,'L'))) THEN
-          INFO = 1
-      ELSEIF ((.NOT.LSAME(TRANS,'N')) .AND.  (.NOT.LSAME(TRANS,'T')) .AND.  (.NOT.LSAME(TRANS,'C'))) THEN
-          INFO = 2
-      ELSEIF (N.LT.0) THEN
-          INFO = 3
-      ELSEIF (K.LT.0) THEN
-          INFO = 4
-      ELSEIF (LDA.LT.MAX(1,NROWA)) THEN
-          INFO = 7
-      ELSEIF (LDB.LT.MAX(1,NROWA)) THEN
-          INFO = 9
-      ELSEIF (LDC.LT.MAX(1,N)) THEN
-          INFO = 12
+      info = 0
+      if ((.not.upper) .and. (.not.lsame(uplo,'L'))) then
+          info = 1
+      elseif ((.not.lsame(trans,'N')) .and.  (.not.lsame(trans,'T')) .and.  (.not.lsame(trans,'C'))) then
+          info = 2
+      elseif (n.lt.0) then
+          info = 3
+      elseif (k.lt.0) then
+          info = 4
+      elseif (lda.lt.max(1,nrowa)) then
+          info = 7
+      elseif (ldb.lt.max(1,nrowa)) then
+          info = 9
+      elseif (ldc.lt.max(1,n)) then
+          info = 12
       endif
-      IF (INFO.NE.0) THEN
-          CALL XERBLA('SSYR2K',INFO)
-          RETURN
+      if (info.ne.0) then
+          call xerbla('SSYR2K',info)
+          return
       endif
 !
 !     Quick return if possible.
 !
-      IF ((N.EQ.0) .OR. (((ALPHA.EQ.ZERO).OR.  (K.EQ.0)).AND. (BETA.EQ.ONE))) RETURN
+      if ((n.eq.0) .or. (((alpha.eq.zero).or.  (k.eq.0)).and. (beta.eq.one))) return
 !
 !     And when  alpha.eq.zero.
 !
-      IF (ALPHA.EQ.ZERO) THEN
-          IF (UPPER) THEN
-              IF (BETA.EQ.ZERO) THEN
-                  DO J = 1,N
-                      C(1:J,J) = ZERO
+      if (alpha.eq.zero) then
+          if (upper) then
+              if (beta.eq.zero) then
+                  do j = 1,n
+                      c(1:j,j) = zero
                   enddo
-              ELSE
-                  DO J = 1,N
-                      C(1:J,J) = BETA*C(1:J,J)
+              else
+                  do j = 1,n
+                      c(1:j,j) = beta*c(1:j,j)
                   enddo
               endif
-          ELSE
-              IF (BETA.EQ.ZERO) THEN
-                  DO J = 1,N
-                      C(J:N,J) = ZERO
+          else
+              if (beta.eq.zero) then
+                  do j = 1,n
+                      c(j:n,j) = zero
                   enddo
-              ELSE
-                  DO J = 1,N
-                      C(J:N,J) = BETA*C(J:N,J)
+              else
+                  do j = 1,n
+                      c(j:n,j) = beta*c(j:n,j)
                   enddo
               endif
           endif
-          RETURN
+          return
       endif
 !
 !     Start the operations.
 !
-      IF (LSAME(TRANS,'N')) THEN
+      if (lsame(trans,'N')) then
 !
 !        Form  C := alpha*A*B**T + alpha*B*A**T + C.
 !
-          IF (UPPER) THEN
-              DO J = 1,N
-                  IF (BETA.EQ.ZERO) THEN
-                      C(1:J,J) = ZERO
-                  ELSEIF (BETA.NE.ONE) THEN
-                      C(1:J,J) = BETA*C(1:J,J)
+          if (upper) then
+              do j = 1,n
+                  if (beta.eq.zero) then
+                      c(1:j,j) = zero
+                  elseif (beta.ne.one) then
+                      c(1:j,j) = beta*c(1:j,j)
                   endif
-                  DO L = 1,K
-                      IF ((A(J,L).NE.ZERO) .OR. (B(J,L).NE.ZERO)) THEN
-                          TEMP1 = ALPHA*B(J,L)
-                          TEMP2 = ALPHA*A(J,L)
-                          DO I = 1,J
-                              C(I,J) = C(I,J) + A(I,L)*TEMP1 + B(I,L)*TEMP2
+                  do l = 1,k
+                      if ((a(j,l).ne.zero) .or. (b(j,l).ne.zero)) then
+                          temp1 = alpha*b(j,l)
+                          temp2 = alpha*a(j,l)
+                          do i = 1,j
+                              c(i,j) = c(i,j) + a(i,l)*temp1 + b(i,l)*temp2
                           enddo
                       endif
                   enddo
               enddo
-          ELSE
-              DO J = 1,N
-                  IF (BETA.EQ.ZERO) THEN
-                      C(J:N,J) = ZERO
-                  ELSEIF (BETA.NE.ONE) THEN
-                      C(J:N,J) = BETA*C(J:N,J)
+          else
+              do j = 1,n
+                  if (beta.eq.zero) then
+                      c(j:n,j) = zero
+                  elseif (beta.ne.one) then
+                      c(j:n,j) = beta*c(j:n,j)
                   endif
-                  DO L = 1,K
-                      IF ((A(J,L).NE.ZERO) .OR. (B(J,L).NE.ZERO)) THEN
-                          TEMP1 = ALPHA*B(J,L)
-                          TEMP2 = ALPHA*A(J,L)
-                          C(J:N,J) = C(J:N,J) + A(J:N,L)*TEMP1 + B(J:N,L)*TEMP2
+                  do l = 1,k
+                      if ((a(j,l).ne.zero) .or. (b(j,l).ne.zero)) then
+                          temp1 = alpha*b(j,l)
+                          temp2 = alpha*a(j,l)
+                          c(j:n,j) = c(j:n,j) + a(j:n,l)*temp1 + b(j:n,l)*temp2
                       endif
                   enddo
               enddo
           endif
-      ELSE
+      else
 !
 !        Form  C := alpha*A**T*B + alpha*B**T*A + C.
 !
-          IF (UPPER) THEN
-              DO J = 1,N
-                  DO I = 1,J
-                      TEMP1 = ZERO
-                      TEMP2 = ZERO
-                      DO L = 1,K
-                          TEMP1 = TEMP1 + A(L,I)*B(L,J)
-                          TEMP2 = TEMP2 + B(L,I)*A(L,J)
+          if (upper) then
+              do j = 1,n
+                  do i = 1,j
+                      temp1 = zero
+                      temp2 = zero
+                      do l = 1,k
+                          temp1 = temp1 + a(l,i)*b(l,j)
+                          temp2 = temp2 + b(l,i)*a(l,j)
                       enddo
-                      IF (BETA.EQ.ZERO) THEN
-                          C(I,J) = ALPHA*TEMP1 + ALPHA*TEMP2
-                      ELSE
-                          C(I,J) = BETA*C(I,J) + ALPHA*TEMP1 + ALPHA*TEMP2
+                      if (beta.eq.zero) then
+                          c(i,j) = alpha*temp1 + alpha*temp2
+                      else
+                          c(i,j) = beta*c(i,j) + alpha*temp1 + alpha*temp2
                       endif
                   enddo
               enddo
-          ELSE
-              DO J = 1,N
-                  DO I = J,N
-                      TEMP1 = ZERO
-                      TEMP2 = ZERO
-                      DO L = 1,K
-                          TEMP1 = TEMP1 + A(L,I)*B(L,J)
-                          TEMP2 = TEMP2 + B(L,I)*A(L,J)
+          else
+              do j = 1,n
+                  do i = j,n
+                      temp1 = zero
+                      temp2 = zero
+                      do l = 1,k
+                          temp1 = temp1 + a(l,i)*b(l,j)
+                          temp2 = temp2 + b(l,i)*a(l,j)
                       enddo
-                      IF (BETA.EQ.ZERO) THEN
-                          C(I,J) = ALPHA*TEMP1 + ALPHA*TEMP2
-                      ELSE
-                          C(I,J) = BETA*C(I,J) + ALPHA*TEMP1 + ALPHA*TEMP2
+                      if (beta.eq.zero) then
+                          c(i,j) = alpha*temp1 + alpha*temp2
+                      else
+                          c(i,j) = beta*c(i,j) + alpha*temp1 + alpha*temp2
                       endif
                   enddo
               enddo
           endif
       endif
 
-      END SUBROUTINE SSYR2K
+      end subroutine ssyr2k
