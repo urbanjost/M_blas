@@ -3,15 +3,15 @@ NAME
    dger(3f) - [BLAS:DOUBLE_BLAS_LEVEL2]
 
 SYNOPSIS
-    SUBROUTINE DGER(M,N,ALPHA,X,INCX,Y,INCY,A,LDA)
+    subroutine dger(m,n,alpha,x,incx,y,incy,a,lda)
 
       .. Scalar Arguments ..
-      DOUBLE PRECISION,intent(in)    :: ALPHA
-      INTEGER,intent(in)             :: INCX,INCY,LDA,M,N
+      double precision,intent(in)    :: alpha
+      integer,intent(in)             :: incx,incy,lda,m,n
       ..
       .. Array Arguments ..
-      DOUBLE PRECISION,intent(in)    :: X(*),Y(*)
-      DOUBLE PRECISION,intent(inout) :: A(LDA,*)
+      double precision,intent(in)    :: x(*),y(*)
+      double precision,intent(inout) :: a(lda,*)
       ..
 
 DEFINITION

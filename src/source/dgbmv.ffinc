@@ -3,16 +3,16 @@ NAME
    dgbmv(3f) - [BLAS:DOUBLE_BLAS_LEVEL2]
 
 SYNOPSIS
-    SUBROUTINE DGBMV(TRANS,M,N,KL,KU,ALPHA,A,LDA,X,INCX,BETA,Y,INCY)
+    subroutine dgbmv(trans,m,n,kl,ku,alpha,a,lda,x,incx,beta,y,incy)
 
       .. Scalar Arguments ..
-      DOUBLE PRECISION,intent(in)    :: ALPHA,BETA
-      INTEGER,intent(in)             :: INCX,INCY,KL,KU,LDA,M,N
-      CHARACTER,intent(in)           :: TRANS
+      double precision,intent(in)    :: alpha,beta
+      integer,intent(in)             :: incx,incy,kl,ku,lda,m,n
+      character,intent(in)           :: trans
       ..
       .. Array Arguments ..
-      DOUBLE PRECISION,intent(in)    :: A(LDA,*),X(*)
-      DOUBLE PRECISION,intent(inout) :: Y(*)
+      double precision,intent(in)    :: a(lda,*),x(*)
+      double precision,intent(inout) :: y(*)
       ..
 
 DEFINITION

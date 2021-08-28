@@ -5,7 +5,7 @@ NAME
 SYNOPSIS
     subroutine CROTG( a, b, c, s )
 
-     .. Scalar arguments ..
+     .. Scalar Arguments ..
         complex(wp),intent(inout) :: a
         complex(wp),intent(in)    :: b
         real(wp),intent(out)      :: c

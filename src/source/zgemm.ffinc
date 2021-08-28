@@ -6,13 +6,13 @@ SYNOPSIS
     subroutine zgemm(transa,transb,m,n,k,alpha,a,lda,b,ldb,beta,c,ldc)
 
       .. Scalar Arguments ..
-      complex(kind=real64),intent(in)    :: ALPHA,BETA
-      INTEGER,intent(in)                 :: K,LDA,LDB,LDC,M,N
-      CHARACTER,intent(in)               :: TRANSA,TRANSB
+      complex(kind=real64),intent(in)    :: alpha,beta
+      integer,intent(in)                 :: k,lda,ldb,ldc,m,n
+      character,intent(in)               :: transa,transb
       ..
       .. Array Arguments ..
-      complex(kind=real64),intent(in)    :: A(LDA,*),B(LDB,*)
-      complex(kind=real64),intent(inout) :: C(LDC,*)
+      complex(kind=real64),intent(in)    :: a(lda,*),b(ldb,*)
+      complex(kind=real64),intent(inout) :: c(ldc,*)
       ..
 
 DEFINITION

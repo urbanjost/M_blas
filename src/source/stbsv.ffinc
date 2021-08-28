@@ -3,15 +3,15 @@ NAME
    stbsv(3f) - [BLAS:SINGLE_BLAS_LEVEL2] SX:=INVERSE(A)*SX, A a triangular band matrix.
 
 SYNOPSIS
-    SUBROUTINE STBSV(UPLO,TRANS,DIAG,N,K,A,LDA,X,INCX)
+    subroutine stbsv(uplo,trans,diag,n,k,a,lda,x,incx)
 
       .. Scalar Arguments ..
-      INTEGER,intent(in)   :: INCX,K,LDA,N
-      CHARACTER,intent(in) :: DIAG,TRANS,UPLO
+      integer,intent(in)   :: incx,k,lda,n
+      character,intent(in) :: diag,trans,uplo
       ..
       .. Array Arguments ..
-      REAL,intent(in)      :: A(LDA,*)
-      REAL,intent(inout)   :: X(*)
+      real,intent(in)      :: a(lda,*)
+      real,intent(inout)   :: x(*)
       ..
 
 DEFINITION

@@ -3,16 +3,16 @@ NAME
    zherk(3f) - [BLAS:COMPLEX16_BLAS_LEVEL3]
 
 SYNOPSIS
-    SUBROUTINE ZHERK(UPLO,TRANS,N,K,ALPHA,A,LDA,BETA,C,LDC)
+    subroutine zherk(uplo,trans,n,k,alpha,a,lda,beta,c,ldc)
 
       .. Scalar Arguments ..
-      DOUBLE PRECISION,intent(in)        :: ALPHA,BETA
-      INTEGER,intent(in)                 :: K,LDA,LDC,N
-      CHARACTER,intent(in)               :: TRANS,UPLO
+      double precision,intent(in)        :: alpha,beta
+      integer,intent(in)                 :: k,lda,ldc,n
+      character,intent(in)               :: trans,uplo
       ..
       .. Array Arguments ..
-      complex(kind=real64),intent(in)    :: A(LDA,*)
-      complex(kind=real64),intent(inout) :: C(LDC,*)
+      complex(kind=real64),intent(in)    :: a(lda,*)
+      complex(kind=real64),intent(inout) :: c(ldc,*)
       ..
 
 DEFINITION

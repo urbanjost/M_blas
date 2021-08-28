@@ -3,7 +3,7 @@ NAME
    zhemv(3f) - [BLAS:COMPLEX_16_BLAS_LEVEL2]
 
 SYNOPSIS
-    SUBROUTINE ZHEMV(UPLO,N,ALPHA,A,LDA,X,INCX,BETA,Y,INCY)
+    subroutine zhemv(uplo,n,alpha,a,lda,x,incx,beta,y,incy)
 
       .. Scalar Arguments ..
       complex(kind=real64),intent(in)    :: alpha,beta

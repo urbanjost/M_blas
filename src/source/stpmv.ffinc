@@ -3,15 +3,15 @@ NAME
    stpmv(3f) - [BLAS:SINGLE_BLAS_LEVEL2] SX:=A*SX, A a packed symmetric matrix.
 
 SYNOPSIS
-    SUBROUTINE STPMV(UPLO,TRANS,DIAG,N,AP,X,INCX)
+    subroutine stpmv(uplo,trans,diag,n,ap,x,incx)
 
       .. Scalar Arguments ..
-      INTEGER,intent(in)   :: INCX,N
-      CHARACTER,intent(in) :: DIAG,TRANS,UPLO
+      integer,intent(in)   :: incx,n
+      character,intent(in) :: diag,trans,uplo
       ..
       .. Array Arguments ..
-      REAL,intent(in)      :: AP(*)
-      REAL,intent(inout)   :: X(*)
+      real,intent(in)      :: ap(*)
+      real,intent(inout)   :: x(*)
       ..
 
 DEFINITION

@@ -4,14 +4,14 @@ NAME
    Transformation, H, to the 2 by N matrix
 
 SYNOPSIS
-    SUBROUTINE DROTM(N,DX,INCX,DY,INCY,DPARAM)
+    subroutine drotm(n,dx,incx,dy,incy,dparam)
 
       .. Scalar Arguments ..
-      INTEGER,intent(in)             :: INCX,INCY,N
+      integer,intent(in)             :: incx,incy,n
       ..
       .. Array Arguments ..
-      DOUBLE PRECISION,intent(in)    :: DPARAM(5)
-      DOUBLE PRECISION,intent(inout) :: DX(*),DY(*)
+      double precision,intent(in)    :: dparam(5)
+      double precision,intent(inout) :: dx(*),dy(*)
       ..
 
 DEFINITION

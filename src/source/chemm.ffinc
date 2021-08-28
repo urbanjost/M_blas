@@ -3,16 +3,16 @@ NAME
    chemm(3f) - [BLAS:COMPLEX_BLAS_LEVEL3] C:=alpha*A*TRANSPOSE(A)+beta*C; ==> A hermitian, B, C rectangular.
 
 SYNOPSIS
-    SUBROUTINE CHEMM(SIDE,UPLO,M,N,ALPHA,A,LDA,B,LDB,BETA,C,LDC)
+    subroutine chemm(side,uplo,m,n,alpha,a,lda,b,ldb,beta,c,ldc)
 
       .. Scalar Arguments ..
-      COMPLEX,intent(in)    :: ALPHA,BETA
-      INTEGER,intent(in)    :: LDA,LDB,LDC,M,N
-      CHARACTER,intent(in)  :: SIDE,UPLO
+      complex,intent(in)    :: alpha,beta
+      integer,intent(in)    :: lda,ldb,ldc,m,n
+      character,intent(in)  :: side,uplo
       ..
       .. Array Arguments ..
-      COMPLEX,intent(in)    :: A(LDA,*),B(LDB,*)
-      COMPLEX,intent(inout) :: C(LDC,*)
+      complex,intent(in)    :: a(lda,*),b(ldb,*)
+      complex,intent(inout) :: c(ldc,*)
       ..
 
 DEFINITION

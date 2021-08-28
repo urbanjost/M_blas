@@ -3,7 +3,7 @@ NAME
    scopy(3f) - [BLAS:SINGLE_BLAS_LEVEL1] SY:=SX
 
 SYNOPSIS
-    SUBROUTINE SCOPY(N,SX,INCX,SY,INCY)
+    subroutine scopy(n,sx,incx,sy,incy)
 
       .. Scalar Arguments ..
       integer,intent(in) :: incx,incy,n

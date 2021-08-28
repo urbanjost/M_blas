@@ -4,16 +4,16 @@ NAME
    (performs the hermitian rank 1 operation)
 
 SYNOPSIS
-    SUBROUTINE CHER(UPLO,N,ALPHA,X,INCX,A,LDA)
+    subroutine cher(uplo,n,alpha,x,incx,a,lda)
 
       .. Scalar Arguments ..
-      REAL,intent(in)       :: ALPHA
-      INTEGER,intent(in)    :: INCX,LDA,N
-      CHARACTER,intent(in)  :: UPLO
+      real,intent(in)       :: alpha
+      integer,intent(in)    :: incx,lda,n
+      character,intent(in)  :: uplo
       ..
       .. Array Arguments ..
-      COMPLEX,intent(inout) :: A(LDA,*)
-      COMPLEX,intent(in)    :: X(*)
+      complex,intent(inout) :: a(lda,*)
+      complex,intent(in)    :: x(*)
       ..
 
 DEFINITION

@@ -4,14 +4,14 @@ NAME
 
 SYNOPSIS
 
-    SUBROUTINE CSROT( N, CX, INCX, CY, INCY, C, S )
+    subroutine csrot( n, cx, incx, cy, incy, c, s )
 
       .. Scalar Arguments ..
-      INTEGER,intent(in)       :: INCX, INCY, N
-      REAL,intent(in)          :: C, S
+      integer,intent(in)       :: incx, incy, n
+      real,intent(in)          :: c, s
       ..
       .. Array Arguments ..
-      COMPLEX,intent(inout)    :: CX( * ), CY( * )
+      complex,intent(inout)    :: cx( * ), cy( * )
       ..
 
 DEFINITION

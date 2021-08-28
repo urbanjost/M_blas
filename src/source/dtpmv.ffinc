@@ -3,15 +3,15 @@ NAME
    dtpmv(3f) - [BLAS:DOUBLE_BLAS_LEVEL3]
 
 SYNOPSIS
-    SUBROUTINE DTPMV(UPLO,TRANS,DIAG,N,AP,X,INCX)
+    subroutine dtpmv(uplo,trans,diag,n,ap,x,incx)
 
       .. Scalar Arguments ..
-      INTEGER,intent(in)             :: INCX,N
-      CHARACTER,intent(in)           :: DIAG,TRANS,UPLO
+      integer,intent(in)             :: incx,n
+      character,intent(in)           :: diag,trans,uplo
       ..
       .. Array Arguments ..
-      DOUBLE PRECISION,intent(in)    :: AP(*)
-      DOUBLE PRECISION,intent(inout) :: X(*)
+      double precision,intent(in)    :: ap(*)
+      double precision,intent(inout) :: x(*)
       ..
 
 DEFINITION

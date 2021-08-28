@@ -3,16 +3,16 @@ NAME
    zsymm(3f) - [BLAS:COMPLEX16_BLAS_LEVEL3]
 
 SYNOPSIS
-    SUBROUTINE ZSYMM(SIDE,UPLO,M,N,ALPHA,A,LDA,B,LDB,BETA,C,LDC)
+    subroutine zsymm(side,uplo,m,n,alpha,a,lda,b,ldb,beta,c,ldc)
 
       .. Scalar Arguments ..
-      complex(kind=real64),intent(in)    :: ALPHA,BETA
-      INTEGER,intent(in)                 :: LDA,LDB,LDC,M,N
-      CHARACTER,intent(in)               :: SIDE,UPLO
+      complex(kind=real64),intent(in)    :: alpha,beta
+      integer,intent(in)                 :: lda,ldb,ldc,m,n
+      character,intent(in)               :: side,uplo
       ..
       .. Array Arguments ..
-      complex(kind=real64),intent(in)    :: A(LDA,*),B(LDB,*)
-      complex(kind=real64),intent(inout) :: C(LDC,*)
+      complex(kind=real64),intent(in)    :: a(lda,*),b(ldb,*)
+      complex(kind=real64),intent(inout) :: c(ldc,*)
       ..
 
 DEFINITION

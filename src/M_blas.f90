@@ -32,13 +32,13 @@ end subroutine set_xerbla
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE XERBLA_ARRAY(SRNAME_ARRAY, SRNAME_LEN, INFO)
+!!     subroutine xerbla_array(srname_array, srname_len, info)
 !!
 !!        .. Scalar Arguments ..
-!!        INTEGER SRNAME_LEN, INFO
+!!        integer srname_len, info
 !!        ..
 !!        .. Array Arguments ..
-!!        CHARACTER(*) SRNAME_ARRAY(SRNAME_LEN)
+!!        character(*) srname_array(srname_len)
 !!        ..
 !!
 !!##DEFINITION
@@ -138,7 +138,7 @@ end subroutine set_xerbla
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE XERBLA( SRNAME, INFO )
+!!     subroutine xerbla( srname, info )
 !!
 !!        .. Scalar Arguments ..
 !!        character(len=*),intent(in) :: srname
@@ -585,7 +585,7 @@ end subroutine ccopy
 !!##SYNOPSIS
 !!
 !!
-!!     SUBROUTINE CGBMV(TRANS,M,N,KL,KU,ALPHA,A,LDA,X,INCX,BETA,Y,INCY)
+!!     subroutine cgbmv(trans,m,n,kl,ku,alpha,a,lda,x,incx,beta,y,incy)
 !!
 !!       .. Scalar Arguments ..
 !!       complex,intent(in)    :: alpha,beta
@@ -919,16 +919,16 @@ end subroutine cgbmv
 !!##SYNOPSIS
 !!
 !!
-!!     SUBROUTINE CGEMM(TRANSA,TRANSB,M,N,K,ALPHA,A,LDA,B,LDB,BETA,C,LDC)
+!!     subroutine cgemm(transa,transb,m,n,k,alpha,a,lda,b,ldb,beta,c,ldc)
 !!
 !!       .. Scalar Arguments ..
-!!       COMPLEX,intent(in)    :: ALPHA,BETA
-!!       INTEGER,intent(in)    :: K,LDA,LDB,LDC,M,N
-!!       CHARACTER,intent(in)  :: TRANSA,TRANSB
+!!       complex,intent(in)    :: alpha,beta
+!!       integer,intent(in)    :: k,lda,ldb,ldc,m,n
+!!       character,intent(in)  :: transa,transb
 !!       ..
 !!       .. Array Arguments ..
-!!       COMPLEX,intent(in)    :: A(LDA,*),B(LDB,*)
-!!       COMPLEX,intent(inout) :: C(LDC,*)
+!!       complex,intent(in)    :: a(lda,*),b(ldb,*)
+!!       complex,intent(inout) :: c(ldc,*)
 !!       ..
 !!
 !!##DEFINITION
@@ -1363,7 +1363,7 @@ end subroutine cgbmv
 !!##SYNOPSIS
 !!
 !!
-!!     SUBROUTINE CGEMV(TRANS,M,N,ALPHA,A,LDA,X,INCX,BETA,Y,INCY)
+!!     subroutine cgemv(trans,m,n,alpha,a,lda,x,incx,beta,y,incy)
 !!
 !!       .. Scalar Arguments ..
 !!       COMPLEX,intent(in)    :: ALPHA,BETA
@@ -1678,15 +1678,15 @@ end subroutine cgbmv
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE CGERC(M,N,ALPHA,X,INCX,Y,INCY,A,LDA)
+!!     subroutine cgerc(m,n,alpha,x,incx,y,incy,a,lda)
 !!
 !!       .. Scalar Arguments ..
-!!       COMPLEX,intent(in)    :: ALPHA
-!!       INTEGER,intent(in)    :: INCX,INCY,LDA,M,N
+!!       complex,intent(in)    :: alpha
+!!       integer,intent(in)    :: incx,incy,lda,m,n
 !!       ..
 !!       .. Array Arguments ..
-!!       COMPLEX,intent(inout) :: A(LDA,*)
-!!       COMPLEX,intent(in)    :: X(*),Y(*)
+!!       complex,intent(inout) :: a(lda,*)
+!!       complex,intent(in)    :: x(*),y(*)
 !!       ..
 !!
 !!##DEFINITION
@@ -1880,15 +1880,15 @@ end subroutine cgbmv
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE CGERU(M,N,ALPHA,X,INCX,Y,INCY,A,LDA)
+!!     subroutine cgeru(m,n,alpha,x,incx,y,incy,a,lda)
 !!
 !!       .. Scalar Arguments ..
-!!       COMPLEX,intent(in)    :: ALPHA
-!!       INTEGER,intent(in)    :: INCX,INCY,LDA,M,N
+!!       complex,intent(in)    :: alpha
+!!       integer,intent(in)    :: incx,incy,lda,m,n
 !!       ..
 !!       .. Array Arguments ..
-!!       COMPLEX,intent(inout) :: A(LDA,*)
-!!       COMPLEX,intent(in)    :: X(*),Y(*)
+!!       complex,intent(inout) :: a(lda,*)
+!!       complex,intent(in)    :: x(*),y(*)
 !!       ..
 !!
 !!##DEFINITION
@@ -2082,16 +2082,16 @@ end subroutine cgbmv
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE CHBMV(UPLO,N,K,ALPHA,A,LDA,X,INCX,BETA,Y,INCY)
+!!     subroutine chbmv(uplo,n,k,alpha,a,lda,x,incx,beta,y,incy)
 !!
 !!       .. Scalar Arguments ..
-!!       COMPLEX,intent(in)    :: ALPHA,BETA
-!!       INTEGER,intent(in)    :: INCX,INCY,K,LDA,N
-!!       CHARACTER,intent(in)  :: UPLO
+!!       complex,intent(in)    :: alpha,beta
+!!       integer,intent(in)    :: incx,incy,k,lda,n
+!!       character,intent(in)  :: uplo
 !!       ..
 !!       .. Array Arguments ..
-!!       COMPLEX,intent(in)    :: A(LDA,*),X(*)
-!!       COMPLEX,intent(inout) :: Y(*)
+!!       complex,intent(in)    :: a(lda,*),x(*)
+!!       complex,intent(inout) :: y(*)
 !!       ..
 !!
 !!##DEFINITION
@@ -2431,16 +2431,16 @@ end subroutine cgbmv
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE CHEMM(SIDE,UPLO,M,N,ALPHA,A,LDA,B,LDB,BETA,C,LDC)
+!!     subroutine chemm(side,uplo,m,n,alpha,a,lda,b,ldb,beta,c,ldc)
 !!
 !!       .. Scalar Arguments ..
-!!       COMPLEX,intent(in)    :: ALPHA,BETA
-!!       INTEGER,intent(in)    :: LDA,LDB,LDC,M,N
-!!       CHARACTER,intent(in)  :: SIDE,UPLO
+!!       complex,intent(in)    :: alpha,beta
+!!       integer,intent(in)    :: lda,ldb,ldc,m,n
+!!       character,intent(in)  :: side,uplo
 !!       ..
 !!       .. Array Arguments ..
-!!       COMPLEX,intent(in)    :: A(LDA,*),B(LDB,*)
-!!       COMPLEX,intent(inout) :: C(LDC,*)
+!!       complex,intent(in)    :: a(lda,*),b(ldb,*)
+!!       complex,intent(inout) :: c(ldc,*)
 !!       ..
 !!
 !!##DEFINITION
@@ -2755,16 +2755,16 @@ end subroutine cgbmv
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE CHEMV(UPLO,N,ALPHA,A,LDA,X,INCX,BETA,Y,INCY)
+!!     subroutine chemv(uplo,n,alpha,a,lda,x,incx,beta,y,incy)
 !!
 !!       .. Scalar Arguments ..
-!!       COMPLEX,intent(in)    :: ALPHA,BETA
-!!       INTEGER,intent(in)    :: INCX,INCY,LDA,N
-!!       CHARACTER,intent(in)  :: UPLO
+!!       complex,intent(in)    :: alpha,beta
+!!       integer,intent(in)    :: incx,incy,lda,n
+!!       character,intent(in)  :: uplo
 !!       ..
 !!       .. Array Arguments ..
-!!       COMPLEX,intent(in)    :: A(LDA,*),X(*)
-!!       COMPLEX,intent(inout) :: Y(*)
+!!       complex,intent(in)    :: a(lda,*),x(*)
+!!       complex,intent(inout) :: y(*)
 !!       ..
 !!
 !!##DEFINITION
@@ -3350,17 +3350,17 @@ end subroutine cgbmv
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE CHER2K(UPLO,TRANS,N,K,ALPHA,A,LDA,B,LDB,BETA,C,LDC)
+!!     subroutine cher2k(uplo,trans,n,k,alpha,a,lda,b,ldb,beta,c,ldc)
 !!
 !!       .. Scalar Arguments ..
-!!       COMPLEX,intent(in)    :: ALPHA
-!!       REAL,intent(in)       :: BETA
-!!       INTEGER,intent(in)    :: K,LDA,LDB,LDC,N
-!!       CHARACTER,intent(in)  :: TRANS,UPLO
+!!       complex,intent(in)    :: alpha
+!!       real,intent(in)       :: beta
+!!       integer,intent(in)    :: k,lda,ldb,ldc,n
+!!       character,intent(in)  :: trans,uplo
 !!       ..
 !!       .. Array Arguments ..
-!!       COMPLEX,intent(in)    :: A(LDA,*),B(LDB,*)
-!!       COMPLEX,intent(inout) :: C(LDC,*)
+!!       complex,intent(in)    :: a(lda,*),b(ldb,*)
+!!       complex,intent(inout) :: c(ldc,*)
 !!       ..
 !!
 !!##DEFINITION
@@ -3743,16 +3743,16 @@ end subroutine cgbmv
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE CHER(UPLO,N,ALPHA,X,INCX,A,LDA)
+!!     subroutine cher(uplo,n,alpha,x,incx,a,lda)
 !!
 !!       .. Scalar Arguments ..
-!!       REAL,intent(in)       :: ALPHA
-!!       INTEGER,intent(in)    :: INCX,LDA,N
-!!       CHARACTER,intent(in)  :: UPLO
+!!       real,intent(in)       :: alpha
+!!       integer,intent(in)    :: incx,lda,n
+!!       character,intent(in)  :: uplo
 !!       ..
 !!       .. Array Arguments ..
-!!       COMPLEX,intent(inout) :: A(LDA,*)
-!!       COMPLEX,intent(in)    :: X(*)
+!!       complex,intent(inout) :: a(lda,*)
+!!       complex,intent(in)    :: x(*)
 !!       ..
 !!
 !!##DEFINITION
@@ -3997,16 +3997,16 @@ end subroutine cher
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE CHERK(UPLO,TRANS,N,K,ALPHA,A,LDA,BETA,C,LDC)
+!!     subroutine cherk(uplo,trans,n,k,alpha,a,lda,beta,c,ldc)
 !!
 !!       .. Scalar Arguments ..
-!!       REAL,intent(in)       :: ALPHA,BETA
-!!       INTEGER,intent(in)    :: K,LDA,LDC,N
-!!       CHARACTER,intent(in)  :: TRANS,UPLO
+!!       real,intent(in)       :: alpha,beta
+!!       integer,intent(in)    :: k,lda,ldc,n
+!!       character,intent(in)  :: trans,uplo
 !!       ..
 !!       .. Array Arguments ..
-!!       COMPLEX,intent(in)    :: A(LDA,*)
-!!       COMPLEX,intent(inout) :: C(LDC,*)
+!!       complex,intent(in)    :: a(lda,*)
+!!       complex,intent(inout) :: c(ldc,*)
 !!       ..
 !!
 !!##DEFINITION
@@ -4362,16 +4362,16 @@ end subroutine cher
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE CHPMV(UPLO,N,ALPHA,AP,X,INCX,BETA,Y,INCY)
+!!     subroutine chpmv(uplo,n,alpha,ap,x,incx,beta,y,incy)
 !!
 !!       .. Scalar Arguments ..
-!!       COMPLEX,intent(in)    :: ALPHA,BETA
-!!       INTEGER,intent(in)    :: INCX,INCY,N
-!!       CHARACTER,intent(in)  :: UPLO
+!!       complex,intent(in)    :: alpha,beta
+!!       integer,intent(in)    :: incx,incy,n
+!!       character,intent(in)  :: uplo
 !!       ..
 !!       .. Array Arguments ..
-!!       COMPLEX,intent(in)    :: AP(*),X(*)
-!!       COMPLEX,intent(inout) :: Y(*)
+!!       complex,intent(in)    :: ap(*),x(*)
+!!       complex,intent(inout) :: y(*)
 !!       ..
 !!
 !!##DEFINITION
@@ -4670,16 +4670,16 @@ end subroutine cher
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE CHPR2(UPLO,N,ALPHA,X,INCX,Y,INCY,AP)
+!!     subroutine chpr2(uplo,n,alpha,x,incx,y,incy,ap)
 !!
 !!       .. Scalar Arguments ..
-!!       COMPLEX,intent(in)    :: ALPHA
-!!       INTEGER,intent(in)    :: INCX,INCY,N
-!!       CHARACTER,intent(in)  :: UPLO
+!!       complex,intent(in)    :: alpha
+!!       integer,intent(in)    :: incx,incy,n
+!!       character,intent(in)  :: uplo
 !!       ..
 !!       .. Array Arguments ..
-!!       COMPLEX,intent(inout) :: AP(*)
-!!       COMPLEX,intent(in)    :: X(*),Y(*)
+!!       complex,intent(inout) :: ap(*)
+!!       complex,intent(in)    :: x(*),y(*)
 !!       ..
 !!
 !!##DEFINITION
@@ -4959,16 +4959,16 @@ end subroutine cher
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE CHPR(UPLO,N,ALPHA,X,INCX,AP)
+!!     subroutine chpr(uplo,n,alpha,x,incx,ap)
 !!
 !!       .. Scalar Arguments ..
-!!       REAL,intent(in)       :: ALPHA
-!!       INTEGER,intent(in)    :: INCX,N
-!!       CHARACTER,intent(in)  :: UPLO
+!!       real,intent(in)       :: alpha
+!!       integer,intent(in)    :: incx,n
+!!       character,intent(in)  :: uplo
 !!       ..
 !!       .. Array Arguments ..
-!!       COMPLEX,intent(inout) :: AP(*)
-!!       COMPLEX,intent(in)    :: X(*)
+!!       complex,intent(inout) :: ap(*)
+!!       complex,intent(in)    :: x(*)
 !!       ..
 !!
 !!##DEFINITION
@@ -5216,7 +5216,7 @@ end subroutine cher
 !!
 !!     subroutine CROTG( a, b, c, s )
 !!
-!!      .. Scalar arguments ..
+!!      .. Scalar Arguments ..
 !!         complex(wp),intent(inout) :: a
 !!         complex(wp),intent(in)    :: b
 !!         real(wp),intent(out)      :: c
@@ -5498,14 +5498,14 @@ end subroutine crotg
 !!##SYNOPSIS
 !!
 !!
-!!     SUBROUTINE CSROT( N, CX, INCX, CY, INCY, C, S )
+!!     subroutine csrot( n, cx, incx, cy, incy, c, s )
 !!
 !!       .. Scalar Arguments ..
-!!       INTEGER,intent(in)       :: INCX, INCY, N
-!!       REAL,intent(in)          :: C, S
+!!       integer,intent(in)       :: incx, incy, n
+!!       real,intent(in)          :: c, s
 !!       ..
 !!       .. Array Arguments ..
-!!       COMPLEX,intent(inout)    :: CX( * ), CY( * )
+!!       complex,intent(inout)    :: cx( * ), cy( * )
 !!       ..
 !!
 !!##DEFINITION
@@ -5633,14 +5633,14 @@ end subroutine crotg
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE CSSCAL(N,SA,CX,INCX)
+!!     subroutine csscal(n,sa,cx,incx)
 !!
-!!       .. Scalar Arguments ..
-!!       REAL,intent(in)       :: SA
-!!       INTEGER,intent(in)    :: INCX,N
+!!       .. scalar arguments ..
+!!       real,intent(in)       :: sa
+!!       integer,intent(in)    :: incx,n
 !!       ..
 !!       .. Array Arguments ..
-!!       COMPLEX,intent(inout) :: CX(*)
+!!       complex,intent(inout) :: cx(*)
 !!       ..
 !!
 !!##DEFINITION
@@ -5736,13 +5736,13 @@ end subroutine crotg
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE CSWAP(N,CX,INCX,CY,INCY)
+!!     subroutine cswap(n,cx,incx,cy,incy)
 !!
 !!       .. Scalar Arguments ..
-!!       INTEGER,intent(in)    :: INCX,INCY,N
+!!       integer,intent(in)    :: incx,incy,n
 !!       ..
 !!       .. Array Arguments ..
-!!       COMPLEX,intent(inout) :: CX(*),CY(*)
+!!       complex,intent(inout) :: cx(*),cy(*)
 !!       ..
 !!
 !!##DEFINITION
@@ -5848,16 +5848,16 @@ end subroutine crotg
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE CSYMM(SIDE,UPLO,M,N,ALPHA,A,LDA,B,LDB,BETA,C,LDC)
+!!     subroutine csymm(side,uplo,m,n,alpha,a,lda,b,ldb,beta,c,ldc)
 !!
 !!       .. Scalar Arguments ..
-!!       COMPLEX,intent(in)    :: ALPHA,BETA
-!!       INTEGER,intent(in)    :: LDA,LDB,LDC,M,N
-!!       CHARACTER,intent(in)  :: SIDE,UPLO
+!!       complex,intent(in)    :: alpha,beta
+!!       integer,intent(in)    :: lda,ldb,ldc,m,n
+!!       character,intent(in)  :: side,uplo
 !!       ..
 !!       .. Array Arguments ..
-!!       COMPLEX,intent(in)    :: A(LDA,*),B(LDB,*)
-!!       COMPLEX,intent(inout) :: C(LDC,*)
+!!       complex,intent(in)    :: a(lda,*),b(ldb,*)
+!!       complex,intent(inout) :: c(ldc,*)
 !!       ..
 !!
 !!##DEFINITION
@@ -6171,16 +6171,16 @@ end subroutine crotg
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE CSYR2K(UPLO,TRANS,N,K,ALPHA,A,LDA,B,LDB,BETA,C,LDC)
+!!     subroutine csyr2k(uplo,trans,n,k,alpha,a,lda,b,ldb,beta,c,ldc)
 !!
 !!       .. Scalar Arguments ..
-!!       COMPLEX,intent(in)    :: ALPHA,BETA
-!!       INTEGER,intent(in)    :: K,LDA,LDB,LDC,N
-!!       CHARACTER,intent(in)  :: TRANS,UPLO
+!!       complex,intent(in)    :: alpha,beta
+!!       integer,intent(in)    :: k,lda,ldb,ldc,n
+!!       character,intent(in)  :: trans,uplo
 !!       ..
 !!       .. Array Arguments ..
-!!       COMPLEX,intent(in)    :: A(LDA,*),B(LDB,*)
-!!       COMPLEX,intent(inout) :: C(LDC,*)
+!!       complex,intent(in)    :: a(lda,*),b(ldb,*)
+!!       complex,intent(inout) :: c(ldc,*)
 !!       ..
 !!
 !!##DEFINITION
@@ -6518,16 +6518,16 @@ end subroutine crotg
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE CSYRK(UPLO,TRANS,N,K,ALPHA,A,LDA,BETA,C,LDC)
+!!     subroutine csyrk(uplo,trans,n,k,alpha,a,lda,beta,c,ldc)
 !!
 !!       .. Scalar Arguments ..
-!!       COMPLEX,intent(in)    :: ALPHA,BETA
-!!       INTEGER,intent(in)    :: K,LDA,LDC,N
-!!       CHARACTER,intent(in)  :: TRANS,UPLO
+!!       complex,intent(in)    :: alpha,beta
+!!       integer,intent(in)    :: k,lda,ldc,n
+!!       character,intent(in)  :: trans,uplo
 !!       ..
 !!       .. Array Arguments ..
-!!       COMPLEX,intent(in)    :: A(LDA,*)
-!!       COMPLEX,intent(inout) :: C(LDC,*)
+!!       complex,intent(in)    :: a(lda,*)
+!!       complex,intent(inout) :: c(ldc,*)
 !!       ..
 !!
 !!##DEFINITION
@@ -6836,15 +6836,15 @@ end subroutine crotg
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE CTBMV(UPLO,TRANS,DIAG,N,K,A,LDA,X,INCX)
+!!     subroutine ctbmv(uplo,trans,diag,n,k,a,lda,x,incx)
 !!
 !!       .. Scalar Arguments ..
-!!       INTEGER,intent(in)    :: INCX,K,LDA,N
-!!       CHARACTER,intent(in)  :: DIAG,TRANS,UPLO
+!!       integer,intent(in)    :: incx,k,lda,n
+!!       character,intent(in)  :: diag,trans,uplo
 !!       ..
 !!       .. Array Arguments ..
-!!       COMPLEX,intent(in)    :: A(LDA,*)
-!!       COMPLEX,intent(inout) :: X(*)
+!!       complex,intent(in)    :: a(lda,*)
+!!       complex,intent(inout) :: x(*)
 !!       ..
 !!
 !!##DEFINITION
@@ -7240,15 +7240,15 @@ end subroutine crotg
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE CTBSV(UPLO,TRANS,DIAG,N,K,A,LDA,X,INCX)
+!!     subroutine ctbsv(uplo,trans,diag,n,k,a,lda,x,incx)
 !!
 !!       .. Scalar Arguments ..
-!!       INTEGER,intent(in)    :: INCX,K,LDA,N
-!!       CHARACTER,intent(in)  :: DIAG,TRANS,UPLO
+!!       integer,intent(in)    :: incx,k,lda,n
+!!       character,intent(in)  :: diag,trans,uplo
 !!       ..
 !!       .. Array Arguments ..
-!!       COMPLEX,intent(in)    :: A(LDA,*)
-!!       COMPLEX,intent(inout) :: X(*)
+!!       complex,intent(in)    :: a(lda,*)
+!!       complex,intent(inout) :: x(*)
 !!       ..
 !!
 !!##DEFINITION
@@ -7647,15 +7647,15 @@ end subroutine crotg
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE CTPMV(UPLO,TRANS,DIAG,N,AP,X,INCX)
+!!     subroutine ctpmv(uplo,trans,diag,n,ap,x,incx)
 !!
 !!       .. Scalar Arguments ..
-!!       INTEGER,intent(in)    :: INCX,N
-!!       CHARACTER,intent(in)  :: DIAG,TRANS,UPLO
+!!       integer,intent(in)    :: incx,n
+!!       character,intent(in)  :: diag,trans,uplo
 !!       ..
 !!       .. Array Arguments ..
-!!       COMPLEX,intent(in)    :: AP(*)
-!!       COMPLEX,intent(inout) :: X(*)
+!!       complex,intent(in)    :: ap(*)
+!!       complex,intent(inout) :: x(*)
 !!       ..
 !!
 !!##DEFINITION
@@ -8012,15 +8012,15 @@ end subroutine crotg
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE CTPSV(UPLO,TRANS,DIAG,N,AP,X,INCX)
+!!     subroutine ctpsv(uplo,trans,diag,n,ap,x,incx)
 !!
 !!       .. Scalar Arguments ..
-!!       INTEGER,intent(in)    :: INCX,N
-!!       CHARACTER,intent(in)  :: DIAG,TRANS,UPLO
+!!       integer,intent(in)    :: incx,n
+!!       character,intent(in)  :: diag,trans,uplo
 !!       ..
 !!       .. Array Arguments ..
-!!       COMPLEX,intent(in)    :: AP(*)
-!!       COMPLEX,intent(inout) :: X(*)
+!!       complex,intent(in)    :: ap(*)
+!!       complex,intent(inout) :: x(*)
 !!       ..
 !!
 !!##DEFINITION
@@ -8379,16 +8379,16 @@ end subroutine crotg
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE CTRMM(SIDE,UPLO,TRANSA,DIAG,M,N,ALPHA,A,LDA,B,LDB)
+!!     subroutine ctrmm(side,uplo,transa,diag,m,n,alpha,a,lda,b,ldb)
 !!
 !!       .. Scalar Arguments ..
-!!       COMPLEX,intent(in)    :: ALPHA
-!!       INTEGER,intent(in)    :: LDA,LDB,M,N
-!!       CHARACTER,intent(in)  :: DIAG,SIDE,TRANSA,UPLO
+!!       complex,intent(in)    :: alpha
+!!       integer,intent(in)    :: lda,ldb,m,n
+!!       character,intent(in)  :: diag,side,transa,uplo
 !!       ..
 !!       .. Array Arguments ..
-!!       COMPLEX,intent(in)    :: A(LDA,*)
-!!       COMPLEX,intent(inout) :: B(LDB,*)
+!!       complex,intent(in)    :: a(lda,*)
+!!       complex,intent(inout) :: b(ldb,*)
 !!       ..
 !!
 !!##DEFINITION
@@ -8783,15 +8783,15 @@ end subroutine crotg
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE CTRMV(UPLO,TRANS,DIAG,N,A,LDA,X,INCX)
+!!     subroutine ctrmv(uplo,trans,diag,n,a,lda,x,incx)
 !!
 !!       .. Scalar Arguments ..
-!!       INTEGER,intent(in)    :: INCX,LDA,N
-!!       CHARACTER,intent(in)  :: DIAG,TRANS,UPLO
+!!       integer,intent(in)    :: incx,lda,n
+!!       character,intent(in)  :: diag,trans,uplo
 !!       ..
 !!       .. Array Arguments ..
-!!       COMPLEX,intent(in)    :: A(LDA,*)
-!!       COMPLEX,intent(inout) :: X(*)
+!!       complex,intent(in)    :: a(lda,*)
+!!       complex,intent(inout) :: x(*)
 !!       ..
 !!
 !!##DEFINITION
@@ -9132,16 +9132,16 @@ end subroutine crotg
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE CTRSM(SIDE,UPLO,TRANSA,DIAG,M,N,ALPHA,A,LDA,B,LDB)
+!!     subroutine ctrsm(side,uplo,transa,diag,m,n,alpha,a,lda,b,ldb)
 !!
 !!       .. Scalar Arguments ..
-!!       COMPLEX,intent(in)    :: ALPHA
-!!       INTEGER,intent(in)    :: LDA,LDB,M,N
-!!       CHARACTER,intent(in)  :: DIAG,SIDE,TRANSA,UPLO
+!!       complex,intent(in)    :: alpha
+!!       integer,intent(in)    :: lda,ldb,m,n
+!!       character,intent(in)  :: diag,side,transa,uplo
 !!       ..
 !!       .. Array Arguments ..
-!!       COMPLEX,intent(in)    :: A(LDA,*)
-!!       COMPLEX,intent(inout) :: B(LDB,*)
+!!       complex,intent(in)    :: a(lda,*)
+!!       complex,intent(inout) :: b(ldb,*)
 !!       ..
 !!
 !!##DEFINITION
@@ -9545,15 +9545,15 @@ end subroutine ctrsm
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE CTRSV(UPLO,TRANS,DIAG,N,A,LDA,X,INCX)
+!!     subroutine ctrsv(uplo,trans,diag,n,a,lda,x,incx)
 !!
 !!       .. Scalar Arguments ..
-!!       INTEGER,intent(in)    :: INCX,LDA,N
-!!       CHARACTER,intent(in)  :: DIAG,TRANS,UPLO
+!!       integer,intent(in)    :: incx,lda,n
+!!       character,intent(in)  :: diag,trans,uplo
 !!       ..
 !!       .. Array Arguments ..
-!!       COMPLEX,intent(in)    :: A(LDA,*)
-!!       COMPLEX,intent(inout) :: X(*)
+!!       complex,intent(in)    :: a(lda,*)
+!!       complex,intent(inout) :: x(*)
 !!       ..
 !!
 !!##DEFINITION
@@ -9895,13 +9895,13 @@ end subroutine ctrsm
 !!
 !!##SYNOPSIS
 !!
-!!     DOUBLE PRECISION FUNCTION DASUM(N,DX,INCX)
+!!     double precision function dasum(n,dx,incx)
 !!
 !!       .. Scalar Arguments ..
-!!       INTEGER,intent(in) :: INCX,N
+!!       integer,intent(in) :: incx,n
 !!       ..
 !!       .. Array Arguments ..
-!!       DOUBLE PRECISION,intent(in) :: DX(*)
+!!       double precision,intent(in) :: dx(*)
 !!       ..
 !!
 !!##DEFINITION
@@ -10008,15 +10008,15 @@ pure double precision function dasum(n,dx,incx)
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE DAXPY(N,DA,DX,INCX,DY,INCY)
+!!     subroutine daxpy(n,da,dx,incx,dy,incy)
 !!
 !!       .. Scalar Arguments ..
-!!       DOUBLE PRECISION,intent(in)    :: DA
-!!       INTEGER,intent(in)             :: INCX,INCY,N
+!!       double precision,intent(in)    :: da
+!!       integer,intent(in)             :: incx,incy,n
 !!       ..
 !!       .. Array Arguments ..
-!!       DOUBLE PRECISION,intent(in)    :: DX(*)
-!!       DOUBLE PRECISION,intent(inout) :: DY(*)
+!!       double precision,intent(in)    :: dx(*)
+!!       double precision,intent(inout) :: dy(*)
 !!       ..
 !!
 !!##DEFINITION
@@ -10144,7 +10144,7 @@ pure double precision function dasum(n,dx,incx)
 !!
 !!##SYNOPSIS
 !!
-!!     DOUBLE PRECISION FUNCTION DCABS1(Z)
+!!     double precision function dcabs1(z)
 !!
 !!       .. Scalar Arguments ..
 !!       complex(kind=real64),intent(in) ::  Z
@@ -10199,7 +10199,7 @@ end function dcabs1
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE DCOPY(N,DX,INCX,DY,INCY)
+!!     subroutine dcopy(n,dx,incx,dy,incy)
 !!
 !!       .. Scalar Arguments ..
 !!       integer,intent(in)           :: incx,incy,n
@@ -10329,13 +10329,13 @@ end subroutine dcopy
 !!
 !!##SYNOPSIS
 !!
-!!     DOUBLE PRECISION FUNCTION DDOT(N,DX,INCX,DY,INCY)
+!!     double precision function ddot(n,dx,incx,dy,incy)
 !!
 !!       .. Scalar Arguments ..
-!!       INTEGER,intent(in) :: INCX,INCY,N
+!!       integer,intent(in) :: incx,incy,n
 !!       ..
 !!       .. Array Arguments ..
-!!       DOUBLE PRECISION,intent(in) :: DX(*),DY(*)
+!!       double precision,intent(in) :: dx(*),dy(*)
 !!       ..
 !!
 !!##DEFINITION
@@ -10458,16 +10458,16 @@ pure double precision function ddot(n,dx,incx,dy,incy)
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE DGBMV(TRANS,M,N,KL,KU,ALPHA,A,LDA,X,INCX,BETA,Y,INCY)
+!!     subroutine dgbmv(trans,m,n,kl,ku,alpha,a,lda,x,incx,beta,y,incy)
 !!
 !!       .. Scalar Arguments ..
-!!       DOUBLE PRECISION,intent(in)    :: ALPHA,BETA
-!!       INTEGER,intent(in)             :: INCX,INCY,KL,KU,LDA,M,N
-!!       CHARACTER,intent(in)           :: TRANS
+!!       double precision,intent(in)    :: alpha,beta
+!!       integer,intent(in)             :: incx,incy,kl,ku,lda,m,n
+!!       character,intent(in)           :: trans
 !!       ..
 !!       .. Array Arguments ..
-!!       DOUBLE PRECISION,intent(in)    :: A(LDA,*),X(*)
-!!       DOUBLE PRECISION,intent(inout) :: Y(*)
+!!       double precision,intent(in)    :: a(lda,*),x(*)
+!!       double precision,intent(inout) :: y(*)
 !!       ..
 !!
 !!##DEFINITION
@@ -10791,16 +10791,16 @@ end subroutine dgbmv
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE DGEMM(TRANSA,TRANSB,M,N,K,ALPHA,A,LDA,B,LDB,BETA,C,LDC)
+!!     subroutine dgemm(transa,transb,m,n,k,alpha,a,lda,b,ldb,beta,c,ldc)
 !!
 !!       .. Scalar Arguments ..
 !!       DOUBLE PRECISION,intent(in)    :: ALPHA,BETA
-!!       INTEGER,intent(in)             :: K,LDA,LDB,LDC,M,N
-!!       CHARACTER,intent(in)           :: TRANSA,TRANSB
+!!       integer,intent(in)             :: k,lda,ldb,ldc,m,n
+!!       character,intent(in)           :: transa,transb
 !!       ..
 !!       .. Array Arguments ..
-!!       DOUBLE PRECISION,intent(in)    :: A(LDA,*),B(LDB,*)
-!!       DOUBLE PRECISION,intent(inout) :: C(LDC,*)
+!!       double precision,intent(in)    :: a(lda,*),b(ldb,*)
+!!       double precision,intent(inout) :: c(ldc,*)
 !!       ..
 !!
 !!##DEFINITION
@@ -11131,16 +11131,16 @@ end subroutine dgbmv
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE DGEMV(TRANS,M,N,ALPHA,A,LDA,X,INCX,BETA,Y,INCY)
+!!     subroutine dgemv(trans,m,n,alpha,a,lda,x,incx,beta,y,incy)
 !!
 !!       .. Scalar Arguments ..
-!!       DOUBLE PRECISION,intent(in)    :: ALPHA,BETA
-!!       INTEGER,intent(in)             :: INCX,INCY,LDA,M,N
-!!       CHARACTER,intent(in)           :: TRANS
+!!       double precision,intent(in)    :: alpha,beta
+!!       integer,intent(in)             :: incx,incy,lda,m,n
+!!       character,intent(in)           :: trans
 !!       ..
 !!       .. Array Arguments ..
-!!       DOUBLE PRECISION,intent(in)    :: A(LDA,*),X(*)
-!!       DOUBLE PRECISION,intent(inout) :: Y(*)
+!!       double precision,intent(in)    :: a(lda,*),x(*)
+!!       double precision,intent(inout) :: y(*)
 !!       ..
 !!
 !!##DEFINITION
@@ -11424,15 +11424,15 @@ end subroutine dgbmv
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE DGER(M,N,ALPHA,X,INCX,Y,INCY,A,LDA)
+!!     subroutine dger(m,n,alpha,x,incx,y,incy,a,lda)
 !!
 !!       .. Scalar Arguments ..
-!!       DOUBLE PRECISION,intent(in)    :: ALPHA
-!!       INTEGER,intent(in)             :: INCX,INCY,LDA,M,N
+!!       double precision,intent(in)    :: alpha
+!!       integer,intent(in)             :: incx,incy,lda,m,n
 !!       ..
 !!       .. Array Arguments ..
-!!       DOUBLE PRECISION,intent(in)    :: X(*),Y(*)
-!!       DOUBLE PRECISION,intent(inout) :: A(LDA,*)
+!!       double precision,intent(in)    :: x(*),y(*)
+!!       double precision,intent(inout) :: a(lda,*)
 !!       ..
 !!
 !!##DEFINITION
@@ -11627,7 +11627,7 @@ end subroutine dgbmv
 !!
 !!##SYNOPSIS
 !!
-!!     DOUBLE PRECISION FUNCTION DNRM2(N,X,INCX)
+!!     double precision function dnrm2(n,x,incx)
 !!
 !!       .. Scalar Arguments ..
 !!       integer,intent(in) :: incx, n
@@ -12038,14 +12038,14 @@ end subroutine
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE DROTM(N,DX,INCX,DY,INCY,DPARAM)
+!!     subroutine drotm(n,dx,incx,dy,incy,dparam)
 !!
 !!       .. Scalar Arguments ..
-!!       INTEGER,intent(in)             :: INCX,INCY,N
+!!       integer,intent(in)             :: incx,incy,n
 !!       ..
 !!       .. Array Arguments ..
-!!       DOUBLE PRECISION,intent(in)    :: DPARAM(5)
-!!       DOUBLE PRECISION,intent(inout) :: DX(*),DY(*)
+!!       double precision,intent(in)    :: dparam(5)
+!!       double precision,intent(inout) :: dx(*),dy(*)
 !!       ..
 !!
 !!##DEFINITION
@@ -12217,14 +12217,14 @@ end subroutine
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE DROTMG(DD1,DD2,DX1,DY1,DPARAM)
+!!     subroutine drotmg(dd1,dd2,dx1,dy1,dparam)
 !!
 !!       .. Scalar Arguments ..
-!!       DOUBLE PRECISION,intent(inout) :: DD1,DD2,DX1
-!!       DOUBLE PRECISION,intent(in)    :: DY1
+!!       double precision,intent(inout) :: dd1,dd2,dx1
+!!       double precision,intent(in)    :: dy1
 !!       ..
 !!       .. Array Arguments ..
-!!       DOUBLE PRECISION,intent(out)   :: DPARAM(5)
+!!       double precision,intent(out)   :: dparam(5)
 !!       ..
 !!
 !!##DEFINITION
@@ -12469,16 +12469,16 @@ end subroutine
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE DSBMV(UPLO,N,K,ALPHA,A,LDA,X,INCX,BETA,Y,INCY)
+!!     subroutine dsbmv(uplo,n,k,alpha,a,lda,x,incx,beta,y,incy)
 !!
 !!       .. Scalar Arguments ..
-!!       DOUBLE PRECISION,intent(in)    :: ALPHA,BETA
-!!       INTEGER,intent(in)             :: INCX,INCY,K,LDA,N
-!!       CHARACTER,intent(in)           :: UPLO
+!!       double precision,intent(in)    :: alpha,beta
+!!       integer,intent(in)             :: incx,incy,k,lda,n
+!!       character,intent(in)           :: uplo
 !!       ..
 !!       .. Array Arguments ..
-!!       DOUBLE PRECISION,intent(in)    :: A(LDA,*),X(*)
-!!       DOUBLE PRECISION,intent(inout) :: Y(*)
+!!       double precision,intent(in)    :: a(lda,*),x(*)
+!!       double precision,intent(inout) :: y(*)
 !!       ..
 !!
 !!##DEFINITION
@@ -12811,14 +12811,14 @@ end subroutine
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE DSCAL(N,DA,DX,INCX)
+!!     subroutine dscal(n,da,dx,incx)
 !!
 !!       .. Scalar Arguments ..
-!!       DOUBLE PRECISION,intent(in)    :: DA
-!!       INTEGER,intent(in)             :: INCX,N
+!!       double precision,intent(in)    :: da
+!!       integer,intent(in)             :: incx,n
 !!       ..
 !!       .. Array Arguments ..
-!!       DOUBLE PRECISION,intent(inout) :: DX(*)
+!!       double precision,intent(inout) :: dx(*)
 !!       ..
 !!
 !!##DEFINITION
@@ -12917,13 +12917,13 @@ end subroutine
 !!
 !!##SYNOPSIS
 !!
-!!     DOUBLE PRECISION FUNCTION DSDOT(N,SX,INCX,SY,INCY)
+!!     double precision function dsdot(n,sx,incx,sy,incy)
 !!
 !!       .. Scalar Arguments ..
-!!       INTEGER,intent(in) :: INCX,INCY,N
+!!       integer,intent(in) :: incx,incy,n
 !!       ..
 !!       .. Array Arguments ..
-!!       REAL,intent(in) :: SX(*),SY(*)
+!!       real,intent(in) :: sx(*),sy(*)
 !!       ..
 !!
 !!
@@ -13046,16 +13046,16 @@ end function dsdot
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE DSPMV(UPLO,N,ALPHA,AP,X,INCX,BETA,Y,INCY)
+!!     subroutine dspmv(uplo,n,alpha,ap,x,incx,beta,y,incy)
 !!
 !!       .. Scalar Arguments ..
-!!       DOUBLE PRECISION,intent(in)    :: ALPHA,BETA
-!!       INTEGER,intent(in)             :: INCX,INCY,N
-!!       CHARACTER,intent(in)           :: UPLO
+!!       double precision,intent(in)    :: alpha,beta
+!!       integer,intent(in)             :: incx,incy,n
+!!       character,intent(in)           :: uplo
 !!       ..
 !!       .. Array Arguments ..
-!!       DOUBLE PRECISION,intent(in)    :: AP(*),X(*)
-!!       DOUBLE PRECISION,intent(inout) :: Y(*)
+!!       double precision,intent(in)    :: ap(*),x(*)
+!!       double precision,intent(inout) :: y(*)
 !!       ..
 !!
 !!##DEFINITION
@@ -13346,16 +13346,16 @@ end function dsdot
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE DSPR2(UPLO,N,ALPHA,X,INCX,Y,INCY,AP)
+!!     subroutine dspr2(uplo,n,alpha,x,incx,y,incy,ap)
 !!
 !!       .. Scalar Arguments ..
-!!       DOUBLE PRECISION,intent(in)    :: ALPHA
-!!       INTEGER,intent(in)             :: INCX,INCY,N
-!!       CHARACTER,intent(in)            :: UPLO
+!!       double precision,intent(in)    :: alpha
+!!       integer,intent(in)             :: incx,incy,n
+!!       character,intent(in)            :: uplo
 !!       ..
 !!       .. Array Arguments ..
-!!       DOUBLE PRECISION,intent(inout) :: AP(*)
-!!       DOUBLE PRECISION,intent(in)    :: X(*),Y(*)
+!!       double precision,intent(inout) :: ap(*)
+!!       double precision,intent(in)    :: x(*),y(*)
 !!       ..
 !!
 !!##DEFINITION
@@ -13615,16 +13615,16 @@ end function dsdot
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE DSPR(UPLO,N,ALPHA,X,INCX,AP)
+!!     subroutine dspr(uplo,n,alpha,x,incx,ap)
 !!
 !!       .. Scalar Arguments ..
-!!       DOUBLE PRECISION,intent(in)    :: ALPHA
-!!       INTEGER,intent(in)             :: INCX,N
-!!       CHARACTER,intent(in)           :: UPLO
+!!       double precision,intent(in)    :: alpha
+!!       integer,intent(in)             :: incx,n
+!!       character,intent(in)           :: uplo
 !!       ..
 !!       .. Array Arguments ..
-!!       DOUBLE PRECISION,intent(inout) :: AP(*)
-!!       DOUBLE PRECISION,intent(in)    :: X(*)
+!!       double precision,intent(inout) :: ap(*)
+!!       double precision,intent(in)    :: x(*)
 !!       ..
 !!
 !!##DESCRIPTION
@@ -13852,13 +13852,13 @@ end function dsdot
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE DSWAP(N,DX,INCX,DY,INCY)
+!!     subroutine dswap(n,dx,incx,dy,incy)
 !!
 !!       .. Scalar Arguments ..
-!!       INTEGER,intent(in)             :: INCX,INCY,N
+!!       integer,intent(in)             :: incx,incy,n
 !!       ..
 !!       .. Array Arguments ..
-!!       DOUBLE PRECISION,intent(inout) :: DX(*),DY(*)
+!!       double precision,intent(inout) :: dx(*),dy(*)
 !!       ..
 !!
 !!##DEFINITION
@@ -13987,16 +13987,16 @@ end function dsdot
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE DSYMM(SIDE,UPLO,M,N,ALPHA,A,LDA,B,LDB,BETA,C,LDC)
+!!     subroutine dsymm(side,uplo,m,n,alpha,a,lda,b,ldb,beta,c,ldc)
 !!
 !!       .. Scalar Arguments ..
-!!       DOUBLE PRECISION,intent(in)    :: ALPHA,BETA
-!!       INTEGER,intent(in)             :: LDA,LDB,LDC,M,N
-!!       CHARACTER,intent(in)           :: SIDE,UPLO
+!!       double precision,intent(in)    :: alpha,beta
+!!       integer,intent(in)             :: lda,ldb,ldc,m,n
+!!       character,intent(in)           :: side,uplo
 !!       ..
 !!       .. Array Arguments ..
-!!       DOUBLE PRECISION,intent(in)    :: A(LDA,*),B(LDB,*)
-!!       DOUBLE PRECISION,intent(inout) :: C(LDC,*)
+!!       double precision,intent(in)    :: a(lda,*),b(ldb,*)
+!!       double precision,intent(inout) :: c(ldc,*)
 !!       ..
 !!
 !!##DEFINITION
@@ -14306,16 +14306,16 @@ end function dsdot
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE DSYMV(UPLO,N,ALPHA,A,LDA,X,INCX,BETA,Y,INCY)
+!!     subroutine dsymv(uplo,n,alpha,a,lda,x,incx,beta,y,incy)
 !!
 !!       .. Scalar Arguments ..
-!!       DOUBLE PRECISION,intent(in)    :: ALPHA,BETA
-!!       INTEGER,intent(in)             :: INCX,INCY,LDA,N
-!!       CHARACTER,intent(in)           :: UPLO
+!!       double precision,intent(in)    :: alpha,beta
+!!       integer,intent(in)             :: incx,incy,lda,n
+!!       character,intent(in)           :: uplo
 !!       ..
 !!       .. Array Arguments ..
-!!       DOUBLE PRECISION,intent(in)    :: A(LDA,*),X(*)
-!!       DOUBLE PRECISION,intent(inout) :: Y(*)
+!!       double precision,intent(in)    :: a(lda,*),x(*)
+!!       double precision,intent(inout) :: y(*)
 !!       ..
 !!
 !!##DEFINITION
@@ -14607,16 +14607,16 @@ end function dsdot
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE DSYR2(UPLO,N,ALPHA,X,INCX,Y,INCY,A,LDA)
+!!     subroutine dsyr2(uplo,n,alpha,x,incx,y,incy,a,lda)
 !!
 !!       .. Scalar Arguments ..
-!!       DOUBLE PRECISION,intent(in)    :: ALPHA
-!!       INTEGER,intent(in)             :: INCX,INCY,LDA,N
-!!       CHARACTER,intent(in)           :: UPLO
+!!       double precision,intent(in)    :: alpha
+!!       integer,intent(in)             :: incx,incy,lda,n
+!!       character,intent(in)           :: uplo
 !!       ..
 !!       .. Array Arguments ..
-!!       DOUBLE PRECISION,intent(inout) :: A(LDA,*)
-!!       DOUBLE PRECISION,intent(in)    :: X(*),Y(*)
+!!       double precision,intent(inout) :: a(lda,*)
+!!       double precision,intent(in)    :: x(*),y(*)
 !!       ..
 !!
 !!##DEFINITION
@@ -14878,7 +14878,7 @@ end function dsdot
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE DSYR2K(UPLO,TRANS,N,K,ALPHA,A,LDA,B,LDB,BETA,C,LDC)
+!!     subroutine dsyr2k(uplo,trans,n,k,alpha,a,lda,b,ldb,beta,c,ldc)
 !!
 !!       .. Scalar Arguments ..
 !!       double precision,intent(in)    :: alpha,beta
@@ -15220,16 +15220,16 @@ end function dsdot
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE DSYR(UPLO,N,ALPHA,X,INCX,A,LDA)
+!!     subroutine dsyr(uplo,n,alpha,x,incx,a,lda)
 !!
 !!       .. Scalar Arguments ..
-!!       DOUBLE PRECISION,intent(in)       :: ALPHA
-!!       INTEGER,intent(in)                :: INCX,LDA,N
-!!       CHARACTER,intent(in)              :: UPLO
+!!       double precision,intent(in)       :: alpha
+!!       integer,intent(in)                :: incx,lda,n
+!!       character,intent(in)              :: uplo
 !!       ..
 !!       .. Array Arguments ..
-!!       DOUBLE PRECISION,intent(inout)    :: A(LDA,*)
-!!       DOUBLE PRECISION,intent(in)       :: X(*)
+!!       double precision,intent(inout)    :: a(lda,*)
+!!       double precision,intent(in)       :: x(*)
 !!       ..
 !!
 !!##DEFINITION
@@ -15456,16 +15456,16 @@ end function dsdot
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE DSYRK(UPLO,TRANS,N,K,ALPHA,A,LDA,BETA,C,LDC)
+!!     subroutine dsyrk(uplo,trans,n,k,alpha,a,lda,beta,c,ldc)
 !!
 !!       .. Scalar Arguments ..
-!!       DOUBLE PRECISION,intent(in)    :: ALPHA,BETA
-!!       INTEGER,intent(in)             :: K,LDA,LDC,N
-!!       CHARACTER,intent(in)           :: TRANS,UPLO
+!!       double precision,intent(in)    :: alpha,beta
+!!       integer,intent(in)             :: k,lda,ldc,n
+!!       character,intent(in)           :: trans,uplo
 !!       ..
 !!       .. Array Arguments ..
-!!       DOUBLE PRECISION,intent(in)    :: A(LDA,*)
-!!       DOUBLE PRECISION,intent(inout) :: C(LDC,*)
+!!       double precision,intent(in)    :: a(lda,*)
+!!       double precision,intent(inout) :: c(ldc,*)
 !!       ..
 !!
 !!##DEFINITION
@@ -15771,15 +15771,15 @@ end function dsdot
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE DTBMV(UPLO,TRANS,DIAG,N,K,A,LDA,X,INCX)
+!!     subroutine dtbmv(uplo,trans,diag,n,k,a,lda,x,incx)
 !!
 !!       .. Scalar Arguments ..
-!!       INTEGER,intent(in)             :: INCX,K,LDA,N
-!!       CHARACTER,intent(in)           :: DIAG,TRANS,UPLO
+!!       integer,intent(in)             :: incx,k,lda,n
+!!       character,intent(in)           :: diag,trans,uplo
 !!       ..
 !!       .. Array Arguments ..
-!!       DOUBLE PRECISION,intent(in)    :: A(LDA,*)
-!!       DOUBLE PRECISION,intent(inout) :: X(*)
+!!       double precision,intent(in)    :: a(lda,*)
+!!       double precision,intent(inout) :: x(*)
 !!       ..
 !!
 !!##DEFINITION
@@ -16143,15 +16143,15 @@ end function dsdot
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE DTBSV(UPLO,TRANS,DIAG,N,K,A,LDA,X,INCX)
+!!     subroutine dtbsv(uplo,trans,diag,n,k,a,lda,x,incx)
 !!
 !!       .. Scalar Arguments ..
-!!       INTEGER,intent(in)             :: INCX,K,LDA,N
-!!       CHARACTER,intent(in)           :: DIAG,TRANS,UPLO
+!!       integer,intent(in)             :: incx,k,lda,n
+!!       character,intent(in)           :: diag,trans,uplo
 !!       ..
 !!       .. Array Arguments ..
-!!       DOUBLE PRECISION,intent(in)    :: A(LDA,*)
-!!       DOUBLE PRECISION,intent(inout) :: X(*)
+!!       double precision,intent(in)    :: a(lda,*)
+!!       double precision,intent(inout) :: x(*)
 !!       ..
 !!
 !!##DEFINITION
@@ -16518,15 +16518,15 @@ end function dsdot
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE DTPMV(UPLO,TRANS,DIAG,N,AP,X,INCX)
+!!     subroutine dtpmv(uplo,trans,diag,n,ap,x,incx)
 !!
 !!       .. Scalar Arguments ..
-!!       INTEGER,intent(in)             :: INCX,N
-!!       CHARACTER,intent(in)           :: DIAG,TRANS,UPLO
+!!       integer,intent(in)             :: incx,n
+!!       character,intent(in)           :: diag,trans,uplo
 !!       ..
 !!       .. Array Arguments ..
-!!       DOUBLE PRECISION,intent(in)    :: AP(*)
-!!       DOUBLE PRECISION,intent(inout) :: X(*)
+!!       double precision,intent(in)    :: ap(*)
+!!       double precision,intent(inout) :: x(*)
 !!       ..
 !!
 !!##DEFINITION
@@ -16846,15 +16846,15 @@ end function dsdot
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE DTPSV(UPLO,TRANS,DIAG,N,AP,X,INCX)
+!!     subroutine dtpsv(uplo,trans,diag,n,ap,x,incx)
 !!
 !!       .. Scalar Arguments ..
-!!       INTEGER,intent(in)             :: INCX,N
-!!       CHARACTER,intent(in)           :: DIAG,TRANS,UPLO
+!!       integer,intent(in)             :: incx,n
+!!       character,intent(in)           :: diag,trans,uplo
 !!       ..
 !!       .. Array Arguments ..
-!!       DOUBLE PRECISION,intent(in)    :: AP(*)
-!!       DOUBLE PRECISION,intent(inout) :: X(*)
+!!       double precision,intent(in)    :: ap(*)
+!!       double precision,intent(inout) :: x(*)
 !!       ..
 !!
 !!##DEFINITION
@@ -17174,16 +17174,16 @@ end function dsdot
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE DTRMM(SIDE,UPLO,TRANSA,DIAG,M,N,ALPHA,A,LDA,B,LDB)
+!!     subroutine dtrmm(side,uplo,transa,diag,m,n,alpha,a,lda,b,ldb)
 !!
 !!       .. Scalar Arguments ..
-!!       DOUBLE PRECISION,intent(in)    :: ALPHA
-!!       INTEGER,intent(in)             :: LDA,LDB,M,N
-!!       CHARACTER,intent(in)           :: DIAG,SIDE,TRANSA,UPLO
+!!       double precision,intent(in)    :: alpha
+!!       integer,intent(in)             :: lda,ldb,m,n
+!!       character,intent(in)           :: diag,side,transa,uplo
 !!       ..
 !!       .. Array Arguments ..
-!!       DOUBLE PRECISION,intent(in)    :: A(LDA,*)
-!!       DOUBLE PRECISION,intent(inout) :: B(LDB,*)
+!!       double precision,intent(in)    :: a(lda,*)
+!!       double precision,intent(inout) :: b(ldb,*)
 !!       ..
 !!
 !!##DEFINITION
@@ -17538,15 +17538,15 @@ end function dsdot
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE DTRMV(UPLO,TRANS,DIAG,N,A,LDA,X,INCX)
+!!     subroutine dtrmv(uplo,trans,diag,n,a,lda,x,incx)
 !!
 !!       .. Scalar Arguments ..
-!!       INTEGER,intent(in)             :: INCX,LDA,N
-!!       CHARACTER,intent(in)           :: DIAG,TRANS,UPLO
+!!       integer,intent(in)             :: incx,lda,n
+!!       character,intent(in)           :: diag,trans,uplo
 !!       ..
 !!       .. Array Arguments ..
-!!       DOUBLE PRECISION,intent(in)    :: A(LDA,*)
-!!       DOUBLE PRECISION,intent(inout) :: X(*)
+!!       double precision,intent(in)    :: a(lda,*)
+!!       double precision,intent(inout) :: x(*)
 !!       ..
 !!
 !!##DEFINITION
@@ -17853,16 +17853,16 @@ end function dsdot
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE DTRSM(SIDE,UPLO,TRANSA,DIAG,M,N,ALPHA,A,LDA,B,LDB)
+!!     subroutine dtrsm(side,uplo,transa,diag,m,n,alpha,a,lda,b,ldb)
 !!
 !!       .. Scalar Arguments ..
-!!       DOUBLE PRECISION,intent(in)    :: ALPHA
-!!       INTEGER,intent(in)             :: LDA,LDB,M,N
-!!       CHARACTER,intent(in)           :: DIAG,SIDE,TRANSA,UPLO
+!!       double precision,intent(in)    :: alpha
+!!       integer,intent(in)             :: lda,ldb,m,n
+!!       character,intent(in)           :: diag,side,transa,uplo
 !!       ..
 !!       .. Array Arguments ..
-!!       DOUBLE PRECISION,intent(in)    :: A(LDA,*)
-!!       DOUBLE PRECISION,intent(inout) :: B(LDB,*)
+!!       double precision,intent(in)    :: a(lda,*)
+!!       double precision,intent(inout) :: b(ldb,*)
 !!       ..
 !!
 !!##DEFINITION
@@ -18230,15 +18230,15 @@ end function dsdot
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE DTRSV(UPLO,TRANS,DIAG,N,A,LDA,X,INCX)
+!!     subroutine dtrsv(uplo,trans,diag,n,a,lda,x,incx)
 !!
 !!       .. Scalar Arguments ..
-!!       INTEGER,intent(in)             :: INCX,LDA,N
-!!       CHARACTER,intent(in)           :: DIAG,TRANS,UPLO
+!!       integer,intent(in)             :: incx,lda,n
+!!       character,intent(in)           :: diag,trans,uplo
 !!       ..
 !!       .. Array Arguments ..
-!!       DOUBLE PRECISION,intent(in)    :: A(LDA,*)
-!!       DOUBLE PRECISION,intent(inout) :: X(*)
+!!       double precision,intent(in)    :: a(lda,*)
+!!       double precision,intent(inout) :: x(*)
 !!       ..
 !!
 !!##DEFINITION
@@ -18644,7 +18644,7 @@ end function dsdot
 !!
 !!##SYNOPSIS
 !!
-!!     DOUBLE PRECISION FUNCTION DZNRM2(N,X,INCX)
+!!     double precision function dznrm2(n,x,incx)
 !!
 !!       .. Scalar Arguments ..
 !!       integer,intent(in) :: incx, n
@@ -19246,7 +19246,7 @@ implicit none
 !!
 !!##SYNOPSIS
 !!
-!!     LOGICAL FUNCTION LSAME(CA,CB)
+!!     logical function lsame(ca,cb)
 !!
 !!       .. Scalar Arguments ..
 !!       character(len=1),intent(in) :: ca,cb
@@ -19321,13 +19321,13 @@ end function lsame
 !!
 !!##SYNOPSIS
 !!
-!!     REAL FUNCTION SASUM(N,SX,INCX)
+!!     real function sasum(n,sx,incx)
 !!
 !!       .. Scalar Arguments ..
-!!       INTEGER,intent(in) :: INCX,N
+!!       integer,intent(in) :: incx,n
 !!       ..
 !!       .. Array Arguments ..
-!!       REAL,intent(in) :: SX(*)
+!!       real,intent(in) :: sx(*)
 !!       ..
 !!
 !!##DEFINITION
@@ -19435,15 +19435,15 @@ end function sasum
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE SAXPY(N,SA,SX,INCX,SY,INCY)
+!!     subroutine saxpy(n,sa,sx,incx,sy,incy)
 !!
 !!       .. Scalar Arguments ..
-!!       REAL,intent(in)     :: SA
-!!       INTEGER,intent(in)  :: INCX,INCY,N
+!!       real,intent(in)     :: sa
+!!       integer,intent(in)  :: incx,incy,n
 !!       ..
 !!       .. Array Arguments ..
-!!       REAL,intent(in)     :: SX(*)
-!!       REAL,intent(inout)  :: SY(*)
+!!       real,intent(in)     :: sx(*)
+!!       real,intent(inout)  :: sy(*)
 !!       ..
 !!
 !!##DEFINITION
@@ -19554,7 +19554,7 @@ end function sasum
 !!
 !!##SYNOPSIS
 !!
-!!     elemental REAL FUNCTION SCABS1(Z)
+!!     elemental real function scabs1(z)
 !!
 !!       .. Scalar Arguments ..
 !!       complex,intent(in) ::  z
@@ -19607,13 +19607,13 @@ end function scabs1
 !!
 !!##SYNOPSIS
 !!
-!!     REAL FUNCTION SCASUM(N,CX,INCX)
+!!     real function scasum(n,cx,incx)
 !!
 !!       .. Scalar Arguments ..
-!!       INTEGER,intent(in)    :: INCX,N
+!!       integer,intent(in)    :: incx,n
 !!       ..
 !!       .. Array Arguments ..
-!!       COMPLEX,intent(inout) :: CX(*)
+!!       complex,intent(inout) :: cx(*)
 !!       ..
 !!
 !!##DEFINITION
@@ -19706,7 +19706,7 @@ end function scasum
 !!
 !!##SYNOPSIS
 !!
-!!     REAL FUNCTION SCNRM2(N,X,INCX)
+!!     real function scnrm2(n,x,incx)
 !!
 !!      ..
 !!      .. Scalar Arguments ..
@@ -19892,7 +19892,7 @@ end function scnrm2
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE SCOPY(N,SX,INCX,SY,INCY)
+!!     subroutine scopy(n,sx,incx,sy,incy)
 !!
 !!       .. Scalar Arguments ..
 !!       integer,intent(in) :: incx,incy,n
@@ -20020,13 +20020,13 @@ end subroutine scopy
 !!
 !!##SYNOPSIS
 !!
-!!     REAL FUNCTION SDOT(N,SX,INCX,SY,INCY)
+!!     real function sdot(n,sx,incx,sy,incy)
 !!
 !!       .. Scalar Arguments ..
-!!       INTEGER,intent(in) :: INCX,INCY,N
+!!       integer,intent(in) :: incx,incy,n
 !!       ..
 !!       .. Array Arguments ..
-!!       REAL,intent(in) :: SX(*),SY(*)
+!!       real,intent(in) :: sx(*),sy(*)
 !!       ..
 !!
 !!##DEFINITION
@@ -20151,14 +20151,14 @@ end function sdot
 !!
 !!##SYNOPSIS
 !!
-!!     REAL FUNCTION SDSDOT(N,SB,SX,INCX,SY,INCY)
+!!     real function sdsdot(n,sb,sx,incx,sy,incy)
 !!
 !!       .. Scalar Arguments ..
-!!       REAL,intent(in) :: SB
-!!       INTEGER,intent(in) :: INCX,INCY,N
+!!       real,intent(in) :: sb
+!!       integer,intent(in) :: incx,incy,n
 !!       ..
 !!       .. Array Arguments ..
-!!       REAL,intent(in) :: SX(*),SY(*)
+!!       real,intent(in) :: sx(*),sy(*)
 !!       ..
 !!
 !!##DEFINITION
@@ -20298,16 +20298,16 @@ end function sdsdot
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE SGBMV(TRANS,M,N,KL,KU,ALPHA,A,LDA,X,INCX,BETA,Y,INCY)
+!!     subroutine sgbmv(trans,m,n,kl,ku,alpha,a,lda,x,incx,beta,y,incy)
 !!
 !!       .. Scalar Arguments ..
-!!       REAL,intent(in)             :: ALPHA,BETA
-!!       INTEGER,intent(in)          :: INCX,INCY,KL,KU,LDA,M,N
-!!       CHARACTER(len=1),intent(in) :: TRANS
+!!       real,intent(in)             :: alpha,beta
+!!       integer,intent(in)          :: incx,incy,kl,ku,lda,m,n
+!!       character(len=1),intent(in) :: trans
 !!       ..
 !!       .. Array Arguments ..
-!!       REAL,intent(in)    :: A(LDA,*),X(*)
-!!       REAL,intent(inout) :: Y(*)
+!!       real,intent(in)    :: a(lda,*),x(*)
+!!       real,intent(inout) :: y(*)
 !!       ..
 !!
 !!##DEFINITION
@@ -20632,16 +20632,16 @@ end function sdsdot
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE SGEMM(TRANSA,TRANSB,M,N,K,ALPHA,A,LDA,B,LDB,BETA,C,LDC)
+!!     subroutine sgemm(transa,transb,m,n,k,alpha,a,lda,b,ldb,beta,c,ldc)
 !!
 !!       .. Scalar Arguments ..
-!!       REAL,intent(in)      :: ALPHA,BETA
-!!       INTEGER,intent(in)   :: K,LDA,LDB,LDC,M,N
-!!       CHARACTER,intent(in) :: TRANSA,TRANSB
+!!       real,intent(in)      :: alpha,beta
+!!       integer,intent(in)   :: k,lda,ldb,ldc,m,n
+!!       character,intent(in) :: transa,transb
 !!       ..
 !!       .. Array Arguments ..
-!!       REAL,intent(in)    :: A(LDA,*),B(LDB,*)
-!!       REAL,intent(inout) :: C(LDC,*)
+!!       real,intent(in)    :: a(lda,*),b(ldb,*)
+!!       real,intent(inout) :: c(ldc,*)
 !!       ..
 !!
 !!##DEFINITION
@@ -20969,16 +20969,16 @@ end function sdsdot
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE SGEMV(TRANS,M,N,ALPHA,A,LDA,X,INCX,BETA,Y,INCY)
+!!     subroutine sgemv(trans,m,n,alpha,a,lda,x,incx,beta,y,incy)
 !!
 !!       .. Scalar Arguments ..
-!!       REAL,intent(in)      :: ALPHA,BETA
-!!       INTEGER,intent(in)   :: INCX,INCY,LDA,M,N
-!!       CHARACTER,intent(in) :: TRANS
+!!       real,intent(in)      :: alpha,beta
+!!       integer,intent(in)   :: incx,incy,lda,m,n
+!!       character,intent(in) :: trans
 !!       ..
 !!       .. Array Arguments ..
-!!       REAL,intent(in)    :: A(LDA,*),X(*)
-!!       REAL,intent(inout) :: Y(*)
+!!       real,intent(in)    :: a(lda,*),x(*)
+!!       real,intent(inout) :: y(*)
 !!       ..
 !!
 !!##DEFINITION
@@ -21265,15 +21265,15 @@ end function sdsdot
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE SGER(M,N,ALPHA,X,INCX,Y,INCY,A,LDA)
+!!     subroutine sger(m,n,alpha,x,incx,y,incy,a,lda)
 !!
 !!       .. Scalar Arguments ..
-!!       REAL,intent(in)    :: ALPHA
-!!       INTEGER,intent(in) :: INCX,INCY,LDA,M,N
+!!       real,intent(in)    :: alpha
+!!       integer,intent(in) :: incx,incy,lda,m,n
 !!       ..
 !!       .. Array Arguments ..
-!!       REAL,intent(in)    :: X(*),Y(*)
-!!       REAL,intent(inout) :: A(LDA,*)
+!!       real,intent(in)    :: x(*),y(*)
+!!       real,intent(inout) :: a(lda,*)
 !!       ..
 !!
 !!##DEFINITION
@@ -21468,7 +21468,7 @@ end function sdsdot
 !!
 !!##SYNOPSIS
 !!
-!!     REAL FUNCTION SNRM2(N,X,INCX)
+!!     real function snrm2(n,x,incx)
 !!
 !!       .. Scalar Arguments ..
 !!       integer,intent(in) :: incx, n
@@ -21643,14 +21643,14 @@ end function snrm2
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE SROT(N,SX,INCX,SY,INCY,C,S)
+!!     subroutine srot(n,sx,incx,sy,incy,c,s)
 !!
 !!       .. Scalar Arguments ..
-!!       REAL,intent(in)    :: C,S
-!!       INTEGER,intent(in) :: INCX,INCY,N
+!!       real,intent(in)    :: c,s
+!!       integer,intent(in) :: incx,incy,n
 !!       ..
 !!       .. Array Arguments ..
-!!       REAL,intent(inout) :: SX(*),SY(*)
+!!       real,intent(inout) :: sx(*),sy(*)
 !!       ..
 !!
 !!##DEFINITION
@@ -21766,7 +21766,7 @@ end function snrm2
 !!##SYNOPSIS
 !!
 !!
-!!   subroutine SROTG( a, b, c, s )
+!!   subroutine srotg( a, b, c, s )
 !!
 !!    .. Scalar Arguments ..
 !!    real(wp),intent(inout) :: a, b
@@ -21910,14 +21910,14 @@ end subroutine
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE SROTM(N,SX,INCX,SY,INCY,SPARAM)
+!!     subroutine srotm(n,sx,incx,sy,incy,sparam)
 !!
 !!       .. Scalar Arguments ..
-!!       INTEGER,intent(in) :: INCX,INCY,N
+!!       integer,intent(in) :: incx,incy,n
 !!       ..
 !!       .. Array Arguments ..
-!!       REAL,intent(in)    :: SPARAM(5)
-!!       REAL,intent(inout) :: SX(*),SY(*)
+!!       real,intent(in)    :: sparam(5)
+!!       real,intent(inout) :: sx(*),sy(*)
 !!       ..
 !!
 !!##DEFINITION
@@ -22097,14 +22097,14 @@ end subroutine
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE SROTMG(SD1,SD2,SX1,SY1,SPARAM)
+!!     subroutine srotmg(sd1,sd2,sx1,sy1,sparam)
 !!
 !!       .. Scalar Arguments ..
-!!       REAL,intent(inout) :: SD1,SD2,SX1
-!!       REAL,intent(in)    :: SY1
+!!       real,intent(inout) :: sd1,sd2,sx1
+!!       real,intent(in)    :: sy1
 !!       ..
 !!       .. Array Arguments ..
-!!       REAL,intent(out)   :: SPARAM(5)
+!!       real,intent(out)   :: sparam(5)
 !!       ..
 !!
 !!##DEFINITION
@@ -22350,16 +22350,16 @@ end subroutine
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE SSBMV(UPLO,N,K,ALPHA,A,LDA,X,INCX,BETA,Y,INCY)
+!!     subroutine ssbmv(uplo,n,k,alpha,a,lda,x,incx,beta,y,incy)
 !!
 !!       .. Scalar Arguments ..
-!!       REAL,intent(in)      :: ALPHA,BETA
-!!       INTEGER,intent(in)   :: INCX,INCY,K,LDA,N
-!!       CHARACTER,intent(in) :: UPLO
+!!       real,intent(in)      :: alpha,beta
+!!       integer,intent(in)   :: incx,incy,k,lda,n
+!!       character,intent(in) :: uplo
 !!       ..
 !!       .. Array Arguments ..
-!!       REAL,intent(in)      :: A(LDA,*),X(*)
-!!       REAL,intent(inout)   :: Y(*)
+!!       real,intent(in)      :: a(lda,*),x(*)
+!!       real,intent(inout)   :: y(*)
 !!       ..
 !!
 !!##DEFINITION
@@ -22692,14 +22692,14 @@ end subroutine
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE SSCAL(N,SA,SX,INCX)
+!!     subroutine sscal(n,sa,sx,incx)
 !!
 !!       .. Scalar Arguments ..
-!!       REAL,intent(in)    :: SA
-!!       INTEGER,intent(in) :: INCX,N
+!!       real,intent(in)    :: sa
+!!       integer,intent(in) :: incx,n
 !!       ..
 !!       .. Array Arguments ..
-!!       REAL,intent(inout) :: SX(*)
+!!       real,intent(inout) :: sx(*)
 !!       ..
 !!
 !!##DEFINITION
@@ -22811,16 +22811,16 @@ end subroutine
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE SSPMV(UPLO,N,ALPHA,AP,X,INCX,BETA,Y,INCY)
+!!     subroutine sspmv(uplo,n,alpha,ap,x,incx,beta,y,incy)
 !!
 !!       .. Scalar Arguments ..
-!!       REAL,intent(in)      :: ALPHA,BETA
-!!       INTEGER,intent(in)   :: INCX,INCY,N
-!!       CHARACTER,intent(in) :: UPLO
+!!       real,intent(in)      :: alpha,beta
+!!       integer,intent(in)   :: incx,incy,n
+!!       character,intent(in) :: uplo
 !!       ..
 !!       .. Array Arguments ..
-!!       REAL,intent(in)      :: AP(*),X(*)
-!!       REAL,intent(inout)   :: Y(*)
+!!       real,intent(in)      :: ap(*),x(*)
+!!       real,intent(inout)   :: y(*)
 !!       ..
 !!
 !!##DEFINITION
@@ -23111,16 +23111,16 @@ end subroutine
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE SSPR2(UPLO,N,ALPHA,X,INCX,Y,INCY,AP)
+!!     subroutine sspr2(uplo,n,alpha,x,incx,y,incy,ap)
 !!
 !!       .. Scalar Arguments ..
-!!       REAL,intent(in)      :: ALPHA
-!!       INTEGER,intent(in)   :: INCX,INCY,N
-!!       CHARACTER,intent(in) :: UPLO
+!!       real,intent(in)      :: alpha
+!!       integer,intent(in)   :: incx,incy,n
+!!       character,intent(in) :: uplo
 !!       ..
 !!       .. Array Arguments ..
-!!       REAL,intent(in)      :: X(*),Y(*)
-!!       REAL,intent(inout)   :: AP(*)
+!!       real,intent(in)      :: x(*),y(*)
+!!       real,intent(inout)   :: ap(*)
 !!       ..
 !!
 !!##DEFINITION
@@ -23381,16 +23381,16 @@ end subroutine
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE SSPR(UPLO,N,ALPHA,X,INCX,AP)
+!!     subroutine sspr(uplo,n,alpha,x,incx,ap)
 !!
 !!       .. Scalar Arguments ..
-!!       REAL,intent(in)      :: ALPHA
-!!       INTEGER,intent(in)   :: INCX,N
-!!       CHARACTER,intent(in) :: UPLO
+!!       real,intent(in)      :: alpha
+!!       integer,intent(in)   :: incx,n
+!!       character,intent(in) :: uplo
 !!       ..
 !!       .. Array Arguments ..
-!!       REAL,intent(in)    :: X(*)
-!!       REAL,intent(inout) :: AP(*)
+!!       real,intent(in)    :: x(*)
+!!       real,intent(inout) :: ap(*)
 !!       ..
 !!
 !!##DEFINITION
@@ -23618,13 +23618,13 @@ end subroutine
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE SSWAP(N,SX,INCX,SY,INCY)
+!!     subroutine sswap(n,sx,incx,sy,incy)
 !!
 !!       .. Scalar Arguments ..
-!!       INTEGER,intent(in) :: INCX,INCY,N
+!!       integer,intent(in) :: incx,incy,n
 !!       ..
 !!       .. Array Arguments ..
-!!       REAL,intent(inout) :: SX(*),SY(*)
+!!       real,intent(inout) :: sx(*),sy(*)
 !!       ..
 !!
 !!##DEFINITION
@@ -23753,16 +23753,16 @@ end subroutine
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE SSYMM(SIDE,UPLO,M,N,ALPHA,A,LDA,B,LDB,BETA,C,LDC)
+!!     subroutine ssymm(side,uplo,m,n,alpha,a,lda,b,ldb,beta,c,ldc)
 !!
 !!       .. Scalar Arguments ..
-!!       REAL,intent(in)      :: ALPHA,BETA
-!!       INTEGER,intent(in)   :: LDA,LDB,LDC,M,N
-!!       CHARACTER,intent(in) :: SIDE,UPLO
+!!       real,intent(in)      :: alpha,beta
+!!       integer,intent(in)   :: lda,ldb,ldc,m,n
+!!       character,intent(in) :: side,uplo
 !!       ..
 !!       .. Array Arguments ..
-!!       REAL,intent(in)      :: A(LDA,*),B(LDB,*)
-!!       REAL,intent(inout)   :: C(LDC,*)
+!!       real,intent(in)      :: a(lda,*),b(ldb,*)
+!!       real,intent(inout)   :: c(ldc,*)
 !!       ..
 !!
 !!##DEFINITION
@@ -24078,16 +24078,16 @@ end subroutine
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE SSYMV(UPLO,N,ALPHA,A,LDA,X,INCX,BETA,Y,INCY)
+!!     subroutine ssymv(uplo,n,alpha,a,lda,x,incx,beta,y,incy)
 !!
 !!       .. Scalar Arguments ..
-!!       REAL,intent(in)      :: ALPHA,BETA
-!!       INTEGER,intent(in)   :: INCX,INCY,LDA,N
-!!       CHARACTER,intent(in) :: UPLO
+!!       real,intent(in)      :: alpha,beta
+!!       integer,intent(in)   :: incx,incy,lda,n
+!!       character,intent(in) :: uplo
 !!       ..
 !!       .. Array Arguments ..
-!!       REAL,intent(in)      :: A(LDA,*),X(*)
-!!       REAL,intent(inout)   :: Y(*)
+!!       real,intent(in)      :: a(lda,*),x(*)
+!!       real,intent(inout)   :: y(*)
 !!       ..
 !!
 !!##DEFINITION
@@ -24379,16 +24379,16 @@ end subroutine
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE SSYR2(UPLO,N,ALPHA,X,INCX,Y,INCY,A,LDA)
+!!     subroutine ssyr2(uplo,n,alpha,x,incx,y,incy,a,lda)
 !!
 !!       .. Scalar Arguments ..
-!!       REAL,intent(in)      :: ALPHA
-!!       INTEGER,intent(in)   :: INCX,INCY,LDA,N
-!!       CHARACTER,intent(in) :: UPLO
+!!       real,intent(in)      :: alpha
+!!       integer,intent(in)   :: incx,incy,lda,n
+!!       character,intent(in) :: uplo
 !!       ..
 !!       .. Array Arguments ..
-!!       REAL,intent(in)      :: X(*),Y(*)
-!!       REAL,intent(inout)   :: A(LDA,*)
+!!       real,intent(in)      :: x(*),y(*)
+!!       real,intent(inout)   :: a(lda,*)
 !!       ..
 !!
 !!##DEFINITION
@@ -24650,16 +24650,16 @@ end subroutine
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE SSYR2K(UPLO,TRANS,N,K,ALPHA,A,LDA,B,LDB,BETA,C,LDC)
+!!     subroutine ssyr2k(uplo,trans,n,k,alpha,a,lda,b,ldb,beta,c,ldc)
 !!
 !!       .. Scalar Arguments ..
-!!       REAL,intent(in)      :: ALPHA,BETA
-!!       INTEGER,intent(in)   :: K,LDA,LDB,LDC,N
-!!       CHARACTER,intent(in) :: TRANS,UPLO
+!!       real,intent(in)      :: alpha,beta
+!!       integer,intent(in)   :: k,lda,ldb,ldc,n
+!!       character,intent(in) :: trans,uplo
 !!       ..
 !!       .. Array Arguments ..
-!!       REAL,intent(in)      :: A(LDA,*),B(LDB,*)
-!!       REAL,intent(inout)   :: C(LDC,*)
+!!       real,intent(in)      :: a(lda,*),b(ldb,*)
+!!       real,intent(inout)   :: c(ldc,*)
 !!       ..
 !!
 !!##DEFINITION
@@ -24996,16 +24996,16 @@ end subroutine
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE SSYR(UPLO,N,ALPHA,X,INCX,A,LDA)
+!!     subroutine ssyr(uplo,n,alpha,x,incx,a,lda)
 !!
 !!       .. Scalar Arguments ..
-!!       REAL,intent(in)      :: ALPHA
-!!       INTEGER,intent(in)   :: INCX,LDA,N
-!!       CHARACTER,intent(in) :: UPLO
+!!       real,intent(in)      :: alpha
+!!       integer,intent(in)   :: incx,lda,n
+!!       character,intent(in) :: uplo
 !!       ..
 !!       .. Array Arguments ..
-!!       REAL,intent(in)      :: X(*)
-!!       REAL,intent(inout)   :: A(LDA,*)
+!!       real,intent(in)      :: x(*)
+!!       real,intent(inout)   :: a(lda,*)
 !!       ..
 !!
 !!##DEFINITION
@@ -25230,16 +25230,16 @@ end subroutine
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE SSYRK(UPLO,TRANS,N,K,ALPHA,A,LDA,BETA,C,LDC)
+!!     subroutine ssyrk(uplo,trans,n,k,alpha,a,lda,beta,c,ldc)
 !!
 !!       .. Scalar Arguments ..
-!!       REAL,intent(in)      :: ALPHA,BETA
-!!       INTEGER,intent(in)   :: K,LDA,LDC,N
-!!       CHARACTER,intent(in) :: TRANS,UPLO
+!!       real,intent(in)      :: alpha,beta
+!!       integer,intent(in)   :: k,lda,ldc,n
+!!       character,intent(in) :: trans,uplo
 !!       ..
 !!       .. Array Arguments ..
-!!       REAL,intent(in)      :: A(LDA,*)
-!!       REAL,intent(inout)   :: C(LDC,*)
+!!       real,intent(in)      :: a(lda,*)
+!!       real,intent(inout)   :: c(ldc,*)
 !!       ..
 !!
 !!##DEFINITION
@@ -25548,15 +25548,15 @@ end subroutine
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE STBMV(UPLO,TRANS,DIAG,N,K,A,LDA,X,INCX)
+!!     subroutine stbmv(uplo,trans,diag,n,k,a,lda,x,incx)
 !!
 !!       .. Scalar Arguments ..
-!!       INTEGER,intent(in)   :: INCX,K,LDA,N
-!!       CHARACTER,intent(in) :: DIAG,TRANS,UPLO
+!!       integer,intent(in)   :: incx,k,lda,n
+!!       character,intent(in) :: diag,trans,uplo
 !!       ..
 !!       .. Array Arguments ..
-!!       REAL,intent(in)      :: A(LDA,*)
-!!       REAL,intent(inout)   :: X(*)
+!!       real,intent(in)      :: a(lda,*)
+!!       real,intent(inout)   :: x(*)
 !!       ..
 !!
 !!##DEFINITION
@@ -25921,15 +25921,15 @@ end subroutine
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE STBSV(UPLO,TRANS,DIAG,N,K,A,LDA,X,INCX)
+!!     subroutine stbsv(uplo,trans,diag,n,k,a,lda,x,incx)
 !!
 !!       .. Scalar Arguments ..
-!!       INTEGER,intent(in)   :: INCX,K,LDA,N
-!!       CHARACTER,intent(in) :: DIAG,TRANS,UPLO
+!!       integer,intent(in)   :: incx,k,lda,n
+!!       character,intent(in) :: diag,trans,uplo
 !!       ..
 !!       .. Array Arguments ..
-!!       REAL,intent(in)      :: A(LDA,*)
-!!       REAL,intent(inout)   :: X(*)
+!!       real,intent(in)      :: a(lda,*)
+!!       real,intent(inout)   :: x(*)
 !!       ..
 !!
 !!##DEFINITION
@@ -26297,15 +26297,15 @@ end subroutine
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE STPMV(UPLO,TRANS,DIAG,N,AP,X,INCX)
+!!     subroutine stpmv(uplo,trans,diag,n,ap,x,incx)
 !!
 !!       .. Scalar Arguments ..
-!!       INTEGER,intent(in)   :: INCX,N
-!!       CHARACTER,intent(in) :: DIAG,TRANS,UPLO
+!!       integer,intent(in)   :: incx,n
+!!       character,intent(in) :: diag,trans,uplo
 !!       ..
 !!       .. Array Arguments ..
-!!       REAL,intent(in)      :: AP(*)
-!!       REAL,intent(inout)   :: X(*)
+!!       real,intent(in)      :: ap(*)
+!!       real,intent(inout)   :: x(*)
 !!       ..
 !!
 !!##DEFINITION
@@ -26956,16 +26956,16 @@ end subroutine
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE STRMM(SIDE,UPLO,TRANSA,DIAG,M,N,ALPHA,A,LDA,B,LDB)
+!!     subroutine strmm(side,uplo,transa,diag,m,n,alpha,a,lda,b,ldb)
 !!
 !!       .. Scalar Arguments ..
-!!       REAL,intent(in)      :: ALPHA
-!!       INTEGER,intent(in)   :: LDA,LDB,M,N
-!!       CHARACTER,intent(in) :: DIAG,SIDE,TRANSA,UPLO
+!!       real,intent(in)      :: alpha
+!!       integer,intent(in)   :: lda,ldb,m,n
+!!       character,intent(in) :: diag,side,transa,uplo
 !!       ..
 !!       .. Array Arguments ..
-!!       REAL,intent(in)      :: A(LDA,*)
-!!       REAL,intent(inout)   :: B(LDB,*)
+!!       real,intent(in)      :: a(lda,*)
+!!       real,intent(inout)   :: b(ldb,*)
 !!       ..
 !!
 !!##DEFINITION
@@ -27323,15 +27323,15 @@ end subroutine
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE STRMV(UPLO,TRANS,DIAG,N,A,LDA,X,INCX)
+!!     subroutine strmv(uplo,trans,diag,n,a,lda,x,incx)
 !!
 !!       .. Scalar Arguments ..
-!!       INTEGER,intent(in)   :: INCX,LDA,N
-!!       CHARACTER,intent(in) :: DIAG,TRANS,UPLO
+!!       integer,intent(in)   :: incx,lda,n
+!!       character,intent(in) :: diag,trans,uplo
 !!       ..
 !!       .. Array Arguments ..
-!!       REAL,intent(in)    :: A(LDA,*)
-!!       REAL,intent(inout) :: X(*)
+!!       real,intent(in)    :: a(lda,*)
+!!       real,intent(inout) :: x(*)
 !!       ..
 !!
 !!##DEFINITION
@@ -27638,16 +27638,16 @@ end subroutine
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE STRSM(SIDE,UPLO,TRANSA,DIAG,M,N,ALPHA,A,LDA,B,LDB)
+!!     subroutine strsm(side,uplo,transa,diag,m,n,alpha,a,lda,b,ldb)
 !!
 !!       .. Scalar Arguments ..
-!!       REAL,intent(in)      :: ALPHA
-!!       INTEGER,intent(in)   :: LDA,LDB,M,N
-!!       CHARACTER,intent(in) :: DIAG,SIDE,TRANSA,UPLO
+!!       real,intent(in)      :: alpha
+!!       integer,intent(in)   :: lda,ldb,m,n
+!!       character,intent(in) :: diag,side,transa,uplo
 !!       ..
 !!       .. Array Arguments ..
-!!       REAL,intent(in)    :: A(LDA,*)
-!!       REAL,intent(inout) :: B(LDB,*)
+!!       real,intent(in)    :: a(lda,*)
+!!       real,intent(inout) :: b(ldb,*)
 !!       ..
 !!
 !!##DEFINITION
@@ -28022,15 +28022,15 @@ end subroutine
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE STRSV(UPLO,TRANS,DIAG,N,A,LDA,X,INCX)
+!!     subroutine strsv(uplo,trans,diag,n,a,lda,x,incx)
 !!
 !!       .. Scalar Arguments ..
-!!       INTEGER,intent(in)   :: INCX,LDA,N
-!!       CHARACTER,intent(in) :: DIAG,TRANS,UPLO
+!!       integer,intent(in)   :: incx,lda,n
+!!       character,intent(in) :: diag,trans,uplo
 !!       ..
 !!       .. Array Arguments ..
-!!       REAL,intent(in)      :: A(LDA,*)
-!!       REAL,intent(inout)   :: X(*)
+!!       real,intent(in)      :: a(lda,*)
+!!       real,intent(inout)   :: x(*)
 !!       ..
 !!
 !!##DEFINITION
@@ -28341,15 +28341,15 @@ end subroutine
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE ZAXPY(N,ZA,ZX,INCX,ZY,INCY)
+!!     subroutine zaxpy(n,za,zx,incx,zy,incy)
 !!
 !! !     .. Scalar Arguments ..
-!!       complex(kind=real64),intent(in)    :: ZA
-!!       INTEGER,intent(in)                 :: INCX,INCY,N
+!!       complex(kind=real64),intent(in)    :: za
+!!       integer,intent(in)                 :: incx,incy,n
 !! !     ..
 !! !     .. Array Arguments ..
-!!       complex(kind=real64),intent(in)    :: ZX(*)
-!!       complex(kind=real64),intent(inout) :: ZY(*)
+!!       complex(kind=real64),intent(in)    :: zx(*)
+!!       complex(kind=real64),intent(inout) :: zy(*)
 !! !     ..
 !!
 !!##DEFINITION
@@ -28462,10 +28462,10 @@ end subroutine
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE ZCOPY(N,ZX,INCX,ZY,INCY)
+!!     subroutine zcopy(n,zx,incx,zy,incy)
 !!
 !!       .. Scalar Arguments ..
-!!       INTEGER,intent(in)               :: INCX,INCY,N
+!!       integer,intent(in)               :: incx,incy,n
 !!       ..
 !!       .. Array Arguments ..
 !!       complex(kind=real64),intent(in)  :: ZX(*)
@@ -28571,13 +28571,13 @@ end subroutine
 !!
 !!##SYNOPSIS
 !!
-!!     complex(kind=real64) FUNCTION ZDOTC(N,ZX,INCX,ZY,INCY)
+!!     complex(kind=real64) function zdotc(n,zx,incx,zy,incy)
 !!
 !!       .. Scalar Arguments ..
-!!       INTEGER,intent(in) :: INCX,INCY,N
+!!       integer,intent(in) :: incx,incy,n
 !!       ..
 !!       .. Array Arguments ..
-!!       complex(kind=real64),intent(in) :: ZX(*),ZY(*)
+!!       complex(kind=real64),intent(in) :: zx(*),zy(*)
 !!       ..
 !!
 !!##DEFINITION
@@ -28686,13 +28686,13 @@ pure complex(kind=real64) function zdotc(n,zx,incx,zy,incy)
 !!
 !!##SYNOPSIS
 !!
-!!     complex(kind=real64) FUNCTION ZDOTU(N,ZX,INCX,ZY,INCY)
+!!     complex(kind=real64) function zdotu(n,zx,incx,zy,incy)
 !!
 !!       .. Scalar Arguments ..
-!!       INTEGER,intent(in) :: INCX,INCY,N
+!!       integer,intent(in) :: incx,incy,n
 !!       ..
 !!       .. Array Arguments ..
-!!       complex(kind=real64),intent(in) :: ZX(*),ZY(*)
+!!       complex(kind=real64),intent(in) :: zx(*),zy(*)
 !!       ..
 !!
 !!##DEFINITION
@@ -28798,14 +28798,14 @@ pure complex(kind=real64) function zdotu(n,zx,incx,zy,incy)
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE ZDROT( N, ZX, INCX, ZY, INCY, C, S )
+!!     subroutine zdrot( n, zx, incx, zy, incy, c, s )
 !!
 !!       .. Scalar Arguments ..
-!!       INTEGER,intent(in)          :: INCX, INCY, N
-!!       DOUBLE PRECISION,intent(in) :: C, S
+!!       integer,intent(in)          :: incx, incy, n
+!!       double precision,intent(in) :: c, s
 !!       ..
 !!       .. Array Arguments ..
-!!       complex(kind=real64),intent(inout) :: ZX( * ), ZY( * )
+!!       complex(kind=real64),intent(inout) :: zx( * ), zy( * )
 !!       ..
 !!
 !!##DEFINITION
@@ -28932,14 +28932,14 @@ pure complex(kind=real64) function zdotu(n,zx,incx,zy,incy)
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE ZDSCAL(N,DA,ZX,INCX)
+!!     subroutine zdscal(n,da,zx,incx)
 !!
 !!       .. Scalar Arguments ..
-!!       DOUBLE PRECISION,intent(in) :: DA
-!!       INTEGER,intent(in) :: INCX,N
+!!       double precision,intent(in) :: da
+!!       integer,intent(in) :: incx,n
 !!       ..
 !!       .. Array Arguments ..
-!!       complex(kind=real64),intent(inout) :: ZX(*)
+!!       complex(kind=real64),intent(inout) :: zx(*)
 !!       ..
 !!
 !!##DEFINITION
@@ -29035,16 +29035,16 @@ pure complex(kind=real64) function zdotu(n,zx,incx,zy,incy)
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE ZGBMV(TRANS,M,N,KL,KU,ALPHA,A,LDA,X,INCX,BETA,Y,INCY)
+!!     subroutine zgbmv(trans,m,n,kl,ku,alpha,a,lda,x,incx,beta,y,incy)
 !!
 !!       .. Scalar Arguments ..
-!!       complex(kind=real64),intent(in)    :: ALPHA,BETA
-!!       INTEGER,intent(in)                 :: INCX,INCY,KL,KU,LDA,M,N
-!!       CHARACTER,intent(in)               :: TRANS
+!!       complex(kind=real64),intent(in)    :: alpha,beta
+!!       integer,intent(in)                 :: incx,incy,kl,ku,lda,m,n
+!!       character,intent(in)               :: trans
 !!       ..
 !!       .. Array Arguments ..
-!!       complex(kind=real64),intent(in)    :: A(LDA,*),X(*)
-!!       complex(kind=real64),intent(inout) :: Y(*)
+!!       complex(kind=real64),intent(in)    :: a(lda,*),x(*)
+!!       complex(kind=real64),intent(inout) :: y(*)
 !!       ..
 !!
 !!##DEFINITION
@@ -29394,13 +29394,13 @@ pure complex(kind=real64) function zdotu(n,zx,incx,zy,incy)
 !!     subroutine zgemm(transa,transb,m,n,k,alpha,a,lda,b,ldb,beta,c,ldc)
 !!
 !!       .. Scalar Arguments ..
-!!       complex(kind=real64),intent(in)    :: ALPHA,BETA
-!!       INTEGER,intent(in)                 :: K,LDA,LDB,LDC,M,N
-!!       CHARACTER,intent(in)               :: TRANSA,TRANSB
+!!       complex(kind=real64),intent(in)    :: alpha,beta
+!!       integer,intent(in)                 :: k,lda,ldb,ldc,m,n
+!!       character,intent(in)               :: transa,transb
 !!       ..
 !!       .. Array Arguments ..
-!!       complex(kind=real64),intent(in)    :: A(LDA,*),B(LDB,*)
-!!       complex(kind=real64),intent(inout) :: C(LDC,*)
+!!       complex(kind=real64),intent(in)    :: a(lda,*),b(ldb,*)
+!!       complex(kind=real64),intent(inout) :: c(ldc,*)
 !!       ..
 !!
 !!##DEFINITION
@@ -29823,13 +29823,13 @@ pure complex(kind=real64) function zdotu(n,zx,incx,zy,incy)
 !!     subroutine zgemv(trans,m,n,alpha,a,lda,x,incx,beta,y,incy)
 !!
 !!       .. Scalar Arguments ..
-!!       complex(kind=real64),intent(in)    :: ALPHA,BETA
-!!       INTEGER,intent(in)                 :: INCX,INCY,LDA,M,N
-!!       CHARACTER,intent(in)               :: TRANS
+!!       complex(kind=real64),intent(in)    :: alpha,beta
+!!       integer,intent(in)                 :: incx,incy,lda,m,n
+!!       character,intent(in)               :: trans
 !!       ..
 !!       .. Array Arguments ..
-!!       complex(kind=real64),intent(in)    :: A(LDA,*),X(*)
-!!       complex(kind=real64),intent(inout) :: Y(*)
+!!       complex(kind=real64),intent(in)    :: a(lda,*),x(*)
+!!       complex(kind=real64),intent(inout) :: y(*)
 !!       ..
 !!
 !!##DEFINITION
@@ -30142,15 +30142,15 @@ end subroutine zgemv
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE ZGERC(M,N,ALPHA,X,INCX,Y,INCY,A,LDA)
+!!     subroutine zgerc(m,n,alpha,x,incx,y,incy,a,lda)
 !!
 !!       .. Scalar Arguments ..
-!!       complex(kind=real64),intent(in)    :: ALPHA
-!!       INTEGER,intent(in)                 :: INCX,INCY,LDA,M,N
+!!       complex(kind=real64),intent(in)    :: alpha
+!!       integer,intent(in)                 :: incx,incy,lda,m,n
 !!       ..
 !!       .. Array Arguments ..
-!!       complex(kind=real64),intent(in)    :: X(*),Y(*)
-!!       complex(kind=real64),intent(inout) :: A(LDA,*)
+!!       complex(kind=real64),intent(in)    :: x(*),y(*)
+!!       complex(kind=real64),intent(inout) :: a(lda,*)
 !!       ..
 !!
 !!##DEFINITION
@@ -30526,16 +30526,16 @@ end subroutine zgemv
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE ZHBMV(UPLO,N,K,ALPHA,A,LDA,X,INCX,BETA,Y,INCY)
+!!     subroutine zhbmv(uplo,n,k,alpha,a,lda,x,incx,beta,y,incy)
 !!
 !!       .. Scalar Arguments ..
-!!       complex(kind=real64),intent(in)    :: ALPHA,BETA
-!!       INTEGER,intent(in)                 :: INCX,INCY,K,LDA,N
-!!       CHARACTER,intent(in)               :: UPLO
+!!       complex(kind=real64),intent(in)    :: alpha,beta
+!!       integer,intent(in)                 :: incx,incy,k,lda,n
+!!       character,intent(in)               :: uplo
 !!       ..
 !!       .. Array Arguments ..
-!!       complex(kind=real64),intent(in)    :: A(LDA,*),X(*)
-!!       complex(kind=real64),intent(inout) :: Y(*)
+!!       complex(kind=real64),intent(in)    :: a(lda,*),x(*)
+!!       complex(kind=real64),intent(inout) :: y(*)
 !!       ..
 !!
 !!##DEFINITION
@@ -30876,16 +30876,16 @@ end subroutine zgemv
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE ZHEMM(SIDE,UPLO,M,N,ALPHA,A,LDA,B,LDB,BETA,C,LDC)
+!!     subroutine zhemm(side,uplo,m,n,alpha,a,lda,b,ldb,beta,c,ldc)
 !!
 !!       .. Scalar Arguments ..
-!!       complex(kind=real64),intent(in)    :: ALPHA,BETA
-!!       INTEGER,intent(in)                 :: LDA,LDB,LDC,M,N
-!!       CHARACTER,intent(in)               :: SIDE,UPLO
+!!       complex(kind=real64),intent(in)    :: alpha,beta
+!!       integer,intent(in)                 :: lda,ldb,ldc,m,n
+!!       character,intent(in)               :: side,uplo
 !!       ..
 !!       .. Array Arguments ..
-!!       complex(kind=real64),intent(in)    :: A(LDA,*),B(LDB,*)
-!!       complex(kind=real64),intent(inout) :: C(LDC,*)
+!!       complex(kind=real64),intent(in)    :: a(lda,*),b(ldb,*)
+!!       complex(kind=real64),intent(inout) :: c(ldc,*)
 !!       ..
 !!
 !!##DEFINITION
@@ -31201,7 +31201,7 @@ end subroutine zgemv
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE ZHEMV(UPLO,N,ALPHA,A,LDA,X,INCX,BETA,Y,INCY)
+!!     subroutine zhemv(uplo,n,alpha,a,lda,x,incx,beta,y,incy)
 !!
 !!       .. Scalar Arguments ..
 !!       complex(kind=real64),intent(in)    :: alpha,beta
@@ -31509,16 +31509,16 @@ end subroutine zhemv
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE ZHER2(UPLO,N,ALPHA,X,INCX,Y,INCY,A,LDA)
+!!     subroutine zher2(uplo,n,alpha,x,incx,y,incy,a,lda)
 !!
 !!       .. Scalar Arguments ..
-!!       complex(kind=real64),intent(in)    :: ALPHA
-!!       INTEGER,intent(in)                 :: INCX,INCY,LDA,N
-!!       CHARACTER,intent(in)               :: UPLO
+!!       complex(kind=real64),intent(in)    :: alpha
+!!       integer,intent(in)                 :: incx,incy,lda,n
+!!       character,intent(in)               :: uplo
 !!       ..
 !!       .. Array Arguments ..
-!!       complex(kind=real64),intent(in)    :: X(*),Y(*)
-!!       complex(kind=real64),intent(inout) :: A(LDA,*)
+!!       complex(kind=real64),intent(in)    :: x(*),y(*)
+!!       complex(kind=real64),intent(inout) :: a(lda,*)
 !!       ..
 !!
 !!##DEFINITION
@@ -31796,17 +31796,17 @@ end subroutine zhemv
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE ZHER2K(UPLO,TRANS,N,K,ALPHA,A,LDA,B,LDB,BETA,C,LDC)
+!!     subroutine zher2k(uplo,trans,n,k,alpha,a,lda,b,ldb,beta,c,ldc)
 !!
 !!       .. Scalar Arguments ..
-!!       complex(kind=real64),intent(in)    :: ALPHA
-!!       DOUBLE PRECISION,intent(in)        :: BETA
-!!       INTEGER ,intent(in)                ::K,LDA,LDB,LDC,N
-!!       CHARACTER,intent(in)               :: TRANS,UPLO
+!!       complex(kind=real64),intent(in)    :: alpha
+!!       double precision,intent(in)        :: beta
+!!       integer ,intent(in)                ::k,lda,ldb,ldc,n
+!!       character,intent(in)               :: trans,uplo
 !!       ..
 !!       .. Array Arguments ..
-!!       complex(kind=real64),intent(in)    :: A(LDA,*),B(LDB,*)
-!!       complex(kind=real64),intent(inout) :: C(LDC,*)
+!!       complex(kind=real64),intent(in)    :: a(lda,*),b(ldb,*)
+!!       complex(kind=real64),intent(inout) :: c(ldc,*)
 !!       ..
 !!
 !!##DEFINITION
@@ -32182,16 +32182,16 @@ end subroutine zhemv
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE ZHER(UPLO,N,ALPHA,X,INCX,A,LDA)
+!!     subroutine zher(uplo,n,alpha,x,incx,a,lda)
 !!
 !!       .. Scalar Arguments ..
-!!       DOUBLE PRECISION,intent(in)        :: ALPHA
-!!       INTEGER ,intent(in)                :: INCX,LDA,N
-!!       CHARACTER,intent(in)               :: UPLO
+!!       double precision,intent(in)        :: alpha
+!!       integer ,intent(in)                :: incx,lda,n
+!!       character,intent(in)               :: uplo
 !!       ..
 !!       .. Array Arguments ..
-!!       complex(kind=real64),intent(in)    :: X(*)
-!!       complex(kind=real64),intent(inout) :: A(LDA,*)
+!!       complex(kind=real64),intent(in)    :: x(*)
+!!       complex(kind=real64),intent(inout) :: a(lda,*)
 !!       ..
 !!
 !!##DEFINITION
@@ -32438,16 +32438,16 @@ end subroutine zhemv
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE ZHERK(UPLO,TRANS,N,K,ALPHA,A,LDA,BETA,C,LDC)
+!!     subroutine zherk(uplo,trans,n,k,alpha,a,lda,beta,c,ldc)
 !!
 !!       .. Scalar Arguments ..
-!!       DOUBLE PRECISION,intent(in)        :: ALPHA,BETA
-!!       INTEGER,intent(in)                 :: K,LDA,LDC,N
-!!       CHARACTER,intent(in)               :: TRANS,UPLO
+!!       double precision,intent(in)        :: alpha,beta
+!!       integer,intent(in)                 :: k,lda,ldc,n
+!!       character,intent(in)               :: trans,uplo
 !!       ..
 !!       .. Array Arguments ..
-!!       complex(kind=real64),intent(in)    :: A(LDA,*)
-!!       complex(kind=real64),intent(inout) :: C(LDC,*)
+!!       complex(kind=real64),intent(in)    :: a(lda,*)
+!!       complex(kind=real64),intent(inout) :: c(ldc,*)
 !!       ..
 !!
 !!##DEFINITION
@@ -32799,16 +32799,16 @@ end subroutine zhemv
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE ZHPMV(UPLO,N,ALPHA,AP,X,INCX,BETA,Y,INCY)
+!!     subroutine zhpmv(uplo,n,alpha,ap,x,incx,beta,y,incy)
 !!
 !!       .. Scalar Arguments ..
-!!       complex(kind=real64),intent(in)    :: ALPHA,BETA
-!!       INTEGER,intent(in)                 :: INCX,INCY,N
-!!       CHARACTER,intent(in)               :: UPLO
+!!       complex(kind=real64),intent(in)    :: alpha,beta
+!!       integer,intent(in)                 :: incx,incy,n
+!!       character,intent(in)               :: uplo
 !!       ..
 !!       .. Array Arguments ..
-!!       complex(kind=real64),intent(in)    :: AP(*),X(*)
-!!       complex(kind=real64),intent(inout) :: Y(*)
+!!       complex(kind=real64),intent(in)    :: ap(*),x(*)
+!!       complex(kind=real64),intent(inout) :: y(*)
 !!       ..
 !!
 !!##DEFINITION
@@ -33109,16 +33109,16 @@ end subroutine zhemv
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE ZHPR2(UPLO,N,ALPHA,X,INCX,Y,INCY,AP)
+!!     subroutine zhpr2(uplo,n,alpha,x,incx,y,incy,ap)
 !!
 !!       .. Scalar Arguments ..
-!!       complex(kind=real64),intent(in)    :: ALPHA
-!!       INTEGER,intent(in)                 :: INCX,INCY,N
-!!       CHARACTER,intent(in)               :: UPLO
+!!       complex(kind=real64),intent(in)    :: alpha
+!!       integer,intent(in)                 :: incx,incy,n
+!!       character,intent(in)               :: uplo
 !!       ..
 !!       .. Array Arguments ..
-!!       complex(kind=real64),intent(in)    :: X(*),Y(*)
-!!       complex(kind=real64),intent(inout) :: AP(*)
+!!       complex(kind=real64),intent(in)    :: x(*),y(*)
+!!       complex(kind=real64),intent(inout) :: ap(*)
 !!       ..
 !!
 !!##DEFINITION
@@ -33400,16 +33400,16 @@ end subroutine zhemv
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE ZHPR(UPLO,N,ALPHA,X,INCX,AP)
+!!     subroutine zhpr(uplo,n,alpha,x,incx,ap)
 !!
 !!       .. Scalar Arguments ..
-!!       DOUBLE PRECISION ,intent(in)       :: ALPHA
-!!       INTEGER ,intent(in)                :: INCX,N
-!!       CHARACTER,intent(in)               :: UPLO
+!!       double precision ,intent(in)       :: alpha
+!!       integer ,intent(in)                :: incx,n
+!!       character,intent(in)               :: uplo
 !!       ..
 !!       .. Array Arguments ..
-!!       complex(kind=real64),intent(in)    :: X(*)
-!!       complex(kind=real64),intent(inout) :: AP(*)
+!!       complex(kind=real64),intent(in)    :: x(*)
+!!       complex(kind=real64),intent(inout) :: ap(*)
 !!       ..
 !!
 !!##DEFINITION
@@ -33658,7 +33658,7 @@ end subroutine zhemv
 !!
 !!##SYNOPSIS
 !!
-!!     subroutine ZROTG( a, b, c, s )
+!!     subroutine zrotg( a, b, c, s )
 !!
 !!       .. Scalar Arguments ..
 !!       real(wp),intent(out)      :: c
@@ -33871,14 +33871,14 @@ end subroutine
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE ZSCAL(N,ZA,ZX,INCX)
+!!     subroutine zscal(n,za,zx,incx)
 !!
 !!       .. Scalar Arguments ..
-!!       complex(kind=real64),intent(in)    :: ZA
-!!       INTEGER,intent(in)                 :: INCX,N
+!!       complex(kind=real64),intent(in)    :: za
+!!       integer,intent(in)                 :: incx,n
 !!       ..
 !!       .. Array Arguments ..
-!!       complex(kind=real64),intent(inout) :: ZX(*)
+!!       complex(kind=real64),intent(inout) :: zx(*)
 !!       ..
 !!
 !!##DEFINITION
@@ -33971,13 +33971,13 @@ end subroutine
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE ZSWAP(N,ZX,INCX,ZY,INCY)
+!!     subroutine zswap(n,zx,incx,zy,incy)
 !!
 !!       .. Scalar Arguments ..
-!!       INTEGER,intent(in)                 :: INCX,INCY,N
+!!       integer,intent(in)                 :: incx,incy,n
 !!       ..
 !!       .. Array Arguments ..
-!!       complex(kind=real64),intent(inout) :: ZX(*),ZY(*)
+!!       complex(kind=real64),intent(inout) :: zx(*),zy(*)
 !!       ..
 !!
 !!##DEFINITION
@@ -34082,16 +34082,16 @@ end subroutine
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE ZSYMM(SIDE,UPLO,M,N,ALPHA,A,LDA,B,LDB,BETA,C,LDC)
+!!     subroutine zsymm(side,uplo,m,n,alpha,a,lda,b,ldb,beta,c,ldc)
 !!
 !!       .. Scalar Arguments ..
-!!       complex(kind=real64),intent(in)    :: ALPHA,BETA
-!!       INTEGER,intent(in)                 :: LDA,LDB,LDC,M,N
-!!       CHARACTER,intent(in)               :: SIDE,UPLO
+!!       complex(kind=real64),intent(in)    :: alpha,beta
+!!       integer,intent(in)                 :: lda,ldb,ldc,m,n
+!!       character,intent(in)               :: side,uplo
 !!       ..
 !!       .. Array Arguments ..
-!!       complex(kind=real64),intent(in)    :: A(LDA,*),B(LDB,*)
-!!       complex(kind=real64),intent(inout) :: C(LDC,*)
+!!       complex(kind=real64),intent(in)    :: a(lda,*),b(ldb,*)
+!!       complex(kind=real64),intent(inout) :: c(ldc,*)
 !!       ..
 !!
 !!##DEFINITION
@@ -34404,16 +34404,16 @@ end subroutine
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE ZSYR2K(UPLO,TRANS,N,K,ALPHA,A,LDA,B,LDB,BETA,C,LDC)
+!!     subroutine zsyr2k(uplo,trans,n,k,alpha,a,lda,b,ldb,beta,c,ldc)
 !!
 !!       .. Scalar Arguments ..
-!!       complex(kind=real64),intent(in)    :: ALPHA,BETA
-!!       INTEGER,intent(in)                 :: K,LDA,LDB,LDC,N
-!!       CHARACTER,intent(in)               :: TRANS,UPLO
+!!       complex(kind=real64),intent(in)    :: alpha,beta
+!!       integer,intent(in)                 :: k,lda,ldb,ldc,n
+!!       character,intent(in)               :: trans,uplo
 !!       ..
 !!       .. Array Arguments ..
-!!       complex(kind=real64),intent(in)    :: A(LDA,*),B(LDB,*)
-!!       complex(kind=real64),intent(inout) :: C(LDC,*)
+!!       complex(kind=real64),intent(in)    :: a(lda,*),b(ldb,*)
+!!       complex(kind=real64),intent(inout) :: c(ldc,*)
 !!       ..
 !!
 !!##DEFINITION
@@ -34747,16 +34747,16 @@ end subroutine
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE ZSYRK(UPLO,TRANS,N,K,ALPHA,A,LDA,BETA,C,LDC)
+!!     subroutine zsyrk(uplo,trans,n,k,alpha,a,lda,beta,c,ldc)
 !!
 !!       .. Scalar Arguments ..
-!!       complex(kind=real64),intent(inout) :: ALPHA,BETA
-!!       INTEGER,intent(in)                 :: K,LDA,LDC,N
-!!       CHARACTER,intent(in)               :: TRANS,UPLO
+!!       complex(kind=real64),intent(inout) :: alpha,beta
+!!       integer,intent(in)                 :: k,lda,ldc,n
+!!       character,intent(in)               :: trans,uplo
 !!       ..
 !!       .. Array Arguments ..
-!!       complex(kind=real64),intent(in)    :: A(LDA,*)
-!!       complex(kind=real64),intent(inout) :: C(LDC,*)
+!!       complex(kind=real64),intent(in)    :: a(lda,*)
+!!       complex(kind=real64),intent(inout) :: c(ldc,*)
 !!       ..
 !!
 !!##DEFINITION
@@ -35063,15 +35063,15 @@ end subroutine
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE ZTBMV(UPLO,TRANS,DIAG,N,K,A,LDA,X,INCX)
+!!     subroutine ztbmv(uplo,trans,diag,n,k,a,lda,x,incx)
 !!
 !!       .. Scalar Arguments ..
-!!       INTEGER,intent(in)                 :: INCX,K,LDA,N
-!!       CHARACTER,intent(in)               :: DIAG,TRANS,UPLO
+!!       integer,intent(in)                 :: incx,k,lda,n
+!!       character,intent(in)               :: diag,trans,uplo
 !!       ..
 !!       .. Array Arguments ..
-!!       complex(kind=real64),intent(in)    :: A(LDA,*)
-!!       complex(kind=real64),intent(inout) :: X(*)
+!!       complex(kind=real64),intent(in)    :: a(lda,*)
+!!       complex(kind=real64),intent(inout) :: x(*)
 !!       ..
 !!
 !!##DEFINITION
@@ -35467,15 +35467,15 @@ end subroutine
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE ZTBSV(UPLO,TRANS,DIAG,N,K,A,LDA,X,INCX)
+!!     subroutine ztbsv(uplo,trans,diag,n,k,a,lda,x,incx)
 !!
 !!       .. Scalar Arguments ..
-!!       INTEGER,intent(in)                 :: INCX,K,LDA,N
-!!       CHARACTER,intent(in)               :: DIAG,TRANS,UPLO
+!!       integer,intent(in)                 :: incx,k,lda,n
+!!       character,intent(in)               :: diag,trans,uplo
 !!       ..
 !!       .. Array Arguments ..
-!!       complex(kind=real64),intent(in)    :: A(LDA,*)
-!!       complex(kind=real64),intent(inout) :: X(*)
+!!       complex(kind=real64),intent(in)    :: a(lda,*)
+!!       complex(kind=real64),intent(inout) :: x(*)
 !!       ..
 !!
 !!##DEFINITION
@@ -35874,15 +35874,15 @@ end subroutine
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE ZTPMV(UPLO,TRANS,DIAG,N,AP,X,INCX)
+!!     subroutine ztpmv(uplo,trans,diag,n,ap,x,incx)
 !!
 !!       .. Scalar Arguments ..
-!!       INTEGER,intent(in)                 :: INCX,N
-!!       CHARACTER,intent(in)               :: DIAG,TRANS,UPLO
+!!       integer,intent(in)                 :: incx,n
+!!       character,intent(in)               :: diag,trans,uplo
 !!       ..
 !!       .. Array Arguments ..
-!!       complex(kind=real64),intent(in)    :: AP(*)
-!!       complex(kind=real64),intent(inout) :: X(*)
+!!       complex(kind=real64),intent(in)    :: ap(*)
+!!       complex(kind=real64),intent(inout) :: x(*)
 !!       ..
 !!
 !!##DEFINITION
@@ -36239,15 +36239,15 @@ end subroutine
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE ZTPSV(UPLO,TRANS,DIAG,N,AP,X,INCX)
+!!     subroutine ztpsv(uplo,trans,diag,n,ap,x,incx)
 !!
 !!       .. Scalar Arguments ..
-!!       INTEGER,intent(in)                 :: INCX,N
-!!       CHARACTER,intent(in)               :: DIAG,TRANS,UPLO
+!!       integer,intent(in)                 :: incx,n
+!!       character,intent(in)               :: diag,trans,uplo
 !!       ..
 !!       .. Array Arguments ..
-!!       complex(kind=real64),intent(in)    :: AP(*)
-!!       complex(kind=real64),intent(inout) :: X(*)
+!!       complex(kind=real64),intent(in)    :: ap(*)
+!!       complex(kind=real64),intent(inout) :: x(*)
 !!       ..
 !!
 !!##DEFINITION
@@ -36606,16 +36606,16 @@ end subroutine
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE ZTRMM(SIDE,UPLO,TRANSA,DIAG,M,N,ALPHA,A,LDA,B,LDB)
+!!     subroutine ztrmm(side,uplo,transa,diag,m,n,alpha,a,lda,b,ldb)
 !!
 !!       .. Scalar Arguments ..
-!!       complex(kind=real64),intent(in)    :: ALPHA
-!!       INTEGER,intent(in)                 :: LDA,LDB,M,N
-!!       CHARACTER,intent(in)               :: DIAG,SIDE,TRANSA,UPLO
+!!       complex(kind=real64),intent(in)    :: alpha
+!!       integer,intent(in)                 :: lda,ldb,m,n
+!!       character,intent(in)               :: diag,side,transa,uplo
 !!       ..
 !!       .. Array Arguments ..
-!!       complex(kind=real64),intent(in)    :: A(LDA,*)
-!!       complex(kind=real64),intent(inout) :: B(LDB,*)
+!!       complex(kind=real64),intent(in)    :: a(lda,*)
+!!       complex(kind=real64),intent(inout) :: b(ldb,*)
 !!       ..
 !!
 !!##DEFINITION
@@ -37014,15 +37014,15 @@ end subroutine
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE ZTRMV(UPLO,TRANS,DIAG,N,A,LDA,X,INCX)
+!!     subroutine ztrmv(uplo,trans,diag,n,a,lda,x,incx)
 !!
 !!       .. Scalar Arguments ..
-!!       INTEGER,intent(in)                 :: INCX,LDA,N
-!!       CHARACTER,intent(in)               :: DIAG,TRANS,UPLO
+!!       integer,intent(in)                 :: incx,lda,n
+!!       character,intent(in)               :: diag,trans,uplo
 !!       ..
 !!       .. Array Arguments ..
-!!       complex(kind=real64),intent(in)    :: A(LDA,*)
-!!       complex(kind=real64),intent(inout) :: X(*)
+!!       complex(kind=real64),intent(in)    :: a(lda,*)
+!!       complex(kind=real64),intent(inout) :: x(*)
 !!       ..
 !!
 !!##DEFINITION
@@ -37362,16 +37362,16 @@ end subroutine ztrmv
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE ZTRSM(SIDE,UPLO,TRANSA,DIAG,M,N,ALPHA,A,LDA,B,LDB)
+!!     subroutine ztrsm(side,uplo,transa,diag,m,n,alpha,a,lda,b,ldb)
 !!
 !!       .. Scalar Arguments ..
-!!       complex(kind=real64),intent(in)    :: ALPHA
-!!       INTEGER,intent(in)                 :: LDA,LDB,M,N
-!!       CHARACTER,intent(in)               :: DIAG,SIDE,TRANSA,UPLO
+!!       complex(kind=real64),intent(in)    :: alpha
+!!       integer,intent(in)                 :: lda,ldb,m,n
+!!       character,intent(in)               :: diag,side,transa,uplo
 !!       ..
 !!       .. Array Arguments ..
-!!       complex(kind=real64),intent(in)    :: A(LDA,*)
-!!       complex(kind=real64),intent(inout) :: B(LDB,*)
+!!       complex(kind=real64),intent(in)    :: a(lda,*)
+!!       complex(kind=real64),intent(inout) :: b(ldb,*)
 !!       ..
 !!
 !!##DEFINITION
@@ -37811,15 +37811,15 @@ end subroutine ztrmv
 !!
 !!##SYNOPSIS
 !!
-!!     SUBROUTINE ZTRSV(UPLO,TRANS,DIAG,N,A,LDA,X,INCX)
+!!     subroutine ztrsv(uplo,trans,diag,n,a,lda,x,incx)
 !!
 !!       .. Scalar Arguments ..
-!!       INTEGER,intent(in)                 :: INCX,LDA,N
-!!       CHARACTER,intent(in)               :: DIAG,TRANS,UPLO
+!!       integer,intent(in)                 :: incx,lda,n
+!!       character,intent(in)               :: diag,trans,uplo
 !!       ..
 !!       .. Array Arguments ..
-!!       complex(kind=real64),intent(in)    :: A(LDA,*)
-!!       complex(kind=real64),intent(inout) :: X(*)
+!!       complex(kind=real64),intent(in)    :: a(lda,*)
+!!       complex(kind=real64),intent(inout) :: x(*)
 !!       ..
 !!
 !!##DEFINITION

@@ -4,16 +4,16 @@ NAME
 CY := alpha*A*CX + beta*CY, A a (square) hermitian packed matrix.
 
 SYNOPSIS
-    SUBROUTINE CHPMV(UPLO,N,ALPHA,AP,X,INCX,BETA,Y,INCY)
+    subroutine chpmv(uplo,n,alpha,ap,x,incx,beta,y,incy)
 
       .. Scalar Arguments ..
-      COMPLEX,intent(in)    :: ALPHA,BETA
-      INTEGER,intent(in)    :: INCX,INCY,N
-      CHARACTER,intent(in)  :: UPLO
+      complex,intent(in)    :: alpha,beta
+      integer,intent(in)    :: incx,incy,n
+      character,intent(in)  :: uplo
       ..
       .. Array Arguments ..
-      COMPLEX,intent(in)    :: AP(*),X(*)
-      COMPLEX,intent(inout) :: Y(*)
+      complex,intent(in)    :: ap(*),x(*)
+      complex,intent(inout) :: y(*)
       ..
 
 DEFINITION

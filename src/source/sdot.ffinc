@@ -3,13 +3,13 @@ NAME
    sdot(3f) - [BLAS:SINGLE_BLAS_LEVEL1] SDOT := SUM SX * SY (vector dot product)
 
 SYNOPSIS
-    REAL FUNCTION SDOT(N,SX,INCX,SY,INCY)
+    real function sdot(n,sx,incx,sy,incy)
 
       .. Scalar Arguments ..
-      INTEGER,intent(in) :: INCX,INCY,N
+      integer,intent(in) :: incx,incy,n
       ..
       .. Array Arguments ..
-      REAL,intent(in) :: SX(*),SY(*)
+      real,intent(in) :: sx(*),sy(*)
       ..
 
 DEFINITION

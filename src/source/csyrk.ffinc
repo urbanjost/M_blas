@@ -4,16 +4,16 @@ NAME
 C:=alpha*A*TRANSPOSE(A)+beta*C, C symmetric.
 
 SYNOPSIS
-    SUBROUTINE CSYRK(UPLO,TRANS,N,K,ALPHA,A,LDA,BETA,C,LDC)
+    subroutine csyrk(uplo,trans,n,k,alpha,a,lda,beta,c,ldc)
 
       .. Scalar Arguments ..
-      COMPLEX,intent(in)    :: ALPHA,BETA
-      INTEGER,intent(in)    :: K,LDA,LDC,N
-      CHARACTER,intent(in)  :: TRANS,UPLO
+      complex,intent(in)    :: alpha,beta
+      integer,intent(in)    :: k,lda,ldc,n
+      character,intent(in)  :: trans,uplo
       ..
       .. Array Arguments ..
-      COMPLEX,intent(in)    :: A(LDA,*)
-      COMPLEX,intent(inout) :: C(LDC,*)
+      complex,intent(in)    :: a(lda,*)
+      complex,intent(inout) :: c(ldc,*)
       ..
 
 DEFINITION

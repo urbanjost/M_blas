@@ -4,7 +4,7 @@ NAME
 
 SYNOPSIS
 
-    SUBROUTINE CGEMV(TRANS,M,N,ALPHA,A,LDA,X,INCX,BETA,Y,INCY)
+    subroutine cgemv(trans,m,n,alpha,a,lda,x,incx,beta,y,incy)
 
       .. Scalar Arguments ..
       COMPLEX,intent(in)    :: ALPHA,BETA

@@ -3,16 +3,16 @@ NAME
    dsyr2(3f) - [BLAS:DOUBLE_BLAS_LEVEL2]
 
 SYNOPSIS
-    SUBROUTINE DSYR2(UPLO,N,ALPHA,X,INCX,Y,INCY,A,LDA)
+    subroutine dsyr2(uplo,n,alpha,x,incx,y,incy,a,lda)
 
       .. Scalar Arguments ..
-      DOUBLE PRECISION,intent(in)    :: ALPHA
-      INTEGER,intent(in)             :: INCX,INCY,LDA,N
-      CHARACTER,intent(in)           :: UPLO
+      double precision,intent(in)    :: alpha
+      integer,intent(in)             :: incx,incy,lda,n
+      character,intent(in)           :: uplo
       ..
       .. Array Arguments ..
-      DOUBLE PRECISION,intent(inout) :: A(LDA,*)
-      DOUBLE PRECISION,intent(in)    :: X(*),Y(*)
+      double precision,intent(inout) :: a(lda,*)
+      double precision,intent(in)    :: x(*),y(*)
       ..
 
 DEFINITION

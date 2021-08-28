@@ -3,16 +3,16 @@ NAME
    zhpmv(3f) - [BLAS:COMPLEX_16_BLAS_LEVEL2]
 
 SYNOPSIS
-    SUBROUTINE ZHPMV(UPLO,N,ALPHA,AP,X,INCX,BETA,Y,INCY)
+    subroutine zhpmv(uplo,n,alpha,ap,x,incx,beta,y,incy)
 
       .. Scalar Arguments ..
-      complex(kind=real64),intent(in)    :: ALPHA,BETA
-      INTEGER,intent(in)                 :: INCX,INCY,N
-      CHARACTER,intent(in)               :: UPLO
+      complex(kind=real64),intent(in)    :: alpha,beta
+      integer,intent(in)                 :: incx,incy,n
+      character,intent(in)               :: uplo
       ..
       .. Array Arguments ..
-      complex(kind=real64),intent(in)    :: AP(*),X(*)
-      complex(kind=real64),intent(inout) :: Y(*)
+      complex(kind=real64),intent(in)    :: ap(*),x(*)
+      complex(kind=real64),intent(inout) :: y(*)
       ..
 
 DEFINITION

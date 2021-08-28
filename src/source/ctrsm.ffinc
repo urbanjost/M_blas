@@ -4,16 +4,16 @@ NAME
 B:=INVERSE(A)*C or B:=C*INVERSE(A), B, C rectangular, A triangular.
 
 SYNOPSIS
-    SUBROUTINE CTRSM(SIDE,UPLO,TRANSA,DIAG,M,N,ALPHA,A,LDA,B,LDB)
+    subroutine ctrsm(side,uplo,transa,diag,m,n,alpha,a,lda,b,ldb)
 
       .. Scalar Arguments ..
-      COMPLEX,intent(in)    :: ALPHA
-      INTEGER,intent(in)    :: LDA,LDB,M,N
-      CHARACTER,intent(in)  :: DIAG,SIDE,TRANSA,UPLO
+      complex,intent(in)    :: alpha
+      integer,intent(in)    :: lda,ldb,m,n
+      character,intent(in)  :: diag,side,transa,uplo
       ..
       .. Array Arguments ..
-      COMPLEX,intent(in)    :: A(LDA,*)
-      COMPLEX,intent(inout) :: B(LDB,*)
+      complex,intent(in)    :: a(lda,*)
+      complex,intent(inout) :: b(ldb,*)
       ..
 
 DEFINITION

@@ -3,14 +3,14 @@ NAME
    sscal(3f) - [BLAS:SINGLE_BLAS_LEVEL1] SX:=SA*SX.
 
 SYNOPSIS
-    SUBROUTINE SSCAL(N,SA,SX,INCX)
+    subroutine sscal(n,sa,sx,incx)
 
       .. Scalar Arguments ..
-      REAL,intent(in)    :: SA
-      INTEGER,intent(in) :: INCX,N
+      real,intent(in)    :: sa
+      integer,intent(in) :: incx,n
       ..
       .. Array Arguments ..
-      REAL,intent(inout) :: SX(*)
+      real,intent(inout) :: sx(*)
       ..
 
 DEFINITION

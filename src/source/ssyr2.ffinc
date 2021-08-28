@@ -3,16 +3,16 @@ NAME
    ssyr2(3f) - [BLAS:SINGLE_BLAS_LEVEL2] A:=A+alpha*SX*TRANSPOSE(SY)+alpha*SY*TRANSPOSE(SX), A a symmetric
 
 SYNOPSIS
-    SUBROUTINE SSYR2(UPLO,N,ALPHA,X,INCX,Y,INCY,A,LDA)
+    subroutine ssyr2(uplo,n,alpha,x,incx,y,incy,a,lda)
 
       .. Scalar Arguments ..
-      REAL,intent(in)      :: ALPHA
-      INTEGER,intent(in)   :: INCX,INCY,LDA,N
-      CHARACTER,intent(in) :: UPLO
+      real,intent(in)      :: alpha
+      integer,intent(in)   :: incx,incy,lda,n
+      character,intent(in) :: uplo
       ..
       .. Array Arguments ..
-      REAL,intent(in)      :: X(*),Y(*)
-      REAL,intent(inout)   :: A(LDA,*)
+      real,intent(in)      :: x(*),y(*)
+      real,intent(inout)   :: a(lda,*)
       ..
 
 DEFINITION

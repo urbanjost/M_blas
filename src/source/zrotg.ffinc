@@ -3,7 +3,7 @@ NAME
    zrotg(3f) - [BLAS:COMPLEX16_BLAS_LEVEL1] constructs a plane rotation
 
 SYNOPSIS
-    subroutine ZROTG( a, b, c, s )
+    subroutine zrotg( a, b, c, s )
 
       .. Scalar Arguments ..
       real(wp),intent(out)      :: c

@@ -3,16 +3,16 @@ NAME
    zgbmv(3f) - [BLAS:COMPLEX_16_BLAS_LEVEL2]
 
 SYNOPSIS
-    SUBROUTINE ZGBMV(TRANS,M,N,KL,KU,ALPHA,A,LDA,X,INCX,BETA,Y,INCY)
+    subroutine zgbmv(trans,m,n,kl,ku,alpha,a,lda,x,incx,beta,y,incy)
 
       .. Scalar Arguments ..
-      complex(kind=real64),intent(in)    :: ALPHA,BETA
-      INTEGER,intent(in)                 :: INCX,INCY,KL,KU,LDA,M,N
-      CHARACTER,intent(in)               :: TRANS
+      complex(kind=real64),intent(in)    :: alpha,beta
+      integer,intent(in)                 :: incx,incy,kl,ku,lda,m,n
+      character,intent(in)               :: trans
       ..
       .. Array Arguments ..
-      complex(kind=real64),intent(in)    :: A(LDA,*),X(*)
-      complex(kind=real64),intent(inout) :: Y(*)
+      complex(kind=real64),intent(in)    :: a(lda,*),x(*)
+      complex(kind=real64),intent(inout) :: y(*)
       ..
 
 DEFINITION

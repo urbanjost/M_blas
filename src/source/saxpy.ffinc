@@ -3,15 +3,15 @@ NAME
    saxpy(3f) - [BLAS:SINGLE_BLAS_LEVEL1] SY:=SY+SA*SX (constant times a vector plus a vector)
 
 SYNOPSIS
-    SUBROUTINE SAXPY(N,SA,SX,INCX,SY,INCY)
+    subroutine saxpy(n,sa,sx,incx,sy,incy)
 
       .. Scalar Arguments ..
-      REAL,intent(in)     :: SA
-      INTEGER,intent(in)  :: INCX,INCY,N
+      real,intent(in)     :: sa
+      integer,intent(in)  :: incx,incy,n
       ..
       .. Array Arguments ..
-      REAL,intent(in)     :: SX(*)
-      REAL,intent(inout)  :: SY(*)
+      real,intent(in)     :: sx(*)
+      real,intent(inout)  :: sy(*)
       ..
 
 DEFINITION

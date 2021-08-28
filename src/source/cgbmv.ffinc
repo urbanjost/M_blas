@@ -4,7 +4,7 @@ NAME
 
 SYNOPSIS
 
-    SUBROUTINE CGBMV(TRANS,M,N,KL,KU,ALPHA,A,LDA,X,INCX,BETA,Y,INCY)
+    subroutine cgbmv(trans,m,n,kl,ku,alpha,a,lda,x,incx,beta,y,incy)
 
       .. Scalar Arguments ..
       complex,intent(in)    :: alpha,beta

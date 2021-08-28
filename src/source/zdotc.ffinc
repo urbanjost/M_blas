@@ -3,13 +3,13 @@ NAME
    zdotc(3f) - [BLAS:COMPLEX16_BLAS_LEVEL1]
 
 SYNOPSIS
-    complex(kind=real64) FUNCTION ZDOTC(N,ZX,INCX,ZY,INCY)
+    complex(kind=real64) function zdotc(n,zx,incx,zy,incy)
 
       .. Scalar Arguments ..
-      INTEGER,intent(in) :: INCX,INCY,N
+      integer,intent(in) :: incx,incy,n
       ..
       .. Array Arguments ..
-      complex(kind=real64),intent(in) :: ZX(*),ZY(*)
+      complex(kind=real64),intent(in) :: zx(*),zy(*)
       ..
 
 DEFINITION

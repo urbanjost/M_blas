@@ -3,16 +3,16 @@ NAME
    chemv(3f) - [BLAS:COMPLEX_BLAS_LEVEL2] CY := alpha*A*CX + beta*CY; ==> A a (square) hermitian matrix.
 
 SYNOPSIS
-    SUBROUTINE CHEMV(UPLO,N,ALPHA,A,LDA,X,INCX,BETA,Y,INCY)
+    subroutine chemv(uplo,n,alpha,a,lda,x,incx,beta,y,incy)
 
       .. Scalar Arguments ..
-      COMPLEX,intent(in)    :: ALPHA,BETA
-      INTEGER,intent(in)    :: INCX,INCY,LDA,N
-      CHARACTER,intent(in)  :: UPLO
+      complex,intent(in)    :: alpha,beta
+      integer,intent(in)    :: incx,incy,lda,n
+      character,intent(in)  :: uplo
       ..
       .. Array Arguments ..
-      COMPLEX,intent(in)    :: A(LDA,*),X(*)
-      COMPLEX,intent(inout) :: Y(*)
+      complex,intent(in)    :: a(lda,*),x(*)
+      complex,intent(inout) :: y(*)
       ..
 
 DEFINITION

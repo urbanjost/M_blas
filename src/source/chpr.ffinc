@@ -4,16 +4,16 @@ NAME
 A := A + alpha*CX*CONJUGATE-TRANSPOSE(CX), a a (square) hermitian packed.
 
 SYNOPSIS
-    SUBROUTINE CHPR(UPLO,N,ALPHA,X,INCX,AP)
+    subroutine chpr(uplo,n,alpha,x,incx,ap)
 
       .. Scalar Arguments ..
-      REAL,intent(in)       :: ALPHA
-      INTEGER,intent(in)    :: INCX,N
-      CHARACTER,intent(in)  :: UPLO
+      real,intent(in)       :: alpha
+      integer,intent(in)    :: incx,n
+      character,intent(in)  :: uplo
       ..
       .. Array Arguments ..
-      COMPLEX,intent(inout) :: AP(*)
-      COMPLEX,intent(in)    :: X(*)
+      complex,intent(inout) :: ap(*)
+      complex,intent(in)    :: x(*)
       ..
 
 DEFINITION

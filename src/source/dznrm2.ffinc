@@ -3,7 +3,7 @@ NAME
    dznrm2(3f) - [BLAS:SINGLE_BLAS_LEVEL1]
 
 SYNOPSIS
-    DOUBLE PRECISION FUNCTION DZNRM2(N,X,INCX)
+    double precision function dznrm2(n,x,incx)
 
       .. Scalar Arguments ..
       integer,intent(in) :: incx, n

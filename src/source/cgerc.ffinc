@@ -3,15 +3,15 @@ NAME
    cgerc(3f) - [BLAS:COMPLEX_BLAS_LEVEL2] A := A + alpha*CX*CONJUGATE-TRANSPOSE(CY); ==> A is a rectangular matrix.
 
 SYNOPSIS
-    SUBROUTINE CGERC(M,N,ALPHA,X,INCX,Y,INCY,A,LDA)
+    subroutine cgerc(m,n,alpha,x,incx,y,incy,a,lda)
 
       .. Scalar Arguments ..
-      COMPLEX,intent(in)    :: ALPHA
-      INTEGER,intent(in)    :: INCX,INCY,LDA,M,N
+      complex,intent(in)    :: alpha
+      integer,intent(in)    :: incx,incy,lda,m,n
       ..
       .. Array Arguments ..
-      COMPLEX,intent(inout) :: A(LDA,*)
-      COMPLEX,intent(in)    :: X(*),Y(*)
+      complex,intent(inout) :: a(lda,*)
+      complex,intent(in)    :: x(*),y(*)
       ..
 
 DEFINITION

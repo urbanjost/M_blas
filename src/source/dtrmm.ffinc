@@ -3,16 +3,16 @@ NAME
    dtrmm(3f) - [BLAS:DOUBLE_BLAS_LEVEL3]
 
 SYNOPSIS
-    SUBROUTINE DTRMM(SIDE,UPLO,TRANSA,DIAG,M,N,ALPHA,A,LDA,B,LDB)
+    subroutine dtrmm(side,uplo,transa,diag,m,n,alpha,a,lda,b,ldb)
 
       .. Scalar Arguments ..
-      DOUBLE PRECISION,intent(in)    :: ALPHA
-      INTEGER,intent(in)             :: LDA,LDB,M,N
-      CHARACTER,intent(in)           :: DIAG,SIDE,TRANSA,UPLO
+      double precision,intent(in)    :: alpha
+      integer,intent(in)             :: lda,ldb,m,n
+      character,intent(in)           :: diag,side,transa,uplo
       ..
       .. Array Arguments ..
-      DOUBLE PRECISION,intent(in)    :: A(LDA,*)
-      DOUBLE PRECISION,intent(inout) :: B(LDB,*)
+      double precision,intent(in)    :: a(lda,*)
+      double precision,intent(inout) :: b(ldb,*)
       ..
 
 DEFINITION

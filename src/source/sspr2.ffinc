@@ -3,16 +3,16 @@ NAME
    sspr2(3f) - [BLAS:SINGLE_BLAS_LEVEL2] A:=A+alpha*SX*TRANSPOSE(SY)+alpha*SY*TRANSPOSE(SX), A packed symmetric.
 
 SYNOPSIS
-    SUBROUTINE SSPR2(UPLO,N,ALPHA,X,INCX,Y,INCY,AP)
+    subroutine sspr2(uplo,n,alpha,x,incx,y,incy,ap)
 
       .. Scalar Arguments ..
-      REAL,intent(in)      :: ALPHA
-      INTEGER,intent(in)   :: INCX,INCY,N
-      CHARACTER,intent(in) :: UPLO
+      real,intent(in)      :: alpha
+      integer,intent(in)   :: incx,incy,n
+      character,intent(in) :: uplo
       ..
       .. Array Arguments ..
-      REAL,intent(in)      :: X(*),Y(*)
-      REAL,intent(inout)   :: AP(*)
+      real,intent(in)      :: x(*),y(*)
+      real,intent(inout)   :: ap(*)
       ..
 
 DEFINITION

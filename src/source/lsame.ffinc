@@ -3,7 +3,7 @@ NAME
    lsame(3f) - [BLAS:AUX_BLAS] compare two letters ignoring case
 
 SYNOPSIS
-    LOGICAL FUNCTION LSAME(CA,CB)
+    logical function lsame(ca,cb)
 
       .. Scalar Arguments ..
       character(len=1),intent(in) :: ca,cb

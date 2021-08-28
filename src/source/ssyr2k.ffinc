@@ -3,16 +3,16 @@ NAME
    ssyr2k(3f) - [BLAS:SINGLE_BLAS_LEVEL3] C:=alpha*A*TRANSPOSE(B)+alpha*B*TRANSPOSE(A)+beta*C, C symmetric.
 
 SYNOPSIS
-    SUBROUTINE SSYR2K(UPLO,TRANS,N,K,ALPHA,A,LDA,B,LDB,BETA,C,LDC)
+    subroutine ssyr2k(uplo,trans,n,k,alpha,a,lda,b,ldb,beta,c,ldc)
 
       .. Scalar Arguments ..
-      REAL,intent(in)      :: ALPHA,BETA
-      INTEGER,intent(in)   :: K,LDA,LDB,LDC,N
-      CHARACTER,intent(in) :: TRANS,UPLO
+      real,intent(in)      :: alpha,beta
+      integer,intent(in)   :: k,lda,ldb,ldc,n
+      character,intent(in) :: trans,uplo
       ..
       .. Array Arguments ..
-      REAL,intent(in)      :: A(LDA,*),B(LDB,*)
-      REAL,intent(inout)   :: C(LDC,*)
+      real,intent(in)      :: a(lda,*),b(ldb,*)
+      real,intent(inout)   :: c(ldc,*)
       ..
 
 DEFINITION

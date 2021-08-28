@@ -4,15 +4,15 @@ NAME
 A:=A+alpha*SX*TRANSPOSE(SY), rank 1 update, A a rectangular matrix.
 
 SYNOPSIS
-    SUBROUTINE SGER(M,N,ALPHA,X,INCX,Y,INCY,A,LDA)
+    subroutine sger(m,n,alpha,x,incx,y,incy,a,lda)
 
       .. Scalar Arguments ..
-      REAL,intent(in)    :: ALPHA
-      INTEGER,intent(in) :: INCX,INCY,LDA,M,N
+      real,intent(in)    :: alpha
+      integer,intent(in) :: incx,incy,lda,m,n
       ..
       .. Array Arguments ..
-      REAL,intent(in)    :: X(*),Y(*)
-      REAL,intent(inout) :: A(LDA,*)
+      real,intent(in)    :: x(*),y(*)
+      real,intent(inout) :: a(lda,*)
       ..
 
 DEFINITION

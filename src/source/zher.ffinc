@@ -3,16 +3,16 @@ NAME
    zher(3f) - [BLAS:COMPLEX_16_BLAS_LEVEL2]
 
 SYNOPSIS
-    SUBROUTINE ZHER(UPLO,N,ALPHA,X,INCX,A,LDA)
+    subroutine zher(uplo,n,alpha,x,incx,a,lda)
 
       .. Scalar Arguments ..
-      DOUBLE PRECISION,intent(in)        :: ALPHA
-      INTEGER ,intent(in)                :: INCX,LDA,N
-      CHARACTER,intent(in)               :: UPLO
+      double precision,intent(in)        :: alpha
+      integer ,intent(in)                :: incx,lda,n
+      character,intent(in)               :: uplo
       ..
       .. Array Arguments ..
-      complex(kind=real64),intent(in)    :: X(*)
-      complex(kind=real64),intent(inout) :: A(LDA,*)
+      complex(kind=real64),intent(in)    :: x(*)
+      complex(kind=real64),intent(inout) :: a(lda,*)
       ..
 
 DEFINITION

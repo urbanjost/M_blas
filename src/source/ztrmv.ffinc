@@ -3,15 +3,15 @@ NAME
    ztrmv(3f) - [BLAS:COMPLEX_16_BLAS_LEVEL2]
 
 SYNOPSIS
-    SUBROUTINE ZTRMV(UPLO,TRANS,DIAG,N,A,LDA,X,INCX)
+    subroutine ztrmv(uplo,trans,diag,n,a,lda,x,incx)
 
       .. Scalar Arguments ..
-      INTEGER,intent(in)                 :: INCX,LDA,N
-      CHARACTER,intent(in)               :: DIAG,TRANS,UPLO
+      integer,intent(in)                 :: incx,lda,n
+      character,intent(in)               :: diag,trans,uplo
       ..
       .. Array Arguments ..
-      complex(kind=real64),intent(in)    :: A(LDA,*)
-      complex(kind=real64),intent(inout) :: X(*)
+      complex(kind=real64),intent(in)    :: a(lda,*)
+      complex(kind=real64),intent(inout) :: x(*)
       ..
 
 DEFINITION

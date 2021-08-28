@@ -4,15 +4,15 @@ NAME
 CX := A*CX, A is a packed triangular band matrix.
 
 SYNOPSIS
-    SUBROUTINE CTPMV(UPLO,TRANS,DIAG,N,AP,X,INCX)
+    subroutine ctpmv(uplo,trans,diag,n,ap,x,incx)
 
       .. Scalar Arguments ..
-      INTEGER,intent(in)    :: INCX,N
-      CHARACTER,intent(in)  :: DIAG,TRANS,UPLO
+      integer,intent(in)    :: incx,n
+      character,intent(in)  :: diag,trans,uplo
       ..
       .. Array Arguments ..
-      COMPLEX,intent(in)    :: AP(*)
-      COMPLEX,intent(inout) :: X(*)
+      complex,intent(in)    :: ap(*)
+      complex,intent(inout) :: x(*)
       ..
 
 DEFINITION

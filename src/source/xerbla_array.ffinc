@@ -3,13 +3,13 @@ NAME
    xerbla_array(3f) - [BLAS:AUX_BLAS] call XERBLA(3f) with an array of characters instead of a string
 
 SYNOPSIS
-    SUBROUTINE XERBLA_ARRAY(SRNAME_ARRAY, SRNAME_LEN, INFO)
+    subroutine xerbla_array(srname_array, srname_len, info)
 
        .. Scalar Arguments ..
-       INTEGER SRNAME_LEN, INFO
+       integer srname_len, info
        ..
        .. Array Arguments ..
-       CHARACTER(*) SRNAME_ARRAY(SRNAME_LEN)
+       character(*) srname_array(srname_len)
        ..
 
 DEFINITION

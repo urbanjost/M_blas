@@ -3,16 +3,16 @@ NAME
    ssbmv(3f) - [BLAS:SINGLE_BLAS_LEVEL2] SY:=alpha*A*SX+beta*SY, A a symmetric band matrix.
 
 SYNOPSIS
-    SUBROUTINE SSBMV(UPLO,N,K,ALPHA,A,LDA,X,INCX,BETA,Y,INCY)
+    subroutine ssbmv(uplo,n,k,alpha,a,lda,x,incx,beta,y,incy)
 
       .. Scalar Arguments ..
-      REAL,intent(in)      :: ALPHA,BETA
-      INTEGER,intent(in)   :: INCX,INCY,K,LDA,N
-      CHARACTER,intent(in) :: UPLO
+      real,intent(in)      :: alpha,beta
+      integer,intent(in)   :: incx,incy,k,lda,n
+      character,intent(in) :: uplo
       ..
       .. Array Arguments ..
-      REAL,intent(in)      :: A(LDA,*),X(*)
-      REAL,intent(inout)   :: Y(*)
+      real,intent(in)      :: a(lda,*),x(*)
+      real,intent(inout)   :: y(*)
       ..
 
 DEFINITION

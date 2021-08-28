@@ -3,16 +3,16 @@ NAME
    zhbmv(3f) - [BLAS:COMPLEX_16_BLAS_LEVEL2]
 
 SYNOPSIS
-    SUBROUTINE ZHBMV(UPLO,N,K,ALPHA,A,LDA,X,INCX,BETA,Y,INCY)
+    subroutine zhbmv(uplo,n,k,alpha,a,lda,x,incx,beta,y,incy)
 
       .. Scalar Arguments ..
-      complex(kind=real64),intent(in)    :: ALPHA,BETA
-      INTEGER,intent(in)                 :: INCX,INCY,K,LDA,N
-      CHARACTER,intent(in)               :: UPLO
+      complex(kind=real64),intent(in)    :: alpha,beta
+      integer,intent(in)                 :: incx,incy,k,lda,n
+      character,intent(in)               :: uplo
       ..
       .. Array Arguments ..
-      complex(kind=real64),intent(in)    :: A(LDA,*),X(*)
-      complex(kind=real64),intent(inout) :: Y(*)
+      complex(kind=real64),intent(in)    :: a(lda,*),x(*)
+      complex(kind=real64),intent(inout) :: y(*)
       ..
 
 DEFINITION

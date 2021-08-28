@@ -3,14 +3,14 @@ NAME
    dscal(3f) - [BLAS:DOUBLE_BLAS_LEVEL1] scales a vector by a constant.
 
 SYNOPSIS
-    SUBROUTINE DSCAL(N,DA,DX,INCX)
+    subroutine dscal(n,da,dx,incx)
 
       .. Scalar Arguments ..
-      DOUBLE PRECISION,intent(in)    :: DA
-      INTEGER,intent(in)             :: INCX,N
+      double precision,intent(in)    :: da
+      integer,intent(in)             :: incx,n
       ..
       .. Array Arguments ..
-      DOUBLE PRECISION,intent(inout) :: DX(*)
+      double precision,intent(inout) :: dx(*)
       ..
 
 DEFINITION

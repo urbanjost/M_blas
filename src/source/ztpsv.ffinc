@@ -3,15 +3,15 @@ NAME
    ztpsv(3f) - [BLAS:COMPLEX_16_BLAS_LEVEL2]
 
 SYNOPSIS
-    SUBROUTINE ZTPSV(UPLO,TRANS,DIAG,N,AP,X,INCX)
+    subroutine ztpsv(uplo,trans,diag,n,ap,x,incx)
 
       .. Scalar Arguments ..
-      INTEGER,intent(in)                 :: INCX,N
-      CHARACTER,intent(in)               :: DIAG,TRANS,UPLO
+      integer,intent(in)                 :: incx,n
+      character,intent(in)               :: diag,trans,uplo
       ..
       .. Array Arguments ..
-      complex(kind=real64),intent(in)    :: AP(*)
-      complex(kind=real64),intent(inout) :: X(*)
+      complex(kind=real64),intent(in)    :: ap(*)
+      complex(kind=real64),intent(inout) :: x(*)
       ..
 
 DEFINITION

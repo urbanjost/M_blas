@@ -3,13 +3,13 @@ NAME
    dasum(3f) - [BLAS:DOUBLE_BLAS_LEVEL1] takes the sum of the absolute values.
 
 SYNOPSIS
-    DOUBLE PRECISION FUNCTION DASUM(N,DX,INCX)
+    double precision function dasum(n,dx,incx)
 
       .. Scalar Arguments ..
-      INTEGER,intent(in) :: INCX,N
+      integer,intent(in) :: incx,n
       ..
       .. Array Arguments ..
-      DOUBLE PRECISION,intent(in) :: DX(*)
+      double precision,intent(in) :: dx(*)
       ..
 
 DEFINITION

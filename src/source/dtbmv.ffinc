@@ -3,15 +3,15 @@ NAME
    dtbmv(3f) - [BLAS:DOUBLE_BLAS_LEVEL3]
 
 SYNOPSIS
-    SUBROUTINE DTBMV(UPLO,TRANS,DIAG,N,K,A,LDA,X,INCX)
+    subroutine dtbmv(uplo,trans,diag,n,k,a,lda,x,incx)
 
       .. Scalar Arguments ..
-      INTEGER,intent(in)             :: INCX,K,LDA,N
-      CHARACTER,intent(in)           :: DIAG,TRANS,UPLO
+      integer,intent(in)             :: incx,k,lda,n
+      character,intent(in)           :: diag,trans,uplo
       ..
       .. Array Arguments ..
-      DOUBLE PRECISION,intent(in)    :: A(LDA,*)
-      DOUBLE PRECISION,intent(inout) :: X(*)
+      double precision,intent(in)    :: a(lda,*)
+      double precision,intent(inout) :: x(*)
       ..
 
 DEFINITION

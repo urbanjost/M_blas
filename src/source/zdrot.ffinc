@@ -3,14 +3,14 @@ NAME
    zdrot(3f) - [BLAS:COMPLEX16_BLAS_LEVEL1]
 
 SYNOPSIS
-    SUBROUTINE ZDROT( N, ZX, INCX, ZY, INCY, C, S )
+    subroutine zdrot( n, zx, incx, zy, incy, c, s )
 
       .. Scalar Arguments ..
-      INTEGER,intent(in)          :: INCX, INCY, N
-      DOUBLE PRECISION,intent(in) :: C, S
+      integer,intent(in)          :: incx, incy, n
+      double precision,intent(in) :: c, s
       ..
       .. Array Arguments ..
-      complex(kind=real64),intent(inout) :: ZX( * ), ZY( * )
+      complex(kind=real64),intent(inout) :: zx( * ), zy( * )
       ..
 
 DEFINITION

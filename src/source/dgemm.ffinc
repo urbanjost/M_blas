@@ -3,16 +3,16 @@ NAME
    dgemm(3f) - [BLAS:DOUBLE_BLAS_LEVEL3]
 
 SYNOPSIS
-    SUBROUTINE DGEMM(TRANSA,TRANSB,M,N,K,ALPHA,A,LDA,B,LDB,BETA,C,LDC)
+    subroutine dgemm(transa,transb,m,n,k,alpha,a,lda,b,ldb,beta,c,ldc)
 
       .. Scalar Arguments ..
       DOUBLE PRECISION,intent(in)    :: ALPHA,BETA
-      INTEGER,intent(in)             :: K,LDA,LDB,LDC,M,N
-      CHARACTER,intent(in)           :: TRANSA,TRANSB
+      integer,intent(in)             :: k,lda,ldb,ldc,m,n
+      character,intent(in)           :: transa,transb
       ..
       .. Array Arguments ..
-      DOUBLE PRECISION,intent(in)    :: A(LDA,*),B(LDB,*)
-      DOUBLE PRECISION,intent(inout) :: C(LDC,*)
+      double precision,intent(in)    :: a(lda,*),b(ldb,*)
+      double precision,intent(inout) :: c(ldc,*)
       ..
 
 DEFINITION

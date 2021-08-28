@@ -3,14 +3,14 @@ NAME
    zscal(3f) - [BLAS:COMPLEX16_BLAS_LEVEL1]
 
 SYNOPSIS
-    SUBROUTINE ZSCAL(N,ZA,ZX,INCX)
+    subroutine zscal(n,za,zx,incx)
 
       .. Scalar Arguments ..
-      complex(kind=real64),intent(in)    :: ZA
-      INTEGER,intent(in)                 :: INCX,N
+      complex(kind=real64),intent(in)    :: za
+      integer,intent(in)                 :: incx,n
       ..
       .. Array Arguments ..
-      complex(kind=real64),intent(inout) :: ZX(*)
+      complex(kind=real64),intent(inout) :: zx(*)
       ..
 
 DEFINITION

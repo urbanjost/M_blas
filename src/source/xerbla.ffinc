@@ -3,7 +3,7 @@ NAME
    xerbla(3f) - [BLAS:AUX_BLAS] error handler routine for the BLAS/LAPACK routines
 
 SYNOPSIS
-    SUBROUTINE XERBLA( SRNAME, INFO )
+    subroutine xerbla( srname, info )
 
        .. Scalar Arguments ..
        character(len=*),intent(in) :: srname

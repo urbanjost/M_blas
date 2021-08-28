@@ -5,14 +5,14 @@ NAME
 SDSDOT := SUM SX * SY (accumulated double precision, returned single)
 
 SYNOPSIS
-    REAL FUNCTION SDSDOT(N,SB,SX,INCX,SY,INCY)
+    real function sdsdot(n,sb,sx,incx,sy,incy)
 
       .. Scalar Arguments ..
-      REAL,intent(in) :: SB
-      INTEGER,intent(in) :: INCX,INCY,N
+      real,intent(in) :: sb
+      integer,intent(in) :: incx,incy,n
       ..
       .. Array Arguments ..
-      REAL,intent(in) :: SX(*),SY(*)
+      real,intent(in) :: sx(*),sy(*)
       ..
 
 DEFINITION

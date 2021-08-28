@@ -4,7 +4,7 @@ NAME
 
 SYNOPSIS
 
-  subroutine SROTG( a, b, c, s )
+  subroutine srotg( a, b, c, s )
 
    .. Scalar Arguments ..
    real(wp),intent(inout) :: a, b

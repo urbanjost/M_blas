@@ -3,13 +3,13 @@ NAME
    sasum(3f) - [BLAS:SINGLE_BLAS_LEVEL1] SASUM:=sum of absolute values of SX.
 
 SYNOPSIS
-    REAL FUNCTION SASUM(N,SX,INCX)
+    real function sasum(n,sx,incx)
 
       .. Scalar Arguments ..
-      INTEGER,intent(in) :: INCX,N
+      integer,intent(in) :: incx,n
       ..
       .. Array Arguments ..
-      REAL,intent(in) :: SX(*)
+      real,intent(in) :: sx(*)
       ..
 
 DEFINITION

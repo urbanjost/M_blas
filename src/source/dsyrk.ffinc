@@ -3,16 +3,16 @@ NAME
    dsyrk(3f) - [BLAS:DOUBLE_BLAS_LEVEL3]
 
 SYNOPSIS
-    SUBROUTINE DSYRK(UPLO,TRANS,N,K,ALPHA,A,LDA,BETA,C,LDC)
+    subroutine dsyrk(uplo,trans,n,k,alpha,a,lda,beta,c,ldc)
 
       .. Scalar Arguments ..
-      DOUBLE PRECISION,intent(in)    :: ALPHA,BETA
-      INTEGER,intent(in)             :: K,LDA,LDC,N
-      CHARACTER,intent(in)           :: TRANS,UPLO
+      double precision,intent(in)    :: alpha,beta
+      integer,intent(in)             :: k,lda,ldc,n
+      character,intent(in)           :: trans,uplo
       ..
       .. Array Arguments ..
-      DOUBLE PRECISION,intent(in)    :: A(LDA,*)
-      DOUBLE PRECISION,intent(inout) :: C(LDC,*)
+      double precision,intent(in)    :: a(lda,*)
+      double precision,intent(inout) :: c(ldc,*)
       ..
 
 DEFINITION

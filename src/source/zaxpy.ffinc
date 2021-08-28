@@ -3,15 +3,15 @@ NAME
    zaxpy(3f) - [BLAS:COMPLEX16_BLAS_LEVEL1]
 
 SYNOPSIS
-    SUBROUTINE ZAXPY(N,ZA,ZX,INCX,ZY,INCY)
+    subroutine zaxpy(n,za,zx,incx,zy,incy)
 
 !     .. Scalar Arguments ..
-      complex(kind=real64),intent(in)    :: ZA
-      INTEGER,intent(in)                 :: INCX,INCY,N
+      complex(kind=real64),intent(in)    :: za
+      integer,intent(in)                 :: incx,incy,n
 !     ..
 !     .. Array Arguments ..
-      complex(kind=real64),intent(in)    :: ZX(*)
-      complex(kind=real64),intent(inout) :: ZY(*)
+      complex(kind=real64),intent(in)    :: zx(*)
+      complex(kind=real64),intent(inout) :: zy(*)
 !     ..
 
 DEFINITION

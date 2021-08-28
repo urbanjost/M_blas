@@ -3,16 +3,16 @@ NAME
    dspr2(3f) - [BLAS:DOUBLE_BLAS_LEVEL2]
 
 SYNOPSIS
-    SUBROUTINE DSPR2(UPLO,N,ALPHA,X,INCX,Y,INCY,AP)
+    subroutine dspr2(uplo,n,alpha,x,incx,y,incy,ap)
 
       .. Scalar Arguments ..
-      DOUBLE PRECISION,intent(in)    :: ALPHA
-      INTEGER,intent(in)             :: INCX,INCY,N
-      CHARACTER,intent(in)            :: UPLO
+      double precision,intent(in)    :: alpha
+      integer,intent(in)             :: incx,incy,n
+      character,intent(in)            :: uplo
       ..
       .. Array Arguments ..
-      DOUBLE PRECISION,intent(inout) :: AP(*)
-      DOUBLE PRECISION,intent(in)    :: X(*),Y(*)
+      double precision,intent(inout) :: ap(*)
+      double precision,intent(in)    :: x(*),y(*)
       ..
 
 DEFINITION

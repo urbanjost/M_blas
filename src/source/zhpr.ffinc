@@ -3,16 +3,16 @@ NAME
    zhpr(3f) - [BLAS:COMPLEX_16_BLAS_LEVEL2]
 
 SYNOPSIS
-    SUBROUTINE ZHPR(UPLO,N,ALPHA,X,INCX,AP)
+    subroutine zhpr(uplo,n,alpha,x,incx,ap)
 
       .. Scalar Arguments ..
-      DOUBLE PRECISION ,intent(in)       :: ALPHA
-      INTEGER ,intent(in)                :: INCX,N
-      CHARACTER,intent(in)               :: UPLO
+      double precision ,intent(in)       :: alpha
+      integer ,intent(in)                :: incx,n
+      character,intent(in)               :: uplo
       ..
       .. Array Arguments ..
-      complex(kind=real64),intent(in)    :: X(*)
-      complex(kind=real64),intent(inout) :: AP(*)
+      complex(kind=real64),intent(in)    :: x(*)
+      complex(kind=real64),intent(inout) :: ap(*)
       ..
 
 DEFINITION

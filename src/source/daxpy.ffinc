@@ -3,15 +3,15 @@ NAME
    daxpy(3f) - [BLAS:DOUBLE_BLAS_LEVEL1] constant times a vector plus a vector.
 
 SYNOPSIS
-    SUBROUTINE DAXPY(N,DA,DX,INCX,DY,INCY)
+    subroutine daxpy(n,da,dx,incx,dy,incy)
 
       .. Scalar Arguments ..
-      DOUBLE PRECISION,intent(in)    :: DA
-      INTEGER,intent(in)             :: INCX,INCY,N
+      double precision,intent(in)    :: da
+      integer,intent(in)             :: incx,incy,n
       ..
       .. Array Arguments ..
-      DOUBLE PRECISION,intent(in)    :: DX(*)
-      DOUBLE PRECISION,intent(inout) :: DY(*)
+      double precision,intent(in)    :: dx(*)
+      double precision,intent(inout) :: dy(*)
       ..
 
 DEFINITION

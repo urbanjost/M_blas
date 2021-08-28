@@ -3,14 +3,14 @@ NAME
    zdscal(3f) - [BLAS:COMPLEX16_BLAS_LEVEL1]
 
 SYNOPSIS
-    SUBROUTINE ZDSCAL(N,DA,ZX,INCX)
+    subroutine zdscal(n,da,zx,incx)
 
       .. Scalar Arguments ..
-      DOUBLE PRECISION,intent(in) :: DA
-      INTEGER,intent(in) :: INCX,N
+      double precision,intent(in) :: da
+      integer,intent(in) :: incx,n
       ..
       .. Array Arguments ..
-      complex(kind=real64),intent(inout) :: ZX(*)
+      complex(kind=real64),intent(inout) :: zx(*)
       ..
 
 DEFINITION

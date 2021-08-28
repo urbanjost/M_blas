@@ -3,16 +3,16 @@ NAME
    ssymm(3f) - [BLAS:SINGLE_BLAS_LEVEL3] C:=alpha*A*B+beta*C, A symmetric, B, C rectangular.
 
 SYNOPSIS
-    SUBROUTINE SSYMM(SIDE,UPLO,M,N,ALPHA,A,LDA,B,LDB,BETA,C,LDC)
+    subroutine ssymm(side,uplo,m,n,alpha,a,lda,b,ldb,beta,c,ldc)
 
       .. Scalar Arguments ..
-      REAL,intent(in)      :: ALPHA,BETA
-      INTEGER,intent(in)   :: LDA,LDB,LDC,M,N
-      CHARACTER,intent(in) :: SIDE,UPLO
+      real,intent(in)      :: alpha,beta
+      integer,intent(in)   :: lda,ldb,ldc,m,n
+      character,intent(in) :: side,uplo
       ..
       .. Array Arguments ..
-      REAL,intent(in)      :: A(LDA,*),B(LDB,*)
-      REAL,intent(inout)   :: C(LDC,*)
+      real,intent(in)      :: a(lda,*),b(ldb,*)
+      real,intent(inout)   :: c(ldc,*)
       ..
 
 DEFINITION

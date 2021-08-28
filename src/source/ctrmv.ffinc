@@ -4,15 +4,15 @@ NAME
 CX := A*CX, A is a triangular matrix.
 
 SYNOPSIS
-    SUBROUTINE CTRMV(UPLO,TRANS,DIAG,N,A,LDA,X,INCX)
+    subroutine ctrmv(uplo,trans,diag,n,a,lda,x,incx)
 
       .. Scalar Arguments ..
-      INTEGER,intent(in)    :: INCX,LDA,N
-      CHARACTER,intent(in)  :: DIAG,TRANS,UPLO
+      integer,intent(in)    :: incx,lda,n
+      character,intent(in)  :: diag,trans,uplo
       ..
       .. Array Arguments ..
-      COMPLEX,intent(in)    :: A(LDA,*)
-      COMPLEX,intent(inout) :: X(*)
+      complex,intent(in)    :: a(lda,*)
+      complex,intent(inout) :: x(*)
       ..
 
 DEFINITION

@@ -4,16 +4,16 @@ NAME
 SY:=alpha*A*SX+beta*SY, A a rectangular matrix.
 
 SYNOPSIS
-    SUBROUTINE SGEMV(TRANS,M,N,ALPHA,A,LDA,X,INCX,BETA,Y,INCY)
+    subroutine sgemv(trans,m,n,alpha,a,lda,x,incx,beta,y,incy)
 
       .. Scalar Arguments ..
-      REAL,intent(in)      :: ALPHA,BETA
-      INTEGER,intent(in)   :: INCX,INCY,LDA,M,N
-      CHARACTER,intent(in) :: TRANS
+      real,intent(in)      :: alpha,beta
+      integer,intent(in)   :: incx,incy,lda,m,n
+      character,intent(in) :: trans
       ..
       .. Array Arguments ..
-      REAL,intent(in)    :: A(LDA,*),X(*)
-      REAL,intent(inout) :: Y(*)
+      real,intent(in)    :: a(lda,*),x(*)
+      real,intent(inout) :: y(*)
       ..
 
 DEFINITION

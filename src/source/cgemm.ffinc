@@ -4,16 +4,16 @@ NAME
 
 SYNOPSIS
 
-    SUBROUTINE CGEMM(TRANSA,TRANSB,M,N,K,ALPHA,A,LDA,B,LDB,BETA,C,LDC)
+    subroutine cgemm(transa,transb,m,n,k,alpha,a,lda,b,ldb,beta,c,ldc)
 
       .. Scalar Arguments ..
-      COMPLEX,intent(in)    :: ALPHA,BETA
-      INTEGER,intent(in)    :: K,LDA,LDB,LDC,M,N
-      CHARACTER,intent(in)  :: TRANSA,TRANSB
+      complex,intent(in)    :: alpha,beta
+      integer,intent(in)    :: k,lda,ldb,ldc,m,n
+      character,intent(in)  :: transa,transb
       ..
       .. Array Arguments ..
-      COMPLEX,intent(in)    :: A(LDA,*),B(LDB,*)
-      COMPLEX,intent(inout) :: C(LDC,*)
+      complex,intent(in)    :: a(lda,*),b(ldb,*)
+      complex,intent(inout) :: c(ldc,*)
       ..
 
 DEFINITION

@@ -4,7 +4,7 @@ NAME
    a vector via the function name
 
 SYNOPSIS
-    DOUBLE PRECISION FUNCTION DNRM2(N,X,INCX)
+    double precision function dnrm2(n,x,incx)
 
       .. Scalar Arguments ..
       integer,intent(in) :: incx, n

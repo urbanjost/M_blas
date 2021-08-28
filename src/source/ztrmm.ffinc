@@ -3,16 +3,16 @@ NAME
    ztrmm(3f) - [BLAS:COMPLEX16_BLAS_LEVEL3]
 
 SYNOPSIS
-    SUBROUTINE ZTRMM(SIDE,UPLO,TRANSA,DIAG,M,N,ALPHA,A,LDA,B,LDB)
+    subroutine ztrmm(side,uplo,transa,diag,m,n,alpha,a,lda,b,ldb)
 
       .. Scalar Arguments ..
-      complex(kind=real64),intent(in)    :: ALPHA
-      INTEGER,intent(in)                 :: LDA,LDB,M,N
-      CHARACTER,intent(in)               :: DIAG,SIDE,TRANSA,UPLO
+      complex(kind=real64),intent(in)    :: alpha
+      integer,intent(in)                 :: lda,ldb,m,n
+      character,intent(in)               :: diag,side,transa,uplo
       ..
       .. Array Arguments ..
-      complex(kind=real64),intent(in)    :: A(LDA,*)
-      complex(kind=real64),intent(inout) :: B(LDB,*)
+      complex(kind=real64),intent(in)    :: a(lda,*)
+      complex(kind=real64),intent(inout) :: b(ldb,*)
       ..
 
 DEFINITION

@@ -3,14 +3,14 @@ NAME
    srotm(3f) - [BLAS:SINGLE_BLAS_LEVEL1] Apply a modified Given's rotation.
 
 SYNOPSIS
-    SUBROUTINE SROTM(N,SX,INCX,SY,INCY,SPARAM)
+    subroutine srotm(n,sx,incx,sy,incy,sparam)
 
       .. Scalar Arguments ..
-      INTEGER,intent(in) :: INCX,INCY,N
+      integer,intent(in) :: incx,incy,n
       ..
       .. Array Arguments ..
-      REAL,intent(in)    :: SPARAM(5)
-      REAL,intent(inout) :: SX(*),SY(*)
+      real,intent(in)    :: sparam(5)
+      real,intent(inout) :: sx(*),sy(*)
       ..
 
 DEFINITION

@@ -3,16 +3,16 @@ NAME
    dspmv(3f) - [BLAS:DOUBLE_BLAS_LEVEL2]
 
 SYNOPSIS
-    SUBROUTINE DSPMV(UPLO,N,ALPHA,AP,X,INCX,BETA,Y,INCY)
+    subroutine dspmv(uplo,n,alpha,ap,x,incx,beta,y,incy)
 
       .. Scalar Arguments ..
-      DOUBLE PRECISION,intent(in)    :: ALPHA,BETA
-      INTEGER,intent(in)             :: INCX,INCY,N
-      CHARACTER,intent(in)           :: UPLO
+      double precision,intent(in)    :: alpha,beta
+      integer,intent(in)             :: incx,incy,n
+      character,intent(in)           :: uplo
       ..
       .. Array Arguments ..
-      DOUBLE PRECISION,intent(in)    :: AP(*),X(*)
-      DOUBLE PRECISION,intent(inout) :: Y(*)
+      double precision,intent(in)    :: ap(*),x(*)
+      double precision,intent(inout) :: y(*)
       ..
 
 DEFINITION

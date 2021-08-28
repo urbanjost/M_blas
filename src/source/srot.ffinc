@@ -3,14 +3,14 @@ NAME
    srot(3f) - [BLAS:SINGLE_BLAS_LEVEL1] Apply Given's rotation.
 
 SYNOPSIS
-    SUBROUTINE SROT(N,SX,INCX,SY,INCY,C,S)
+    subroutine srot(n,sx,incx,sy,incy,c,s)
 
       .. Scalar Arguments ..
-      REAL,intent(in)    :: C,S
-      INTEGER,intent(in) :: INCX,INCY,N
+      real,intent(in)    :: c,s
+      integer,intent(in) :: incx,incy,n
       ..
       .. Array Arguments ..
-      REAL,intent(inout) :: SX(*),SY(*)
+      real,intent(inout) :: sx(*),sy(*)
       ..
 
 DEFINITION

@@ -3,7 +3,7 @@ NAME
    dsyr2k(3f) - [BLAS:DOUBLE_BLAS_LEVEL3]
 
 SYNOPSIS
-    SUBROUTINE DSYR2K(UPLO,TRANS,N,K,ALPHA,A,LDA,B,LDB,BETA,C,LDC)
+    subroutine dsyr2k(uplo,trans,n,k,alpha,a,lda,b,ldb,beta,c,ldc)
 
       .. Scalar Arguments ..
       double precision,intent(in)    :: alpha,beta

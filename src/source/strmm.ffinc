@@ -3,16 +3,16 @@ NAME
    strmm(3f) - [BLAS:SINGLE_BLAS_LEVEL3] B:=A*B or B:=B*A, A triangular, B rectangular.
 
 SYNOPSIS
-    SUBROUTINE STRMM(SIDE,UPLO,TRANSA,DIAG,M,N,ALPHA,A,LDA,B,LDB)
+    subroutine strmm(side,uplo,transa,diag,m,n,alpha,a,lda,b,ldb)
 
       .. Scalar Arguments ..
-      REAL,intent(in)      :: ALPHA
-      INTEGER,intent(in)   :: LDA,LDB,M,N
-      CHARACTER,intent(in) :: DIAG,SIDE,TRANSA,UPLO
+      real,intent(in)      :: alpha
+      integer,intent(in)   :: lda,ldb,m,n
+      character,intent(in) :: diag,side,transa,uplo
       ..
       .. Array Arguments ..
-      REAL,intent(in)      :: A(LDA,*)
-      REAL,intent(inout)   :: B(LDB,*)
+      real,intent(in)      :: a(lda,*)
+      real,intent(inout)   :: b(ldb,*)
       ..
 
 DEFINITION

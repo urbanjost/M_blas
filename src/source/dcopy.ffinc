@@ -4,7 +4,7 @@ NAME
                x, to a vector, y.
 
 SYNOPSIS
-    SUBROUTINE DCOPY(N,DX,INCX,DY,INCY)
+    subroutine dcopy(n,dx,incx,dy,incy)
 
       .. Scalar Arguments ..
       integer,intent(in)           :: incx,incy,n

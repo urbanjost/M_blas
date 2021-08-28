@@ -4,7 +4,7 @@ NAME
    |Re(.)| + |Im(.)| of a double complex number
 
 SYNOPSIS
-    DOUBLE PRECISION FUNCTION DCABS1(Z)
+    double precision function dcabs1(z)
 
       .. Scalar Arguments ..
       complex(kind=real64),intent(in) ::  Z

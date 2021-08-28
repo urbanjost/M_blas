@@ -4,16 +4,16 @@ NAME
 SY:=alpha*A*SX+beta*SY, A a band matrix.
 
 SYNOPSIS
-    SUBROUTINE SGBMV(TRANS,M,N,KL,KU,ALPHA,A,LDA,X,INCX,BETA,Y,INCY)
+    subroutine sgbmv(trans,m,n,kl,ku,alpha,a,lda,x,incx,beta,y,incy)
 
       .. Scalar Arguments ..
-      REAL,intent(in)             :: ALPHA,BETA
-      INTEGER,intent(in)          :: INCX,INCY,KL,KU,LDA,M,N
-      CHARACTER(len=1),intent(in) :: TRANS
+      real,intent(in)             :: alpha,beta
+      integer,intent(in)          :: incx,incy,kl,ku,lda,m,n
+      character(len=1),intent(in) :: trans
       ..
       .. Array Arguments ..
-      REAL,intent(in)    :: A(LDA,*),X(*)
-      REAL,intent(inout) :: Y(*)
+      real,intent(in)    :: a(lda,*),x(*)
+      real,intent(inout) :: y(*)
       ..
 
 DEFINITION

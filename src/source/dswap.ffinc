@@ -3,13 +3,13 @@ NAME
    dswap(3f) - [BLAS:DOUBLE_BLAS_LEVEL1] interchanges two vectors.
 
 SYNOPSIS
-    SUBROUTINE DSWAP(N,DX,INCX,DY,INCY)
+    subroutine dswap(n,dx,incx,dy,incy)
 
       .. Scalar Arguments ..
-      INTEGER,intent(in)             :: INCX,INCY,N
+      integer,intent(in)             :: incx,incy,n
       ..
       .. Array Arguments ..
-      DOUBLE PRECISION,intent(inout) :: DX(*),DY(*)
+      double precision,intent(inout) :: dx(*),dy(*)
       ..
 
 DEFINITION

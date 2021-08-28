@@ -3,13 +3,13 @@ NAME
    ddot(3f) - [BLAS:DOUBLE_BLAS_LEVEL1] forms the dot product of two vectors.
 
 SYNOPSIS
-    DOUBLE PRECISION FUNCTION DDOT(N,DX,INCX,DY,INCY)
+    double precision function ddot(n,dx,incx,dy,incy)
 
       .. Scalar Arguments ..
-      INTEGER,intent(in) :: INCX,INCY,N
+      integer,intent(in) :: incx,incy,n
       ..
       .. Array Arguments ..
-      DOUBLE PRECISION,intent(in) :: DX(*),DY(*)
+      double precision,intent(in) :: dx(*),dy(*)
       ..
 
 DEFINITION

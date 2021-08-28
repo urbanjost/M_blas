@@ -4,16 +4,16 @@ NAME
 C:=alpha*A*B+beta*C, A, B, C rectangular.
 
 SYNOPSIS
-    SUBROUTINE SGEMM(TRANSA,TRANSB,M,N,K,ALPHA,A,LDA,B,LDB,BETA,C,LDC)
+    subroutine sgemm(transa,transb,m,n,k,alpha,a,lda,b,ldb,beta,c,ldc)
 
       .. Scalar Arguments ..
-      REAL,intent(in)      :: ALPHA,BETA
-      INTEGER,intent(in)   :: K,LDA,LDB,LDC,M,N
-      CHARACTER,intent(in) :: TRANSA,TRANSB
+      real,intent(in)      :: alpha,beta
+      integer,intent(in)   :: k,lda,ldb,ldc,m,n
+      character,intent(in) :: transa,transb
       ..
       .. Array Arguments ..
-      REAL,intent(in)    :: A(LDA,*),B(LDB,*)
-      REAL,intent(inout) :: C(LDC,*)
+      real,intent(in)    :: a(lda,*),b(ldb,*)
+      real,intent(inout) :: c(ldc,*)
       ..
 
 DEFINITION

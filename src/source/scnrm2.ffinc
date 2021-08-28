@@ -3,7 +3,7 @@ NAME
    scnrm2(3f) - [BLAS:SINGLE_BLAS_LEVEL1] SCNRM2:= square root of sum of magnitudes of entries of CX.
 
 SYNOPSIS
-    REAL FUNCTION SCNRM2(N,X,INCX)
+    real function scnrm2(n,x,incx)
 
      ..
      .. Scalar Arguments ..

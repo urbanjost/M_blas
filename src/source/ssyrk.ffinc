@@ -3,16 +3,16 @@ NAME
    ssyrk(3f) - [BLAS:SINGLE_BLAS_LEVEL3] C:=alpha*A*TRANSPOSE(A)+beta*C, C symmetric.
 
 SYNOPSIS
-    SUBROUTINE SSYRK(UPLO,TRANS,N,K,ALPHA,A,LDA,BETA,C,LDC)
+    subroutine ssyrk(uplo,trans,n,k,alpha,a,lda,beta,c,ldc)
 
       .. Scalar Arguments ..
-      REAL,intent(in)      :: ALPHA,BETA
-      INTEGER,intent(in)   :: K,LDA,LDC,N
-      CHARACTER,intent(in) :: TRANS,UPLO
+      real,intent(in)      :: alpha,beta
+      integer,intent(in)   :: k,lda,ldc,n
+      character,intent(in) :: trans,uplo
       ..
       .. Array Arguments ..
-      REAL,intent(in)      :: A(LDA,*)
-      REAL,intent(inout)   :: C(LDC,*)
+      real,intent(in)      :: a(lda,*)
+      real,intent(inout)   :: c(ldc,*)
       ..
 
 DEFINITION

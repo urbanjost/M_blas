@@ -3,14 +3,14 @@ NAME
    srotmg(3f) - [BLAS:SINGLE_BLAS_LEVEL1] Generate a modified Given's rotation.
 
 SYNOPSIS
-    SUBROUTINE SROTMG(SD1,SD2,SX1,SY1,SPARAM)
+    subroutine srotmg(sd1,sd2,sx1,sy1,sparam)
 
       .. Scalar Arguments ..
-      REAL,intent(inout) :: SD1,SD2,SX1
-      REAL,intent(in)    :: SY1
+      real,intent(inout) :: sd1,sd2,sx1
+      real,intent(in)    :: sy1
       ..
       .. Array Arguments ..
-      REAL,intent(out)   :: SPARAM(5)
+      real,intent(out)   :: sparam(5)
       ..
 
 DEFINITION
