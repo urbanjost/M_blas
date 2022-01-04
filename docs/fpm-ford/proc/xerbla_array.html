@@ -7,10 +7,10 @@
    
    <meta name="description" content="BLAS - Basic Linear Algebra Subroutines">
     
-    <meta name="author" content="John S. Urban and many others" >
+    <meta name="author" content="many others" >
     <link rel="icon" href="../favicon.png">
 
-    <title>XERBLA_ARRAY &ndash; M_blas</title>
+    <title>xerbla_array &ndash; M_blas</title>
 
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/pygments.css" rel="stylesheet">
@@ -112,7 +112,7 @@
     
   
   <div class="row">
-    <h1>XERBLA_ARRAY
+    <h1>xerbla_array
       <small>Subroutine</small>
     
     </h1>
@@ -147,7 +147,7 @@
      <li><a href='../module/m_blas.html'>M_blas</a></li>
     
   
-     <li class="active">XERBLA_ARRAY</li>
+     <li class="active">xerbla_array</li>
   </ol>
 </div>
 </div>
@@ -175,9 +175,9 @@
   <div id="vars-0" class="panel-collapse collapse">
     <div class="list-group">
       
-      <a class="list-group-item" href="../proc/xerbla_array.html#variable-i~214">I</a>
+      <a class="list-group-item" href="../proc/xerbla_array.html#variable-i~110">i</a>
       
-      <a class="list-group-item" href="../proc/xerbla_array.html#variable-srname~2">SRNAME</a>
+      <a class="list-group-item" href="../proc/xerbla_array.html#variable-srname~2">srname</a>
       
     </div>
   </div>
@@ -205,7 +205,7 @@
 <div class="panel panel-primary">
   <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
   <div class="list-group">
-    <a class="list-group-item" href="../proc/xerbla_array.html#src">XERBLA_ARRAY</a>
+    <a class="list-group-item" href="../proc/xerbla_array.html#src">xerbla_array</a>
   </div>
 </div>
 
@@ -217,7 +217,7 @@
     
     <div class="col-md-9" id='text'>
     <h2>
-public subroutine XERBLA_ARRAY(SRNAME_ARRAY, SRNAME_LEN, INFO)
+public subroutine xerbla_array(srname_array, srname_len, info)
     
     
    
@@ -228,27 +228,27 @@ public subroutine XERBLA_ARRAY(SRNAME_ARRAY, SRNAME_LEN, INFO)
 
     
     <h2 id="name">NAME</h2>
-<div class="codehilite"><pre><span></span><code>xerbla_array.(3f) -- [BLAS:AUX_BLAS]
+<div class="codehilite"><pre><span></span><code>xerbla_array(3f) - [BLAS:AUX_BLAS] call XERBLA(3f) with an array of characters instead of a string
 </code></pre></div>
 
 <h2 id="synopsis">SYNOPSIS</h2>
-<div class="codehilite"><pre><span></span><code> SUBROUTINE XERBLA_ARRAY(SRNAME_ARRAY, SRNAME_LEN, INFO)
+<div class="codehilite"><pre><span></span><code> subroutine xerbla_array(srname_array, srname_len, info)
 
     .. Scalar Arguments ..
-    INTEGER SRNAME_LEN, INFO
+    integer srname_len, info
     ..
     .. Array Arguments ..
-    CHARACTER(*) SRNAME_ARRAY(SRNAME_LEN)
+    character(*) srname_array(srname_len)
     ..
 </code></pre></div>
 
 <h2 id="definition">DEFINITION</h2>
 <p>XERBLA_ARRAY assists other languages in calling XERBLA, the LAPACK
-  and BLAS error handler.  Rather than taking a Fortran string argument
+  and BLAS error handler. Rather than taking a Fortran string argument
   as the function&rsquo;s name, XERBLA_ARRAY takes an array of single
-  characters along with the array&rsquo;s length.  XERBLA_ARRAY then copies
+  characters along with the array&rsquo;s length. XERBLA_ARRAY then copies
   up to 32 characters of that array into a Fortran string and passes
-  that to XERBLA.  If called with a non-positive SRNAME_LEN,
+  that to XERBLA. If called with a non-positive SRNAME_LEN,
   XERBLA_ARRAY will call XERBLA with a string of all blank characters.</p>
 <p>Say some macro or other device makes XERBLA_ARRAY available to C99
   by a name lapack_xerbla and with a common Fortran calling convention.
@@ -258,7 +258,7 @@ public subroutine XERBLA_ARRAY(SRNAME_ARRAY, SRNAME_LEN, INFO)
        lapack_xerbla(<strong>func</strong>, &amp;flen, &amp;info);
      }</p>
 <p>Providing XERBLA_ARRAY is not necessary for intercepting LAPACK
-  errors.  XERBLA_ARRAY calls XERBLA.</p>
+  errors. XERBLA_ARRAY calls XERBLA.</p>
 <h2 id="options">OPTIONS</h2>
 <p>SRNAME_ARRAY</p>
 <div class="codehilite"><pre><span></span><code>       SRNAME_ARRAY is CHARACTER(*) array, dimension (SRNAME_LEN)
@@ -308,12 +308,12 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-srname_array~2"></span>character(len=*),</td>
+  <td><span class="anchor" id="variable-srname_array"></span>character(len=*),</td>
   <td>intent(in)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>SRNAME_ARRAY</strong>(SRNAME_LEN)</td><td></td>
+  <td><strong>srname_array</strong>(srname_len)</td><td></td>
   
 </tr>
 
@@ -323,12 +323,12 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-srname_len~2"></span>integer,</td>
+  <td><span class="anchor" id="variable-srname_len"></span>integer,</td>
   <td>intent(in)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>SRNAME_LEN</strong></td><td></td>
+  <td><strong>srname_len</strong></td><td></td>
   
 </tr>
 
@@ -338,12 +338,12 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-info~71"></span>integer,</td>
+  <td><span class="anchor" id="variable-info~72"></span>integer,</td>
   <td>intent(in)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>INFO</strong></td><td></td>
+  <td><strong>info</strong></td><td></td>
   
 </tr>
 
@@ -369,9 +369,9 @@ http://www.netlib.org/lapack/explore-html/
   <div id="vars-1" class="panel-collapse collapse">
     <div class="list-group">
       
-      <a class="list-group-item" href="../proc/xerbla_array.html#variable-i~214">I</a>
+      <a class="list-group-item" href="../proc/xerbla_array.html#variable-i~110">i</a>
       
-      <a class="list-group-item" href="../proc/xerbla_array.html#variable-srname~2">SRNAME</a>
+      <a class="list-group-item" href="../proc/xerbla_array.html#variable-srname~2">srname</a>
       
     </div>
   </div>
@@ -399,7 +399,7 @@ http://www.netlib.org/lapack/explore-html/
 <div class="panel panel-primary">
   <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
   <div class="list-group">
-    <a class="list-group-item" href="../proc/xerbla_array.html#src">XERBLA_ARRAY</a>
+    <a class="list-group-item" href="../proc/xerbla_array.html#src">xerbla_array</a>
   </div>
 </div>
 
@@ -429,11 +429,11 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-i~214"></span>integer,</td>
+  <td><span class="anchor" id="variable-i~110"></span>integer,</td>
   
   <td>public</td>
   <td></td><td>::</td>
-  <td><strong>I</strong></td><td></td><td></td><td></td>
+  <td><strong>i</strong></td><td></td><td></td><td></td>
   
 </tr>
 
@@ -447,7 +447,7 @@ http://www.netlib.org/lapack/explore-html/
   
   <td>public</td>
   <td></td><td>::</td>
-  <td><strong>SRNAME</strong></td><td></td><td></td><td></td>
+  <td><strong>srname</strong></td><td></td><td></td><td></td>
   
 </tr>
 
@@ -474,7 +474,7 @@ http://www.netlib.org/lapack/explore-html/
     
     <section>
     <h2><span class="anchor" id="src"></span>Source Code</h2>
-    <div class="highlight"><pre><span></span>       <span class="k">SUBROUTINE </span><span class="n">XERBLA_ARRAY</span><span class="p">(</span><span class="n">SRNAME_ARRAY</span><span class="p">,</span> <span class="n">SRNAME_LEN</span><span class="p">,</span> <span class="n">INFO</span><span class="p">)</span>
+    <div class="highlight"><pre><span></span>       <span class="k">subroutine </span><span class="n">xerbla_array</span><span class="p">(</span><span class="n">srname_array</span><span class="p">,</span> <span class="n">srname_len</span><span class="p">,</span> <span class="n">info</span><span class="p">)</span>
       <span class="k">implicit none</span>
 <span class="c">!</span>
 <span class="c">!  -- Reference BLAS level1 routine (version 3.7.0) --</span>
@@ -483,36 +483,36 @@ http://www.netlib.org/lapack/explore-html/
 <span class="c">!     December 2016</span>
 <span class="c">!</span>
 <span class="c">!     .. Scalar Arguments ..</span>
-      <span class="kt">INTEGER</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="n">SRNAME_LEN</span><span class="p">,</span> <span class="n">INFO</span>
+      <span class="kt">integer</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="n">srname_len</span><span class="p">,</span> <span class="n">info</span>
 <span class="c">!     ..</span>
 <span class="c">!     .. Array Arguments ..</span>
-      <span class="kt">CHARACTER</span><span class="p">(</span><span class="nb">len</span><span class="o">=*</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="n">SRNAME_ARRAY</span><span class="p">(</span><span class="n">SRNAME_LEN</span><span class="p">)</span>
+      <span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=*</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="n">srname_array</span><span class="p">(</span><span class="n">srname_len</span><span class="p">)</span>
 <span class="c">!     ..</span>
 <span class="c">!</span>
 <span class="c">! =====================================================================</span>
 <span class="c">!</span>
 <span class="c">!     ..</span>
 <span class="c">!     .. Local Scalars ..</span>
-      <span class="kt">INTEGER </span><span class="n">I</span>
+      <span class="kt">integer </span><span class="n">i</span>
 <span class="c">!     ..</span>
 <span class="c">!     .. Local Arrays ..</span>
-      <span class="kt">CHARACTER</span><span class="o">*</span><span class="mi">32</span> <span class="n">SRNAME</span>
+      <span class="kt">character</span><span class="o">*</span><span class="mi">32</span> <span class="n">srname</span>
 <span class="c">!     ..</span>
 <span class="c">!     .. Intrinsic Functions ..</span>
-      <span class="k">INTRINSIC </span><span class="nb">MIN</span><span class="p">,</span> <span class="nb">LEN</span>
+      <span class="k">intrinsic </span><span class="nb">min</span><span class="p">,</span> <span class="nb">len</span>
 <span class="c">!     ..</span>
 <span class="c">!     .. External Functions ..</span>
 <span class="c">!      EXTERNAL XERBLA</span>
 <span class="c">!     ..</span>
 <span class="c">!     .. Executable Statements ..</span>
-      <span class="n">SRNAME</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
-      <span class="k">DO </span><span class="n">I</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">MIN</span><span class="p">(</span> <span class="n">SRNAME_LEN</span><span class="p">,</span> <span class="nb">LEN</span><span class="p">(</span> <span class="n">SRNAME</span> <span class="p">)</span> <span class="p">)</span>
-         <span class="n">SRNAME</span><span class="p">(</span> <span class="n">I</span><span class="p">:</span><span class="n">I</span> <span class="p">)</span> <span class="o">=</span> <span class="n">SRNAME_ARRAY</span><span class="p">(</span> <span class="n">I</span> <span class="p">)</span>
+      <span class="n">srname</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+      <span class="k">do </span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span> <span class="n">srname_len</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span> <span class="n">srname</span> <span class="p">)</span> <span class="p">)</span>
+         <span class="n">srname</span><span class="p">(</span> <span class="n">i</span><span class="p">:</span><span class="n">i</span> <span class="p">)</span> <span class="o">=</span> <span class="n">srname_array</span><span class="p">(</span> <span class="n">i</span> <span class="p">)</span>
       <span class="k">enddo</span>
 
-<span class="k">      CALL </span><span class="n">XERBLA</span><span class="p">(</span> <span class="n">SRNAME</span><span class="p">,</span> <span class="n">INFO</span> <span class="p">)</span>
+<span class="k">      call </span><span class="n">xerbla</span><span class="p">(</span> <span class="n">srname</span><span class="p">,</span> <span class="n">info</span> <span class="p">)</span>
 
-      <span class="k">END SUBROUTINE </span><span class="n">XERBLA_ARRAY</span>
+      <span class="k">end subroutine </span><span class="n">xerbla_array</span>
 </pre></div>
 
     </section>
@@ -528,16 +528,16 @@ http://www.netlib.org/lapack/explore-html/
     <footer>
       <div class="container">
       <div class="row">
-        <div class="col-xs-6 col-md-4"><p>&copy; 2021 
+        <div class="col-xs-6 col-md-4"><p>&copy; 2022 
                                           </p></div>
         <div class="col-xs-6 col-md-4 col-md-push-4">
           <p class="text-right">
             Documentation generated by 
             <a href="https://github.com/cmacmackin/ford">FORD</a>
-             on 2021-08-23 15:25  
+             on 2022-01-03 21:31  
           </p>
         </div>
-        <div class="col-xs-12 col-md-4 col-md-pull-4"><p class="text-center"> M_blas was developed by John S. Urban and many others</p></div>
+        <div class="col-xs-12 col-md-4 col-md-pull-4"><p class="text-center"> M_blas was developed by many others</p></div>
       </div>
       <br>
       </div> <!-- /container -->    

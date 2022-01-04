@@ -7,10 +7,10 @@
    
    <meta name="description" content="BLAS - Basic Linear Algebra Subroutines">
     
-    <meta name="author" content="John S. Urban and many others" >
+    <meta name="author" content="many others" >
     <link rel="icon" href="../favicon.png">
 
-    <title>DSWAP &ndash; M_blas</title>
+    <title>dswap &ndash; M_blas</title>
 
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/pygments.css" rel="stylesheet">
@@ -112,7 +112,7 @@
     
   
   <div class="row">
-    <h1>DSWAP
+    <h1>dswap
       <small>Subroutine</small>
     
     </h1>
@@ -147,7 +147,7 @@
      <li><a href='../module/m_blas.html'>M_blas</a></li>
     
   
-     <li class="active">DSWAP</li>
+     <li class="active">dswap</li>
   </ol>
 </div>
 </div>
@@ -175,17 +175,17 @@
   <div id="vars-0" class="panel-collapse collapse">
     <div class="list-group">
       
-      <a class="list-group-item" href="../proc/dswap.html#variable-dtemp~9">DTEMP</a>
+      <a class="list-group-item" href="../proc/dswap.html#variable-dtemp~5">dtemp</a>
       
-      <a class="list-group-item" href="../proc/dswap.html#variable-i~172">I</a>
+      <a class="list-group-item" href="../proc/dswap.html#variable-i~67">i</a>
       
-      <a class="list-group-item" href="../proc/dswap.html#variable-ix~66">IX</a>
+      <a class="list-group-item" href="../proc/dswap.html#variable-ix~46">ix</a>
       
-      <a class="list-group-item" href="../proc/dswap.html#variable-iy~42">IY</a>
+      <a class="list-group-item" href="../proc/dswap.html#variable-iy~26">iy</a>
       
-      <a class="list-group-item" href="../proc/dswap.html#variable-m~101">M</a>
+      <a class="list-group-item" href="../proc/dswap.html#variable-m~21">m</a>
       
-      <a class="list-group-item" href="../proc/dswap.html#variable-mp1~7">MP1</a>
+      <a class="list-group-item" href="../proc/dswap.html#variable-mp1~8">mp1</a>
       
     </div>
   </div>
@@ -213,7 +213,7 @@
 <div class="panel panel-primary">
   <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
   <div class="list-group">
-    <a class="list-group-item" href="../proc/dswap.html#src">DSWAP</a>
+    <a class="list-group-item" href="../proc/dswap.html#src">dswap</a>
   </div>
 </div>
 
@@ -225,7 +225,7 @@
     
     <div class="col-md-9" id='text'>
     <h2>
-public subroutine DSWAP(N, DX, INCX, DY, INCY)
+public subroutine dswap(n, dx, incx, dy, incy)
     
     
    
@@ -236,17 +236,17 @@ public subroutine DSWAP(N, DX, INCX, DY, INCY)
 
     
     <h2 id="name">NAME</h2>
-<div class="codehilite"><pre><span></span><code>dswap.(3f) -- [BLAS:DOUBLE_BLAS_LEVEL1]
+<div class="codehilite"><pre><span></span><code>dswap(3f) - [BLAS:DOUBLE_BLAS_LEVEL1] interchanges two vectors.
 </code></pre></div>
 
 <h2 id="synopsis">SYNOPSIS</h2>
-<div class="codehilite"><pre><span></span><code> SUBROUTINE DSWAP(N,DX,INCX,DY,INCY)
+<div class="codehilite"><pre><span></span><code> subroutine dswap(n,dx,incx,dy,incy)
 
    .. Scalar Arguments ..
-   INTEGER,intent(in)             :: INCX,INCY,N
+   integer,intent(in)             :: incx,incy,n
    ..
    .. Array Arguments ..
-   DOUBLE PRECISION,intent(inout) :: DX(*),DY(*)
+   double precision,intent(inout) :: dx(*),dy(*)
    ..
 </code></pre></div>
 
@@ -261,7 +261,7 @@ public subroutine DSWAP(N, DX, INCX, DY, INCY)
       number of elements in input vector(s)
 </code></pre></div>
 
-<p>out] DX</p>
+<p>DX</p>
 <div class="codehilite"><pre><span></span><code>       DX is DOUBLE PRECISION array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
 </code></pre></div>
 
@@ -270,7 +270,7 @@ public subroutine DSWAP(N, DX, INCX, DY, INCY)
       storage spacing between elements of DX
 </code></pre></div>
 
-<p>out] DY</p>
+<p>DY</p>
 <div class="codehilite"><pre><span></span><code>       DY is DOUBLE PRECISION array, dimension ( 1 + ( N - 1 )*abs( INCY ) )
 </code></pre></div>
 
@@ -316,12 +316,12 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-n~332"></span>integer,</td>
+  <td><span class="anchor" id="variable-n~67"></span>integer,</td>
   <td>intent(in)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>N</strong></td><td></td>
+  <td><strong>n</strong></td><td></td>
   
 </tr>
 
@@ -331,12 +331,12 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-dx~17"></span>double precision,</td>
+  <td><span class="anchor" id="variable-dx~9"></span>double precision,</td>
   <td>intent(inout)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>DX</strong>(*)</td><td></td>
+  <td><strong>dx</strong>(*)</td><td></td>
   
 </tr>
 
@@ -346,12 +346,12 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-incx~244"></span>integer,</td>
+  <td><span class="anchor" id="variable-incx~57"></span>integer,</td>
   <td>intent(in)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>INCX</strong></td><td></td>
+  <td><strong>incx</strong></td><td></td>
   
 </tr>
 
@@ -361,12 +361,12 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-dy~11"></span>double precision,</td>
+  <td><span class="anchor" id="variable-dy~6"></span>double precision,</td>
   <td>intent(inout)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>DY</strong>(*)</td><td></td>
+  <td><strong>dy</strong>(*)</td><td></td>
   
 </tr>
 
@@ -376,12 +376,12 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-incy~167"></span>integer,</td>
+  <td><span class="anchor" id="variable-incy~33"></span>integer,</td>
   <td>intent(in)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>INCY</strong></td><td></td>
+  <td><strong>incy</strong></td><td></td>
   
 </tr>
 
@@ -407,17 +407,17 @@ http://www.netlib.org/lapack/explore-html/
   <div id="vars-1" class="panel-collapse collapse">
     <div class="list-group">
       
-      <a class="list-group-item" href="../proc/dswap.html#variable-dtemp~9">DTEMP</a>
+      <a class="list-group-item" href="../proc/dswap.html#variable-dtemp~5">dtemp</a>
       
-      <a class="list-group-item" href="../proc/dswap.html#variable-i~172">I</a>
+      <a class="list-group-item" href="../proc/dswap.html#variable-i~67">i</a>
       
-      <a class="list-group-item" href="../proc/dswap.html#variable-ix~66">IX</a>
+      <a class="list-group-item" href="../proc/dswap.html#variable-ix~46">ix</a>
       
-      <a class="list-group-item" href="../proc/dswap.html#variable-iy~42">IY</a>
+      <a class="list-group-item" href="../proc/dswap.html#variable-iy~26">iy</a>
       
-      <a class="list-group-item" href="../proc/dswap.html#variable-m~101">M</a>
+      <a class="list-group-item" href="../proc/dswap.html#variable-m~21">m</a>
       
-      <a class="list-group-item" href="../proc/dswap.html#variable-mp1~7">MP1</a>
+      <a class="list-group-item" href="../proc/dswap.html#variable-mp1~8">mp1</a>
       
     </div>
   </div>
@@ -445,7 +445,7 @@ http://www.netlib.org/lapack/explore-html/
 <div class="panel panel-primary">
   <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
   <div class="list-group">
-    <a class="list-group-item" href="../proc/dswap.html#src">DSWAP</a>
+    <a class="list-group-item" href="../proc/dswap.html#src">dswap</a>
   </div>
 </div>
 
@@ -475,11 +475,11 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-dtemp~9"></span>double precision,</td>
+  <td><span class="anchor" id="variable-dtemp~5"></span>double precision,</td>
   
   <td>public</td>
   <td></td><td>::</td>
-  <td><strong>DTEMP</strong></td><td></td><td></td><td></td>
+  <td><strong>dtemp</strong></td><td></td><td></td><td></td>
   
 </tr>
 
@@ -489,11 +489,11 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-i~172"></span>integer,</td>
+  <td><span class="anchor" id="variable-i~67"></span>integer,</td>
   
   <td>public</td>
   <td></td><td>::</td>
-  <td><strong>I</strong></td><td></td><td></td><td></td>
+  <td><strong>i</strong></td><td></td><td></td><td></td>
   
 </tr>
 
@@ -503,11 +503,11 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-ix~66"></span>integer,</td>
+  <td><span class="anchor" id="variable-ix~46"></span>integer,</td>
   
   <td>public</td>
   <td></td><td>::</td>
-  <td><strong>IX</strong></td><td></td><td></td><td></td>
+  <td><strong>ix</strong></td><td></td><td></td><td></td>
   
 </tr>
 
@@ -517,11 +517,11 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-iy~42"></span>integer,</td>
+  <td><span class="anchor" id="variable-iy~26"></span>integer,</td>
   
   <td>public</td>
   <td></td><td>::</td>
-  <td><strong>IY</strong></td><td></td><td></td><td></td>
+  <td><strong>iy</strong></td><td></td><td></td><td></td>
   
 </tr>
 
@@ -531,11 +531,11 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-m~101"></span>integer,</td>
+  <td><span class="anchor" id="variable-m~21"></span>integer,</td>
   
   <td>public</td>
   <td></td><td>::</td>
-  <td><strong>M</strong></td><td></td><td></td><td></td>
+  <td><strong>m</strong></td><td></td><td></td><td></td>
   
 </tr>
 
@@ -545,11 +545,11 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-mp1~7"></span>integer,</td>
+  <td><span class="anchor" id="variable-mp1~8"></span>integer,</td>
   
   <td>public</td>
   <td></td><td>::</td>
-  <td><strong>MP1</strong></td><td></td><td></td><td></td>
+  <td><strong>mp1</strong></td><td></td><td></td><td></td>
   
 </tr>
 
@@ -576,7 +576,7 @@ http://www.netlib.org/lapack/explore-html/
     
     <section>
     <h2><span class="anchor" id="src"></span>Source Code</h2>
-    <div class="highlight"><pre><span></span>       <span class="k">SUBROUTINE </span><span class="n">DSWAP</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">DX</span><span class="p">,</span><span class="n">INCX</span><span class="p">,</span><span class="n">DY</span><span class="p">,</span><span class="n">INCY</span><span class="p">)</span>
+    <div class="highlight"><pre><span></span>       <span class="k">subroutine </span><span class="n">dswap</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">dx</span><span class="p">,</span><span class="n">incx</span><span class="p">,</span><span class="n">dy</span><span class="p">,</span><span class="n">incy</span><span class="p">)</span>
       <span class="k">implicit none</span>
 <span class="c">!</span>
 <span class="c">!  -- Reference BLAS level1 routine (version 3.8.0) --</span>
@@ -585,69 +585,69 @@ http://www.netlib.org/lapack/explore-html/
 <span class="c">!     November 2017</span>
 <span class="c">!</span>
 <span class="c">!     .. Scalar Arguments ..</span>
-      <span class="kt">INTEGER</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>             <span class="kd">::</span> <span class="n">INCX</span><span class="p">,</span><span class="n">INCY</span><span class="p">,</span><span class="n">N</span>
+      <span class="kt">integer</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>             <span class="kd">::</span> <span class="n">incx</span><span class="p">,</span><span class="n">incy</span><span class="p">,</span><span class="n">n</span>
 <span class="c">!     ..</span>
 <span class="c">!     .. Array Arguments ..</span>
-      <span class="kt">DOUBLE PRECISION</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span> <span class="kd">::</span> <span class="n">DX</span><span class="p">(</span><span class="o">*</span><span class="p">),</span><span class="n">DY</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+      <span class="kt">double precision</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span> <span class="kd">::</span> <span class="n">dx</span><span class="p">(</span><span class="o">*</span><span class="p">),</span><span class="n">dy</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
 <span class="c">!     ..</span>
 <span class="c">!</span>
 <span class="c">!  =====================================================================</span>
 <span class="c">!</span>
 <span class="c">!     .. Local Scalars ..</span>
-      <span class="kt">DOUBLE PRECISION </span><span class="n">DTEMP</span>
-      <span class="kt">INTEGER </span><span class="n">I</span><span class="p">,</span><span class="n">IX</span><span class="p">,</span><span class="n">IY</span><span class="p">,</span><span class="n">M</span><span class="p">,</span><span class="n">MP1</span>
+      <span class="kt">double precision </span><span class="n">dtemp</span>
+      <span class="kt">integer </span><span class="n">i</span><span class="p">,</span><span class="n">ix</span><span class="p">,</span><span class="n">iy</span><span class="p">,</span><span class="n">m</span><span class="p">,</span><span class="n">mp1</span>
 <span class="c">!     ..</span>
 <span class="c">!     .. Intrinsic Functions ..</span>
-      <span class="k">INTRINSIC </span><span class="nb">MOD</span>
+      <span class="k">intrinsic </span><span class="nb">mod</span>
 <span class="c">!     ..</span>
-      <span class="k">IF</span> <span class="p">(</span><span class="n">N</span><span class="p">.</span><span class="n">LE</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span> <span class="k">RETURN</span>
-<span class="k">      IF</span> <span class="p">(</span><span class="n">INCX</span><span class="p">.</span><span class="n">EQ</span><span class="p">.</span><span class="mi">1</span> <span class="p">.</span><span class="nb">AND</span><span class="p">.</span> <span class="n">INCY</span><span class="p">.</span><span class="n">EQ</span><span class="p">.</span><span class="mi">1</span><span class="p">)</span> <span class="k">THEN</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">n</span><span class="p">.</span><span class="n">le</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span> <span class="k">return</span>
+<span class="k">      if</span> <span class="p">(</span><span class="n">incx</span><span class="p">.</span><span class="n">eq</span><span class="p">.</span><span class="mi">1</span> <span class="p">.</span><span class="nb">and</span><span class="p">.</span> <span class="n">incy</span><span class="p">.</span><span class="n">eq</span><span class="p">.</span><span class="mi">1</span><span class="p">)</span> <span class="k">then</span>
 <span class="c">!</span>
 <span class="c">!       code for both increments equal to 1</span>
 <span class="c">!</span>
 <span class="c">!</span>
 <span class="c">!       clean-up loop</span>
 <span class="c">!</span>
-         <span class="n">M</span> <span class="o">=</span> <span class="nb">MOD</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
-         <span class="k">IF</span> <span class="p">(</span><span class="n">M</span><span class="p">.</span><span class="n">NE</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span> <span class="k">THEN</span>
-<span class="k">            DO </span><span class="n">I</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">M</span>
-               <span class="n">DTEMP</span> <span class="o">=</span> <span class="n">DX</span><span class="p">(</span><span class="n">I</span><span class="p">)</span>
-               <span class="n">DX</span><span class="p">(</span><span class="n">I</span><span class="p">)</span> <span class="o">=</span> <span class="n">DY</span><span class="p">(</span><span class="n">I</span><span class="p">)</span>
-               <span class="n">DY</span><span class="p">(</span><span class="n">I</span><span class="p">)</span> <span class="o">=</span> <span class="n">DTEMP</span>
+         <span class="n">m</span> <span class="o">=</span> <span class="nb">mod</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+         <span class="k">if</span> <span class="p">(</span><span class="n">m</span><span class="p">.</span><span class="n">ne</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">            do </span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">m</span>
+               <span class="n">dtemp</span> <span class="o">=</span> <span class="n">dx</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+               <span class="n">dx</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">=</span> <span class="n">dy</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+               <span class="n">dy</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">=</span> <span class="n">dtemp</span>
             <span class="k">enddo</span>
-<span class="k">            IF</span> <span class="p">(</span><span class="n">N</span><span class="p">.</span><span class="n">LT</span><span class="p">.</span><span class="mi">3</span><span class="p">)</span> <span class="k">RETURN</span>
+<span class="k">            if</span> <span class="p">(</span><span class="n">n</span><span class="p">.</span><span class="n">lt</span><span class="p">.</span><span class="mi">3</span><span class="p">)</span> <span class="k">return</span>
 <span class="k">         endif</span>
-<span class="k">         </span><span class="n">MP1</span> <span class="o">=</span> <span class="n">M</span> <span class="o">+</span> <span class="mi">1</span>
-         <span class="k">DO </span><span class="n">I</span> <span class="o">=</span> <span class="n">MP1</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="mi">3</span>
-            <span class="n">DTEMP</span> <span class="o">=</span> <span class="n">DX</span><span class="p">(</span><span class="n">I</span><span class="p">)</span>
-            <span class="n">DX</span><span class="p">(</span><span class="n">I</span><span class="p">)</span> <span class="o">=</span> <span class="n">DY</span><span class="p">(</span><span class="n">I</span><span class="p">)</span>
-            <span class="n">DY</span><span class="p">(</span><span class="n">I</span><span class="p">)</span> <span class="o">=</span> <span class="n">DTEMP</span>
-            <span class="n">DTEMP</span> <span class="o">=</span> <span class="n">DX</span><span class="p">(</span><span class="n">I</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
-            <span class="n">DX</span><span class="p">(</span><span class="n">I</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="n">DY</span><span class="p">(</span><span class="n">I</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
-            <span class="n">DY</span><span class="p">(</span><span class="n">I</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="n">DTEMP</span>
-            <span class="n">DTEMP</span> <span class="o">=</span> <span class="n">DX</span><span class="p">(</span><span class="n">I</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span>
-            <span class="n">DX</span><span class="p">(</span><span class="n">I</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span> <span class="o">=</span> <span class="n">DY</span><span class="p">(</span><span class="n">I</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span>
-            <span class="n">DY</span><span class="p">(</span><span class="n">I</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span> <span class="o">=</span> <span class="n">DTEMP</span>
+<span class="k">         </span><span class="n">mp1</span> <span class="o">=</span> <span class="n">m</span> <span class="o">+</span> <span class="mi">1</span>
+         <span class="k">do </span><span class="n">i</span> <span class="o">=</span> <span class="n">mp1</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="mi">3</span>
+            <span class="n">dtemp</span> <span class="o">=</span> <span class="n">dx</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+            <span class="n">dx</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">=</span> <span class="n">dy</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+            <span class="n">dy</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">=</span> <span class="n">dtemp</span>
+            <span class="n">dtemp</span> <span class="o">=</span> <span class="n">dx</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">dx</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="n">dy</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">dy</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="n">dtemp</span>
+            <span class="n">dtemp</span> <span class="o">=</span> <span class="n">dx</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span>
+            <span class="n">dx</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span> <span class="o">=</span> <span class="n">dy</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span>
+            <span class="n">dy</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span> <span class="o">=</span> <span class="n">dtemp</span>
          <span class="k">enddo</span>
-<span class="k">      ELSE</span>
+<span class="k">      else</span>
 <span class="c">!</span>
 <span class="c">!       code for unequal increments or equal increments not equal</span>
 <span class="c">!         to 1</span>
 <span class="c">!</span>
-         <span class="n">IX</span> <span class="o">=</span> <span class="mi">1</span>
-         <span class="n">IY</span> <span class="o">=</span> <span class="mi">1</span>
-         <span class="k">IF</span> <span class="p">(</span><span class="n">INCX</span><span class="p">.</span><span class="n">LT</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span> <span class="n">IX</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">INCX</span> <span class="o">+</span> <span class="mi">1</span>
-         <span class="k">IF</span> <span class="p">(</span><span class="n">INCY</span><span class="p">.</span><span class="n">LT</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span> <span class="n">IY</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">INCY</span> <span class="o">+</span> <span class="mi">1</span>
-         <span class="k">DO </span><span class="n">I</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">N</span>
-            <span class="n">DTEMP</span> <span class="o">=</span> <span class="n">DX</span><span class="p">(</span><span class="n">IX</span><span class="p">)</span>
-            <span class="n">DX</span><span class="p">(</span><span class="n">IX</span><span class="p">)</span> <span class="o">=</span> <span class="n">DY</span><span class="p">(</span><span class="n">IY</span><span class="p">)</span>
-            <span class="n">DY</span><span class="p">(</span><span class="n">IY</span><span class="p">)</span> <span class="o">=</span> <span class="n">DTEMP</span>
-            <span class="n">IX</span> <span class="o">=</span> <span class="n">IX</span> <span class="o">+</span> <span class="n">INCX</span>
-            <span class="n">IY</span> <span class="o">=</span> <span class="n">IY</span> <span class="o">+</span> <span class="n">INCY</span>
+         <span class="n">ix</span> <span class="o">=</span> <span class="mi">1</span>
+         <span class="n">iy</span> <span class="o">=</span> <span class="mi">1</span>
+         <span class="k">if</span> <span class="p">(</span><span class="n">incx</span><span class="p">.</span><span class="n">lt</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span> <span class="n">ix</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">incx</span> <span class="o">+</span> <span class="mi">1</span>
+         <span class="k">if</span> <span class="p">(</span><span class="n">incy</span><span class="p">.</span><span class="n">lt</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span> <span class="n">iy</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">incy</span> <span class="o">+</span> <span class="mi">1</span>
+         <span class="k">do </span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">n</span>
+            <span class="n">dtemp</span> <span class="o">=</span> <span class="n">dx</span><span class="p">(</span><span class="n">ix</span><span class="p">)</span>
+            <span class="n">dx</span><span class="p">(</span><span class="n">ix</span><span class="p">)</span> <span class="o">=</span> <span class="n">dy</span><span class="p">(</span><span class="n">iy</span><span class="p">)</span>
+            <span class="n">dy</span><span class="p">(</span><span class="n">iy</span><span class="p">)</span> <span class="o">=</span> <span class="n">dtemp</span>
+            <span class="n">ix</span> <span class="o">=</span> <span class="n">ix</span> <span class="o">+</span> <span class="n">incx</span>
+            <span class="n">iy</span> <span class="o">=</span> <span class="n">iy</span> <span class="o">+</span> <span class="n">incy</span>
          <span class="k">enddo</span>
 <span class="k">      endif</span>
 
-<span class="k">      END SUBROUTINE </span><span class="n">DSWAP</span>
+<span class="k">      end subroutine </span><span class="n">dswap</span>
 </pre></div>
 
     </section>
@@ -663,16 +663,16 @@ http://www.netlib.org/lapack/explore-html/
     <footer>
       <div class="container">
       <div class="row">
-        <div class="col-xs-6 col-md-4"><p>&copy; 2021 
+        <div class="col-xs-6 col-md-4"><p>&copy; 2022 
                                           </p></div>
         <div class="col-xs-6 col-md-4 col-md-push-4">
           <p class="text-right">
             Documentation generated by 
             <a href="https://github.com/cmacmackin/ford">FORD</a>
-             on 2021-08-23 15:25  
+             on 2022-01-03 21:31  
           </p>
         </div>
-        <div class="col-xs-12 col-md-4 col-md-pull-4"><p class="text-center"> M_blas was developed by John S. Urban and many others</p></div>
+        <div class="col-xs-12 col-md-4 col-md-pull-4"><p class="text-center"> M_blas was developed by many others</p></div>
       </div>
       <br>
       </div> <!-- /container -->    

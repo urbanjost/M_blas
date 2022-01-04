@@ -7,10 +7,10 @@
    
    <meta name="description" content="BLAS - Basic Linear Algebra Subroutines">
     
-    <meta name="author" content="John S. Urban and many others" >
+    <meta name="author" content="many others" >
     <link rel="icon" href="../favicon.png">
 
-    <title>DROTG &ndash; M_blas</title>
+    <title>drotg &ndash; M_blas</title>
 
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/pygments.css" rel="stylesheet">
@@ -112,7 +112,7 @@
     
   
   <div class="row">
-    <h1>DROTG
+    <h1>drotg
       <small>Subroutine</small>
     
     </h1>
@@ -147,7 +147,7 @@
      <li><a href='../module/m_blas.html'>M_blas</a></li>
     
   
-     <li class="active">DROTG</li>
+     <li class="active">drotg</li>
   </ol>
 </div>
 </div>
@@ -179,7 +179,7 @@
       
       <a class="list-group-item" href="../proc/drotg.html#variable-bnorm">bnorm</a>
       
-      <a class="list-group-item" href="../proc/drotg.html#variable-one~6">one</a>
+      <a class="list-group-item" href="../proc/drotg.html#variable-one~23">one</a>
       
       <a class="list-group-item" href="../proc/drotg.html#variable-r~2">r</a>
       
@@ -193,9 +193,9 @@
       
       <a class="list-group-item" href="../proc/drotg.html#variable-wp~6">wp</a>
       
-      <a class="list-group-item" href="../proc/drotg.html#variable-z~3">z</a>
+      <a class="list-group-item" href="../proc/drotg.html#variable-z~4">z</a>
       
-      <a class="list-group-item" href="../proc/drotg.html#variable-zero~6">zero</a>
+      <a class="list-group-item" href="../proc/drotg.html#variable-zero~36">zero</a>
       
     </div>
   </div>
@@ -227,7 +227,7 @@
     
     <div class="col-md-9" id='text'>
     <h2>
-public subroutine DROTG(a, b, c, s)
+public subroutine drotg(a, b, c, s)
     
     
    
@@ -238,7 +238,7 @@ public subroutine DROTG(a, b, c, s)
 
     
     <h2 id="name">NAME</h2>
-<div class="codehilite"><pre><span></span><code>drotg.(3f) -- [BLAS:SINGLE_BLAS_LEVEL1]
+<div class="codehilite"><pre><span></span><code><span class="n">drotg</span><span class="p">(</span><span class="mi">3</span><span class="n">f</span><span class="p">)</span> <span class="o">-</span> <span class="p">[</span><span class="n">BLAS</span><span class="p">:</span><span class="n">SINGLE_BLAS_LEVEL1</span><span class="p">]</span> <span class="n">constructs</span> <span class="n">a</span> <span class="n">plane</span> <span class="n">rotation</span>
 </code></pre></div>
 
 <h2 id="synopsis">SYNOPSIS</h2>
@@ -250,47 +250,43 @@ public subroutine DROTG(a, b, c, s)
 </code></pre></div>
 
 <h2 id="definition">DEFINITION</h2>
-<p>DROTG constructs a plane rotation
-      [  c  s ] [ a ] = [ r ]
-      [ -s  c ] [ b ]   [ 0 ]
-   satisfying c<strong>2 + s</strong>2 = 1.</p>
-<p>The computation uses the formulas
-     sigma = sgn(a)    if |a| &gt;  |b|
-           = sgn(b)    if |b| &gt;= |a|
-     r = sigma<em>sqrt( a</em><em>2 + b</em><em>2 )
-     c = 1; s = 0      if r = 0
-     c = a/r; s = b/r  if r != 0
-  The subroutine also computes
-     z = s    if |a| &gt; |b|,
-       = 1/c  if |b| &gt;= |a| and c != 0
-       = 1    if c = 0
-  This allows c and s to be reconstructed from z as follows:
-     If z = 1, set c = 0, s = 1.
-     If |z| &lt; 1, set c = sqrt(1 - z</em><em>2) and s = z.
-     If |z| &gt; 1, set c = 1/z and s = sqrt( 1 - c</em>*2).</p>
+<p>DROTG constructs a plane rotation</p>
+<div class="codehilite"><pre><span></span><code>  <span class="p">[</span>  <span class="n">c</span>  <span class="n">s</span> <span class="p">]</span> <span class="p">[</span> <span class="n">a</span> <span class="p">]</span> <span class="o">=</span> <span class="p">[</span> <span class="n">r</span> <span class="p">]</span>
+  <span class="p">[</span> <span class="o">-</span><span class="n">s</span>  <span class="n">c</span> <span class="p">]</span> <span class="p">[</span> <span class="n">b</span> <span class="p">]</span>   <span class="p">[</span> <span class="mi">0</span> <span class="p">]</span>
+</code></pre></div>
+
+<p>satisfying c<strong>2 + s</strong>2 = 1.</p>
+<p>The computation uses the formulas</p>
+<div class="codehilite"><pre><span></span><code> <span class="nv">sigma</span> <span class="o">=</span> <span class="nv">sgn</span><span class="ss">(</span><span class="nv">a</span><span class="ss">)</span>    <span class="k">if</span> <span class="o">|</span><span class="nv">a</span><span class="o">|</span> <span class="o">&gt;</span>  <span class="o">|</span><span class="nv">b</span><span class="o">|</span>
+       <span class="o">=</span> <span class="nv">sgn</span><span class="ss">(</span><span class="nv">b</span><span class="ss">)</span>    <span class="k">if</span> <span class="o">|</span><span class="nv">b</span><span class="o">|</span> <span class="o">&gt;=</span> <span class="o">|</span><span class="nv">a</span><span class="o">|</span>
+ <span class="nv">r</span> <span class="o">=</span> <span class="nv">sigma</span><span class="o">*</span><span class="nv">sqrt</span><span class="ss">(</span> <span class="nv">a</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="nv">b</span><span class="o">**</span><span class="mi">2</span> <span class="ss">)</span>
+ <span class="nv">c</span> <span class="o">=</span> <span class="mi">1</span><span class="c1">; s = 0      if r = 0</span>
+ <span class="nv">c</span> <span class="o">=</span> <span class="nv">a</span><span class="o">/</span><span class="nv">r</span><span class="c1">; s = b/r  if r != 0</span>
+</code></pre></div>
+
+<p>The subroutine also computes</p>
+<div class="codehilite"><pre><span></span><code> <span class="nv">z</span> <span class="o">=</span> <span class="nv">s</span>    <span class="k">if</span> <span class="o">|</span><span class="nv">a</span><span class="o">|</span> <span class="o">&gt;</span> <span class="o">|</span><span class="nv">b</span><span class="o">|</span>,
+   <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="nv">c</span>  <span class="k">if</span> <span class="o">|</span><span class="nv">b</span><span class="o">|</span> <span class="o">&gt;=</span> <span class="o">|</span><span class="nv">a</span><span class="o">|</span> <span class="nv">and</span> <span class="nv">c</span> <span class="o">!=</span> <span class="mi">0</span>
+   <span class="o">=</span> <span class="mi">1</span>    <span class="k">if</span> <span class="nv">c</span> <span class="o">=</span> <span class="mi">0</span>
+</code></pre></div>
+
+<p>This allows c and s to be reconstructed from z as follows:</p>
+<div class="codehilite"><pre><span></span><code> <span class="k">If</span> <span class="nv">z</span> <span class="o">=</span> <span class="mi">1</span>, <span class="nv">set</span> <span class="nv">c</span> <span class="o">=</span> <span class="mi">0</span>, <span class="nv">s</span> <span class="o">=</span> <span class="mi">1</span>.
+ <span class="k">If</span> <span class="o">|</span><span class="nv">z</span><span class="o">|</span> <span class="o">&lt;</span> <span class="mi">1</span>, <span class="nv">set</span> <span class="nv">c</span> <span class="o">=</span> <span class="nv">sqrt</span><span class="ss">(</span><span class="mi">1</span> <span class="o">-</span> <span class="nv">z</span><span class="o">**</span><span class="mi">2</span><span class="ss">)</span> <span class="nv">and</span> <span class="nv">s</span> <span class="o">=</span> <span class="nv">z</span>.
+ <span class="k">If</span> <span class="o">|</span><span class="nv">z</span><span class="o">|</span> <span class="o">&gt;</span> <span class="mi">1</span>, <span class="nv">set</span> <span class="nv">c</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="nv">z</span> <span class="nv">and</span> <span class="nv">s</span> <span class="o">=</span> <span class="nv">sqrt</span><span class="ss">(</span> <span class="mi">1</span> <span class="o">-</span> <span class="nv">c</span><span class="o">**</span><span class="mi">2</span><span class="ss">)</span>.
+</code></pre></div>
+
 <h2 id="options">OPTIONS</h2>
-<p>out] A</p>
-<div class="codehilite"><pre><span></span><code>       <span class="nv">A</span> <span class="nv">is</span> <span class="nv">DOUBLE</span> <span class="nv">PRECISION</span>
-       <span class="nv">On</span> <span class="nv">entry</span>, <span class="nv">the</span> <span class="nv">scalar</span> <span class="nv">a</span>.
-       <span class="nv">On</span> <span class="k">exit</span>, <span class="nv">the</span> <span class="nv">scalar</span> <span class="nv">r</span>.
-</code></pre></div>
-
-<p>out] B</p>
-<div class="codehilite"><pre><span></span><code>       <span class="nv">B</span> <span class="nv">is</span> <span class="nv">DOUBLE</span> <span class="nv">PRECISION</span>
-       <span class="nv">On</span> <span class="nv">entry</span>, <span class="nv">the</span> <span class="nv">scalar</span> <span class="nv">b</span>.
-       <span class="nv">On</span> <span class="k">exit</span>, <span class="nv">the</span> <span class="nv">scalar</span> <span class="nv">z</span>.
-</code></pre></div>
-
-<p>C</p>
-<div class="codehilite"><pre><span></span><code>       C is DOUBLE PRECISION
-       The scalar c.
-</code></pre></div>
-
-<p>S</p>
-<div class="codehilite"><pre><span></span><code>       S is DOUBLE PRECISION
-       The scalar s.
-</code></pre></div>
-
+<p>A
+           On entry, the scalar a.
+           On exit, the scalar r.</p>
+<p>B
+           On entry, the scalar b.
+           On exit, the scalar z.</p>
+<p>C
+           The scalar c.</p>
+<p>S
+           The scalar s.</p>
 <h2 id="authors">AUTHORS</h2>
 <ul>
 <li>Edward Anderson, Lockheed Martin</li>
@@ -327,7 +323,7 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-a~2"></span>real(kind=wp),</td>
+  <td><span class="anchor" id="variable-a~27"></span>real(kind=wp),</td>
   <td>intent(inout)</td>
   <td></td>
   
@@ -342,7 +338,7 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-b~2"></span>real(kind=wp),</td>
+  <td><span class="anchor" id="variable-b~10"></span>real(kind=wp),</td>
   <td>intent(inout)</td>
   <td></td>
   
@@ -357,7 +353,7 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-c~2"></span>real(kind=wp),</td>
+  <td><span class="anchor" id="variable-c~12"></span>real(kind=wp),</td>
   <td>intent(out)</td>
   <td></td>
   
@@ -372,7 +368,7 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-s~2"></span>real(kind=wp),</td>
+  <td><span class="anchor" id="variable-s~4"></span>real(kind=wp),</td>
   <td>intent(out)</td>
   <td></td>
   
@@ -407,7 +403,7 @@ http://www.netlib.org/lapack/explore-html/
       
       <a class="list-group-item" href="../proc/drotg.html#variable-bnorm">bnorm</a>
       
-      <a class="list-group-item" href="../proc/drotg.html#variable-one~6">one</a>
+      <a class="list-group-item" href="../proc/drotg.html#variable-one~23">one</a>
       
       <a class="list-group-item" href="../proc/drotg.html#variable-r~2">r</a>
       
@@ -421,9 +417,9 @@ http://www.netlib.org/lapack/explore-html/
       
       <a class="list-group-item" href="../proc/drotg.html#variable-wp~6">wp</a>
       
-      <a class="list-group-item" href="../proc/drotg.html#variable-z~3">z</a>
+      <a class="list-group-item" href="../proc/drotg.html#variable-z~4">z</a>
       
-      <a class="list-group-item" href="../proc/drotg.html#variable-zero~6">zero</a>
+      <a class="list-group-item" href="../proc/drotg.html#variable-zero~36">zero</a>
       
     </div>
   </div>
@@ -501,7 +497,7 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-one~6"></span>real(kind=wp),</td>
+  <td><span class="anchor" id="variable-one~23"></span>real(kind=wp),</td>
   
   <td>public,</td>
   <td>parameter</td><td>::</td>
@@ -599,7 +595,7 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-z~3"></span>real(kind=wp),</td>
+  <td><span class="anchor" id="variable-z~4"></span>real(kind=wp),</td>
   
   <td>public</td>
   <td></td><td>::</td>
@@ -613,7 +609,7 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-zero~6"></span>real(kind=wp),</td>
+  <td><span class="anchor" id="variable-zero~36"></span>real(kind=wp),</td>
   
   <td>public,</td>
   <td>parameter</td><td>::</td>
@@ -652,16 +648,16 @@ http://www.netlib.org/lapack/explore-html/
     <footer>
       <div class="container">
       <div class="row">
-        <div class="col-xs-6 col-md-4"><p>&copy; 2021 
+        <div class="col-xs-6 col-md-4"><p>&copy; 2022 
                                           </p></div>
         <div class="col-xs-6 col-md-4 col-md-push-4">
           <p class="text-right">
             Documentation generated by 
             <a href="https://github.com/cmacmackin/ford">FORD</a>
-             on 2021-08-23 15:25  
+             on 2022-01-03 21:31  
           </p>
         </div>
-        <div class="col-xs-12 col-md-4 col-md-pull-4"><p class="text-center"> M_blas was developed by John S. Urban and many others</p></div>
+        <div class="col-xs-12 col-md-4 col-md-pull-4"><p class="text-center"> M_blas was developed by many others</p></div>
       </div>
       <br>
       </div> <!-- /container -->    

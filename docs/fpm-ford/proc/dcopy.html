@@ -7,10 +7,10 @@
    
    <meta name="description" content="BLAS - Basic Linear Algebra Subroutines">
     
-    <meta name="author" content="John S. Urban and many others" >
+    <meta name="author" content="many others" >
     <link rel="icon" href="../favicon.png">
 
-    <title>DCOPY &ndash; M_blas</title>
+    <title>dcopy &ndash; M_blas</title>
 
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/pygments.css" rel="stylesheet">
@@ -112,7 +112,7 @@
     
   
   <div class="row">
-    <h1>DCOPY
+    <h1>dcopy
       <small>Subroutine</small>
     
     </h1>
@@ -147,7 +147,7 @@
      <li><a href='../module/m_blas.html'>M_blas</a></li>
     
   
-     <li class="active">DCOPY</li>
+     <li class="active">dcopy</li>
   </ol>
 </div>
 </div>
@@ -175,15 +175,15 @@
   <div id="vars-0" class="panel-collapse collapse">
     <div class="list-group">
       
-      <a class="list-group-item" href="../proc/dcopy.html#variable-i~7">i</a>
+      <a class="list-group-item" href="../proc/dcopy.html#variable-i~55">i</a>
       
-      <a class="list-group-item" href="../proc/dcopy.html#variable-ix~6">ix</a>
+      <a class="list-group-item" href="../proc/dcopy.html#variable-ix~37">ix</a>
       
-      <a class="list-group-item" href="../proc/dcopy.html#variable-iy">iy</a>
+      <a class="list-group-item" href="../proc/dcopy.html#variable-iy~19">iy</a>
       
-      <a class="list-group-item" href="../proc/dcopy.html#variable-m">m</a>
+      <a class="list-group-item" href="../proc/dcopy.html#variable-m~15">m</a>
       
-      <a class="list-group-item" href="../proc/dcopy.html#variable-mp1">mp1</a>
+      <a class="list-group-item" href="../proc/dcopy.html#variable-mp1~6">mp1</a>
       
     </div>
   </div>
@@ -211,7 +211,7 @@
 <div class="panel panel-primary">
   <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
   <div class="list-group">
-    <a class="list-group-item" href="../proc/dcopy.html#src">DCOPY</a>
+    <a class="list-group-item" href="../proc/dcopy.html#src">dcopy</a>
   </div>
 </div>
 
@@ -223,7 +223,7 @@
     
     <div class="col-md-9" id='text'>
     <h2>
-public subroutine DCOPY(n, dx, incx, dy, incy)
+public subroutine dcopy(n, dx, incx, dy, incy)
     
     
    
@@ -234,11 +234,12 @@ public subroutine DCOPY(n, dx, incx, dy, incy)
 
     
     <h2 id="name">NAME</h2>
-<div class="codehilite"><pre><span></span><code>dcopy.(3f) -- [BLAS:DOUBLE_BLAS_LEVEL1]
+<div class="codehilite"><pre><span></span><code>dcopy(3f) - [BLAS:DOUBLE_BLAS_LEVEL1] copies elements of a vector,
+            x, to a vector, y.
 </code></pre></div>
 
 <h2 id="synopsis">SYNOPSIS</h2>
-<div class="codehilite"><pre><span></span><code> SUBROUTINE DCOPY(N,DX,INCX,DY,INCY)
+<div class="codehilite"><pre><span></span><code> subroutine dcopy(n,dx,incx,dy,incy)
 
    .. Scalar Arguments ..
    integer,intent(in)           :: incx,incy,n
@@ -315,7 +316,7 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-n~7"></span>integer,</td>
+  <td><span class="anchor" id="variable-n~55"></span>integer,</td>
   <td>intent(in)</td>
   <td></td>
   
@@ -330,7 +331,7 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-dx"></span>double precision,</td>
+  <td><span class="anchor" id="variable-dx~5"></span>double precision,</td>
   <td>intent(in)</td>
   <td></td>
   
@@ -345,7 +346,7 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-incx~7"></span>integer,</td>
+  <td><span class="anchor" id="variable-incx~46"></span>integer,</td>
   <td>intent(in)</td>
   <td></td>
   
@@ -360,7 +361,7 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-dy"></span>double precision,</td>
+  <td><span class="anchor" id="variable-dy~3"></span>double precision,</td>
   <td>intent(out)</td>
   <td></td>
   
@@ -375,7 +376,7 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-incy~2"></span>integer,</td>
+  <td><span class="anchor" id="variable-incy~24"></span>integer,</td>
   <td>intent(in)</td>
   <td></td>
   
@@ -406,15 +407,15 @@ http://www.netlib.org/lapack/explore-html/
   <div id="vars-1" class="panel-collapse collapse">
     <div class="list-group">
       
-      <a class="list-group-item" href="../proc/dcopy.html#variable-i~7">i</a>
+      <a class="list-group-item" href="../proc/dcopy.html#variable-i~55">i</a>
       
-      <a class="list-group-item" href="../proc/dcopy.html#variable-ix~6">ix</a>
+      <a class="list-group-item" href="../proc/dcopy.html#variable-ix~37">ix</a>
       
-      <a class="list-group-item" href="../proc/dcopy.html#variable-iy">iy</a>
+      <a class="list-group-item" href="../proc/dcopy.html#variable-iy~19">iy</a>
       
-      <a class="list-group-item" href="../proc/dcopy.html#variable-m">m</a>
+      <a class="list-group-item" href="../proc/dcopy.html#variable-m~15">m</a>
       
-      <a class="list-group-item" href="../proc/dcopy.html#variable-mp1">mp1</a>
+      <a class="list-group-item" href="../proc/dcopy.html#variable-mp1~6">mp1</a>
       
     </div>
   </div>
@@ -442,7 +443,7 @@ http://www.netlib.org/lapack/explore-html/
 <div class="panel panel-primary">
   <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
   <div class="list-group">
-    <a class="list-group-item" href="../proc/dcopy.html#src">DCOPY</a>
+    <a class="list-group-item" href="../proc/dcopy.html#src">dcopy</a>
   </div>
 </div>
 
@@ -472,7 +473,7 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-i~7"></span>integer,</td>
+  <td><span class="anchor" id="variable-i~55"></span>integer,</td>
   
   <td>public</td>
   <td></td><td>::</td>
@@ -486,7 +487,7 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-ix~6"></span>integer,</td>
+  <td><span class="anchor" id="variable-ix~37"></span>integer,</td>
   
   <td>public</td>
   <td></td><td>::</td>
@@ -500,7 +501,7 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-iy"></span>integer,</td>
+  <td><span class="anchor" id="variable-iy~19"></span>integer,</td>
   
   <td>public</td>
   <td></td><td>::</td>
@@ -514,7 +515,7 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-m"></span>integer,</td>
+  <td><span class="anchor" id="variable-m~15"></span>integer,</td>
   
   <td>public</td>
   <td></td><td>::</td>
@@ -528,7 +529,7 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-mp1"></span>integer,</td>
+  <td><span class="anchor" id="variable-mp1~6"></span>integer,</td>
   
   <td>public</td>
   <td></td><td>::</td>
@@ -559,7 +560,7 @@ http://www.netlib.org/lapack/explore-html/
     
     <section>
     <h2><span class="anchor" id="src"></span>Source Code</h2>
-    <div class="highlight"><pre><span></span>       <span class="k">SUBROUTINE </span><span class="n">DCOPY</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">DX</span><span class="p">,</span><span class="n">INCX</span><span class="p">,</span><span class="n">DY</span><span class="p">,</span><span class="n">INCY</span><span class="p">)</span>
+    <div class="highlight"><pre><span></span>       <span class="k">subroutine </span><span class="n">dcopy</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">dx</span><span class="p">,</span><span class="n">incx</span><span class="p">,</span><span class="n">dy</span><span class="p">,</span><span class="n">incy</span><span class="p">)</span>
       <span class="k">implicit none</span>
 <span class="c">!</span>
 <span class="c">!  -- Reference BLAS level1 routine (version 3.8.0) --</span>
@@ -640,16 +641,16 @@ http://www.netlib.org/lapack/explore-html/
     <footer>
       <div class="container">
       <div class="row">
-        <div class="col-xs-6 col-md-4"><p>&copy; 2021 
+        <div class="col-xs-6 col-md-4"><p>&copy; 2022 
                                           </p></div>
         <div class="col-xs-6 col-md-4 col-md-push-4">
           <p class="text-right">
             Documentation generated by 
             <a href="https://github.com/cmacmackin/ford">FORD</a>
-             on 2021-08-23 15:25  
+             on 2022-01-03 21:31  
           </p>
         </div>
-        <div class="col-xs-12 col-md-4 col-md-pull-4"><p class="text-center"> M_blas was developed by John S. Urban and many others</p></div>
+        <div class="col-xs-12 col-md-4 col-md-pull-4"><p class="text-center"> M_blas was developed by many others</p></div>
       </div>
       <br>
       </div> <!-- /container -->    

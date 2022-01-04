@@ -7,10 +7,10 @@
    
    <meta name="description" content="BLAS - Basic Linear Algebra Subroutines">
     
-    <meta name="author" content="John S. Urban and many others" >
+    <meta name="author" content="many others" >
     <link rel="icon" href="../favicon.png">
 
-    <title>DROTMG &ndash; M_blas</title>
+    <title>drotmg &ndash; M_blas</title>
 
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/pygments.css" rel="stylesheet">
@@ -112,7 +112,7 @@
     
   
   <div class="row">
-    <h1>DROTMG
+    <h1>drotmg
       <small>Subroutine</small>
     
     </h1>
@@ -147,7 +147,7 @@
      <li><a href='../module/m_blas.html'>M_blas</a></li>
     
   
-     <li class="active">DROTMG</li>
+     <li class="active">drotmg</li>
   </ol>
 </div>
 </div>
@@ -175,39 +175,39 @@
   <div id="vars-0" class="panel-collapse collapse">
     <div class="list-group">
       
-      <a class="list-group-item" href="../proc/drotmg.html#variable-dflag~2">DFLAG</a>
+      <a class="list-group-item" href="../proc/drotmg.html#variable-dflag~2">dflag</a>
       
-      <a class="list-group-item" href="../proc/drotmg.html#variable-dh11~2">DH11</a>
+      <a class="list-group-item" href="../proc/drotmg.html#variable-dh11~2">dh11</a>
       
-      <a class="list-group-item" href="../proc/drotmg.html#variable-dh12~2">DH12</a>
+      <a class="list-group-item" href="../proc/drotmg.html#variable-dh12~2">dh12</a>
       
-      <a class="list-group-item" href="../proc/drotmg.html#variable-dh21~2">DH21</a>
+      <a class="list-group-item" href="../proc/drotmg.html#variable-dh21~2">dh21</a>
       
-      <a class="list-group-item" href="../proc/drotmg.html#variable-dh22~2">DH22</a>
+      <a class="list-group-item" href="../proc/drotmg.html#variable-dh22~2">dh22</a>
       
-      <a class="list-group-item" href="../proc/drotmg.html#variable-dp1">DP1</a>
+      <a class="list-group-item" href="../proc/drotmg.html#variable-dp1">dp1</a>
       
-      <a class="list-group-item" href="../proc/drotmg.html#variable-dp2">DP2</a>
+      <a class="list-group-item" href="../proc/drotmg.html#variable-dp2">dp2</a>
       
-      <a class="list-group-item" href="../proc/drotmg.html#variable-dq1">DQ1</a>
+      <a class="list-group-item" href="../proc/drotmg.html#variable-dq1">dq1</a>
       
-      <a class="list-group-item" href="../proc/drotmg.html#variable-dq2">DQ2</a>
+      <a class="list-group-item" href="../proc/drotmg.html#variable-dq2">dq2</a>
       
-      <a class="list-group-item" href="../proc/drotmg.html#variable-dtemp~8">DTEMP</a>
+      <a class="list-group-item" href="../proc/drotmg.html#variable-dtemp~4">dtemp</a>
       
-      <a class="list-group-item" href="../proc/drotmg.html#variable-du">DU</a>
+      <a class="list-group-item" href="../proc/drotmg.html#variable-du">du</a>
       
-      <a class="list-group-item" href="../proc/drotmg.html#variable-gam">GAM</a>
+      <a class="list-group-item" href="../proc/drotmg.html#variable-gam">gam</a>
       
-      <a class="list-group-item" href="../proc/drotmg.html#variable-gamsq">GAMSQ</a>
+      <a class="list-group-item" href="../proc/drotmg.html#variable-gamsq">gamsq</a>
       
-      <a class="list-group-item" href="../proc/drotmg.html#variable-rgamsq">RGAMSQ</a>
+      <a class="list-group-item" href="../proc/drotmg.html#variable-one~24">one</a>
       
-      <a class="list-group-item" href="../proc/drotmg.html#variable-one~7">one</a>
+      <a class="list-group-item" href="../proc/drotmg.html#variable-rgamsq">rgamsq</a>
       
       <a class="list-group-item" href="../proc/drotmg.html#variable-two~2">two</a>
       
-      <a class="list-group-item" href="../proc/drotmg.html#variable-zero~8">zero</a>
+      <a class="list-group-item" href="../proc/drotmg.html#variable-zero~38">zero</a>
       
     </div>
   </div>
@@ -235,7 +235,7 @@
 <div class="panel panel-primary">
   <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
   <div class="list-group">
-    <a class="list-group-item" href="../proc/drotmg.html#src">DROTMG</a>
+    <a class="list-group-item" href="../proc/drotmg.html#src">drotmg</a>
   </div>
 </div>
 
@@ -247,7 +247,7 @@
     
     <div class="col-md-9" id='text'>
     <h2>
-public subroutine DROTMG(DD1, DD2, DX1, DY1, DPARAM)
+public subroutine drotmg(dd1, dd2, dx1, dy1, dparam)
     
     
    
@@ -258,50 +258,51 @@ public subroutine DROTMG(DD1, DD2, DX1, DY1, DPARAM)
 
     
     <h2 id="name">NAME</h2>
-<div class="codehilite"><pre><span></span><code>drotmg.(3f) -- [BLAS:DOUBLE_BLAS_LEVEL1]
+<div class="codehilite"><pre><span></span><code>drotmg(3f) - [BLAS:DOUBLE_BLAS_LEVEL1]
 </code></pre></div>
 
 <h2 id="synopsis">SYNOPSIS</h2>
-<div class="codehilite"><pre><span></span><code> SUBROUTINE DROTMG(DD1,DD2,DX1,DY1,DPARAM)
+<div class="codehilite"><pre><span></span><code> subroutine drotmg(dd1,dd2,dx1,dy1,dparam)
 
    .. Scalar Arguments ..
-   DOUBLE PRECISION,intent(inout) :: DD1,DD2,DX1
-   DOUBLE PRECISION,intent(in)    :: DY1
+   double precision,intent(inout) :: dd1,dd2,dx1
+   double precision,intent(in)    :: dy1
    ..
    .. Array Arguments ..
-   DOUBLE PRECISION,intent(out)   :: DPARAM(5)
+   double precision,intent(out)   :: dparam(5)
    ..
 </code></pre></div>
 
 <h2 id="definition">DEFINITION</h2>
 <div class="codehilite"><pre><span></span><code> <span class="nv">CONSTRUCT</span> <span class="nv">THE</span> <span class="nv">MODIFIED</span> <span class="nv">GIVENS</span> <span class="nv">TRANSFORMATION</span> <span class="nv">MATRIX</span> <span class="nv">H</span> <span class="nv">WHICH</span> <span class="nv">ZEROS</span>
- <span class="nv">THE</span> <span class="nv">SECOND</span> <span class="nv">COMPONENT</span> <span class="nv">OF</span> <span class="nv">THE</span> <span class="mi">2</span><span class="o">-</span><span class="nv">VECTOR</span>  <span class="ss">(</span><span class="nv">DSQRT</span><span class="ss">(</span><span class="nv">DD1</span><span class="ss">)</span><span class="o">*</span><span class="nv">DX1</span>,<span class="nv">DSQRT</span><span class="ss">(</span><span class="nv">DD2</span><span class="ss">)</span><span class="o">*&gt;</span>    <span class="nv">DY2</span><span class="ss">)</span><span class="o">**</span><span class="nv">T</span>.
+ <span class="nv">THE</span> <span class="nv">SECOND</span> <span class="nv">COMPONENT</span> <span class="nv">OF</span> <span class="nv">THE</span> <span class="mi">2</span><span class="o">-</span><span class="nv">VECTOR</span> <span class="ss">(</span><span class="nv">DSQRT</span><span class="ss">(</span><span class="nv">DD1</span><span class="ss">)</span><span class="o">*</span><span class="nv">DX1</span>,<span class="nv">DSQRT</span><span class="ss">(</span><span class="nv">DD2</span><span class="ss">)</span><span class="o">*&gt;</span> <span class="nv">DY2</span><span class="ss">)</span><span class="o">**</span><span class="nv">T</span>.
  <span class="nv">WITH</span> <span class="nv">DPARAM</span><span class="ss">(</span><span class="mi">1</span><span class="ss">)</span><span class="o">=</span><span class="nv">DFLAG</span>, <span class="nv">H</span> <span class="nv">HAS</span> <span class="nv">ONE</span> <span class="nv">OF</span> <span class="nv">THE</span> <span class="nv">FOLLOWING</span> <span class="nv">FORMS</span>..
 
- <span class="nv">DFLAG</span><span class="o">=-</span><span class="mi">1</span>.<span class="nv">D0</span>     <span class="nv">DFLAG</span><span class="o">=</span><span class="mi">0</span>.<span class="nv">D0</span>        <span class="nv">DFLAG</span><span class="o">=</span><span class="mi">1</span>.<span class="nv">D0</span>     <span class="nv">DFLAG</span><span class="o">=-</span><span class="mi">2</span>.<span class="nv">D0</span>
+    <span class="nv">DFLAG</span><span class="o">=-</span><span class="mi">1</span>.<span class="nv">D0</span>     <span class="nv">DFLAG</span><span class="o">=</span><span class="mi">0</span>.<span class="nv">D0</span>        <span class="nv">DFLAG</span><span class="o">=</span><span class="mi">1</span>.<span class="nv">D0</span>     <span class="nv">DFLAG</span><span class="o">=-</span><span class="mi">2</span>.<span class="nv">D0</span>
 
-   <span class="ss">(</span><span class="nv">DH11</span>  <span class="nv">DH12</span><span class="ss">)</span>    <span class="ss">(</span><span class="mi">1</span>.<span class="nv">D0</span>  <span class="nv">DH12</span><span class="ss">)</span>    <span class="ss">(</span><span class="nv">DH11</span>  <span class="mi">1</span>.<span class="nv">D0</span><span class="ss">)</span>    <span class="ss">(</span><span class="mi">1</span>.<span class="nv">D0</span>  <span class="mi">0</span>.<span class="nv">D0</span><span class="ss">)</span>
- <span class="nv">H</span><span class="o">=</span><span class="ss">(</span>          <span class="ss">)</span>    <span class="ss">(</span>          <span class="ss">)</span>    <span class="ss">(</span>          <span class="ss">)</span>    <span class="ss">(</span>          <span class="ss">)</span>
-   <span class="ss">(</span><span class="nv">DH21</span>  <span class="nv">DH22</span><span class="ss">)</span>,   <span class="ss">(</span><span class="nv">DH21</span>  <span class="mi">1</span>.<span class="nv">D0</span><span class="ss">)</span>,   <span class="ss">(</span><span class="o">-</span><span class="mi">1</span>.<span class="nv">D0</span> <span class="nv">DH22</span><span class="ss">)</span>,   <span class="ss">(</span><span class="mi">0</span>.<span class="nv">D0</span>  <span class="mi">1</span>.<span class="nv">D0</span><span class="ss">)</span>.
+      <span class="ss">(</span><span class="nv">DH11</span>  <span class="nv">DH12</span><span class="ss">)</span>    <span class="ss">(</span><span class="mi">1</span>.<span class="nv">D0</span>  <span class="nv">DH12</span><span class="ss">)</span>    <span class="ss">(</span><span class="nv">DH11</span>  <span class="mi">1</span>.<span class="nv">D0</span><span class="ss">)</span>    <span class="ss">(</span><span class="mi">1</span>.<span class="nv">D0</span>  <span class="mi">0</span>.<span class="nv">D0</span><span class="ss">)</span>
+    <span class="nv">H</span><span class="o">=</span><span class="ss">(</span>          <span class="ss">)</span>    <span class="ss">(</span>          <span class="ss">)</span>    <span class="ss">(</span>          <span class="ss">)</span>    <span class="ss">(</span>          <span class="ss">)</span>
+      <span class="ss">(</span><span class="nv">DH21</span>  <span class="nv">DH22</span><span class="ss">)</span>,   <span class="ss">(</span><span class="nv">DH21</span>  <span class="mi">1</span>.<span class="nv">D0</span><span class="ss">)</span>,   <span class="ss">(</span><span class="o">-</span><span class="mi">1</span>.<span class="nv">D0</span> <span class="nv">DH22</span><span class="ss">)</span>,   <span class="ss">(</span><span class="mi">0</span>.<span class="nv">D0</span>  <span class="mi">1</span>.<span class="nv">D0</span><span class="ss">)</span>.
+
  <span class="nv">LOCATIONS</span> <span class="mi">2</span><span class="o">-</span><span class="mi">4</span> <span class="nv">OF</span> <span class="nv">DPARAM</span> <span class="nv">CONTAIN</span> <span class="nv">DH11</span>, <span class="nv">DH21</span>, <span class="nv">DH12</span>, <span class="nv">AND</span> <span class="nv">DH22</span>
  <span class="nv">RESPECTIVELY</span>. <span class="ss">(</span><span class="nv">VALUES</span> <span class="nv">OF</span> <span class="mi">1</span>.<span class="nv">D0</span>, <span class="o">-</span><span class="mi">1</span>.<span class="nv">D0</span>, <span class="nv">OR</span> <span class="mi">0</span>.<span class="nv">D0</span> <span class="nv">IMPLIED</span> <span class="nv">BY</span> <span class="nv">THE</span>
  <span class="nv">VALUE</span> <span class="nv">OF</span> <span class="nv">DPARAM</span><span class="ss">(</span><span class="mi">1</span><span class="ss">)</span> <span class="nv">ARE</span> <span class="nv">NOT</span> <span class="nv">STORED</span> <span class="nv">IN</span> <span class="nv">DPARAM</span>.<span class="ss">)</span>
 
  <span class="nv">THE</span> <span class="nv">VALUES</span> <span class="nv">OF</span> <span class="nv">GAMSQ</span> <span class="nv">AND</span> <span class="nv">RGAMSQ</span> <span class="nv">SET</span> <span class="nv">IN</span> <span class="nv">THE</span> <span class="nv">DATA</span> <span class="nv">STATEMENT</span> <span class="nv">MAY</span> <span class="nv">BE</span>
- <span class="nv">INEXACT</span>.  <span class="nv">THIS</span> <span class="nv">IS</span> <span class="nv">OK</span> <span class="nv">AS</span> <span class="nv">THEY</span> <span class="nv">ARE</span> <span class="nv">ONLY</span> <span class="nv">USED</span> <span class="k">FOR</span> <span class="nv">TESTING</span> <span class="nv">THE</span> <span class="nv">SIZE</span>
- <span class="nv">OF</span> <span class="nv">DD1</span> <span class="nv">AND</span> <span class="nv">DD2</span>.  <span class="nv">ALL</span> <span class="nv">ACTUAL</span> <span class="nv">SCALING</span> <span class="nv">OF</span> <span class="nv">DATA</span> <span class="nv">IS</span> <span class="nv">DONE</span> <span class="nv">USING</span> <span class="nv">GAM</span>.
+ <span class="nv">INEXACT</span>. <span class="nv">THIS</span> <span class="nv">IS</span> <span class="nv">OK</span> <span class="nv">AS</span> <span class="nv">THEY</span> <span class="nv">ARE</span> <span class="nv">ONLY</span> <span class="nv">USED</span> <span class="k">FOR</span> <span class="nv">TESTING</span> <span class="nv">THE</span> <span class="nv">SIZE</span>
+ <span class="nv">OF</span> <span class="nv">DD1</span> <span class="nv">AND</span> <span class="nv">DD2</span>. <span class="nv">ALL</span> <span class="nv">ACTUAL</span> <span class="nv">SCALING</span> <span class="nv">OF</span> <span class="nv">DATA</span> <span class="nv">IS</span> <span class="nv">DONE</span> <span class="nv">USING</span> <span class="nv">GAM</span>.
 </code></pre></div>
 
 <h2 id="options">OPTIONS</h2>
-<p>out] DD1</p>
+<p>DD1</p>
 <div class="codehilite"><pre><span></span><code>       DD1 is DOUBLE PRECISION
 </code></pre></div>
 
-<p>out] DD2</p>
+<p>DD2</p>
 <div class="codehilite"><pre><span></span><code>       DD2 is DOUBLE PRECISION
 </code></pre></div>
 
-<p>out] DX1</p>
+<p>DX1</p>
 <div class="codehilite"><pre><span></span><code>       DX1 is DOUBLE PRECISION
 </code></pre></div>
 
@@ -350,12 +351,12 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-dd1~2"></span>double precision,</td>
+  <td><span class="anchor" id="variable-dd1"></span>double precision,</td>
   <td>intent(inout)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>DD1</strong></td><td></td>
+  <td><strong>dd1</strong></td><td></td>
   
 </tr>
 
@@ -365,12 +366,12 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-dd2~2"></span>double precision,</td>
+  <td><span class="anchor" id="variable-dd2"></span>double precision,</td>
   <td>intent(inout)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>DD2</strong></td><td></td>
+  <td><strong>dd2</strong></td><td></td>
   
 </tr>
 
@@ -380,12 +381,12 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-dx1~6"></span>double precision,</td>
+  <td><span class="anchor" id="variable-dx1"></span>double precision,</td>
   <td>intent(inout)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>DX1</strong></td><td></td>
+  <td><strong>dx1</strong></td><td></td>
   
 </tr>
 
@@ -395,12 +396,12 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-dy1~6"></span>double precision,</td>
+  <td><span class="anchor" id="variable-dy1"></span>double precision,</td>
   <td>intent(in)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>DY1</strong></td><td></td>
+  <td><strong>dy1</strong></td><td></td>
   
 </tr>
 
@@ -410,12 +411,12 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-dparam~4"></span>double precision,</td>
+  <td><span class="anchor" id="variable-dparam~2"></span>double precision,</td>
   <td>intent(out)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>DPARAM</strong>(5)</td><td></td>
+  <td><strong>dparam</strong>(5)</td><td></td>
   
 </tr>
 
@@ -441,39 +442,39 @@ http://www.netlib.org/lapack/explore-html/
   <div id="vars-1" class="panel-collapse collapse">
     <div class="list-group">
       
-      <a class="list-group-item" href="../proc/drotmg.html#variable-dflag~2">DFLAG</a>
+      <a class="list-group-item" href="../proc/drotmg.html#variable-dflag~2">dflag</a>
       
-      <a class="list-group-item" href="../proc/drotmg.html#variable-dh11~2">DH11</a>
+      <a class="list-group-item" href="../proc/drotmg.html#variable-dh11~2">dh11</a>
       
-      <a class="list-group-item" href="../proc/drotmg.html#variable-dh12~2">DH12</a>
+      <a class="list-group-item" href="../proc/drotmg.html#variable-dh12~2">dh12</a>
       
-      <a class="list-group-item" href="../proc/drotmg.html#variable-dh21~2">DH21</a>
+      <a class="list-group-item" href="../proc/drotmg.html#variable-dh21~2">dh21</a>
       
-      <a class="list-group-item" href="../proc/drotmg.html#variable-dh22~2">DH22</a>
+      <a class="list-group-item" href="../proc/drotmg.html#variable-dh22~2">dh22</a>
       
-      <a class="list-group-item" href="../proc/drotmg.html#variable-dp1">DP1</a>
+      <a class="list-group-item" href="../proc/drotmg.html#variable-dp1">dp1</a>
       
-      <a class="list-group-item" href="../proc/drotmg.html#variable-dp2">DP2</a>
+      <a class="list-group-item" href="../proc/drotmg.html#variable-dp2">dp2</a>
       
-      <a class="list-group-item" href="../proc/drotmg.html#variable-dq1">DQ1</a>
+      <a class="list-group-item" href="../proc/drotmg.html#variable-dq1">dq1</a>
       
-      <a class="list-group-item" href="../proc/drotmg.html#variable-dq2">DQ2</a>
+      <a class="list-group-item" href="../proc/drotmg.html#variable-dq2">dq2</a>
       
-      <a class="list-group-item" href="../proc/drotmg.html#variable-dtemp~8">DTEMP</a>
+      <a class="list-group-item" href="../proc/drotmg.html#variable-dtemp~4">dtemp</a>
       
-      <a class="list-group-item" href="../proc/drotmg.html#variable-du">DU</a>
+      <a class="list-group-item" href="../proc/drotmg.html#variable-du">du</a>
       
-      <a class="list-group-item" href="../proc/drotmg.html#variable-gam">GAM</a>
+      <a class="list-group-item" href="../proc/drotmg.html#variable-gam">gam</a>
       
-      <a class="list-group-item" href="../proc/drotmg.html#variable-gamsq">GAMSQ</a>
+      <a class="list-group-item" href="../proc/drotmg.html#variable-gamsq">gamsq</a>
       
-      <a class="list-group-item" href="../proc/drotmg.html#variable-rgamsq">RGAMSQ</a>
+      <a class="list-group-item" href="../proc/drotmg.html#variable-one~24">one</a>
       
-      <a class="list-group-item" href="../proc/drotmg.html#variable-one~7">one</a>
+      <a class="list-group-item" href="../proc/drotmg.html#variable-rgamsq">rgamsq</a>
       
       <a class="list-group-item" href="../proc/drotmg.html#variable-two~2">two</a>
       
-      <a class="list-group-item" href="../proc/drotmg.html#variable-zero~8">zero</a>
+      <a class="list-group-item" href="../proc/drotmg.html#variable-zero~38">zero</a>
       
     </div>
   </div>
@@ -501,7 +502,7 @@ http://www.netlib.org/lapack/explore-html/
 <div class="panel panel-primary">
   <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
   <div class="list-group">
-    <a class="list-group-item" href="../proc/drotmg.html#src">DROTMG</a>
+    <a class="list-group-item" href="../proc/drotmg.html#src">drotmg</a>
   </div>
 </div>
 
@@ -535,7 +536,7 @@ http://www.netlib.org/lapack/explore-html/
   
   <td>public</td>
   <td></td><td>::</td>
-  <td><strong>DFLAG</strong></td><td></td><td></td><td></td>
+  <td><strong>dflag</strong></td><td></td><td></td><td></td>
   
 </tr>
 
@@ -549,7 +550,7 @@ http://www.netlib.org/lapack/explore-html/
   
   <td>public</td>
   <td></td><td>::</td>
-  <td><strong>DH11</strong></td><td></td><td></td><td></td>
+  <td><strong>dh11</strong></td><td></td><td></td><td></td>
   
 </tr>
 
@@ -563,7 +564,7 @@ http://www.netlib.org/lapack/explore-html/
   
   <td>public</td>
   <td></td><td>::</td>
-  <td><strong>DH12</strong></td><td></td><td></td><td></td>
+  <td><strong>dh12</strong></td><td></td><td></td><td></td>
   
 </tr>
 
@@ -577,7 +578,7 @@ http://www.netlib.org/lapack/explore-html/
   
   <td>public</td>
   <td></td><td>::</td>
-  <td><strong>DH21</strong></td><td></td><td></td><td></td>
+  <td><strong>dh21</strong></td><td></td><td></td><td></td>
   
 </tr>
 
@@ -591,7 +592,7 @@ http://www.netlib.org/lapack/explore-html/
   
   <td>public</td>
   <td></td><td>::</td>
-  <td><strong>DH22</strong></td><td></td><td></td><td></td>
+  <td><strong>dh22</strong></td><td></td><td></td><td></td>
   
 </tr>
 
@@ -605,7 +606,7 @@ http://www.netlib.org/lapack/explore-html/
   
   <td>public</td>
   <td></td><td>::</td>
-  <td><strong>DP1</strong></td><td></td><td></td><td></td>
+  <td><strong>dp1</strong></td><td></td><td></td><td></td>
   
 </tr>
 
@@ -619,7 +620,7 @@ http://www.netlib.org/lapack/explore-html/
   
   <td>public</td>
   <td></td><td>::</td>
-  <td><strong>DP2</strong></td><td></td><td></td><td></td>
+  <td><strong>dp2</strong></td><td></td><td></td><td></td>
   
 </tr>
 
@@ -633,7 +634,7 @@ http://www.netlib.org/lapack/explore-html/
   
   <td>public</td>
   <td></td><td>::</td>
-  <td><strong>DQ1</strong></td><td></td><td></td><td></td>
+  <td><strong>dq1</strong></td><td></td><td></td><td></td>
   
 </tr>
 
@@ -647,7 +648,7 @@ http://www.netlib.org/lapack/explore-html/
   
   <td>public</td>
   <td></td><td>::</td>
-  <td><strong>DQ2</strong></td><td></td><td></td><td></td>
+  <td><strong>dq2</strong></td><td></td><td></td><td></td>
   
 </tr>
 
@@ -657,11 +658,11 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-dtemp~8"></span>double precision,</td>
+  <td><span class="anchor" id="variable-dtemp~4"></span>double precision,</td>
   
   <td>public</td>
   <td></td><td>::</td>
-  <td><strong>DTEMP</strong></td><td></td><td></td><td></td>
+  <td><strong>dtemp</strong></td><td></td><td></td><td></td>
   
 </tr>
 
@@ -675,7 +676,7 @@ http://www.netlib.org/lapack/explore-html/
   
   <td>public</td>
   <td></td><td>::</td>
-  <td><strong>DU</strong></td><td></td><td></td><td></td>
+  <td><strong>du</strong></td><td></td><td></td><td></td>
   
 </tr>
 
@@ -689,7 +690,7 @@ http://www.netlib.org/lapack/explore-html/
   
   <td>public,</td>
   <td>parameter</td><td>::</td>
-  <td><strong>GAM</strong></td><td> =</td><td>4096.D0</td><td></td>
+  <td><strong>gam</strong></td><td> =</td><td>4096.d0</td><td></td>
   
 </tr>
 
@@ -703,7 +704,21 @@ http://www.netlib.org/lapack/explore-html/
   
   <td>public,</td>
   <td>parameter</td><td>::</td>
-  <td><strong>GAMSQ</strong></td><td> =</td><td>16777216.D0</td><td></td>
+  <td><strong>gamsq</strong></td><td> =</td><td>16777216.d0</td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-one~24"></span>doubleprecision,</td>
+  
+  <td>public,</td>
+  <td>parameter</td><td>::</td>
+  <td><strong>one</strong></td><td> =</td><td>1.0d0</td><td></td>
   
 </tr>
 
@@ -717,21 +732,7 @@ http://www.netlib.org/lapack/explore-html/
   
   <td>public,</td>
   <td>parameter</td><td>::</td>
-  <td><strong>RGAMSQ</strong></td><td> =</td><td>5.9604645D-8</td><td></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" id="variable-one~7"></span>doubleprecision,</td>
-  
-  <td>public,</td>
-  <td>parameter</td><td>::</td>
-  <td><strong>one</strong></td><td> =</td><td>1.0d0</td><td></td>
+  <td><strong>rgamsq</strong></td><td> =</td><td>5.9604645d-8</td><td></td>
   
 </tr>
 
@@ -755,7 +756,7 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-zero~8"></span>doubleprecision,</td>
+  <td><span class="anchor" id="variable-zero~38"></span>doubleprecision,</td>
   
   <td>public,</td>
   <td>parameter</td><td>::</td>
@@ -786,7 +787,7 @@ http://www.netlib.org/lapack/explore-html/
     
     <section>
     <h2><span class="anchor" id="src"></span>Source Code</h2>
-    <div class="highlight"><pre><span></span>       <span class="k">SUBROUTINE </span><span class="n">DROTMG</span><span class="p">(</span><span class="n">DD1</span><span class="p">,</span><span class="n">DD2</span><span class="p">,</span><span class="n">DX1</span><span class="p">,</span><span class="n">DY1</span><span class="p">,</span><span class="n">DPARAM</span><span class="p">)</span>
+    <div class="highlight"><pre><span></span>       <span class="k">subroutine </span><span class="n">drotmg</span><span class="p">(</span><span class="n">dd1</span><span class="p">,</span><span class="n">dd2</span><span class="p">,</span><span class="n">dx1</span><span class="p">,</span><span class="n">dy1</span><span class="p">,</span><span class="n">dparam</span><span class="p">)</span>
       <span class="k">implicit none</span>
 <span class="c">!</span>
 <span class="c">!  -- Reference BLAS level1 routine (version 3.8.0) --</span>
@@ -795,20 +796,20 @@ http://www.netlib.org/lapack/explore-html/
 <span class="c">!     November 2017</span>
 <span class="c">!</span>
 <span class="c">!     .. Scalar Arguments ..</span>
-      <span class="kt">DOUBLE PRECISION</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span> <span class="kd">::</span> <span class="n">DD1</span><span class="p">,</span><span class="n">DD2</span><span class="p">,</span><span class="n">DX1</span>
-      <span class="kt">DOUBLE PRECISION</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>    <span class="kd">::</span> <span class="n">DY1</span>
+      <span class="kt">double precision</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span> <span class="kd">::</span> <span class="n">dd1</span><span class="p">,</span><span class="n">dd2</span><span class="p">,</span><span class="n">dx1</span>
+      <span class="kt">double precision</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>    <span class="kd">::</span> <span class="n">dy1</span>
 <span class="c">!     ..</span>
 <span class="c">!     .. Array Arguments ..</span>
-      <span class="kt">DOUBLE PRECISION</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>   <span class="kd">::</span> <span class="n">DPARAM</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+      <span class="kt">double precision</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>   <span class="kd">::</span> <span class="n">dparam</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 <span class="c">!     ..</span>
 <span class="c">!</span>
 <span class="c">!  =====================================================================</span>
 <span class="c">!</span>
 <span class="c">!     .. Local Scalars ..</span>
-      <span class="kt">DOUBLE PRECISION </span><span class="n">DFLAG</span><span class="p">,</span><span class="n">DH11</span><span class="p">,</span><span class="n">DH12</span><span class="p">,</span><span class="n">DH21</span><span class="p">,</span><span class="n">DH22</span><span class="p">,</span><span class="n">DP1</span><span class="p">,</span><span class="n">DP2</span><span class="p">,</span><span class="n">DQ1</span><span class="p">,</span><span class="n">DQ2</span><span class="p">,</span><span class="n">DTEMP</span><span class="p">,</span> <span class="n">DU</span>
+      <span class="kt">double precision </span><span class="n">dflag</span><span class="p">,</span><span class="n">dh11</span><span class="p">,</span><span class="n">dh12</span><span class="p">,</span><span class="n">dh21</span><span class="p">,</span><span class="n">dh22</span><span class="p">,</span><span class="n">dp1</span><span class="p">,</span><span class="n">dp2</span><span class="p">,</span><span class="n">dq1</span><span class="p">,</span><span class="n">dq2</span><span class="p">,</span><span class="n">dtemp</span><span class="p">,</span> <span class="n">du</span>
 <span class="c">!     ..</span>
 <span class="c">!     .. Intrinsic Functions ..</span>
-      <span class="k">INTRINSIC </span><span class="nb">DABS</span>
+      <span class="k">intrinsic </span><span class="nb">dabs</span>
 <span class="c">!     ..</span>
 <span class="c">!     .. Data statements ..</span>
 <span class="c">!</span>
@@ -816,152 +817,152 @@ http://www.netlib.org/lapack/explore-html/
       <span class="n">doubleprecision</span><span class="p">,</span><span class="k">parameter</span> <span class="kd">::</span> <span class="n">one</span><span class="o">=</span><span class="mf">1.0d0</span>
       <span class="n">doubleprecision</span><span class="p">,</span><span class="k">parameter</span> <span class="kd">::</span> <span class="n">two</span><span class="o">=</span><span class="mf">2.0d0</span>
 
-      <span class="n">doubleprecision</span><span class="p">,</span><span class="k">parameter</span> <span class="kd">::</span> <span class="n">GAM</span><span class="o">=</span><span class="mi">409</span><span class="mf">6.D0</span>
-      <span class="n">doubleprecision</span><span class="p">,</span><span class="k">parameter</span> <span class="kd">::</span> <span class="n">GAMSQ</span><span class="o">=</span><span class="mi">1677721</span><span class="mf">6.D0</span>
-      <span class="n">doubleprecision</span><span class="p">,</span><span class="k">parameter</span> <span class="kd">::</span> <span class="n">RGAMSQ</span><span class="o">=</span><span class="mf">5.9604645D-8</span>
+      <span class="n">doubleprecision</span><span class="p">,</span><span class="k">parameter</span> <span class="kd">::</span> <span class="n">gam</span><span class="o">=</span><span class="mi">409</span><span class="mf">6.d0</span>
+      <span class="n">doubleprecision</span><span class="p">,</span><span class="k">parameter</span> <span class="kd">::</span> <span class="n">gamsq</span><span class="o">=</span><span class="mi">1677721</span><span class="mf">6.d0</span>
+      <span class="n">doubleprecision</span><span class="p">,</span><span class="k">parameter</span> <span class="kd">::</span> <span class="n">rgamsq</span><span class="o">=</span><span class="mf">5.9604645d-8</span>
 <span class="c">!     ..</span>
 
-      <span class="k">IF</span> <span class="p">(</span><span class="n">DD1</span><span class="p">.</span><span class="n">LT</span><span class="p">.</span><span class="n">ZERO</span><span class="p">)</span> <span class="k">THEN</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">dd1</span><span class="p">.</span><span class="n">lt</span><span class="p">.</span><span class="n">zero</span><span class="p">)</span> <span class="k">then</span>
 <span class="c">!        GO ZERO-H-D-AND-DX1..</span>
-         <span class="n">DFLAG</span> <span class="o">=</span> <span class="o">-</span><span class="n">ONE</span>
-         <span class="n">DH11</span> <span class="o">=</span> <span class="n">ZERO</span>
-         <span class="n">DH12</span> <span class="o">=</span> <span class="n">ZERO</span>
-         <span class="n">DH21</span> <span class="o">=</span> <span class="n">ZERO</span>
-         <span class="n">DH22</span> <span class="o">=</span> <span class="n">ZERO</span>
+         <span class="n">dflag</span> <span class="o">=</span> <span class="o">-</span><span class="n">one</span>
+         <span class="n">dh11</span> <span class="o">=</span> <span class="n">zero</span>
+         <span class="n">dh12</span> <span class="o">=</span> <span class="n">zero</span>
+         <span class="n">dh21</span> <span class="o">=</span> <span class="n">zero</span>
+         <span class="n">dh22</span> <span class="o">=</span> <span class="n">zero</span>
 <span class="c">!</span>
-         <span class="n">DD1</span> <span class="o">=</span> <span class="n">ZERO</span>
-         <span class="n">DD2</span> <span class="o">=</span> <span class="n">ZERO</span>
-         <span class="n">DX1</span> <span class="o">=</span> <span class="n">ZERO</span>
-      <span class="k">ELSE</span>
+         <span class="n">dd1</span> <span class="o">=</span> <span class="n">zero</span>
+         <span class="n">dd2</span> <span class="o">=</span> <span class="n">zero</span>
+         <span class="n">dx1</span> <span class="o">=</span> <span class="n">zero</span>
+      <span class="k">else</span>
 <span class="c">!        CASE-DD1-NONNEGATIVE</span>
-         <span class="n">DP2</span> <span class="o">=</span> <span class="n">DD2</span><span class="o">*</span><span class="n">DY1</span>
-         <span class="k">IF</span> <span class="p">(</span><span class="n">DP2</span><span class="p">.</span><span class="n">EQ</span><span class="p">.</span><span class="n">ZERO</span><span class="p">)</span> <span class="k">THEN</span>
-<span class="k">            </span><span class="n">DFLAG</span> <span class="o">=</span> <span class="o">-</span><span class="n">TWO</span>
-            <span class="n">DPARAM</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="n">DFLAG</span>
-            <span class="k">RETURN</span>
+         <span class="n">dp2</span> <span class="o">=</span> <span class="n">dd2</span><span class="o">*</span><span class="n">dy1</span>
+         <span class="k">if</span> <span class="p">(</span><span class="n">dp2</span><span class="p">.</span><span class="n">eq</span><span class="p">.</span><span class="n">zero</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">            </span><span class="n">dflag</span> <span class="o">=</span> <span class="o">-</span><span class="n">two</span>
+            <span class="n">dparam</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="n">dflag</span>
+            <span class="k">return</span>
 <span class="k">         endif</span>
 <span class="c">!        REGULAR-CASE..</span>
-         <span class="n">DP1</span> <span class="o">=</span> <span class="n">DD1</span><span class="o">*</span><span class="n">DX1</span>
-         <span class="n">DQ2</span> <span class="o">=</span> <span class="n">DP2</span><span class="o">*</span><span class="n">DY1</span>
-         <span class="n">DQ1</span> <span class="o">=</span> <span class="n">DP1</span><span class="o">*</span><span class="n">DX1</span>
+         <span class="n">dp1</span> <span class="o">=</span> <span class="n">dd1</span><span class="o">*</span><span class="n">dx1</span>
+         <span class="n">dq2</span> <span class="o">=</span> <span class="n">dp2</span><span class="o">*</span><span class="n">dy1</span>
+         <span class="n">dq1</span> <span class="o">=</span> <span class="n">dp1</span><span class="o">*</span><span class="n">dx1</span>
 <span class="c">!</span>
-         <span class="k">IF</span> <span class="p">(</span><span class="nb">DABS</span><span class="p">(</span><span class="n">DQ1</span><span class="p">).</span><span class="n">GT</span><span class="p">.</span><span class="nb">DABS</span><span class="p">(</span><span class="n">DQ2</span><span class="p">))</span> <span class="k">THEN</span>
-<span class="k">            </span><span class="n">DH21</span> <span class="o">=</span> <span class="o">-</span><span class="n">DY1</span><span class="o">/</span><span class="n">DX1</span>
-            <span class="n">DH12</span> <span class="o">=</span> <span class="n">DP2</span><span class="o">/</span><span class="n">DP1</span>
+         <span class="k">if</span> <span class="p">(</span><span class="nb">dabs</span><span class="p">(</span><span class="n">dq1</span><span class="p">).</span><span class="n">gt</span><span class="p">.</span><span class="nb">dabs</span><span class="p">(</span><span class="n">dq2</span><span class="p">))</span> <span class="k">then</span>
+<span class="k">            </span><span class="n">dh21</span> <span class="o">=</span> <span class="o">-</span><span class="n">dy1</span><span class="o">/</span><span class="n">dx1</span>
+            <span class="n">dh12</span> <span class="o">=</span> <span class="n">dp2</span><span class="o">/</span><span class="n">dp1</span>
 <span class="c">!</span>
-            <span class="n">DU</span> <span class="o">=</span> <span class="n">ONE</span> <span class="o">-</span> <span class="n">DH12</span><span class="o">*</span><span class="n">DH21</span>
+            <span class="n">du</span> <span class="o">=</span> <span class="n">one</span> <span class="o">-</span> <span class="n">dh12</span><span class="o">*</span><span class="n">dh21</span>
 <span class="c">!</span>
-           <span class="k">IF</span> <span class="p">(</span><span class="n">DU</span><span class="p">.</span><span class="n">GT</span><span class="p">.</span><span class="n">ZERO</span><span class="p">)</span> <span class="k">THEN</span>
-<span class="k">             </span><span class="n">DFLAG</span> <span class="o">=</span> <span class="n">ZERO</span>
-             <span class="n">DD1</span> <span class="o">=</span> <span class="n">DD1</span><span class="o">/</span><span class="n">DU</span>
-             <span class="n">DD2</span> <span class="o">=</span> <span class="n">DD2</span><span class="o">/</span><span class="n">DU</span>
-             <span class="n">DX1</span> <span class="o">=</span> <span class="n">DX1</span><span class="o">*</span><span class="n">DU</span>
-           <span class="k">ELSE</span>
+           <span class="k">if</span> <span class="p">(</span><span class="n">du</span><span class="p">.</span><span class="n">gt</span><span class="p">.</span><span class="n">zero</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">             </span><span class="n">dflag</span> <span class="o">=</span> <span class="n">zero</span>
+             <span class="n">dd1</span> <span class="o">=</span> <span class="n">dd1</span><span class="o">/</span><span class="n">du</span>
+             <span class="n">dd2</span> <span class="o">=</span> <span class="n">dd2</span><span class="o">/</span><span class="n">du</span>
+             <span class="n">dx1</span> <span class="o">=</span> <span class="n">dx1</span><span class="o">*</span><span class="n">du</span>
+           <span class="k">else</span>
 <span class="c">!            This code path if here for safety. We do not expect this</span>
 <span class="c">!            condition to ever hold except in edge cases with rounding</span>
 <span class="c">!            errors. See DOI: 10.1145/355841.355847</span>
-             <span class="n">DFLAG</span> <span class="o">=</span> <span class="o">-</span><span class="n">ONE</span>
-             <span class="n">DH11</span> <span class="o">=</span> <span class="n">ZERO</span>
-             <span class="n">DH12</span> <span class="o">=</span> <span class="n">ZERO</span>
-             <span class="n">DH21</span> <span class="o">=</span> <span class="n">ZERO</span>
-             <span class="n">DH22</span> <span class="o">=</span> <span class="n">ZERO</span>
+             <span class="n">dflag</span> <span class="o">=</span> <span class="o">-</span><span class="n">one</span>
+             <span class="n">dh11</span> <span class="o">=</span> <span class="n">zero</span>
+             <span class="n">dh12</span> <span class="o">=</span> <span class="n">zero</span>
+             <span class="n">dh21</span> <span class="o">=</span> <span class="n">zero</span>
+             <span class="n">dh22</span> <span class="o">=</span> <span class="n">zero</span>
 <span class="c">!</span>
-             <span class="n">DD1</span> <span class="o">=</span> <span class="n">ZERO</span>
-             <span class="n">DD2</span> <span class="o">=</span> <span class="n">ZERO</span>
-             <span class="n">DX1</span> <span class="o">=</span> <span class="n">ZERO</span>
+             <span class="n">dd1</span> <span class="o">=</span> <span class="n">zero</span>
+             <span class="n">dd2</span> <span class="o">=</span> <span class="n">zero</span>
+             <span class="n">dx1</span> <span class="o">=</span> <span class="n">zero</span>
            <span class="k">endif</span>
-<span class="k">         ELSE</span>
+<span class="k">         else</span>
 
-<span class="k">            IF</span> <span class="p">(</span><span class="n">DQ2</span><span class="p">.</span><span class="n">LT</span><span class="p">.</span><span class="n">ZERO</span><span class="p">)</span> <span class="k">THEN</span>
+<span class="k">            if</span> <span class="p">(</span><span class="n">dq2</span><span class="p">.</span><span class="n">lt</span><span class="p">.</span><span class="n">zero</span><span class="p">)</span> <span class="k">then</span>
 <span class="c">!              GO ZERO-H-D-AND-DX1..</span>
-               <span class="n">DFLAG</span> <span class="o">=</span> <span class="o">-</span><span class="n">ONE</span>
-               <span class="n">DH11</span> <span class="o">=</span> <span class="n">ZERO</span>
-               <span class="n">DH12</span> <span class="o">=</span> <span class="n">ZERO</span>
-               <span class="n">DH21</span> <span class="o">=</span> <span class="n">ZERO</span>
-               <span class="n">DH22</span> <span class="o">=</span> <span class="n">ZERO</span>
+               <span class="n">dflag</span> <span class="o">=</span> <span class="o">-</span><span class="n">one</span>
+               <span class="n">dh11</span> <span class="o">=</span> <span class="n">zero</span>
+               <span class="n">dh12</span> <span class="o">=</span> <span class="n">zero</span>
+               <span class="n">dh21</span> <span class="o">=</span> <span class="n">zero</span>
+               <span class="n">dh22</span> <span class="o">=</span> <span class="n">zero</span>
 <span class="c">!</span>
-               <span class="n">DD1</span> <span class="o">=</span> <span class="n">ZERO</span>
-               <span class="n">DD2</span> <span class="o">=</span> <span class="n">ZERO</span>
-               <span class="n">DX1</span> <span class="o">=</span> <span class="n">ZERO</span>
-            <span class="k">ELSE</span>
-<span class="k">               </span><span class="n">DFLAG</span> <span class="o">=</span> <span class="n">ONE</span>
-               <span class="n">DH11</span> <span class="o">=</span> <span class="n">DP1</span><span class="o">/</span><span class="n">DP2</span>
-               <span class="n">DH22</span> <span class="o">=</span> <span class="n">DX1</span><span class="o">/</span><span class="n">DY1</span>
-               <span class="n">DU</span> <span class="o">=</span> <span class="n">ONE</span> <span class="o">+</span> <span class="n">DH11</span><span class="o">*</span><span class="n">DH22</span>
-               <span class="n">DTEMP</span> <span class="o">=</span> <span class="n">DD2</span><span class="o">/</span><span class="n">DU</span>
-               <span class="n">DD2</span> <span class="o">=</span> <span class="n">DD1</span><span class="o">/</span><span class="n">DU</span>
-               <span class="n">DD1</span> <span class="o">=</span> <span class="n">DTEMP</span>
-               <span class="n">DX1</span> <span class="o">=</span> <span class="n">DY1</span><span class="o">*</span><span class="n">DU</span>
+               <span class="n">dd1</span> <span class="o">=</span> <span class="n">zero</span>
+               <span class="n">dd2</span> <span class="o">=</span> <span class="n">zero</span>
+               <span class="n">dx1</span> <span class="o">=</span> <span class="n">zero</span>
+            <span class="k">else</span>
+<span class="k">               </span><span class="n">dflag</span> <span class="o">=</span> <span class="n">one</span>
+               <span class="n">dh11</span> <span class="o">=</span> <span class="n">dp1</span><span class="o">/</span><span class="n">dp2</span>
+               <span class="n">dh22</span> <span class="o">=</span> <span class="n">dx1</span><span class="o">/</span><span class="n">dy1</span>
+               <span class="n">du</span> <span class="o">=</span> <span class="n">one</span> <span class="o">+</span> <span class="n">dh11</span><span class="o">*</span><span class="n">dh22</span>
+               <span class="n">dtemp</span> <span class="o">=</span> <span class="n">dd2</span><span class="o">/</span><span class="n">du</span>
+               <span class="n">dd2</span> <span class="o">=</span> <span class="n">dd1</span><span class="o">/</span><span class="n">du</span>
+               <span class="n">dd1</span> <span class="o">=</span> <span class="n">dtemp</span>
+               <span class="n">dx1</span> <span class="o">=</span> <span class="n">dy1</span><span class="o">*</span><span class="n">du</span>
             <span class="k">endif</span>
 <span class="k">         endif</span>
 
 <span class="c">!     PROCEDURE..SCALE-CHECK</span>
-         <span class="k">IF</span> <span class="p">(</span><span class="n">DD1</span><span class="p">.</span><span class="n">NE</span><span class="p">.</span><span class="n">ZERO</span><span class="p">)</span> <span class="k">THEN</span>
-<span class="k">            DO WHILE</span> <span class="p">((</span><span class="n">DD1</span><span class="p">.</span><span class="n">LE</span><span class="p">.</span><span class="n">RGAMSQ</span><span class="p">)</span> <span class="p">.</span><span class="nb">OR</span><span class="p">.</span> <span class="p">(</span><span class="n">DD1</span><span class="p">.</span><span class="n">GE</span><span class="p">.</span><span class="n">GAMSQ</span><span class="p">))</span>
-               <span class="k">IF</span> <span class="p">(</span><span class="n">DFLAG</span><span class="p">.</span><span class="n">EQ</span><span class="p">.</span><span class="n">ZERO</span><span class="p">)</span> <span class="k">THEN</span>
-<span class="k">                  </span><span class="n">DH11</span> <span class="o">=</span> <span class="n">ONE</span>
-                  <span class="n">DH22</span> <span class="o">=</span> <span class="n">ONE</span>
-                  <span class="n">DFLAG</span> <span class="o">=</span> <span class="o">-</span><span class="n">ONE</span>
-               <span class="k">ELSE</span>
-<span class="k">                  </span><span class="n">DH21</span> <span class="o">=</span> <span class="o">-</span><span class="n">ONE</span>
-                  <span class="n">DH12</span> <span class="o">=</span> <span class="n">ONE</span>
-                  <span class="n">DFLAG</span> <span class="o">=</span> <span class="o">-</span><span class="n">ONE</span>
+         <span class="k">if</span> <span class="p">(</span><span class="n">dd1</span><span class="p">.</span><span class="n">ne</span><span class="p">.</span><span class="n">zero</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">            do while</span> <span class="p">((</span><span class="n">dd1</span><span class="p">.</span><span class="n">le</span><span class="p">.</span><span class="n">rgamsq</span><span class="p">)</span> <span class="p">.</span><span class="nb">or</span><span class="p">.</span> <span class="p">(</span><span class="n">dd1</span><span class="p">.</span><span class="n">ge</span><span class="p">.</span><span class="n">gamsq</span><span class="p">))</span>
+               <span class="k">if</span> <span class="p">(</span><span class="n">dflag</span><span class="p">.</span><span class="n">eq</span><span class="p">.</span><span class="n">zero</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">                  </span><span class="n">dh11</span> <span class="o">=</span> <span class="n">one</span>
+                  <span class="n">dh22</span> <span class="o">=</span> <span class="n">one</span>
+                  <span class="n">dflag</span> <span class="o">=</span> <span class="o">-</span><span class="n">one</span>
+               <span class="k">else</span>
+<span class="k">                  </span><span class="n">dh21</span> <span class="o">=</span> <span class="o">-</span><span class="n">one</span>
+                  <span class="n">dh12</span> <span class="o">=</span> <span class="n">one</span>
+                  <span class="n">dflag</span> <span class="o">=</span> <span class="o">-</span><span class="n">one</span>
                <span class="k">endif</span>
-<span class="k">               IF</span> <span class="p">(</span><span class="n">DD1</span><span class="p">.</span><span class="n">LE</span><span class="p">.</span><span class="n">RGAMSQ</span><span class="p">)</span> <span class="k">THEN</span>
-<span class="k">                  </span><span class="n">DD1</span> <span class="o">=</span> <span class="n">DD1</span><span class="o">*</span><span class="n">GAM</span><span class="o">**</span><span class="mi">2</span>
-                  <span class="n">DX1</span> <span class="o">=</span> <span class="n">DX1</span><span class="o">/</span><span class="n">GAM</span>
-                  <span class="n">DH11</span> <span class="o">=</span> <span class="n">DH11</span><span class="o">/</span><span class="n">GAM</span>
-                  <span class="n">DH12</span> <span class="o">=</span> <span class="n">DH12</span><span class="o">/</span><span class="n">GAM</span>
-               <span class="k">ELSE</span>
-<span class="k">                  </span><span class="n">DD1</span> <span class="o">=</span> <span class="n">DD1</span><span class="o">/</span><span class="n">GAM</span><span class="o">**</span><span class="mi">2</span>
-                  <span class="n">DX1</span> <span class="o">=</span> <span class="n">DX1</span><span class="o">*</span><span class="n">GAM</span>
-                  <span class="n">DH11</span> <span class="o">=</span> <span class="n">DH11</span><span class="o">*</span><span class="n">GAM</span>
-                  <span class="n">DH12</span> <span class="o">=</span> <span class="n">DH12</span><span class="o">*</span><span class="n">GAM</span>
+<span class="k">               if</span> <span class="p">(</span><span class="n">dd1</span><span class="p">.</span><span class="n">le</span><span class="p">.</span><span class="n">rgamsq</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">                  </span><span class="n">dd1</span> <span class="o">=</span> <span class="n">dd1</span><span class="o">*</span><span class="n">gam</span><span class="o">**</span><span class="mi">2</span>
+                  <span class="n">dx1</span> <span class="o">=</span> <span class="n">dx1</span><span class="o">/</span><span class="n">gam</span>
+                  <span class="n">dh11</span> <span class="o">=</span> <span class="n">dh11</span><span class="o">/</span><span class="n">gam</span>
+                  <span class="n">dh12</span> <span class="o">=</span> <span class="n">dh12</span><span class="o">/</span><span class="n">gam</span>
+               <span class="k">else</span>
+<span class="k">                  </span><span class="n">dd1</span> <span class="o">=</span> <span class="n">dd1</span><span class="o">/</span><span class="n">gam</span><span class="o">**</span><span class="mi">2</span>
+                  <span class="n">dx1</span> <span class="o">=</span> <span class="n">dx1</span><span class="o">*</span><span class="n">gam</span>
+                  <span class="n">dh11</span> <span class="o">=</span> <span class="n">dh11</span><span class="o">*</span><span class="n">gam</span>
+                  <span class="n">dh12</span> <span class="o">=</span> <span class="n">dh12</span><span class="o">*</span><span class="n">gam</span>
                <span class="k">endif</span>
-<span class="k">            ENDDO</span>
+<span class="k">            enddo</span>
 <span class="k">         endif</span>
 
-<span class="k">         IF</span> <span class="p">(</span><span class="n">DD2</span><span class="p">.</span><span class="n">NE</span><span class="p">.</span><span class="n">ZERO</span><span class="p">)</span> <span class="k">THEN</span>
-<span class="k">            DO WHILE</span> <span class="p">(</span> <span class="p">(</span><span class="nb">DABS</span><span class="p">(</span><span class="n">DD2</span><span class="p">).</span><span class="n">LE</span><span class="p">.</span><span class="n">RGAMSQ</span><span class="p">)</span> <span class="p">.</span><span class="nb">OR</span><span class="p">.</span> <span class="p">(</span><span class="nb">DABS</span><span class="p">(</span><span class="n">DD2</span><span class="p">).</span><span class="n">GE</span><span class="p">.</span><span class="n">GAMSQ</span><span class="p">)</span> <span class="p">)</span>
-               <span class="k">IF</span> <span class="p">(</span><span class="n">DFLAG</span><span class="p">.</span><span class="n">EQ</span><span class="p">.</span><span class="n">ZERO</span><span class="p">)</span> <span class="k">THEN</span>
-<span class="k">                  </span><span class="n">DH11</span> <span class="o">=</span> <span class="n">ONE</span>
-                  <span class="n">DH22</span> <span class="o">=</span> <span class="n">ONE</span>
-                  <span class="n">DFLAG</span> <span class="o">=</span> <span class="o">-</span><span class="n">ONE</span>
-               <span class="k">ELSE</span>
-<span class="k">                  </span><span class="n">DH21</span> <span class="o">=</span> <span class="o">-</span><span class="n">ONE</span>
-                  <span class="n">DH12</span> <span class="o">=</span> <span class="n">ONE</span>
-                  <span class="n">DFLAG</span> <span class="o">=</span> <span class="o">-</span><span class="n">ONE</span>
+<span class="k">         if</span> <span class="p">(</span><span class="n">dd2</span><span class="p">.</span><span class="n">ne</span><span class="p">.</span><span class="n">zero</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">            do while</span> <span class="p">(</span> <span class="p">(</span><span class="nb">dabs</span><span class="p">(</span><span class="n">dd2</span><span class="p">).</span><span class="n">le</span><span class="p">.</span><span class="n">rgamsq</span><span class="p">)</span> <span class="p">.</span><span class="nb">or</span><span class="p">.</span> <span class="p">(</span><span class="nb">dabs</span><span class="p">(</span><span class="n">dd2</span><span class="p">).</span><span class="n">ge</span><span class="p">.</span><span class="n">gamsq</span><span class="p">)</span> <span class="p">)</span>
+               <span class="k">if</span> <span class="p">(</span><span class="n">dflag</span><span class="p">.</span><span class="n">eq</span><span class="p">.</span><span class="n">zero</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">                  </span><span class="n">dh11</span> <span class="o">=</span> <span class="n">one</span>
+                  <span class="n">dh22</span> <span class="o">=</span> <span class="n">one</span>
+                  <span class="n">dflag</span> <span class="o">=</span> <span class="o">-</span><span class="n">one</span>
+               <span class="k">else</span>
+<span class="k">                  </span><span class="n">dh21</span> <span class="o">=</span> <span class="o">-</span><span class="n">one</span>
+                  <span class="n">dh12</span> <span class="o">=</span> <span class="n">one</span>
+                  <span class="n">dflag</span> <span class="o">=</span> <span class="o">-</span><span class="n">one</span>
                <span class="k">endif</span>
-<span class="k">               IF</span> <span class="p">(</span><span class="nb">DABS</span><span class="p">(</span><span class="n">DD2</span><span class="p">).</span><span class="n">LE</span><span class="p">.</span><span class="n">RGAMSQ</span><span class="p">)</span> <span class="k">THEN</span>
-<span class="k">                  </span><span class="n">DD2</span> <span class="o">=</span> <span class="n">DD2</span><span class="o">*</span><span class="n">GAM</span><span class="o">**</span><span class="mi">2</span>
-                  <span class="n">DH21</span> <span class="o">=</span> <span class="n">DH21</span><span class="o">/</span><span class="n">GAM</span>
-                  <span class="n">DH22</span> <span class="o">=</span> <span class="n">DH22</span><span class="o">/</span><span class="n">GAM</span>
-               <span class="k">ELSE</span>
-<span class="k">                  </span><span class="n">DD2</span> <span class="o">=</span> <span class="n">DD2</span><span class="o">/</span><span class="n">GAM</span><span class="o">**</span><span class="mi">2</span>
-                  <span class="n">DH21</span> <span class="o">=</span> <span class="n">DH21</span><span class="o">*</span><span class="n">GAM</span>
-                  <span class="n">DH22</span> <span class="o">=</span> <span class="n">DH22</span><span class="o">*</span><span class="n">GAM</span>
+<span class="k">               if</span> <span class="p">(</span><span class="nb">dabs</span><span class="p">(</span><span class="n">dd2</span><span class="p">).</span><span class="n">le</span><span class="p">.</span><span class="n">rgamsq</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">                  </span><span class="n">dd2</span> <span class="o">=</span> <span class="n">dd2</span><span class="o">*</span><span class="n">gam</span><span class="o">**</span><span class="mi">2</span>
+                  <span class="n">dh21</span> <span class="o">=</span> <span class="n">dh21</span><span class="o">/</span><span class="n">gam</span>
+                  <span class="n">dh22</span> <span class="o">=</span> <span class="n">dh22</span><span class="o">/</span><span class="n">gam</span>
+               <span class="k">else</span>
+<span class="k">                  </span><span class="n">dd2</span> <span class="o">=</span> <span class="n">dd2</span><span class="o">/</span><span class="n">gam</span><span class="o">**</span><span class="mi">2</span>
+                  <span class="n">dh21</span> <span class="o">=</span> <span class="n">dh21</span><span class="o">*</span><span class="n">gam</span>
+                  <span class="n">dh22</span> <span class="o">=</span> <span class="n">dh22</span><span class="o">*</span><span class="n">gam</span>
                <span class="k">endif</span>
 <span class="k">            enddo</span>
 <span class="k">         endif</span>
 
 <span class="k">      endif</span>
 
-<span class="k">      IF</span> <span class="p">(</span><span class="n">DFLAG</span><span class="p">.</span><span class="n">LT</span><span class="p">.</span><span class="n">ZERO</span><span class="p">)</span> <span class="k">THEN</span>
-<span class="k">         </span><span class="n">DPARAM</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">=</span> <span class="n">DH11</span>
-         <span class="n">DPARAM</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">=</span> <span class="n">DH21</span>
-         <span class="n">DPARAM</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="o">=</span> <span class="n">DH12</span>
-         <span class="n">DPARAM</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">=</span> <span class="n">DH22</span>
-      <span class="n">elseif</span> <span class="p">(</span><span class="n">DFLAG</span><span class="p">.</span><span class="n">EQ</span><span class="p">.</span><span class="n">ZERO</span><span class="p">)</span> <span class="k">THEN</span>
-<span class="k">         </span><span class="n">DPARAM</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">=</span> <span class="n">DH21</span>
-         <span class="n">DPARAM</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="o">=</span> <span class="n">DH12</span>
-      <span class="k">ELSE</span>
-<span class="k">         </span><span class="n">DPARAM</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">=</span> <span class="n">DH11</span>
-         <span class="n">DPARAM</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">=</span> <span class="n">DH22</span>
+<span class="k">      if</span> <span class="p">(</span><span class="n">dflag</span><span class="p">.</span><span class="n">lt</span><span class="p">.</span><span class="n">zero</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">         </span><span class="n">dparam</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">=</span> <span class="n">dh11</span>
+         <span class="n">dparam</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">=</span> <span class="n">dh21</span>
+         <span class="n">dparam</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="o">=</span> <span class="n">dh12</span>
+         <span class="n">dparam</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">=</span> <span class="n">dh22</span>
+      <span class="n">elseif</span> <span class="p">(</span><span class="n">dflag</span><span class="p">.</span><span class="n">eq</span><span class="p">.</span><span class="n">zero</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">         </span><span class="n">dparam</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">=</span> <span class="n">dh21</span>
+         <span class="n">dparam</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="o">=</span> <span class="n">dh12</span>
+      <span class="k">else</span>
+<span class="k">         </span><span class="n">dparam</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">=</span> <span class="n">dh11</span>
+         <span class="n">dparam</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">=</span> <span class="n">dh22</span>
       <span class="k">endif</span>
 
-<span class="k">      </span><span class="n">DPARAM</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="n">DFLAG</span>
+<span class="k">      </span><span class="n">dparam</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="n">dflag</span>
 
-      <span class="k">END SUBROUTINE </span><span class="n">DROTMG</span>
+      <span class="k">end subroutine </span><span class="n">drotmg</span>
 </pre></div>
 
     </section>
@@ -977,16 +978,16 @@ http://www.netlib.org/lapack/explore-html/
     <footer>
       <div class="container">
       <div class="row">
-        <div class="col-xs-6 col-md-4"><p>&copy; 2021 
+        <div class="col-xs-6 col-md-4"><p>&copy; 2022 
                                           </p></div>
         <div class="col-xs-6 col-md-4 col-md-push-4">
           <p class="text-right">
             Documentation generated by 
             <a href="https://github.com/cmacmackin/ford">FORD</a>
-             on 2021-08-23 15:25  
+             on 2022-01-03 21:31  
           </p>
         </div>
-        <div class="col-xs-12 col-md-4 col-md-pull-4"><p class="text-center"> M_blas was developed by John S. Urban and many others</p></div>
+        <div class="col-xs-12 col-md-4 col-md-pull-4"><p class="text-center"> M_blas was developed by many others</p></div>
       </div>
       <br>
       </div> <!-- /container -->    

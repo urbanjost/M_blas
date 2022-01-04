@@ -7,10 +7,10 @@
    
    <meta name="description" content="BLAS - Basic Linear Algebra Subroutines">
     
-    <meta name="author" content="John S. Urban and many others" >
+    <meta name="author" content="many others" >
     <link rel="icon" href="../favicon.png">
 
-    <title>SDSDOT &ndash; M_blas</title>
+    <title>sdsdot &ndash; M_blas</title>
 
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/pygments.css" rel="stylesheet">
@@ -112,7 +112,7 @@
     
   
   <div class="row">
-    <h1>SDSDOT
+    <h1>sdsdot
       <small>Function</small>
     
     </h1>
@@ -147,7 +147,7 @@
      <li><a href='../module/m_blas.html'>M_blas</a></li>
     
   
-     <li class="active">SDSDOT</li>
+     <li class="active">sdsdot</li>
   </ol>
 </div>
 </div>
@@ -175,15 +175,15 @@
   <div id="vars-0" class="panel-collapse collapse">
     <div class="list-group">
       
-      <a class="list-group-item" href="../proc/sdsdot.html#variable-dsdot~3">DSDOT</a>
+      <a class="list-group-item" href="../proc/sdsdot.html#variable-dsdot~2">dsdot</a>
       
-      <a class="list-group-item" href="../proc/sdsdot.html#variable-i~127">I</a>
+      <a class="list-group-item" href="../proc/sdsdot.html#variable-i~18">i</a>
       
-      <a class="list-group-item" href="../proc/sdsdot.html#variable-kx~6">KX</a>
+      <a class="list-group-item" href="../proc/sdsdot.html#variable-kx~2">kx</a>
       
-      <a class="list-group-item" href="../proc/sdsdot.html#variable-ky~6">KY</a>
+      <a class="list-group-item" href="../proc/sdsdot.html#variable-ky~2">ky</a>
       
-      <a class="list-group-item" href="../proc/sdsdot.html#variable-ns~58">NS</a>
+      <a class="list-group-item" href="../proc/sdsdot.html#variable-ns~2">ns</a>
       
     </div>
   </div>
@@ -211,7 +211,7 @@
 <div class="panel panel-primary">
   <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
   <div class="list-group">
-    <a class="list-group-item" href="../proc/sdsdot.html#src">SDSDOT</a>
+    <a class="list-group-item" href="../proc/sdsdot.html#src">sdsdot</a>
   </div>
 </div>
 
@@ -223,7 +223,7 @@
     
     <div class="col-md-9" id='text'>
     <h2>
-public pure function SDSDOT(N, SB, SX, INCX, SY, INCY)
+public pure function sdsdot(n, sb, sx, incx, sy, incy)
     
     
    
@@ -234,19 +234,20 @@ public pure function SDSDOT(N, SB, SX, INCX, SY, INCY)
 
     
     <h2 id="name">NAME</h2>
-<div class="codehilite"><pre><span></span><code>sdsdot.(3f) -- [BLAS:SINGLE_BLAS_LEVEL1] Compute the inner
+<div class="codehilite"><pre><span></span><code>sdsdot(3f) - [BLAS:SINGLE_BLAS_LEVEL1] Compute the inner
 product of two vectors with extended precision accumulation.
 </code></pre></div>
 
+<p>SDSDOT := SUM SX * SY (accumulated double precision, returned single)</p>
 <h2 id="synopsis">SYNOPSIS</h2>
-<div class="codehilite"><pre><span></span><code> REAL FUNCTION SDSDOT(N,SB,SX,INCX,SY,INCY)
+<div class="codehilite"><pre><span></span><code> real function sdsdot(n,sb,sx,incx,sy,incy)
 
    .. Scalar Arguments ..
-   REAL,intent(in) :: SB
-   INTEGER,intent(in) :: INCX,INCY,N
+   real,intent(in) :: sb
+   integer,intent(in) :: incx,incy,n
    ..
    .. Array Arguments ..
-   REAL,intent(in) :: SX(*),SY(*)
+   real,intent(in) :: sx(*),sy(*)
    ..
 </code></pre></div>
 
@@ -313,7 +314,7 @@ product of two vectors with extended precision accumulation.
  <span class="nv">usage</span>, <span class="nv">Algorithm</span> <span class="nv">No</span>. <span class="mi">539</span>, <span class="nv">Transactions</span> <span class="nv">on</span> <span class="nv">Mathematical</span>
  <span class="nv">Software</span> <span class="mi">5</span>, <span class="mi">3</span> <span class="ss">(</span><span class="nv">September</span> <span class="mi">1979</span><span class="ss">)</span>, <span class="nv">pp</span>. <span class="mi">308</span><span class="o">-</span><span class="mi">323</span>.
 
- <span class="nv">REVISION</span> <span class="nv">HISTORY</span>  <span class="ss">(</span><span class="nv">YYMMDD</span><span class="ss">)</span>
+ <span class="nv">REVISION</span> <span class="nv">HISTORY</span> <span class="ss">(</span><span class="nv">YYMMDD</span><span class="ss">)</span>
 
  <span class="mi">791001</span>  <span class="nv">DATE</span> <span class="nv">WRITTEN</span>
  <span class="mi">890531</span>  <span class="nv">Changed</span> <span class="nv">all</span> <span class="nv">specific</span> <span class="nv">intrinsics</span> <span class="nv">to</span> <span class="nv">generic</span>.  <span class="ss">(</span><span class="nv">WRB</span><span class="ss">)</span>
@@ -349,12 +350,12 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-n~287"></span>integer,</td>
+  <td><span class="anchor" id="variable-n~18"></span>integer,</td>
   <td>intent(in)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>N</strong></td><td></td>
+  <td><strong>n</strong></td><td></td>
   
 </tr>
 
@@ -364,12 +365,12 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-sb~10"></span>real,</td>
+  <td><span class="anchor" id="variable-sb"></span>real,</td>
   <td>intent(in)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>SB</strong></td><td></td>
+  <td><strong>sb</strong></td><td></td>
   
 </tr>
 
@@ -379,12 +380,12 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-sx~21"></span>real,</td>
+  <td><span class="anchor" id="variable-sx~5"></span>real,</td>
   <td>intent(in)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>SX</strong>(*)</td><td></td>
+  <td><strong>sx</strong>(*)</td><td></td>
   
 </tr>
 
@@ -394,12 +395,12 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-incx~209"></span>integer,</td>
+  <td><span class="anchor" id="variable-incx~18"></span>integer,</td>
   <td>intent(in)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>INCX</strong></td><td></td>
+  <td><strong>incx</strong></td><td></td>
   
 </tr>
 
@@ -409,12 +410,12 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-sy~15"></span>real,</td>
+  <td><span class="anchor" id="variable-sy~3"></span>real,</td>
   <td>intent(in)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>SY</strong>(*)</td><td></td>
+  <td><strong>sy</strong>(*)</td><td></td>
   
 </tr>
 
@@ -424,12 +425,12 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-incy~145"></span>integer,</td>
+  <td><span class="anchor" id="variable-incy~7"></span>integer,</td>
   <td>intent(in)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>INCY</strong></td><td></td>
+  <td><strong>incy</strong></td><td></td>
   
 </tr>
 
@@ -443,7 +444,7 @@ http://www.netlib.org/lapack/explore-html/
     
     
     
-   <h3>Return Value <small><span class="anchor" id="variable-sdsdot~2"></span>real
+   <h3>Return Value <small><span class="anchor" id="variable-sdsdot"></span>real
   </small></h3>
     
     
@@ -464,15 +465,15 @@ http://www.netlib.org/lapack/explore-html/
   <div id="vars-1" class="panel-collapse collapse">
     <div class="list-group">
       
-      <a class="list-group-item" href="../proc/sdsdot.html#variable-dsdot~3">DSDOT</a>
+      <a class="list-group-item" href="../proc/sdsdot.html#variable-dsdot~2">dsdot</a>
       
-      <a class="list-group-item" href="../proc/sdsdot.html#variable-i~127">I</a>
+      <a class="list-group-item" href="../proc/sdsdot.html#variable-i~18">i</a>
       
-      <a class="list-group-item" href="../proc/sdsdot.html#variable-kx~6">KX</a>
+      <a class="list-group-item" href="../proc/sdsdot.html#variable-kx~2">kx</a>
       
-      <a class="list-group-item" href="../proc/sdsdot.html#variable-ky~6">KY</a>
+      <a class="list-group-item" href="../proc/sdsdot.html#variable-ky~2">ky</a>
       
-      <a class="list-group-item" href="../proc/sdsdot.html#variable-ns~58">NS</a>
+      <a class="list-group-item" href="../proc/sdsdot.html#variable-ns~2">ns</a>
       
     </div>
   </div>
@@ -500,7 +501,7 @@ http://www.netlib.org/lapack/explore-html/
 <div class="panel panel-primary">
   <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
   <div class="list-group">
-    <a class="list-group-item" href="../proc/sdsdot.html#src">SDSDOT</a>
+    <a class="list-group-item" href="../proc/sdsdot.html#src">sdsdot</a>
   </div>
 </div>
 
@@ -530,11 +531,11 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-dsdot~3"></span>double precision,</td>
+  <td><span class="anchor" id="variable-dsdot~2"></span>double precision,</td>
   
   <td>public</td>
   <td></td><td>::</td>
-  <td><strong>DSDOT</strong></td><td></td><td></td><td></td>
+  <td><strong>dsdot</strong></td><td></td><td></td><td></td>
   
 </tr>
 
@@ -544,11 +545,11 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-i~127"></span>integer,</td>
+  <td><span class="anchor" id="variable-i~18"></span>integer,</td>
   
   <td>public</td>
   <td></td><td>::</td>
-  <td><strong>I</strong></td><td></td><td></td><td></td>
+  <td><strong>i</strong></td><td></td><td></td><td></td>
   
 </tr>
 
@@ -558,11 +559,11 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-kx~6"></span>integer,</td>
+  <td><span class="anchor" id="variable-kx~2"></span>integer,</td>
   
   <td>public</td>
   <td></td><td>::</td>
-  <td><strong>KX</strong></td><td></td><td></td><td></td>
+  <td><strong>kx</strong></td><td></td><td></td><td></td>
   
 </tr>
 
@@ -572,11 +573,11 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-ky~6"></span>integer,</td>
+  <td><span class="anchor" id="variable-ky~2"></span>integer,</td>
   
   <td>public</td>
   <td></td><td>::</td>
-  <td><strong>KY</strong></td><td></td><td></td><td></td>
+  <td><strong>ky</strong></td><td></td><td></td><td></td>
   
 </tr>
 
@@ -586,11 +587,11 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-ns~58"></span>integer,</td>
+  <td><span class="anchor" id="variable-ns~2"></span>integer,</td>
   
   <td>public</td>
   <td></td><td>::</td>
-  <td><strong>NS</strong></td><td></td><td></td><td></td>
+  <td><strong>ns</strong></td><td></td><td></td><td></td>
   
 </tr>
 
@@ -617,7 +618,7 @@ http://www.netlib.org/lapack/explore-html/
     
     <section>
     <h2><span class="anchor" id="src"></span>Source Code</h2>
-    <div class="highlight"><pre><span></span><span class="k">pure </span><span class="kt">REAL </span><span class="k">FUNCTION </span><span class="n">SDSDOT</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">SB</span><span class="p">,</span><span class="n">SX</span><span class="p">,</span><span class="n">INCX</span><span class="p">,</span><span class="n">SY</span><span class="p">,</span><span class="n">INCY</span><span class="p">)</span>
+    <div class="highlight"><pre><span></span><span class="k">pure </span><span class="kt">real </span><span class="k">function </span><span class="n">sdsdot</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">sb</span><span class="p">,</span><span class="n">sx</span><span class="p">,</span><span class="n">incx</span><span class="p">,</span><span class="n">sy</span><span class="p">,</span><span class="n">incy</span><span class="p">)</span>
       <span class="k">implicit none</span>
 <span class="c">!</span>
 <span class="c">!  -- Reference BLAS level1 routine (version 3.8.0) --</span>
@@ -626,49 +627,49 @@ http://www.netlib.org/lapack/explore-html/
 <span class="c">!     November 2017</span>
 <span class="c">!</span>
 <span class="c">!     .. Scalar Arguments ..</span>
-      <span class="kt">REAL</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="n">SB</span>
-      <span class="kt">INTEGER</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="n">INCX</span><span class="p">,</span><span class="n">INCY</span><span class="p">,</span><span class="n">N</span>
+      <span class="kt">real</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="n">sb</span>
+      <span class="kt">integer</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="n">incx</span><span class="p">,</span><span class="n">incy</span><span class="p">,</span><span class="n">n</span>
 <span class="c">!     ..</span>
 <span class="c">!     .. Array Arguments ..</span>
-      <span class="kt">REAL</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="n">SX</span><span class="p">(</span><span class="o">*</span><span class="p">),</span><span class="n">SY</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+      <span class="kt">real</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="n">sx</span><span class="p">(</span><span class="o">*</span><span class="p">),</span><span class="n">sy</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
 <span class="c">!     ..</span>
 <span class="c">!     .. Local Scalars ..</span>
-      <span class="kt">DOUBLE PRECISION </span><span class="n">DSDOT</span>
-      <span class="kt">INTEGER </span><span class="n">I</span><span class="p">,</span><span class="n">KX</span><span class="p">,</span><span class="n">KY</span><span class="p">,</span><span class="n">NS</span>
+      <span class="kt">double precision </span><span class="n">dsdot</span>
+      <span class="kt">integer </span><span class="n">i</span><span class="p">,</span><span class="n">kx</span><span class="p">,</span><span class="n">ky</span><span class="p">,</span><span class="n">ns</span>
 <span class="c">!     ..</span>
 <span class="c">!     .. Intrinsic Functions ..</span>
-      <span class="k">INTRINSIC </span><span class="nb">DBLE</span>
+      <span class="k">intrinsic </span><span class="nb">dble</span>
 <span class="c">!     ..</span>
-      <span class="n">DSDOT</span> <span class="o">=</span> <span class="n">SB</span>
-      <span class="k">IF</span> <span class="p">(</span><span class="n">N</span><span class="p">.</span><span class="n">LE</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span> <span class="k">THEN</span>
-<span class="k">         </span><span class="n">SDSDOT</span> <span class="o">=</span> <span class="kt">real</span><span class="p">(</span><span class="n">DSDOT</span><span class="p">)</span>
-         <span class="k">RETURN</span>
+      <span class="n">dsdot</span> <span class="o">=</span> <span class="n">sb</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">n</span><span class="p">.</span><span class="n">le</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">         </span><span class="n">sdsdot</span> <span class="o">=</span> <span class="kt">real</span><span class="p">(</span><span class="n">dsdot</span><span class="p">)</span>
+         <span class="k">return</span>
 <span class="k">      endif</span>
-<span class="k">      IF</span> <span class="p">(</span><span class="n">INCX</span><span class="p">.</span><span class="n">EQ</span><span class="p">.</span><span class="n">INCY</span> <span class="p">.</span><span class="nb">AND</span><span class="p">.</span> <span class="n">INCX</span><span class="p">.</span><span class="n">GT</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span> <span class="k">THEN</span>
+<span class="k">      if</span> <span class="p">(</span><span class="n">incx</span><span class="p">.</span><span class="n">eq</span><span class="p">.</span><span class="n">incy</span> <span class="p">.</span><span class="nb">and</span><span class="p">.</span> <span class="n">incx</span><span class="p">.</span><span class="n">gt</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span> <span class="k">then</span>
 <span class="c">!</span>
 <span class="c">!     Code for equal and positive increments.</span>
 <span class="c">!</span>
-         <span class="n">NS</span> <span class="o">=</span> <span class="n">N</span><span class="o">*</span><span class="n">INCX</span>
-         <span class="k">DO </span><span class="n">I</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">NS</span><span class="p">,</span><span class="n">INCX</span>
-            <span class="n">DSDOT</span> <span class="o">=</span> <span class="n">DSDOT</span> <span class="o">+</span> <span class="nb">DBLE</span><span class="p">(</span><span class="n">SX</span><span class="p">(</span><span class="n">I</span><span class="p">))</span><span class="o">*</span><span class="nb">DBLE</span><span class="p">(</span><span class="n">SY</span><span class="p">(</span><span class="n">I</span><span class="p">))</span>
+         <span class="n">ns</span> <span class="o">=</span> <span class="n">n</span><span class="o">*</span><span class="n">incx</span>
+         <span class="k">do </span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">ns</span><span class="p">,</span><span class="n">incx</span>
+            <span class="n">dsdot</span> <span class="o">=</span> <span class="n">dsdot</span> <span class="o">+</span> <span class="nb">dble</span><span class="p">(</span><span class="n">sx</span><span class="p">(</span><span class="n">i</span><span class="p">))</span><span class="o">*</span><span class="nb">dble</span><span class="p">(</span><span class="n">sy</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
          <span class="k">enddo</span>
-<span class="k">      ELSE</span>
+<span class="k">      else</span>
 <span class="c">!</span>
 <span class="c">!     Code for unequal or nonpositive increments.</span>
 <span class="c">!</span>
-         <span class="n">KX</span> <span class="o">=</span> <span class="mi">1</span>
-         <span class="n">KY</span> <span class="o">=</span> <span class="mi">1</span>
-         <span class="k">IF</span> <span class="p">(</span><span class="n">INCX</span><span class="p">.</span><span class="n">LT</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span> <span class="n">KX</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">N</span><span class="p">)</span><span class="o">*</span><span class="n">INCX</span>
-         <span class="k">IF</span> <span class="p">(</span><span class="n">INCY</span><span class="p">.</span><span class="n">LT</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span> <span class="n">KY</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">N</span><span class="p">)</span><span class="o">*</span><span class="n">INCY</span>
-         <span class="k">DO </span><span class="n">I</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">N</span>
-            <span class="n">DSDOT</span> <span class="o">=</span> <span class="n">DSDOT</span> <span class="o">+</span> <span class="nb">DBLE</span><span class="p">(</span><span class="n">SX</span><span class="p">(</span><span class="n">KX</span><span class="p">))</span><span class="o">*</span><span class="nb">DBLE</span><span class="p">(</span><span class="n">SY</span><span class="p">(</span><span class="n">KY</span><span class="p">))</span>
-            <span class="n">KX</span> <span class="o">=</span> <span class="n">KX</span> <span class="o">+</span> <span class="n">INCX</span>
-            <span class="n">KY</span> <span class="o">=</span> <span class="n">KY</span> <span class="o">+</span> <span class="n">INCY</span>
+         <span class="n">kx</span> <span class="o">=</span> <span class="mi">1</span>
+         <span class="n">ky</span> <span class="o">=</span> <span class="mi">1</span>
+         <span class="k">if</span> <span class="p">(</span><span class="n">incx</span><span class="p">.</span><span class="n">lt</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span> <span class="n">kx</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">n</span><span class="p">)</span><span class="o">*</span><span class="n">incx</span>
+         <span class="k">if</span> <span class="p">(</span><span class="n">incy</span><span class="p">.</span><span class="n">lt</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span> <span class="n">ky</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">n</span><span class="p">)</span><span class="o">*</span><span class="n">incy</span>
+         <span class="k">do </span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">n</span>
+            <span class="n">dsdot</span> <span class="o">=</span> <span class="n">dsdot</span> <span class="o">+</span> <span class="nb">dble</span><span class="p">(</span><span class="n">sx</span><span class="p">(</span><span class="n">kx</span><span class="p">))</span><span class="o">*</span><span class="nb">dble</span><span class="p">(</span><span class="n">sy</span><span class="p">(</span><span class="n">ky</span><span class="p">))</span>
+            <span class="n">kx</span> <span class="o">=</span> <span class="n">kx</span> <span class="o">+</span> <span class="n">incx</span>
+            <span class="n">ky</span> <span class="o">=</span> <span class="n">ky</span> <span class="o">+</span> <span class="n">incy</span>
          <span class="k">enddo</span>
 <span class="k">      endif</span>
-<span class="k">      </span><span class="n">SDSDOT</span> <span class="o">=</span> <span class="kt">real</span><span class="p">(</span><span class="n">DSDOT</span><span class="p">)</span>
+<span class="k">      </span><span class="n">sdsdot</span> <span class="o">=</span> <span class="kt">real</span><span class="p">(</span><span class="n">dsdot</span><span class="p">)</span>
 
-<span class="k">END FUNCTION </span><span class="n">SDSDOT</span>
+<span class="k">end function </span><span class="n">sdsdot</span>
 </pre></div>
 
     </section>
@@ -684,16 +685,16 @@ http://www.netlib.org/lapack/explore-html/
     <footer>
       <div class="container">
       <div class="row">
-        <div class="col-xs-6 col-md-4"><p>&copy; 2021 
+        <div class="col-xs-6 col-md-4"><p>&copy; 2022 
                                           </p></div>
         <div class="col-xs-6 col-md-4 col-md-push-4">
           <p class="text-right">
             Documentation generated by 
             <a href="https://github.com/cmacmackin/ford">FORD</a>
-             on 2021-08-23 15:25  
+             on 2022-01-03 21:31  
           </p>
         </div>
-        <div class="col-xs-12 col-md-4 col-md-pull-4"><p class="text-center"> M_blas was developed by John S. Urban and many others</p></div>
+        <div class="col-xs-12 col-md-4 col-md-pull-4"><p class="text-center"> M_blas was developed by many others</p></div>
       </div>
       <br>
       </div> <!-- /container -->    

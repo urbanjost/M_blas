@@ -7,10 +7,10 @@
    
    <meta name="description" content="BLAS - Basic Linear Algebra Subroutines">
     
-    <meta name="author" content="John S. Urban and many others" >
+    <meta name="author" content="many others" >
     <link rel="icon" href="../favicon.png">
 
-    <title>ZROTG &ndash; M_blas</title>
+    <title>zrotg &ndash; M_blas</title>
 
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/pygments.css" rel="stylesheet">
@@ -112,7 +112,7 @@
     
   
   <div class="row">
-    <h1>ZROTG
+    <h1>zrotg
       <small>Subroutine</small>
     
     </h1>
@@ -147,7 +147,7 @@
      <li><a href='../module/m_blas.html'>M_blas</a></li>
     
   
-     <li class="active">ZROTG</li>
+     <li class="active">zrotg</li>
   </ol>
 </div>
 </div>
@@ -175,7 +175,7 @@
   <div id="vars-0" class="panel-collapse collapse">
     <div class="list-group">
       
-      <a class="list-group-item" href="../proc/zrotg.html#variable-abssq~2">ABSSQ</a>
+      <a class="list-group-item" href="../proc/zrotg.html#variable-abssq~2">abssq</a>
       
       <a class="list-group-item" href="../proc/zrotg.html#variable-czero~2">czero</a>
       
@@ -199,7 +199,7 @@
       
       <a class="list-group-item" href="../proc/zrotg.html#variable-h2~2">h2</a>
       
-      <a class="list-group-item" href="../proc/zrotg.html#variable-one~10">one</a>
+      <a class="list-group-item" href="../proc/zrotg.html#variable-one~55">one</a>
       
       <a class="list-group-item" href="../proc/zrotg.html#variable-p~2">p</a>
       
@@ -223,11 +223,11 @@
       
       <a class="list-group-item" href="../proc/zrotg.html#variable-vv~2">vv</a>
       
-      <a class="list-group-item" href="../proc/zrotg.html#variable-w~2">w</a>
+      <a class="list-group-item" href="../proc/zrotg.html#variable-w~4">w</a>
       
       <a class="list-group-item" href="../proc/zrotg.html#variable-wp~8">wp</a>
       
-      <a class="list-group-item" href="../proc/zrotg.html#variable-zero~12">zero</a>
+      <a class="list-group-item" href="../proc/zrotg.html#variable-zero~97">zero</a>
       
     </div>
   </div>
@@ -259,7 +259,7 @@
     
     <div class="col-md-9" id='text'>
     <h2>
-public subroutine ZROTG(a, b, c, s)
+public subroutine zrotg(a, b, c, s)
     
     
    
@@ -270,11 +270,11 @@ public subroutine ZROTG(a, b, c, s)
 
     
     <h2 id="name">NAME</h2>
-<div class="codehilite"><pre><span></span><code><span class="n">zrotg</span><span class="o">.</span><span class="p">(</span><span class="mi">3</span><span class="n">f</span><span class="p">)</span> <span class="o">--</span> <span class="p">[</span><span class="n">BLAS</span><span class="p">:</span><span class="n">COMPLEX16_BLAS_LEVEL1</span><span class="p">]</span> <span class="n">constructs</span> <span class="n">a</span> <span class="n">plane</span> <span class="n">rotation</span>
+<div class="codehilite"><pre><span></span><code><span class="n">zrotg</span><span class="p">(</span><span class="mi">3</span><span class="n">f</span><span class="p">)</span> <span class="o">-</span> <span class="p">[</span><span class="n">BLAS</span><span class="p">:</span><span class="n">COMPLEX16_BLAS_LEVEL1</span><span class="p">]</span> <span class="n">constructs</span> <span class="n">a</span> <span class="n">plane</span> <span class="n">rotation</span>
 </code></pre></div>
 
 <h2 id="synopsis">SYNOPSIS</h2>
-<div class="codehilite"><pre><span></span><code> subroutine ZROTG( a, b, c, s )
+<div class="codehilite"><pre><span></span><code> subroutine zrotg( a, b, c, s )
 
    .. Scalar Arguments ..
    real(wp),intent(out)      :: c
@@ -285,25 +285,31 @@ public subroutine ZROTG(a, b, c, s)
 </code></pre></div>
 
 <h2 id="definition">DEFINITION</h2>
-<p>ZROTG constructs a plane rotation
-      [  c         s ] [ a ] = [ r ]
-      [ -conjg(s)  c ] [ b ]   [ 0 ]
-   where c is real, s ic complex, and c*<em>2 + conjg(s)</em>s = 1.</p>
-<p>The computation uses the formulas
-     |x| = sqrt( Re(x)<strong>2 + Im(x)</strong>2 )
-     sgn(x) = x / |x|  if x /= 0
-            = 1        if x  = 0
-     c = |a| / sqrt(|a|<strong>2 + |b|</strong>2)
-     s = sgn(a) * conjg(b) / sqrt(|a|<strong>2 + |b|</strong>2)
-  When a and b are real and r /= 0, the formulas simplify to
-     r = sgn(a)<em>sqrt(|a|</em><em>2 + |b|</em>*2)
-     c = a / r
-     s = b / r
-  the same as in ZROTG when |a| &gt; |b|.  When |b| &gt;= |a|, the
+<p>ZROTG constructs a plane rotation</p>
+<div class="codehilite"><pre><span></span><code>  <span class="p">[</span>  <span class="n">c</span>         <span class="n">s</span> <span class="p">]</span> <span class="p">[</span> <span class="n">a</span> <span class="p">]</span> <span class="o">=</span> <span class="p">[</span> <span class="n">r</span> <span class="p">]</span>
+  <span class="p">[</span> <span class="o">-</span><span class="n">conjg</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>  <span class="n">c</span> <span class="p">]</span> <span class="p">[</span> <span class="n">b</span> <span class="p">]</span>   <span class="p">[</span> <span class="mi">0</span> <span class="p">]</span>
+</code></pre></div>
+
+<p>where c is real, s ic complex, and c*<em>2 + conjg(s)</em>s = 1.</p>
+<p>The computation uses the formulas</p>
+<div class="codehilite"><pre><span></span><code> <span class="o">|</span><span class="nv">x</span><span class="o">|</span> <span class="o">=</span> <span class="nv">sqrt</span><span class="ss">(</span> <span class="nv">Re</span><span class="ss">(</span><span class="nv">x</span><span class="ss">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="nv">Im</span><span class="ss">(</span><span class="nv">x</span><span class="ss">)</span><span class="o">**</span><span class="mi">2</span> <span class="ss">)</span>
+ <span class="nv">sgn</span><span class="ss">(</span><span class="nv">x</span><span class="ss">)</span> <span class="o">=</span> <span class="nv">x</span> <span class="o">/</span> <span class="o">|</span><span class="nv">x</span><span class="o">|</span>  <span class="k">if</span> <span class="nv">x</span> <span class="o">/=</span> <span class="mi">0</span>
+        <span class="o">=</span> <span class="mi">1</span>        <span class="k">if</span> <span class="nv">x</span>  <span class="o">=</span> <span class="mi">0</span>
+ <span class="nv">c</span> <span class="o">=</span> <span class="o">|</span><span class="nv">a</span><span class="o">|</span> <span class="o">/</span> <span class="nv">sqrt</span><span class="ss">(</span><span class="o">|</span><span class="nv">a</span><span class="o">|**</span><span class="mi">2</span> <span class="o">+</span> <span class="o">|</span><span class="nv">b</span><span class="o">|**</span><span class="mi">2</span><span class="ss">)</span>
+ <span class="nv">s</span> <span class="o">=</span> <span class="nv">sgn</span><span class="ss">(</span><span class="nv">a</span><span class="ss">)</span> <span class="o">*</span> <span class="nv">conjg</span><span class="ss">(</span><span class="nv">b</span><span class="ss">)</span> <span class="o">/</span> <span class="nv">sqrt</span><span class="ss">(</span><span class="o">|</span><span class="nv">a</span><span class="o">|**</span><span class="mi">2</span> <span class="o">+</span> <span class="o">|</span><span class="nv">b</span><span class="o">|**</span><span class="mi">2</span><span class="ss">)</span>
+</code></pre></div>
+
+<p>When a and b are real and r /= 0, the formulas simplify to</p>
+<div class="codehilite"><pre><span></span><code> r = sgn(a)*sqrt(|a|**2 + |b|**2)
+ c = a / r
+ s = b / r
+</code></pre></div>
+
+<p>the same as in ZROTG when |a| &gt; |b|. When |b| &gt;= |a|, the
   sign of c and s will be different from those computed by ZROTG
   if the signs of a and b are not the same.</p>
 <h2 id="options">OPTIONS</h2>
-<p>out] A</p>
+<p>A</p>
 <div class="codehilite"><pre><span></span><code>       <span class="nv">A</span> <span class="nv">is</span> <span class="nv">DOUBLE</span> <span class="nv">COMPLEX</span>
        <span class="nv">On</span> <span class="nv">entry</span>, <span class="nv">the</span> <span class="nv">scalar</span> <span class="nv">a</span>.
        <span class="nv">On</span> <span class="k">exit</span>, <span class="nv">the</span> <span class="nv">scalar</span> <span class="nv">r</span>.
@@ -359,7 +365,7 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-a~4"></span>complex(kind=wp),</td>
+  <td><span class="anchor" id="variable-a~71"></span>complex(kind=wp),</td>
   <td>intent(inout)</td>
   <td></td>
   
@@ -374,7 +380,7 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-b~4"></span>complex(kind=wp),</td>
+  <td><span class="anchor" id="variable-b~24"></span>complex(kind=wp),</td>
   <td>intent(in)</td>
   <td></td>
   
@@ -389,7 +395,7 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-c~4"></span>real(kind=wp),</td>
+  <td><span class="anchor" id="variable-c~27"></span>real(kind=wp),</td>
   <td>intent(out)</td>
   <td></td>
   
@@ -404,7 +410,7 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-s~4"></span>complex(kind=wp),</td>
+  <td><span class="anchor" id="variable-s~8"></span>complex(kind=wp),</td>
   <td>intent(out)</td>
   <td></td>
   
@@ -435,7 +441,7 @@ http://www.netlib.org/lapack/explore-html/
   <div id="vars-1" class="panel-collapse collapse">
     <div class="list-group">
       
-      <a class="list-group-item" href="../proc/zrotg.html#variable-abssq~2">ABSSQ</a>
+      <a class="list-group-item" href="../proc/zrotg.html#variable-abssq~2">abssq</a>
       
       <a class="list-group-item" href="../proc/zrotg.html#variable-czero~2">czero</a>
       
@@ -459,7 +465,7 @@ http://www.netlib.org/lapack/explore-html/
       
       <a class="list-group-item" href="../proc/zrotg.html#variable-h2~2">h2</a>
       
-      <a class="list-group-item" href="../proc/zrotg.html#variable-one~10">one</a>
+      <a class="list-group-item" href="../proc/zrotg.html#variable-one~55">one</a>
       
       <a class="list-group-item" href="../proc/zrotg.html#variable-p~2">p</a>
       
@@ -483,11 +489,11 @@ http://www.netlib.org/lapack/explore-html/
       
       <a class="list-group-item" href="../proc/zrotg.html#variable-vv~2">vv</a>
       
-      <a class="list-group-item" href="../proc/zrotg.html#variable-w~2">w</a>
+      <a class="list-group-item" href="../proc/zrotg.html#variable-w~4">w</a>
       
       <a class="list-group-item" href="../proc/zrotg.html#variable-wp~8">wp</a>
       
-      <a class="list-group-item" href="../proc/zrotg.html#variable-zero~12">zero</a>
+      <a class="list-group-item" href="../proc/zrotg.html#variable-zero~97">zero</a>
       
     </div>
   </div>
@@ -541,7 +547,7 @@ http://www.netlib.org/lapack/explore-html/
   
   <td>public</td>
   <td></td><td>::</td>
-  <td><strong>ABSSQ</strong></td><td></td><td></td><td></td>
+  <td><strong>abssq</strong></td><td></td><td></td><td></td>
   
 </tr>
 
@@ -705,7 +711,7 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-one~10"></span>real(kind=wp),</td>
+  <td><span class="anchor" id="variable-one~55"></span>real(kind=wp),</td>
   
   <td>public,</td>
   <td>parameter</td><td>::</td>
@@ -873,7 +879,7 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-w~2"></span>real(kind=wp),</td>
+  <td><span class="anchor" id="variable-w~4"></span>real(kind=wp),</td>
   
   <td>public</td>
   <td></td><td>::</td>
@@ -901,7 +907,7 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-zero~12"></span>real(kind=wp),</td>
+  <td><span class="anchor" id="variable-zero~97"></span>real(kind=wp),</td>
   
   <td>public,</td>
   <td>parameter</td><td>::</td>
@@ -940,16 +946,16 @@ http://www.netlib.org/lapack/explore-html/
     <footer>
       <div class="container">
       <div class="row">
-        <div class="col-xs-6 col-md-4"><p>&copy; 2021 
+        <div class="col-xs-6 col-md-4"><p>&copy; 2022 
                                           </p></div>
         <div class="col-xs-6 col-md-4 col-md-push-4">
           <p class="text-right">
             Documentation generated by 
             <a href="https://github.com/cmacmackin/ford">FORD</a>
-             on 2021-08-23 15:25  
+             on 2022-01-03 21:31  
           </p>
         </div>
-        <div class="col-xs-12 col-md-4 col-md-pull-4"><p class="text-center"> M_blas was developed by John S. Urban and many others</p></div>
+        <div class="col-xs-12 col-md-4 col-md-pull-4"><p class="text-center"> M_blas was developed by many others</p></div>
       </div>
       <br>
       </div> <!-- /container -->    

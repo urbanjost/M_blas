@@ -35,7 +35,7 @@ OPTIONS
  
           UPLO is CHARACTER*1
            On entry, UPLO specifies whether the upper or lower
-           triangular part of the array C is to be referencedas
+           triangular part of the array C is to be referenced as
            follows:
 
               UPLO = 'U' or 'u'   Only the  upper triangular part of  C

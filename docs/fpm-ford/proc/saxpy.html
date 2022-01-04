@@ -7,10 +7,10 @@
    
    <meta name="description" content="BLAS - Basic Linear Algebra Subroutines">
     
-    <meta name="author" content="John S. Urban and many others" >
+    <meta name="author" content="many others" >
     <link rel="icon" href="../favicon.png">
 
-    <title>SAXPY &ndash; M_blas</title>
+    <title>saxpy &ndash; M_blas</title>
 
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/pygments.css" rel="stylesheet">
@@ -112,7 +112,7 @@
     
   
   <div class="row">
-    <h1>SAXPY
+    <h1>saxpy
       <small>Subroutine</small>
     
     </h1>
@@ -147,7 +147,7 @@
      <li><a href='../module/m_blas.html'>M_blas</a></li>
     
   
-     <li class="active">SAXPY</li>
+     <li class="active">saxpy</li>
   </ol>
 </div>
 </div>
@@ -175,15 +175,15 @@
   <div id="vars-0" class="panel-collapse collapse">
     <div class="list-group">
       
-      <a class="list-group-item" href="../proc/saxpy.html#variable-i~186">I</a>
+      <a class="list-group-item" href="../proc/saxpy.html#variable-i~82">i</a>
       
-      <a class="list-group-item" href="../proc/saxpy.html#variable-ix~76">IX</a>
+      <a class="list-group-item" href="../proc/saxpy.html#variable-ix~56">ix</a>
       
-      <a class="list-group-item" href="../proc/saxpy.html#variable-iy~45">IY</a>
+      <a class="list-group-item" href="../proc/saxpy.html#variable-iy~29">iy</a>
       
-      <a class="list-group-item" href="../proc/saxpy.html#variable-m~105">M</a>
+      <a class="list-group-item" href="../proc/saxpy.html#variable-m~25">m</a>
       
-      <a class="list-group-item" href="../proc/saxpy.html#variable-mp1~8">MP1</a>
+      <a class="list-group-item" href="../proc/saxpy.html#variable-mp1~9">mp1</a>
       
     </div>
   </div>
@@ -211,7 +211,7 @@
 <div class="panel panel-primary">
   <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
   <div class="list-group">
-    <a class="list-group-item" href="../proc/saxpy.html#src">SAXPY</a>
+    <a class="list-group-item" href="../proc/saxpy.html#src">saxpy</a>
   </div>
 </div>
 
@@ -223,7 +223,7 @@
     
     <div class="col-md-9" id='text'>
     <h2>
-public subroutine SAXPY(N, SA, SX, INCX, SY, INCY)
+public subroutine saxpy(n, sa, sx, incx, sy, incy)
     
     
    
@@ -234,19 +234,19 @@ public subroutine SAXPY(N, SA, SX, INCX, SY, INCY)
 
     
     <h2 id="name">NAME</h2>
-<div class="codehilite"><pre><span></span><code>saxpy.(3f) -- [BLAS:SINGLE_BLAS_LEVEL1]
+<div class="codehilite"><pre><span></span><code><span class="n">saxpy</span><span class="p">(</span><span class="mi">3</span><span class="n">f</span><span class="p">)</span> <span class="o">-</span> <span class="p">[</span><span class="n">BLAS</span><span class="p">:</span><span class="n">SINGLE_BLAS_LEVEL1</span><span class="p">]</span> <span class="n">SY</span><span class="p">:</span><span class="o">=</span><span class="n">SY</span><span class="o">+</span><span class="n">SA</span><span class="o">*</span><span class="n">SX</span> <span class="p">(</span><span class="n">constant</span> <span class="n">times</span> <span class="n">a</span> <span class="n">vector</span> <span class="n">plus</span> <span class="n">a</span> <span class="n">vector</span><span class="p">)</span>
 </code></pre></div>
 
 <h2 id="synopsis">SYNOPSIS</h2>
-<div class="codehilite"><pre><span></span><code> SUBROUTINE SAXPY(N,SA,SX,INCX,SY,INCY)
+<div class="codehilite"><pre><span></span><code> subroutine saxpy(n,sa,sx,incx,sy,incy)
 
    .. Scalar Arguments ..
-   REAL,intent(in)     :: SA
-   INTEGER,intent(in)  :: INCX,INCY,N
+   real,intent(in)     :: sa
+   integer,intent(in)  :: incx,incy,n
    ..
    .. Array Arguments ..
-   REAL,intent(in)     :: SX(*)
-   REAL,intent(inout)  :: SY(*)
+   real,intent(in)     :: sx(*)
+   real,intent(inout)  :: sy(*)
    ..
 </code></pre></div>
 
@@ -256,34 +256,18 @@ public subroutine SAXPY(N, SA, SX, INCX, SY, INCY)
 </code></pre></div>
 
 <h2 id="options">OPTIONS</h2>
-<p>N</p>
-<div class="codehilite"><pre><span></span><code>       N is INTEGER
-      number of elements in input vector(s)
-</code></pre></div>
-
-<p>SA</p>
-<div class="codehilite"><pre><span></span><code>       SA is REAL
-        On entry, SA specifies the scalar alpha.
-</code></pre></div>
-
-<p>SX</p>
-<div class="codehilite"><pre><span></span><code>       SX is REAL array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
-</code></pre></div>
-
-<p>INCX</p>
-<div class="codehilite"><pre><span></span><code>       INCX is INTEGER
-      storage spacing between elements of SX
-</code></pre></div>
-
-<p>out] SY</p>
-<div class="codehilite"><pre><span></span><code>       SY is REAL array, dimension ( 1 + ( N - 1 )*abs( INCY ) )
-</code></pre></div>
-
-<p>INCY</p>
-<div class="codehilite"><pre><span></span><code>       INCY is INTEGER
-      storage spacing between elements of SY
-</code></pre></div>
-
+<p>N
+          number of elements in input vector(s)
+   SA
+          On entry, SA specifies the scalar alpha.
+   SX
+          SX is REAL array, dimension ( 1 + ( N - 1 )<em>abs( INCX ) )
+   INCX
+          storage spacing between elements of SX
+   SY
+          SY is REAL array, dimension ( 1 + ( N - 1 )</em>abs( INCY ) )
+   INCY
+          storage spacing between elements of SY</p>
 <h2 id="authors">AUTHORS</h2>
 <ul>
 <li>Univ. of Tennessee</li>
@@ -321,12 +305,12 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-n~346"></span>integer,</td>
+  <td><span class="anchor" id="variable-n~82"></span>integer,</td>
   <td>intent(in)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>N</strong></td><td></td>
+  <td><strong>n</strong></td><td></td>
   
 </tr>
 
@@ -336,12 +320,12 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-sa~20"></span>real,</td>
+  <td><span class="anchor" id="variable-sa~2"></span>real,</td>
   <td>intent(in)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>SA</strong></td><td></td>
+  <td><strong>sa</strong></td><td></td>
   
 </tr>
 
@@ -351,12 +335,12 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-sx~22"></span>real,</td>
+  <td><span class="anchor" id="variable-sx~6"></span>real,</td>
   <td>intent(in)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>SX</strong>(*)</td><td></td>
+  <td><strong>sx</strong>(*)</td><td></td>
   
 </tr>
 
@@ -366,12 +350,12 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-incx~254"></span>integer,</td>
+  <td><span class="anchor" id="variable-incx~67"></span>integer,</td>
   <td>intent(in)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>INCX</strong></td><td></td>
+  <td><strong>incx</strong></td><td></td>
   
 </tr>
 
@@ -381,12 +365,12 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-sy~16"></span>real,</td>
+  <td><span class="anchor" id="variable-sy~4"></span>real,</td>
   <td>intent(inout)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>SY</strong>(*)</td><td></td>
+  <td><strong>sy</strong>(*)</td><td></td>
   
 </tr>
 
@@ -396,12 +380,12 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-incy~170"></span>integer,</td>
+  <td><span class="anchor" id="variable-incy~36"></span>integer,</td>
   <td>intent(in)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>INCY</strong></td><td></td>
+  <td><strong>incy</strong></td><td></td>
   
 </tr>
 
@@ -427,15 +411,15 @@ http://www.netlib.org/lapack/explore-html/
   <div id="vars-1" class="panel-collapse collapse">
     <div class="list-group">
       
-      <a class="list-group-item" href="../proc/saxpy.html#variable-i~186">I</a>
+      <a class="list-group-item" href="../proc/saxpy.html#variable-i~82">i</a>
       
-      <a class="list-group-item" href="../proc/saxpy.html#variable-ix~76">IX</a>
+      <a class="list-group-item" href="../proc/saxpy.html#variable-ix~56">ix</a>
       
-      <a class="list-group-item" href="../proc/saxpy.html#variable-iy~45">IY</a>
+      <a class="list-group-item" href="../proc/saxpy.html#variable-iy~29">iy</a>
       
-      <a class="list-group-item" href="../proc/saxpy.html#variable-m~105">M</a>
+      <a class="list-group-item" href="../proc/saxpy.html#variable-m~25">m</a>
       
-      <a class="list-group-item" href="../proc/saxpy.html#variable-mp1~8">MP1</a>
+      <a class="list-group-item" href="../proc/saxpy.html#variable-mp1~9">mp1</a>
       
     </div>
   </div>
@@ -463,7 +447,7 @@ http://www.netlib.org/lapack/explore-html/
 <div class="panel panel-primary">
   <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
   <div class="list-group">
-    <a class="list-group-item" href="../proc/saxpy.html#src">SAXPY</a>
+    <a class="list-group-item" href="../proc/saxpy.html#src">saxpy</a>
   </div>
 </div>
 
@@ -493,11 +477,11 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-i~186"></span>integer,</td>
+  <td><span class="anchor" id="variable-i~82"></span>integer,</td>
   
   <td>public</td>
   <td></td><td>::</td>
-  <td><strong>I</strong></td><td></td><td></td><td></td>
+  <td><strong>i</strong></td><td></td><td></td><td></td>
   
 </tr>
 
@@ -507,11 +491,11 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-ix~76"></span>integer,</td>
+  <td><span class="anchor" id="variable-ix~56"></span>integer,</td>
   
   <td>public</td>
   <td></td><td>::</td>
-  <td><strong>IX</strong></td><td></td><td></td><td></td>
+  <td><strong>ix</strong></td><td></td><td></td><td></td>
   
 </tr>
 
@@ -521,11 +505,11 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-iy~45"></span>integer,</td>
+  <td><span class="anchor" id="variable-iy~29"></span>integer,</td>
   
   <td>public</td>
   <td></td><td>::</td>
-  <td><strong>IY</strong></td><td></td><td></td><td></td>
+  <td><strong>iy</strong></td><td></td><td></td><td></td>
   
 </tr>
 
@@ -535,11 +519,11 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-m~105"></span>integer,</td>
+  <td><span class="anchor" id="variable-m~25"></span>integer,</td>
   
   <td>public</td>
   <td></td><td>::</td>
-  <td><strong>M</strong></td><td></td><td></td><td></td>
+  <td><strong>m</strong></td><td></td><td></td><td></td>
   
 </tr>
 
@@ -549,11 +533,11 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-mp1~8"></span>integer,</td>
+  <td><span class="anchor" id="variable-mp1~9"></span>integer,</td>
   
   <td>public</td>
   <td></td><td>::</td>
-  <td><strong>MP1</strong></td><td></td><td></td><td></td>
+  <td><strong>mp1</strong></td><td></td><td></td><td></td>
   
 </tr>
 
@@ -580,7 +564,7 @@ http://www.netlib.org/lapack/explore-html/
     
     <section>
     <h2><span class="anchor" id="src"></span>Source Code</h2>
-    <div class="highlight"><pre><span></span>       <span class="k">SUBROUTINE </span><span class="n">SAXPY</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">SA</span><span class="p">,</span><span class="n">SX</span><span class="p">,</span><span class="n">INCX</span><span class="p">,</span><span class="n">SY</span><span class="p">,</span><span class="n">INCY</span><span class="p">)</span>
+    <div class="highlight"><pre><span></span>       <span class="k">subroutine </span><span class="n">saxpy</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">sa</span><span class="p">,</span><span class="n">sx</span><span class="p">,</span><span class="n">incx</span><span class="p">,</span><span class="n">sy</span><span class="p">,</span><span class="n">incy</span><span class="p">)</span>
       <span class="k">implicit none</span>
 <span class="c">!</span>
 <span class="c">!  -- Reference BLAS level1 routine (version 3.8.0) --</span>
@@ -589,62 +573,62 @@ http://www.netlib.org/lapack/explore-html/
 <span class="c">!     November 2017</span>
 <span class="c">!</span>
 <span class="c">!     .. Scalar Arguments ..</span>
-      <span class="kt">REAL</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>     <span class="kd">::</span> <span class="n">SA</span>
-      <span class="kt">INTEGER</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>  <span class="kd">::</span> <span class="n">INCX</span><span class="p">,</span><span class="n">INCY</span><span class="p">,</span><span class="n">N</span>
+      <span class="kt">real</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>     <span class="kd">::</span> <span class="n">sa</span>
+      <span class="kt">integer</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>  <span class="kd">::</span> <span class="n">incx</span><span class="p">,</span><span class="n">incy</span><span class="p">,</span><span class="n">n</span>
 <span class="c">!     ..</span>
 <span class="c">!     .. Array Arguments ..</span>
-      <span class="kt">REAL</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>     <span class="kd">::</span> <span class="n">SX</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
-      <span class="kt">REAL</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span>  <span class="kd">::</span> <span class="n">SY</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+      <span class="kt">real</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>     <span class="kd">::</span> <span class="n">sx</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+      <span class="kt">real</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span>  <span class="kd">::</span> <span class="n">sy</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
 <span class="c">!     ..</span>
 <span class="c">!</span>
 <span class="c">!  =====================================================================</span>
 <span class="c">!</span>
 <span class="c">!     .. Local Scalars ..</span>
-      <span class="kt">INTEGER </span><span class="n">I</span><span class="p">,</span><span class="n">IX</span><span class="p">,</span><span class="n">IY</span><span class="p">,</span><span class="n">M</span><span class="p">,</span><span class="n">MP1</span>
+      <span class="kt">integer </span><span class="n">i</span><span class="p">,</span><span class="n">ix</span><span class="p">,</span><span class="n">iy</span><span class="p">,</span><span class="n">m</span><span class="p">,</span><span class="n">mp1</span>
 <span class="c">!     ..</span>
 <span class="c">!     .. Intrinsic Functions ..</span>
-      <span class="k">INTRINSIC </span><span class="nb">MOD</span>
+      <span class="k">intrinsic </span><span class="nb">mod</span>
 <span class="c">!     ..</span>
-      <span class="k">IF</span> <span class="p">(</span><span class="n">N</span><span class="p">.</span><span class="n">LE</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span> <span class="k">RETURN</span>
-<span class="k">      IF</span> <span class="p">(</span><span class="n">SA</span><span class="p">.</span><span class="n">EQ</span><span class="p">.</span><span class="mf">0.0</span><span class="p">)</span> <span class="k">RETURN</span>
-<span class="k">      IF</span> <span class="p">(</span><span class="n">INCX</span><span class="p">.</span><span class="n">EQ</span><span class="p">.</span><span class="mi">1</span> <span class="p">.</span><span class="nb">AND</span><span class="p">.</span> <span class="n">INCY</span><span class="p">.</span><span class="n">EQ</span><span class="p">.</span><span class="mi">1</span><span class="p">)</span> <span class="k">THEN</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">n</span><span class="p">.</span><span class="n">le</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span> <span class="k">return</span>
+<span class="k">      if</span> <span class="p">(</span><span class="n">sa</span><span class="p">.</span><span class="n">eq</span><span class="p">.</span><span class="mf">0.0</span><span class="p">)</span> <span class="k">return</span>
+<span class="k">      if</span> <span class="p">(</span><span class="n">incx</span><span class="p">.</span><span class="n">eq</span><span class="p">.</span><span class="mi">1</span> <span class="p">.</span><span class="nb">and</span><span class="p">.</span> <span class="n">incy</span><span class="p">.</span><span class="n">eq</span><span class="p">.</span><span class="mi">1</span><span class="p">)</span> <span class="k">then</span>
 <span class="c">!</span>
 <span class="c">!        code for both increments equal to 1</span>
 <span class="c">!</span>
 <span class="c">!</span>
 <span class="c">!        clean-up loop</span>
 <span class="c">!</span>
-         <span class="n">M</span> <span class="o">=</span> <span class="nb">MOD</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
-         <span class="k">IF</span> <span class="p">(</span><span class="n">M</span><span class="p">.</span><span class="n">NE</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span> <span class="k">THEN</span>
-<span class="k">            DO </span><span class="n">I</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">M</span>
-               <span class="n">SY</span><span class="p">(</span><span class="n">I</span><span class="p">)</span> <span class="o">=</span> <span class="n">SY</span><span class="p">(</span><span class="n">I</span><span class="p">)</span> <span class="o">+</span> <span class="n">SA</span><span class="o">*</span><span class="n">SX</span><span class="p">(</span><span class="n">I</span><span class="p">)</span>
+         <span class="n">m</span> <span class="o">=</span> <span class="nb">mod</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+         <span class="k">if</span> <span class="p">(</span><span class="n">m</span><span class="p">.</span><span class="n">ne</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">            do </span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">m</span>
+               <span class="n">sy</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">=</span> <span class="n">sy</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="n">sa</span><span class="o">*</span><span class="n">sx</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
             <span class="k">enddo</span>
 <span class="k">         endif</span>
-<span class="k">         IF</span> <span class="p">(</span><span class="n">N</span><span class="p">.</span><span class="n">LT</span><span class="p">.</span><span class="mi">4</span><span class="p">)</span> <span class="k">RETURN</span>
-<span class="k">         </span><span class="n">MP1</span> <span class="o">=</span> <span class="n">M</span> <span class="o">+</span> <span class="mi">1</span>
-         <span class="k">DO </span><span class="n">I</span> <span class="o">=</span> <span class="n">MP1</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="mi">4</span>
-            <span class="n">SY</span><span class="p">(</span><span class="n">I</span><span class="p">)</span> <span class="o">=</span> <span class="n">SY</span><span class="p">(</span><span class="n">I</span><span class="p">)</span> <span class="o">+</span> <span class="n">SA</span><span class="o">*</span><span class="n">SX</span><span class="p">(</span><span class="n">I</span><span class="p">)</span>
-            <span class="n">SY</span><span class="p">(</span><span class="n">I</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="n">SY</span><span class="p">(</span><span class="n">I</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">SA</span><span class="o">*</span><span class="n">SX</span><span class="p">(</span><span class="n">I</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
-            <span class="n">SY</span><span class="p">(</span><span class="n">I</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span> <span class="o">=</span> <span class="n">SY</span><span class="p">(</span><span class="n">I</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">SA</span><span class="o">*</span><span class="n">SX</span><span class="p">(</span><span class="n">I</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span>
-            <span class="n">SY</span><span class="p">(</span><span class="n">I</span><span class="o">+</span><span class="mi">3</span><span class="p">)</span> <span class="o">=</span> <span class="n">SY</span><span class="p">(</span><span class="n">I</span><span class="o">+</span><span class="mi">3</span><span class="p">)</span> <span class="o">+</span> <span class="n">SA</span><span class="o">*</span><span class="n">SX</span><span class="p">(</span><span class="n">I</span><span class="o">+</span><span class="mi">3</span><span class="p">)</span>
+<span class="k">         if</span> <span class="p">(</span><span class="n">n</span><span class="p">.</span><span class="n">lt</span><span class="p">.</span><span class="mi">4</span><span class="p">)</span> <span class="k">return</span>
+<span class="k">         </span><span class="n">mp1</span> <span class="o">=</span> <span class="n">m</span> <span class="o">+</span> <span class="mi">1</span>
+         <span class="k">do </span><span class="n">i</span> <span class="o">=</span> <span class="n">mp1</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="mi">4</span>
+            <span class="n">sy</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">=</span> <span class="n">sy</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="n">sa</span><span class="o">*</span><span class="n">sx</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+            <span class="n">sy</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="n">sy</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">sa</span><span class="o">*</span><span class="n">sx</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">sy</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span> <span class="o">=</span> <span class="n">sy</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">sa</span><span class="o">*</span><span class="n">sx</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span>
+            <span class="n">sy</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">3</span><span class="p">)</span> <span class="o">=</span> <span class="n">sy</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">3</span><span class="p">)</span> <span class="o">+</span> <span class="n">sa</span><span class="o">*</span><span class="n">sx</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">3</span><span class="p">)</span>
          <span class="k">enddo</span>
-<span class="k">      ELSE</span>
+<span class="k">      else</span>
 <span class="c">!</span>
 <span class="c">!        code for unequal increments or equal increments</span>
 <span class="c">!          not equal to 1</span>
 <span class="c">!</span>
-         <span class="n">IX</span> <span class="o">=</span> <span class="mi">1</span>
-         <span class="n">IY</span> <span class="o">=</span> <span class="mi">1</span>
-         <span class="k">IF</span> <span class="p">(</span><span class="n">INCX</span><span class="p">.</span><span class="n">LT</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span> <span class="n">IX</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">INCX</span> <span class="o">+</span> <span class="mi">1</span>
-         <span class="k">IF</span> <span class="p">(</span><span class="n">INCY</span><span class="p">.</span><span class="n">LT</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span> <span class="n">IY</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">INCY</span> <span class="o">+</span> <span class="mi">1</span>
-         <span class="k">DO </span><span class="n">I</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">N</span>
-          <span class="n">SY</span><span class="p">(</span><span class="n">IY</span><span class="p">)</span> <span class="o">=</span> <span class="n">SY</span><span class="p">(</span><span class="n">IY</span><span class="p">)</span> <span class="o">+</span> <span class="n">SA</span><span class="o">*</span><span class="n">SX</span><span class="p">(</span><span class="n">IX</span><span class="p">)</span>
-          <span class="n">IX</span> <span class="o">=</span> <span class="n">IX</span> <span class="o">+</span> <span class="n">INCX</span>
-          <span class="n">IY</span> <span class="o">=</span> <span class="n">IY</span> <span class="o">+</span> <span class="n">INCY</span>
+         <span class="n">ix</span> <span class="o">=</span> <span class="mi">1</span>
+         <span class="n">iy</span> <span class="o">=</span> <span class="mi">1</span>
+         <span class="k">if</span> <span class="p">(</span><span class="n">incx</span><span class="p">.</span><span class="n">lt</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span> <span class="n">ix</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">incx</span> <span class="o">+</span> <span class="mi">1</span>
+         <span class="k">if</span> <span class="p">(</span><span class="n">incy</span><span class="p">.</span><span class="n">lt</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span> <span class="n">iy</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">incy</span> <span class="o">+</span> <span class="mi">1</span>
+         <span class="k">do </span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">n</span>
+          <span class="n">sy</span><span class="p">(</span><span class="n">iy</span><span class="p">)</span> <span class="o">=</span> <span class="n">sy</span><span class="p">(</span><span class="n">iy</span><span class="p">)</span> <span class="o">+</span> <span class="n">sa</span><span class="o">*</span><span class="n">sx</span><span class="p">(</span><span class="n">ix</span><span class="p">)</span>
+          <span class="n">ix</span> <span class="o">=</span> <span class="n">ix</span> <span class="o">+</span> <span class="n">incx</span>
+          <span class="n">iy</span> <span class="o">=</span> <span class="n">iy</span> <span class="o">+</span> <span class="n">incy</span>
          <span class="k">enddo</span>
 <span class="k">      endif</span>
 
-<span class="k">      END SUBROUTINE </span><span class="n">SAXPY</span>
+<span class="k">      end subroutine </span><span class="n">saxpy</span>
 </pre></div>
 
     </section>
@@ -660,16 +644,16 @@ http://www.netlib.org/lapack/explore-html/
     <footer>
       <div class="container">
       <div class="row">
-        <div class="col-xs-6 col-md-4"><p>&copy; 2021 
+        <div class="col-xs-6 col-md-4"><p>&copy; 2022 
                                           </p></div>
         <div class="col-xs-6 col-md-4 col-md-push-4">
           <p class="text-right">
             Documentation generated by 
             <a href="https://github.com/cmacmackin/ford">FORD</a>
-             on 2021-08-23 15:25  
+             on 2022-01-03 21:31  
           </p>
         </div>
-        <div class="col-xs-12 col-md-4 col-md-pull-4"><p class="text-center"> M_blas was developed by John S. Urban and many others</p></div>
+        <div class="col-xs-12 col-md-4 col-md-pull-4"><p class="text-center"> M_blas was developed by many others</p></div>
       </div>
       <br>
       </div> <!-- /container -->    

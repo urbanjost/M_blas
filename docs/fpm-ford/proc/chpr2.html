@@ -7,10 +7,10 @@
    
    <meta name="description" content="BLAS - Basic Linear Algebra Subroutines">
     
-    <meta name="author" content="John S. Urban and many others" >
+    <meta name="author" content="many others" >
     <link rel="icon" href="../favicon.png">
 
-    <title>CHPR2 &ndash; M_blas</title>
+    <title>chpr2 &ndash; M_blas</title>
 
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/pygments.css" rel="stylesheet">
@@ -112,7 +112,7 @@
     
   
   <div class="row">
-    <h1>CHPR2
+    <h1>chpr2
       <small>Subroutine</small>
     
     </h1>
@@ -147,7 +147,7 @@
      <li><a href='../module/m_blas.html'>M_blas</a></li>
     
   
-     <li class="active">CHPR2</li>
+     <li class="active">chpr2</li>
   </ol>
 </div>
 </div>
@@ -175,33 +175,33 @@
   <div id="vars-0" class="panel-collapse collapse">
     <div class="list-group">
       
-      <a class="list-group-item" href="../proc/chpr2.html#variable-i~144">I</a>
+      <a class="list-group-item" href="../proc/chpr2.html#variable-i~38">i</a>
       
-      <a class="list-group-item" href="../proc/chpr2.html#variable-info~16">INFO</a>
+      <a class="list-group-item" href="../proc/chpr2.html#variable-info~16">info</a>
       
-      <a class="list-group-item" href="../proc/chpr2.html#variable-ix~48">IX</a>
+      <a class="list-group-item" href="../proc/chpr2.html#variable-ix~27">ix</a>
       
-      <a class="list-group-item" href="../proc/chpr2.html#variable-iy~32">IY</a>
+      <a class="list-group-item" href="../proc/chpr2.html#variable-iy~15">iy</a>
       
-      <a class="list-group-item" href="../proc/chpr2.html#variable-j~80">J</a>
+      <a class="list-group-item" href="../proc/chpr2.html#variable-j~15">j</a>
       
-      <a class="list-group-item" href="../proc/chpr2.html#variable-jx~12">JX</a>
+      <a class="list-group-item" href="../proc/chpr2.html#variable-jx~9">jx</a>
       
-      <a class="list-group-item" href="../proc/chpr2.html#variable-jy~8">JY</a>
+      <a class="list-group-item" href="../proc/chpr2.html#variable-jy~9">jy</a>
       
-      <a class="list-group-item" href="../proc/chpr2.html#variable-k~68">K</a>
+      <a class="list-group-item" href="../proc/chpr2.html#variable-k~9">k</a>
       
-      <a class="list-group-item" href="../proc/chpr2.html#variable-kk~12">KK</a>
+      <a class="list-group-item" href="../proc/chpr2.html#variable-kk~3">kk</a>
       
-      <a class="list-group-item" href="../proc/chpr2.html#variable-kx~16">KX</a>
+      <a class="list-group-item" href="../proc/chpr2.html#variable-kx~13">kx</a>
       
-      <a class="list-group-item" href="../proc/chpr2.html#variable-ky~12">KY</a>
+      <a class="list-group-item" href="../proc/chpr2.html#variable-ky~9">ky</a>
       
-      <a class="list-group-item" href="../proc/chpr2.html#variable-temp1~7">TEMP1</a>
+      <a class="list-group-item" href="../proc/chpr2.html#variable-temp1~7">temp1</a>
       
-      <a class="list-group-item" href="../proc/chpr2.html#variable-temp2~7">TEMP2</a>
+      <a class="list-group-item" href="../proc/chpr2.html#variable-temp2~7">temp2</a>
       
-      <a class="list-group-item" href="../proc/chpr2.html#variable-zero~87">ZERO</a>
+      <a class="list-group-item" href="../proc/chpr2.html#variable-zero~19">zero</a>
       
     </div>
   </div>
@@ -229,7 +229,7 @@
 <div class="panel panel-primary">
   <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
   <div class="list-group">
-    <a class="list-group-item" href="../proc/chpr2.html#src">CHPR2</a>
+    <a class="list-group-item" href="../proc/chpr2.html#src">chpr2</a>
   </div>
 </div>
 
@@ -241,7 +241,7 @@
     
     <div class="col-md-9" id='text'>
     <h2>
-public subroutine CHPR2(UPLO, N, ALPHA, X, INCX, Y, INCY, AP)
+public subroutine chpr2(uplo, n, alpha, x, incx, y, incy, ap)
     
     
    
@@ -252,25 +252,26 @@ public subroutine CHPR2(UPLO, N, ALPHA, X, INCX, Y, INCY, AP)
 
     
     <h2 id="name">NAME</h2>
-<div class="codehilite"><pre><span></span><code>chpr2.(3f) -- [BLAS:COMPLEX_BLAS_LEVEL2]
+<div class="codehilite"><pre><span></span><code>chpr2(3f) - [BLAS:COMPLEX_BLAS_LEVEL2] performs the hermitian rank 2 operation
 </code></pre></div>
 
+<p>A := A + alpha<em>CX</em>CONJUGATE-TRANSPOSE(CY)n + CONJUGATE(ALPHA)<em>CY</em>CONJUGATE-TRANSPOSE(CX),n A a (square) hermitian packed matrix.</p>
 <h2 id="synopsis">SYNOPSIS</h2>
-<div class="codehilite"><pre><span></span><code> SUBROUTINE CHPR2(UPLO,N,ALPHA,X,INCX,Y,INCY,AP)
+<div class="codehilite"><pre><span></span><code> subroutine chpr2(uplo,n,alpha,x,incx,y,incy,ap)
 
    .. Scalar Arguments ..
-   COMPLEX,intent(in)    :: ALPHA
-   INTEGER,intent(in)    :: INCX,INCY,N
-   CHARACTER,intent(in)  :: UPLO
+   complex,intent(in)    :: alpha
+   integer,intent(in)    :: incx,incy,n
+   character,intent(in)  :: uplo
    ..
    .. Array Arguments ..
-   COMPLEX,intent(inout) :: AP(*)
-   COMPLEX,intent(in)    :: X(*),Y(*)
+   complex,intent(inout) :: ap(*)
+   complex,intent(in)    :: x(*),y(*)
    ..
 </code></pre></div>
 
 <h2 id="definition">DEFINITION</h2>
-<p>CHPR2  performs the hermitian rank 2 operation</p>
+<p>CHPR2 performs the hermitian rank 2 operation</p>
 <div class="codehilite"><pre><span></span><code> A := alpha*x*y**H + conjg( alpha )*y*x**H + A,
 </code></pre></div>
 
@@ -327,10 +328,10 @@ public subroutine CHPR2(UPLO, N, ALPHA, X, INCX, Y, INCY, AP)
         <span class="nv">Y</span>. <span class="nv">INCY</span> <span class="nv">must</span> <span class="nv">not</span> <span class="nv">be</span> <span class="nv">zero</span>.
 </code></pre></div>
 
-<p>out] AP</p>
+<p>AP</p>
 <div class="codehilite"><pre><span></span><code>       <span class="nv">AP</span> <span class="nv">is</span> <span class="nv">COMPLEX</span> <span class="nv">array</span>, <span class="nv">dimension</span> <span class="nv">at</span> <span class="nv">least</span>
         <span class="ss">(</span> <span class="ss">(</span> <span class="nv">n</span><span class="o">*</span><span class="ss">(</span> <span class="nv">n</span> <span class="o">+</span> <span class="mi">1</span> <span class="ss">)</span> <span class="ss">)</span><span class="o">/</span><span class="mi">2</span> <span class="ss">)</span>.
-        <span class="nv">Before</span> <span class="nv">entry</span> <span class="nv">with</span>  <span class="nv">UPLO</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="s">U</span><span class="s1">&#39;</span> <span class="nv">or</span> <span class="s1">&#39;</span><span class="s">u</span><span class="s1">&#39;</span>, <span class="nv">the</span> <span class="nv">array</span> <span class="nv">AP</span> <span class="nv">must</span>
+        <span class="nv">Before</span> <span class="nv">entry</span> <span class="nv">with</span> <span class="nv">UPLO</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="s">U</span><span class="s1">&#39;</span> <span class="nv">or</span> <span class="s1">&#39;</span><span class="s">u</span><span class="s1">&#39;</span>, <span class="nv">the</span> <span class="nv">array</span> <span class="nv">AP</span> <span class="nv">must</span>
         <span class="nv">contain</span> <span class="nv">the</span> <span class="nv">upper</span> <span class="nv">triangular</span> <span class="nv">part</span> <span class="nv">of</span> <span class="nv">the</span> <span class="nv">hermitian</span> <span class="nv">matrix</span>
         <span class="nv">packed</span> <span class="nv">sequentially</span>, <span class="nv">column</span> <span class="nv">by</span> <span class="nv">column</span>, <span class="nv">so</span> <span class="nv">that</span> <span class="nv">AP</span><span class="ss">(</span> <span class="mi">1</span> <span class="ss">)</span>
         <span class="nv">contains</span> <span class="nv">a</span><span class="ss">(</span> <span class="mi">1</span>, <span class="mi">1</span> <span class="ss">)</span>, <span class="nv">AP</span><span class="ss">(</span> <span class="mi">2</span> <span class="ss">)</span> <span class="nv">and</span> <span class="nv">AP</span><span class="ss">(</span> <span class="mi">3</span> <span class="ss">)</span> <span class="nv">contain</span> <span class="nv">a</span><span class="ss">(</span> <span class="mi">1</span>, <span class="mi">2</span> <span class="ss">)</span>
@@ -388,12 +389,12 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-uplo~142"></span>character,</td>
+  <td><span class="anchor" id="variable-uplo~10"></span>character,</td>
   <td>intent(in)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>UPLO</strong></td><td></td>
+  <td><strong>uplo</strong></td><td></td>
   
 </tr>
 
@@ -403,12 +404,12 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-n~304"></span>integer,</td>
+  <td><span class="anchor" id="variable-n~38"></span>integer,</td>
   <td>intent(in)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>N</strong></td><td></td>
+  <td><strong>n</strong></td><td></td>
   
 </tr>
 
@@ -418,12 +419,12 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-alpha~149"></span>complex,</td>
+  <td><span class="anchor" id="variable-alpha~15"></span>complex,</td>
   <td>intent(in)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>ALPHA</strong></td><td></td>
+  <td><strong>alpha</strong></td><td></td>
   
 </tr>
 
@@ -433,12 +434,12 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-x~121"></span>complex,</td>
+  <td><span class="anchor" id="variable-x~15"></span>complex,</td>
   <td>intent(in)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>X</strong>(*)</td><td></td>
+  <td><strong>x</strong>(*)</td><td></td>
   
 </tr>
 
@@ -448,12 +449,12 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-incx~222"></span>integer,</td>
+  <td><span class="anchor" id="variable-incx~34"></span>integer,</td>
   <td>intent(in)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>INCX</strong></td><td></td>
+  <td><strong>incx</strong></td><td></td>
   
 </tr>
 
@@ -463,12 +464,12 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-y~79"></span>complex,</td>
+  <td><span class="anchor" id="variable-y~9"></span>complex,</td>
   <td>intent(in)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>Y</strong>(*)</td><td></td>
+  <td><strong>y</strong>(*)</td><td></td>
   
 </tr>
 
@@ -478,12 +479,12 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-incy~155"></span>integer,</td>
+  <td><span class="anchor" id="variable-incy~20"></span>integer,</td>
   <td>intent(in)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>INCY</strong></td><td></td>
+  <td><strong>incy</strong></td><td></td>
   
 </tr>
 
@@ -493,12 +494,12 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-ap~23"></span>complex,</td>
+  <td><span class="anchor" id="variable-ap~3"></span>complex,</td>
   <td>intent(inout)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>AP</strong>(*)</td><td></td>
+  <td><strong>ap</strong>(*)</td><td></td>
   
 </tr>
 
@@ -524,33 +525,33 @@ http://www.netlib.org/lapack/explore-html/
   <div id="vars-1" class="panel-collapse collapse">
     <div class="list-group">
       
-      <a class="list-group-item" href="../proc/chpr2.html#variable-i~144">I</a>
+      <a class="list-group-item" href="../proc/chpr2.html#variable-i~38">i</a>
       
-      <a class="list-group-item" href="../proc/chpr2.html#variable-info~16">INFO</a>
+      <a class="list-group-item" href="../proc/chpr2.html#variable-info~16">info</a>
       
-      <a class="list-group-item" href="../proc/chpr2.html#variable-ix~48">IX</a>
+      <a class="list-group-item" href="../proc/chpr2.html#variable-ix~27">ix</a>
       
-      <a class="list-group-item" href="../proc/chpr2.html#variable-iy~32">IY</a>
+      <a class="list-group-item" href="../proc/chpr2.html#variable-iy~15">iy</a>
       
-      <a class="list-group-item" href="../proc/chpr2.html#variable-j~80">J</a>
+      <a class="list-group-item" href="../proc/chpr2.html#variable-j~15">j</a>
       
-      <a class="list-group-item" href="../proc/chpr2.html#variable-jx~12">JX</a>
+      <a class="list-group-item" href="../proc/chpr2.html#variable-jx~9">jx</a>
       
-      <a class="list-group-item" href="../proc/chpr2.html#variable-jy~8">JY</a>
+      <a class="list-group-item" href="../proc/chpr2.html#variable-jy~9">jy</a>
       
-      <a class="list-group-item" href="../proc/chpr2.html#variable-k~68">K</a>
+      <a class="list-group-item" href="../proc/chpr2.html#variable-k~9">k</a>
       
-      <a class="list-group-item" href="../proc/chpr2.html#variable-kk~12">KK</a>
+      <a class="list-group-item" href="../proc/chpr2.html#variable-kk~3">kk</a>
       
-      <a class="list-group-item" href="../proc/chpr2.html#variable-kx~16">KX</a>
+      <a class="list-group-item" href="../proc/chpr2.html#variable-kx~13">kx</a>
       
-      <a class="list-group-item" href="../proc/chpr2.html#variable-ky~12">KY</a>
+      <a class="list-group-item" href="../proc/chpr2.html#variable-ky~9">ky</a>
       
-      <a class="list-group-item" href="../proc/chpr2.html#variable-temp1~7">TEMP1</a>
+      <a class="list-group-item" href="../proc/chpr2.html#variable-temp1~7">temp1</a>
       
-      <a class="list-group-item" href="../proc/chpr2.html#variable-temp2~7">TEMP2</a>
+      <a class="list-group-item" href="../proc/chpr2.html#variable-temp2~7">temp2</a>
       
-      <a class="list-group-item" href="../proc/chpr2.html#variable-zero~87">ZERO</a>
+      <a class="list-group-item" href="../proc/chpr2.html#variable-zero~19">zero</a>
       
     </div>
   </div>
@@ -578,7 +579,7 @@ http://www.netlib.org/lapack/explore-html/
 <div class="panel panel-primary">
   <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
   <div class="list-group">
-    <a class="list-group-item" href="../proc/chpr2.html#src">CHPR2</a>
+    <a class="list-group-item" href="../proc/chpr2.html#src">chpr2</a>
   </div>
 </div>
 
@@ -608,11 +609,11 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-i~144"></span>integer,</td>
+  <td><span class="anchor" id="variable-i~38"></span>integer,</td>
   
   <td>public</td>
   <td></td><td>::</td>
-  <td><strong>I</strong></td><td></td><td></td><td></td>
+  <td><strong>i</strong></td><td></td><td></td><td></td>
   
 </tr>
 
@@ -626,7 +627,7 @@ http://www.netlib.org/lapack/explore-html/
   
   <td>public</td>
   <td></td><td>::</td>
-  <td><strong>INFO</strong></td><td></td><td></td><td></td>
+  <td><strong>info</strong></td><td></td><td></td><td></td>
   
 </tr>
 
@@ -636,11 +637,11 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-ix~48"></span>integer,</td>
+  <td><span class="anchor" id="variable-ix~27"></span>integer,</td>
   
   <td>public</td>
   <td></td><td>::</td>
-  <td><strong>IX</strong></td><td></td><td></td><td></td>
+  <td><strong>ix</strong></td><td></td><td></td><td></td>
   
 </tr>
 
@@ -650,11 +651,11 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-iy~32"></span>integer,</td>
+  <td><span class="anchor" id="variable-iy~15"></span>integer,</td>
   
   <td>public</td>
   <td></td><td>::</td>
-  <td><strong>IY</strong></td><td></td><td></td><td></td>
+  <td><strong>iy</strong></td><td></td><td></td><td></td>
   
 </tr>
 
@@ -664,11 +665,11 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-j~80"></span>integer,</td>
+  <td><span class="anchor" id="variable-j~15"></span>integer,</td>
   
   <td>public</td>
   <td></td><td>::</td>
-  <td><strong>J</strong></td><td></td><td></td><td></td>
+  <td><strong>j</strong></td><td></td><td></td><td></td>
   
 </tr>
 
@@ -678,11 +679,11 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-jx~12"></span>integer,</td>
+  <td><span class="anchor" id="variable-jx~9"></span>integer,</td>
   
   <td>public</td>
   <td></td><td>::</td>
-  <td><strong>JX</strong></td><td></td><td></td><td></td>
+  <td><strong>jx</strong></td><td></td><td></td><td></td>
   
 </tr>
 
@@ -692,11 +693,11 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-jy~8"></span>integer,</td>
+  <td><span class="anchor" id="variable-jy~9"></span>integer,</td>
   
   <td>public</td>
   <td></td><td>::</td>
-  <td><strong>JY</strong></td><td></td><td></td><td></td>
+  <td><strong>jy</strong></td><td></td><td></td><td></td>
   
 </tr>
 
@@ -706,11 +707,11 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-k~68"></span>integer,</td>
+  <td><span class="anchor" id="variable-k~9"></span>integer,</td>
   
   <td>public</td>
   <td></td><td>::</td>
-  <td><strong>K</strong></td><td></td><td></td><td></td>
+  <td><strong>k</strong></td><td></td><td></td><td></td>
   
 </tr>
 
@@ -720,11 +721,11 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-kk~12"></span>integer,</td>
+  <td><span class="anchor" id="variable-kk~3"></span>integer,</td>
   
   <td>public</td>
   <td></td><td>::</td>
-  <td><strong>KK</strong></td><td></td><td></td><td></td>
+  <td><strong>kk</strong></td><td></td><td></td><td></td>
   
 </tr>
 
@@ -734,11 +735,11 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-kx~16"></span>integer,</td>
+  <td><span class="anchor" id="variable-kx~13"></span>integer,</td>
   
   <td>public</td>
   <td></td><td>::</td>
-  <td><strong>KX</strong></td><td></td><td></td><td></td>
+  <td><strong>kx</strong></td><td></td><td></td><td></td>
   
 </tr>
 
@@ -748,11 +749,11 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-ky~12"></span>integer,</td>
+  <td><span class="anchor" id="variable-ky~9"></span>integer,</td>
   
   <td>public</td>
   <td></td><td>::</td>
-  <td><strong>KY</strong></td><td></td><td></td><td></td>
+  <td><strong>ky</strong></td><td></td><td></td><td></td>
   
 </tr>
 
@@ -766,7 +767,7 @@ http://www.netlib.org/lapack/explore-html/
   
   <td>public</td>
   <td></td><td>::</td>
-  <td><strong>TEMP1</strong></td><td></td><td></td><td></td>
+  <td><strong>temp1</strong></td><td></td><td></td><td></td>
   
 </tr>
 
@@ -780,7 +781,7 @@ http://www.netlib.org/lapack/explore-html/
   
   <td>public</td>
   <td></td><td>::</td>
-  <td><strong>TEMP2</strong></td><td></td><td></td><td></td>
+  <td><strong>temp2</strong></td><td></td><td></td><td></td>
   
 </tr>
 
@@ -790,11 +791,11 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-zero~87"></span>complex,</td>
+  <td><span class="anchor" id="variable-zero~19"></span>complex,</td>
   
   <td>public,</td>
   <td>parameter</td><td>::</td>
-  <td><strong>ZERO</strong></td><td> =</td><td> (0.0E+0,0.0E+0)</td><td></td>
+  <td><strong>zero</strong></td><td> =</td><td> (0.0e+0,0.0e+0)</td><td></td>
   
 </tr>
 
@@ -821,7 +822,7 @@ http://www.netlib.org/lapack/explore-html/
     
     <section>
     <h2><span class="anchor" id="src"></span>Source Code</h2>
-    <div class="highlight"><pre><span></span>       <span class="k">SUBROUTINE </span><span class="n">CHPR2</span><span class="p">(</span><span class="n">UPLO</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">ALPHA</span><span class="p">,</span><span class="n">X</span><span class="p">,</span><span class="n">INCX</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="n">INCY</span><span class="p">,</span><span class="n">AP</span><span class="p">)</span>
+    <div class="highlight"><pre><span></span>       <span class="k">subroutine </span><span class="n">chpr2</span><span class="p">(</span><span class="n">uplo</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="n">alpha</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">incx</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">incy</span><span class="p">,</span><span class="n">ap</span><span class="p">)</span>
       <span class="k">implicit none</span>
 <span class="c">!</span>
 <span class="c">!  -- Reference BLAS level2 routine (version 3.7.0) --</span>
@@ -830,161 +831,161 @@ http://www.netlib.org/lapack/explore-html/
 <span class="c">!     December 2016</span>
 <span class="c">!</span>
 <span class="c">!     .. Scalar Arguments ..</span>
-      <span class="kt">COMPLEX</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>    <span class="kd">::</span> <span class="n">ALPHA</span>
-      <span class="kt">INTEGER</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>    <span class="kd">::</span> <span class="n">INCX</span><span class="p">,</span><span class="n">INCY</span><span class="p">,</span><span class="n">N</span>
-      <span class="kt">CHARACTER</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>  <span class="kd">::</span> <span class="n">UPLO</span>
+      <span class="kt">complex</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>    <span class="kd">::</span> <span class="n">alpha</span>
+      <span class="kt">integer</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>    <span class="kd">::</span> <span class="n">incx</span><span class="p">,</span><span class="n">incy</span><span class="p">,</span><span class="n">n</span>
+      <span class="kt">character</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>  <span class="kd">::</span> <span class="n">uplo</span>
 <span class="c">!     ..</span>
 <span class="c">!     .. Array Arguments ..</span>
-      <span class="kt">COMPLEX</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span> <span class="kd">::</span> <span class="n">AP</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
-      <span class="kt">COMPLEX</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>    <span class="kd">::</span> <span class="n">X</span><span class="p">(</span><span class="o">*</span><span class="p">),</span><span class="n">Y</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+      <span class="kt">complex</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span> <span class="kd">::</span> <span class="n">ap</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+      <span class="kt">complex</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>    <span class="kd">::</span> <span class="n">x</span><span class="p">(</span><span class="o">*</span><span class="p">),</span><span class="n">y</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
 <span class="c">!     ..</span>
 <span class="c">!</span>
 <span class="c">!  =====================================================================</span>
 <span class="c">!</span>
 <span class="c">!     .. Parameters ..</span>
-      <span class="kt">COMPLEX </span><span class="n">ZERO</span>
-      <span class="k">PARAMETER</span> <span class="p">(</span><span class="n">ZERO</span><span class="o">=</span> <span class="p">(</span><span class="mf">0.0E+0</span><span class="p">,</span><span class="mf">0.0E+0</span><span class="p">))</span>
+      <span class="kt">complex </span><span class="n">zero</span>
+      <span class="k">parameter</span> <span class="p">(</span><span class="n">zero</span><span class="o">=</span> <span class="p">(</span><span class="mf">0.0e+0</span><span class="p">,</span><span class="mf">0.0e+0</span><span class="p">))</span>
 <span class="c">!     ..</span>
 <span class="c">!     .. Local Scalars ..</span>
-      <span class="kt">COMPLEX </span><span class="n">TEMP1</span><span class="p">,</span><span class="n">TEMP2</span>
-      <span class="kt">INTEGER </span><span class="n">I</span><span class="p">,</span><span class="n">INFO</span><span class="p">,</span><span class="n">IX</span><span class="p">,</span><span class="n">IY</span><span class="p">,</span><span class="n">J</span><span class="p">,</span><span class="n">JX</span><span class="p">,</span><span class="n">JY</span><span class="p">,</span><span class="n">K</span><span class="p">,</span><span class="n">KK</span><span class="p">,</span><span class="n">KX</span><span class="p">,</span><span class="n">KY</span>
+      <span class="kt">complex </span><span class="n">temp1</span><span class="p">,</span><span class="n">temp2</span>
+      <span class="kt">integer </span><span class="n">i</span><span class="p">,</span><span class="n">info</span><span class="p">,</span><span class="n">ix</span><span class="p">,</span><span class="n">iy</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">jx</span><span class="p">,</span><span class="n">jy</span><span class="p">,</span><span class="n">k</span><span class="p">,</span><span class="n">kk</span><span class="p">,</span><span class="n">kx</span><span class="p">,</span><span class="n">ky</span>
 <span class="c">!     ..</span>
 <span class="c">!     .. External Functions ..</span>
 <span class="c">!     ..</span>
 <span class="c">!     .. External Subroutines ..</span>
 <span class="c">!     ..</span>
 <span class="c">!     .. Intrinsic Functions ..</span>
-      <span class="k">INTRINSIC </span><span class="nb">CONJG</span><span class="p">,</span><span class="kt">REAL</span>
+      <span class="k">intrinsic </span><span class="nb">conjg</span><span class="p">,</span><span class="kt">real</span>
 <span class="c">!     ..</span>
 <span class="c">!</span>
 <span class="c">!     Test the input parameters.</span>
 <span class="c">!</span>
-      <span class="n">INFO</span> <span class="o">=</span> <span class="mi">0</span>
-      <span class="k">IF</span> <span class="p">(.</span><span class="nb">NOT</span><span class="p">.</span><span class="n">LSAME</span><span class="p">(</span><span class="n">UPLO</span><span class="p">,</span><span class="s1">&#39;U&#39;</span><span class="p">)</span> <span class="p">.</span><span class="nb">AND</span><span class="p">.</span> <span class="p">.</span><span class="nb">NOT</span><span class="p">.</span><span class="n">LSAME</span><span class="p">(</span><span class="n">UPLO</span><span class="p">,</span><span class="s1">&#39;L&#39;</span><span class="p">))</span> <span class="k">THEN</span>
-<span class="k">          </span><span class="n">INFO</span> <span class="o">=</span> <span class="mi">1</span>
-      <span class="n">elseif</span> <span class="p">(</span><span class="n">N</span><span class="p">.</span><span class="n">LT</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span> <span class="k">THEN</span>
-<span class="k">          </span><span class="n">INFO</span> <span class="o">=</span> <span class="mi">2</span>
-      <span class="n">elseif</span> <span class="p">(</span><span class="n">INCX</span><span class="p">.</span><span class="n">EQ</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span> <span class="k">THEN</span>
-<span class="k">          </span><span class="n">INFO</span> <span class="o">=</span> <span class="mi">5</span>
-      <span class="n">elseif</span> <span class="p">(</span><span class="n">INCY</span><span class="p">.</span><span class="n">EQ</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span> <span class="k">THEN</span>
-<span class="k">          </span><span class="n">INFO</span> <span class="o">=</span> <span class="mi">7</span>
+      <span class="n">info</span> <span class="o">=</span> <span class="mi">0</span>
+      <span class="k">if</span> <span class="p">(.</span><span class="nb">not</span><span class="p">.</span><span class="n">lsame</span><span class="p">(</span><span class="n">uplo</span><span class="p">,</span><span class="s1">&#39;U&#39;</span><span class="p">)</span> <span class="p">.</span><span class="nb">and</span><span class="p">.</span> <span class="p">.</span><span class="nb">not</span><span class="p">.</span><span class="n">lsame</span><span class="p">(</span><span class="n">uplo</span><span class="p">,</span><span class="s1">&#39;L&#39;</span><span class="p">))</span> <span class="k">then</span>
+<span class="k">          </span><span class="n">info</span> <span class="o">=</span> <span class="mi">1</span>
+      <span class="n">elseif</span> <span class="p">(</span><span class="n">n</span><span class="p">.</span><span class="n">lt</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">          </span><span class="n">info</span> <span class="o">=</span> <span class="mi">2</span>
+      <span class="n">elseif</span> <span class="p">(</span><span class="n">incx</span><span class="p">.</span><span class="n">eq</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">          </span><span class="n">info</span> <span class="o">=</span> <span class="mi">5</span>
+      <span class="n">elseif</span> <span class="p">(</span><span class="n">incy</span><span class="p">.</span><span class="n">eq</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">          </span><span class="n">info</span> <span class="o">=</span> <span class="mi">7</span>
       <span class="k">endif</span>
-<span class="k">      IF</span> <span class="p">(</span><span class="n">INFO</span><span class="p">.</span><span class="n">NE</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span> <span class="k">THEN</span>
-<span class="k">          CALL </span><span class="n">XERBLA</span><span class="p">(</span><span class="s1">&#39;CHPR2 &#39;</span><span class="p">,</span><span class="n">INFO</span><span class="p">)</span>
-          <span class="k">RETURN</span>
+<span class="k">      if</span> <span class="p">(</span><span class="n">info</span><span class="p">.</span><span class="n">ne</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">          call </span><span class="n">xerbla</span><span class="p">(</span><span class="s1">&#39;CHPR2 &#39;</span><span class="p">,</span><span class="n">info</span><span class="p">)</span>
+          <span class="k">return</span>
 <span class="k">      endif</span>
 <span class="c">!</span>
 <span class="c">!     Quick return if possible.</span>
 <span class="c">!</span>
-      <span class="k">IF</span> <span class="p">((</span><span class="n">N</span><span class="p">.</span><span class="n">EQ</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span> <span class="p">.</span><span class="nb">OR</span><span class="p">.</span> <span class="p">(</span><span class="n">ALPHA</span><span class="p">.</span><span class="n">EQ</span><span class="p">.</span><span class="n">ZERO</span><span class="p">))</span> <span class="k">RETURN</span>
+      <span class="k">if</span> <span class="p">((</span><span class="n">n</span><span class="p">.</span><span class="n">eq</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span> <span class="p">.</span><span class="nb">or</span><span class="p">.</span> <span class="p">(</span><span class="n">alpha</span><span class="p">.</span><span class="n">eq</span><span class="p">.</span><span class="n">zero</span><span class="p">))</span> <span class="k">return</span>
 <span class="c">!</span>
 <span class="c">!     Set up the start points in X and Y if the increments are not both</span>
 <span class="c">!     unity.</span>
 <span class="c">!</span>
-      <span class="k">IF</span> <span class="p">((</span><span class="n">INCX</span><span class="p">.</span><span class="n">NE</span><span class="p">.</span><span class="mi">1</span><span class="p">)</span> <span class="p">.</span><span class="nb">OR</span><span class="p">.</span> <span class="p">(</span><span class="n">INCY</span><span class="p">.</span><span class="n">NE</span><span class="p">.</span><span class="mi">1</span><span class="p">))</span> <span class="k">THEN</span>
-<span class="k">          IF</span> <span class="p">(</span><span class="n">INCX</span><span class="p">.</span><span class="n">GT</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span> <span class="k">THEN</span>
-<span class="k">              </span><span class="n">KX</span> <span class="o">=</span> <span class="mi">1</span>
-          <span class="k">ELSE</span>
-<span class="k">              </span><span class="n">KX</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">INCX</span>
+      <span class="k">if</span> <span class="p">((</span><span class="n">incx</span><span class="p">.</span><span class="n">ne</span><span class="p">.</span><span class="mi">1</span><span class="p">)</span> <span class="p">.</span><span class="nb">or</span><span class="p">.</span> <span class="p">(</span><span class="n">incy</span><span class="p">.</span><span class="n">ne</span><span class="p">.</span><span class="mi">1</span><span class="p">))</span> <span class="k">then</span>
+<span class="k">          if</span> <span class="p">(</span><span class="n">incx</span><span class="p">.</span><span class="n">gt</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">              </span><span class="n">kx</span> <span class="o">=</span> <span class="mi">1</span>
+          <span class="k">else</span>
+<span class="k">              </span><span class="n">kx</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">incx</span>
           <span class="k">endif</span>
-<span class="k">          IF</span> <span class="p">(</span><span class="n">INCY</span><span class="p">.</span><span class="n">GT</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span> <span class="k">THEN</span>
-<span class="k">              </span><span class="n">KY</span> <span class="o">=</span> <span class="mi">1</span>
-          <span class="k">ELSE</span>
-<span class="k">              </span><span class="n">KY</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">INCY</span>
+<span class="k">          if</span> <span class="p">(</span><span class="n">incy</span><span class="p">.</span><span class="n">gt</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">              </span><span class="n">ky</span> <span class="o">=</span> <span class="mi">1</span>
+          <span class="k">else</span>
+<span class="k">              </span><span class="n">ky</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">incy</span>
           <span class="k">endif</span>
-<span class="k">          </span><span class="n">JX</span> <span class="o">=</span> <span class="n">KX</span>
-          <span class="n">JY</span> <span class="o">=</span> <span class="n">KY</span>
+<span class="k">          </span><span class="n">jx</span> <span class="o">=</span> <span class="n">kx</span>
+          <span class="n">jy</span> <span class="o">=</span> <span class="n">ky</span>
       <span class="k">endif</span>
 <span class="c">!</span>
 <span class="c">!     Start the operations. In this version the elements of the array AP</span>
 <span class="c">!     are accessed sequentially with one pass through AP.</span>
 <span class="c">!</span>
-      <span class="n">KK</span> <span class="o">=</span> <span class="mi">1</span>
-      <span class="k">IF</span> <span class="p">(</span><span class="n">LSAME</span><span class="p">(</span><span class="n">UPLO</span><span class="p">,</span><span class="s1">&#39;U&#39;</span><span class="p">))</span> <span class="k">THEN</span>
+      <span class="n">kk</span> <span class="o">=</span> <span class="mi">1</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">lsame</span><span class="p">(</span><span class="n">uplo</span><span class="p">,</span><span class="s1">&#39;U&#39;</span><span class="p">))</span> <span class="k">then</span>
 <span class="c">!</span>
 <span class="c">!        Form  A  when upper triangle is stored in AP.</span>
 <span class="c">!</span>
-          <span class="k">IF</span> <span class="p">((</span><span class="n">INCX</span><span class="p">.</span><span class="n">EQ</span><span class="p">.</span><span class="mi">1</span><span class="p">)</span> <span class="p">.</span><span class="nb">AND</span><span class="p">.</span> <span class="p">(</span><span class="n">INCY</span><span class="p">.</span><span class="n">EQ</span><span class="p">.</span><span class="mi">1</span><span class="p">))</span> <span class="k">THEN</span>
-<span class="k">              DO </span><span class="n">J</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">N</span>
-                  <span class="k">IF</span> <span class="p">((</span><span class="n">X</span><span class="p">(</span><span class="n">J</span><span class="p">).</span><span class="n">NE</span><span class="p">.</span><span class="n">ZERO</span><span class="p">)</span> <span class="p">.</span><span class="nb">OR</span><span class="p">.</span> <span class="p">(</span><span class="n">Y</span><span class="p">(</span><span class="n">J</span><span class="p">).</span><span class="n">NE</span><span class="p">.</span><span class="n">ZERO</span><span class="p">))</span> <span class="k">THEN</span>
-<span class="k">                      </span><span class="n">TEMP1</span> <span class="o">=</span> <span class="n">ALPHA</span><span class="o">*</span><span class="nb">CONJG</span><span class="p">(</span><span class="n">Y</span><span class="p">(</span><span class="n">J</span><span class="p">))</span>
-                      <span class="n">TEMP2</span> <span class="o">=</span> <span class="nb">CONJG</span><span class="p">(</span><span class="n">ALPHA</span><span class="o">*</span><span class="n">X</span><span class="p">(</span><span class="n">J</span><span class="p">))</span>
-                      <span class="n">K</span> <span class="o">=</span> <span class="n">KK</span>
-                      <span class="k">DO </span><span class="n">I</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">J</span> <span class="o">-</span> <span class="mi">1</span>
-                          <span class="n">AP</span><span class="p">(</span><span class="n">K</span><span class="p">)</span> <span class="o">=</span> <span class="n">AP</span><span class="p">(</span><span class="n">K</span><span class="p">)</span> <span class="o">+</span> <span class="n">X</span><span class="p">(</span><span class="n">I</span><span class="p">)</span><span class="o">*</span><span class="n">TEMP1</span> <span class="o">+</span> <span class="n">Y</span><span class="p">(</span><span class="n">I</span><span class="p">)</span><span class="o">*</span><span class="n">TEMP2</span>
-                          <span class="n">K</span> <span class="o">=</span> <span class="n">K</span> <span class="o">+</span> <span class="mi">1</span>
+          <span class="k">if</span> <span class="p">((</span><span class="n">incx</span><span class="p">.</span><span class="n">eq</span><span class="p">.</span><span class="mi">1</span><span class="p">)</span> <span class="p">.</span><span class="nb">and</span><span class="p">.</span> <span class="p">(</span><span class="n">incy</span><span class="p">.</span><span class="n">eq</span><span class="p">.</span><span class="mi">1</span><span class="p">))</span> <span class="k">then</span>
+<span class="k">              do </span><span class="n">j</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">n</span>
+                  <span class="k">if</span> <span class="p">((</span><span class="n">x</span><span class="p">(</span><span class="n">j</span><span class="p">).</span><span class="n">ne</span><span class="p">.</span><span class="n">zero</span><span class="p">)</span> <span class="p">.</span><span class="nb">or</span><span class="p">.</span> <span class="p">(</span><span class="n">y</span><span class="p">(</span><span class="n">j</span><span class="p">).</span><span class="n">ne</span><span class="p">.</span><span class="n">zero</span><span class="p">))</span> <span class="k">then</span>
+<span class="k">                      </span><span class="n">temp1</span> <span class="o">=</span> <span class="n">alpha</span><span class="o">*</span><span class="nb">conjg</span><span class="p">(</span><span class="n">y</span><span class="p">(</span><span class="n">j</span><span class="p">))</span>
+                      <span class="n">temp2</span> <span class="o">=</span> <span class="nb">conjg</span><span class="p">(</span><span class="n">alpha</span><span class="o">*</span><span class="n">x</span><span class="p">(</span><span class="n">j</span><span class="p">))</span>
+                      <span class="n">k</span> <span class="o">=</span> <span class="n">kk</span>
+                      <span class="k">do </span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span>
+                          <span class="n">ap</span><span class="p">(</span><span class="n">k</span><span class="p">)</span> <span class="o">=</span> <span class="n">ap</span><span class="p">(</span><span class="n">k</span><span class="p">)</span> <span class="o">+</span> <span class="n">x</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">*</span><span class="n">temp1</span> <span class="o">+</span> <span class="n">y</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">*</span><span class="n">temp2</span>
+                          <span class="n">k</span> <span class="o">=</span> <span class="n">k</span> <span class="o">+</span> <span class="mi">1</span>
                       <span class="k">enddo</span>
-<span class="k">                      </span><span class="n">AP</span><span class="p">(</span><span class="n">KK</span><span class="o">+</span><span class="n">J</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="kt">REAL</span><span class="p">(</span><span class="n">AP</span><span class="p">(</span><span class="n">KK</span><span class="o">+</span><span class="n">J</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span> <span class="o">+</span> <span class="kt">REAL</span><span class="p">(</span><span class="n">X</span><span class="p">(</span><span class="n">J</span><span class="p">)</span><span class="o">*</span><span class="n">TEMP1</span><span class="o">+</span><span class="n">Y</span><span class="p">(</span><span class="n">J</span><span class="p">)</span><span class="o">*</span><span class="n">TEMP2</span><span class="p">)</span>
-                  <span class="k">ELSE</span>
-<span class="k">                      </span><span class="n">AP</span><span class="p">(</span><span class="n">KK</span><span class="o">+</span><span class="n">J</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="kt">REAL</span><span class="p">(</span><span class="n">AP</span><span class="p">(</span><span class="n">KK</span><span class="o">+</span><span class="n">J</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+<span class="k">                      </span><span class="n">ap</span><span class="p">(</span><span class="n">kk</span><span class="o">+</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="kt">real</span><span class="p">(</span><span class="n">ap</span><span class="p">(</span><span class="n">kk</span><span class="o">+</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span> <span class="o">+</span> <span class="kt">real</span><span class="p">(</span><span class="n">x</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="o">*</span><span class="n">temp1</span><span class="o">+</span><span class="n">y</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="o">*</span><span class="n">temp2</span><span class="p">)</span>
+                  <span class="k">else</span>
+<span class="k">                      </span><span class="n">ap</span><span class="p">(</span><span class="n">kk</span><span class="o">+</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="kt">real</span><span class="p">(</span><span class="n">ap</span><span class="p">(</span><span class="n">kk</span><span class="o">+</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
                   <span class="k">endif</span>
-<span class="k">                  </span><span class="n">KK</span> <span class="o">=</span> <span class="n">KK</span> <span class="o">+</span> <span class="n">J</span>
+<span class="k">                  </span><span class="n">kk</span> <span class="o">=</span> <span class="n">kk</span> <span class="o">+</span> <span class="n">j</span>
               <span class="k">enddo</span>
-<span class="k">          ELSE</span>
-<span class="k">              DO </span><span class="n">J</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">N</span>
-                  <span class="k">IF</span> <span class="p">((</span><span class="n">X</span><span class="p">(</span><span class="n">JX</span><span class="p">).</span><span class="n">NE</span><span class="p">.</span><span class="n">ZERO</span><span class="p">)</span> <span class="p">.</span><span class="nb">OR</span><span class="p">.</span> <span class="p">(</span><span class="n">Y</span><span class="p">(</span><span class="n">JY</span><span class="p">).</span><span class="n">NE</span><span class="p">.</span><span class="n">ZERO</span><span class="p">))</span> <span class="k">THEN</span>
-<span class="k">                      </span><span class="n">TEMP1</span> <span class="o">=</span> <span class="n">ALPHA</span><span class="o">*</span><span class="nb">CONJG</span><span class="p">(</span><span class="n">Y</span><span class="p">(</span><span class="n">JY</span><span class="p">))</span>
-                      <span class="n">TEMP2</span> <span class="o">=</span> <span class="nb">CONJG</span><span class="p">(</span><span class="n">ALPHA</span><span class="o">*</span><span class="n">X</span><span class="p">(</span><span class="n">JX</span><span class="p">))</span>
-                      <span class="n">IX</span> <span class="o">=</span> <span class="n">KX</span>
-                      <span class="n">IY</span> <span class="o">=</span> <span class="n">KY</span>
-                      <span class="k">DO </span><span class="n">K</span> <span class="o">=</span> <span class="n">KK</span><span class="p">,</span><span class="n">KK</span> <span class="o">+</span> <span class="n">J</span> <span class="o">-</span> <span class="mi">2</span>
-                          <span class="n">AP</span><span class="p">(</span><span class="n">K</span><span class="p">)</span> <span class="o">=</span> <span class="n">AP</span><span class="p">(</span><span class="n">K</span><span class="p">)</span> <span class="o">+</span> <span class="n">X</span><span class="p">(</span><span class="n">IX</span><span class="p">)</span><span class="o">*</span><span class="n">TEMP1</span> <span class="o">+</span> <span class="n">Y</span><span class="p">(</span><span class="n">IY</span><span class="p">)</span><span class="o">*</span><span class="n">TEMP2</span>
-                          <span class="n">IX</span> <span class="o">=</span> <span class="n">IX</span> <span class="o">+</span> <span class="n">INCX</span>
-                          <span class="n">IY</span> <span class="o">=</span> <span class="n">IY</span> <span class="o">+</span> <span class="n">INCY</span>
+<span class="k">          else</span>
+<span class="k">              do </span><span class="n">j</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">n</span>
+                  <span class="k">if</span> <span class="p">((</span><span class="n">x</span><span class="p">(</span><span class="n">jx</span><span class="p">).</span><span class="n">ne</span><span class="p">.</span><span class="n">zero</span><span class="p">)</span> <span class="p">.</span><span class="nb">or</span><span class="p">.</span> <span class="p">(</span><span class="n">y</span><span class="p">(</span><span class="n">jy</span><span class="p">).</span><span class="n">ne</span><span class="p">.</span><span class="n">zero</span><span class="p">))</span> <span class="k">then</span>
+<span class="k">                      </span><span class="n">temp1</span> <span class="o">=</span> <span class="n">alpha</span><span class="o">*</span><span class="nb">conjg</span><span class="p">(</span><span class="n">y</span><span class="p">(</span><span class="n">jy</span><span class="p">))</span>
+                      <span class="n">temp2</span> <span class="o">=</span> <span class="nb">conjg</span><span class="p">(</span><span class="n">alpha</span><span class="o">*</span><span class="n">x</span><span class="p">(</span><span class="n">jx</span><span class="p">))</span>
+                      <span class="n">ix</span> <span class="o">=</span> <span class="n">kx</span>
+                      <span class="n">iy</span> <span class="o">=</span> <span class="n">ky</span>
+                      <span class="k">do </span><span class="n">k</span> <span class="o">=</span> <span class="n">kk</span><span class="p">,</span><span class="n">kk</span> <span class="o">+</span> <span class="n">j</span> <span class="o">-</span> <span class="mi">2</span>
+                          <span class="n">ap</span><span class="p">(</span><span class="n">k</span><span class="p">)</span> <span class="o">=</span> <span class="n">ap</span><span class="p">(</span><span class="n">k</span><span class="p">)</span> <span class="o">+</span> <span class="n">x</span><span class="p">(</span><span class="n">ix</span><span class="p">)</span><span class="o">*</span><span class="n">temp1</span> <span class="o">+</span> <span class="n">y</span><span class="p">(</span><span class="n">iy</span><span class="p">)</span><span class="o">*</span><span class="n">temp2</span>
+                          <span class="n">ix</span> <span class="o">=</span> <span class="n">ix</span> <span class="o">+</span> <span class="n">incx</span>
+                          <span class="n">iy</span> <span class="o">=</span> <span class="n">iy</span> <span class="o">+</span> <span class="n">incy</span>
                       <span class="k">enddo</span>
-<span class="k">                      </span><span class="n">AP</span><span class="p">(</span><span class="n">KK</span><span class="o">+</span><span class="n">J</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="kt">REAL</span><span class="p">(</span><span class="n">AP</span><span class="p">(</span><span class="n">KK</span><span class="o">+</span><span class="n">J</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span> <span class="o">+</span> <span class="kt">REAL</span><span class="p">(</span><span class="n">X</span><span class="p">(</span><span class="n">JX</span><span class="p">)</span><span class="o">*</span><span class="n">TEMP1</span><span class="o">+</span><span class="n">Y</span><span class="p">(</span><span class="n">JY</span><span class="p">)</span><span class="o">*</span><span class="n">TEMP2</span><span class="p">)</span>
-                  <span class="k">ELSE</span>
-<span class="k">                      </span><span class="n">AP</span><span class="p">(</span><span class="n">KK</span><span class="o">+</span><span class="n">J</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="kt">REAL</span><span class="p">(</span><span class="n">AP</span><span class="p">(</span><span class="n">KK</span><span class="o">+</span><span class="n">J</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+<span class="k">                      </span><span class="n">ap</span><span class="p">(</span><span class="n">kk</span><span class="o">+</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="kt">real</span><span class="p">(</span><span class="n">ap</span><span class="p">(</span><span class="n">kk</span><span class="o">+</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span> <span class="o">+</span> <span class="kt">real</span><span class="p">(</span><span class="n">x</span><span class="p">(</span><span class="n">jx</span><span class="p">)</span><span class="o">*</span><span class="n">temp1</span><span class="o">+</span><span class="n">y</span><span class="p">(</span><span class="n">jy</span><span class="p">)</span><span class="o">*</span><span class="n">temp2</span><span class="p">)</span>
+                  <span class="k">else</span>
+<span class="k">                      </span><span class="n">ap</span><span class="p">(</span><span class="n">kk</span><span class="o">+</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="kt">real</span><span class="p">(</span><span class="n">ap</span><span class="p">(</span><span class="n">kk</span><span class="o">+</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
                   <span class="k">endif</span>
-<span class="k">                  </span><span class="n">JX</span> <span class="o">=</span> <span class="n">JX</span> <span class="o">+</span> <span class="n">INCX</span>
-                  <span class="n">JY</span> <span class="o">=</span> <span class="n">JY</span> <span class="o">+</span> <span class="n">INCY</span>
-                  <span class="n">KK</span> <span class="o">=</span> <span class="n">KK</span> <span class="o">+</span> <span class="n">J</span>
+<span class="k">                  </span><span class="n">jx</span> <span class="o">=</span> <span class="n">jx</span> <span class="o">+</span> <span class="n">incx</span>
+                  <span class="n">jy</span> <span class="o">=</span> <span class="n">jy</span> <span class="o">+</span> <span class="n">incy</span>
+                  <span class="n">kk</span> <span class="o">=</span> <span class="n">kk</span> <span class="o">+</span> <span class="n">j</span>
               <span class="k">enddo</span>
 <span class="k">          endif</span>
-<span class="k">      ELSE</span>
+<span class="k">      else</span>
 <span class="c">!</span>
 <span class="c">!        Form  A  when lower triangle is stored in AP.</span>
 <span class="c">!</span>
-          <span class="k">IF</span> <span class="p">((</span><span class="n">INCX</span><span class="p">.</span><span class="n">EQ</span><span class="p">.</span><span class="mi">1</span><span class="p">)</span> <span class="p">.</span><span class="nb">AND</span><span class="p">.</span> <span class="p">(</span><span class="n">INCY</span><span class="p">.</span><span class="n">EQ</span><span class="p">.</span><span class="mi">1</span><span class="p">))</span> <span class="k">THEN</span>
-<span class="k">              DO </span><span class="n">J</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">N</span>
-                  <span class="k">IF</span> <span class="p">((</span><span class="n">X</span><span class="p">(</span><span class="n">J</span><span class="p">).</span><span class="n">NE</span><span class="p">.</span><span class="n">ZERO</span><span class="p">)</span> <span class="p">.</span><span class="nb">OR</span><span class="p">.</span> <span class="p">(</span><span class="n">Y</span><span class="p">(</span><span class="n">J</span><span class="p">).</span><span class="n">NE</span><span class="p">.</span><span class="n">ZERO</span><span class="p">))</span> <span class="k">THEN</span>
-<span class="k">                      </span><span class="n">TEMP1</span> <span class="o">=</span> <span class="n">ALPHA</span><span class="o">*</span><span class="nb">CONJG</span><span class="p">(</span><span class="n">Y</span><span class="p">(</span><span class="n">J</span><span class="p">))</span>
-                      <span class="n">TEMP2</span> <span class="o">=</span> <span class="nb">CONJG</span><span class="p">(</span><span class="n">ALPHA</span><span class="o">*</span><span class="n">X</span><span class="p">(</span><span class="n">J</span><span class="p">))</span>
-                      <span class="n">AP</span><span class="p">(</span><span class="n">KK</span><span class="p">)</span> <span class="o">=</span> <span class="kt">REAL</span><span class="p">(</span><span class="n">AP</span><span class="p">(</span><span class="n">KK</span><span class="p">))</span> <span class="o">+</span> <span class="kt">REAL</span><span class="p">(</span><span class="n">X</span><span class="p">(</span><span class="n">J</span><span class="p">)</span><span class="o">*</span><span class="n">TEMP1</span><span class="o">+</span><span class="n">Y</span><span class="p">(</span><span class="n">J</span><span class="p">)</span><span class="o">*</span><span class="n">TEMP2</span><span class="p">)</span>
-                      <span class="n">K</span> <span class="o">=</span> <span class="n">KK</span> <span class="o">+</span> <span class="mi">1</span>
-                      <span class="k">DO </span><span class="n">I</span> <span class="o">=</span> <span class="n">J</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span><span class="n">N</span>
-                          <span class="n">AP</span><span class="p">(</span><span class="n">K</span><span class="p">)</span> <span class="o">=</span> <span class="n">AP</span><span class="p">(</span><span class="n">K</span><span class="p">)</span> <span class="o">+</span> <span class="n">X</span><span class="p">(</span><span class="n">I</span><span class="p">)</span><span class="o">*</span><span class="n">TEMP1</span> <span class="o">+</span> <span class="n">Y</span><span class="p">(</span><span class="n">I</span><span class="p">)</span><span class="o">*</span><span class="n">TEMP2</span>
-                          <span class="n">K</span> <span class="o">=</span> <span class="n">K</span> <span class="o">+</span> <span class="mi">1</span>
+          <span class="k">if</span> <span class="p">((</span><span class="n">incx</span><span class="p">.</span><span class="n">eq</span><span class="p">.</span><span class="mi">1</span><span class="p">)</span> <span class="p">.</span><span class="nb">and</span><span class="p">.</span> <span class="p">(</span><span class="n">incy</span><span class="p">.</span><span class="n">eq</span><span class="p">.</span><span class="mi">1</span><span class="p">))</span> <span class="k">then</span>
+<span class="k">              do </span><span class="n">j</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">n</span>
+                  <span class="k">if</span> <span class="p">((</span><span class="n">x</span><span class="p">(</span><span class="n">j</span><span class="p">).</span><span class="n">ne</span><span class="p">.</span><span class="n">zero</span><span class="p">)</span> <span class="p">.</span><span class="nb">or</span><span class="p">.</span> <span class="p">(</span><span class="n">y</span><span class="p">(</span><span class="n">j</span><span class="p">).</span><span class="n">ne</span><span class="p">.</span><span class="n">zero</span><span class="p">))</span> <span class="k">then</span>
+<span class="k">                      </span><span class="n">temp1</span> <span class="o">=</span> <span class="n">alpha</span><span class="o">*</span><span class="nb">conjg</span><span class="p">(</span><span class="n">y</span><span class="p">(</span><span class="n">j</span><span class="p">))</span>
+                      <span class="n">temp2</span> <span class="o">=</span> <span class="nb">conjg</span><span class="p">(</span><span class="n">alpha</span><span class="o">*</span><span class="n">x</span><span class="p">(</span><span class="n">j</span><span class="p">))</span>
+                      <span class="n">ap</span><span class="p">(</span><span class="n">kk</span><span class="p">)</span> <span class="o">=</span> <span class="kt">real</span><span class="p">(</span><span class="n">ap</span><span class="p">(</span><span class="n">kk</span><span class="p">))</span> <span class="o">+</span> <span class="kt">real</span><span class="p">(</span><span class="n">x</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="o">*</span><span class="n">temp1</span><span class="o">+</span><span class="n">y</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="o">*</span><span class="n">temp2</span><span class="p">)</span>
+                      <span class="n">k</span> <span class="o">=</span> <span class="n">kk</span> <span class="o">+</span> <span class="mi">1</span>
+                      <span class="k">do </span><span class="n">i</span> <span class="o">=</span> <span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span><span class="n">n</span>
+                          <span class="n">ap</span><span class="p">(</span><span class="n">k</span><span class="p">)</span> <span class="o">=</span> <span class="n">ap</span><span class="p">(</span><span class="n">k</span><span class="p">)</span> <span class="o">+</span> <span class="n">x</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">*</span><span class="n">temp1</span> <span class="o">+</span> <span class="n">y</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">*</span><span class="n">temp2</span>
+                          <span class="n">k</span> <span class="o">=</span> <span class="n">k</span> <span class="o">+</span> <span class="mi">1</span>
                       <span class="k">enddo</span>
-<span class="k">                  ELSE</span>
-<span class="k">                      </span><span class="n">AP</span><span class="p">(</span><span class="n">KK</span><span class="p">)</span> <span class="o">=</span> <span class="kt">REAL</span><span class="p">(</span><span class="n">AP</span><span class="p">(</span><span class="n">KK</span><span class="p">))</span>
+<span class="k">                  else</span>
+<span class="k">                      </span><span class="n">ap</span><span class="p">(</span><span class="n">kk</span><span class="p">)</span> <span class="o">=</span> <span class="kt">real</span><span class="p">(</span><span class="n">ap</span><span class="p">(</span><span class="n">kk</span><span class="p">))</span>
                   <span class="k">endif</span>
-<span class="k">                  </span><span class="n">KK</span> <span class="o">=</span> <span class="n">KK</span> <span class="o">+</span> <span class="n">N</span> <span class="o">-</span> <span class="n">J</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="k">                  </span><span class="n">kk</span> <span class="o">=</span> <span class="n">kk</span> <span class="o">+</span> <span class="n">n</span> <span class="o">-</span> <span class="n">j</span> <span class="o">+</span> <span class="mi">1</span>
               <span class="k">enddo</span>
-<span class="k">          ELSE</span>
-<span class="k">              DO </span><span class="n">J</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">N</span>
-                  <span class="k">IF</span> <span class="p">((</span><span class="n">X</span><span class="p">(</span><span class="n">JX</span><span class="p">).</span><span class="n">NE</span><span class="p">.</span><span class="n">ZERO</span><span class="p">)</span> <span class="p">.</span><span class="nb">OR</span><span class="p">.</span> <span class="p">(</span><span class="n">Y</span><span class="p">(</span><span class="n">JY</span><span class="p">).</span><span class="n">NE</span><span class="p">.</span><span class="n">ZERO</span><span class="p">))</span> <span class="k">THEN</span>
-<span class="k">                      </span><span class="n">TEMP1</span> <span class="o">=</span> <span class="n">ALPHA</span><span class="o">*</span><span class="nb">CONJG</span><span class="p">(</span><span class="n">Y</span><span class="p">(</span><span class="n">JY</span><span class="p">))</span>
-                      <span class="n">TEMP2</span> <span class="o">=</span> <span class="nb">CONJG</span><span class="p">(</span><span class="n">ALPHA</span><span class="o">*</span><span class="n">X</span><span class="p">(</span><span class="n">JX</span><span class="p">))</span>
-                      <span class="n">AP</span><span class="p">(</span><span class="n">KK</span><span class="p">)</span> <span class="o">=</span> <span class="kt">REAL</span><span class="p">(</span><span class="n">AP</span><span class="p">(</span><span class="n">KK</span><span class="p">))</span> <span class="o">+</span> <span class="kt">REAL</span><span class="p">(</span><span class="n">X</span><span class="p">(</span><span class="n">JX</span><span class="p">)</span><span class="o">*</span><span class="n">TEMP1</span><span class="o">+</span><span class="n">Y</span><span class="p">(</span><span class="n">JY</span><span class="p">)</span><span class="o">*</span><span class="n">TEMP2</span><span class="p">)</span>
-                      <span class="n">IX</span> <span class="o">=</span> <span class="n">JX</span>
-                      <span class="n">IY</span> <span class="o">=</span> <span class="n">JY</span>
-                      <span class="k">DO </span><span class="n">K</span> <span class="o">=</span> <span class="n">KK</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span><span class="n">KK</span> <span class="o">+</span> <span class="n">N</span> <span class="o">-</span> <span class="n">J</span>
-                          <span class="n">IX</span> <span class="o">=</span> <span class="n">IX</span> <span class="o">+</span> <span class="n">INCX</span>
-                          <span class="n">IY</span> <span class="o">=</span> <span class="n">IY</span> <span class="o">+</span> <span class="n">INCY</span>
-                          <span class="n">AP</span><span class="p">(</span><span class="n">K</span><span class="p">)</span> <span class="o">=</span> <span class="n">AP</span><span class="p">(</span><span class="n">K</span><span class="p">)</span> <span class="o">+</span> <span class="n">X</span><span class="p">(</span><span class="n">IX</span><span class="p">)</span><span class="o">*</span><span class="n">TEMP1</span> <span class="o">+</span> <span class="n">Y</span><span class="p">(</span><span class="n">IY</span><span class="p">)</span><span class="o">*</span><span class="n">TEMP2</span>
+<span class="k">          else</span>
+<span class="k">              do </span><span class="n">j</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">n</span>
+                  <span class="k">if</span> <span class="p">((</span><span class="n">x</span><span class="p">(</span><span class="n">jx</span><span class="p">).</span><span class="n">ne</span><span class="p">.</span><span class="n">zero</span><span class="p">)</span> <span class="p">.</span><span class="nb">or</span><span class="p">.</span> <span class="p">(</span><span class="n">y</span><span class="p">(</span><span class="n">jy</span><span class="p">).</span><span class="n">ne</span><span class="p">.</span><span class="n">zero</span><span class="p">))</span> <span class="k">then</span>
+<span class="k">                      </span><span class="n">temp1</span> <span class="o">=</span> <span class="n">alpha</span><span class="o">*</span><span class="nb">conjg</span><span class="p">(</span><span class="n">y</span><span class="p">(</span><span class="n">jy</span><span class="p">))</span>
+                      <span class="n">temp2</span> <span class="o">=</span> <span class="nb">conjg</span><span class="p">(</span><span class="n">alpha</span><span class="o">*</span><span class="n">x</span><span class="p">(</span><span class="n">jx</span><span class="p">))</span>
+                      <span class="n">ap</span><span class="p">(</span><span class="n">kk</span><span class="p">)</span> <span class="o">=</span> <span class="kt">real</span><span class="p">(</span><span class="n">ap</span><span class="p">(</span><span class="n">kk</span><span class="p">))</span> <span class="o">+</span> <span class="kt">real</span><span class="p">(</span><span class="n">x</span><span class="p">(</span><span class="n">jx</span><span class="p">)</span><span class="o">*</span><span class="n">temp1</span><span class="o">+</span><span class="n">y</span><span class="p">(</span><span class="n">jy</span><span class="p">)</span><span class="o">*</span><span class="n">temp2</span><span class="p">)</span>
+                      <span class="n">ix</span> <span class="o">=</span> <span class="n">jx</span>
+                      <span class="n">iy</span> <span class="o">=</span> <span class="n">jy</span>
+                      <span class="k">do </span><span class="n">k</span> <span class="o">=</span> <span class="n">kk</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span><span class="n">kk</span> <span class="o">+</span> <span class="n">n</span> <span class="o">-</span> <span class="n">j</span>
+                          <span class="n">ix</span> <span class="o">=</span> <span class="n">ix</span> <span class="o">+</span> <span class="n">incx</span>
+                          <span class="n">iy</span> <span class="o">=</span> <span class="n">iy</span> <span class="o">+</span> <span class="n">incy</span>
+                          <span class="n">ap</span><span class="p">(</span><span class="n">k</span><span class="p">)</span> <span class="o">=</span> <span class="n">ap</span><span class="p">(</span><span class="n">k</span><span class="p">)</span> <span class="o">+</span> <span class="n">x</span><span class="p">(</span><span class="n">ix</span><span class="p">)</span><span class="o">*</span><span class="n">temp1</span> <span class="o">+</span> <span class="n">y</span><span class="p">(</span><span class="n">iy</span><span class="p">)</span><span class="o">*</span><span class="n">temp2</span>
                       <span class="k">enddo</span>
-<span class="k">                  ELSE</span>
-<span class="k">                      </span><span class="n">AP</span><span class="p">(</span><span class="n">KK</span><span class="p">)</span> <span class="o">=</span> <span class="kt">REAL</span><span class="p">(</span><span class="n">AP</span><span class="p">(</span><span class="n">KK</span><span class="p">))</span>
+<span class="k">                  else</span>
+<span class="k">                      </span><span class="n">ap</span><span class="p">(</span><span class="n">kk</span><span class="p">)</span> <span class="o">=</span> <span class="kt">real</span><span class="p">(</span><span class="n">ap</span><span class="p">(</span><span class="n">kk</span><span class="p">))</span>
                   <span class="k">endif</span>
-<span class="k">                  </span><span class="n">JX</span> <span class="o">=</span> <span class="n">JX</span> <span class="o">+</span> <span class="n">INCX</span>
-                  <span class="n">JY</span> <span class="o">=</span> <span class="n">JY</span> <span class="o">+</span> <span class="n">INCY</span>
-                  <span class="n">KK</span> <span class="o">=</span> <span class="n">KK</span> <span class="o">+</span> <span class="n">N</span> <span class="o">-</span> <span class="n">J</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="k">                  </span><span class="n">jx</span> <span class="o">=</span> <span class="n">jx</span> <span class="o">+</span> <span class="n">incx</span>
+                  <span class="n">jy</span> <span class="o">=</span> <span class="n">jy</span> <span class="o">+</span> <span class="n">incy</span>
+                  <span class="n">kk</span> <span class="o">=</span> <span class="n">kk</span> <span class="o">+</span> <span class="n">n</span> <span class="o">-</span> <span class="n">j</span> <span class="o">+</span> <span class="mi">1</span>
               <span class="k">enddo</span>
 <span class="k">          endif</span>
 <span class="k">      endif</span>
 <span class="c">!</span>
-      <span class="k">END SUBROUTINE </span><span class="n">CHPR2</span>
+      <span class="k">end subroutine </span><span class="n">chpr2</span>
 </pre></div>
 
     </section>
@@ -1000,16 +1001,16 @@ http://www.netlib.org/lapack/explore-html/
     <footer>
       <div class="container">
       <div class="row">
-        <div class="col-xs-6 col-md-4"><p>&copy; 2021 
+        <div class="col-xs-6 col-md-4"><p>&copy; 2022 
                                           </p></div>
         <div class="col-xs-6 col-md-4 col-md-push-4">
           <p class="text-right">
             Documentation generated by 
             <a href="https://github.com/cmacmackin/ford">FORD</a>
-             on 2021-08-23 15:25  
+             on 2022-01-03 21:31  
           </p>
         </div>
-        <div class="col-xs-12 col-md-4 col-md-pull-4"><p class="text-center"> M_blas was developed by John S. Urban and many others</p></div>
+        <div class="col-xs-12 col-md-4 col-md-pull-4"><p class="text-center"> M_blas was developed by many others</p></div>
       </div>
       <br>
       </div> <!-- /container -->    

@@ -7,10 +7,10 @@
    
    <meta name="description" content="BLAS - Basic Linear Algebra Subroutines">
     
-    <meta name="author" content="John S. Urban and many others" >
+    <meta name="author" content="many others" >
     <link rel="icon" href="../favicon.png">
 
-    <title>STRMM &ndash; M_blas</title>
+    <title>strmm &ndash; M_blas</title>
 
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/pygments.css" rel="stylesheet">
@@ -112,7 +112,7 @@
     
   
   <div class="row">
-    <h1>STRMM
+    <h1>strmm
       <small>Subroutine</small>
     
     </h1>
@@ -147,7 +147,7 @@
      <li><a href='../module/m_blas.html'>M_blas</a></li>
     
   
-     <li class="active">STRMM</li>
+     <li class="active">strmm</li>
   </ol>
 </div>
 </div>
@@ -175,27 +175,27 @@
   <div id="vars-0" class="panel-collapse collapse">
     <div class="list-group">
       
-      <a class="list-group-item" href="../proc/strmm.html#variable-i~210">I</a>
+      <a class="list-group-item" href="../proc/strmm.html#variable-i~106">i</a>
       
-      <a class="list-group-item" href="../proc/strmm.html#variable-info~67">INFO</a>
+      <a class="list-group-item" href="../proc/strmm.html#variable-info~68">info</a>
       
-      <a class="list-group-item" href="../proc/strmm.html#variable-j~131">J</a>
+      <a class="list-group-item" href="../proc/strmm.html#variable-j~67">j</a>
       
-      <a class="list-group-item" href="../proc/strmm.html#variable-k~105">K</a>
+      <a class="list-group-item" href="../proc/strmm.html#variable-k~47">k</a>
       
-      <a class="list-group-item" href="../proc/strmm.html#variable-lside~5">LSIDE</a>
+      <a class="list-group-item" href="../proc/strmm.html#variable-lside~5">lside</a>
       
-      <a class="list-group-item" href="../proc/strmm.html#variable-nounit~21">NOUNIT</a>
+      <a class="list-group-item" href="../proc/strmm.html#variable-nounit~21">nounit</a>
       
-      <a class="list-group-item" href="../proc/strmm.html#variable-nrowa~19">NROWA</a>
+      <a class="list-group-item" href="../proc/strmm.html#variable-nrowa~20">nrowa</a>
       
-      <a class="list-group-item" href="../proc/strmm.html#variable-one~75">ONE</a>
+      <a class="list-group-item" href="../proc/strmm.html#variable-one~44">one</a>
       
-      <a class="list-group-item" href="../proc/strmm.html#variable-temp~43">TEMP</a>
+      <a class="list-group-item" href="../proc/strmm.html#variable-temp~44">temp</a>
       
-      <a class="list-group-item" href="../proc/strmm.html#variable-upper~52">UPPER</a>
+      <a class="list-group-item" href="../proc/strmm.html#variable-upper~17">upper</a>
       
-      <a class="list-group-item" href="../proc/strmm.html#variable-zero~138">ZERO</a>
+      <a class="list-group-item" href="../proc/strmm.html#variable-zero~78">zero</a>
       
     </div>
   </div>
@@ -223,7 +223,7 @@
 <div class="panel panel-primary">
   <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
   <div class="list-group">
-    <a class="list-group-item" href="../proc/strmm.html#src">STRMM</a>
+    <a class="list-group-item" href="../proc/strmm.html#src">strmm</a>
   </div>
 </div>
 
@@ -235,7 +235,7 @@
     
     <div class="col-md-9" id='text'>
     <h2>
-public subroutine STRMM(SIDE, UPLO, TRANSA, DIAG, M, N, ALPHA, A, LDA, B, LDB)
+public subroutine strmm(side, uplo, transa, diag, m, n, alpha, a, lda, b, ldb)
     
     
    
@@ -246,37 +246,37 @@ public subroutine STRMM(SIDE, UPLO, TRANSA, DIAG, M, N, ALPHA, A, LDA, B, LDB)
 
     
     <h2 id="name">NAME</h2>
-<div class="codehilite"><pre><span></span><code>strmm.(3f) -- [BLAS:SINGLE_BLAS_LEVEL3]
+<div class="codehilite"><pre><span></span><code>strmm(3f) - [BLAS:SINGLE_BLAS_LEVEL3] B:=A*B or B:=B*A, A triangular, B rectangular.
 </code></pre></div>
 
 <h2 id="synopsis">SYNOPSIS</h2>
-<div class="codehilite"><pre><span></span><code> SUBROUTINE STRMM(SIDE,UPLO,TRANSA,DIAG,M,N,ALPHA,A,LDA,B,LDB)
+<div class="codehilite"><pre><span></span><code> subroutine strmm(side,uplo,transa,diag,m,n,alpha,a,lda,b,ldb)
 
    .. Scalar Arguments ..
-   REAL,intent(in)      :: ALPHA
-   INTEGER,intent(in)   :: LDA,LDB,M,N
-   CHARACTER,intent(in) :: DIAG,SIDE,TRANSA,UPLO
+   real,intent(in)      :: alpha
+   integer,intent(in)   :: lda,ldb,m,n
+   character,intent(in) :: diag,side,transa,uplo
    ..
    .. Array Arguments ..
-   REAL,intent(in)      :: A(LDA,*)
-   REAL,intent(inout)   :: B(LDB,*)
+   real,intent(in)      :: a(lda,*)
+   real,intent(inout)   :: b(ldb,*)
    ..
 </code></pre></div>
 
 <h2 id="definition">DEFINITION</h2>
-<p>STRMM  performs one of the matrix-matrix operations</p>
+<p>STRMM performs one of the matrix-matrix operations</p>
 <div class="codehilite"><pre><span></span><code> B := alpha*op( A )*B,   or   B := alpha*B*op( A ),
 </code></pre></div>
 
-<p>where  alpha  is a scalar,  B  is an m by n matrix,  A  is a unit, or
-  non-unit,  upper or lower triangular matrix  and  op( A )  is one  of</p>
+<p>where alpha is a scalar, B is an m by n matrix, A is a unit, or
+  non-unit, upper or lower triangular matrix and op( A ) is one of</p>
 <div class="codehilite"><pre><span></span><code> op( A ) = A   or   op( A ) = A**T.
 </code></pre></div>
 
 <h2 id="options">OPTIONS</h2>
 <p>SIDE</p>
 <div class="codehilite"><pre><span></span><code>       SIDE is CHARACTER*1
-        On entry,  SIDE specifies whether  op( A ) multiplies B from
+        On entry, SIDE specifies whether op( A ) multiplies B from
         the left or right as follows:
 
            SIDE = &#39;L&#39; or &#39;l&#39;   B := alpha*op( A )*B.
@@ -325,51 +325,51 @@ public subroutine STRMM(SIDE, UPLO, TRANSA, DIAG, M, N, ALPHA, A, LDA, B, LDB)
 
 <p>N</p>
 <div class="codehilite"><pre><span></span><code>       N is INTEGER
-        On entry, N specifies the number of columns of B.  N must be
+        On entry, N specifies the number of columns of B. N must be
         at least zero.
 </code></pre></div>
 
 <p>ALPHA</p>
 <div class="codehilite"><pre><span></span><code>       <span class="nv">ALPHA</span> <span class="nv">is</span> <span class="nv">REAL</span>
-        <span class="nv">On</span> <span class="nv">entry</span>,  <span class="nv">ALPHA</span> <span class="nv">specifies</span> <span class="nv">the</span> <span class="nv">scalar</span>  <span class="nv">alpha</span>. <span class="nv">When</span>  <span class="nv">alpha</span> <span class="nv">is</span>
-        <span class="nv">zero</span> <span class="k">then</span>  <span class="nv">A</span> <span class="nv">is</span> <span class="nv">not</span> <span class="nv">referenced</span> <span class="nv">and</span>  <span class="nv">B</span> <span class="nv">need</span> <span class="nv">not</span> <span class="nv">be</span> <span class="nv">set</span> <span class="nv">before</span>
+        <span class="nv">On</span> <span class="nv">entry</span>, <span class="nv">ALPHA</span> <span class="nv">specifies</span> <span class="nv">the</span> <span class="nv">scalar</span> <span class="nv">alpha</span>. <span class="nv">When</span> <span class="nv">alpha</span> <span class="nv">is</span>
+        <span class="nv">zero</span> <span class="k">then</span> <span class="nv">A</span> <span class="nv">is</span> <span class="nv">not</span> <span class="nv">referenced</span> <span class="nv">and</span> <span class="nv">B</span> <span class="nv">need</span> <span class="nv">not</span> <span class="nv">be</span> <span class="nv">set</span> <span class="nv">before</span>
         <span class="nv">entry</span>.
 </code></pre></div>
 
 <p>A</p>
 <div class="codehilite"><pre><span></span><code>       A is REAL array, dimension ( LDA, k ), where k is m
-        when  SIDE = &#39;L&#39; or &#39;l&#39;  and is  n  when  SIDE = &#39;R&#39; or &#39;r&#39;.
-        Before entry  with  UPLO = &#39;U&#39; or &#39;u&#39;,  the  leading  k by k
-        upper triangular part of the array  A must contain the upper
-        triangular matrix  and the strictly lower triangular part of
+        when SIDE = &#39;L&#39; or &#39;l&#39; and is n when SIDE = &#39;R&#39; or &#39;r&#39;.
+        Before entry with UPLO = &#39;U&#39; or &#39;u&#39;, the leading k by k
+        upper triangular part of the array A must contain the upper
+        triangular matrix and the strictly lower triangular part of
         A is not referenced.
-        Before entry  with  UPLO = &#39;L&#39; or &#39;l&#39;,  the  leading  k by k
-        lower triangular part of the array  A must contain the lower
-        triangular matrix  and the strictly upper triangular part of
+        Before entry with UPLO = &#39;L&#39; or &#39;l&#39;, the leading k by k
+        lower triangular part of the array A must contain the lower
+        triangular matrix and the strictly upper triangular part of
         A is not referenced.
-        Note that when  DIAG = &#39;U&#39; or &#39;u&#39;,  the diagonal elements of
-        A  are not referenced either,  but are assumed to be  unity.
+        Note that when DIAG = &#39;U&#39; or &#39;u&#39;, the diagonal elements of
+        A are not referenced either, but are assumed to be unity.
 </code></pre></div>
 
 <p>LDA</p>
 <div class="codehilite"><pre><span></span><code>       <span class="nv">LDA</span> <span class="nv">is</span> <span class="nv">INTEGER</span>
         <span class="nv">On</span> <span class="nv">entry</span>, <span class="nv">LDA</span> <span class="nv">specifies</span> <span class="nv">the</span> <span class="nv">first</span> <span class="nv">dimension</span> <span class="nv">of</span> <span class="nv">A</span> <span class="nv">as</span> <span class="nv">declared</span>
-        <span class="nv">in</span> <span class="nv">the</span> <span class="nv">calling</span> <span class="ss">(</span><span class="nv">sub</span><span class="ss">)</span> <span class="nv">program</span>.  <span class="nv">When</span>  <span class="nv">SIDE</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="s">L</span><span class="s1">&#39;</span> <span class="nv">or</span> <span class="s1">&#39;</span><span class="s">l</span><span class="s1">&#39;</span>  <span class="k">then</span>
-        <span class="nv">LDA</span>  <span class="nv">must</span> <span class="nv">be</span> <span class="nv">at</span> <span class="nv">least</span>  <span class="nv">max</span><span class="ss">(</span> <span class="mi">1</span>, <span class="nv">m</span> <span class="ss">)</span>,  <span class="nv">when</span>  <span class="nv">SIDE</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="s">R</span><span class="s1">&#39;</span> <span class="nv">or</span> <span class="s1">&#39;</span><span class="s">r</span><span class="s1">&#39;</span>
+        <span class="nv">in</span> <span class="nv">the</span> <span class="nv">calling</span> <span class="ss">(</span><span class="nv">sub</span><span class="ss">)</span> <span class="nv">program</span>. <span class="nv">When</span> <span class="nv">SIDE</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="s">L</span><span class="s1">&#39;</span> <span class="nv">or</span> <span class="s1">&#39;</span><span class="s">l</span><span class="s1">&#39;</span> <span class="k">then</span>
+        <span class="nv">LDA</span> <span class="nv">must</span> <span class="nv">be</span> <span class="nv">at</span> <span class="nv">least</span> <span class="nv">max</span><span class="ss">(</span> <span class="mi">1</span>, <span class="nv">m</span> <span class="ss">)</span>, <span class="nv">when</span> <span class="nv">SIDE</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="s">R</span><span class="s1">&#39;</span> <span class="nv">or</span> <span class="s1">&#39;</span><span class="s">r</span><span class="s1">&#39;</span>
         <span class="k">then</span> <span class="nv">LDA</span> <span class="nv">must</span> <span class="nv">be</span> <span class="nv">at</span> <span class="nv">least</span> <span class="nv">max</span><span class="ss">(</span> <span class="mi">1</span>, <span class="nv">n</span> <span class="ss">)</span>.
 </code></pre></div>
 
-<p>out] B</p>
+<p>B</p>
 <div class="codehilite"><pre><span></span><code>       <span class="nv">B</span> <span class="nv">is</span> <span class="nv">REAL</span> <span class="nv">array</span>, <span class="nv">dimension</span> <span class="ss">(</span> <span class="nv">LDB</span>, <span class="nv">N</span> <span class="ss">)</span>
-        <span class="nv">Before</span> <span class="nv">entry</span>,  <span class="nv">the</span> <span class="nv">leading</span>  <span class="nv">m</span> <span class="nv">by</span> <span class="nv">n</span> <span class="nv">part</span> <span class="nv">of</span> <span class="nv">the</span> <span class="nv">array</span>  <span class="nv">B</span> <span class="nv">must</span>
-        <span class="nv">contain</span> <span class="nv">the</span> <span class="nv">matrix</span>  <span class="nv">B</span>,  <span class="nv">and</span>  <span class="nv">on</span> <span class="k">exit</span>  <span class="nv">is</span> <span class="nv">overwritten</span>  <span class="nv">by</span> <span class="nv">the</span>
+        <span class="nv">Before</span> <span class="nv">entry</span>, <span class="nv">the</span> <span class="nv">leading</span> <span class="nv">m</span> <span class="nv">by</span> <span class="nv">n</span> <span class="nv">part</span> <span class="nv">of</span> <span class="nv">the</span> <span class="nv">array</span> <span class="nv">B</span> <span class="nv">must</span>
+        <span class="nv">contain</span> <span class="nv">the</span> <span class="nv">matrix</span> <span class="nv">B</span>, <span class="nv">and</span> <span class="nv">on</span> <span class="k">exit</span> <span class="nv">is</span> <span class="nv">overwritten</span> <span class="nv">by</span> <span class="nv">the</span>
         <span class="nv">transformed</span> <span class="nv">matrix</span>.
 </code></pre></div>
 
 <p>LDB</p>
 <div class="codehilite"><pre><span></span><code>       LDB is INTEGER
         On entry, LDB specifies the first dimension of B as declared
-        in  the  calling  (sub)  program.   LDB  must  be  at  least
+        in the calling (sub) program. LDB must be at least
         max( 1, m ).
 </code></pre></div>
 
@@ -412,12 +412,12 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-side~33"></span>character,</td>
+  <td><span class="anchor" id="variable-side~9"></span>character,</td>
   <td>intent(in)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>SIDE</strong></td><td></td>
+  <td><strong>side</strong></td><td></td>
   
 </tr>
 
@@ -427,12 +427,12 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-uplo~185"></span>character,</td>
+  <td><span class="anchor" id="variable-uplo~54"></span>character,</td>
   <td>intent(in)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>UPLO</strong></td><td></td>
+  <td><strong>uplo</strong></td><td></td>
   
 </tr>
 
@@ -442,12 +442,12 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-transa~35"></span>character,</td>
+  <td><span class="anchor" id="variable-transa~8"></span>character,</td>
   <td>intent(in)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>TRANSA</strong></td><td></td>
+  <td><strong>transa</strong></td><td></td>
   
 </tr>
 
@@ -457,12 +457,12 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-diag~71"></span>character,</td>
+  <td><span class="anchor" id="variable-diag~21"></span>character,</td>
   <td>intent(in)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>DIAG</strong></td><td></td>
+  <td><strong>diag</strong></td><td></td>
   
 </tr>
 
@@ -472,12 +472,12 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-m~114"></span>integer,</td>
+  <td><span class="anchor" id="variable-m~34"></span>integer,</td>
   <td>intent(in)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>M</strong></td><td></td>
+  <td><strong>m</strong></td><td></td>
   
 </tr>
 
@@ -487,12 +487,12 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-n~370"></span>integer,</td>
+  <td><span class="anchor" id="variable-n~106"></span>integer,</td>
   <td>intent(in)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>N</strong></td><td></td>
+  <td><strong>n</strong></td><td></td>
   
 </tr>
 
@@ -502,12 +502,12 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-alpha~184"></span>real,</td>
+  <td><span class="anchor" id="variable-alpha~51"></span>real,</td>
   <td>intent(in)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>ALPHA</strong></td><td></td>
+  <td><strong>alpha</strong></td><td></td>
   
 </tr>
 
@@ -517,12 +517,12 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-a~197"></span>real,</td>
+  <td><span class="anchor" id="variable-a~55"></span>real,</td>
   <td>intent(in)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>A</strong>(LDA,*)</td><td></td>
+  <td><strong>a</strong>(lda,*)</td><td></td>
   
 </tr>
 
@@ -532,12 +532,12 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-lda~198"></span>integer,</td>
+  <td><span class="anchor" id="variable-lda~52"></span>integer,</td>
   <td>intent(in)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>LDA</strong></td><td></td>
+  <td><strong>lda</strong></td><td></td>
   
 </tr>
 
@@ -547,12 +547,12 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-b~69"></span>real,</td>
+  <td><span class="anchor" id="variable-b~19"></span>real,</td>
   <td>intent(inout)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>B</strong>(LDB,*)</td><td></td>
+  <td><strong>b</strong>(ldb,*)</td><td></td>
   
 </tr>
 
@@ -562,12 +562,12 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-ldb~64"></span>integer,</td>
+  <td><span class="anchor" id="variable-ldb~16"></span>integer,</td>
   <td>intent(in)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>LDB</strong></td><td></td>
+  <td><strong>ldb</strong></td><td></td>
   
 </tr>
 
@@ -593,27 +593,27 @@ http://www.netlib.org/lapack/explore-html/
   <div id="vars-1" class="panel-collapse collapse">
     <div class="list-group">
       
-      <a class="list-group-item" href="../proc/strmm.html#variable-i~210">I</a>
+      <a class="list-group-item" href="../proc/strmm.html#variable-i~106">i</a>
       
-      <a class="list-group-item" href="../proc/strmm.html#variable-info~67">INFO</a>
+      <a class="list-group-item" href="../proc/strmm.html#variable-info~68">info</a>
       
-      <a class="list-group-item" href="../proc/strmm.html#variable-j~131">J</a>
+      <a class="list-group-item" href="../proc/strmm.html#variable-j~67">j</a>
       
-      <a class="list-group-item" href="../proc/strmm.html#variable-k~105">K</a>
+      <a class="list-group-item" href="../proc/strmm.html#variable-k~47">k</a>
       
-      <a class="list-group-item" href="../proc/strmm.html#variable-lside~5">LSIDE</a>
+      <a class="list-group-item" href="../proc/strmm.html#variable-lside~5">lside</a>
       
-      <a class="list-group-item" href="../proc/strmm.html#variable-nounit~21">NOUNIT</a>
+      <a class="list-group-item" href="../proc/strmm.html#variable-nounit~21">nounit</a>
       
-      <a class="list-group-item" href="../proc/strmm.html#variable-nrowa~19">NROWA</a>
+      <a class="list-group-item" href="../proc/strmm.html#variable-nrowa~20">nrowa</a>
       
-      <a class="list-group-item" href="../proc/strmm.html#variable-one~75">ONE</a>
+      <a class="list-group-item" href="../proc/strmm.html#variable-one~44">one</a>
       
-      <a class="list-group-item" href="../proc/strmm.html#variable-temp~43">TEMP</a>
+      <a class="list-group-item" href="../proc/strmm.html#variable-temp~44">temp</a>
       
-      <a class="list-group-item" href="../proc/strmm.html#variable-upper~52">UPPER</a>
+      <a class="list-group-item" href="../proc/strmm.html#variable-upper~17">upper</a>
       
-      <a class="list-group-item" href="../proc/strmm.html#variable-zero~138">ZERO</a>
+      <a class="list-group-item" href="../proc/strmm.html#variable-zero~78">zero</a>
       
     </div>
   </div>
@@ -641,7 +641,7 @@ http://www.netlib.org/lapack/explore-html/
 <div class="panel panel-primary">
   <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
   <div class="list-group">
-    <a class="list-group-item" href="../proc/strmm.html#src">STRMM</a>
+    <a class="list-group-item" href="../proc/strmm.html#src">strmm</a>
   </div>
 </div>
 
@@ -671,11 +671,11 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-i~210"></span>integer,</td>
+  <td><span class="anchor" id="variable-i~106"></span>integer,</td>
   
   <td>public</td>
   <td></td><td>::</td>
-  <td><strong>I</strong></td><td></td><td></td><td></td>
+  <td><strong>i</strong></td><td></td><td></td><td></td>
   
 </tr>
 
@@ -685,11 +685,11 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-info~67"></span>integer,</td>
+  <td><span class="anchor" id="variable-info~68"></span>integer,</td>
   
   <td>public</td>
   <td></td><td>::</td>
-  <td><strong>INFO</strong></td><td></td><td></td><td></td>
+  <td><strong>info</strong></td><td></td><td></td><td></td>
   
 </tr>
 
@@ -699,11 +699,11 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-j~131"></span>integer,</td>
+  <td><span class="anchor" id="variable-j~67"></span>integer,</td>
   
   <td>public</td>
   <td></td><td>::</td>
-  <td><strong>J</strong></td><td></td><td></td><td></td>
+  <td><strong>j</strong></td><td></td><td></td><td></td>
   
 </tr>
 
@@ -713,11 +713,11 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-k~105"></span>integer,</td>
+  <td><span class="anchor" id="variable-k~47"></span>integer,</td>
   
   <td>public</td>
   <td></td><td>::</td>
-  <td><strong>K</strong></td><td></td><td></td><td></td>
+  <td><strong>k</strong></td><td></td><td></td><td></td>
   
 </tr>
 
@@ -731,7 +731,7 @@ http://www.netlib.org/lapack/explore-html/
   
   <td>public</td>
   <td></td><td>::</td>
-  <td><strong>LSIDE</strong></td><td></td><td></td><td></td>
+  <td><strong>lside</strong></td><td></td><td></td><td></td>
   
 </tr>
 
@@ -745,7 +745,7 @@ http://www.netlib.org/lapack/explore-html/
   
   <td>public</td>
   <td></td><td>::</td>
-  <td><strong>NOUNIT</strong></td><td></td><td></td><td></td>
+  <td><strong>nounit</strong></td><td></td><td></td><td></td>
   
 </tr>
 
@@ -755,11 +755,11 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-nrowa~19"></span>integer,</td>
+  <td><span class="anchor" id="variable-nrowa~20"></span>integer,</td>
   
   <td>public</td>
   <td></td><td>::</td>
-  <td><strong>NROWA</strong></td><td></td><td></td><td></td>
+  <td><strong>nrowa</strong></td><td></td><td></td><td></td>
   
 </tr>
 
@@ -769,11 +769,11 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-one~75"></span>real,</td>
+  <td><span class="anchor" id="variable-one~44"></span>real,</td>
   
   <td>public,</td>
   <td>parameter</td><td>::</td>
-  <td><strong>ONE</strong></td><td> =</td><td>1.0E+0</td><td></td>
+  <td><strong>one</strong></td><td> =</td><td>1.0e+0</td><td></td>
   
 </tr>
 
@@ -783,11 +783,11 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-temp~43"></span>real,</td>
+  <td><span class="anchor" id="variable-temp~44"></span>real,</td>
   
   <td>public</td>
   <td></td><td>::</td>
-  <td><strong>TEMP</strong></td><td></td><td></td><td></td>
+  <td><strong>temp</strong></td><td></td><td></td><td></td>
   
 </tr>
 
@@ -797,11 +797,11 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-upper~52"></span>logical,</td>
+  <td><span class="anchor" id="variable-upper~17"></span>logical,</td>
   
   <td>public</td>
   <td></td><td>::</td>
-  <td><strong>UPPER</strong></td><td></td><td></td><td></td>
+  <td><strong>upper</strong></td><td></td><td></td><td></td>
   
 </tr>
 
@@ -811,11 +811,11 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-zero~138"></span>real,</td>
+  <td><span class="anchor" id="variable-zero~78"></span>real,</td>
   
   <td>public,</td>
   <td>parameter</td><td>::</td>
-  <td><strong>ZERO</strong></td><td> =</td><td>0.0E+0</td><td></td>
+  <td><strong>zero</strong></td><td> =</td><td>0.0e+0</td><td></td>
   
 </tr>
 
@@ -842,7 +842,7 @@ http://www.netlib.org/lapack/explore-html/
     
     <section>
     <h2><span class="anchor" id="src"></span>Source Code</h2>
-    <div class="highlight"><pre><span></span>       <span class="k">SUBROUTINE </span><span class="n">STRMM</span><span class="p">(</span><span class="n">SIDE</span><span class="p">,</span><span class="n">UPLO</span><span class="p">,</span><span class="n">TRANSA</span><span class="p">,</span><span class="n">DIAG</span><span class="p">,</span><span class="n">M</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">ALPHA</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="n">LDA</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">LDB</span><span class="p">)</span>
+    <div class="highlight"><pre><span></span>       <span class="k">subroutine </span><span class="n">strmm</span><span class="p">(</span><span class="n">side</span><span class="p">,</span><span class="n">uplo</span><span class="p">,</span><span class="n">transa</span><span class="p">,</span><span class="n">diag</span><span class="p">,</span><span class="n">m</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="n">alpha</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">lda</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">ldb</span><span class="p">)</span>
       <span class="k">implicit none</span>
 <span class="c">!</span>
 <span class="c">!  -- Reference BLAS level3 routine (version 3.7.0) --</span>
@@ -851,13 +851,13 @@ http://www.netlib.org/lapack/explore-html/
 <span class="c">!     December 2016</span>
 <span class="c">!</span>
 <span class="c">!     .. Scalar Arguments ..</span>
-      <span class="kt">REAL</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>      <span class="kd">::</span> <span class="n">ALPHA</span>
-      <span class="kt">INTEGER</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>   <span class="kd">::</span> <span class="n">LDA</span><span class="p">,</span><span class="n">LDB</span><span class="p">,</span><span class="n">M</span><span class="p">,</span><span class="n">N</span>
-      <span class="kt">CHARACTER</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="n">DIAG</span><span class="p">,</span><span class="n">SIDE</span><span class="p">,</span><span class="n">TRANSA</span><span class="p">,</span><span class="n">UPLO</span>
+      <span class="kt">real</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>      <span class="kd">::</span> <span class="n">alpha</span>
+      <span class="kt">integer</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>   <span class="kd">::</span> <span class="n">lda</span><span class="p">,</span><span class="n">ldb</span><span class="p">,</span><span class="n">m</span><span class="p">,</span><span class="n">n</span>
+      <span class="kt">character</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="n">diag</span><span class="p">,</span><span class="n">side</span><span class="p">,</span><span class="n">transa</span><span class="p">,</span><span class="n">uplo</span>
 <span class="c">!     ..</span>
 <span class="c">!     .. Array Arguments ..</span>
-      <span class="kt">REAL</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>      <span class="kd">::</span> <span class="n">A</span><span class="p">(</span><span class="n">LDA</span><span class="p">,</span><span class="o">*</span><span class="p">)</span>
-      <span class="kt">REAL</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span>   <span class="kd">::</span> <span class="n">B</span><span class="p">(</span><span class="n">LDB</span><span class="p">,</span><span class="o">*</span><span class="p">)</span>
+      <span class="kt">real</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>      <span class="kd">::</span> <span class="n">a</span><span class="p">(</span><span class="n">lda</span><span class="p">,</span><span class="o">*</span><span class="p">)</span>
+      <span class="kt">real</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span>   <span class="kd">::</span> <span class="n">b</span><span class="p">(</span><span class="n">ldb</span><span class="p">,</span><span class="o">*</span><span class="p">)</span>
 <span class="c">!     ..</span>
 <span class="c">!</span>
 <span class="c">!  =====================================================================</span>
@@ -870,192 +870,192 @@ http://www.netlib.org/lapack/explore-html/
 <span class="c">!      EXTERNAL XERBLA</span>
 <span class="c">!     ..</span>
 <span class="c">!     .. Intrinsic Functions ..</span>
-      <span class="k">INTRINSIC </span><span class="nb">MAX</span>
+      <span class="k">intrinsic </span><span class="nb">max</span>
 <span class="c">!     ..</span>
 <span class="c">!     .. Local Scalars ..</span>
-      <span class="kt">REAL </span><span class="n">TEMP</span>
-      <span class="kt">INTEGER </span><span class="n">I</span><span class="p">,</span><span class="n">INFO</span><span class="p">,</span><span class="n">J</span><span class="p">,</span><span class="n">K</span><span class="p">,</span><span class="n">NROWA</span>
-      <span class="kt">LOGICAL </span><span class="n">LSIDE</span><span class="p">,</span><span class="n">NOUNIT</span><span class="p">,</span><span class="n">UPPER</span>
+      <span class="kt">real </span><span class="n">temp</span>
+      <span class="kt">integer </span><span class="n">i</span><span class="p">,</span><span class="n">info</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">,</span><span class="n">nrowa</span>
+      <span class="kt">logical </span><span class="n">lside</span><span class="p">,</span><span class="n">nounit</span><span class="p">,</span><span class="n">upper</span>
 <span class="c">!     ..</span>
 <span class="c">!     .. Parameters ..</span>
-      <span class="kt">REAL </span><span class="n">ONE</span><span class="p">,</span><span class="n">ZERO</span>
-      <span class="k">PARAMETER</span> <span class="p">(</span><span class="n">ONE</span><span class="o">=</span><span class="mf">1.0E+0</span><span class="p">,</span><span class="n">ZERO</span><span class="o">=</span><span class="mf">0.0E+0</span><span class="p">)</span>
+      <span class="kt">real </span><span class="n">one</span><span class="p">,</span><span class="n">zero</span>
+      <span class="k">parameter</span> <span class="p">(</span><span class="n">one</span><span class="o">=</span><span class="mf">1.0e+0</span><span class="p">,</span><span class="n">zero</span><span class="o">=</span><span class="mf">0.0e+0</span><span class="p">)</span>
 <span class="c">!     ..</span>
 <span class="c">!</span>
 <span class="c">!     Test the input parameters.</span>
 <span class="c">!</span>
-      <span class="n">LSIDE</span> <span class="o">=</span> <span class="n">LSAME</span><span class="p">(</span><span class="n">SIDE</span><span class="p">,</span><span class="s1">&#39;L&#39;</span><span class="p">)</span>
-      <span class="k">IF</span> <span class="p">(</span><span class="n">LSIDE</span><span class="p">)</span> <span class="k">THEN</span>
-<span class="k">          </span><span class="n">NROWA</span> <span class="o">=</span> <span class="n">M</span>
-      <span class="k">ELSE</span>
-<span class="k">          </span><span class="n">NROWA</span> <span class="o">=</span> <span class="n">N</span>
+      <span class="n">lside</span> <span class="o">=</span> <span class="n">lsame</span><span class="p">(</span><span class="n">side</span><span class="p">,</span><span class="s1">&#39;L&#39;</span><span class="p">)</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">lside</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">          </span><span class="n">nrowa</span> <span class="o">=</span> <span class="n">m</span>
+      <span class="k">else</span>
+<span class="k">          </span><span class="n">nrowa</span> <span class="o">=</span> <span class="n">n</span>
       <span class="k">endif</span>
-<span class="k">      </span><span class="n">NOUNIT</span> <span class="o">=</span> <span class="n">LSAME</span><span class="p">(</span><span class="n">DIAG</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">)</span>
-      <span class="n">UPPER</span> <span class="o">=</span> <span class="n">LSAME</span><span class="p">(</span><span class="n">UPLO</span><span class="p">,</span><span class="s1">&#39;U&#39;</span><span class="p">)</span>
+<span class="k">      </span><span class="n">nounit</span> <span class="o">=</span> <span class="n">lsame</span><span class="p">(</span><span class="n">diag</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">)</span>
+      <span class="n">upper</span> <span class="o">=</span> <span class="n">lsame</span><span class="p">(</span><span class="n">uplo</span><span class="p">,</span><span class="s1">&#39;U&#39;</span><span class="p">)</span>
 <span class="c">!</span>
-      <span class="n">INFO</span> <span class="o">=</span> <span class="mi">0</span>
-      <span class="k">IF</span> <span class="p">((.</span><span class="nb">NOT</span><span class="p">.</span><span class="n">LSIDE</span><span class="p">)</span> <span class="p">.</span><span class="nb">AND</span><span class="p">.</span> <span class="p">(.</span><span class="nb">NOT</span><span class="p">.</span><span class="n">LSAME</span><span class="p">(</span><span class="n">SIDE</span><span class="p">,</span><span class="s1">&#39;R&#39;</span><span class="p">)))</span> <span class="k">THEN</span>
-<span class="k">          </span><span class="n">INFO</span> <span class="o">=</span> <span class="mi">1</span>
-      <span class="n">elseif</span> <span class="p">((.</span><span class="nb">NOT</span><span class="p">.</span><span class="n">UPPER</span><span class="p">)</span> <span class="p">.</span><span class="nb">AND</span><span class="p">.</span> <span class="p">(.</span><span class="nb">NOT</span><span class="p">.</span><span class="n">LSAME</span><span class="p">(</span><span class="n">UPLO</span><span class="p">,</span><span class="s1">&#39;L&#39;</span><span class="p">)))</span> <span class="k">THEN</span>
-<span class="k">          </span><span class="n">INFO</span> <span class="o">=</span> <span class="mi">2</span>
-      <span class="n">elseif</span> <span class="p">((.</span><span class="nb">NOT</span><span class="p">.</span><span class="n">LSAME</span><span class="p">(</span><span class="n">TRANSA</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">))</span> <span class="p">.</span><span class="nb">AND</span><span class="p">.</span>  <span class="p">(.</span><span class="nb">NOT</span><span class="p">.</span><span class="n">LSAME</span><span class="p">(</span><span class="n">TRANSA</span><span class="p">,</span><span class="s1">&#39;T&#39;</span><span class="p">))</span> <span class="p">.</span><span class="nb">AND</span><span class="p">.</span>  <span class="p">(.</span><span class="nb">NOT</span><span class="p">.</span><span class="n">LSAME</span><span class="p">(</span><span class="n">TRANSA</span><span class="p">,</span><span class="s1">&#39;C&#39;</span><span class="p">)))</span> <span class="k">THEN</span>
-<span class="k">          </span><span class="n">INFO</span> <span class="o">=</span> <span class="mi">3</span>
-      <span class="n">elseif</span> <span class="p">((.</span><span class="nb">NOT</span><span class="p">.</span><span class="n">LSAME</span><span class="p">(</span><span class="n">DIAG</span><span class="p">,</span><span class="s1">&#39;U&#39;</span><span class="p">))</span> <span class="p">.</span><span class="nb">AND</span><span class="p">.</span> <span class="p">(.</span><span class="nb">NOT</span><span class="p">.</span><span class="n">LSAME</span><span class="p">(</span><span class="n">DIAG</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">)))</span> <span class="k">THEN</span>
-<span class="k">          </span><span class="n">INFO</span> <span class="o">=</span> <span class="mi">4</span>
-      <span class="n">elseif</span> <span class="p">(</span><span class="n">M</span><span class="p">.</span><span class="n">LT</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span> <span class="k">THEN</span>
-<span class="k">          </span><span class="n">INFO</span> <span class="o">=</span> <span class="mi">5</span>
-      <span class="n">elseif</span> <span class="p">(</span><span class="n">N</span><span class="p">.</span><span class="n">LT</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span> <span class="k">THEN</span>
-<span class="k">          </span><span class="n">INFO</span> <span class="o">=</span> <span class="mi">6</span>
-      <span class="n">elseif</span> <span class="p">(</span><span class="n">LDA</span><span class="p">.</span><span class="n">LT</span><span class="p">.</span><span class="nb">MAX</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">NROWA</span><span class="p">))</span> <span class="k">THEN</span>
-<span class="k">          </span><span class="n">INFO</span> <span class="o">=</span> <span class="mi">9</span>
-      <span class="n">elseif</span> <span class="p">(</span><span class="n">LDB</span><span class="p">.</span><span class="n">LT</span><span class="p">.</span><span class="nb">MAX</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">M</span><span class="p">))</span> <span class="k">THEN</span>
-<span class="k">          </span><span class="n">INFO</span> <span class="o">=</span> <span class="mi">11</span>
+      <span class="n">info</span> <span class="o">=</span> <span class="mi">0</span>
+      <span class="k">if</span> <span class="p">((.</span><span class="nb">not</span><span class="p">.</span><span class="n">lside</span><span class="p">)</span> <span class="p">.</span><span class="nb">and</span><span class="p">.</span> <span class="p">(.</span><span class="nb">not</span><span class="p">.</span><span class="n">lsame</span><span class="p">(</span><span class="n">side</span><span class="p">,</span><span class="s1">&#39;R&#39;</span><span class="p">)))</span> <span class="k">then</span>
+<span class="k">          </span><span class="n">info</span> <span class="o">=</span> <span class="mi">1</span>
+      <span class="n">elseif</span> <span class="p">((.</span><span class="nb">not</span><span class="p">.</span><span class="n">upper</span><span class="p">)</span> <span class="p">.</span><span class="nb">and</span><span class="p">.</span> <span class="p">(.</span><span class="nb">not</span><span class="p">.</span><span class="n">lsame</span><span class="p">(</span><span class="n">uplo</span><span class="p">,</span><span class="s1">&#39;L&#39;</span><span class="p">)))</span> <span class="k">then</span>
+<span class="k">          </span><span class="n">info</span> <span class="o">=</span> <span class="mi">2</span>
+      <span class="n">elseif</span> <span class="p">((.</span><span class="nb">not</span><span class="p">.</span><span class="n">lsame</span><span class="p">(</span><span class="n">transa</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">))</span> <span class="p">.</span><span class="nb">and</span><span class="p">.</span>  <span class="p">(.</span><span class="nb">not</span><span class="p">.</span><span class="n">lsame</span><span class="p">(</span><span class="n">transa</span><span class="p">,</span><span class="s1">&#39;T&#39;</span><span class="p">))</span> <span class="p">.</span><span class="nb">and</span><span class="p">.</span>  <span class="p">(.</span><span class="nb">not</span><span class="p">.</span><span class="n">lsame</span><span class="p">(</span><span class="n">transa</span><span class="p">,</span><span class="s1">&#39;C&#39;</span><span class="p">)))</span> <span class="k">then</span>
+<span class="k">          </span><span class="n">info</span> <span class="o">=</span> <span class="mi">3</span>
+      <span class="n">elseif</span> <span class="p">((.</span><span class="nb">not</span><span class="p">.</span><span class="n">lsame</span><span class="p">(</span><span class="n">diag</span><span class="p">,</span><span class="s1">&#39;U&#39;</span><span class="p">))</span> <span class="p">.</span><span class="nb">and</span><span class="p">.</span> <span class="p">(.</span><span class="nb">not</span><span class="p">.</span><span class="n">lsame</span><span class="p">(</span><span class="n">diag</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">)))</span> <span class="k">then</span>
+<span class="k">          </span><span class="n">info</span> <span class="o">=</span> <span class="mi">4</span>
+      <span class="n">elseif</span> <span class="p">(</span><span class="n">m</span><span class="p">.</span><span class="n">lt</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">          </span><span class="n">info</span> <span class="o">=</span> <span class="mi">5</span>
+      <span class="n">elseif</span> <span class="p">(</span><span class="n">n</span><span class="p">.</span><span class="n">lt</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">          </span><span class="n">info</span> <span class="o">=</span> <span class="mi">6</span>
+      <span class="n">elseif</span> <span class="p">(</span><span class="n">lda</span><span class="p">.</span><span class="n">lt</span><span class="p">.</span><span class="nb">max</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">nrowa</span><span class="p">))</span> <span class="k">then</span>
+<span class="k">          </span><span class="n">info</span> <span class="o">=</span> <span class="mi">9</span>
+      <span class="n">elseif</span> <span class="p">(</span><span class="n">ldb</span><span class="p">.</span><span class="n">lt</span><span class="p">.</span><span class="nb">max</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">m</span><span class="p">))</span> <span class="k">then</span>
+<span class="k">          </span><span class="n">info</span> <span class="o">=</span> <span class="mi">11</span>
       <span class="k">endif</span>
-<span class="k">      IF</span> <span class="p">(</span><span class="n">INFO</span><span class="p">.</span><span class="n">NE</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span> <span class="k">THEN</span>
-<span class="k">          CALL </span><span class="n">XERBLA</span><span class="p">(</span><span class="s1">&#39;STRMM &#39;</span><span class="p">,</span><span class="n">INFO</span><span class="p">)</span>
-          <span class="k">RETURN</span>
+<span class="k">      if</span> <span class="p">(</span><span class="n">info</span><span class="p">.</span><span class="n">ne</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">          call </span><span class="n">xerbla</span><span class="p">(</span><span class="s1">&#39;STRMM &#39;</span><span class="p">,</span><span class="n">info</span><span class="p">)</span>
+          <span class="k">return</span>
 <span class="k">      endif</span>
 <span class="c">!</span>
 <span class="c">!     Quick return if possible.</span>
 <span class="c">!</span>
-      <span class="k">IF</span> <span class="p">(</span><span class="n">M</span><span class="p">.</span><span class="n">EQ</span><span class="p">.</span><span class="mi">0</span> <span class="p">.</span><span class="nb">OR</span><span class="p">.</span> <span class="n">N</span><span class="p">.</span><span class="n">EQ</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span> <span class="k">RETURN</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">m</span><span class="p">.</span><span class="n">eq</span><span class="p">.</span><span class="mi">0</span> <span class="p">.</span><span class="nb">or</span><span class="p">.</span> <span class="n">n</span><span class="p">.</span><span class="n">eq</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span> <span class="k">return</span>
 <span class="c">!</span>
 <span class="c">!     And when  alpha.eq.zero.</span>
 <span class="c">!</span>
-      <span class="k">IF</span> <span class="p">(</span><span class="n">ALPHA</span><span class="p">.</span><span class="n">EQ</span><span class="p">.</span><span class="n">ZERO</span><span class="p">)</span> <span class="k">THEN</span>
-<span class="k">          </span><span class="n">B</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">M</span><span class="p">,</span><span class="mi">1</span><span class="p">:</span><span class="n">N</span><span class="p">)</span> <span class="o">=</span> <span class="n">ZERO</span>
-          <span class="k">RETURN</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">alpha</span><span class="p">.</span><span class="n">eq</span><span class="p">.</span><span class="n">zero</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">          </span><span class="n">b</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">m</span><span class="p">,</span><span class="mi">1</span><span class="p">:</span><span class="n">n</span><span class="p">)</span> <span class="o">=</span> <span class="n">zero</span>
+          <span class="k">return</span>
 <span class="k">      endif</span>
 <span class="c">!</span>
 <span class="c">!     Start the operations.</span>
 <span class="c">!</span>
-      <span class="k">IF</span> <span class="p">(</span><span class="n">LSIDE</span><span class="p">)</span> <span class="k">THEN</span>
-<span class="k">          IF</span> <span class="p">(</span><span class="n">LSAME</span><span class="p">(</span><span class="n">TRANSA</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">))</span> <span class="k">THEN</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">lside</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">          if</span> <span class="p">(</span><span class="n">lsame</span><span class="p">(</span><span class="n">transa</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">))</span> <span class="k">then</span>
 <span class="c">!</span>
 <span class="c">!           Form  B := alpha*A*B.</span>
 <span class="c">!</span>
-              <span class="k">IF</span> <span class="p">(</span><span class="n">UPPER</span><span class="p">)</span> <span class="k">THEN</span>
-<span class="k">                  DO </span><span class="n">J</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">N</span>
-                      <span class="k">DO </span><span class="n">K</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">M</span>
-                          <span class="k">IF</span> <span class="p">(</span><span class="n">B</span><span class="p">(</span><span class="n">K</span><span class="p">,</span><span class="n">J</span><span class="p">).</span><span class="n">NE</span><span class="p">.</span><span class="n">ZERO</span><span class="p">)</span> <span class="k">THEN</span>
-<span class="k">                              </span><span class="n">TEMP</span> <span class="o">=</span> <span class="n">ALPHA</span><span class="o">*</span><span class="n">B</span><span class="p">(</span><span class="n">K</span><span class="p">,</span><span class="n">J</span><span class="p">)</span>
-                              <span class="k">DO </span><span class="n">I</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">K</span> <span class="o">-</span> <span class="mi">1</span>
-                                  <span class="n">B</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">J</span><span class="p">)</span> <span class="o">=</span> <span class="n">B</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">J</span><span class="p">)</span> <span class="o">+</span> <span class="n">TEMP</span><span class="o">*</span><span class="n">A</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">K</span><span class="p">)</span>
+              <span class="k">if</span> <span class="p">(</span><span class="n">upper</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">                  do </span><span class="n">j</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">n</span>
+                      <span class="k">do </span><span class="n">k</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">m</span>
+                          <span class="k">if</span> <span class="p">(</span><span class="n">b</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">j</span><span class="p">).</span><span class="n">ne</span><span class="p">.</span><span class="n">zero</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">                              </span><span class="n">temp</span> <span class="o">=</span> <span class="n">alpha</span><span class="o">*</span><span class="n">b</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">j</span><span class="p">)</span>
+                              <span class="k">do </span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">k</span> <span class="o">-</span> <span class="mi">1</span>
+                                  <span class="n">b</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span> <span class="o">=</span> <span class="n">b</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span> <span class="o">+</span> <span class="n">temp</span><span class="o">*</span><span class="n">a</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">k</span><span class="p">)</span>
                               <span class="k">enddo</span>
-<span class="k">                              IF</span> <span class="p">(</span><span class="n">NOUNIT</span><span class="p">)</span> <span class="n">TEMP</span> <span class="o">=</span> <span class="n">TEMP</span><span class="o">*</span><span class="n">A</span><span class="p">(</span><span class="n">K</span><span class="p">,</span><span class="n">K</span><span class="p">)</span>
-                              <span class="n">B</span><span class="p">(</span><span class="n">K</span><span class="p">,</span><span class="n">J</span><span class="p">)</span> <span class="o">=</span> <span class="n">TEMP</span>
+<span class="k">                              if</span> <span class="p">(</span><span class="n">nounit</span><span class="p">)</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">temp</span><span class="o">*</span><span class="n">a</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">k</span><span class="p">)</span>
+                              <span class="n">b</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">j</span><span class="p">)</span> <span class="o">=</span> <span class="n">temp</span>
                           <span class="k">endif</span>
 <span class="k">                      enddo</span>
 <span class="k">                  enddo</span>
-<span class="k">              ELSE</span>
-<span class="k">                  DO </span><span class="n">J</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">N</span>
-                      <span class="k">DO </span><span class="n">K</span> <span class="o">=</span> <span class="n">M</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span>
-                          <span class="k">IF</span> <span class="p">(</span><span class="n">B</span><span class="p">(</span><span class="n">K</span><span class="p">,</span><span class="n">J</span><span class="p">).</span><span class="n">NE</span><span class="p">.</span><span class="n">ZERO</span><span class="p">)</span> <span class="k">THEN</span>
-<span class="k">                              </span><span class="n">TEMP</span> <span class="o">=</span> <span class="n">ALPHA</span><span class="o">*</span><span class="n">B</span><span class="p">(</span><span class="n">K</span><span class="p">,</span><span class="n">J</span><span class="p">)</span>
-                              <span class="n">B</span><span class="p">(</span><span class="n">K</span><span class="p">,</span><span class="n">J</span><span class="p">)</span> <span class="o">=</span> <span class="n">TEMP</span>
-                              <span class="k">IF</span> <span class="p">(</span><span class="n">NOUNIT</span><span class="p">)</span> <span class="n">B</span><span class="p">(</span><span class="n">K</span><span class="p">,</span><span class="n">J</span><span class="p">)</span> <span class="o">=</span> <span class="n">B</span><span class="p">(</span><span class="n">K</span><span class="p">,</span><span class="n">J</span><span class="p">)</span><span class="o">*</span><span class="n">A</span><span class="p">(</span><span class="n">K</span><span class="p">,</span><span class="n">K</span><span class="p">)</span>
-                              <span class="k">DO </span><span class="n">I</span> <span class="o">=</span> <span class="n">K</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span><span class="n">M</span>
-                                  <span class="n">B</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">J</span><span class="p">)</span> <span class="o">=</span> <span class="n">B</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">J</span><span class="p">)</span> <span class="o">+</span> <span class="n">TEMP</span><span class="o">*</span><span class="n">A</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">K</span><span class="p">)</span>
+<span class="k">              else</span>
+<span class="k">                  do </span><span class="n">j</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">n</span>
+                      <span class="k">do </span><span class="n">k</span> <span class="o">=</span> <span class="n">m</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span>
+                          <span class="k">if</span> <span class="p">(</span><span class="n">b</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">j</span><span class="p">).</span><span class="n">ne</span><span class="p">.</span><span class="n">zero</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">                              </span><span class="n">temp</span> <span class="o">=</span> <span class="n">alpha</span><span class="o">*</span><span class="n">b</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">j</span><span class="p">)</span>
+                              <span class="n">b</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">j</span><span class="p">)</span> <span class="o">=</span> <span class="n">temp</span>
+                              <span class="k">if</span> <span class="p">(</span><span class="n">nounit</span><span class="p">)</span> <span class="n">b</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">j</span><span class="p">)</span> <span class="o">=</span> <span class="n">b</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="o">*</span><span class="n">a</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">k</span><span class="p">)</span>
+                              <span class="k">do </span><span class="n">i</span> <span class="o">=</span> <span class="n">k</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span><span class="n">m</span>
+                                  <span class="n">b</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span> <span class="o">=</span> <span class="n">b</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span> <span class="o">+</span> <span class="n">temp</span><span class="o">*</span><span class="n">a</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">k</span><span class="p">)</span>
                               <span class="k">enddo</span>
 <span class="k">                          endif</span>
 <span class="k">                      enddo</span>
 <span class="k">                  enddo</span>
 <span class="k">              endif</span>
-<span class="k">          ELSE</span>
+<span class="k">          else</span>
 <span class="c">!</span>
 <span class="c">!           Form  B := alpha*A**T*B.</span>
 <span class="c">!</span>
-              <span class="k">IF</span> <span class="p">(</span><span class="n">UPPER</span><span class="p">)</span> <span class="k">THEN</span>
-<span class="k">                  DO </span><span class="n">J</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">N</span>
-                      <span class="k">DO </span><span class="n">I</span> <span class="o">=</span> <span class="n">M</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span>
-                          <span class="n">TEMP</span> <span class="o">=</span> <span class="n">B</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">J</span><span class="p">)</span>
-                          <span class="k">IF</span> <span class="p">(</span><span class="n">NOUNIT</span><span class="p">)</span> <span class="n">TEMP</span> <span class="o">=</span> <span class="n">TEMP</span><span class="o">*</span><span class="n">A</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">I</span><span class="p">)</span>
-                          <span class="k">DO </span><span class="n">K</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">I</span> <span class="o">-</span> <span class="mi">1</span>
-                              <span class="n">TEMP</span> <span class="o">=</span> <span class="n">TEMP</span> <span class="o">+</span> <span class="n">A</span><span class="p">(</span><span class="n">K</span><span class="p">,</span><span class="n">I</span><span class="p">)</span><span class="o">*</span><span class="n">B</span><span class="p">(</span><span class="n">K</span><span class="p">,</span><span class="n">J</span><span class="p">)</span>
+              <span class="k">if</span> <span class="p">(</span><span class="n">upper</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">                  do </span><span class="n">j</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">n</span>
+                      <span class="k">do </span><span class="n">i</span> <span class="o">=</span> <span class="n">m</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span>
+                          <span class="n">temp</span> <span class="o">=</span> <span class="n">b</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span>
+                          <span class="k">if</span> <span class="p">(</span><span class="n">nounit</span><span class="p">)</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">temp</span><span class="o">*</span><span class="n">a</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">i</span><span class="p">)</span>
+                          <span class="k">do </span><span class="n">k</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span>
+                              <span class="n">temp</span> <span class="o">=</span> <span class="n">temp</span> <span class="o">+</span> <span class="n">a</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">i</span><span class="p">)</span><span class="o">*</span><span class="n">b</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">j</span><span class="p">)</span>
                           <span class="k">enddo</span>
-<span class="k">                          </span><span class="n">B</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">J</span><span class="p">)</span> <span class="o">=</span> <span class="n">ALPHA</span><span class="o">*</span><span class="n">TEMP</span>
+<span class="k">                          </span><span class="n">b</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span> <span class="o">=</span> <span class="n">alpha</span><span class="o">*</span><span class="n">temp</span>
                       <span class="k">enddo</span>
 <span class="k">                  enddo</span>
-<span class="k">              ELSE</span>
-<span class="k">                  DO </span><span class="n">J</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">N</span>
-                      <span class="k">DO </span><span class="n">I</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">M</span>
-                          <span class="n">TEMP</span> <span class="o">=</span> <span class="n">B</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">J</span><span class="p">)</span>
-                          <span class="k">IF</span> <span class="p">(</span><span class="n">NOUNIT</span><span class="p">)</span> <span class="n">TEMP</span> <span class="o">=</span> <span class="n">TEMP</span><span class="o">*</span><span class="n">A</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">I</span><span class="p">)</span>
-                          <span class="k">DO </span><span class="n">K</span> <span class="o">=</span> <span class="n">I</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span><span class="n">M</span>
-                              <span class="n">TEMP</span> <span class="o">=</span> <span class="n">TEMP</span> <span class="o">+</span> <span class="n">A</span><span class="p">(</span><span class="n">K</span><span class="p">,</span><span class="n">I</span><span class="p">)</span><span class="o">*</span><span class="n">B</span><span class="p">(</span><span class="n">K</span><span class="p">,</span><span class="n">J</span><span class="p">)</span>
+<span class="k">              else</span>
+<span class="k">                  do </span><span class="n">j</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">n</span>
+                      <span class="k">do </span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">m</span>
+                          <span class="n">temp</span> <span class="o">=</span> <span class="n">b</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span>
+                          <span class="k">if</span> <span class="p">(</span><span class="n">nounit</span><span class="p">)</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">temp</span><span class="o">*</span><span class="n">a</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">i</span><span class="p">)</span>
+                          <span class="k">do </span><span class="n">k</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span><span class="n">m</span>
+                              <span class="n">temp</span> <span class="o">=</span> <span class="n">temp</span> <span class="o">+</span> <span class="n">a</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">i</span><span class="p">)</span><span class="o">*</span><span class="n">b</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">j</span><span class="p">)</span>
                           <span class="k">enddo</span>
-<span class="k">                          </span><span class="n">B</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">J</span><span class="p">)</span> <span class="o">=</span> <span class="n">ALPHA</span><span class="o">*</span><span class="n">TEMP</span>
+<span class="k">                          </span><span class="n">b</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span> <span class="o">=</span> <span class="n">alpha</span><span class="o">*</span><span class="n">temp</span>
                       <span class="k">enddo</span>
 <span class="k">                  enddo</span>
 <span class="k">              endif</span>
 <span class="k">          endif</span>
-<span class="k">      ELSE</span>
-<span class="k">          IF</span> <span class="p">(</span><span class="n">LSAME</span><span class="p">(</span><span class="n">TRANSA</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">))</span> <span class="k">THEN</span>
+<span class="k">      else</span>
+<span class="k">          if</span> <span class="p">(</span><span class="n">lsame</span><span class="p">(</span><span class="n">transa</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">))</span> <span class="k">then</span>
 <span class="c">!</span>
 <span class="c">!           Form  B := alpha*B*A.</span>
 <span class="c">!</span>
-              <span class="k">IF</span> <span class="p">(</span><span class="n">UPPER</span><span class="p">)</span> <span class="k">THEN</span>
-<span class="k">                  DO </span><span class="n">J</span> <span class="o">=</span> <span class="n">N</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span>
-                      <span class="n">TEMP</span> <span class="o">=</span> <span class="n">ALPHA</span>
-                      <span class="k">IF</span> <span class="p">(</span><span class="n">NOUNIT</span><span class="p">)</span> <span class="n">TEMP</span> <span class="o">=</span> <span class="n">TEMP</span><span class="o">*</span><span class="n">A</span><span class="p">(</span><span class="n">J</span><span class="p">,</span><span class="n">J</span><span class="p">)</span>
-                      <span class="n">B</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">M</span><span class="p">,</span><span class="n">J</span><span class="p">)</span> <span class="o">=</span> <span class="n">TEMP</span><span class="o">*</span><span class="n">B</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">M</span><span class="p">,</span><span class="n">J</span><span class="p">)</span>
-                      <span class="k">DO </span><span class="n">K</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">J</span> <span class="o">-</span> <span class="mi">1</span>
-                          <span class="k">IF</span> <span class="p">(</span><span class="n">A</span><span class="p">(</span><span class="n">K</span><span class="p">,</span><span class="n">J</span><span class="p">).</span><span class="n">NE</span><span class="p">.</span><span class="n">ZERO</span><span class="p">)</span> <span class="k">THEN</span>
-<span class="k">                              </span><span class="n">TEMP</span> <span class="o">=</span> <span class="n">ALPHA</span><span class="o">*</span><span class="n">A</span><span class="p">(</span><span class="n">K</span><span class="p">,</span><span class="n">J</span><span class="p">)</span>
-                              <span class="n">B</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">M</span><span class="p">,</span><span class="n">J</span><span class="p">)</span> <span class="o">=</span> <span class="n">B</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">M</span><span class="p">,</span><span class="n">J</span><span class="p">)</span> <span class="o">+</span> <span class="n">TEMP</span><span class="o">*</span><span class="n">B</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">M</span><span class="p">,</span><span class="n">K</span><span class="p">)</span>
+              <span class="k">if</span> <span class="p">(</span><span class="n">upper</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">                  do </span><span class="n">j</span> <span class="o">=</span> <span class="n">n</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span>
+                      <span class="n">temp</span> <span class="o">=</span> <span class="n">alpha</span>
+                      <span class="k">if</span> <span class="p">(</span><span class="n">nounit</span><span class="p">)</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">temp</span><span class="o">*</span><span class="n">a</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="n">j</span><span class="p">)</span>
+                      <span class="n">b</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">m</span><span class="p">,</span><span class="n">j</span><span class="p">)</span> <span class="o">=</span> <span class="n">temp</span><span class="o">*</span><span class="n">b</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">m</span><span class="p">,</span><span class="n">j</span><span class="p">)</span>
+                      <span class="k">do </span><span class="n">k</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span>
+                          <span class="k">if</span> <span class="p">(</span><span class="n">a</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">j</span><span class="p">).</span><span class="n">ne</span><span class="p">.</span><span class="n">zero</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">                              </span><span class="n">temp</span> <span class="o">=</span> <span class="n">alpha</span><span class="o">*</span><span class="n">a</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">j</span><span class="p">)</span>
+                              <span class="n">b</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">m</span><span class="p">,</span><span class="n">j</span><span class="p">)</span> <span class="o">=</span> <span class="n">b</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">m</span><span class="p">,</span><span class="n">j</span><span class="p">)</span> <span class="o">+</span> <span class="n">temp</span><span class="o">*</span><span class="n">b</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">m</span><span class="p">,</span><span class="n">k</span><span class="p">)</span>
                           <span class="k">endif</span>
 <span class="k">                      enddo</span>
 <span class="k">                  enddo</span>
-<span class="k">              ELSE</span>
-<span class="k">                  DO </span><span class="n">J</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">N</span>
-                      <span class="n">TEMP</span> <span class="o">=</span> <span class="n">ALPHA</span>
-                      <span class="k">IF</span> <span class="p">(</span><span class="n">NOUNIT</span><span class="p">)</span> <span class="n">TEMP</span> <span class="o">=</span> <span class="n">TEMP</span><span class="o">*</span><span class="n">A</span><span class="p">(</span><span class="n">J</span><span class="p">,</span><span class="n">J</span><span class="p">)</span>
-                      <span class="n">B</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">M</span><span class="p">,</span><span class="n">J</span><span class="p">)</span> <span class="o">=</span> <span class="n">TEMP</span><span class="o">*</span><span class="n">B</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">M</span><span class="p">,</span><span class="n">J</span><span class="p">)</span>
-                      <span class="k">DO </span><span class="n">K</span> <span class="o">=</span> <span class="n">J</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span><span class="n">N</span>
-                          <span class="k">IF</span> <span class="p">(</span><span class="n">A</span><span class="p">(</span><span class="n">K</span><span class="p">,</span><span class="n">J</span><span class="p">).</span><span class="n">NE</span><span class="p">.</span><span class="n">ZERO</span><span class="p">)</span> <span class="k">THEN</span>
-<span class="k">                              </span><span class="n">TEMP</span> <span class="o">=</span> <span class="n">ALPHA</span><span class="o">*</span><span class="n">A</span><span class="p">(</span><span class="n">K</span><span class="p">,</span><span class="n">J</span><span class="p">)</span>
-                              <span class="n">B</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">M</span><span class="p">,</span><span class="n">J</span><span class="p">)</span> <span class="o">=</span> <span class="n">B</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">M</span><span class="p">,</span><span class="n">J</span><span class="p">)</span> <span class="o">+</span> <span class="n">TEMP</span><span class="o">*</span><span class="n">B</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">M</span><span class="p">,</span><span class="n">K</span><span class="p">)</span>
+<span class="k">              else</span>
+<span class="k">                  do </span><span class="n">j</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">n</span>
+                      <span class="n">temp</span> <span class="o">=</span> <span class="n">alpha</span>
+                      <span class="k">if</span> <span class="p">(</span><span class="n">nounit</span><span class="p">)</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">temp</span><span class="o">*</span><span class="n">a</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="n">j</span><span class="p">)</span>
+                      <span class="n">b</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">m</span><span class="p">,</span><span class="n">j</span><span class="p">)</span> <span class="o">=</span> <span class="n">temp</span><span class="o">*</span><span class="n">b</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">m</span><span class="p">,</span><span class="n">j</span><span class="p">)</span>
+                      <span class="k">do </span><span class="n">k</span> <span class="o">=</span> <span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span><span class="n">n</span>
+                          <span class="k">if</span> <span class="p">(</span><span class="n">a</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">j</span><span class="p">).</span><span class="n">ne</span><span class="p">.</span><span class="n">zero</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">                              </span><span class="n">temp</span> <span class="o">=</span> <span class="n">alpha</span><span class="o">*</span><span class="n">a</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">j</span><span class="p">)</span>
+                              <span class="n">b</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">m</span><span class="p">,</span><span class="n">j</span><span class="p">)</span> <span class="o">=</span> <span class="n">b</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">m</span><span class="p">,</span><span class="n">j</span><span class="p">)</span> <span class="o">+</span> <span class="n">temp</span><span class="o">*</span><span class="n">b</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">m</span><span class="p">,</span><span class="n">k</span><span class="p">)</span>
                           <span class="k">endif</span>
 <span class="k">                      enddo</span>
 <span class="k">                  enddo</span>
 <span class="k">              endif</span>
-<span class="k">          ELSE</span>
+<span class="k">          else</span>
 <span class="c">!</span>
 <span class="c">!           Form  B := alpha*B*A**T.</span>
 <span class="c">!</span>
-              <span class="k">IF</span> <span class="p">(</span><span class="n">UPPER</span><span class="p">)</span> <span class="k">THEN</span>
-<span class="k">                  DO </span><span class="n">K</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">N</span>
-                      <span class="k">DO </span><span class="n">J</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">K</span> <span class="o">-</span> <span class="mi">1</span>
-                          <span class="k">IF</span> <span class="p">(</span><span class="n">A</span><span class="p">(</span><span class="n">J</span><span class="p">,</span><span class="n">K</span><span class="p">).</span><span class="n">NE</span><span class="p">.</span><span class="n">ZERO</span><span class="p">)</span> <span class="k">THEN</span>
-<span class="k">                              </span><span class="n">TEMP</span> <span class="o">=</span> <span class="n">ALPHA</span><span class="o">*</span><span class="n">A</span><span class="p">(</span><span class="n">J</span><span class="p">,</span><span class="n">K</span><span class="p">)</span>
-                              <span class="n">B</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">M</span><span class="p">,</span><span class="n">J</span><span class="p">)</span> <span class="o">=</span> <span class="n">B</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">M</span><span class="p">,</span><span class="n">J</span><span class="p">)</span> <span class="o">+</span> <span class="n">TEMP</span><span class="o">*</span><span class="n">B</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">M</span><span class="p">,</span><span class="n">K</span><span class="p">)</span>
+              <span class="k">if</span> <span class="p">(</span><span class="n">upper</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">                  do </span><span class="n">k</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">n</span>
+                      <span class="k">do </span><span class="n">j</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">k</span> <span class="o">-</span> <span class="mi">1</span>
+                          <span class="k">if</span> <span class="p">(</span><span class="n">a</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">).</span><span class="n">ne</span><span class="p">.</span><span class="n">zero</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">                              </span><span class="n">temp</span> <span class="o">=</span> <span class="n">alpha</span><span class="o">*</span><span class="n">a</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">)</span>
+                              <span class="n">b</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">m</span><span class="p">,</span><span class="n">j</span><span class="p">)</span> <span class="o">=</span> <span class="n">b</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">m</span><span class="p">,</span><span class="n">j</span><span class="p">)</span> <span class="o">+</span> <span class="n">temp</span><span class="o">*</span><span class="n">b</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">m</span><span class="p">,</span><span class="n">k</span><span class="p">)</span>
                           <span class="k">endif</span>
 <span class="k">                      enddo</span>
-<span class="k">                      </span><span class="n">TEMP</span> <span class="o">=</span> <span class="n">ALPHA</span>
-                      <span class="k">IF</span> <span class="p">(</span><span class="n">NOUNIT</span><span class="p">)</span> <span class="n">TEMP</span> <span class="o">=</span> <span class="n">TEMP</span><span class="o">*</span><span class="n">A</span><span class="p">(</span><span class="n">K</span><span class="p">,</span><span class="n">K</span><span class="p">)</span>
-                      <span class="k">IF</span> <span class="p">(</span><span class="n">TEMP</span><span class="p">.</span><span class="n">NE</span><span class="p">.</span><span class="n">ONE</span><span class="p">)</span> <span class="k">THEN</span>
-<span class="k">                          </span><span class="n">B</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">M</span><span class="p">,</span><span class="n">K</span><span class="p">)</span> <span class="o">=</span> <span class="n">TEMP</span><span class="o">*</span><span class="n">B</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">M</span><span class="p">,</span><span class="n">K</span><span class="p">)</span>
+<span class="k">                      </span><span class="n">temp</span> <span class="o">=</span> <span class="n">alpha</span>
+                      <span class="k">if</span> <span class="p">(</span><span class="n">nounit</span><span class="p">)</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">temp</span><span class="o">*</span><span class="n">a</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">k</span><span class="p">)</span>
+                      <span class="k">if</span> <span class="p">(</span><span class="n">temp</span><span class="p">.</span><span class="n">ne</span><span class="p">.</span><span class="n">one</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">                          </span><span class="n">b</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">m</span><span class="p">,</span><span class="n">k</span><span class="p">)</span> <span class="o">=</span> <span class="n">temp</span><span class="o">*</span><span class="n">b</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">m</span><span class="p">,</span><span class="n">k</span><span class="p">)</span>
                       <span class="k">endif</span>
 <span class="k">                  enddo</span>
-<span class="k">              ELSE</span>
-<span class="k">                  DO </span><span class="n">K</span> <span class="o">=</span> <span class="n">N</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span>
-                      <span class="k">DO </span><span class="n">J</span> <span class="o">=</span> <span class="n">K</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span><span class="n">N</span>
-                          <span class="k">IF</span> <span class="p">(</span><span class="n">A</span><span class="p">(</span><span class="n">J</span><span class="p">,</span><span class="n">K</span><span class="p">).</span><span class="n">NE</span><span class="p">.</span><span class="n">ZERO</span><span class="p">)</span> <span class="k">THEN</span>
-<span class="k">                              </span><span class="n">TEMP</span> <span class="o">=</span> <span class="n">ALPHA</span><span class="o">*</span><span class="n">A</span><span class="p">(</span><span class="n">J</span><span class="p">,</span><span class="n">K</span><span class="p">)</span>
-                              <span class="n">B</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">M</span><span class="p">,</span><span class="n">J</span><span class="p">)</span> <span class="o">=</span> <span class="n">B</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">M</span><span class="p">,</span><span class="n">J</span><span class="p">)</span> <span class="o">+</span> <span class="n">TEMP</span><span class="o">*</span><span class="n">B</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">M</span><span class="p">,</span><span class="n">K</span><span class="p">)</span>
+<span class="k">              else</span>
+<span class="k">                  do </span><span class="n">k</span> <span class="o">=</span> <span class="n">n</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span>
+                      <span class="k">do </span><span class="n">j</span> <span class="o">=</span> <span class="n">k</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span><span class="n">n</span>
+                          <span class="k">if</span> <span class="p">(</span><span class="n">a</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">).</span><span class="n">ne</span><span class="p">.</span><span class="n">zero</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">                              </span><span class="n">temp</span> <span class="o">=</span> <span class="n">alpha</span><span class="o">*</span><span class="n">a</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">)</span>
+                              <span class="n">b</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">m</span><span class="p">,</span><span class="n">j</span><span class="p">)</span> <span class="o">=</span> <span class="n">b</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">m</span><span class="p">,</span><span class="n">j</span><span class="p">)</span> <span class="o">+</span> <span class="n">temp</span><span class="o">*</span><span class="n">b</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">m</span><span class="p">,</span><span class="n">k</span><span class="p">)</span>
                           <span class="k">endif</span>
 <span class="k">                      enddo</span>
-<span class="k">                      </span><span class="n">TEMP</span> <span class="o">=</span> <span class="n">ALPHA</span>
-                      <span class="k">IF</span> <span class="p">(</span><span class="n">NOUNIT</span><span class="p">)</span> <span class="n">TEMP</span> <span class="o">=</span> <span class="n">TEMP</span><span class="o">*</span><span class="n">A</span><span class="p">(</span><span class="n">K</span><span class="p">,</span><span class="n">K</span><span class="p">)</span>
-                      <span class="k">IF</span> <span class="p">(</span><span class="n">TEMP</span><span class="p">.</span><span class="n">NE</span><span class="p">.</span><span class="n">ONE</span><span class="p">)</span> <span class="k">THEN</span>
-<span class="k">                          </span><span class="n">B</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">M</span><span class="p">,</span><span class="n">K</span><span class="p">)</span> <span class="o">=</span> <span class="n">TEMP</span><span class="o">*</span><span class="n">B</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">M</span><span class="p">,</span><span class="n">K</span><span class="p">)</span>
+<span class="k">                      </span><span class="n">temp</span> <span class="o">=</span> <span class="n">alpha</span>
+                      <span class="k">if</span> <span class="p">(</span><span class="n">nounit</span><span class="p">)</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">temp</span><span class="o">*</span><span class="n">a</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">k</span><span class="p">)</span>
+                      <span class="k">if</span> <span class="p">(</span><span class="n">temp</span><span class="p">.</span><span class="n">ne</span><span class="p">.</span><span class="n">one</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">                          </span><span class="n">b</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">m</span><span class="p">,</span><span class="n">k</span><span class="p">)</span> <span class="o">=</span> <span class="n">temp</span><span class="o">*</span><span class="n">b</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">m</span><span class="p">,</span><span class="n">k</span><span class="p">)</span>
                       <span class="k">endif</span>
 <span class="k">                  enddo</span>
 <span class="k">              endif</span>
 <span class="k">          endif</span>
 <span class="k">      endif</span>
 
-<span class="k">      END SUBROUTINE </span><span class="n">STRMM</span>
+<span class="k">      end subroutine </span><span class="n">strmm</span>
 </pre></div>
 
     </section>
@@ -1071,16 +1071,16 @@ http://www.netlib.org/lapack/explore-html/
     <footer>
       <div class="container">
       <div class="row">
-        <div class="col-xs-6 col-md-4"><p>&copy; 2021 
+        <div class="col-xs-6 col-md-4"><p>&copy; 2022 
                                           </p></div>
         <div class="col-xs-6 col-md-4 col-md-push-4">
           <p class="text-right">
             Documentation generated by 
             <a href="https://github.com/cmacmackin/ford">FORD</a>
-             on 2021-08-23 15:25  
+             on 2022-01-03 21:31  
           </p>
         </div>
-        <div class="col-xs-12 col-md-4 col-md-pull-4"><p class="text-center"> M_blas was developed by John S. Urban and many others</p></div>
+        <div class="col-xs-12 col-md-4 col-md-pull-4"><p class="text-center"> M_blas was developed by many others</p></div>
       </div>
       <br>
       </div> <!-- /container -->    

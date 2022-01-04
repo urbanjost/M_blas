@@ -11,7 +11,6 @@ project_download:
 author: many others
 author_email: urbanjost@comcast.net
 github: https://github.com/urbanjost/M_blas
-page_dir: ./docs/page
 media_dir: ./docs/images
 exclude_dir: ./archive
              ./FODDER

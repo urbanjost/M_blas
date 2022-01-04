@@ -7,10 +7,10 @@
    
    <meta name="description" content="BLAS - Basic Linear Algebra Subroutines">
     
-    <meta name="author" content="John S. Urban and many others" >
+    <meta name="author" content="many others" >
     <link rel="icon" href="../favicon.png">
 
-    <title>SROTMG &ndash; M_blas</title>
+    <title>srotmg &ndash; M_blas</title>
 
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/pygments.css" rel="stylesheet">
@@ -112,7 +112,7 @@
     
   
   <div class="row">
-    <h1>SROTMG
+    <h1>srotmg
       <small>Subroutine</small>
     
     </h1>
@@ -147,7 +147,7 @@
      <li><a href='../module/m_blas.html'>M_blas</a></li>
     
   
-     <li class="active">SROTMG</li>
+     <li class="active">srotmg</li>
   </ol>
 </div>
 </div>
@@ -175,39 +175,39 @@
   <div id="vars-0" class="panel-collapse collapse">
     <div class="list-group">
       
-      <a class="list-group-item" href="../proc/srotmg.html#variable-gam~2">GAM</a>
+      <a class="list-group-item" href="../proc/srotmg.html#variable-gam~2">gam</a>
       
-      <a class="list-group-item" href="../proc/srotmg.html#variable-gamsq~2">GAMSQ</a>
+      <a class="list-group-item" href="../proc/srotmg.html#variable-gamsq~2">gamsq</a>
       
-      <a class="list-group-item" href="../proc/srotmg.html#variable-rgamsq~2">RGAMSQ</a>
+      <a class="list-group-item" href="../proc/srotmg.html#variable-one~37">one</a>
       
-      <a class="list-group-item" href="../proc/srotmg.html#variable-sflag~2">SFLAG</a>
+      <a class="list-group-item" href="../proc/srotmg.html#variable-rgamsq~2">rgamsq</a>
       
-      <a class="list-group-item" href="../proc/srotmg.html#variable-sh11~2">SH11</a>
+      <a class="list-group-item" href="../proc/srotmg.html#variable-sflag~2">sflag</a>
       
-      <a class="list-group-item" href="../proc/srotmg.html#variable-sh12~2">SH12</a>
+      <a class="list-group-item" href="../proc/srotmg.html#variable-sh11~2">sh11</a>
       
-      <a class="list-group-item" href="../proc/srotmg.html#variable-sh21~2">SH21</a>
+      <a class="list-group-item" href="../proc/srotmg.html#variable-sh12~2">sh12</a>
       
-      <a class="list-group-item" href="../proc/srotmg.html#variable-sh22~2">SH22</a>
+      <a class="list-group-item" href="../proc/srotmg.html#variable-sh21~2">sh21</a>
       
-      <a class="list-group-item" href="../proc/srotmg.html#variable-sp1">SP1</a>
+      <a class="list-group-item" href="../proc/srotmg.html#variable-sh22~2">sh22</a>
       
-      <a class="list-group-item" href="../proc/srotmg.html#variable-sp2">SP2</a>
+      <a class="list-group-item" href="../proc/srotmg.html#variable-sp1">sp1</a>
       
-      <a class="list-group-item" href="../proc/srotmg.html#variable-sq1">SQ1</a>
+      <a class="list-group-item" href="../proc/srotmg.html#variable-sp2">sp2</a>
       
-      <a class="list-group-item" href="../proc/srotmg.html#variable-sq2">SQ2</a>
+      <a class="list-group-item" href="../proc/srotmg.html#variable-sq1">sq1</a>
       
-      <a class="list-group-item" href="../proc/srotmg.html#variable-stemp~8">STEMP</a>
+      <a class="list-group-item" href="../proc/srotmg.html#variable-sq2">sq2</a>
       
-      <a class="list-group-item" href="../proc/srotmg.html#variable-su">SU</a>
+      <a class="list-group-item" href="../proc/srotmg.html#variable-stemp~6">stemp</a>
       
-      <a class="list-group-item" href="../proc/srotmg.html#variable-one~9">one</a>
+      <a class="list-group-item" href="../proc/srotmg.html#variable-su">su</a>
       
       <a class="list-group-item" href="../proc/srotmg.html#variable-two~4">two</a>
       
-      <a class="list-group-item" href="../proc/srotmg.html#variable-zero~11">zero</a>
+      <a class="list-group-item" href="../proc/srotmg.html#variable-zero~63">zero</a>
       
     </div>
   </div>
@@ -235,7 +235,7 @@
 <div class="panel panel-primary">
   <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
   <div class="list-group">
-    <a class="list-group-item" href="../proc/srotmg.html#src">SROTMG</a>
+    <a class="list-group-item" href="../proc/srotmg.html#src">srotmg</a>
   </div>
 </div>
 
@@ -247,7 +247,7 @@
     
     <div class="col-md-9" id='text'>
     <h2>
-public subroutine SROTMG(SD1, SD2, SX1, SY1, SPARAM)
+public subroutine srotmg(sd1, sd2, sx1, sy1, sparam)
     
     
    
@@ -258,18 +258,18 @@ public subroutine SROTMG(SD1, SD2, SX1, SY1, SPARAM)
 
     
     <h2 id="name">NAME</h2>
-<div class="codehilite"><pre><span></span><code>srotmg.(3f) -- [BLAS:SINGLE_BLAS_LEVEL1]
+<div class="codehilite"><pre><span></span><code>srotmg(3f) - [BLAS:SINGLE_BLAS_LEVEL1] Generate a modified Given&#39;s rotation.
 </code></pre></div>
 
 <h2 id="synopsis">SYNOPSIS</h2>
-<div class="codehilite"><pre><span></span><code> SUBROUTINE SROTMG(SD1,SD2,SX1,SY1,SPARAM)
+<div class="codehilite"><pre><span></span><code> subroutine srotmg(sd1,sd2,sx1,sy1,sparam)
 
    .. Scalar Arguments ..
-   REAL,intent(inout) :: SD1,SD2,SX1
-   REAL,intent(in)    :: SY1
+   real,intent(inout) :: sd1,sd2,sx1
+   real,intent(in)    :: sy1
    ..
    .. Array Arguments ..
-   REAL,intent(out)   :: SPARAM(5)
+   real,intent(out)   :: sparam(5)
    ..
 </code></pre></div>
 
@@ -281,11 +281,11 @@ public subroutine SROTMG(SD1, SD2, SX1, SY1, SPARAM)
 
  <span class="nv">with</span> <span class="nv">sparam</span><span class="ss">(</span><span class="mi">1</span><span class="ss">)</span><span class="o">=</span><span class="nv">sflag</span>, <span class="nv">H</span> <span class="nv">has</span> <span class="nv">one</span> <span class="nv">of</span> <span class="nv">the</span> <span class="nv">following</span> <span class="nv">forms</span>..
 
- <span class="nv">SFLAG</span><span class="o">=-</span><span class="mi">1</span>.<span class="nv">E0</span>     <span class="nv">SFLAG</span><span class="o">=</span><span class="mi">0</span>.<span class="nv">E0</span>        <span class="nv">SFLAG</span><span class="o">=</span><span class="mi">1</span>.<span class="nv">E0</span>     <span class="nv">SFLAG</span><span class="o">=-</span><span class="mi">2</span>.<span class="nv">E0</span>
+    <span class="nv">SFLAG</span><span class="o">=-</span><span class="mi">1</span>.<span class="nv">E0</span>     <span class="nv">SFLAG</span><span class="o">=</span><span class="mi">0</span>.<span class="nv">E0</span>        <span class="nv">SFLAG</span><span class="o">=</span><span class="mi">1</span>.<span class="nv">E0</span>     <span class="nv">SFLAG</span><span class="o">=-</span><span class="mi">2</span>.<span class="nv">E0</span>
 
-   <span class="ss">(</span><span class="nv">SH11</span>  <span class="nv">SH12</span><span class="ss">)</span>    <span class="ss">(</span><span class="mi">1</span>.<span class="nv">E0</span>  <span class="nv">SH12</span><span class="ss">)</span>    <span class="ss">(</span><span class="nv">SH11</span>  <span class="mi">1</span>.<span class="nv">E0</span><span class="ss">)</span>    <span class="ss">(</span><span class="mi">1</span>.<span class="nv">E0</span>  <span class="mi">0</span>.<span class="nv">E0</span><span class="ss">)</span>
- <span class="nv">H</span><span class="o">=</span><span class="ss">(</span>          <span class="ss">)</span>    <span class="ss">(</span>          <span class="ss">)</span>    <span class="ss">(</span>          <span class="ss">)</span>    <span class="ss">(</span>          <span class="ss">)</span>
-   <span class="ss">(</span><span class="nv">SH21</span>  <span class="nv">SH22</span><span class="ss">)</span>,   <span class="ss">(</span><span class="nv">SH21</span>  <span class="mi">1</span>.<span class="nv">E0</span><span class="ss">)</span>,   <span class="ss">(</span><span class="o">-</span><span class="mi">1</span>.<span class="nv">E0</span> <span class="nv">SH22</span><span class="ss">)</span>,   <span class="ss">(</span><span class="mi">0</span>.<span class="nv">E0</span>  <span class="mi">1</span>.<span class="nv">E0</span><span class="ss">)</span>.
+      <span class="ss">(</span><span class="nv">SH11</span>  <span class="nv">SH12</span><span class="ss">)</span>    <span class="ss">(</span><span class="mi">1</span>.<span class="nv">E0</span>  <span class="nv">SH12</span><span class="ss">)</span>    <span class="ss">(</span><span class="nv">SH11</span>  <span class="mi">1</span>.<span class="nv">E0</span><span class="ss">)</span>    <span class="ss">(</span><span class="mi">1</span>.<span class="nv">E0</span>  <span class="mi">0</span>.<span class="nv">E0</span><span class="ss">)</span>
+    <span class="nv">H</span><span class="o">=</span><span class="ss">(</span>          <span class="ss">)</span>    <span class="ss">(</span>          <span class="ss">)</span>    <span class="ss">(</span>          <span class="ss">)</span>    <span class="ss">(</span>          <span class="ss">)</span>
+      <span class="ss">(</span><span class="nv">SH21</span>  <span class="nv">SH22</span><span class="ss">)</span>,   <span class="ss">(</span><span class="nv">SH21</span>  <span class="mi">1</span>.<span class="nv">E0</span><span class="ss">)</span>,   <span class="ss">(</span><span class="o">-</span><span class="mi">1</span>.<span class="nv">E0</span> <span class="nv">SH22</span><span class="ss">)</span>,   <span class="ss">(</span><span class="mi">0</span>.<span class="nv">E0</span>  <span class="mi">1</span>.<span class="nv">E0</span><span class="ss">)</span>.
 
  <span class="nv">locations</span> <span class="mi">2</span><span class="o">-</span><span class="mi">4</span> <span class="nv">of</span> <span class="nv">SPARAM</span> <span class="nv">contain</span> <span class="nv">SH11</span>,<span class="nv">SH21</span>,<span class="nv">SH12</span>, <span class="nv">and</span> <span class="nv">SH22</span>
  <span class="nv">respectively</span>. <span class="ss">(</span><span class="nv">values</span> <span class="nv">of</span> <span class="mi">1</span>.<span class="nv">e0</span>, <span class="o">-</span><span class="mi">1</span>.<span class="nv">e0</span>, <span class="nv">or</span> <span class="mi">0</span>.<span class="nv">e0</span> <span class="nv">implied</span> <span class="nv">by</span> <span class="nv">the</span> <span class="nv">value</span>
@@ -293,19 +293,19 @@ public subroutine SROTMG(SD1, SD2, SX1, SY1, SPARAM)
 
  <span class="nv">the</span> <span class="nv">values</span> <span class="nv">of</span> <span class="nv">GAMSQ</span> <span class="nv">and</span> <span class="nv">RGAMSQ</span> <span class="nv">set</span> <span class="nv">in</span> <span class="nv">the</span> <span class="nv">data</span> <span class="nv">statement</span> <span class="nv">may</span> <span class="nv">be</span>
  <span class="nv">inexact</span>. <span class="nv">This</span> <span class="nv">is</span> <span class="nv">OK</span> <span class="nv">as</span> <span class="nv">they</span> <span class="nv">are</span> <span class="nv">only</span> <span class="nv">used</span> <span class="k">for</span> <span class="nv">testing</span> <span class="nv">the</span> <span class="nv">size</span> <span class="nv">of</span>
- <span class="nv">SD1</span> <span class="nv">and</span> <span class="nv">SD2</span>.  <span class="nv">All</span> <span class="nv">actual</span> <span class="nv">scaling</span> <span class="nv">of</span> <span class="nv">data</span> <span class="nv">is</span> <span class="nv">done</span> <span class="nv">using</span> <span class="nv">GAM</span>.
+ <span class="nv">SD1</span> <span class="nv">and</span> <span class="nv">SD2</span>. <span class="nv">All</span> <span class="nv">actual</span> <span class="nv">scaling</span> <span class="nv">of</span> <span class="nv">data</span> <span class="nv">is</span> <span class="nv">done</span> <span class="nv">using</span> <span class="nv">GAM</span>.
 </code></pre></div>
 
 <h2 id="options">OPTIONS</h2>
-<p>out] SD1</p>
+<p>SD1</p>
 <div class="codehilite"><pre><span></span><code>       SD1 is REAL
 </code></pre></div>
 
-<p>out] SD2</p>
+<p>SD2</p>
 <div class="codehilite"><pre><span></span><code>       SD2 is REAL
 </code></pre></div>
 
-<p>out] SX1</p>
+<p>SX1</p>
 <div class="codehilite"><pre><span></span><code>       SX1 is REAL
 </code></pre></div>
 
@@ -354,12 +354,12 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-sd1~2"></span>real,</td>
+  <td><span class="anchor" id="variable-sd1"></span>real,</td>
   <td>intent(inout)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>SD1</strong></td><td></td>
+  <td><strong>sd1</strong></td><td></td>
   
 </tr>
 
@@ -369,12 +369,12 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-sd2~2"></span>real,</td>
+  <td><span class="anchor" id="variable-sd2"></span>real,</td>
   <td>intent(inout)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>SD2</strong></td><td></td>
+  <td><strong>sd2</strong></td><td></td>
   
 </tr>
 
@@ -384,12 +384,12 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-sx1~2"></span>real,</td>
+  <td><span class="anchor" id="variable-sx1"></span>real,</td>
   <td>intent(inout)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>SX1</strong></td><td></td>
+  <td><strong>sx1</strong></td><td></td>
   
 </tr>
 
@@ -399,12 +399,12 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-sy1~2"></span>real,</td>
+  <td><span class="anchor" id="variable-sy1"></span>real,</td>
   <td>intent(in)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>SY1</strong></td><td></td>
+  <td><strong>sy1</strong></td><td></td>
   
 </tr>
 
@@ -414,12 +414,12 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-sparam~4"></span>real,</td>
+  <td><span class="anchor" id="variable-sparam~2"></span>real,</td>
   <td>intent(out)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>SPARAM</strong>(5)</td><td></td>
+  <td><strong>sparam</strong>(5)</td><td></td>
   
 </tr>
 
@@ -445,39 +445,39 @@ http://www.netlib.org/lapack/explore-html/
   <div id="vars-1" class="panel-collapse collapse">
     <div class="list-group">
       
-      <a class="list-group-item" href="../proc/srotmg.html#variable-gam~2">GAM</a>
+      <a class="list-group-item" href="../proc/srotmg.html#variable-gam~2">gam</a>
       
-      <a class="list-group-item" href="../proc/srotmg.html#variable-gamsq~2">GAMSQ</a>
+      <a class="list-group-item" href="../proc/srotmg.html#variable-gamsq~2">gamsq</a>
       
-      <a class="list-group-item" href="../proc/srotmg.html#variable-rgamsq~2">RGAMSQ</a>
+      <a class="list-group-item" href="../proc/srotmg.html#variable-one~37">one</a>
       
-      <a class="list-group-item" href="../proc/srotmg.html#variable-sflag~2">SFLAG</a>
+      <a class="list-group-item" href="../proc/srotmg.html#variable-rgamsq~2">rgamsq</a>
       
-      <a class="list-group-item" href="../proc/srotmg.html#variable-sh11~2">SH11</a>
+      <a class="list-group-item" href="../proc/srotmg.html#variable-sflag~2">sflag</a>
       
-      <a class="list-group-item" href="../proc/srotmg.html#variable-sh12~2">SH12</a>
+      <a class="list-group-item" href="../proc/srotmg.html#variable-sh11~2">sh11</a>
       
-      <a class="list-group-item" href="../proc/srotmg.html#variable-sh21~2">SH21</a>
+      <a class="list-group-item" href="../proc/srotmg.html#variable-sh12~2">sh12</a>
       
-      <a class="list-group-item" href="../proc/srotmg.html#variable-sh22~2">SH22</a>
+      <a class="list-group-item" href="../proc/srotmg.html#variable-sh21~2">sh21</a>
       
-      <a class="list-group-item" href="../proc/srotmg.html#variable-sp1">SP1</a>
+      <a class="list-group-item" href="../proc/srotmg.html#variable-sh22~2">sh22</a>
       
-      <a class="list-group-item" href="../proc/srotmg.html#variable-sp2">SP2</a>
+      <a class="list-group-item" href="../proc/srotmg.html#variable-sp1">sp1</a>
       
-      <a class="list-group-item" href="../proc/srotmg.html#variable-sq1">SQ1</a>
+      <a class="list-group-item" href="../proc/srotmg.html#variable-sp2">sp2</a>
       
-      <a class="list-group-item" href="../proc/srotmg.html#variable-sq2">SQ2</a>
+      <a class="list-group-item" href="../proc/srotmg.html#variable-sq1">sq1</a>
       
-      <a class="list-group-item" href="../proc/srotmg.html#variable-stemp~8">STEMP</a>
+      <a class="list-group-item" href="../proc/srotmg.html#variable-sq2">sq2</a>
       
-      <a class="list-group-item" href="../proc/srotmg.html#variable-su">SU</a>
+      <a class="list-group-item" href="../proc/srotmg.html#variable-stemp~6">stemp</a>
       
-      <a class="list-group-item" href="../proc/srotmg.html#variable-one~9">one</a>
+      <a class="list-group-item" href="../proc/srotmg.html#variable-su">su</a>
       
       <a class="list-group-item" href="../proc/srotmg.html#variable-two~4">two</a>
       
-      <a class="list-group-item" href="../proc/srotmg.html#variable-zero~11">zero</a>
+      <a class="list-group-item" href="../proc/srotmg.html#variable-zero~63">zero</a>
       
     </div>
   </div>
@@ -505,7 +505,7 @@ http://www.netlib.org/lapack/explore-html/
 <div class="panel panel-primary">
   <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
   <div class="list-group">
-    <a class="list-group-item" href="../proc/srotmg.html#src">SROTMG</a>
+    <a class="list-group-item" href="../proc/srotmg.html#src">srotmg</a>
   </div>
 </div>
 
@@ -539,7 +539,7 @@ http://www.netlib.org/lapack/explore-html/
   
   <td>public,</td>
   <td>parameter</td><td>::</td>
-  <td><strong>GAM</strong></td><td> =</td><td>4096.E0</td><td></td>
+  <td><strong>gam</strong></td><td> =</td><td>4096.e0</td><td></td>
   
 </tr>
 
@@ -553,7 +553,21 @@ http://www.netlib.org/lapack/explore-html/
   
   <td>public,</td>
   <td>parameter</td><td>::</td>
-  <td><strong>GAMSQ</strong></td><td> =</td><td>1.67772E7</td><td></td>
+  <td><strong>gamsq</strong></td><td> =</td><td>1.67772e7</td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-one~37"></span>real,</td>
+  
+  <td>public,</td>
+  <td>parameter</td><td>::</td>
+  <td><strong>one</strong></td><td> =</td><td>1.0e0</td><td></td>
   
 </tr>
 
@@ -567,7 +581,7 @@ http://www.netlib.org/lapack/explore-html/
   
   <td>public,</td>
   <td>parameter</td><td>::</td>
-  <td><strong>RGAMSQ</strong></td><td> =</td><td>5.96046E-8</td><td></td>
+  <td><strong>rgamsq</strong></td><td> =</td><td>5.96046e-8</td><td></td>
   
 </tr>
 
@@ -581,7 +595,7 @@ http://www.netlib.org/lapack/explore-html/
   
   <td>public</td>
   <td></td><td>::</td>
-  <td><strong>SFLAG</strong></td><td></td><td></td><td></td>
+  <td><strong>sflag</strong></td><td></td><td></td><td></td>
   
 </tr>
 
@@ -595,7 +609,7 @@ http://www.netlib.org/lapack/explore-html/
   
   <td>public</td>
   <td></td><td>::</td>
-  <td><strong>SH11</strong></td><td></td><td></td><td></td>
+  <td><strong>sh11</strong></td><td></td><td></td><td></td>
   
 </tr>
 
@@ -609,7 +623,7 @@ http://www.netlib.org/lapack/explore-html/
   
   <td>public</td>
   <td></td><td>::</td>
-  <td><strong>SH12</strong></td><td></td><td></td><td></td>
+  <td><strong>sh12</strong></td><td></td><td></td><td></td>
   
 </tr>
 
@@ -623,7 +637,7 @@ http://www.netlib.org/lapack/explore-html/
   
   <td>public</td>
   <td></td><td>::</td>
-  <td><strong>SH21</strong></td><td></td><td></td><td></td>
+  <td><strong>sh21</strong></td><td></td><td></td><td></td>
   
 </tr>
 
@@ -637,7 +651,7 @@ http://www.netlib.org/lapack/explore-html/
   
   <td>public</td>
   <td></td><td>::</td>
-  <td><strong>SH22</strong></td><td></td><td></td><td></td>
+  <td><strong>sh22</strong></td><td></td><td></td><td></td>
   
 </tr>
 
@@ -651,7 +665,7 @@ http://www.netlib.org/lapack/explore-html/
   
   <td>public</td>
   <td></td><td>::</td>
-  <td><strong>SP1</strong></td><td></td><td></td><td></td>
+  <td><strong>sp1</strong></td><td></td><td></td><td></td>
   
 </tr>
 
@@ -665,7 +679,7 @@ http://www.netlib.org/lapack/explore-html/
   
   <td>public</td>
   <td></td><td>::</td>
-  <td><strong>SP2</strong></td><td></td><td></td><td></td>
+  <td><strong>sp2</strong></td><td></td><td></td><td></td>
   
 </tr>
 
@@ -679,7 +693,7 @@ http://www.netlib.org/lapack/explore-html/
   
   <td>public</td>
   <td></td><td>::</td>
-  <td><strong>SQ1</strong></td><td></td><td></td><td></td>
+  <td><strong>sq1</strong></td><td></td><td></td><td></td>
   
 </tr>
 
@@ -693,7 +707,7 @@ http://www.netlib.org/lapack/explore-html/
   
   <td>public</td>
   <td></td><td>::</td>
-  <td><strong>SQ2</strong></td><td></td><td></td><td></td>
+  <td><strong>sq2</strong></td><td></td><td></td><td></td>
   
 </tr>
 
@@ -703,11 +717,11 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-stemp~8"></span>real,</td>
+  <td><span class="anchor" id="variable-stemp~6"></span>real,</td>
   
   <td>public</td>
   <td></td><td>::</td>
-  <td><strong>STEMP</strong></td><td></td><td></td><td></td>
+  <td><strong>stemp</strong></td><td></td><td></td><td></td>
   
 </tr>
 
@@ -721,21 +735,7 @@ http://www.netlib.org/lapack/explore-html/
   
   <td>public</td>
   <td></td><td>::</td>
-  <td><strong>SU</strong></td><td></td><td></td><td></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" id="variable-one~9"></span>real,</td>
-  
-  <td>public,</td>
-  <td>parameter</td><td>::</td>
-  <td><strong>one</strong></td><td> =</td><td>1.0e0</td><td></td>
+  <td><strong>su</strong></td><td></td><td></td><td></td>
   
 </tr>
 
@@ -759,7 +759,7 @@ http://www.netlib.org/lapack/explore-html/
   
 <tr>
   
-  <td><span class="anchor" id="variable-zero~11"></span>real,</td>
+  <td><span class="anchor" id="variable-zero~63"></span>real,</td>
   
   <td>public,</td>
   <td>parameter</td><td>::</td>
@@ -790,7 +790,7 @@ http://www.netlib.org/lapack/explore-html/
     
     <section>
     <h2><span class="anchor" id="src"></span>Source Code</h2>
-    <div class="highlight"><pre><span></span>       <span class="k">SUBROUTINE </span><span class="n">SROTMG</span><span class="p">(</span><span class="n">SD1</span><span class="p">,</span><span class="n">SD2</span><span class="p">,</span><span class="n">SX1</span><span class="p">,</span><span class="n">SY1</span><span class="p">,</span><span class="n">SPARAM</span><span class="p">)</span>
+    <div class="highlight"><pre><span></span>       <span class="k">subroutine </span><span class="n">srotmg</span><span class="p">(</span><span class="n">sd1</span><span class="p">,</span><span class="n">sd2</span><span class="p">,</span><span class="n">sx1</span><span class="p">,</span><span class="n">sy1</span><span class="p">,</span><span class="n">sparam</span><span class="p">)</span>
       <span class="k">implicit none</span>
 <span class="c">!</span>
 <span class="c">!  -- Reference BLAS level1 routine (version 3.8.0) --</span>
@@ -799,171 +799,171 @@ http://www.netlib.org/lapack/explore-html/
 <span class="c">!     November 2017</span>
 <span class="c">!</span>
 <span class="c">!     .. Scalar Arguments ..</span>
-      <span class="kt">REAL</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span> <span class="kd">::</span> <span class="n">SD1</span><span class="p">,</span><span class="n">SD2</span><span class="p">,</span><span class="n">SX1</span>
-      <span class="kt">REAL</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>    <span class="kd">::</span> <span class="n">SY1</span>
+      <span class="kt">real</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span> <span class="kd">::</span> <span class="n">sd1</span><span class="p">,</span><span class="n">sd2</span><span class="p">,</span><span class="n">sx1</span>
+      <span class="kt">real</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>    <span class="kd">::</span> <span class="n">sy1</span>
 <span class="c">!     ..</span>
 <span class="c">!     .. Array Arguments ..</span>
-      <span class="kt">REAL</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>   <span class="kd">::</span> <span class="n">SPARAM</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+      <span class="kt">real</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>   <span class="kd">::</span> <span class="n">sparam</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 <span class="c">!     ..</span>
 <span class="c">!  =====================================================================</span>
 <span class="c">!</span>
 <span class="c">!     .. Local Scalars ..</span>
-      <span class="kt">REAL </span><span class="n">SFLAG</span><span class="p">,</span><span class="n">SH11</span><span class="p">,</span><span class="n">SH12</span><span class="p">,</span><span class="n">SH21</span><span class="p">,</span><span class="n">SH22</span><span class="p">,</span><span class="n">SP1</span><span class="p">,</span><span class="n">SP2</span><span class="p">,</span><span class="n">SQ1</span><span class="p">,</span> <span class="n">SQ2</span><span class="p">,</span><span class="n">STEMP</span><span class="p">,</span><span class="n">SU</span>
+      <span class="kt">real </span><span class="n">sflag</span><span class="p">,</span><span class="n">sh11</span><span class="p">,</span><span class="n">sh12</span><span class="p">,</span><span class="n">sh21</span><span class="p">,</span><span class="n">sh22</span><span class="p">,</span><span class="n">sp1</span><span class="p">,</span><span class="n">sp2</span><span class="p">,</span><span class="n">sq1</span><span class="p">,</span> <span class="n">sq2</span><span class="p">,</span><span class="n">stemp</span><span class="p">,</span><span class="n">su</span>
 <span class="c">!     ..</span>
 <span class="c">!     .. Intrinsic Functions ..</span>
-      <span class="k">INTRINSIC </span><span class="nb">ABS</span>
+      <span class="k">intrinsic </span><span class="nb">abs</span>
 <span class="c">!     ..</span>
 <span class="c">!     .. Data statements ..</span>
       <span class="kt">real</span><span class="p">,</span><span class="k">parameter</span> <span class="kd">::</span> <span class="n">zero</span><span class="o">=</span><span class="mf">0.0e0</span>
       <span class="kt">real</span><span class="p">,</span><span class="k">parameter</span> <span class="kd">::</span> <span class="n">one</span><span class="o">=</span><span class="mf">1.0e0</span>
       <span class="kt">real</span><span class="p">,</span><span class="k">parameter</span> <span class="kd">::</span> <span class="n">two</span><span class="o">=</span><span class="mf">2.0e0</span>
 <span class="c">!</span>
-      <span class="kt">real</span><span class="p">,</span><span class="k">parameter</span> <span class="kd">::</span> <span class="n">GAM</span><span class="o">=</span><span class="mi">409</span><span class="mf">6.E0</span>
-      <span class="kt">real</span><span class="p">,</span><span class="k">parameter</span> <span class="kd">::</span> <span class="n">GAMSQ</span><span class="o">=</span><span class="mf">1.67772E7</span>
-      <span class="kt">real</span><span class="p">,</span><span class="k">parameter</span> <span class="kd">::</span> <span class="n">RGAMSQ</span><span class="o">=</span><span class="mf">5.96046E-8</span>
+      <span class="kt">real</span><span class="p">,</span><span class="k">parameter</span> <span class="kd">::</span> <span class="n">gam</span><span class="o">=</span><span class="mi">409</span><span class="mf">6.e0</span>
+      <span class="kt">real</span><span class="p">,</span><span class="k">parameter</span> <span class="kd">::</span> <span class="n">gamsq</span><span class="o">=</span><span class="mf">1.67772e7</span>
+      <span class="kt">real</span><span class="p">,</span><span class="k">parameter</span> <span class="kd">::</span> <span class="n">rgamsq</span><span class="o">=</span><span class="mf">5.96046e-8</span>
 <span class="c">!     ..</span>
 
-      <span class="k">IF</span> <span class="p">(</span><span class="n">SD1</span><span class="p">.</span><span class="n">LT</span><span class="p">.</span><span class="n">ZERO</span><span class="p">)</span> <span class="k">THEN</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">sd1</span><span class="p">.</span><span class="n">lt</span><span class="p">.</span><span class="n">zero</span><span class="p">)</span> <span class="k">then</span>
 <span class="c">!        GO ZERO-H-D-AND-SX1..</span>
-         <span class="n">SFLAG</span> <span class="o">=</span> <span class="o">-</span><span class="n">ONE</span>
-         <span class="n">SH11</span> <span class="o">=</span> <span class="n">ZERO</span>
-         <span class="n">SH12</span> <span class="o">=</span> <span class="n">ZERO</span>
-         <span class="n">SH21</span> <span class="o">=</span> <span class="n">ZERO</span>
-         <span class="n">SH22</span> <span class="o">=</span> <span class="n">ZERO</span>
+         <span class="n">sflag</span> <span class="o">=</span> <span class="o">-</span><span class="n">one</span>
+         <span class="n">sh11</span> <span class="o">=</span> <span class="n">zero</span>
+         <span class="n">sh12</span> <span class="o">=</span> <span class="n">zero</span>
+         <span class="n">sh21</span> <span class="o">=</span> <span class="n">zero</span>
+         <span class="n">sh22</span> <span class="o">=</span> <span class="n">zero</span>
 <span class="c">!</span>
-         <span class="n">SD1</span> <span class="o">=</span> <span class="n">ZERO</span>
-         <span class="n">SD2</span> <span class="o">=</span> <span class="n">ZERO</span>
-         <span class="n">SX1</span> <span class="o">=</span> <span class="n">ZERO</span>
-      <span class="k">ELSE</span>
+         <span class="n">sd1</span> <span class="o">=</span> <span class="n">zero</span>
+         <span class="n">sd2</span> <span class="o">=</span> <span class="n">zero</span>
+         <span class="n">sx1</span> <span class="o">=</span> <span class="n">zero</span>
+      <span class="k">else</span>
 <span class="c">!        CASE-SD1-NONNEGATIVE</span>
-         <span class="n">SP2</span> <span class="o">=</span> <span class="n">SD2</span><span class="o">*</span><span class="n">SY1</span>
-         <span class="k">IF</span> <span class="p">(</span><span class="n">SP2</span><span class="p">.</span><span class="n">EQ</span><span class="p">.</span><span class="n">ZERO</span><span class="p">)</span> <span class="k">THEN</span>
-<span class="k">            </span><span class="n">SFLAG</span> <span class="o">=</span> <span class="o">-</span><span class="n">TWO</span>
-            <span class="n">SPARAM</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="n">SFLAG</span>
-            <span class="k">RETURN</span>
+         <span class="n">sp2</span> <span class="o">=</span> <span class="n">sd2</span><span class="o">*</span><span class="n">sy1</span>
+         <span class="k">if</span> <span class="p">(</span><span class="n">sp2</span><span class="p">.</span><span class="n">eq</span><span class="p">.</span><span class="n">zero</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">            </span><span class="n">sflag</span> <span class="o">=</span> <span class="o">-</span><span class="n">two</span>
+            <span class="n">sparam</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="n">sflag</span>
+            <span class="k">return</span>
 <span class="k">         endif</span>
 <span class="c">!        REGULAR-CASE..</span>
-         <span class="n">SP1</span> <span class="o">=</span> <span class="n">SD1</span><span class="o">*</span><span class="n">SX1</span>
-         <span class="n">SQ2</span> <span class="o">=</span> <span class="n">SP2</span><span class="o">*</span><span class="n">SY1</span>
-         <span class="n">SQ1</span> <span class="o">=</span> <span class="n">SP1</span><span class="o">*</span><span class="n">SX1</span>
+         <span class="n">sp1</span> <span class="o">=</span> <span class="n">sd1</span><span class="o">*</span><span class="n">sx1</span>
+         <span class="n">sq2</span> <span class="o">=</span> <span class="n">sp2</span><span class="o">*</span><span class="n">sy1</span>
+         <span class="n">sq1</span> <span class="o">=</span> <span class="n">sp1</span><span class="o">*</span><span class="n">sx1</span>
 <span class="c">!</span>
-         <span class="k">IF</span> <span class="p">(</span><span class="nb">ABS</span><span class="p">(</span><span class="n">SQ1</span><span class="p">).</span><span class="n">GT</span><span class="p">.</span><span class="nb">ABS</span><span class="p">(</span><span class="n">SQ2</span><span class="p">))</span> <span class="k">THEN</span>
-<span class="k">            </span><span class="n">SH21</span> <span class="o">=</span> <span class="o">-</span><span class="n">SY1</span><span class="o">/</span><span class="n">SX1</span>
-            <span class="n">SH12</span> <span class="o">=</span> <span class="n">SP2</span><span class="o">/</span><span class="n">SP1</span>
+         <span class="k">if</span> <span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">sq1</span><span class="p">).</span><span class="n">gt</span><span class="p">.</span><span class="nb">abs</span><span class="p">(</span><span class="n">sq2</span><span class="p">))</span> <span class="k">then</span>
+<span class="k">            </span><span class="n">sh21</span> <span class="o">=</span> <span class="o">-</span><span class="n">sy1</span><span class="o">/</span><span class="n">sx1</span>
+            <span class="n">sh12</span> <span class="o">=</span> <span class="n">sp2</span><span class="o">/</span><span class="n">sp1</span>
 <span class="c">!</span>
-            <span class="n">SU</span> <span class="o">=</span> <span class="n">ONE</span> <span class="o">-</span> <span class="n">SH12</span><span class="o">*</span><span class="n">SH21</span>
+            <span class="n">su</span> <span class="o">=</span> <span class="n">one</span> <span class="o">-</span> <span class="n">sh12</span><span class="o">*</span><span class="n">sh21</span>
 <span class="c">!</span>
-           <span class="k">IF</span> <span class="p">(</span><span class="n">SU</span><span class="p">.</span><span class="n">GT</span><span class="p">.</span><span class="n">ZERO</span><span class="p">)</span> <span class="k">THEN</span>
-<span class="k">             </span><span class="n">SFLAG</span> <span class="o">=</span> <span class="n">ZERO</span>
-             <span class="n">SD1</span> <span class="o">=</span> <span class="n">SD1</span><span class="o">/</span><span class="n">SU</span>
-             <span class="n">SD2</span> <span class="o">=</span> <span class="n">SD2</span><span class="o">/</span><span class="n">SU</span>
-             <span class="n">SX1</span> <span class="o">=</span> <span class="n">SX1</span><span class="o">*</span><span class="n">SU</span>
-           <span class="k">ELSE</span>
+           <span class="k">if</span> <span class="p">(</span><span class="n">su</span><span class="p">.</span><span class="n">gt</span><span class="p">.</span><span class="n">zero</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">             </span><span class="n">sflag</span> <span class="o">=</span> <span class="n">zero</span>
+             <span class="n">sd1</span> <span class="o">=</span> <span class="n">sd1</span><span class="o">/</span><span class="n">su</span>
+             <span class="n">sd2</span> <span class="o">=</span> <span class="n">sd2</span><span class="o">/</span><span class="n">su</span>
+             <span class="n">sx1</span> <span class="o">=</span> <span class="n">sx1</span><span class="o">*</span><span class="n">su</span>
+           <span class="k">else</span>
 <span class="c">!            This code path if here for safety. We do not expect this</span>
 <span class="c">!            condition to ever hold except in edge cases with rounding</span>
 <span class="c">!            errors. See DOI: 10.1145/355841.355847</span>
-             <span class="n">SFLAG</span> <span class="o">=</span> <span class="o">-</span><span class="n">ONE</span>
-             <span class="n">SH11</span> <span class="o">=</span> <span class="n">ZERO</span>
-             <span class="n">SH12</span> <span class="o">=</span> <span class="n">ZERO</span>
-             <span class="n">SH21</span> <span class="o">=</span> <span class="n">ZERO</span>
-             <span class="n">SH22</span> <span class="o">=</span> <span class="n">ZERO</span>
+             <span class="n">sflag</span> <span class="o">=</span> <span class="o">-</span><span class="n">one</span>
+             <span class="n">sh11</span> <span class="o">=</span> <span class="n">zero</span>
+             <span class="n">sh12</span> <span class="o">=</span> <span class="n">zero</span>
+             <span class="n">sh21</span> <span class="o">=</span> <span class="n">zero</span>
+             <span class="n">sh22</span> <span class="o">=</span> <span class="n">zero</span>
 <span class="c">!</span>
-             <span class="n">SD1</span> <span class="o">=</span> <span class="n">ZERO</span>
-             <span class="n">SD2</span> <span class="o">=</span> <span class="n">ZERO</span>
-             <span class="n">SX1</span> <span class="o">=</span> <span class="n">ZERO</span>
+             <span class="n">sd1</span> <span class="o">=</span> <span class="n">zero</span>
+             <span class="n">sd2</span> <span class="o">=</span> <span class="n">zero</span>
+             <span class="n">sx1</span> <span class="o">=</span> <span class="n">zero</span>
            <span class="k">endif</span>
-<span class="k">         ELSE</span>
+<span class="k">         else</span>
 
-<span class="k">            IF</span> <span class="p">(</span><span class="n">SQ2</span><span class="p">.</span><span class="n">LT</span><span class="p">.</span><span class="n">ZERO</span><span class="p">)</span> <span class="k">THEN</span>
+<span class="k">            if</span> <span class="p">(</span><span class="n">sq2</span><span class="p">.</span><span class="n">lt</span><span class="p">.</span><span class="n">zero</span><span class="p">)</span> <span class="k">then</span>
 <span class="c">!              GO ZERO-H-D-AND-SX1..</span>
-               <span class="n">SFLAG</span> <span class="o">=</span> <span class="o">-</span><span class="n">ONE</span>
-               <span class="n">SH11</span> <span class="o">=</span> <span class="n">ZERO</span>
-               <span class="n">SH12</span> <span class="o">=</span> <span class="n">ZERO</span>
-               <span class="n">SH21</span> <span class="o">=</span> <span class="n">ZERO</span>
-               <span class="n">SH22</span> <span class="o">=</span> <span class="n">ZERO</span>
+               <span class="n">sflag</span> <span class="o">=</span> <span class="o">-</span><span class="n">one</span>
+               <span class="n">sh11</span> <span class="o">=</span> <span class="n">zero</span>
+               <span class="n">sh12</span> <span class="o">=</span> <span class="n">zero</span>
+               <span class="n">sh21</span> <span class="o">=</span> <span class="n">zero</span>
+               <span class="n">sh22</span> <span class="o">=</span> <span class="n">zero</span>
 <span class="c">!</span>
-               <span class="n">SD1</span> <span class="o">=</span> <span class="n">ZERO</span>
-               <span class="n">SD2</span> <span class="o">=</span> <span class="n">ZERO</span>
-               <span class="n">SX1</span> <span class="o">=</span> <span class="n">ZERO</span>
-            <span class="k">ELSE</span>
-<span class="k">               </span><span class="n">SFLAG</span> <span class="o">=</span> <span class="n">ONE</span>
-               <span class="n">SH11</span> <span class="o">=</span> <span class="n">SP1</span><span class="o">/</span><span class="n">SP2</span>
-               <span class="n">SH22</span> <span class="o">=</span> <span class="n">SX1</span><span class="o">/</span><span class="n">SY1</span>
-               <span class="n">SU</span> <span class="o">=</span> <span class="n">ONE</span> <span class="o">+</span> <span class="n">SH11</span><span class="o">*</span><span class="n">SH22</span>
-               <span class="n">STEMP</span> <span class="o">=</span> <span class="n">SD2</span><span class="o">/</span><span class="n">SU</span>
-               <span class="n">SD2</span> <span class="o">=</span> <span class="n">SD1</span><span class="o">/</span><span class="n">SU</span>
-               <span class="n">SD1</span> <span class="o">=</span> <span class="n">STEMP</span>
-               <span class="n">SX1</span> <span class="o">=</span> <span class="n">SY1</span><span class="o">*</span><span class="n">SU</span>
+               <span class="n">sd1</span> <span class="o">=</span> <span class="n">zero</span>
+               <span class="n">sd2</span> <span class="o">=</span> <span class="n">zero</span>
+               <span class="n">sx1</span> <span class="o">=</span> <span class="n">zero</span>
+            <span class="k">else</span>
+<span class="k">               </span><span class="n">sflag</span> <span class="o">=</span> <span class="n">one</span>
+               <span class="n">sh11</span> <span class="o">=</span> <span class="n">sp1</span><span class="o">/</span><span class="n">sp2</span>
+               <span class="n">sh22</span> <span class="o">=</span> <span class="n">sx1</span><span class="o">/</span><span class="n">sy1</span>
+               <span class="n">su</span> <span class="o">=</span> <span class="n">one</span> <span class="o">+</span> <span class="n">sh11</span><span class="o">*</span><span class="n">sh22</span>
+               <span class="n">stemp</span> <span class="o">=</span> <span class="n">sd2</span><span class="o">/</span><span class="n">su</span>
+               <span class="n">sd2</span> <span class="o">=</span> <span class="n">sd1</span><span class="o">/</span><span class="n">su</span>
+               <span class="n">sd1</span> <span class="o">=</span> <span class="n">stemp</span>
+               <span class="n">sx1</span> <span class="o">=</span> <span class="n">sy1</span><span class="o">*</span><span class="n">su</span>
             <span class="k">endif</span>
 <span class="k">         endif</span>
 
 <span class="c">!     PROCEDURE..SCALE-CHECK</span>
-         <span class="k">IF</span> <span class="p">(</span><span class="n">SD1</span><span class="p">.</span><span class="n">NE</span><span class="p">.</span><span class="n">ZERO</span><span class="p">)</span> <span class="k">THEN</span>
-<span class="k">            DO WHILE</span> <span class="p">((</span><span class="n">SD1</span><span class="p">.</span><span class="n">LE</span><span class="p">.</span><span class="n">RGAMSQ</span><span class="p">)</span> <span class="p">.</span><span class="nb">OR</span><span class="p">.</span> <span class="p">(</span><span class="n">SD1</span><span class="p">.</span><span class="n">GE</span><span class="p">.</span><span class="n">GAMSQ</span><span class="p">))</span>
-               <span class="k">IF</span> <span class="p">(</span><span class="n">SFLAG</span><span class="p">.</span><span class="n">EQ</span><span class="p">.</span><span class="n">ZERO</span><span class="p">)</span> <span class="k">THEN</span>
-<span class="k">                  </span><span class="n">SH11</span> <span class="o">=</span> <span class="n">ONE</span>
-                  <span class="n">SH22</span> <span class="o">=</span> <span class="n">ONE</span>
-                  <span class="n">SFLAG</span> <span class="o">=</span> <span class="o">-</span><span class="n">ONE</span>
-               <span class="k">ELSE</span>
-<span class="k">                  </span><span class="n">SH21</span> <span class="o">=</span> <span class="o">-</span><span class="n">ONE</span>
-                  <span class="n">SH12</span> <span class="o">=</span> <span class="n">ONE</span>
-                  <span class="n">SFLAG</span> <span class="o">=</span> <span class="o">-</span><span class="n">ONE</span>
+         <span class="k">if</span> <span class="p">(</span><span class="n">sd1</span><span class="p">.</span><span class="n">ne</span><span class="p">.</span><span class="n">zero</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">            do while</span> <span class="p">((</span><span class="n">sd1</span><span class="p">.</span><span class="n">le</span><span class="p">.</span><span class="n">rgamsq</span><span class="p">)</span> <span class="p">.</span><span class="nb">or</span><span class="p">.</span> <span class="p">(</span><span class="n">sd1</span><span class="p">.</span><span class="n">ge</span><span class="p">.</span><span class="n">gamsq</span><span class="p">))</span>
+               <span class="k">if</span> <span class="p">(</span><span class="n">sflag</span><span class="p">.</span><span class="n">eq</span><span class="p">.</span><span class="n">zero</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">                  </span><span class="n">sh11</span> <span class="o">=</span> <span class="n">one</span>
+                  <span class="n">sh22</span> <span class="o">=</span> <span class="n">one</span>
+                  <span class="n">sflag</span> <span class="o">=</span> <span class="o">-</span><span class="n">one</span>
+               <span class="k">else</span>
+<span class="k">                  </span><span class="n">sh21</span> <span class="o">=</span> <span class="o">-</span><span class="n">one</span>
+                  <span class="n">sh12</span> <span class="o">=</span> <span class="n">one</span>
+                  <span class="n">sflag</span> <span class="o">=</span> <span class="o">-</span><span class="n">one</span>
                <span class="k">endif</span>
-<span class="k">               IF</span> <span class="p">(</span><span class="n">SD1</span><span class="p">.</span><span class="n">LE</span><span class="p">.</span><span class="n">RGAMSQ</span><span class="p">)</span> <span class="k">THEN</span>
-<span class="k">                  </span><span class="n">SD1</span> <span class="o">=</span> <span class="n">SD1</span><span class="o">*</span><span class="n">GAM</span><span class="o">**</span><span class="mi">2</span>
-                  <span class="n">SX1</span> <span class="o">=</span> <span class="n">SX1</span><span class="o">/</span><span class="n">GAM</span>
-                  <span class="n">SH11</span> <span class="o">=</span> <span class="n">SH11</span><span class="o">/</span><span class="n">GAM</span>
-                  <span class="n">SH12</span> <span class="o">=</span> <span class="n">SH12</span><span class="o">/</span><span class="n">GAM</span>
-               <span class="k">ELSE</span>
-<span class="k">                  </span><span class="n">SD1</span> <span class="o">=</span> <span class="n">SD1</span><span class="o">/</span><span class="n">GAM</span><span class="o">**</span><span class="mi">2</span>
-                  <span class="n">SX1</span> <span class="o">=</span> <span class="n">SX1</span><span class="o">*</span><span class="n">GAM</span>
-                  <span class="n">SH11</span> <span class="o">=</span> <span class="n">SH11</span><span class="o">*</span><span class="n">GAM</span>
-                  <span class="n">SH12</span> <span class="o">=</span> <span class="n">SH12</span><span class="o">*</span><span class="n">GAM</span>
+<span class="k">               if</span> <span class="p">(</span><span class="n">sd1</span><span class="p">.</span><span class="n">le</span><span class="p">.</span><span class="n">rgamsq</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">                  </span><span class="n">sd1</span> <span class="o">=</span> <span class="n">sd1</span><span class="o">*</span><span class="n">gam</span><span class="o">**</span><span class="mi">2</span>
+                  <span class="n">sx1</span> <span class="o">=</span> <span class="n">sx1</span><span class="o">/</span><span class="n">gam</span>
+                  <span class="n">sh11</span> <span class="o">=</span> <span class="n">sh11</span><span class="o">/</span><span class="n">gam</span>
+                  <span class="n">sh12</span> <span class="o">=</span> <span class="n">sh12</span><span class="o">/</span><span class="n">gam</span>
+               <span class="k">else</span>
+<span class="k">                  </span><span class="n">sd1</span> <span class="o">=</span> <span class="n">sd1</span><span class="o">/</span><span class="n">gam</span><span class="o">**</span><span class="mi">2</span>
+                  <span class="n">sx1</span> <span class="o">=</span> <span class="n">sx1</span><span class="o">*</span><span class="n">gam</span>
+                  <span class="n">sh11</span> <span class="o">=</span> <span class="n">sh11</span><span class="o">*</span><span class="n">gam</span>
+                  <span class="n">sh12</span> <span class="o">=</span> <span class="n">sh12</span><span class="o">*</span><span class="n">gam</span>
                <span class="k">endif</span>
-<span class="k">            ENDDO</span>
+<span class="k">            enddo</span>
 <span class="k">         endif</span>
 
-<span class="k">         IF</span> <span class="p">(</span><span class="n">SD2</span><span class="p">.</span><span class="n">NE</span><span class="p">.</span><span class="n">ZERO</span><span class="p">)</span> <span class="k">THEN</span>
-<span class="k">            DO WHILE</span> <span class="p">(</span> <span class="p">(</span><span class="nb">ABS</span><span class="p">(</span><span class="n">SD2</span><span class="p">).</span><span class="n">LE</span><span class="p">.</span><span class="n">RGAMSQ</span><span class="p">)</span> <span class="p">.</span><span class="nb">OR</span><span class="p">.</span> <span class="p">(</span><span class="nb">ABS</span><span class="p">(</span><span class="n">SD2</span><span class="p">).</span><span class="n">GE</span><span class="p">.</span><span class="n">GAMSQ</span><span class="p">)</span> <span class="p">)</span>
-               <span class="k">IF</span> <span class="p">(</span><span class="n">SFLAG</span><span class="p">.</span><span class="n">EQ</span><span class="p">.</span><span class="n">ZERO</span><span class="p">)</span> <span class="k">THEN</span>
-<span class="k">                  </span><span class="n">SH11</span> <span class="o">=</span> <span class="n">ONE</span>
-                  <span class="n">SH22</span> <span class="o">=</span> <span class="n">ONE</span>
-                  <span class="n">SFLAG</span> <span class="o">=</span> <span class="o">-</span><span class="n">ONE</span>
-               <span class="k">ELSE</span>
-<span class="k">                  </span><span class="n">SH21</span> <span class="o">=</span> <span class="o">-</span><span class="n">ONE</span>
-                  <span class="n">SH12</span> <span class="o">=</span> <span class="n">ONE</span>
-                  <span class="n">SFLAG</span> <span class="o">=</span> <span class="o">-</span><span class="n">ONE</span>
+<span class="k">         if</span> <span class="p">(</span><span class="n">sd2</span><span class="p">.</span><span class="n">ne</span><span class="p">.</span><span class="n">zero</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">            do while</span> <span class="p">(</span> <span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">sd2</span><span class="p">).</span><span class="n">le</span><span class="p">.</span><span class="n">rgamsq</span><span class="p">)</span> <span class="p">.</span><span class="nb">or</span><span class="p">.</span> <span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">sd2</span><span class="p">).</span><span class="n">ge</span><span class="p">.</span><span class="n">gamsq</span><span class="p">)</span> <span class="p">)</span>
+               <span class="k">if</span> <span class="p">(</span><span class="n">sflag</span><span class="p">.</span><span class="n">eq</span><span class="p">.</span><span class="n">zero</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">                  </span><span class="n">sh11</span> <span class="o">=</span> <span class="n">one</span>
+                  <span class="n">sh22</span> <span class="o">=</span> <span class="n">one</span>
+                  <span class="n">sflag</span> <span class="o">=</span> <span class="o">-</span><span class="n">one</span>
+               <span class="k">else</span>
+<span class="k">                  </span><span class="n">sh21</span> <span class="o">=</span> <span class="o">-</span><span class="n">one</span>
+                  <span class="n">sh12</span> <span class="o">=</span> <span class="n">one</span>
+                  <span class="n">sflag</span> <span class="o">=</span> <span class="o">-</span><span class="n">one</span>
                <span class="k">endif</span>
-<span class="k">               IF</span> <span class="p">(</span><span class="nb">ABS</span><span class="p">(</span><span class="n">SD2</span><span class="p">).</span><span class="n">LE</span><span class="p">.</span><span class="n">RGAMSQ</span><span class="p">)</span> <span class="k">THEN</span>
-<span class="k">                  </span><span class="n">SD2</span> <span class="o">=</span> <span class="n">SD2</span><span class="o">*</span><span class="n">GAM</span><span class="o">**</span><span class="mi">2</span>
-                  <span class="n">SH21</span> <span class="o">=</span> <span class="n">SH21</span><span class="o">/</span><span class="n">GAM</span>
-                  <span class="n">SH22</span> <span class="o">=</span> <span class="n">SH22</span><span class="o">/</span><span class="n">GAM</span>
-               <span class="k">ELSE</span>
-<span class="k">                  </span><span class="n">SD2</span> <span class="o">=</span> <span class="n">SD2</span><span class="o">/</span><span class="n">GAM</span><span class="o">**</span><span class="mi">2</span>
-                  <span class="n">SH21</span> <span class="o">=</span> <span class="n">SH21</span><span class="o">*</span><span class="n">GAM</span>
-                  <span class="n">SH22</span> <span class="o">=</span> <span class="n">SH22</span><span class="o">*</span><span class="n">GAM</span>
+<span class="k">               if</span> <span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">sd2</span><span class="p">).</span><span class="n">le</span><span class="p">.</span><span class="n">rgamsq</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">                  </span><span class="n">sd2</span> <span class="o">=</span> <span class="n">sd2</span><span class="o">*</span><span class="n">gam</span><span class="o">**</span><span class="mi">2</span>
+                  <span class="n">sh21</span> <span class="o">=</span> <span class="n">sh21</span><span class="o">/</span><span class="n">gam</span>
+                  <span class="n">sh22</span> <span class="o">=</span> <span class="n">sh22</span><span class="o">/</span><span class="n">gam</span>
+               <span class="k">else</span>
+<span class="k">                  </span><span class="n">sd2</span> <span class="o">=</span> <span class="n">sd2</span><span class="o">/</span><span class="n">gam</span><span class="o">**</span><span class="mi">2</span>
+                  <span class="n">sh21</span> <span class="o">=</span> <span class="n">sh21</span><span class="o">*</span><span class="n">gam</span>
+                  <span class="n">sh22</span> <span class="o">=</span> <span class="n">sh22</span><span class="o">*</span><span class="n">gam</span>
                <span class="k">endif</span>
 <span class="k">            enddo</span>
 <span class="k">         endif</span>
 
 <span class="k">      endif</span>
 
-<span class="k">      IF</span> <span class="p">(</span><span class="n">SFLAG</span><span class="p">.</span><span class="n">LT</span><span class="p">.</span><span class="n">ZERO</span><span class="p">)</span> <span class="k">THEN</span>
-<span class="k">         </span><span class="n">SPARAM</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">=</span> <span class="n">SH11</span>
-         <span class="n">SPARAM</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">=</span> <span class="n">SH21</span>
-         <span class="n">SPARAM</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="o">=</span> <span class="n">SH12</span>
-         <span class="n">SPARAM</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">=</span> <span class="n">SH22</span>
-      <span class="n">elseif</span> <span class="p">(</span><span class="n">SFLAG</span><span class="p">.</span><span class="n">EQ</span><span class="p">.</span><span class="n">ZERO</span><span class="p">)</span> <span class="k">THEN</span>
-<span class="k">         </span><span class="n">SPARAM</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">=</span> <span class="n">SH21</span>
-         <span class="n">SPARAM</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="o">=</span> <span class="n">SH12</span>
-      <span class="k">ELSE</span>
-<span class="k">         </span><span class="n">SPARAM</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">=</span> <span class="n">SH11</span>
-         <span class="n">SPARAM</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">=</span> <span class="n">SH22</span>
+<span class="k">      if</span> <span class="p">(</span><span class="n">sflag</span><span class="p">.</span><span class="n">lt</span><span class="p">.</span><span class="n">zero</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">         </span><span class="n">sparam</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">=</span> <span class="n">sh11</span>
+         <span class="n">sparam</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">=</span> <span class="n">sh21</span>
+         <span class="n">sparam</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="o">=</span> <span class="n">sh12</span>
+         <span class="n">sparam</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">=</span> <span class="n">sh22</span>
+      <span class="n">elseif</span> <span class="p">(</span><span class="n">sflag</span><span class="p">.</span><span class="n">eq</span><span class="p">.</span><span class="n">zero</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">         </span><span class="n">sparam</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">=</span> <span class="n">sh21</span>
+         <span class="n">sparam</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="o">=</span> <span class="n">sh12</span>
+      <span class="k">else</span>
+<span class="k">         </span><span class="n">sparam</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">=</span> <span class="n">sh11</span>
+         <span class="n">sparam</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">=</span> <span class="n">sh22</span>
       <span class="k">endif</span>
 
-<span class="k">      </span><span class="n">SPARAM</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="n">SFLAG</span>
+<span class="k">      </span><span class="n">sparam</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="n">sflag</span>
 
-      <span class="k">END SUBROUTINE </span><span class="n">SROTMG</span>
+      <span class="k">end subroutine </span><span class="n">srotmg</span>
 </pre></div>
 
     </section>
@@ -979,16 +979,16 @@ http://www.netlib.org/lapack/explore-html/
     <footer>
       <div class="container">
       <div class="row">
-        <div class="col-xs-6 col-md-4"><p>&copy; 2021 
+        <div class="col-xs-6 col-md-4"><p>&copy; 2022 
                                           </p></div>
         <div class="col-xs-6 col-md-4 col-md-push-4">
           <p class="text-right">
             Documentation generated by 
             <a href="https://github.com/cmacmackin/ford">FORD</a>
-             on 2021-08-23 15:25  
+             on 2022-01-03 21:31  
           </p>
         </div>
-        <div class="col-xs-12 col-md-4 col-md-pull-4"><p class="text-center"> M_blas was developed by John S. Urban and many others</p></div>
+        <div class="col-xs-12 col-md-4 col-md-pull-4"><p class="text-center"> M_blas was developed by many others</p></div>
       </div>
       <br>
       </div> <!-- /container -->    
