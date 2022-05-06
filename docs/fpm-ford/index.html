@@ -137,6 +137,95 @@ author_pic:
 twitter:
 website:
 -->
+<h2 id="name">NAME</h2>
+<h2 id="m_blas-blas-routines-in-a-fortran-module-format">M_blas &ndash; BLAS routines in a Fortran module format</h2>
+<p>The BLAS (Basic Linear Algebra Subprograms) are well-established routines
+that provide standard building blocks for performing basic vector and
+matrix operations.</p>
+<p>There are several versions of the library available; this is based off
+the Public Domain
+<a href="http://www.netlib.org/blas/">FORTRAN reference implementation of BLAS Basic Linear Algebra Subprograms</a>
+provided by the National Science Foundation.</p>
+<p>It has been converted to a free-format Fortran module and is in the
+process of being changed to use more recent Fortran features primarily
+for investigating the significance of what benefits this can have, such
+as an <strong>automatic calling interface</strong> and <strong>name collision avoidance</strong>
+provided by being modularized, <strong>INTENT specifications</strong>, <strong>array syntax</strong>
+and so on.</p>
+<p>For compatibility purposes the wrapper file src/compatible.f90 is
+included, which allows for an old non-interface calling style so if
+you are using a BLAS library compatible with the reference version
+you should be able to use this library (and the accompanying module)
+as a drop-in replacement at the cost of loosing the strict interface
+the module provides and the additional call overhead to the wrapper.</p>
+<p>If that works with your existing code, the next step is to then include
+USE statements in the calling source and to remove src/compatible.f90
+and rebuild.</p>
+<p>If there are significant benefits the idea is to then proceed with
+a similar transformation of LAPACK, but I am just beginning this and
+unless someone else is excited about it and wants to join in this is a
+rainy-day project at this point, and <strong>should not be considered stable</strong>.</p>
+<p>I would love to hear from anyone who tries this as a replacement for
+their current libblas.a or libregblas.a.</p>
+<h2 id="documentation">DOCUMENTATION   <img alt="docs" src="docs/images/docs.gif"></h2>
+<p><strong>A WIP (work in progress)</strong></p>
+<p>All documents are contained in the docs/ directory including
+archive files of man(1) pages that can be installed on ULS
+(Unix-Like Systems).</p>
+<ul>
+<li><a href="https://urbanjost.github.io/M_blas/man3.html">man-pages in HTML format</a></li>
+<li><a href="https://urbanjost.github.io/M_blas/BOOK_M_blas.html">amalgamated man-pages (requires Javascript)</a> can easily be printed as a single document.</li>
+<li><a href="https://urbanjost.github.io/M_blas/fpm-ford/index.html">ford(1) output</a></li>
+<li><a href="">doxygen(1) output</a></li>
+</ul>
+<h2 id="real-man-pages">real man-pages <img alt="gmake" src="docs/images/manpages.gif"></h2>
+<ul>
+<li><a href="https://urbanjost.github.io/M_blas/manpages.zip">manpages.zip</a> </li>
+<li><a href="https://urbanjost.github.io/M_blas/manpages.tgz">manpages.tgz</a> </li>
+</ul>
+<h2 id="download-and-build">DOWNLOAD AND BUILD</h2>
+<h3 id="gmake">gmake <img alt="gmake" src="docs/images/gnu.gif"></h3>
+<p><code>bash
+       git clone https://github.com/urbanjost/M_blas.git
+       cd M_blas/src
+       # change Makefile compiler information as appropriate in Makefile
+       make # for gfortran</code>
+   This will compile the M_blas module and test programs.</p>
+<h3 id="fpm">fpm <img alt="fpm" src="docs/images/fpm_logo.gif"></h3>
+<p>Alternatively, download the github repository and build it with
+   fpm ( as described at <a href="https://github.com/fortran-lang/fpm">Fortran Package Manager</a> )</p>
+<p><code>bash
+        git clone https://github.com/urbanjost/M_blas.git
+        cd M_blas
+        # currently the tests are run from a script because they need redirection
+        # and I want some timing information and to test multiple compilers. You
+        # will have to make your own run script or run the tests manually if you
+        # do not have bash(1).
+        #
+        # Take out or add the compilers from run.sh you wish to run then execute
+        # the run.sh(1) script, twice if you just want run-times:
+        bash run.sh
+        # or just run "fpm build".</code></p>
+<p>or just list it as a dependency in your fpm.toml project file.</p>
+<div class="codehilite"><pre><span></span><code>        <span class="k">[dependencies]</span>
+        <span class="n">M_blas</span>        <span class="o">=</span> <span class="p">{</span> <span class="n">git</span> <span class="o">=</span> <span class="s">&quot;https://github.com/urbanjost/M_blas.git&quot;</span> <span class="p">}</span>
+</code></pre></div>
+
+<h2 id="references">References</h2>
+<ul>
+<li>
+<p>There is an <code>fpm</code> version of the
+  <a href="https://github.com/brocolis/blas.git">reference BLAS library</a>
+  available.</p>
+</li>
+<li>
+<p>See the homepage for <a href="http://www.netlib.org/blas">BLAS</a>
+  for more detailed information.</p>
+</li>
+</ul>
+<hr>
+<h2 id="changelog"><a href="CHANGELOG.md">CHANGELOG</a></h2>
+<h2 id="-">&mdash;</h2>
         </div>
 		  
         <div class="col-md-4">
@@ -1513,7 +1602,7 @@ website:
           <p class="text-right">
             Documentation generated by 
             <a href="https://github.com/cmacmackin/ford">FORD</a>
-             on 2022-01-03 21:31  
+             on 2022-05-05 23:15  
           </p>
         </div>
         <div class="col-xs-12 col-md-4 col-md-pull-4"><p class="text-center"> M_blas was developed by many others</p></div>
