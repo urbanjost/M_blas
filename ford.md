@@ -1,18 +1,23 @@
 ---
 src_dir: src
-         example
-         test
 output_dir: docs/fpm-ford
 project: M_blas
-summary: BLAS - Basic Linear Algebra Subroutines
+summary: BLAS Basic Linear Algebra
 project_github: https://github.com/urbanjost/M_blas
 project_download:
-author: many others
+author: John S. Urban
 author_email: urbanjost@comcast.net
 github: https://github.com/urbanjost/M_blas
 media_dir: ./docs/images
 exclude_dir: ./archive
              ./FODDER
+             ./build
+             ./man
+             ./app
+             ./example
+             ./test
+             ./src/source
+             ./docs/doxygen_out
 display: public
          protected
 source: true

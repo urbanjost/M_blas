@@ -35,7 +35,7 @@ rainy-day project at this point, and __should not be considered stable__.
 
 I would love to hear from anyone who tries this as a replacement for
 their current libblas.a or libregblas.a.
-## DOCUMENTATION
+## DOCUMENTATION   ![docs](docs/images/docs.gif)
    __A WIP (work in progress)__
 
 All documents are contained in the docs/ directory including
