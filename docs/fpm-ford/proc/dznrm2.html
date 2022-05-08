@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+   
+   <meta name="description" content="BLAS Basic Linear Algebra">
+    
+    <meta name="author" content="John S. Urban" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>dznrm2 &ndash; M_blas</title>
+
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/local.css" rel="stylesheet">
+    
+    <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+    
+    
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <script src="../js/jquery-2.1.3.min.js"></script>
+    <script src="../js/svg-pan-zoom.min.js"></script>
+
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="../index.html">M_blas </a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+        
+            <li class="dropdown hidden-xs visible-sm visible-md hidden-lg">
+              <a href="#" class="dropdown-toggle"
+              data-toggle="dropdown" role="button"
+              aria-haspopup="true"
+     aria-expanded="false">Contents <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          
+              
+            <li><a href="../lists/files.html">Source Files</a></li>
+        
+        
+        
+            <li><a href="../lists/modules.html">Modules</a></li>
+        
+            
+                                
+            <li><a href="../lists/procedures.html">Procedures</a></li>
+        
+        
+            <li><a href="../lists/absint.html">Abstract Interfaces</a></li>
+               
+        
+            </ul>
+            </li>
+
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/files.html">Source Files</a></li>
+
+
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/modules.html">Modules</a></li>
+
+
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/procedures.html">Procedures</a></li>
+
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/absint.html">Abstract Interfaces</a></li>
+                             
+
+          </ul>
+        
+        <form action="../search.html" class="navbar-form navbar-right" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+        </div>
+<!--
+        <button type="submit" class="btn btn-default">Submit</button>
+-->
+        </form>
+        
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+    
+  
+  <div class="row">
+    <h1>dznrm2
+      <small>Function</small>
+    
+    </h1>
+    
+<div class="row">
+  <div class="col-lg-12">
+<div class="well well-sm">
+  <ul class="list-inline" style="margin-bottom:0px;display:inline">
+     
+     
+     
+     
+    
+    
+     <li><i class="fa fa-list-ol"></i>
+       <a data-toggle="tooltip"
+    data-placement="bottom" data-html="true"
+    title=" 0.5% of total for procedures.">75 statements</a>
+     </li> 
+     
+     
+     
+    <li><i class="fa fa-code"></i><a href="../src/M_blas.f90"> Source File</a></li>
+     
+     
+  </ul>
+  <ol class="breadcrumb in-well text-right">
+  
+    
+     <li><a href='../sourcefile/m_blas.f90.html'>M_blas.f90</a></li>
+    
+     <li><a href='../module/m_blas.html'>M_blas</a></li>
+    
+  
+     <li class="active">dznrm2</li>
+  </ol>
+</div>
+</div>
+</div>
+<script>
+  $(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+  })
+</script>
+
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+    
+<div id="sidebar">
+  
+<h3>Contents</h3>
+ 
+
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#vars-0">Variables</a></h3></div>
+  <div id="vars-0" class="panel-collapse collapse">
+    <div class="list-group">
+      
+      <a class="list-group-item" href="../proc/dznrm2.html#variable-abig~2">abig</a>
+      
+      <a class="list-group-item" href="../proc/dznrm2.html#variable-amed~2">amed</a>
+      
+      <a class="list-group-item" href="../proc/dznrm2.html#variable-asml~2">asml</a>
+      
+      <a class="list-group-item" href="../proc/dznrm2.html#variable-ax~2">ax</a>
+      
+      <a class="list-group-item" href="../proc/dznrm2.html#variable-i~8">i</a>
+      
+      <a class="list-group-item" href="../proc/dznrm2.html#variable-ix~5">ix</a>
+      
+      <a class="list-group-item" href="../proc/dznrm2.html#variable-maxn~2">maxn</a>
+      
+      <a class="list-group-item" href="../proc/dznrm2.html#variable-notbig~2">notbig</a>
+      
+      <a class="list-group-item" href="../proc/dznrm2.html#variable-one~2">one</a>
+      
+      <a class="list-group-item" href="../proc/dznrm2.html#variable-sbig~2">sbig</a>
+      
+      <a class="list-group-item" href="../proc/dznrm2.html#variable-scl~2">scl</a>
+      
+      <a class="list-group-item" href="../proc/dznrm2.html#variable-ssml~2">ssml</a>
+      
+      <a class="list-group-item" href="../proc/dznrm2.html#variable-sumsq~2">sumsq</a>
+      
+      <a class="list-group-item" href="../proc/dznrm2.html#variable-tbig~2">tbig</a>
+      
+      <a class="list-group-item" href="../proc/dznrm2.html#variable-tsml~2">tsml</a>
+      
+      <a class="list-group-item" href="../proc/dznrm2.html#variable-wp~2">wp</a>
+      
+      <a class="list-group-item" href="../proc/dznrm2.html#variable-ymax~2">ymax</a>
+      
+      <a class="list-group-item" href="../proc/dznrm2.html#variable-ymin~2">ymin</a>
+      
+      <a class="list-group-item" href="../proc/dznrm2.html#variable-zero~2">zero</a>
+      
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
+  <div class="list-group">
+    <a class="list-group-item" href="../proc/dznrm2.html#src">dznrm2</a>
+  </div>
+</div>
+
+
+
+</div>
+
+    </div>
+    
+    <div class="col-md-9" id='text'>
+    <h2>
+public pure function dznrm2(n, x, incx)
+    
+    
+   
+</h2>
+    
+  
+
+
+    
+    <h2 id="name">NAME</h2>
+<div class="codehilite"><pre><span></span><code>dznrm2(3f) - [BLAS:SINGLE_BLAS_LEVEL1]
+</code></pre></div>
+
+<h2 id="synopsis">SYNOPSIS</h2>
+<div class="codehilite"><pre><span></span><code> double precision function dznrm2(n,x,incx)
+
+   .. Scalar Arguments ..
+   integer,intent(in) :: incx, n
+   ..
+</code></pre></div>
+
+<h2 id="definition">DEFINITION</h2>
+<p>DZNRM2 returns the euclidean norm of a vector via the function
+  name, so that</p>
+<div class="codehilite"><pre><span></span><code> DZNRM2 := sqrt( x**H*x )
+</code></pre></div>
+
+<h2 id="options">OPTIONS</h2>
+<p>N
+          number of elements in input vector(s)
+   X
+          array, dimension (N) complex vector with N elements
+   INCX
+           INCX is INTEGER, storage spacing between elements of X</p>
+<div class="codehilite"><pre><span></span><code>         <span class="k">If</span> <span class="nv">INCX</span> <span class="o">&gt;</span> <span class="mi">0</span>, <span class="nv">X</span><span class="ss">(</span><span class="mi">1</span><span class="o">+</span><span class="ss">(</span><span class="nv">i</span><span class="o">-</span><span class="mi">1</span><span class="ss">)</span><span class="o">*</span><span class="nv">INCX</span><span class="ss">)</span> <span class="o">=</span> <span class="nv">x</span><span class="ss">(</span><span class="nv">i</span><span class="ss">)</span> <span class="k">for</span> <span class="mi">1</span> <span class="o">&lt;=</span> <span class="nv">i</span> <span class="o">&lt;=</span> <span class="nv">n</span>
+         <span class="k">If</span> <span class="nv">INCX</span> <span class="o">&lt;</span> <span class="mi">0</span>, <span class="nv">X</span><span class="ss">(</span><span class="mi">1</span><span class="o">-</span><span class="ss">(</span><span class="nv">n</span><span class="o">-</span><span class="nv">i</span><span class="ss">)</span><span class="o">*</span><span class="nv">INCX</span><span class="ss">)</span> <span class="o">=</span> <span class="nv">x</span><span class="ss">(</span><span class="nv">i</span><span class="ss">)</span> <span class="k">for</span> <span class="mi">1</span> <span class="o">&lt;=</span> <span class="nv">i</span> <span class="o">&lt;=</span> <span class="nv">n</span>
+         <span class="k">If</span> <span class="nv">INCX</span> <span class="o">=</span> <span class="mi">0</span>, <span class="nv">x</span> <span class="nv">isn</span><span class="s1">&#39;</span><span class="s">t a vector so there is no need to call</span>
+
+       <span class="nv">this</span> <span class="nv">subroutine</span>. <span class="k">If</span> <span class="nv">you</span> <span class="k">call</span> <span class="nl">it</span> <span class="nv">anyway</span>, <span class="nv">it</span> <span class="nv">will</span> <span class="nv">count</span> <span class="nv">x</span><span class="ss">(</span><span class="mi">1</span><span class="ss">)</span>
+       <span class="nv">in</span> <span class="nv">the</span> <span class="nv">vector</span> <span class="nv">norm</span> <span class="nv">N</span> <span class="nv">times</span>.
+</code></pre></div>
+
+<h2 id="authors">AUTHORS</h2>
+<ul>
+<li>Edward Anderson, Lockheed Martin</li>
+</ul>
+<p>date:August 2016</p>
+<p>\par Contributors:</p>
+<p>Weslley Pereira, University of Colorado Denver, USA</p>
+<p>FURTHER DETAILS</p>
+<p>Anderson E. (2017)
+   Algorithm 978: Safe Scaling in the Level 1 BLAS
+   ACM Trans Math Softw 44:1&ndash;28
+   https://doi.org/10.1145/3061665</p>
+<p>Blue, James L. (1978)
+   A Portable Fortran Program to Find the Euclidean Norm of a Vector
+   ACM Trans Math Softw 4:15&ndash;23
+   https://doi.org/10.1145/355769.355771</p>
+<h2 id="see-also">SEE ALSO</h2>
+<div class="codehilite"><pre><span></span><code>Online html documentation available at
+http://www.netlib.org/lapack/explore-html/
+</code></pre></div>
+    
+
+    <h3>Arguments</h3>
+    
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-n~9"></span>integer,</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>n</strong></td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-x~2"></span>complex(kind=wp),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>x</strong>(*)</td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-incx~9"></span>integer,</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>incx</strong></td><td></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+    
+    
+    
+    
+    
+    
+    
+   <h3>Return Value <small><span class="anchor" id="variable-dznrm2"></span>real(kind=wp)
+  </small></h3>
+    
+    
+    
+    
+     
+    <br>
+
+    <section class="visible-xs visible-sm hidden-md">
+      
+<h3>Contents</h3>
+ 
+
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#vars-1">Variables</a></h3></div>
+  <div id="vars-1" class="panel-collapse collapse">
+    <div class="list-group">
+      
+      <a class="list-group-item" href="../proc/dznrm2.html#variable-abig~2">abig</a>
+      
+      <a class="list-group-item" href="../proc/dznrm2.html#variable-amed~2">amed</a>
+      
+      <a class="list-group-item" href="../proc/dznrm2.html#variable-asml~2">asml</a>
+      
+      <a class="list-group-item" href="../proc/dznrm2.html#variable-ax~2">ax</a>
+      
+      <a class="list-group-item" href="../proc/dznrm2.html#variable-i~8">i</a>
+      
+      <a class="list-group-item" href="../proc/dznrm2.html#variable-ix~5">ix</a>
+      
+      <a class="list-group-item" href="../proc/dznrm2.html#variable-maxn~2">maxn</a>
+      
+      <a class="list-group-item" href="../proc/dznrm2.html#variable-notbig~2">notbig</a>
+      
+      <a class="list-group-item" href="../proc/dznrm2.html#variable-one~2">one</a>
+      
+      <a class="list-group-item" href="../proc/dznrm2.html#variable-sbig~2">sbig</a>
+      
+      <a class="list-group-item" href="../proc/dznrm2.html#variable-scl~2">scl</a>
+      
+      <a class="list-group-item" href="../proc/dznrm2.html#variable-ssml~2">ssml</a>
+      
+      <a class="list-group-item" href="../proc/dznrm2.html#variable-sumsq~2">sumsq</a>
+      
+      <a class="list-group-item" href="../proc/dznrm2.html#variable-tbig~2">tbig</a>
+      
+      <a class="list-group-item" href="../proc/dznrm2.html#variable-tsml~2">tsml</a>
+      
+      <a class="list-group-item" href="../proc/dznrm2.html#variable-wp~2">wp</a>
+      
+      <a class="list-group-item" href="../proc/dznrm2.html#variable-ymax~2">ymax</a>
+      
+      <a class="list-group-item" href="../proc/dznrm2.html#variable-ymin~2">ymin</a>
+      
+      <a class="list-group-item" href="../proc/dznrm2.html#variable-zero~2">zero</a>
+      
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
+  <div class="list-group">
+    <a class="list-group-item" href="../proc/dznrm2.html#src">dznrm2</a>
+  </div>
+</div>
+
+
+
+    </section>
+    <br class="visible-xs visible-sm hidden-md">
+
+    
+
+    
+    <section>    
+      <h2>Variables</h2>
+    
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th><th>Visibility</th>
+
+<th>Attributes</th><th></th><th>Name</th><th></th><th>Initial</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-abig~2"></span>real(kind=wp),</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>abig</strong></td><td></td><td></td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-amed~2"></span>real(kind=wp),</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>amed</strong></td><td></td><td></td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-asml~2"></span>real(kind=wp),</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>asml</strong></td><td></td><td></td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-ax~2"></span>real(kind=wp),</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>ax</strong></td><td></td><td></td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-i~8"></span>integer,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>i</strong></td><td></td><td></td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-ix~5"></span>integer,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>ix</strong></td><td></td><td></td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-maxn~2"></span>real(kind=wp),</td>
+  
+  <td>public,</td>
+  <td>parameter</td><td>::</td>
+  <td><strong>maxn</strong></td><td> =</td><td>huge(0.0_wp)</td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-notbig~2"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>notbig</strong></td><td></td><td></td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-one~2"></span>real(kind=wp),</td>
+  
+  <td>public,</td>
+  <td>parameter</td><td>::</td>
+  <td><strong>one</strong></td><td> =</td><td>1.0_wp</td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-sbig~2"></span>real(kind=wp),</td>
+  
+  <td>public,</td>
+  <td>parameter</td><td>::</td>
+  <td><strong>sbig</strong></td><td> =</td><td>real(radix(0._wp), wp)**(-ceiling((maxexponent(0._wp)-digits(0._wp)+1)*0.5_wp))</td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-scl~2"></span>real(kind=wp),</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>scl</strong></td><td></td><td></td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-ssml~2"></span>real(kind=wp),</td>
+  
+  <td>public,</td>
+  <td>parameter</td><td>::</td>
+  <td><strong>ssml</strong></td><td> =</td><td>real(radix(0._wp), wp)**(-floor((minexponent(0._wp)-1)*0.5_wp))</td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-sumsq~2"></span>real(kind=wp),</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>sumsq</strong></td><td></td><td></td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-tbig~2"></span>real(kind=wp),</td>
+  
+  <td>public,</td>
+  <td>parameter</td><td>::</td>
+  <td><strong>tbig</strong></td><td> =</td><td>real(radix(0._wp), wp)**floor((maxexponent(0._wp)-digits(0._wp)+1)*0.5_wp)</td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-tsml~2"></span>real(kind=wp),</td>
+  
+  <td>public,</td>
+  <td>parameter</td><td>::</td>
+  <td><strong>tsml</strong></td><td> =</td><td>real(radix(0._wp), wp)**ceiling((minexponent(0._wp)-1)*0.5_wp)</td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-wp~2"></span>integer,</td>
+  
+  <td>public,</td>
+  <td>parameter</td><td>::</td>
+  <td><strong>wp</strong></td><td> =</td><td>kind(1.d0)</td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-ymax~2"></span>real(kind=wp),</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>ymax</strong></td><td></td><td></td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-ymin~2"></span>real(kind=wp),</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>ymin</strong></td><td></td><td></td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-zero~2"></span>real(kind=wp),</td>
+  
+  <td>public,</td>
+  <td>parameter</td><td>::</td>
+  <td><strong>zero</strong></td><td> =</td><td>0.0_wp</td><td></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+    </section>
+    <br>
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+
+
+    
+    
+    
+    <section>
+    <h2><span class="anchor" id="src"></span>Source Code</h2>
+    <div class="highlight"><pre><span></span><span class="k">pure function </span><span class="n">dznrm2</span><span class="p">(</span> <span class="n">n</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">incx</span> <span class="p">)</span>
+   <span class="kt">integer</span><span class="p">,</span> <span class="k">parameter</span> <span class="kd">::</span> <span class="n">wp</span> <span class="o">=</span> <span class="nb">kind</span><span class="p">(</span><span class="mf">1.d0</span><span class="p">)</span>
+   <span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">)</span> <span class="kd">::</span> <span class="n">dznrm2</span>
+<span class="c">!</span>
+<span class="c">!  -- Reference BLAS level1 routine (version 3.9.1) --</span>
+<span class="c">!  -- Reference BLAS is a software package provided by Univ. of Tennessee,    --</span>
+<span class="c">!  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--</span>
+<span class="c">!     March 2021</span>
+<span class="c">!</span>
+<span class="c">!  .. Constants ..</span>
+   <span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span> <span class="k">parameter</span> <span class="kd">::</span> <span class="n">zero</span> <span class="o">=</span> <span class="mf">0.0_wp</span>
+   <span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span> <span class="k">parameter</span> <span class="kd">::</span> <span class="n">one</span>  <span class="o">=</span> <span class="mf">1.0_wp</span>
+   <span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span> <span class="k">parameter</span> <span class="kd">::</span> <span class="n">maxn</span> <span class="o">=</span> <span class="nb">huge</span><span class="p">(</span><span class="mf">0.0_wp</span><span class="p">)</span>
+<span class="c">!  ..</span>
+<span class="c">!  .. Blue&#39;s scaling constants ..</span>
+   <span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span> <span class="k">parameter</span> <span class="kd">::</span> <span class="n">tsml</span> <span class="o">=</span> <span class="kt">real</span><span class="p">(</span><span class="nb">radix</span><span class="p">(</span><span class="mf">0._wp</span><span class="p">),</span> <span class="n">wp</span><span class="p">)</span><span class="o">**</span><span class="nb">ceiling</span><span class="p">(</span> <span class="p">(</span><span class="nb">minexponent</span><span class="p">(</span><span class="mf">0._wp</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.5_wp</span><span class="p">)</span>
+   <span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span> <span class="k">parameter</span> <span class="kd">::</span> <span class="n">tbig</span> <span class="o">=</span> <span class="kt">real</span><span class="p">(</span><span class="nb">radix</span><span class="p">(</span><span class="mf">0._wp</span><span class="p">),</span> <span class="n">wp</span><span class="p">)</span><span class="o">**</span><span class="nb">floor</span><span class="p">(</span> <span class="p">(</span><span class="nb">maxexponent</span><span class="p">(</span><span class="mf">0._wp</span><span class="p">)</span> <span class="o">-</span> <span class="nb">digits</span><span class="p">(</span><span class="mf">0._wp</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.5_wp</span><span class="p">)</span>
+   <span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span> <span class="k">parameter</span> <span class="kd">::</span> <span class="n">ssml</span> <span class="o">=</span> <span class="kt">real</span><span class="p">(</span><span class="nb">radix</span><span class="p">(</span><span class="mf">0._wp</span><span class="p">),</span> <span class="n">wp</span><span class="p">)</span><span class="o">**</span><span class="p">(</span> <span class="o">-</span> <span class="nb">floor</span><span class="p">(</span> <span class="p">(</span><span class="nb">minexponent</span><span class="p">(</span><span class="mf">0._wp</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.5_wp</span><span class="p">))</span>
+   <span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span> <span class="k">parameter</span> <span class="kd">::</span> <span class="n">sbig</span> <span class="o">=</span> <span class="kt">real</span><span class="p">(</span><span class="nb">radix</span><span class="p">(</span><span class="mf">0._wp</span><span class="p">),</span> <span class="n">wp</span><span class="p">)</span><span class="o">**</span><span class="p">(</span> <span class="o">-</span> <span class="nb">ceiling</span><span class="p">(</span> <span class="p">(</span><span class="nb">maxexponent</span><span class="p">(</span><span class="mf">0._wp</span><span class="p">)</span> <span class="o">-</span> <span class="nb">digits</span><span class="p">(</span><span class="mf">0._wp</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.5_wp</span><span class="p">))</span>
+<span class="c">!  ..</span>
+<span class="c">!  .. Scalar Arguments ..</span>
+   <span class="kt">integer</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="n">incx</span><span class="p">,</span> <span class="n">n</span>
+<span class="c">!  ..</span>
+<span class="c">!  .. Array Arguments ..</span>
+   <span class="kt">complex</span><span class="p">(</span><span class="n">wp</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="n">x</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+<span class="c">!  ..</span>
+<span class="c">!  .. Local Scalars ..</span>
+   <span class="kt">integer</span> <span class="kd">::</span> <span class="n">i</span><span class="p">,</span> <span class="n">ix</span>
+   <span class="kt">logical</span> <span class="kd">::</span> <span class="n">notbig</span>
+   <span class="kt">real</span><span class="p">(</span><span class="n">wp</span><span class="p">)</span> <span class="kd">::</span> <span class="n">abig</span><span class="p">,</span> <span class="n">amed</span><span class="p">,</span> <span class="n">asml</span><span class="p">,</span> <span class="n">ax</span><span class="p">,</span> <span class="n">scl</span><span class="p">,</span> <span class="n">sumsq</span><span class="p">,</span> <span class="n">ymax</span><span class="p">,</span> <span class="n">ymin</span>
+<span class="c">!</span>
+<span class="c">!  Quick return if possible</span>
+<span class="c">!</span>
+   <span class="n">dznrm2</span> <span class="o">=</span> <span class="n">zero</span>
+   <span class="k">if</span><span class="p">(</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">0</span> <span class="p">)</span> <span class="k">return</span>
+<span class="c">!</span>
+   <span class="n">scl</span> <span class="o">=</span> <span class="n">one</span>
+   <span class="n">sumsq</span> <span class="o">=</span> <span class="n">zero</span>
+<span class="c">!</span>
+<span class="c">!  Compute the sum of squares in 3 accumulators:</span>
+<span class="c">!     abig -- sums of squares scaled down to avoid overflow</span>
+<span class="c">!     asml -- sums of squares scaled up to avoid underflow</span>
+<span class="c">!     amed -- sums of squares that do not require scaling</span>
+<span class="c">!  The thresholds and multipliers are</span>
+<span class="c">!     tbig -- values bigger than this are scaled down by sbig</span>
+<span class="c">!     tsml -- values smaller than this are scaled up by ssml</span>
+<span class="c">!</span>
+   <span class="n">notbig</span> <span class="o">=</span> <span class="p">.</span><span class="n">true</span><span class="p">.</span>
+   <span class="n">asml</span> <span class="o">=</span> <span class="n">zero</span>
+   <span class="n">amed</span> <span class="o">=</span> <span class="n">zero</span>
+   <span class="n">abig</span> <span class="o">=</span> <span class="n">zero</span>
+   <span class="n">ix</span> <span class="o">=</span> <span class="mi">1</span>
+   <span class="k">if</span><span class="p">(</span> <span class="n">incx</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="p">)</span> <span class="n">ix</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">incx</span>
+   <span class="k">do </span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">n</span>
+      <span class="n">ax</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="kt">real</span><span class="p">(</span><span class="n">x</span><span class="p">(</span><span class="n">ix</span><span class="p">)))</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">ax</span> <span class="o">&gt;</span> <span class="n">tbig</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">         </span><span class="n">abig</span> <span class="o">=</span> <span class="n">abig</span> <span class="o">+</span> <span class="p">(</span><span class="n">ax</span><span class="o">*</span><span class="n">sbig</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+         <span class="n">notbig</span> <span class="o">=</span> <span class="p">.</span><span class="n">false</span><span class="p">.</span>
+      <span class="n">elseif</span> <span class="p">(</span><span class="n">ax</span> <span class="o">&lt;</span> <span class="n">tsml</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">         if</span> <span class="p">(</span><span class="n">notbig</span><span class="p">)</span> <span class="n">asml</span> <span class="o">=</span> <span class="n">asml</span> <span class="o">+</span> <span class="p">(</span><span class="n">ax</span><span class="o">*</span><span class="n">ssml</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+      <span class="k">else</span>
+<span class="k">         </span><span class="n">amed</span> <span class="o">=</span> <span class="n">amed</span> <span class="o">+</span> <span class="n">ax</span><span class="o">**</span><span class="mi">2</span>
+      <span class="k">endif</span>
+<span class="k">      </span><span class="n">ax</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="nb">aimag</span><span class="p">(</span><span class="n">x</span><span class="p">(</span><span class="n">ix</span><span class="p">)))</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">ax</span> <span class="o">&gt;</span> <span class="n">tbig</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">         </span><span class="n">abig</span> <span class="o">=</span> <span class="n">abig</span> <span class="o">+</span> <span class="p">(</span><span class="n">ax</span><span class="o">*</span><span class="n">sbig</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+         <span class="n">notbig</span> <span class="o">=</span> <span class="p">.</span><span class="n">false</span><span class="p">.</span>
+      <span class="n">elseif</span> <span class="p">(</span><span class="n">ax</span> <span class="o">&lt;</span> <span class="n">tsml</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">         if</span> <span class="p">(</span><span class="n">notbig</span><span class="p">)</span> <span class="n">asml</span> <span class="o">=</span> <span class="n">asml</span> <span class="o">+</span> <span class="p">(</span><span class="n">ax</span><span class="o">*</span><span class="n">ssml</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+      <span class="k">else</span>
+<span class="k">         </span><span class="n">amed</span> <span class="o">=</span> <span class="n">amed</span> <span class="o">+</span> <span class="n">ax</span><span class="o">**</span><span class="mi">2</span>
+      <span class="k">endif</span>
+<span class="k">      </span><span class="n">ix</span> <span class="o">=</span> <span class="n">ix</span> <span class="o">+</span> <span class="n">incx</span>
+   <span class="k">enddo</span>
+<span class="c">!</span>
+<span class="c">!  Combine abig and amed or amed and asml if more than one</span>
+<span class="c">!  accumulator was used.</span>
+<span class="c">!</span>
+   <span class="k">if</span> <span class="p">(</span><span class="n">abig</span> <span class="o">&gt;</span> <span class="n">zero</span><span class="p">)</span> <span class="k">then</span>
+<span class="c">!</span>
+<span class="c">!     Combine abig and amed if abig &gt; 0.</span>
+<span class="c">!</span>
+      <span class="k">if</span> <span class="p">(</span> <span class="p">(</span><span class="n">amed</span> <span class="o">&gt;</span> <span class="n">zero</span><span class="p">)</span> <span class="p">.</span><span class="nb">or</span><span class="p">.</span> <span class="p">(</span><span class="n">amed</span> <span class="o">&gt;</span> <span class="n">maxn</span><span class="p">)</span> <span class="p">.</span><span class="nb">or</span><span class="p">.</span> <span class="p">(</span><span class="n">amed</span> <span class="o">/=</span> <span class="n">amed</span><span class="p">)</span> <span class="p">)</span> <span class="k">then</span>
+<span class="k">         </span><span class="n">abig</span> <span class="o">=</span> <span class="n">abig</span> <span class="o">+</span> <span class="p">(</span><span class="n">amed</span><span class="o">*</span><span class="n">sbig</span><span class="p">)</span><span class="o">*</span><span class="n">sbig</span>
+      <span class="k">endif</span>
+<span class="k">      </span><span class="n">scl</span> <span class="o">=</span> <span class="n">one</span> <span class="o">/</span> <span class="n">sbig</span>
+      <span class="n">sumsq</span> <span class="o">=</span> <span class="n">abig</span>
+   <span class="n">elseif</span> <span class="p">(</span><span class="n">asml</span> <span class="o">&gt;</span> <span class="n">zero</span><span class="p">)</span> <span class="k">then</span>
+<span class="c">!</span>
+<span class="c">!     Combine amed and asml if asml &gt; 0.</span>
+<span class="c">!</span>
+      <span class="k">if</span> <span class="p">(</span> <span class="p">(</span><span class="n">amed</span> <span class="o">&gt;</span> <span class="n">zero</span><span class="p">)</span> <span class="p">.</span><span class="nb">or</span><span class="p">.</span> <span class="p">(</span><span class="n">amed</span> <span class="o">&gt;</span> <span class="n">maxn</span><span class="p">)</span> <span class="p">.</span><span class="nb">or</span><span class="p">.</span> <span class="p">(</span><span class="n">amed</span> <span class="o">/=</span> <span class="n">amed</span><span class="p">)</span> <span class="p">)</span> <span class="k">then</span>
+<span class="k">         </span><span class="n">amed</span> <span class="o">=</span> <span class="nb">sqrt</span><span class="p">(</span><span class="n">amed</span><span class="p">)</span>
+         <span class="n">asml</span> <span class="o">=</span> <span class="nb">sqrt</span><span class="p">(</span><span class="n">asml</span><span class="p">)</span> <span class="o">/</span> <span class="n">ssml</span>
+         <span class="k">if</span> <span class="p">(</span><span class="n">asml</span> <span class="o">&gt;</span> <span class="n">amed</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">            </span><span class="n">ymin</span> <span class="o">=</span> <span class="n">amed</span>
+            <span class="n">ymax</span> <span class="o">=</span> <span class="n">asml</span>
+         <span class="k">else</span>
+<span class="k">            </span><span class="n">ymin</span> <span class="o">=</span> <span class="n">asml</span>
+            <span class="n">ymax</span> <span class="o">=</span> <span class="n">amed</span>
+         <span class="k">endif</span>
+<span class="k">         </span><span class="n">scl</span> <span class="o">=</span> <span class="n">one</span>
+         <span class="n">sumsq</span> <span class="o">=</span> <span class="n">ymax</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span> <span class="n">one</span> <span class="o">+</span> <span class="p">(</span><span class="n">ymin</span><span class="o">/</span><span class="n">ymax</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="p">)</span>
+      <span class="k">else</span>
+<span class="k">         </span><span class="n">scl</span> <span class="o">=</span> <span class="n">one</span> <span class="o">/</span> <span class="n">ssml</span>
+         <span class="n">sumsq</span> <span class="o">=</span> <span class="n">asml</span>
+      <span class="k">endif</span>
+<span class="k">   else</span>
+<span class="c">!</span>
+<span class="c">!     Otherwise all values are mid-range</span>
+<span class="c">!</span>
+      <span class="n">scl</span> <span class="o">=</span> <span class="n">one</span>
+      <span class="n">sumsq</span> <span class="o">=</span> <span class="n">amed</span>
+   <span class="k">endif</span>
+<span class="k">   </span><span class="n">dznrm2</span> <span class="o">=</span> <span class="n">scl</span><span class="o">*</span><span class="nb">sqrt</span><span class="p">(</span> <span class="n">sumsq</span> <span class="p">)</span>
+<span class="k">end function </span><span class="n">dznrm2</span>
+</pre></div>
+
+    </section>
+    <br>
+    
+    
+    </div>
+  </div>
+
+
+    <hr>    
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+      <div class="row">
+        <div class="col-xs-6 col-md-4"><p>&copy; 2022 
+                                          </p></div>
+        <div class="col-xs-6 col-md-4 col-md-push-4">
+          <p class="text-right">
+            Documentation generated by 
+            <a href="https://github.com/cmacmackin/ford">FORD</a>
+             on 2022-05-07 19:54  
+          </p>
+        </div>
+        <div class="col-xs-12 col-md-4 col-md-pull-4"><p class="text-center"> M_blas was developed by John S. Urban</p></div>
+      </div>
+      <br>
+      </div> <!-- /container -->    
+    </footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+<!--
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+-->
+    <script src="../js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../js/ie10-viewport-bug-workaround.js"></script>
+
+    <!-- MathJax JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+        jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+        extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
+      });
+    </script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    
+    <script src="../tipuesearch/tipuesearch_content.js"></script>
+    <script src="../tipuesearch/tipuesearch_set.js"></script>
+    <script src="../tipuesearch/tipuesearch.js"></script>
+    
+    
+  </body>
+</html>
