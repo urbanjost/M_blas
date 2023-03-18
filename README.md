@@ -1,4 +1,4 @@
-## NAME
+## Name
 ##  M_blas -- BLAS routines in a Fortran module format
 
 The BLAS (Basic Linear Algebra Subprograms) are well-established routines
@@ -35,7 +35,7 @@ rainy-day project at this point, and __should not be considered stable__.
 
 I would love to hear from anyone who tries this as a replacement for
 their current libblas.a or libregblas.a.
-## DOCUMENTATION   ![docs](docs/images/docs.gif)
+## Documentation ![docs](docs/images/docs.gif)
    __A WIP (work in progress)__
 
 All documents are contained in the docs/ directory including
@@ -53,7 +53,7 @@ archive files of man(1) pages that can be installed on ULS
    + [manpages.tgz](https://urbanjost.github.io/M_blas/manpages.tgz) 
 
 
-## DOWNLOAD AND BUILD
+## Download and Build
 
 ### gmake ![gmake](docs/images/gnu.gif)
 
