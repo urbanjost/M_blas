@@ -53,7 +53,7 @@
 #
 #######################################################################
 
-TOPSRCDIR = ../..
+TOPSRCDIR = TOP
 #######################################################################
 #include $(TOPSRCDIR)/make.inc
 
@@ -73,7 +73,7 @@ CFLAGS = -O3
 #  should not compile LAPACK with flags such as -ffpe-trap=overflow.
 #
 FC = gfortran
-FFLAGS = -O2 -g -fbacktrace -Wall
+FFLAGS = -O2 -g -fbacktrace -Wall -fall-intrinsics
 FFLAGS_DRV = $(FFLAGS)
 FFLAGS_NOOPT = -O0
 
@@ -98,6 +98,27 @@ BLASLIB      = $(TOPSRCDIR)/librefblas.a
 # If you generate html pages (make html), documentation will be placed in $(DOCSDIR)/explore-html
 # If you generate man pages (make man), documentation will be placed in $(DOCSDIR)/man
 DOCSDIR       = $(TOPSRCDIR)/DOCS
+#######################################################################
+gfortran: FC=gfortran
+#gfortran: FFLAGS := -g -O -Wall -std=f2018 -Wextra -Wno-maybe-uninitialized -Wno-uninitialized -fall-intrinsics
+gfortran: FFLAGS := -g -O -Wall -Wextra -Wno-maybe-uninitialized -Wno-uninitialized 
+gfortran: all
+	@echo built with $(F90)
+
+nvfortran: FC=nvfortran
+nvfortran: FFLAGS := -Minform=inform -Mbackslash -traceback
+nvfortran: all
+	@echo built with $(F90)
+
+ifort: FC=ifort
+ifort: FFLAGS := -warn all -traceback
+ifort: all
+	@echo built with $(F90)
+
+nagfor: FC=nagfor
+nagfor: FFLAGS := -C all
+nagfor: all
+	@echo built with $(F90)
 #######################################################################
 
 .PHONY: all
@@ -145,3 +166,19 @@ cleanlib:
 	$(FC) $(FFLAGS) -c $<
 .F90.o:
 	$(FC) $(FFLAGS) -c $<
+
+.PHONY: man
+man:
+	@mandb ../man 1>&2
+	@env MANPATH=../man MANWIDTH=256 man -k .|col -b
+	@env MANPATH=../man MANWIDTH=80  man -Tutf8 --regex '.*'|col -b
+.PHONY: help
+help:
+	: make    '-- build M_blas module'
+#	: run     '-- run manpage demo programs and test program'
+#	: test    '-- run test program (requires additional modules)'
+	: man     '-- show all manpages as text'
+#	: ship    '-- rebuild archive files of manpages'
+	: clean   '-- clean directory of object files and executables'
+#	: doxygen '-- run doxygen(1) if you have it'
+	: help    '-- display this text'

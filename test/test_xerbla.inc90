@@ -1,0 +1,47 @@
+subroutine test_xerbla(srname, info)
+!
+!  This is a special version of XERBLA to be used only as part of
+!  the test program for testing error exits from the Level 2/3 BLAS
+!  routines.
+!
+!  XERBLA  is an error handler for the Level 2/3 BLAS routines.
+!
+!  It is called by the Level 2/3 BLAS routines if an input parameter is
+!  invalid.
+!
+!  Auxiliary routine for test program for Level 2/3 Blas.
+!
+!  -- Written on 10-August-1987.
+!     Richard Hanson, Sandia National Labs.
+!     Jeremy Du Croz, NAG Central Office.
+!
+! .. Scalar Arguments ..
+character(len=*), intent(in) :: srname
+integer, intent(in)          :: info
+! .. Scalars in Common ..
+integer                      :: infot, nout
+logical                      :: lerr, ok
+character(len=6)             :: srnamt
+! .. Common blocks ..
+common/infoc/infot, nout, ok, lerr
+common/srnamc/srnamt
+! .. Executable Statements ..
+   lerr = .true.
+   if (info .ne. infot) then
+      if (infot .ne. 0) then
+         write (nout, fmt=9999) info, infot
+      else
+         write (nout, fmt=9997) info
+      endif
+      ok = .false.
+   endif
+   if (srname .ne. srnamt) then
+      write (nout, fmt=9998) srname, srnamt
+      ok = .false.
+   endif
+!
+9999 format(' ******* XERBLA WAS CALLED WITH INFO = ', i0, ' INSTEAD OF ', i0, ' *******')
+9998 format(' ******* XERBLA WAS CALLED WITH SRNAME = ', a, ' INSTEAD OF ', a, ' *******')
+9997 format(' ******* XERBLA WAS CALLED WITH INFO = ', i0, ' *******')
+
+end subroutine test_xerbla
