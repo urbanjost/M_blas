@@ -2,7 +2,7 @@
 <head> 
 <title> </title>
 <style> 
-px {font-family: "Lucida Console", Monaco }
+px {font-family: "Lucida Console", Monaco, monospace }
 p { font-size:100%; line-height:1.1em; }
 body {xfont-style: sans-serif}
 body {
@@ -41,7 +41,10 @@ a.existingWikiWord[title]{ //border: 1px dashed #BBB; }
 </style> 
 </head>
 <BODY bgcolor=#F0F0F0 text=#000000 link=#0000ff vlink=#C000C0 alink=#ff0000><A NAME=top></A>
+<!--
 <h5><a href="https://github.com/urbanjost/M_blas">[UP]</a></h5>
+<button type="button" onclick="javascript:history.back()">Back</button>
+-->
 <div id="Container">
 <div id="Content">
 <CENTER>
@@ -53,7 +56,7 @@ a.existingWikiWord[title]{ //border: 1px dashed #BBB; }
 
 </A>
 <BLOCKQUOTE>
-<B>zgemm</B>(3f) - [BLAS:COMPLEX16_BLAS_LEVEL3]
+zgemm(3f) - [BLAS:COMPLEX16_BLAS_LEVEL3]
 <P>
 </BLOCKQUOTE>
 <A name=contents></A><H3>CONTENTS</H3></A>
@@ -72,7 +75,7 @@ a.existingWikiWord[title]{ //border: 1px dashed #BBB; }
 
 </A>
 <BLOCKQUOTE>
-subroutine <B>zgemm</B>(transa,transb,m,n,k,alpha,a,lda,b,ldb,beta,c,ldc)
+subroutine zgemm(transa,transb,m,n,k,alpha,a,lda,b,ldb,beta,c,ldc)
 <P>
 <PRE>
       .. Scalar Arguments ..
@@ -100,14 +103,14 @@ ZGEMM performs one of the matrix-matrix operations
     C := alpha*op( A )*op( B ) + beta*C,
 <P>
 </PRE>
-where <B>op</B>( X ) is one of
+where op( X ) is one of
 <P>
 <PRE>
     op( X ) = X   or   op( X ) = X**T   or   op( X ) = X**H,
 <P>
 </PRE>
-alpha and beta are scalars, and A, B and C are matrices, with <B>op</B>( A )
-an m by k matrix, <B>op</B>( B ) a k by n matrix and C an m by n matrix.
+alpha and beta are scalars, and A, B and C are matrices, with op( A )
+an m by k matrix, op( B ) a k by n matrix and C an m by n matrix.
 </BLOCKQUOTE>
 <A name=3>
 
@@ -124,7 +127,7 @@ an m by k matrix, <B>op</B>( B ) a k by n matrix and C an m by n matrix.
 <BLOCKQUOTE>
 <P>
 TRANSA is CHARACTER*1
-On entry, TRANSA specifies the form of <B>op</B>( A ) to be used in
+On entry, TRANSA specifies the form of op( A ) to be used in
 the matrix multiplication as follows:
 <P>
 <PRE>
@@ -143,7 +146,7 @@ the matrix multiplication as follows:
 <BLOCKQUOTE>
 <P>
 TRANSB is CHARACTER*1
-On entry, TRANSB specifies the form of <B>op</B>( B ) to be used in
+On entry, TRANSB specifies the form of op( B ) to be used in
 the matrix multiplication as follows:
 <P>
 <PRE>
@@ -163,7 +166,7 @@ the matrix multiplication as follows:
 <P>
 M is INTEGER
 On entry, M specifies the number of rows of the matrix
-<B>op</B>( A ) and of the matrix C. M must be at least zero.
+op( A ) and of the matrix C. M must be at least zero.
 </BLOCKQUOTE>
 <A name=>
 
@@ -173,7 +176,7 @@ On entry, M specifies the number of rows of the matrix
 <P>
 N is INTEGER
 On entry, N specifies the number of columns of the matrix
-<B>op</B>( B ) and the number of columns of the matrix C. N must be
+op( B ) and the number of columns of the matrix C. N must be
 at least zero.
 </BLOCKQUOTE>
 <A name=>
@@ -184,7 +187,7 @@ at least zero.
 <P>
 K is INTEGER
 On entry, K specifies the number of columns of the matrix
-<B>op</B>( A ) and the number of rows of the matrix <B>op</B>( B ). K must
+op( A ) and the number of rows of the matrix op( B ). K must
 be at least zero.
 </BLOCKQUOTE>
 <A name=>
@@ -193,7 +196,7 @@ be at least zero.
 </A>
 <BLOCKQUOTE>
 <P>
-ALPHA is <B>complex</B>(kind=real64)
+ALPHA is complex(kind=real64)
 On entry, ALPHA specifies the scalar alpha.
 </BLOCKQUOTE>
 <A name=>
@@ -202,7 +205,7 @@ On entry, ALPHA specifies the scalar alpha.
 </A>
 <BLOCKQUOTE>
 <P>
-A is <B>complex</B>(kind=real64) array, dimension ( LDA, ka ), where ka is
+A is complex(kind=real64) array, dimension ( LDA, ka ), where ka is
 k when TRANSA = &#146;N&#146; or &#146;n&#146;, and is m otherwise.
 Before entry with TRANSA = &#146;N&#146; or &#146;n&#146;, the leading m by k
 part of the array A must contain the matrix A, otherwise
@@ -218,8 +221,8 @@ matrix A.
 LDA is INTEGER
 On entry, LDA specifies the first dimension of A as declared
 in the calling (sub) program. When TRANSA = &#146;N&#146; or &#146;n&#146; then
-LDA must be at least <B>max</B>( 1, m ), otherwise LDA must be at
-least <B>max</B>( 1, k ).
+LDA must be at least max( 1, m ), otherwise LDA must be at
+least max( 1, k ).
 </BLOCKQUOTE>
 <A name=>
 
@@ -227,7 +230,7 @@ least <B>max</B>( 1, k ).
 </A>
 <BLOCKQUOTE>
 <P>
-B is <B>complex</B>(kind=real64) array, dimension ( LDB, kb ), where kb is
+B is complex(kind=real64) array, dimension ( LDB, kb ), where kb is
 n when TRANSB = &#146;N&#146; or &#146;n&#146;, and is k otherwise.
 Before entry with TRANSB = &#146;N&#146; or &#146;n&#146;, the leading k by n
 part of the array B must contain the matrix B, otherwise
@@ -243,8 +246,8 @@ matrix B.
 LDB is INTEGER
 On entry, LDB specifies the first dimension of B as declared
 in the calling (sub) program. When TRANSB = &#146;N&#146; or &#146;n&#146; then
-LDB must be at least <B>max</B>( 1, k ), otherwise LDB must be at
-least <B>max</B>( 1, n ).
+LDB must be at least max( 1, k ), otherwise LDB must be at
+least max( 1, n ).
 </BLOCKQUOTE>
 <A name=>
 
@@ -252,7 +255,7 @@ least <B>max</B>( 1, n ).
 </A>
 <BLOCKQUOTE>
 <P>
-BETA is <B>complex</B>(kind=real64)
+BETA is complex(kind=real64)
 On entry, BETA specifies the scalar beta. When BETA is
 supplied as zero then C need not be set on input.
 </BLOCKQUOTE>
@@ -262,12 +265,12 @@ supplied as zero then C need not be set on input.
 </A>
 <BLOCKQUOTE>
 <P>
-C is <B>complex</B>(kind=real64) array, dimension ( LDC, N )
+C is complex(kind=real64) array, dimension ( LDC, N )
 Before entry, the leading m by n part of the array C must
 contain the matrix C, except when beta is zero, in which
 case C need not be set on entry.
 On exit, the array C is overwritten by the m by n matrix
-( alpha*<B>op</B>( A )*<B>op</B>( B ) + beta*C ).
+( alpha*op( A )*op( B ) + beta*C ).
 </BLOCKQUOTE>
 <A name=>
 
@@ -278,7 +281,7 @@ On exit, the array C is overwritten by the m by n matrix
 LDC is INTEGER
 On entry, LDC specifies the first dimension of C as declared
 in the calling (sub) program. LDC must be at least
-<B>max</B>( 1, m ).
+max( 1, m ).
 </BLOCKQUOTE>
 <A name=5>
 
@@ -338,7 +341,7 @@ Online html documentation available at
 <A HREF="http://www.netlib.org/lapack/explore-html">http://www.netlib.org/lapack/explore-html</A>/
 </BLOCKQUOTE>
 <P><HR>
-<TABLE width=100%><TR> <TD width=33%><I>Nemo Release 3.1</I></TD> <TD width=33% align=center>zgemm (3m_blas)</TD> <TD align=right width=33%><I>January 03, 2022</I></TD> </TR></TABLE><FONT SIZE=-1>Generated by <A HREF="http://www.squarebox.co.uk/download/manServer.shtml">manServer 1.08</A> from b4fa87f1-edc4-4623-8539-343273b3a6b7 using man macros.</FONT>
+<TABLE width=100%><TR> <TD width=33%><I>Nemo Release 3.1</I></TD> <TD width=33% align=center>zgemm (3m_blas)</TD> <TD align=right width=33%><I>July 20, 2023</I></TD> </TR></TABLE><FONT SIZE=-1>Generated by <A HREF="http://www.squarebox.co.uk/download/manServer.shtml">manServer 1.08</A> from a4d686ba-6ce7-49fa-a8ce-08652e891a54 using man macros.</FONT>
 <br><br><center><img src="images/zgemm.gif"></center>
 </div>
 </div>
