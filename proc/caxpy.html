@@ -96,17 +96,16 @@
           <li id="statements"><i class="fa fa-list-ol"></i>
             <a data-toggle="tooltip"
                data-placement="bottom" data-html="true"
-               title=" 0.2% of total for procedures.">25 statements</a>
+               title=" 0.1% of total for procedures.">9 statements</a>
           </li>
 
             <li id="source-file">
               <i class="fa fa-code"></i>
-              <a href="../src/M_blas.f90"> Source File</a>
+              <a href="../src/compatible.f90"> Source File</a>
             </li>
         </ul>
         <ol class="breadcrumb in-well text-right">
-              <li><a href='../sourcefile/m_blas.f90.html'>M_blas.f90</a></li>
-              <li><a href='../module/m_blas.html'>M_blas</a></li>
+              <li><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></li>
           <li class="active">caxpy</li>
         </ol>
       </div>
@@ -125,21 +124,7 @@
       <div id="sidebar">
       <h3>Contents</h3>
   
-      <div class="panel panel-primary">
-      <div class="panel-heading text-left">
-        <h3 class="panel-title">
-          <a data-toggle="collapse" href="#vars-0">Variables</a>
-        </h3>
-      </div>
-      <div id="vars-0" class="panel-collapse collapse">
-        <div class="list-group">
-            <a class="list-group-item" href="../proc/caxpy.html#variable-i~21">i</a>
-            <a class="list-group-item" href="../proc/caxpy.html#variable-ix~15">ix</a>
-            <a class="list-group-item" href="../proc/caxpy.html#variable-iy~7">iy</a>
-        </div>
-      </div>
-    </div>
-
+  
   
   
   
@@ -170,56 +155,69 @@
     </div>
     
     <div class="col-md-9" id='text'>
-    <h2>public  subroutine caxpy(n, ca, cx, incx, cy, incy)  
+    <h2> subroutine caxpy(n, ca, cx, incx, cy, incy)  
 </h2>
-    
+        <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Uses</h3>
+      </div>
+      <ul class="list-group">
+          <li class="list-group-item">
+            <ul class="list-inline">
+                <li><a href='../module/m_blas.html'>M_blas</a></li>
+            </ul>
+          </li>
+      </ul>
+    </div>
 
-    <h2 id="name">NAME</h2>
-<div class="codehilite"><pre><span></span><code><span class="w"> </span><span class="n">caxpy</span><span class="p">(</span><span class="mi">3</span><span class="n">f</span><span class="p">)</span><span class="w"> </span><span class="o">--</span><span class="w"> </span><span class="p">[</span><span class="n">BLAS</span><span class="p">:</span><span class="n">COMPLEX_BLAS_LEVEL1</span><span class="p">]</span><span class="w"> </span><span class="n">CY</span><span class="p">:</span><span class="o">=</span><span class="n">CY</span><span class="o">+</span><span class="n">CA</span><span class="o">*</span><span class="n">CX</span><span class="w"> </span><span class="p">(</span><span class="n">constant</span><span class="w"> </span><span class="n">times</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">vector</span><span class="w"> </span><span class="n">plus</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">vector</span><span class="p">)</span><span class="w"></span>
+
+    <p>\brief \b CAXPY
+\par Purpose:</p>
+<p>\verbatim</p>
+<p>CAXPY constant times a vector plus a vector.
+\endverbatim
+\param[in] N
+\verbatim
+         N is INTEGER
+        number of elements in input vector(s)
+\endverbatim</p>
+<p>\param[in] CA
+\verbatim
+         CA is COMPLEX
+          On entry, CA specifies the scalar alpha.
+\endverbatim</p>
+<p>\param[in] CX
+\verbatim
+         CX is COMPLEX array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
+\endverbatim</p>
+<p>\param[in] INCX
+\verbatim
+         INCX is INTEGER
+        storage spacing between elements of CX
+\endverbatim</p>
+<p>\param[in,out] CY
+\verbatim
+         CY is COMPLEX array, dimension ( 1 + ( N - 1 )*abs( INCY ) )
+\endverbatim</p>
+<p>\param[in] INCY
+\verbatim
+         INCY is INTEGER
+        storage spacing between elements of CY
+\endverbatim
+\author Univ. of Tennessee
+\author Univ. of California Berkeley
+\author Univ. of Colorado Denver
+\author NAG Ltd.
+\date November 2017
+\ingroup complex_blas_level1
+\par Further Details:</p>
+<p>\verbatim</p>
+<div class="codehilite"><pre><span></span><code>jack dongarra, linpack, 3/11/78.
+modified 12/3/93, array(1) declarations changed to array(*)
 </code></pre></div>
 
-<h2 id="synopsis">SYNOPSIS</h2>
-<div class="codehilite"><pre><span></span><code>subroutine caxpy(n,ca,cx,incx,cy,incy)
+<p>\endverbatim</p>
 
-    .. Scalar Arguments ..
-    complex,intent(in)    :: ca
-    integer,intent(in)    :: incx,incy,n
-    ..
-    .. Array Arguments ..
-    complex,intent(in)    :: cx(*)
-    complex,intent(inout) :: cy(*)
-</code></pre></div>
-
-<h2 id="description">DESCRIPTION</h2>
-<div class="codehilite"><pre><span></span><code><span class="w"> </span><span class="n">CAXPY</span><span class="w"> </span><span class="n">constant</span><span class="w"> </span><span class="n">times</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">vector</span><span class="w"> </span><span class="n">plus</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">vector</span><span class="o">.</span><span class="w"></span>
-</code></pre></div>
-
-<h2 id="options">OPTIONS</h2>
-<div class="codehilite"><pre><span></span><code>N      number of elements in input vector(s)
-CA     On entry, CA specifies the scalar alpha.
-CX     CX is COMPLEX array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
-INCX   storage spacing between elements of CX
-CY     CY is COMPLEX array, dimension ( 1 + ( N - 1 )*abs( INCY ) )
-INCY   storage spacing between elements of CY
-</code></pre></div>
-
-<h2 id="authors">AUTHORS</h2>
-<ul>
-<li>Univ. of Tennessee</li>
-<li>Univ. of California Berkeley</li>
-<li>Univ. of Colorado Denver</li>
-<li>NAG Ltd.</li>
-</ul>
-<p>November 2017</p>
-<p>FURTHER DETAILS</p>
-<div class="codehilite"><pre><span></span><code>  Jack Dongarra, linpack, 3/11/78.
-  modified 12/3/93, array(1) declarations changed to array(*)
-</code></pre></div>
-
-<h2 id="see-also">SEE ALSO</h2>
-<div class="codehilite"><pre><span></span><code>Online html documentation available at
-http://www.netlib.org/lapack/explore-html/
-</code></pre></div>
 
     <h3>Arguments</h3>
         <table class="table table-striped varlist">
@@ -234,10 +232,10 @@ http://www.netlib.org/lapack/explore-html/
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-n~22"></span>
-              integer,
+              <span class="anchor" id="variable-n"></span>
+              integer
             </td>
-<td>intent(in)</td>
+<td></td>
               <td></td>            <td>
               
             </td>
@@ -249,10 +247,10 @@ http://www.netlib.org/lapack/explore-html/
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-ca~3"></span>
-              complex,
+              <span class="anchor" id="variable-ca"></span>
+              complex
             </td>
-<td>intent(in)</td>
+<td></td>
               <td></td>            <td>
               
             </td>
@@ -264,10 +262,10 @@ http://www.netlib.org/lapack/explore-html/
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-cx~6"></span>
-              complex,
+              <span class="anchor" id="variable-cx"></span>
+              complex
             </td>
-<td>intent(in)</td>
+<td></td>
               <td></td>            <td>
               
             </td>
@@ -279,10 +277,10 @@ http://www.netlib.org/lapack/explore-html/
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-incx~22"></span>
-              integer,
+              <span class="anchor" id="variable-incx"></span>
+              integer
             </td>
-<td>intent(in)</td>
+<td></td>
               <td></td>            <td>
               
             </td>
@@ -294,10 +292,10 @@ http://www.netlib.org/lapack/explore-html/
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-cy~4"></span>
-              complex,
+              <span class="anchor" id="variable-cy"></span>
+              complex
             </td>
-<td>intent(inout)</td>
+<td></td>
               <td></td>            <td>
               
             </td>
@@ -309,10 +307,10 @@ http://www.netlib.org/lapack/explore-html/
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-incy~10"></span>
-              integer,
+              <span class="anchor" id="variable-incy"></span>
+              integer
             </td>
-<td>intent(in)</td>
+<td></td>
               <td></td>            <td>
               
             </td>
@@ -330,21 +328,7 @@ http://www.netlib.org/lapack/explore-html/
     <section class="visible-xs visible-sm hidden-md">
         <h3>Contents</h3>
   
-      <div class="panel panel-primary">
-      <div class="panel-heading text-left">
-        <h3 class="panel-title">
-          <a data-toggle="collapse" href="#vars-1">Variables</a>
-        </h3>
-      </div>
-      <div id="vars-1" class="panel-collapse collapse">
-        <div class="list-group">
-            <a class="list-group-item" href="../proc/caxpy.html#variable-i~21">i</a>
-            <a class="list-group-item" href="../proc/caxpy.html#variable-ix~15">ix</a>
-            <a class="list-group-item" href="../proc/caxpy.html#variable-iy~7">iy</a>
-        </div>
-      </div>
-    </div>
-
+  
   
   
   
@@ -374,74 +358,6 @@ http://www.netlib.org/lapack/explore-html/
     <br class="visible-xs visible-sm hidden-md">
 
 
-    <section>    
-      <h2>Variables</h2>
-      <table class="table table-striped varlist">
-    <thead>
-      <tr>
-        <th>Type</th>
-<th>Visibility</th>        <th>Attributes</th>
-        <th></th>
-        <th>Name</th>
-<th></th><th>Initial</th>        <th></th>
-    </thead>
-    <tbody>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-i~21"></span>
-              integer,
-            </td>
-              <td>public</td>
-            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>i</strong></td>
-                <td></td>
-                <td></td>
-            <td>
-                
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-ix~15"></span>
-              integer,
-            </td>
-              <td>public</td>
-            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>ix</strong></td>
-                <td></td>
-                <td></td>
-            <td>
-                
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-iy~7"></span>
-              integer,
-            </td>
-              <td>public</td>
-            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>iy</strong></td>
-                <td></td>
-                <td></td>
-            <td>
-                
-            </td>
-        </tr>
-    </tbody>
-  </table>
-
-    </section>
-    <br>
     
     
 
@@ -453,7 +369,94 @@ http://www.netlib.org/lapack/explore-html/
     <section>
     <h2><span class="anchor" id="src"></span>Source Code</h2>
     <div class="highlight"><pre><span></span><span class="k">subroutine </span><span class="n">caxpy</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">ca</span><span class="p">,</span><span class="n">cx</span><span class="p">,</span><span class="n">incx</span><span class="p">,</span><span class="n">cy</span><span class="p">,</span><span class="n">incy</span><span class="p">)</span><span class="w"></span>
-<span class="k">implicit none</span><span class="w"></span>
+<span class="c">! COMMENT --file caxpy.3m_blas.man</span>
+<span class="c">!&gt; \brief \b CAXPY</span>
+<span class="c">!</span>
+<span class="c">!  =========== DOCUMENTATION ===========</span>
+<span class="c">!</span>
+<span class="c">! Online html documentation available at</span>
+<span class="c">!            http://www.netlib.org/lapack/explore-html/</span>
+<span class="c">!</span>
+<span class="c">!  Definition:</span>
+<span class="c">!  ===========</span>
+<span class="c">!</span>
+<span class="c">!       SUBROUTINE CAXPY(N,CA,CX,INCX,CY,INCY)</span>
+<span class="c">!</span>
+<span class="c">!       .. Scalar Arguments ..</span>
+<span class="c">!       COMPLEX CA</span>
+<span class="c">!       INTEGER INCX,INCY,N</span>
+<span class="c">!       ..</span>
+<span class="c">!       .. Array Arguments ..</span>
+<span class="c">!       COMPLEX CX(*),CY(*)</span>
+<span class="c">!       ..</span>
+<span class="c">!</span>
+<span class="c">!&gt; \par Purpose:</span>
+<span class="c">!  =============</span>
+<span class="c">!&gt;</span>
+<span class="c">!&gt; \verbatim</span>
+<span class="c">!&gt;</span>
+<span class="c">!&gt;    CAXPY constant times a vector plus a vector.</span>
+<span class="c">!&gt; \endverbatim</span>
+<span class="c">!</span>
+<span class="c">!  Arguments:</span>
+<span class="c">!  ==========</span>
+<span class="c">!</span>
+<span class="c">!&gt; \param[in] N</span>
+<span class="c">!&gt; \verbatim</span>
+<span class="c">!&gt;          N is INTEGER</span>
+<span class="c">!&gt;         number of elements in input vector(s)</span>
+<span class="c">!&gt; \endverbatim</span>
+<span class="c">!&gt;</span>
+<span class="c">!&gt; \param[in] CA</span>
+<span class="c">!&gt; \verbatim</span>
+<span class="c">!&gt;          CA is COMPLEX</span>
+<span class="c">!&gt;           On entry, CA specifies the scalar alpha.</span>
+<span class="c">!&gt; \endverbatim</span>
+<span class="c">!&gt;</span>
+<span class="c">!&gt; \param[in] CX</span>
+<span class="c">!&gt; \verbatim</span>
+<span class="c">!&gt;          CX is COMPLEX array, dimension ( 1 + ( N - 1 )*abs( INCX ) )</span>
+<span class="c">!&gt; \endverbatim</span>
+<span class="c">!&gt;</span>
+<span class="c">!&gt; \param[in] INCX</span>
+<span class="c">!&gt; \verbatim</span>
+<span class="c">!&gt;          INCX is INTEGER</span>
+<span class="c">!&gt;         storage spacing between elements of CX</span>
+<span class="c">!&gt; \endverbatim</span>
+<span class="c">!&gt;</span>
+<span class="c">!&gt; \param[in,out] CY</span>
+<span class="c">!&gt; \verbatim</span>
+<span class="c">!&gt;          CY is COMPLEX array, dimension ( 1 + ( N - 1 )*abs( INCY ) )</span>
+<span class="c">!&gt; \endverbatim</span>
+<span class="c">!&gt;</span>
+<span class="c">!&gt; \param[in] INCY</span>
+<span class="c">!&gt; \verbatim</span>
+<span class="c">!&gt;          INCY is INTEGER</span>
+<span class="c">!&gt;         storage spacing between elements of CY</span>
+<span class="c">!&gt; \endverbatim</span>
+<span class="c">!</span>
+<span class="c">!  Authors:</span>
+<span class="c">!  ========</span>
+<span class="c">!</span>
+<span class="c">!&gt; \author Univ. of Tennessee</span>
+<span class="c">!&gt; \author Univ. of California Berkeley</span>
+<span class="c">!&gt; \author Univ. of Colorado Denver</span>
+<span class="c">!&gt; \author NAG Ltd.</span>
+<span class="c">!</span>
+<span class="c">!&gt; \date November 2017</span>
+<span class="c">!</span>
+<span class="c">!&gt; \ingroup complex_blas_level1</span>
+<span class="c">!</span>
+<span class="c">!&gt; \par Further Details:</span>
+<span class="c">!  =====================</span>
+<span class="c">!&gt;</span>
+<span class="c">!&gt; \verbatim</span>
+<span class="c">!&gt;</span>
+<span class="c">!&gt;     jack dongarra, linpack, 3/11/78.</span>
+<span class="c">!&gt;     modified 12/3/93, array(1) declarations changed to array(*)</span>
+<span class="c">!&gt; \endverbatim</span>
+<span class="c">!&gt;</span>
+<span class="c">!  =====================================================================</span>
 <span class="c">!</span>
 <span class="c">!  -- Reference BLAS level1 routine (version 3.8.0) --</span>
 <span class="c">!  -- Reference BLAS is a software package provided by Univ. of Tennessee,    --</span>
@@ -461,47 +464,33 @@ http://www.netlib.org/lapack/explore-html/
 <span class="c">!     November 2017</span>
 <span class="c">!</span>
 <span class="c">!     .. Scalar Arguments ..</span>
-<span class="w">      </span><span class="kt">complex</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">    </span><span class="kd">::</span><span class="w"> </span><span class="n">ca</span><span class="w"></span>
-<span class="w">      </span><span class="kt">integer</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">    </span><span class="kd">::</span><span class="w"> </span><span class="n">incx</span><span class="p">,</span><span class="n">incy</span><span class="p">,</span><span class="n">n</span><span class="w"></span>
 <span class="c">!     ..</span>
 <span class="c">!     .. Array Arguments ..</span>
-<span class="w">      </span><span class="kt">complex</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">    </span><span class="kd">::</span><span class="w"> </span><span class="n">cx</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="kt">complex</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w">  </span><span class="n">cy</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
 <span class="c">!     ..</span>
 <span class="c">!</span>
 <span class="c">!  =====================================================================</span>
 <span class="c">!</span>
 <span class="c">!     .. Local Scalars ..</span>
-<span class="w">      </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="n">ix</span><span class="p">,</span><span class="n">iy</span><span class="w"></span>
 <span class="c">!     ..</span>
 <span class="c">!     .. External Functions ..</span>
 <span class="c">!     ..</span>
-<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="p">.</span><span class="n">le</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">return</span>
-<span class="k">      if</span><span class="w"> </span><span class="p">(</span><span class="n">scabs1</span><span class="p">(</span><span class="n">ca</span><span class="p">).</span><span class="n">eq</span><span class="p">.</span><span class="mf">0.0e+0</span><span class="p">)</span><span class="w"> </span><span class="k">return</span>
-<span class="k">      if</span><span class="w"> </span><span class="p">(</span><span class="n">incx</span><span class="p">.</span><span class="n">eq</span><span class="p">.</span><span class="mi">1</span><span class="w"> </span><span class="p">.</span><span class="nb">and</span><span class="p">.</span><span class="w"> </span><span class="n">incy</span><span class="p">.</span><span class="n">eq</span><span class="p">.</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">then</span><span class="w"></span>
 <span class="c">!</span>
 <span class="c">!        code for both increments equal to 1</span>
 <span class="c">!</span>
-<span class="w">         </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="w"></span>
-<span class="w">            </span><span class="n">cy</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cy</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">ca</span><span class="o">*</span><span class="n">cx</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"></span>
-<span class="w">         </span><span class="k">enddo</span>
-<span class="k">      else</span><span class="w"></span>
 <span class="c">!</span>
 <span class="c">!        code for unequal increments or equal increments</span>
 <span class="c">!          not equal to 1</span>
 <span class="c">!</span>
-<span class="w">         </span><span class="n">ix</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
-<span class="w">         </span><span class="n">iy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
-<span class="w">         </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">incx</span><span class="p">.</span><span class="n">lt</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="n">ix</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="o">-</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">incx</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
-<span class="w">         </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">incy</span><span class="p">.</span><span class="n">lt</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="n">iy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="o">-</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">incy</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
-<span class="w">         </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="w"></span>
-<span class="w">            </span><span class="n">cy</span><span class="p">(</span><span class="n">iy</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cy</span><span class="p">(</span><span class="n">iy</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">ca</span><span class="o">*</span><span class="n">cx</span><span class="p">(</span><span class="n">ix</span><span class="p">)</span><span class="w"></span>
-<span class="w">            </span><span class="n">ix</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ix</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">incx</span><span class="w"></span>
-<span class="w">            </span><span class="n">iy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">iy</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">incy</span><span class="w"></span>
-<span class="w">         </span><span class="k">enddo</span>
-<span class="k">      endif</span><span class="w"></span>
 <span class="c">!</span>
-<span class="w">      </span><span class="k">end subroutine </span><span class="n">caxpy</span><span class="w"></span>
+<span class="c">! END</span>
+<span class="k">use </span><span class="n">m_blas</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">caxpy_</span><span class="o">=&gt;</span><span class="n">caxpy</span><span class="w"></span>
+<span class="k">implicit none</span>
+<span class="k">      </span><span class="kt">complex</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ca</span><span class="w"></span>
+<span class="w">      </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">incx</span><span class="p">,</span><span class="n">incy</span><span class="p">,</span><span class="n">n</span><span class="w"></span>
+<span class="w">      </span><span class="kt">complex</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">cx</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="kt">complex</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">cy</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">call </span><span class="n">caxpy_</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">ca</span><span class="p">,</span><span class="n">cx</span><span class="p">,</span><span class="n">incx</span><span class="p">,</span><span class="n">cy</span><span class="p">,</span><span class="n">incy</span><span class="p">)</span><span class="w"></span>
+<span class="k">end subroutine </span><span class="n">caxpy</span><span class="w"></span>
 </pre></div>
 
     </section>
@@ -522,7 +511,7 @@ http://www.netlib.org/lapack/explore-html/
             <p class="text-right">
               Documentation generated by
               <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2023-04-12 23:23              </p>
+ on 2023-07-21 02:09              </p>
           </div>
         </div>
         <br>

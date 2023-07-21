@@ -101,11 +101,12 @@
 
             <li id="source-file">
               <i class="fa fa-code"></i>
-              <a href="../src/compatible.f90"> Source File</a>
+              <a href="../src/M_blas.f90"> Source File</a>
             </li>
         </ul>
         <ol class="breadcrumb in-well text-right">
-              <li><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></li>
+              <li><a href='../sourcefile/m_blas.f90.html'>M_blas.f90</a></li>
+              <li><a href='../module/m_blas.html'>M_blas</a></li>
           <li class="active">scabs1</li>
         </ol>
       </div>
@@ -155,37 +156,42 @@
     </div>
     
     <div class="col-md-9" id='text'>
-    <h2> function scabs1(z)  
+    <h2>public pure elemental function scabs1(z)  
 </h2>
-        <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title">Uses</h3>
-      </div>
-      <ul class="list-group">
-          <li class="list-group-item">
-            <ul class="list-inline">
-                <li><a href='../module/m_blas.html'>M_blas</a></li>
-            </ul>
-          </li>
-      </ul>
-    </div>
+    
 
+    <h2 id="name">NAME</h2>
+<div class="codehilite"><pre><span></span><code>scabs1(3f) - [BLAS:SINGLE_BLAS_LEVEL1]
+</code></pre></div>
 
-    <p>\brief \b SCABS1
-\par Purpose:</p>
-<p>\verbatim</p>
-<p>SCABS1 computes |Re(.)| + |Im(.)| of a complex number
-\endverbatim
-\param[in] Z
-\verbatim
-         Z is COMPLEX
-\endverbatim
-\author Univ. of Tennessee
-\author Univ. of California Berkeley
-\author Univ. of Colorado Denver
-\author NAG Ltd.
-\date November 2017
-\ingroup single_blas_level1</p>
+<h2 id="synopsis">SYNOPSIS</h2>
+<div class="codehilite"><pre><span></span><code> elemental real function scabs1(z)
+
+   .. Scalar Arguments ..
+   complex,intent(in) ::  z
+   ..
+</code></pre></div>
+
+<h2 id="definition">DEFINITION</h2>
+<p>SCABS1 computes |Re(.)| + |Im(.)| of a complex number</p>
+<h2 id="options">OPTIONS</h2>
+<p>Z</p>
+<div class="codehilite"><pre><span></span><code>       Z is COMPLEX
+</code></pre></div>
+
+<h2 id="authors">AUTHORS</h2>
+<ul>
+<li>Univ. of Tennessee</li>
+<li>Univ. of California Berkeley</li>
+<li>Univ. of Colorado Denver</li>
+<li>NAG Ltd.</li>
+</ul>
+<p>date:November 2017</p>
+<h2 id="see-also">SEE ALSO</h2>
+<div class="codehilite"><pre><span></span><code>Online html documentation available at
+http://www.netlib.org/lapack/explore-html/
+</code></pre></div>
+
 
     <h3>Arguments</h3>
         <table class="table table-striped varlist">
@@ -200,7 +206,7 @@
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-z"></span>
+              <span class="anchor" id="variable-z~3"></span>
               complex,
             </td>
 <td>intent(in)</td>
@@ -218,7 +224,7 @@
 
       <h3>Return Value
         <small>
-          <span class="anchor" id="variable-scabs1"></span>
+          <span class="anchor" id="variable-scabs1~2"></span>
           real
         </small>
       </h3>
@@ -268,54 +274,8 @@
     
     <section>
     <h2><span class="anchor" id="src"></span>Source Code</h2>
-    <div class="highlight"><pre><span></span><span class="w"> </span><span class="kt">real </span><span class="k">function </span><span class="n">scabs1</span><span class="p">(</span><span class="n">z</span><span class="p">)</span><span class="w"></span>
-<span class="c">! COMMENT --file scabs1.3m_blas.man</span>
-<span class="c">!&gt; \brief \b SCABS1</span>
-<span class="c">!</span>
-<span class="c">!  =========== DOCUMENTATION ===========</span>
-<span class="c">!</span>
-<span class="c">! Online html documentation available at</span>
-<span class="c">!            http://www.netlib.org/lapack/explore-html/</span>
-<span class="c">!</span>
-<span class="c">!  Definition:</span>
-<span class="c">!  ===========</span>
-<span class="c">!</span>
-<span class="c">!       REAL FUNCTION SCABS1(Z)</span>
-<span class="c">!</span>
-<span class="c">!       .. Scalar Arguments ..</span>
-<span class="c">!       COMPLEX Z</span>
-<span class="c">!       ..</span>
-<span class="c">!</span>
-<span class="c">!</span>
-<span class="c">!&gt; \par Purpose:</span>
-<span class="c">!  =============</span>
-<span class="c">!&gt;</span>
-<span class="c">!&gt; \verbatim</span>
-<span class="c">!&gt;</span>
-<span class="c">!&gt; SCABS1 computes |Re(.)| + |Im(.)| of a complex number</span>
-<span class="c">!&gt; \endverbatim</span>
-<span class="c">!</span>
-<span class="c">!  Arguments:</span>
-<span class="c">!  ==========</span>
-<span class="c">!</span>
-<span class="c">!&gt; \param[in] Z</span>
-<span class="c">!&gt; \verbatim</span>
-<span class="c">!&gt;          Z is COMPLEX</span>
-<span class="c">!&gt; \endverbatim</span>
-<span class="c">!</span>
-<span class="c">!  Authors:</span>
-<span class="c">!  ========</span>
-<span class="c">!</span>
-<span class="c">!&gt; \author Univ. of Tennessee</span>
-<span class="c">!&gt; \author Univ. of California Berkeley</span>
-<span class="c">!&gt; \author Univ. of Colorado Denver</span>
-<span class="c">!&gt; \author NAG Ltd.</span>
-<span class="c">!</span>
-<span class="c">!&gt; \date November 2017</span>
-<span class="c">!</span>
-<span class="c">!&gt; \ingroup single_blas_level1</span>
-<span class="c">!</span>
-<span class="c">!  =====================================================================</span>
+    <div class="highlight"><pre><span></span><span class="k">pure elemental </span><span class="kt">real </span><span class="k">function </span><span class="n">scabs1</span><span class="p">(</span><span class="n">z</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">implicit none</span><span class="w"></span>
 <span class="c">!</span>
 <span class="c">!  -- Reference BLAS level1 routine (version 3.8.0) --</span>
 <span class="c">!  -- Reference BLAS is a software package provided by Univ. of Tennessee,    --</span>
@@ -323,17 +283,14 @@
 <span class="c">!     November 2017</span>
 <span class="c">!</span>
 <span class="c">!     .. Scalar Arguments ..</span>
+<span class="w">      </span><span class="kt">complex</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w">  </span><span class="n">z</span><span class="w"></span>
 <span class="c">!     ..</span>
-<span class="c">!</span>
 <span class="c">!  =====================================================================</span>
-<span class="c">!</span>
 <span class="c">!     .. Intrinsic Functions ..</span>
+<span class="w">      </span><span class="k">intrinsic </span><span class="nb">abs</span><span class="p">,</span><span class="nb">aimag</span><span class="p">,</span><span class="kt">real</span><span class="w"></span>
 <span class="c">!     ..</span>
-<span class="c">! END</span>
-<span class="k">use </span><span class="n">M_blas</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">scabs1_</span><span class="o">=&gt;</span><span class="n">SCAbs1</span><span class="w"></span>
-<span class="k">implicit none</span>
-<span class="kt">complex</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">z</span><span class="w"></span>
-<span class="w">   </span><span class="n">scabs1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">scabs1_</span><span class="p">(</span><span class="n">z</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">scabs1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">abs</span><span class="p">(</span><span class="kt">real</span><span class="p">(</span><span class="n">z</span><span class="p">))</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">abs</span><span class="p">(</span><span class="nb">aimag</span><span class="p">(</span><span class="n">z</span><span class="p">))</span><span class="w"></span>
+
 <span class="k">end function </span><span class="n">scabs1</span><span class="w"></span>
 </pre></div>
 
@@ -355,7 +312,7 @@
             <p class="text-right">
               Documentation generated by
               <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2023-04-12 23:23              </p>
+ on 2023-07-21 02:09              </p>
           </div>
         </div>
         <br>
