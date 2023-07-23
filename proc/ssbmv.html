@@ -255,12 +255,12 @@
         <span class="nv">triangular</span> <span class="nv">part</span> <span class="nv">of</span> <span class="nv">a</span> <span class="nv">symmetric</span> <span class="nv">band</span> <span class="nv">matrix</span> <span class="nv">from</span> <span class="nv">conventional</span>
         <span class="nv">full</span> <span class="nv">matrix</span> <span class="nv">storage</span> <span class="nv">to</span> <span class="nv">band</span> <span class="nv">storage</span>:
 
-              <span class="k">DO</span> <span class="mi">20</span>, <span class="nv">J</span> <span class="o">=</span> <span class="mi">1</span>, <span class="nv">N</span>
-                 <span class="nv">M</span> <span class="o">=</span> <span class="nv">K</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">-</span> <span class="nv">J</span>
-                 <span class="k">DO</span> <span class="mi">10</span>, <span class="nv">I</span> <span class="o">=</span> <span class="nv">MAX</span><span class="ss">(</span> <span class="mi">1</span>, <span class="nv">J</span> <span class="o">-</span> <span class="nv">K</span> <span class="ss">)</span>, <span class="nv">J</span>
-                    <span class="nv">A</span><span class="ss">(</span> <span class="nv">M</span> <span class="o">+</span> <span class="nv">I</span>, <span class="nv">J</span> <span class="ss">)</span> <span class="o">=</span> <span class="nv">matrix</span><span class="ss">(</span> <span class="nv">I</span>, <span class="nv">J</span> <span class="ss">)</span>
-           <span class="mi">10</span>    <span class="k">CONTINUE</span>
-           <span class="mi">20</span> <span class="k">CONTINUE</span>
+           <span class="o">&gt;</span>    <span class="k">DO</span> <span class="mi">20</span>, <span class="nv">J</span> <span class="o">=</span> <span class="mi">1</span>, <span class="nv">N</span>
+           <span class="o">&gt;</span>       <span class="nv">M</span> <span class="o">=</span> <span class="nv">K</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">-</span> <span class="nv">J</span>
+           <span class="o">&gt;</span>       <span class="k">DO</span> <span class="mi">10</span>, <span class="nv">I</span> <span class="o">=</span> <span class="nv">MAX</span><span class="ss">(</span> <span class="mi">1</span>, <span class="nv">J</span> <span class="o">-</span> <span class="nv">K</span> <span class="ss">)</span>, <span class="nv">J</span>
+           <span class="o">&gt;</span>          <span class="nv">A</span><span class="ss">(</span> <span class="nv">M</span> <span class="o">+</span> <span class="nv">I</span>, <span class="nv">J</span> <span class="ss">)</span> <span class="o">=</span> <span class="nv">matrix</span><span class="ss">(</span> <span class="nv">I</span>, <span class="nv">J</span> <span class="ss">)</span>
+           <span class="o">&gt;</span> <span class="mi">10</span>    <span class="k">CONTINUE</span>
+           <span class="o">&gt;</span> <span class="mi">20</span> <span class="k">CONTINUE</span>
 
         <span class="nv">Before</span> <span class="nv">entry</span> <span class="nv">with</span> <span class="nv">UPLO</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="s">L</span><span class="s1">&#39;</span> <span class="nv">or</span> <span class="s1">&#39;</span><span class="s">l</span><span class="s1">&#39;</span>, <span class="nv">the</span> <span class="nv">leading</span> <span class="ss">(</span> <span class="nv">k</span> <span class="o">+</span> <span class="mi">1</span> <span class="ss">)</span>
         <span class="nv">by</span> <span class="nv">n</span> <span class="nv">part</span> <span class="nv">of</span> <span class="nv">the</span> <span class="nv">array</span> <span class="nv">A</span> <span class="nv">must</span> <span class="nv">contain</span> <span class="nv">the</span> <span class="nv">lower</span> <span class="nv">triangular</span>
@@ -273,12 +273,12 @@
         <span class="nv">triangular</span> <span class="nv">part</span> <span class="nv">of</span> <span class="nv">a</span> <span class="nv">symmetric</span> <span class="nv">band</span> <span class="nv">matrix</span> <span class="nv">from</span> <span class="nv">conventional</span>
         <span class="nv">full</span> <span class="nv">matrix</span> <span class="nv">storage</span> <span class="nv">to</span> <span class="nv">band</span> <span class="nv">storage</span>:
 
-              <span class="k">DO</span> <span class="mi">20</span>, <span class="nv">J</span> <span class="o">=</span> <span class="mi">1</span>, <span class="nv">N</span>
-                 <span class="nv">M</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="nv">J</span>
-                 <span class="k">DO</span> <span class="mi">10</span>, <span class="nv">I</span> <span class="o">=</span> <span class="nv">J</span>, <span class="nv">MIN</span><span class="ss">(</span> <span class="nv">N</span>, <span class="nv">J</span> <span class="o">+</span> <span class="nv">K</span> <span class="ss">)</span>
-                    <span class="nv">A</span><span class="ss">(</span> <span class="nv">M</span> <span class="o">+</span> <span class="nv">I</span>, <span class="nv">J</span> <span class="ss">)</span> <span class="o">=</span> <span class="nv">matrix</span><span class="ss">(</span> <span class="nv">I</span>, <span class="nv">J</span> <span class="ss">)</span>
-           <span class="mi">10</span>    <span class="k">CONTINUE</span>
-           <span class="mi">20</span> <span class="k">CONTINUE</span>
+           <span class="o">&gt;</span>    <span class="k">DO</span> <span class="mi">20</span>, <span class="nv">J</span> <span class="o">=</span> <span class="mi">1</span>, <span class="nv">N</span>
+           <span class="o">&gt;</span>       <span class="nv">M</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="nv">J</span>
+           <span class="o">&gt;</span>       <span class="k">DO</span> <span class="mi">10</span>, <span class="nv">I</span> <span class="o">=</span> <span class="nv">J</span>, <span class="nv">MIN</span><span class="ss">(</span> <span class="nv">N</span>, <span class="nv">J</span> <span class="o">+</span> <span class="nv">K</span> <span class="ss">)</span>
+           <span class="o">&gt;</span>          <span class="nv">A</span><span class="ss">(</span> <span class="nv">M</span> <span class="o">+</span> <span class="nv">I</span>, <span class="nv">J</span> <span class="ss">)</span> <span class="o">=</span> <span class="nv">matrix</span><span class="ss">(</span> <span class="nv">I</span>, <span class="nv">J</span> <span class="ss">)</span>
+           <span class="o">&gt;</span> <span class="mi">10</span>    <span class="k">CONTINUE</span>
+           <span class="o">&gt;</span> <span class="mi">20</span> <span class="k">CONTINUE</span>
 </code></pre></div>
 
 <p>LDA</p>
@@ -1065,7 +1065,7 @@ http://www.netlib.org/lapack/explore-html/
             <p class="text-right">
               Documentation generated by
               <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2023-07-21 02:09              </p>
+ on 2023-07-23 15:45              </p>
           </div>
         </div>
         <br>

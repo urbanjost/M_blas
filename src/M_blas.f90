@@ -22417,12 +22417,12 @@ end subroutine
 !!            triangular part of a symmetric band matrix from conventional
 !!            full matrix storage to band storage:
 !!
-!!                  DO 20, J = 1, N
-!!                     M = K + 1 - J
-!!                     DO 10, I = MAX( 1, J - K ), J
-!!                        A( M + I, J ) = matrix( I, J )
-!!               10    CONTINUE
-!!               20 CONTINUE
+!!               >    DO 20, J = 1, N
+!!               >       M = K + 1 - J
+!!               >       DO 10, I = MAX( 1, J - K ), J
+!!               >          A( M + I, J ) = matrix( I, J )
+!!               > 10    CONTINUE
+!!               > 20 CONTINUE
 !!
 !!            Before entry with UPLO = 'L' or 'l', the leading ( k + 1 )
 !!            by n part of the array A must contain the lower triangular
@@ -22435,12 +22435,12 @@ end subroutine
 !!            triangular part of a symmetric band matrix from conventional
 !!            full matrix storage to band storage:
 !!
-!!                  DO 20, J = 1, N
-!!                     M = 1 - J
-!!                     DO 10, I = J, MIN( N, J + K )
-!!                        A( M + I, J ) = matrix( I, J )
-!!               10    CONTINUE
-!!               20 CONTINUE
+!!               >    DO 20, J = 1, N
+!!               >       M = 1 - J
+!!               >       DO 10, I = J, MIN( N, J + K )
+!!               >          A( M + I, J ) = matrix( I, J )
+!!               > 10    CONTINUE
+!!               > 20 CONTINUE
 !!
 !!   LDA
 !!
@@ -28337,54 +28337,36 @@ end subroutine
       end subroutine strsv
 !>
 !!##NAME
-!!    zaxpy(3f) - [BLAS:COMPLEX16_BLAS_LEVEL1]
+!!    zaxpy(3f) - [BLAS:COMPLEX16_BLAS_LEVEL1] ZY := ZY+ZA*ZX
+!!    complex constant times a complex vector plus a complex vector.
 !!
 !!##SYNOPSIS
 !!
 !!     subroutine zaxpy(n,za,zx,incx,zy,incy)
 !!
-!! !     .. Scalar Arguments ..
+!!       ! .. Scalar Arguments ..
 !!       complex(kind=real64),intent(in)    :: za
 !!       integer,intent(in)                 :: incx,incy,n
-!! !     ..
-!! !     .. Array Arguments ..
+!!       ! ..
+!!       ! .. Array Arguments ..
 !!       complex(kind=real64),intent(in)    :: zx(*)
 !!       complex(kind=real64),intent(inout) :: zy(*)
-!! !     ..
+!!       ! ..
 !!
 !!##DEFINITION
 !!
 !!     ZAXPY constant times a vector plus a vector.
 !!
+!!         ZY := ZY+ZA*ZX
+!!
 !!##OPTIONS
 !!
-!!   N
-!!
-!!           N is INTEGER
-!!          number of elements in input vector(s)
-!!
-!!   ZA
-!!
-!!           ZA is complex(kind=real64)
-!!            On entry, ZA specifies the scalar alpha.
-!!
-!!   ZX
-!!
-!!           ZX is complex(kind=real64) array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
-!!
-!!   INCX
-!!
-!!           INCX is INTEGER
-!!          storage spacing between elements of ZX
-!!
-!!  ZY
-!!
-!!           ZY is complex(kind=real64) array, dimension ( 1 + ( N - 1 )*abs( INCY ) )
-!!
-!!   INCY
-!!
-!!           INCY is INTEGER
-!!          storage spacing between elements of ZY
+!!   N      number of elements in input vector(s)
+!!   ZA     On entry, ZA specifies the scalar alpha.
+!!   ZX     ZX is complex(kind=real64) array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
+!!   INCX   storage spacing between elements of ZX
+!!   ZY     ZY is complex(kind=real64) array, dimension ( 1 + ( N - 1 )*abs( INCY ) )
+!!   INCY   storage spacing between elements of ZY
 !!
 !!##AUTHORS
 !!
