@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="BLAS Basic Linear Algebra">
+    <meta name="author" content="John S. Urban" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>dger &ndash; M_blas</title>
+
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/local.css" rel="stylesheet">
+      <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+         <script src="../js/jquery-2.1.3.min.js"></script>
+         <script src="../js/svg-pan-zoom.min.js"></script>
+
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="../index.html">M_blas </a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="dropdown hidden-xs visible-sm visible-md hidden-lg">
+              <a href="#" class="dropdown-toggle"
+                 data-toggle="dropdown" role="button"
+                 aria-haspopup="true"
+                 aria-expanded="false">
+                 Contents <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu">
+                    <li><a href="../lists/files.html">Source Files</a></li>
+                  <li><a href="../lists/modules.html">Modules</a></li>
+                  <li><a href="../lists/procedures.html">Procedures</a></li>
+                  <li><a href="../lists/absint.html">Abstract Interfaces</a></li>
+              </ul>
+            </li>
+                <li class="visible-xs hidden-sm visible-lg">
+                  <a href="../lists/files.html">Source Files</a>
+                </li>
+              <li class="visible-xs hidden-sm visible-lg">
+                <a href="../lists/modules.html">Modules</a>
+              </li>
+              <li class="visible-xs hidden-sm visible-lg">
+                <a href="../lists/procedures.html">Procedures</a>
+              </li>
+              <li class="visible-xs hidden-sm visible-lg">
+                <a href="../lists/absint.html">Abstract Interfaces</a>
+              </li>
+          </ul>
+            <form action="../search.html" class="navbar-form navbar-right" role="search">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+              </div>
+              <!--
+                  <button type="submit" class="btn btn-default">Submit</button>
+                  -->
+            </form>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+  <div class="row">
+    <h1>dger
+      <small>Subroutine</small>
+      
+    </h1>
+      <div class="row" id="info-bar">
+    <div class="col-lg-12">
+      <div class="well well-sm">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+
+          <li id="statements"><i class="fa fa-list-ol"></i>
+            <a data-toggle="tooltip"
+               data-placement="bottom" data-html="true"
+               title=" 0.4% of total for procedures.">62 statements</a>
+          </li>
+
+            <li id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/M_blas.f90"> Source File</a>
+            </li>
+        </ul>
+        <ol class="breadcrumb in-well text-right">
+              <li><a href='../sourcefile/m_blas.f90.html'>M_blas.f90</a></li>
+              <li><a href='../module/m_blas.html'>M_blas</a></li>
+          <li class="active">dger</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+  <script>
+    $(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+    })
+  </script>
+
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+      <div id="sidebar">
+      <h3>Contents</h3>
+  
+      <div class="panel panel-primary">
+      <div class="panel-heading text-left">
+        <h3 class="panel-title">
+          <a data-toggle="collapse" href="#vars-0">Variables</a>
+        </h3>
+      </div>
+      <div id="vars-0" class="panel-collapse collapse">
+        <div class="list-group">
+            <a class="list-group-item" href="../proc/dger.html#variable-i~58">i</a>
+            <a class="list-group-item" href="../proc/dger.html#variable-info~31">info</a>
+            <a class="list-group-item" href="../proc/dger.html#variable-ix~40">ix</a>
+            <a class="list-group-item" href="../proc/dger.html#variable-j~30">j</a>
+            <a class="list-group-item" href="../proc/dger.html#variable-jy~12">jy</a>
+            <a class="list-group-item" href="../proc/dger.html#variable-kx~22">kx</a>
+            <a class="list-group-item" href="../proc/dger.html#variable-temp~21">temp</a>
+            <a class="list-group-item" href="../proc/dger.html#variable-zero~35">zero</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    <div class="panel panel-primary">
+      <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
+      <div class="list-group">
+        <a class="list-group-item" href="../proc/dger.html#src">dger</a>
+      </div>
+    </div>
+
+
+  </div>
+
+    </div>
+    
+    <div class="col-md-9" id='text'>
+    <h2>public  subroutine dger(m, n, alpha, x, incx, y, incy, a, lda)  
+</h2>
+    
+
+    <h2 id="name">NAME</h2>
+<div class="codehilite"><pre><span></span><code>dger(3f) - [BLAS:DOUBLE_BLAS_LEVEL2]
+</code></pre></div>
+
+<h2 id="synopsis">SYNOPSIS</h2>
+<div class="codehilite"><pre><span></span><code> subroutine dger(m,n,alpha,x,incx,y,incy,a,lda)
+
+   .. Scalar Arguments ..
+   double precision,intent(in)    :: alpha
+   integer,intent(in)             :: incx,incy,lda,m,n
+   ..
+   .. Array Arguments ..
+   double precision,intent(in)    :: x(*),y(*)
+   double precision,intent(inout) :: a(lda,*)
+   ..
+</code></pre></div>
+
+<h2 id="definition">DEFINITION</h2>
+<p>DGER performs the rank 1 operation</p>
+<div class="codehilite"><pre><span></span><code><span class="w"> </span><span class="nv">A</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nv">alpha</span><span class="o">*</span><span class="nv">x</span><span class="o">*</span><span class="nv">y</span><span class="o">**</span><span class="nv">T</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nv">A</span><span class="p">,</span><span class="w"></span>
+</code></pre></div>
+
+<p>where alpha is a scalar, x is an m element vector, y is an n element
+  vector and A is an m by n matrix.</p>
+<h2 id="options">OPTIONS</h2>
+<p>M</p>
+<div class="codehilite"><pre><span></span><code>       M is INTEGER
+        On entry, M specifies the number of rows of the matrix A.
+        M must be at least zero.
+</code></pre></div>
+
+<p>N</p>
+<div class="codehilite"><pre><span></span><code>       N is INTEGER
+        On entry, N specifies the number of columns of the matrix A.
+        N must be at least zero.
+</code></pre></div>
+
+<p>ALPHA</p>
+<div class="codehilite"><pre><span></span><code>       ALPHA is DOUBLE PRECISION.
+        On entry, ALPHA specifies the scalar alpha.
+</code></pre></div>
+
+<p>X</p>
+<div class="codehilite"><pre><span></span><code>       X is DOUBLE PRECISION array, dimension at least
+        ( 1 + ( m - 1 )*abs( INCX ) ).
+        Before entry, the incremented array X must contain the m
+        element vector x.
+</code></pre></div>
+
+<p>INCX</p>
+<div class="codehilite"><pre><span></span><code>       <span class="nv">INCX</span> <span class="nv">is</span> <span class="nv">INTEGER</span>
+        <span class="nv">On</span> <span class="nv">entry</span>, <span class="nv">INCX</span> <span class="nv">specifies</span> <span class="nv">the</span> <span class="nv">increment</span> <span class="k">for</span> <span class="nv">the</span> <span class="nv">elements</span> <span class="nv">of</span>
+        <span class="nv">X</span>. <span class="nv">INCX</span> <span class="nv">must</span> <span class="nv">not</span> <span class="nv">be</span> <span class="nv">zero</span>.
+</code></pre></div>
+
+<p>Y</p>
+<div class="codehilite"><pre><span></span><code>       Y is DOUBLE PRECISION array, dimension at least
+        ( 1 + ( n - 1 )*abs( INCY ) ).
+        Before entry, the incremented array Y must contain the n
+        element vector y.
+</code></pre></div>
+
+<p>INCY</p>
+<div class="codehilite"><pre><span></span><code>       <span class="nv">INCY</span> <span class="nv">is</span> <span class="nv">INTEGER</span>
+        <span class="nv">On</span> <span class="nv">entry</span>, <span class="nv">INCY</span> <span class="nv">specifies</span> <span class="nv">the</span> <span class="nv">increment</span> <span class="k">for</span> <span class="nv">the</span> <span class="nv">elements</span> <span class="nv">of</span>
+        <span class="nv">Y</span>. <span class="nv">INCY</span> <span class="nv">must</span> <span class="nv">not</span> <span class="nv">be</span> <span class="nv">zero</span>.
+</code></pre></div>
+
+<p>A</p>
+<div class="codehilite"><pre><span></span><code>       <span class="nv">A</span> <span class="nv">is</span> <span class="nv">DOUBLE</span> <span class="nv">PRECISION</span> <span class="nv">array</span>, <span class="nv">dimension</span> <span class="ss">(</span> <span class="nv">LDA</span>, <span class="nv">N</span> <span class="ss">)</span>
+        <span class="nv">Before</span> <span class="nv">entry</span>, <span class="nv">the</span> <span class="nv">leading</span> <span class="nv">m</span> <span class="nv">by</span> <span class="nv">n</span> <span class="nv">part</span> <span class="nv">of</span> <span class="nv">the</span> <span class="nv">array</span> <span class="nv">A</span> <span class="nv">must</span>
+        <span class="nv">contain</span> <span class="nv">the</span> <span class="nv">matrix</span> <span class="nv">of</span> <span class="nv">coefficients</span>. <span class="nv">On</span> <span class="k">exit</span>, <span class="nv">A</span> <span class="nv">is</span>
+        <span class="nv">overwritten</span> <span class="nv">by</span> <span class="nv">the</span> <span class="nv">updated</span> <span class="nv">matrix</span>.
+</code></pre></div>
+
+<p>LDA</p>
+<div class="codehilite"><pre><span></span><code>       LDA is INTEGER
+        On entry, LDA specifies the first dimension of A as declared
+        in the calling (sub) program. LDA must be at least
+        max( 1, m ).
+</code></pre></div>
+
+<h2 id="authors">AUTHORS</h2>
+<ul>
+<li>Univ. of Tennessee</li>
+<li>Univ. of California Berkeley</li>
+<li>Univ. of Colorado Denver</li>
+<li>NAG Ltd.</li>
+</ul>
+<p>date:December 2016</p>
+<p>FURTHER DETAILS</p>
+<p>Level 2 Blas routine.</p>
+<p>&ndash; Written on 22-October-1986.
+      Jack Dongarra, Argonne National Lab.
+      Jeremy Du Croz, Nag Central Office.
+      Sven Hammarling, Nag Central Office.
+      Richard Hanson, Sandia National Labs.</p>
+<h2 id="see-also">SEE ALSO</h2>
+<div class="codehilite"><pre><span></span><code>Online html documentation available at
+http://www.netlib.org/lapack/explore-html/
+</code></pre></div>
+
+
+    <h3>Arguments</h3>
+        <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th>Type</th>
+<th>Intent</th><th>Optional</th>        <th>Attributes</th>
+        <th></th>
+        <th>Name</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-m~19"></span>
+              integer,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>m</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-n~59"></span>
+              integer,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>n</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-alpha~24"></span>
+              double precision,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>alpha</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-x~24"></span>
+              double precision,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>x</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-incx~49"></span>
+              integer,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>incx</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-y~12"></span>
+              double precision,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>y</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-incy~27"></span>
+              integer,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>incy</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-a~26"></span>
+              double precision,
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>a</strong>(lda,*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lda~25"></span>
+              integer,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>lda</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <br>
+
+    <section class="visible-xs visible-sm hidden-md">
+        <h3>Contents</h3>
+  
+      <div class="panel panel-primary">
+      <div class="panel-heading text-left">
+        <h3 class="panel-title">
+          <a data-toggle="collapse" href="#vars-1">Variables</a>
+        </h3>
+      </div>
+      <div id="vars-1" class="panel-collapse collapse">
+        <div class="list-group">
+            <a class="list-group-item" href="../proc/dger.html#variable-i~58">i</a>
+            <a class="list-group-item" href="../proc/dger.html#variable-info~31">info</a>
+            <a class="list-group-item" href="../proc/dger.html#variable-ix~40">ix</a>
+            <a class="list-group-item" href="../proc/dger.html#variable-j~30">j</a>
+            <a class="list-group-item" href="../proc/dger.html#variable-jy~12">jy</a>
+            <a class="list-group-item" href="../proc/dger.html#variable-kx~22">kx</a>
+            <a class="list-group-item" href="../proc/dger.html#variable-temp~21">temp</a>
+            <a class="list-group-item" href="../proc/dger.html#variable-zero~35">zero</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    <div class="panel panel-primary">
+      <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
+      <div class="list-group">
+        <a class="list-group-item" href="../proc/dger.html#src">dger</a>
+      </div>
+    </div>
+
+
+    </section>
+    <br class="visible-xs visible-sm hidden-md">
+
+
+    <section>    
+      <h2>Variables</h2>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th>Type</th>
+<th>Visibility</th>        <th>Attributes</th>
+        <th></th>
+        <th>Name</th>
+<th></th><th>Initial</th>        <th></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-i~58"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>i</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-info~31"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>info</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ix~40"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ix</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-j~30"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>j</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-jy~12"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>jy</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-kx~22"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>kx</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-temp~21"></span>
+              double precision,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>temp</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-zero~35"></span>
+              double precision,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>zero</strong></td>
+<td> =</td>
+                <td>0.0d+0</td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    </section>
+    <br>
+    
+    
+
+    
+    
+
+
+    
+    <section>
+    <h2><span class="anchor" id="src"></span>Source Code</h2>
+    <div class="highlight"><pre><span></span><span class="w">       </span><span class="k">subroutine </span><span class="n">dger</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="n">alpha</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">incx</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">incy</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">lda</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">implicit none</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!  -- Reference BLAS level2 routine (version 3.7.0) --</span>
+<span class="c">!  -- Reference BLAS is a software package provided by Univ. of Tennessee,    --</span>
+<span class="c">!  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--</span>
+<span class="c">!     December 2016</span>
+<span class="c">!</span>
+<span class="c">!     .. Scalar Arguments ..</span>
+<span class="w">      </span><span class="kt">double precision</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">    </span><span class="kd">::</span><span class="w"> </span><span class="n">alpha</span><span class="w"></span>
+<span class="w">      </span><span class="kt">integer</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">             </span><span class="kd">::</span><span class="w"> </span><span class="n">incx</span><span class="p">,</span><span class="n">incy</span><span class="p">,</span><span class="n">lda</span><span class="p">,</span><span class="n">m</span><span class="p">,</span><span class="n">n</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Array Arguments ..</span>
+<span class="w">      </span><span class="kt">double precision</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">    </span><span class="kd">::</span><span class="w"> </span><span class="n">x</span><span class="p">(</span><span class="o">*</span><span class="p">),</span><span class="n">y</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="kt">double precision</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">a</span><span class="p">(</span><span class="n">lda</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!</span>
+<span class="c">!  =====================================================================</span>
+<span class="c">!</span>
+<span class="c">!     .. Parameters ..</span>
+<span class="w">      </span><span class="kt">double precision </span><span class="n">zero</span><span class="w"></span>
+<span class="w">      </span><span class="k">parameter</span><span class="w"> </span><span class="p">(</span><span class="n">zero</span><span class="o">=</span><span class="mf">0.0d+0</span><span class="p">)</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Local Scalars ..</span>
+<span class="w">      </span><span class="kt">double precision </span><span class="n">temp</span><span class="w"></span>
+<span class="w">      </span><span class="kt">integer </span><span class="n">i</span><span class="p">,</span><span class="n">info</span><span class="p">,</span><span class="n">ix</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">jy</span><span class="p">,</span><span class="n">kx</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. External Subroutines ..</span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Intrinsic Functions ..</span>
+<span class="w">      </span><span class="k">intrinsic </span><span class="nb">max</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!</span>
+<span class="c">!     Test the input parameters.</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="n">info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">m</span><span class="p">.</span><span class="n">lt</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">          </span><span class="n">info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">      </span><span class="n">elseif</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="p">.</span><span class="n">lt</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">          </span><span class="n">info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+<span class="w">      </span><span class="n">elseif</span><span class="w"> </span><span class="p">(</span><span class="n">incx</span><span class="p">.</span><span class="n">eq</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">          </span><span class="n">info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="w"></span>
+<span class="w">      </span><span class="n">elseif</span><span class="w"> </span><span class="p">(</span><span class="n">incy</span><span class="p">.</span><span class="n">eq</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">          </span><span class="n">info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7</span><span class="w"></span>
+<span class="w">      </span><span class="n">elseif</span><span class="w"> </span><span class="p">(</span><span class="n">lda</span><span class="p">.</span><span class="n">lt</span><span class="p">.</span><span class="nb">max</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">m</span><span class="p">))</span><span class="w"> </span><span class="k">then</span>
+<span class="k">          </span><span class="n">info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">9</span><span class="w"></span>
+<span class="w">      </span><span class="k">endif</span>
+<span class="k">      if</span><span class="w"> </span><span class="p">(</span><span class="n">info</span><span class="p">.</span><span class="n">ne</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">          call </span><span class="n">xerbla</span><span class="p">(</span><span class="s1">&#39;DGER  &#39;</span><span class="p">,</span><span class="n">info</span><span class="p">)</span><span class="w"></span>
+<span class="w">          </span><span class="k">return</span>
+<span class="k">      endif</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     Quick return if possible.</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="n">m</span><span class="p">.</span><span class="n">eq</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">.</span><span class="nb">or</span><span class="p">.</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="p">.</span><span class="n">eq</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">.</span><span class="nb">or</span><span class="p">.</span><span class="w"> </span><span class="p">(</span><span class="n">alpha</span><span class="p">.</span><span class="n">eq</span><span class="p">.</span><span class="n">zero</span><span class="p">))</span><span class="w"> </span><span class="k">return</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     Start the operations. In this version the elements of A are</span>
+<span class="c">!     accessed sequentially with one pass through A.</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">incy</span><span class="p">.</span><span class="n">gt</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">          </span><span class="n">jy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">      </span><span class="k">else</span>
+<span class="k">          </span><span class="n">jy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">incy</span><span class="w"></span>
+<span class="w">      </span><span class="k">endif</span>
+<span class="k">      if</span><span class="w"> </span><span class="p">(</span><span class="n">incx</span><span class="p">.</span><span class="n">eq</span><span class="p">.</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">          do </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="w"></span>
+<span class="w">              </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">y</span><span class="p">(</span><span class="n">jy</span><span class="p">).</span><span class="n">ne</span><span class="p">.</span><span class="n">zero</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                  </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">alpha</span><span class="o">*</span><span class="n">y</span><span class="p">(</span><span class="n">jy</span><span class="p">)</span><span class="w"></span>
+<span class="w">                  </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="n">m</span><span class="w"></span>
+<span class="w">                      </span><span class="n">a</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">x</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">*</span><span class="n">temp</span><span class="w"></span>
+<span class="w">                  </span><span class="k">enddo</span>
+<span class="k">              endif</span>
+<span class="k">              </span><span class="n">jy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">jy</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">incy</span><span class="w"></span>
+<span class="w">          </span><span class="k">enddo</span>
+<span class="k">      else</span>
+<span class="k">          if</span><span class="w"> </span><span class="p">(</span><span class="n">incx</span><span class="p">.</span><span class="n">gt</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">              </span><span class="n">kx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">          </span><span class="k">else</span>
+<span class="k">              </span><span class="n">kx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="p">(</span><span class="n">m</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">incx</span><span class="w"></span>
+<span class="w">          </span><span class="k">endif</span>
+<span class="k">          do </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="w"></span>
+<span class="w">              </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">y</span><span class="p">(</span><span class="n">jy</span><span class="p">).</span><span class="n">ne</span><span class="p">.</span><span class="n">zero</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                  </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">alpha</span><span class="o">*</span><span class="n">y</span><span class="p">(</span><span class="n">jy</span><span class="p">)</span><span class="w"></span>
+<span class="w">                  </span><span class="n">ix</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">kx</span><span class="w"></span>
+<span class="w">                  </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="n">m</span><span class="w"></span>
+<span class="w">                      </span><span class="n">a</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">x</span><span class="p">(</span><span class="n">ix</span><span class="p">)</span><span class="o">*</span><span class="n">temp</span><span class="w"></span>
+<span class="w">                      </span><span class="n">ix</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ix</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">incx</span><span class="w"></span>
+<span class="w">                  </span><span class="k">enddo</span>
+<span class="k">              endif</span>
+<span class="k">              </span><span class="n">jy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">jy</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">incy</span><span class="w"></span>
+<span class="w">          </span><span class="k">enddo</span>
+<span class="k">      endif</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">end subroutine </span><span class="n">dger</span><span class="w"></span>
+</pre></div>
+
+    </section>
+    <br>
+    
+    </div>
+  </div>
+
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-6 col-md-6"><p>M_blas was developed by John S. Urban<br>&copy; 2023 
+</p>
+          </div>
+          <div class="col-xs-6 col-md-6">
+            <p class="text-right">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+ on 2023-07-23 15:45              </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript
+         ================================================== -->
+         <!-- Placed at the end of the document so the pages load faster -->
+    <!--
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        -->
+        <script src="../js/bootstrap.min.js"></script>
+        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+        <script src="../js/ie10-viewport-bug-workaround.js"></script>
+
+        <!-- MathJax JavaScript
+             ================================================== -->
+             <!-- Placed at the end of the document so the pages load faster -->
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+          TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+          jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+          extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
+          });
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+          <script src="../tipuesearch/tipuesearch_content.js"></script>
+          <script src="../tipuesearch/tipuesearch_set.js"></script>
+          <script src="../tipuesearch/tipuesearch.js"></script>
+
+  </body>
+</html>
