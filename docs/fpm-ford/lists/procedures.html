@@ -1,0 +1,2124 @@
+<!-- -*- mode: jinja2 -*- -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="BLAS Basic Linear Algebra">
+    <meta name="author" content="John S. Urban" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>All Procedures &ndash; M_blas
+</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Font Awesome -->
+    <link href="../css/fontawesome.min.css" rel="stylesheet">
+    <link href="../css/brands.min.css" rel="stylesheet">
+    <link href="../css/regular.min.css" rel="stylesheet">
+    <link href="../css/solid.min.css" rel="stylesheet">
+    <link href="../css/v4-font-face.min.css" rel="stylesheet">
+    <link href="../css/v4-shims.min.css" rel="stylesheet">
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { equationNumbers: { autoNumber: "AMS" } }
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async
+            integrity="sha256-DViIOMYdwlM/axqoGDPeUyf0urLoHMN4QACBKyB58Uw=" crossorigin="anonymous"></script>
+    <!-- Other scripts and stylesheets -->
+    <link href="../css/local.css" rel="stylesheet">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <script src="../js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">M_blas </a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/modules.html">Modules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/absint.html">Abstract Interfaces</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12" id='text'>
+			 <h1>Procedures</h1>
+			 <table class="table table-striped">
+			 <thead><tr><th>Procedure</th><th>Location</th><th>Procedure Type</th><th>Description</th></tr></thead>
+			 <tbody>
+			   <tr>
+                 <td><a href='../proc/caxpy~2.html'>caxpy</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b CAXPY
+\par Purpose:</p><a href="../proc/caxpy~2.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/caxpy.html'>caxpy</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>November 2017</p><a href="../proc/caxpy.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/ccopy.html'>CCOPY</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b CCOPY
+\par Purpose:</p><a href="../proc/ccopy.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/ccopy.html'>ccopy</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>date:November 2017</p><a href="../proc/ccopy.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/cdotc.html'>CDOTC</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Function</td>
+                 <td><p>\brief \b CDOTC
+\par Purpose:</p><a href="../proc/cdotc.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/cdotc.html'>cdotc</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Function</td>
+                 <td><p>CDOTC forms the dot product of two complex vectors</p><a href="../proc/cdotc.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/cdotu.html'>CDOTU</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Function</td>
+                 <td><p>\brief \b CDOTU
+\par Purpose:</p><a href="../proc/cdotu.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/cdotu.html'>cdotu</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Function</td>
+                 <td><p>CDOTU forms the dot product of two complex vectors</p><a href="../proc/cdotu.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/cgbmv.html'>CGBMV</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b CGBMV
+\par Purpose:</p><a href="../proc/cgbmv.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/cgbmv.html'>cgbmv</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>CGBMV  performs one of the matrix-vector operations</p><a href="../proc/cgbmv.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/cgemm.html'>CGEMM</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b CGEMM
+\par Purpose:</p><a href="../proc/cgemm.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/cgemm.html'>cgemm</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>CGEMM performs one of the matrix-matrix operations</p><a href="../proc/cgemm.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/cgemv.html'>CGEMV</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b CGEMV
+\par Purpose:</p><a href="../proc/cgemv.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/cgemv.html'>cgemv</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>CGEMV performs one of the matrix-vector operations</p><a href="../proc/cgemv.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/cgerc.html'>CGERC</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b CGERC
+\par Purpose:</p><a href="../proc/cgerc.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/cgerc.html'>cgerc</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>CGERC performs the rank 1 operation</p><a href="../proc/cgerc.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/cgeru.html'>CGERU</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b CGERU
+\par Purpose:</p><a href="../proc/cgeru.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/cgeru.html'>cgeru</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>CGERU performs the rank 1 operation</p><a href="../proc/cgeru.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/chbmv.html'>CHBMV</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b CHBMV
+\par Purpose:</p><a href="../proc/chbmv.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/chbmv.html'>chbmv</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>CHBMV(3f) performs the matrix-vector operation</p><a href="../proc/chbmv.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/chemm.html'>CHEMM</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b CHEMM
+\par Purpose:</p><a href="../proc/chemm.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/chemm.html'>chemm</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>CHEMM performs one of the matrix-matrix operations</p><a href="../proc/chemm.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/chemv.html'>CHEMV</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b CHEMV
+\par Purpose:</p><a href="../proc/chemv.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/chemv.html'>chemv</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>CHEMV  performs the matrix-vector operation</p><a href="../proc/chemv.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/cher.html'>CHER</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b CHER
+\par Purpose:</p><a href="../proc/cher.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/cher.html'>cher</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>CHER performs the hermitian rank 1 operation</p><a href="../proc/cher.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/cher2.html'>CHER2</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b CHER2
+\par Purpose:</p><a href="../proc/cher2.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/cher2.html'>cher2</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>CHER2 performs the hermitian rank 2 operation</p><a href="../proc/cher2.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/cher2k.html'>CHER2K</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b CHER2K
+\par Purpose:</p><a href="../proc/cher2k.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/cher2k.html'>cher2k</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>CHER2K performs one of the hermitian rank 2k operations</p><a href="../proc/cher2k.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/cherk.html'>CHERK</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b CHERK
+\par Purpose:</p><a href="../proc/cherk.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/cherk.html'>cherk</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>C:=alpha<em>A</em>TRANSPOSE(A)+beta*C, C hermitian.</p><a href="../proc/cherk.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/chpmv.html'>CHPMV</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b CHPMV
+\par Purpose:</p><a href="../proc/chpmv.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/chpmv.html'>chpmv</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>CY := alpha<em>A</em>CX + beta*CY, A a (square) hermitian packed matrix.</p><a href="../proc/chpmv.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/chpr.html'>CHPR</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b CHPR
+\par Purpose:</p><a href="../proc/chpr.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/chpr.html'>chpr</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>A := A + alpha<em>CX</em>CONJUGATE-TRANSPOSE(CX), a a (square) hermitian packed.</p><a href="../proc/chpr.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/chpr2.html'>CHPR2</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b CHPR2
+\par Purpose:</p><a href="../proc/chpr2.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/chpr2.html'>chpr2</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>A := A + alpha<em>CX</em>CONJUGATE-TRANSPOSE(CY)n + CONJUGATE(ALPHA)<em>CY</em>CONJUGATE-TRANSPOSE(CX),n A a (square) hermitian packed matrix.</p><a href="../proc/chpr2.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/crotg.html'>CROTG</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b CROTG
+\par Purpose:</p><a href="../proc/crotg.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/crotg.html'>crotg</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>CROTG constructs a plane rotation</p><a href="../proc/crotg.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/cscal.html'>CSCAL</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b CSCAL
+\par Purpose:</p><a href="../proc/cscal.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/cscal.html'>cscal</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>CX:=CA*CX (complex multiplier)</p><a href="../proc/cscal.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/csrot.html'>CSROT</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b CSROT
+\par Purpose:</p><a href="../proc/csrot.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/csrot.html'>csrot</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>CSROT applies a plane rotation, where the cos and sin (c and s) are real
+  and the vectors cx and cy are complex.
+  jack dongarra, linpack, 3/11/78.</p><a href="../proc/csrot.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/csscal.html'>CSSCAL</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b CSSCAL
+\par Purpose:</p><a href="../proc/csscal.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/csscal.html'>csscal</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>CX:=SA*CX (real multiplier).</p><a href="../proc/csscal.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/cswap.html'>CSWAP</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b CSWAP
+\par Purpose:</p><a href="../proc/cswap.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/cswap.html'>cswap</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>N</p><a href="../proc/cswap.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/csymm.html'>CSYMM</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b CSYMM
+\par Purpose:</p><a href="../proc/csymm.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/csymm.html'>csymm</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>C:=alpha<em>A</em>B+beta*C, A symmetric, B, C rectangular.</p><a href="../proc/csymm.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/csyr2k.html'>CSYR2K</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b CSYR2K
+\par Purpose:</p><a href="../proc/csyr2k.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/csyr2k.html'>csyr2k</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>C:=alpha<em>A</em>TRANSPOSE(B)+alpha<em>B</em>TRANSPOSE(A)+beta*C, C symmetric.</p><a href="../proc/csyr2k.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/csyrk.html'>CSYRK</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b CSYRK
+\par Purpose:</p><a href="../proc/csyrk.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/csyrk.html'>csyrk</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>C:=alpha<em>A</em>TRANSPOSE(A)+beta*C, C symmetric.</p><a href="../proc/csyrk.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/ctbmv.html'>CTBMV</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b CTBMV
+\par Purpose:</p><a href="../proc/ctbmv.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/ctbmv.html'>ctbmv</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>CX := A*CX, A is a triangular band matrix.</p><a href="../proc/ctbmv.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/ctbsv.html'>CTBSV</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b CTBSV
+\par Purpose:</p><a href="../proc/ctbsv.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/ctbsv.html'>ctbsv</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>CX := INVERSE(A)*CX, where A is a triangular band matrix.</p><a href="../proc/ctbsv.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/ctpmv.html'>CTPMV</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b CTPMV
+\par Purpose:</p><a href="../proc/ctpmv.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/ctpmv.html'>ctpmv</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>CX := A*CX, A is a packed triangular band matrix.</p><a href="../proc/ctpmv.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/ctpsv.html'>CTPSV</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b CTPSV
+\par Purpose:</p><a href="../proc/ctpsv.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/ctpsv.html'>ctpsv</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>CX := INVERSE(A)*CX, where A is a packed triangular band matrix.</p><a href="../proc/ctpsv.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/ctrmm.html'>CTRMM</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b CTRMM
+\par Purpose:</p><a href="../proc/ctrmm.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/ctrmm.html'>ctrmm</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>B:=A<em>B or B:=B</em>A, A triangular, B rectangular.</p><a href="../proc/ctrmm.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/ctrmv.html'>CTRMV</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b CTRMV
+\par Purpose:</p><a href="../proc/ctrmv.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/ctrmv.html'>ctrmv</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>CX := A*CX, A is a triangular matrix.</p><a href="../proc/ctrmv.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/ctrsm.html'>CTRSM</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b CTRSM
+\par Purpose:</p><a href="../proc/ctrsm.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/ctrsm.html'>ctrsm</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>B:=INVERSE(A)<em>C or B:=C</em>INVERSE(A), B, C rectangular, A triangular.</p><a href="../proc/ctrsm.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/ctrsv.html'>CTRSV</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b CTRSV
+\par Purpose:</p><a href="../proc/ctrsv.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/ctrsv.html'>ctrsv</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>CX := INVERSE(A)*CX, where A is a triangular matrix.</p><a href="../proc/ctrsv.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/dasum.html'>DASUM</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Function</td>
+                 <td><p>\brief \b DASUM
+\par Purpose:</p><a href="../proc/dasum.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/dasum.html'>dasum</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Function</td>
+                 <td><p>N</p><a href="../proc/dasum.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/daxpy.html'>DAXPY</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b DAXPY
+\par Purpose:</p><a href="../proc/daxpy.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/daxpy.html'>daxpy</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>N</p><a href="../proc/daxpy.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/dcabs1.html'>DCABS1</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Function</td>
+                 <td><p>\brief \b DCABS1
+\par Purpose:</p><a href="../proc/dcabs1.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/dcabs1.html'>dcabs1</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Function</td>
+                 <td><p>DCABS1 computes |Re(.)| + |Im(.)| of a double complex number</p><a href="../proc/dcabs1.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/dcopy.html'>DCOPY</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b DCOPY
+\par Purpose:</p><a href="../proc/dcopy.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/dcopy.html'>dcopy</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>N</p><a href="../proc/dcopy.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/ddot.html'>DDOT</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Function</td>
+                 <td><p>\brief \b DDOT
+\par Purpose:</p><a href="../proc/ddot.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/ddot.html'>ddot</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Function</td>
+                 <td><p>N</p><a href="../proc/ddot.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/dgbmv.html'>DGBMV</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b DGBMV
+\par Purpose:</p><a href="../proc/dgbmv.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/dgbmv.html'>dgbmv</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>DGBMV performs one of the matrix-vector operations</p><a href="../proc/dgbmv.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/dgemm.html'>DGEMM</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b DGEMM
+\par Purpose:</p><a href="../proc/dgemm.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/dgemm.html'>dgemm</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>DGEMM performs one of the matrix-matrix operations</p><a href="../proc/dgemm.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/dgemv.html'>DGEMV</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b DGEMV
+\par Purpose:</p><a href="../proc/dgemv.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/dgemv.html'>dgemv</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>DGEMV performs one of the matrix-vector operations</p><a href="../proc/dgemv.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/dger.html'>DGER</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b DGER
+\par Purpose:</p><a href="../proc/dger.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/dger.html'>dger</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>DGER performs the rank 1 operation</p><a href="../proc/dger.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/dnrm2.html'>DNRM2</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Function</td>
+                 <td><p>\brief \b DNRM2
+\par Purpose:</p><a href="../proc/dnrm2.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/dnrm2.html'>dnrm2</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Function</td>
+                 <td><p>DNRM2 returns the euclidean norm of a vector via the function
+  name, so that</p><a href="../proc/dnrm2.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/drot.html'>DROT</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b DROT
+\par Purpose:</p><a href="../proc/drot.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/drot.html'>drot</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>N
+          number of elements in input vector(s)
+   DX
+           array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
+   INCX</p><a href="../proc/drot.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/drotg.html'>DROTG</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b DROTG
+\par Purpose:</p><a href="../proc/drotg.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/drotg.html'>drotg</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>DROTG constructs a plane rotation</p><a href="../proc/drotg.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/drotm.html'>DROTM</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b DROTM
+\par Purpose:</p><a href="../proc/drotm.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/drotm.html'>drotm</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>N
+          number of elements in input vector(s)
+   DX
+           DX is DOUBLE PRECISION array, dimension ( 1 + ( N - 1 )*abs( INCX ) )</p><a href="../proc/drotm.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/drotmg.html'>DROTMG</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b DROTMG
+\par Purpose:</p><a href="../proc/drotmg.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/drotmg.html'>drotmg</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>DD1</p><a href="../proc/drotmg.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/dsbmv.html'>DSBMV</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b DSBMV
+\par Purpose:</p><a href="../proc/dsbmv.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/dsbmv.html'>dsbmv</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>DSBMV performs the matrix-vector operation</p><a href="../proc/dsbmv.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/dscal.html'>DSCAL</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b DSCAL
+\par Purpose:</p><a href="../proc/dscal.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/dscal.html'>dscal</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>N
+           number of elements in input vector(s)
+   DA
+           On entry, DA specifies the scalar alpha.
+   DX
+           array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
+   INCX
+           storage spacing between elements of DX</p><a href="../proc/dscal.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/dsdot.html'>DSDOT</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Function</td>
+                 <td><p>\brief \b DSDOT
+\par Purpose:</p><a href="../proc/dsdot.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/dsdot.html'>dsdot</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Function</td>
+                 <td><p>Compute the inner product of two vectors with extended
+  precision accumulation and result.</p><a href="../proc/dsdot.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/dspmv.html'>DSPMV</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b DSPMV
+\par Purpose:</p><a href="../proc/dspmv.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/dspmv.html'>dspmv</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>DSPMV performs the matrix-vector operation</p><a href="../proc/dspmv.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/dspr.html'>DSPR</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b DSPR
+\par Purpose:</p><a href="../proc/dspr.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/dspr.html'>dspr</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>DSPR performs the symmetric rank 1 operation</p><a href="../proc/dspr.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/dspr2.html'>DSPR2</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b DSPR2
+\par Purpose:</p><a href="../proc/dspr2.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/dspr2.html'>dspr2</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>DSPR2 performs the symmetric rank 2 operation</p><a href="../proc/dspr2.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/dswap.html'>DSWAP</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b DSWAP
+\par Purpose:</p><a href="../proc/dswap.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/dswap.html'>dswap</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>N</p><a href="../proc/dswap.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/dsymm.html'>DSYMM</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b DSYMM
+\par Purpose:</p><a href="../proc/dsymm.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/dsymm.html'>dsymm</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>DSYMM performs one of the matrix-matrix operations</p><a href="../proc/dsymm.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/dsymv.html'>DSYMV</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b DSYMV
+\par Purpose:</p><a href="../proc/dsymv.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/dsymv.html'>dsymv</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>DSYMV performs the matrix-vector  operation</p><a href="../proc/dsymv.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/dsyr.html'>DSYR</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b DSYR
+\par Purpose:</p><a href="../proc/dsyr.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/dsyr.html'>dsyr</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>DSYR performs the symmetric rank 1 operation</p><a href="../proc/dsyr.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/dsyr2.html'>DSYR2</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b DSYR2
+\par Purpose:</p><a href="../proc/dsyr2.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/dsyr2.html'>dsyr2</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>DSYR2 performs the symmetric rank 2 operation</p><a href="../proc/dsyr2.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/dsyr2k.html'>DSYR2K</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b DSYR2K
+\par Purpose:</p><a href="../proc/dsyr2k.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/dsyr2k.html'>dsyr2k</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>DSYR2K performs one of the symmetric rank 2k operations</p><a href="../proc/dsyr2k.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/dsyrk.html'>DSYRK</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b DSYRK
+\par Purpose:</p><a href="../proc/dsyrk.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/dsyrk.html'>dsyrk</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>DSYRK performs one of the symmetric rank k operations</p><a href="../proc/dsyrk.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/dtbmv.html'>DTBMV</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b DTBMV
+\par Purpose:</p><a href="../proc/dtbmv.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/dtbmv.html'>dtbmv</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>DTBMV performs one of the matrix-vector operations</p><a href="../proc/dtbmv.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/dtbsv.html'>DTBSV</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b DTBSV
+\par Purpose:</p><a href="../proc/dtbsv.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/dtbsv.html'>dtbsv</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>DTBSV solves one of the systems of equations</p><a href="../proc/dtbsv.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/dtpmv.html'>DTPMV</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b DTPMV
+\par Purpose:</p><a href="../proc/dtpmv.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/dtpmv.html'>dtpmv</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>DTPMV performs one of the matrix-vector operations</p><a href="../proc/dtpmv.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/dtpsv.html'>DTPSV</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b DTPSV
+\par Purpose:</p><a href="../proc/dtpsv.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/dtpsv.html'>dtpsv</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>DTPSV solves one of the systems of equations</p><a href="../proc/dtpsv.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/dtrmm.html'>DTRMM</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b DTRMM
+\par Purpose:</p><a href="../proc/dtrmm.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/dtrmm.html'>dtrmm</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>DTRMM performs one of the matrix-matrix operations</p><a href="../proc/dtrmm.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/dtrmv.html'>DTRMV</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b DTRMV
+\par Purpose:</p><a href="../proc/dtrmv.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/dtrmv.html'>dtrmv</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>DTRMV performs one of the matrix-vector operations</p><a href="../proc/dtrmv.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/dtrsm.html'>DTRSM</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b DTRSM
+\par Purpose:</p><a href="../proc/dtrsm.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/dtrsm.html'>dtrsm</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>DTRSM solves one of the matrix equations</p><a href="../proc/dtrsm.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/dtrsv.html'>DTRSV</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b DTRSV
+\par Purpose:</p><a href="../proc/dtrsv.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/dtrsv.html'>dtrsv</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>DTRSV solves one of the systems of equations</p><a href="../proc/dtrsv.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/dzasum.html'>DZASUM</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Function</td>
+                 <td><p>\brief \b DZASUM
+\par Purpose:</p><a href="../proc/dzasum.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/dzasum.html'>dzasum</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Function</td>
+                 <td><p>N</p><a href="../proc/dzasum.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/dznrm2.html'>DZNRM2</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Function</td>
+                 <td><p>\brief \b DZNRM2
+\par Purpose:</p><a href="../proc/dznrm2.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/dznrm2.html'>dznrm2</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Function</td>
+                 <td><p>DZNRM2 returns the euclidean norm of a vector via the function
+  name, so that</p><a href="../proc/dznrm2.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/icamax.html'>ICAMAX</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Function</td>
+                 <td><p>\brief \b ICAMAX
+\par Purpose:</p><a href="../proc/icamax.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/icamax.html'>icamax</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Function</td>
+                 <td><p>N</p><a href="../proc/icamax.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/idamax.html'>IDAMAX</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Function</td>
+                 <td><p>\brief \b IDAMAX
+\par Purpose:</p><a href="../proc/idamax.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/idamax.html'>idamax</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Function</td>
+                 <td><p>N</p><a href="../proc/idamax.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/isamax.html'>ISAMAX</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Function</td>
+                 <td><p>\brief \b ISAMAX
+\par Purpose:</p><a href="../proc/isamax.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/isamax.html'>isamax</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Function</td>
+                 <td><p>N</p><a href="../proc/isamax.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/izamax.html'>IZAMAX</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Function</td>
+                 <td><p>\brief \b IZAMAX
+\par Purpose:</p><a href="../proc/izamax.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/izamax.html'>izamax</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Function</td>
+                 <td><p>N       number of elements in input vector(s)
+  ZX      array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
+  INCX    storage spacing between elements of ZX</p><a href="../proc/izamax.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/lsame.html'>LSAME</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Function</td>
+                 <td><p>\brief \b LSAME
+\par Purpose:</p><a href="../proc/lsame.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/lsame.html'>lsame</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Function</td>
+                 <td><p>LSAME returns .TRUE. if CA is the same letter as CB regardless of
+  case.</p><a href="../proc/lsame.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/sasum.html'>SASUM</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Function</td>
+                 <td><p>\brief \b SASUM
+\par Purpose:</p><a href="../proc/sasum.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/sasum.html'>sasum</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Function</td>
+                 <td><p>N</p><a href="../proc/sasum.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/saxpy.html'>SAXPY</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b SAXPY
+\par Purpose:</p><a href="../proc/saxpy.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/saxpy.html'>saxpy</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>N
+          number of elements in input vector(s)
+   SA
+          On entry, SA specifies the scalar alpha.
+   SX
+          SX is REAL array, dimension ( 1 + ( N - 1 )<em>abs( INCX ) )
+   INCX
+          storage spacing between elements of SX
+   SY
+          SY is REAL array, dimension ( 1 + ( N - 1 )</em>abs( INCY ) )
+   INCY
+          storage spacing between elements of SY</p><a href="../proc/saxpy.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/scabs1~2.html'>scabs1</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Function</td>
+                 <td><p>\brief \b SCABS1
+\par Purpose:</p><a href="../proc/scabs1~2.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/scabs1.html'>scabs1</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Function</td>
+                 <td><p>SCABS1 computes |Re(.)| + |Im(.)| of a complex number</p><a href="../proc/scabs1.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/scasum.html'>SCASUM</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Function</td>
+                 <td><p>\brief \b SCASUM
+\par Purpose:</p><a href="../proc/scasum.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/scasum.html'>scasum</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Function</td>
+                 <td><p>N</p><a href="../proc/scasum.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/scnrm2.html'>SCNRM2</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Function</td>
+                 <td><p>\brief \b SCNRM2
+\par Purpose:</p><a href="../proc/scnrm2.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/scnrm2.html'>scnrm2</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Function</td>
+                 <td><p>SCNRM2 returns the euclidean norm of a vector via the function
+  name, so that</p><a href="../proc/scnrm2.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/scopy.html'>SCOPY</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b SCOPY
+\par Purpose:</p><a href="../proc/scopy.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/scopy.html'>scopy</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>N</p><a href="../proc/scopy.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/sdot.html'>SDOT</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Function</td>
+                 <td><p>\brief \b SDOT
+\par Purpose:</p><a href="../proc/sdot.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/sdot.html'>sdot</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Function</td>
+                 <td><p>N</p><a href="../proc/sdot.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/sdsdot.html'>SDSDOT</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Function</td>
+                 <td><p>\brief \b SDSDOT
+\par Purpose:</p><a href="../proc/sdsdot.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/sdsdot.html'>sdsdot</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Function</td>
+                 <td><p>SDSDOT := SUM SX * SY (accumulated double precision, returned single)</p><a href="../proc/sdsdot.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/set_xerbla.html'>set_xerbla</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/sgbmv.html'>SGBMV</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b SGBMV
+\par Purpose:</p><a href="../proc/sgbmv.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/sgbmv.html'>sgbmv</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>SY:=alpha<em>A</em>SX+beta*SY, A a band matrix.</p><a href="../proc/sgbmv.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/sgemm.html'>SGEMM</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b SGEMM
+\par Purpose:</p><a href="../proc/sgemm.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/sgemm.html'>sgemm</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>C:=alpha<em>A</em>B+beta*C, A, B, C rectangular.</p><a href="../proc/sgemm.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/sgemv.html'>SGEMV</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b SGEMV
+\par Purpose:</p><a href="../proc/sgemv.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/sgemv.html'>sgemv</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>SY:=alpha<em>A</em>SX+beta*SY, A a rectangular matrix.</p><a href="../proc/sgemv.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/sger.html'>SGER</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b SGER
+\par Purpose:</p><a href="../proc/sger.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/sger.html'>sger</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>A:=A+alpha<em>SX</em>TRANSPOSE(SY), rank 1 update, A a rectangular matrix.</p><a href="../proc/sger.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/snrm2.html'>SNRM2</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Function</td>
+                 <td><p>\brief \b SNRM2
+\par Purpose:</p><a href="../proc/snrm2.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/snrm2.html'>snrm2</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Function</td>
+                 <td><p>SNRM2 := square root of sum of SX(I)**2</p><a href="../proc/snrm2.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/srot.html'>SROT</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b SROT
+\par Purpose:</p><a href="../proc/srot.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/srot.html'>srot</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>N</p><a href="../proc/srot.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/srotg.html'>SROTG</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b SROTG
+\par Purpose:</p><a href="../proc/srotg.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/srotg.html'>srotg</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>subroutine srotg( a, b, c, s )</p><a href="../proc/srotg.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/srotm.html'>SROTM</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b SROTM
+\par Purpose:</p><a href="../proc/srotm.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/srotm.html'>srotm</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>N</p><a href="../proc/srotm.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/srotmg.html'>SROTMG</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b SROTMG
+\par Purpose:</p><a href="../proc/srotmg.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/srotmg.html'>srotmg</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>SD1</p><a href="../proc/srotmg.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/ssbmv.html'>SSBMV</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b SSBMV
+\par Purpose:</p><a href="../proc/ssbmv.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/ssbmv.html'>ssbmv</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>SSBMV performs the matrix-vector operation</p><a href="../proc/ssbmv.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/sscal.html'>SSCAL</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b SSCAL
+\par Purpose:</p><a href="../proc/sscal.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/sscal.html'>sscal</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>N</p><a href="../proc/sscal.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/sspmv.html'>SSPMV</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b SSPMV
+\par Purpose:</p><a href="../proc/sspmv.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/sspmv.html'>sspmv</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>SSPMV performs the matrix-vector operation</p><a href="../proc/sspmv.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/sspr.html'>SSPR</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b SSPR
+\par Purpose:</p><a href="../proc/sspr.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/sspr.html'>sspr</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>SSPR performs the symmetric rank 1 operation</p><a href="../proc/sspr.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/sspr2.html'>SSPR2</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b SSPR2
+\par Purpose:</p><a href="../proc/sspr2.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/sspr2.html'>sspr2</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>SSPR2 performs the symmetric rank 2 operation</p><a href="../proc/sspr2.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/sswap.html'>SSWAP</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b SSWAP
+\par Purpose:</p><a href="../proc/sswap.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/sswap.html'>sswap</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>N</p><a href="../proc/sswap.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/ssymm.html'>SSYMM</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b SSYMM
+\par Purpose:</p><a href="../proc/ssymm.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/ssymm.html'>ssymm</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>SSYMM performs one of the matrix-matrix operations</p><a href="../proc/ssymm.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/ssymv.html'>SSYMV</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b SSYMV
+\par Purpose:</p><a href="../proc/ssymv.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/ssymv.html'>ssymv</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>SSYMV performs the matrix-vector operation</p><a href="../proc/ssymv.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/ssyr.html'>SSYR</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b SSYR
+\par Purpose:</p><a href="../proc/ssyr.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/ssyr.html'>ssyr</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>SSYR performs the symmetric rank 1 operation</p><a href="../proc/ssyr.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/ssyr2.html'>SSYR2</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b SSYR2
+\par Purpose:</p><a href="../proc/ssyr2.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/ssyr2.html'>ssyr2</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>SSYR2 performs the symmetric rank 2 operation</p><a href="../proc/ssyr2.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/ssyr2k.html'>SSYR2K</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b SSYR2K
+\par Purpose:</p><a href="../proc/ssyr2k.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/ssyr2k.html'>ssyr2k</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>SSYR2K performs one of the symmetric rank 2k operations</p><a href="../proc/ssyr2k.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/ssyrk.html'>SSYRK</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b SSYRK
+\par Purpose:</p><a href="../proc/ssyrk.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/ssyrk.html'>ssyrk</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>SSYRK performs one of the symmetric rank k operations</p><a href="../proc/ssyrk.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/stbmv.html'>STBMV</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b STBMV
+\par Purpose:</p><a href="../proc/stbmv.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/stbmv.html'>stbmv</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>STBMV performs one of the matrix-vector operations</p><a href="../proc/stbmv.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/stbsv.html'>STBSV</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b STBSV
+\par Purpose:</p><a href="../proc/stbsv.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/stbsv.html'>stbsv</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>STBSV solves one of the systems of equations</p><a href="../proc/stbsv.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/stpmv.html'>STPMV</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b STPMV
+\par Purpose:</p><a href="../proc/stpmv.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/stpmv.html'>stpmv</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>STPMV performs one of the matrix-vector operations</p><a href="../proc/stpmv.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/stpsv.html'>STPSV</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b STPSV
+\par Purpose:</p><a href="../proc/stpsv.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/stpsv.html'>stpsv</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>STPSV solves one of the systems of equations</p><a href="../proc/stpsv.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/strmm.html'>STRMM</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b STRMM
+\par Purpose:</p><a href="../proc/strmm.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/strmm.html'>strmm</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>STRMM performs one of the matrix-matrix operations</p><a href="../proc/strmm.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/strmv.html'>STRMV</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b STRMV
+\par Purpose:</p><a href="../proc/strmv.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/strmv.html'>strmv</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>STRMV performs one of the matrix-vector operations</p><a href="../proc/strmv.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/strsm.html'>STRSM</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b STRSM
+\par Purpose:</p><a href="../proc/strsm.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/strsm.html'>strsm</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>STRSM solves one of the matrix equations</p><a href="../proc/strsm.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/strsv.html'>STRSV</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b STRSV
+\par Purpose:</p><a href="../proc/strsv.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/strsv.html'>strsv</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>STRSV solves one of the systems of equations</p><a href="../proc/strsv.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/xerbla.html'>XERBLA</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b XERBLA
+\par Purpose:</p><a href="../proc/xerbla.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/xerbla_array.html'>XERBLA_ARRAY</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b XERBLA_ARRAY
+\par Purpose:</p><a href="../proc/xerbla_array.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/xerbla_array.html'>xerbla_array</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>XERBLA_ARRAY assists other languages in calling XERBLA, the LAPACK
+  and BLAS error handler. Rather than taking a Fortran string argument
+  as the function&rsquo;s name, XERBLA_ARRAY takes an array of single
+  characters along with the array&rsquo;s length. XERBLA_ARRAY then copies
+  up to 32 characters of that array into a Fortran string and passes
+  that to XERBLA. If called with a non-positive SRNAME_LEN,
+  XERBLA_ARRAY will call XERBLA with a string of all blank characters.</p><a href="../proc/xerbla_array.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/zaxpy.html'>ZAXPY</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b ZAXPY
+\par Purpose:</p><a href="../proc/zaxpy.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/zaxpy.html'>zaxpy</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>N      number of elements in input vector(s)
+   ZA     On entry, ZA specifies the scalar alpha.
+   ZX     ZX is complex(kind=real64) array, dimension ( 1 + ( N - 1 )<em>abs( INCX ) )
+   INCX   storage spacing between elements of ZX
+   ZY     ZY is complex(kind=real64) array, dimension ( 1 + ( N - 1 )</em>abs( INCY ) )
+   INCY   storage spacing between elements of ZY</p><a href="../proc/zaxpy.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/zcopy.html'>ZCOPY</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b ZCOPY
+\par Purpose:</p><a href="../proc/zcopy.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/zcopy.html'>zcopy</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>N</p><a href="../proc/zcopy.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/zdotc.html'>ZDOTC</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Function</td>
+                 <td><p>\brief \b ZDOTC
+\par Purpose:</p><a href="../proc/zdotc.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/zdotc.html'>zdotc</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Function</td>
+                 <td><p>ZDOTC forms the dot product of two complex vectors
+       ZDOTC = X^H * Y</p><a href="../proc/zdotc.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/zdotu.html'>ZDOTU</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Function</td>
+                 <td><p>\brief \b ZDOTU
+\par Purpose:</p><a href="../proc/zdotu.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/zdotu.html'>zdotu</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Function</td>
+                 <td><p>ZDOTU forms the dot product of two complex vectors
+       ZDOTU = X^T * Y</p><a href="../proc/zdotu.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/zdrot.html'>ZDROT</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b ZDROT
+\par Purpose:</p><a href="../proc/zdrot.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/zdrot.html'>zdrot</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>Applies a plane rotation, where the cos and sin (c and s) are real
+  and the vectors cx and cy are complex.
+  jack dongarra, linpack, 3/11/78.</p><a href="../proc/zdrot.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/zdscal.html'>ZDSCAL</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b ZDSCAL
+\par Purpose:</p><a href="../proc/zdscal.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/zdscal.html'>zdscal</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>N</p><a href="../proc/zdscal.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/zgbmv.html'>ZGBMV</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b ZGBMV
+\par Purpose:</p><a href="../proc/zgbmv.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/zgbmv.html'>zgbmv</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>ZGBMV performs one of the matrix-vector operations</p><a href="../proc/zgbmv.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/zgemm.html'>ZGEMM</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b ZGEMM
+\par Purpose:</p><a href="../proc/zgemm.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/zgemm.html'>zgemm</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>ZGEMM performs one of the matrix-matrix operations</p><a href="../proc/zgemm.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/zgemv.html'>ZGEMV</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b ZGEMV
+\par Purpose:</p><a href="../proc/zgemv.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/zgemv.html'>zgemv</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>ZGEMV performs one of the matrix-vector operations</p><a href="../proc/zgemv.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/zgerc.html'>ZGERC</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b ZGERC
+\par Purpose:</p><a href="../proc/zgerc.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/zgerc.html'>zgerc</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>ZGERC performs the rank 1 operation</p><a href="../proc/zgerc.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/zgeru.html'>ZGERU</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b ZGERU
+\par Purpose:</p><a href="../proc/zgeru.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/zgeru.html'>zgeru</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>ZGERU performs the rank 1 operation</p><a href="../proc/zgeru.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/zhbmv.html'>ZHBMV</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b ZHBMV
+\par Purpose:</p><a href="../proc/zhbmv.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/zhbmv.html'>zhbmv</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>ZHBMV performs the matrix-vector operation</p><a href="../proc/zhbmv.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/zhemm.html'>ZHEMM</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b ZHEMM
+\par Purpose:</p><a href="../proc/zhemm.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/zhemm.html'>zhemm</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>ZHEMM performs one of the matrix-matrix operations</p><a href="../proc/zhemm.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/zhemv.html'>ZHEMV</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b ZHEMV
+\par Purpose:</p><a href="../proc/zhemv.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/zhemv.html'>zhemv</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>ZHEMV performs the matrix-vector  operation</p><a href="../proc/zhemv.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/zher.html'>ZHER</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b ZHER
+\par Purpose:</p><a href="../proc/zher.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/zher.html'>zher</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>ZHER performs the hermitian rank 1 operation</p><a href="../proc/zher.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/zher2.html'>ZHER2</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b ZHER2
+\par Purpose:</p><a href="../proc/zher2.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/zher2.html'>zher2</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>ZHER2 performs the hermitian rank 2 operation</p><a href="../proc/zher2.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/zher2k.html'>ZHER2K</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b ZHER2K
+\par Purpose:</p><a href="../proc/zher2k.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/zher2k.html'>zher2k</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>ZHER2K performs one of the hermitian rank 2k operations</p><a href="../proc/zher2k.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/zherk.html'>ZHERK</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b ZHERK
+\par Purpose:</p><a href="../proc/zherk.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/zherk.html'>zherk</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>ZHERK performs one of the hermitian rank k operations</p><a href="../proc/zherk.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/zhpmv.html'>ZHPMV</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b ZHPMV
+\par Purpose:</p><a href="../proc/zhpmv.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/zhpmv.html'>zhpmv</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>ZHPMV performs the matrix-vector operation</p><a href="../proc/zhpmv.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/zhpr.html'>ZHPR</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b ZHPR
+\par Purpose:</p><a href="../proc/zhpr.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/zhpr.html'>zhpr</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>ZHPR performs the hermitian rank 1 operation</p><a href="../proc/zhpr.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/zhpr2.html'>ZHPR2</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b ZHPR2
+\par Purpose:</p><a href="../proc/zhpr2.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/zhpr2.html'>zhpr2</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>ZHPR2 performs the hermitian rank 2 operation</p><a href="../proc/zhpr2.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/zrotg.html'>ZROTG</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b ZROTG
+\par Purpose:</p><a href="../proc/zrotg.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/zrotg.html'>zrotg</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>ZROTG constructs a plane rotation</p><a href="../proc/zrotg.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/zscal.html'>ZSCAL</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b ZSCAL
+\par Purpose:</p><a href="../proc/zscal.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/zscal.html'>zscal</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>N</p><a href="../proc/zscal.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/zswap.html'>ZSWAP</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b ZSWAP
+\par Purpose:</p><a href="../proc/zswap.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/zswap.html'>zswap</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>N</p><a href="../proc/zswap.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/zsymm.html'>ZSYMM</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b ZSYMM
+\par Purpose:</p><a href="../proc/zsymm.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/zsymm.html'>zsymm</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>ZSYMM performs one of the matrix-matrix operations</p><a href="../proc/zsymm.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/zsyr2k.html'>ZSYR2K</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b ZSYR2K
+\par Purpose:</p><a href="../proc/zsyr2k.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/zsyr2k.html'>zsyr2k</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>ZSYR2K performs one of the symmetric rank 2k operations</p><a href="../proc/zsyr2k.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/zsyrk.html'>ZSYRK</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b ZSYRK
+\par Purpose:</p><a href="../proc/zsyrk.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/zsyrk.html'>zsyrk</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>ZSYRK performs one of the symmetric rank k operations</p><a href="../proc/zsyrk.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/ztbmv.html'>ZTBMV</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b ZTBMV
+\par Purpose:</p><a href="../proc/ztbmv.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/ztbmv.html'>ztbmv</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>ZTBMV performs one of the matrix-vector operations</p><a href="../proc/ztbmv.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/ztbsv.html'>ZTBSV</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b ZTBSV
+\par Purpose:</p><a href="../proc/ztbsv.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/ztbsv.html'>ztbsv</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>ZTBSV solves one of the systems of equations</p><a href="../proc/ztbsv.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/ztpmv.html'>ZTPMV</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b ZTPMV
+\par Purpose:</p><a href="../proc/ztpmv.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/ztpmv.html'>ztpmv</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>ZTPMV performs one of the matrix-vector operations</p><a href="../proc/ztpmv.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/ztpsv.html'>ZTPSV</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b ZTPSV
+\par Purpose:</p><a href="../proc/ztpsv.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/ztpsv.html'>ztpsv</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>ZTPSV solves one of the systems of equations</p><a href="../proc/ztpsv.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/ztrmm.html'>ZTRMM</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b ZTRMM
+\par Purpose:</p><a href="../proc/ztrmm.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/ztrmm.html'>ztrmm</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>ZTRMM performs one of the matrix-matrix operations</p><a href="../proc/ztrmm.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/ztrmv.html'>ZTRMV</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b ZTRMV
+\par Purpose:</p><a href="../proc/ztrmv.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/ztrmv.html'>ztrmv</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>ZTRMV performs one of the matrix-vector operations</p><a href="../proc/ztrmv.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/ztrsm.html'>ZTRSM</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b ZTRSM
+\par Purpose:</p><a href="../proc/ztrsm.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/ztrsm.html'>ztrsm</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>ZTRSM solves one of the matrix equations</p><a href="../proc/ztrsm.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/ztrsv.html'>ZTRSV</a></td>
+                 <td><a href='../sourcefile/compatible.f90.html'>compatible.f90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>\brief \b ZTRSV
+\par Purpose:</p><a href="../proc/ztrsv.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/ztrsv.html'>ztrsv</a></td>
+                 <td><a href='../module/m_blas.html'>M_blas</a></td>
+                 <td>Subroutine</td>
+                 <td><p>ZTRSV solves one of the systems of equations</p><a href="../proc/ztrsv.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+			 </tbody></table>
+             
+        </div>
+      </div>
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col">
+            <p>
+              M_blas
+ was developed by John S. Urban<br>              &copy; 2025 
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+ on 2025-07-11 01:32 +0000             </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+  </body>
+</html>
